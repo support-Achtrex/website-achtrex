@@ -147,8 +147,7 @@ export default function LoginPage() {
                         )}
                     </button>
                 </form>
-
-                {/* Footer - Copyright or simple text */}
+                
                 <div className="mt-8 text-center">
                     <p className="text-xs text-gray-400 font-montserrat">
                         &copy; {new Date().getFullYear()} Achtrex. Internal System.

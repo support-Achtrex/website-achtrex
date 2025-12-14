@@ -247,7 +247,7 @@ export const ServicesGrid = () => {
                         
                         <div className="flex-1 h-[2px] bg-gray-200 rounded-full relative overflow-hidden">
                             <div 
-                                className="absolute top-0 left-0 h-full bg-black transition-all duration-100 ease-out rounded-full"
+                                className="absolute top-0 left-0 h-full bg-primary transition-all duration-100 ease-out rounded-full"
                                 style={{ 
                                     width: `${barWidth}%`,
                                     left: `${scrollProgress * (100 - barWidth)}%`
