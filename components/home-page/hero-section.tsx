@@ -85,7 +85,6 @@ export const Hero = () => {
                     </span>
                 </h1>
 
-                {/* Item 3: The Description */}
                 <p
                     className="hero-animate text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed"
                     style={{ animationDelay: '0.5s' }}
@@ -94,8 +93,7 @@ export const Hero = () => {
                     web and mobile app development, and IT consulting services to help businesses thrive
                     in the digital age.
                 </p>
-
-                {/* Item 4: The Button */}
+                
                 <div
                     className="hero-animate"
                     style={{ animationDelay: '0.7s' }}
