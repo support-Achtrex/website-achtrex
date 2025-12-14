@@ -2,7 +2,16 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
-const StatsCards = () => {
+import { createClient } from '@/utilities/supabase/server';
+
+const StatsCards = async () => {
+    const supabase = await createClient();
+    
+    // Fetch team count
+    const { count: teamCount } = await supabase
+        .from('teams')
+        .select('*', { count: 'exact', head: true });
+
     const stats = [
         {
             title: 'Total Blogs',
@@ -18,7 +27,7 @@ const StatsCards = () => {
         },
         {
             title: 'Team Members',
-            value: '8',
+            value: teamCount?.toString() || '0',
             change: 'Active',
             trend: 'neutral',
             bg: 'bg-white',

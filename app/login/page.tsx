@@ -3,7 +3,10 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Eye, EyeOff, Lock, Mail } from 'lucide-react';
+import { createClient } from '@/utilities/supabase/client';
+import { useToast } from '@/components/ui/toast';
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
@@ -12,6 +15,10 @@ export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
 
+    const supabase = createClient();
+    const router = useRouter();
+    const toast = useToast();
+    
     const isFormValid = email.trim() !== '' && password.trim() !== '';
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -23,11 +30,19 @@ export default function LoginPage() {
         setIsLoading(true);
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            console.log('Login successful', { email, password });
-            alert('Login successful! Redirecting to dashboard...');
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            });
+            if (error) throw error;
+            console.log('Login successful', data);
+            toast.success('Login successful! Redirecting to dashboard...');
+            setTimeout(() => {
+                router.push('/admin');
+            }, 1000);
         } catch (err) {
             setError('Invalid email or password. Please try again.');
+            console.error('Login failed', err);
         } finally {
             setIsLoading(false);
         }
@@ -132,8 +147,7 @@ export default function LoginPage() {
                         )}
                     </button>
                 </form>
-
-                {/* Footer - Copyright or simple text */}
+                
                 <div className="mt-8 text-center">
                     <p className="text-xs text-gray-400 font-montserrat">
                         &copy; {new Date().getFullYear()} Achtrex. Internal System.

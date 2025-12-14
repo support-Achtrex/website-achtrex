@@ -20,7 +20,7 @@ export const TechPartners = () => {
     const marqueeLogos = [...logos, ...logos];
 
     return (
-        <section id="technology" className="py-12 md:py-20 px-0 md:px-6 overflow-hidden">
+        <section id="technology" className="py-24 px-0 md:px-6 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 md:px-0">
                 <SectionTitle className='font-red-hat-display font-black'>Our Technology and Partners</SectionTitle>
             </div>

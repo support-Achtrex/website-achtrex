@@ -1,8 +1,23 @@
 import React from 'react';
-import { teamMembers } from '@/app/admin/team/page';
 import Link from 'next/link';
+import { createClient } from '@/utilities/supabase/server';
 
-const TeamOverview = () => {
+interface TeamMember {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    image: string | null;
+}
+
+const TeamOverview = async () => {
+    const supabase = await createClient();
+    
+    const { data: teamMembers } = await supabase
+        .from('teams')
+        .select('*')
+        .order('created_at', { ascending: true })
+        .limit(4);
 
     return (
         <div className="rounded-3xl p-px bg-linear-to-br from-gray-200 to-gray-50">
@@ -15,11 +30,16 @@ const TeamOverview = () => {
                 </div>
 
                 <div className="space-y-4">
-                    {teamMembers.slice(0, 4).map((member, index) => (
-                        <div key={index} className="flex items-center gap-3">
+                    {teamMembers?.map((member: TeamMember) => (
+                        <div key={member.id} className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden shrink-0 border border-gray-100">
-                                {/* Use next/image in production, using div for now to match previous style or img tag */}
-                                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                                {member.image ? (
+                                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                                ) : (
+                                    <div className="w-full h-full bg-linear-to-br from-primary/80 to-primary/40 flex items-center justify-center text-white font-bold text-xs">
+                                        {member.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                                    </div>
+                                )}
                             </div>
                             <div className="flex-1 min-w-0">
                                 <h4 className="text-sm font-bold text-gray-800 truncate font-manrope">{member.name}</h4>
@@ -34,3 +54,4 @@ const TeamOverview = () => {
 };
 
 export default TeamOverview;
+

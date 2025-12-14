@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Montserrat, Red_Hat_Display } from "next/font/google";
 import "./globals.css";
+import { ToastProvider } from "@/components/ui/toast";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -69,12 +70,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${manrope.variable} bg-gray-50 ${montserrat.variable} ${redHatDisplay.variable} antialiased`}
       >
-        {children}
+        <ToastProvider>
+          {children}
+        </ToastProvider>
       </body>
     </html>
   );

@@ -5,40 +5,18 @@ import { Facebook, Twitter, Linkedin, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
-const teamMembers = [
-    {
-        name: "Achim Godwin Tetteh",
-        role: "CEO & Operations Project Manager",
-        image: "/about-us/members/achim.jpg",
-    },
-    {
-        name: "Dr. Emmanuella Y.Appiah",
-        role: "CFO",
-        image: "/about-us/members/emmanuella.jpg",
-    },
-    {
-        name: "Elvis Boahen Gyan",
-        role: "Full Stack Developer",
-        image: "/about-us/members/elvis.jpg",
-    },
-    {
-        name: "Dede Davis",
-        role: "Machine Learning Engineer",
-        image: "/about-us/members/dede.jpg",
-    },
-    {
-        name: "Junior Achim",
-        role: "Business Analyst and QA",
-        image: "/about-us/members/jnr-achim.jpg",
-    },
-    {
-        name: "Kojo Thompson",
-        role: "SEO & ASO",
-        image: "/about-us/members/Thompson.jpg",
-    },
-];
+interface TeamMember {
+    id: string;
+    name: string;
+    role: string;
+    image: string | null;
+}
 
-export const TeamSection = () => {
+interface TeamSectionProps {
+    teamMembers: TeamMember[];
+}
+
+export const TeamSection = ({ teamMembers }: TeamSectionProps) => {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     const scrollToEnd = () => {
@@ -83,19 +61,25 @@ export const TeamSection = () => {
                 >
                     {teamMembers.map((member, index) => (
                         <motion.div
-                            key={index}
+                            key={member.id}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="relative group rounded-2xl overflow-hidden min-w-[300px] h-[400px] snap-center shrink-0"
                         >
-                            <Image
-                                src={member.image}
-                                alt={member.name}
-                                fill
-                                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                            />
+                            {member.image ? (
+                                <Image
+                                    src={member.image}
+                                    alt={member.name}
+                                    fill
+                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                            ) : (
+                                <div className="w-full h-full bg-linear-to-br from-primary/80 to-primary/40 flex items-center justify-center text-white font-bold text-6xl">
+                                    {member.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                                </div>
+                            )}
                             <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-6 text-white">
                                 <h3 className="text-xl font-bold">{member.name}</h3>
                                 <p className="text-sm opacity-90 mb-4">{member.role}</p>
@@ -112,3 +96,4 @@ export const TeamSection = () => {
         </section>
     );
 };
+

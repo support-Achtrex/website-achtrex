@@ -86,9 +86,9 @@ export const ServicesList = () => {
             description: 'Great design is more than aesthetics; it\'s about how users feel and interact. We craft intuitive interfaces and thoughtful user journeys that connect people to your product effortlessly. Through user research, wireframes, and prototypes, we transform ideas into designs that delight and convert. Our approach focuses on accessibility, responsiveness, and clarity.'
         },
         {
-            icon: <img src="/services-page/seo.png" alt="SEO & Analytics" className="w-12 h-12 object-contain" />,
-            title: 'SEO & Analytics',
-            description: 'We help brands grow through data-driven visibility. Our SEO & Analytics service ensures your digital presence ranks higher, reaches further, and performs better. We handle on-page optimization, keyword strategy, and site performance tracking to help you attract the right audience. With insights from advanced analytics tools, we refine strategies to boost engagement, increase conversions, and maximize your return on investment.'
+            icon: <img src="/services-page/seo.png" alt="Digital Marketing Specialist" className="w-12 h-12 object-contain" />,
+            title: 'Digital Marketing Specialist',
+            description: 'We help brands grow through data-driven visibility. Our Digital Marketing service ensures your digital presence ranks higher, reaches further, and performs better. We handle on-page optimization, keyword strategy, and site performance tracking to help you attract the right audience. With insights from advanced analytics tools, we refine strategies to boost engagement, increase conversions, and maximize your return on investment.'
         },
         {
             icon: <img src="/services-page/consultation.png" alt="IT Consultation" className="w-12 h-12 object-contain" />,
@@ -96,9 +96,14 @@ export const ServicesList = () => {
             description: 'We guide your business toward smarter digital decisions. We offer IT consulting that bridges strategy with technology. Whether you\'re scaling operations, migrating systems, or integrating new technologies, our consultants provide clarity, direction, and technical expertise to move your business forward confidently.'
         },
         {
-            icon: <img src="/services-page/api-integration.png" alt="System Integration" className="w-12 h-12 object-contain" />,
-            title: 'System Integration',
-            description: 'Your systems should work together. Our System Integration service connects your tools, software, and platforms into a unified ecosystem. We simplify workflows, automate repetitive tasks, and ensure data flows smoothly between systems. From APIs to cloud solutions, we help organizations eliminate silos, improve efficiency, and achieve seamless digital transformation.'
+            icon: <img src="/service/videography.png" alt="Visual Content" className="w-12 h-12 object-contain" />,
+            title: 'Visual Content',
+            description: 'We provide professional videography and photography services to elevate your brand\'s visual identity. From corporate shoots to creative campaigns, we ensure your brand looks its best.'
+        },
+        {
+            icon: <img src="/service/print.png" alt="Printing Services" className="w-12 h-12 object-contain" />,
+            title: 'Printing Services',
+            description: 'High-quality printing services for all your business needs. From brochures and business cards to large-format prints, we deliver crisp, professional results.'
         }
     ];
 

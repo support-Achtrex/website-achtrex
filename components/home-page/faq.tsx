@@ -62,7 +62,7 @@ export const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="py-12 md:py-24 px-4 bg-white">
+    <section id="faq" className="py-24 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-12 gap-8 md:gap-12">
           {/* Left Column - Header */}

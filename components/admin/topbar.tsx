@@ -1,8 +1,31 @@
-import React from 'react';
-import { Search, Mail, Bell } from 'lucide-react';
+'use client';
 
+import React, { useEffect, useState } from 'react';
+import { Search, Mail, Bell } from 'lucide-react';
+import { createClient } from '@/utilities/supabase/client';
 
 const AdminTopbar = () => {
+    const [user, setUser] = useState<{ email?: string; user_metadata?: { full_name?: string } } | null>(null);
+    const supabase = createClient();
+
+    useEffect(() => {
+        const getUser = async () => {
+            const { data: { user } } = await supabase.auth.getUser();
+            setUser(user);
+        };
+        getUser();
+    }, [supabase.auth]);
+
+    // Extract user display info
+    const displayName = user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'User';
+    const email = user?.email || '';
+    const initials = displayName
+        .split(' ')
+        .map((n: string) => n[0])
+        .join('')
+        .toUpperCase()
+        .slice(0, 2);
+
     return (
         <header className="flex items-center justify-between py-4 mb-8 bg-white/80 backdrop-blur-md sticky top-0 z-40 px-8 -mx-8 border-b border-gray-100">
             {/* Search */}
@@ -36,13 +59,12 @@ const AdminTopbar = () => {
 
                 <div className="flex items-center gap-3 pl-6 border-l border-gray-200">
                     <div className="text-right hidden md:block">
-                        <h4 className="text-sm font-bold text-gray-800">Totok Michael</h4>
-                        <p className="text-xs text-gray-400">tmichael20@mail.com</p>
+                        <h4 className="text-sm font-bold text-gray-800">{displayName}</h4>
+                        <p className="text-xs text-gray-400">{email}</p>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden border-2 border-white shadow-sm">
-                        {/* Placeholder for avatar if no image provided, but using a generic one or just a div */}
-                        <div className="w-full h-full bg-linear-to-br from-orange-300 to-yellow-200 flex items-center justify-center text-orange-700 font-bold">
-                            TM
+                        <div className="w-full h-full bg-linear-to-br from-primary/80 to-primary/40 flex items-center justify-center text-white font-bold">
+                            {initials}
                         </div>
                     </div>
                 </div>
@@ -52,3 +74,4 @@ const AdminTopbar = () => {
 };
 
 export default AdminTopbar;
+

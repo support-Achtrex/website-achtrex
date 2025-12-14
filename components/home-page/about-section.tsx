@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 export const AboutSection = () => {
     const router = useRouter();
     return (
-        <section id="about" className="py-12 md:py-20 px-4 bg-[#2496B3] text-white overflow-hidden">
+        <section id="about" className="py-24 px-4 bg-[#2496B3] text-white overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                     <motion.div

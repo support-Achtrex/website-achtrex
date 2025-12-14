@@ -2,7 +2,7 @@
 
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
     LayoutDashboard,
     FileText,
@@ -16,9 +16,20 @@ import {
 } from 'lucide-react';
 
 import Image from 'next/image';
+import { createClient } from '@/utilities/supabase/client';
+import { useToast } from '@/components/ui/toast';
 
 const AdminSidebar = () => {
     const pathname = usePathname();
+    const router = useRouter();
+    const supabase = createClient();
+    const toast = useToast();
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        toast.success('Logged out successfully');
+        router.push('/login');
+    };
 
     const isActive = (path: string) => {
         if (path === '/admin' && pathname === '/admin') return true;
@@ -104,7 +115,10 @@ const AdminSidebar = () => {
                             <HelpCircle size={20} />
                             <span>Help</span>
                         </Link>
-                        <button className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-xl font-medium transition-colors text-left">
+                        <button 
+                            onClick={handleLogout}
+                            className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-xl font-medium transition-colors text-left"
+                        >
                             <LogOut size={20} />
                             <span>Logout</span>
                         </button>
@@ -117,3 +131,4 @@ const AdminSidebar = () => {
 };
 
 export default AdminSidebar;
+

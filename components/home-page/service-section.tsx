@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { MoveLeft, MoveRight } from 'lucide-react';
 const cardVariants = {
     hidden: {
         opacity: 0,
@@ -81,26 +82,29 @@ export function FeatureCard({
                 bg-[url('/Union.png')]
                 bg-no-repeat
                 bg-top
-                bg-[length:100%_auto]
-                w-full max-w-[280px]
-                h-[340px]
-                pt-[110px]  
-                pb-8
-                px-6
+                bg-size-[100%_100%]
+                w-full
+                h-[450px] lg:h-[330px]
+                pt-[100px]  
+                pb-6
+                px-4
                 text-center
                 rounded-none
                 mx-auto
                 relative
                 group
                 border-none
+                flex
+                flex-col
+                justify-center
             "
             style={{
                 maskImage: "url('/Union.png')",
-                maskSize: "100% auto",
+                maskSize: "100% 100%",
                 maskPosition: "top center",
                 maskRepeat: "no-repeat",
                 WebkitMaskImage: "url('/Union.png')",
-                WebkitMaskSize: "100% auto",
+                WebkitMaskSize: "100% 100%",
                 WebkitMaskPosition: "top center",
                 WebkitMaskRepeat: "no-repeat",
                 filter: "drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.08))"
@@ -124,7 +128,7 @@ export function FeatureCard({
             />
 
             {/* Icon */}
-            <div className="absolute top-[28px] left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center z-10">
+            <div className="absolute top-[40px] lg:top-[28px] left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center z-10">
                 <span className="text-5xl">{icon}</span>
             </div>
 
@@ -132,7 +136,7 @@ export function FeatureCard({
                 {title}
             </h3>
 
-            <p className="w-full font-normal text-base leading-relaxed text-center text-black/70 mx-auto mt-2 relative z-10">
+            <p className="w-full font-normal text-lg leading-relaxed text-center text-black/70 mx-auto mt-2 relative z-10">
                 {description}
             </p>
         </motion.div>
@@ -149,39 +153,126 @@ export const ServicesGrid = () => {
         {
             icon: <img src="/service/ui-ux-design.png" alt="ui ux design icon" />,
             title: 'UI/UX Design',
-            description: 'Create intuitive interfaces & meaningful user journeys.'
+            description: 'We create intuitive interfaces & meaningful user journeys for a seamless experience.'
         },
         {
-            icon: <img src="/service/system-integration.png" alt="system integration icon" />,
-            title: 'System Integration',
-            description: 'We connect your tools, platforms, and data into one seamless system.'
-        },
-        {
-            icon: <img src="/service/seo-analytics.png" alt="seo analytics icon" />,
-            title: 'SEO and Analytics',
+            icon: <img src="/service/seo-analytics.png" alt="digital marketing specialist icon" />,
+            title: 'Digital Marketing',
             description: 'We help brands grow through data-driven strategies and boost visibility.'
         },
         {
             icon: <img src="/service/it-consultation.png" alt="it consultation icon" />,
             title: 'IT Consultation',
-            description: 'We provide expert guidance for sustainable digital growth.'
+            description: 'We provide expert guidance for sustainable digital growth that helps businesses thrive.'
+        },
+        {
+            icon: <img src="/service/videography.png" alt="visual content icon" />,
+            title: 'Visual Content',
+            description: 'We provide professional videography and photography services to elevate your brand.'
+        },
+        {
+            icon: <img src="/service/print.png" alt="printing services icon" />,
+            title: 'Printing Services',
+            description: 'We provide high-quality and cost-effective printing services for all your business needs.'
         }
     ];
 
+    const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+    const [scrollProgress, setScrollProgress] = React.useState(0);
+    const [barWidth, setBarWidth] = React.useState(0);
+
+    const handleScroll = () => {
+        if (!scrollContainerRef.current) return;
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+        const maxScroll = scrollWidth - clientWidth;
+        const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+        setScrollProgress(progress);
+        
+        // Calculate bar width percentage based on viewport ratio
+        const widthPercentage = (clientWidth / scrollWidth) * 100;
+        setBarWidth(widthPercentage);
+    };
+
+    React.useEffect(() => {
+        handleScroll();
+        window.addEventListener('resize', handleScroll);
+        return () => window.removeEventListener('resize', handleScroll);
+    }, []);
+
+    const scroll = (direction: 'left' | 'right') => {
+        if (!scrollContainerRef.current) return;
+        const container = scrollContainerRef.current;
+        const scrollAmount = container.clientWidth / 2;
+        container.scrollBy({
+            left: direction === 'left' ? -scrollAmount : scrollAmount,
+            behavior: 'smooth'
+        });
+    };
+
     return (
-        <section id="services" className="pb-24 px-6">
-            <div className="max-w-8xl mx-auto">
+        <section id="services" className="py-24 px-6 overflow-hidden">
+            <div className="max-w-8xl mx-auto relative group/section">
+                <style jsx global>{`
+                    .scrollbar-hide::-webkit-scrollbar {
+                        display: none;
+                    }
+                    .scrollbar-hide {
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                    }
+                `}</style>
+                
+                {/* Scroll Indicator Gradient */}
+                <div className="absolute right-0 top-0 bottom-24 w-24 bg-linear-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6"
+                    ref={scrollContainerRef}
+                    onScroll={handleScroll}
+                    className="flex overflow-x-auto gap-6 pb-8 scrollbar-hide snap-x snap-mandatory"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.1 }}
                 >
                     {services.map((service, index) => (
-                        <FeatureCard key={index} {...service} />
+                        <div key={index} className="snap-center shrink-0 w-[85vw] md:w-[40vw] lg:w-[calc(20%-1.2rem)]">
+                            <FeatureCard {...service} />
+                        </div>
                     ))}
                 </motion.div>
+
+                {/* Progress Bar and Navigation */}
+                <div className="mt-8 flex items-center justify-end gap-8 max-w-xs mx-auto md:max-w-none md:mx-0">
+                    <div className="flex-1 flex items-center gap-4 max-w-md mx-auto md:mx-0">
+                        
+                        <div className="flex-1 h-[2px] bg-gray-200 rounded-full relative overflow-hidden">
+                            <div 
+                                className="absolute top-0 left-0 h-full bg-primary transition-all duration-100 ease-out rounded-full"
+                                style={{ 
+                                    width: `${barWidth}%`,
+                                    left: `${scrollProgress * (100 - barWidth)}%`
+                                }}
+                            />
+                        </div>
+
+<button 
+                            onClick={() => scroll('left')}
+                            disabled={scrollProgress <= 0}
+                            className="p-2 rounded-full border border-gray-500 hover:bg-gray-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                            aria-label="Scroll left"
+                        >
+                            <MoveLeft width="18" height="18" className='text-gray-400' />
+                        </button>
+                        <button 
+                            onClick={() => scroll('right')}
+                            disabled={scrollProgress >= 0.99 || barWidth >= 100}
+                            className="p-2 rounded-full border border-gray-500 hover:bg-gray-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                            aria-label="Scroll right"
+                        >
+                            <MoveRight width="18" height="18" className='text-gray-400' />
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
     );

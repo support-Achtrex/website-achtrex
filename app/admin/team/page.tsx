@@ -1,58 +1,32 @@
 import React from 'react';
-import { Search, Filter, Grid, List } from 'lucide-react';
-import TeamMemberCard from '@/components/admin/team-member-card';
 
-export const teamMembers = [
-        {
-            name: 'Achim Godwin Tetteh',
-            email: 'achim.godwin@achtrex.com',
-            role: 'CEO & Operations Project Manager',
-            image: '/about-us/members/achim.jpg'
-        },
-        {
-            name: 'Dr. Emmanuel Yeboah-Appiah',
-            email: 'emmanuel.yeboah@achtrex.com',
-            role: 'CFO',
-            image: '/about-us/members/emmanuella.jpg'
-        },
-        {
-            name: 'Elvis Boahen Gyau',
-            email: 'elvis.gyau@achtrex.com',
-            role: 'Full Stack Developer',
-            image: '/about-us/members/elvis.jpg'
-        },
-        {
-            name: 'Junior Achim',
-            email: 'junior.achim@achtrex.com',
-            role: 'Business Analyst and QA',
-            image: '/about-us/members/jnr-achim.jpg'
-        },
-        {
-            name: 'Kojo Thompson',
-            email: 'kojo.thompson@achtrex.com',
-            role: 'SEO & ASO',
-            image: '/about-us/members/Thompson.jpg'
-        },
-        {
-            name: 'Dede Davis',
-            email: 'dede.davis@achtrex.com',
-            role: 'Machine Learning Engineer',
-            image: '/about-us/members/dede.jpg'
-        }
-    ];
+import { createClient } from '@/utilities/supabase/server';
+import TeamPageClient from '@/components/admin/team-page-client';
 
-const TeamPage = () => {
+interface TeamMember {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    image: string | null;
+}
+
+const TeamPage = async () => {
+    const supabase = await createClient();
+    
+    const { data: teamMembers, error } = await supabase
+        .from('teams')
+        .select('*')
+        .order('created_at', { ascending: true });
+
+    if (error) {
+        console.error('Error fetching team members:', error);
+    }
 
     return (
-        <div className="p-8 bg-gray-50">
-            {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {teamMembers.map((member, index) => (
-                    <TeamMemberCard key={index} member={member} />
-                ))}
-            </div>
-        </div>
+        <TeamPageClient initialMembers={teamMembers || []} />
     );
 };
 
 export default TeamPage;
+
