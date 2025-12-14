@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 export const CTASection = () => {
   const router = useRouter();
   return (
-    <section className="relative py-20 md:py-32 px-4 overflow-hidden bg-primary">
+    <section className="relative py-24 px-4 overflow-hidden bg-primary">
       {/* Background Pattern */}
       <motion.div
         initial={{ opacity: 0 }}

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const ContactDetails = () => {
     return (
-        <section className="bg-secondary py-12 md:py-20 px-4 text-white">
+        <section className="bg-secondary py-24 px-4 text-white">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-start">
                 {/* Left Side - Headings */}
                 <motion.div

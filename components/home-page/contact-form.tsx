@@ -47,7 +47,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-24 px-4">
+    <section id="contact" className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-20">

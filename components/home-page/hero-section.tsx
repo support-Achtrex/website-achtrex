@@ -31,7 +31,7 @@ export const Hero = () => {
     return (
         <section
             ref={sectionRef}
-            className={`relative pt-24 md:pt-32 pb-12 px-6 overflow-hidden ${isVisible ? 'hero-visible' : ''}`}
+            className={`relative pt-24 md:pt-32 pb-24 px-6 overflow-hidden ${isVisible ? 'hero-visible' : ''}`}
         >
             {/* Background Columns */}
             <div className="absolute inset-0 -z-10 flex pointer-events-none" aria-hidden="true">
