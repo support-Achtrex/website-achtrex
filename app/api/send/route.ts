@@ -41,6 +41,8 @@ export async function POST(request: Request) {
             return NextResponse.json({ error }, { status: 500 });
         }
 
+        return NextResponse.json({ success: true, data });
+
     } catch (error) {
         console.error("API error during email sending:", error);
         const errorMessage = error && typeof error === 'object' && 'message' in error
