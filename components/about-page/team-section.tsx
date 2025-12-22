@@ -1,93 +1,132 @@
 'use client';
 
-import Image from "next/image";
-import { Facebook, Twitter, Linkedin, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
-import { useRef } from "react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { Linkedin, Twitter, Mail } from 'lucide-react';
 
-interface TeamMember {
-    id: string;
-    name: string;
-    role: string;
-    image: string | null;
-}
+const teamMembers = [
+    {
+        name: "Achim Godwin Tetteh",
+        role: "CEO & Operations Project Manager",
+        image: "/team/achim_real.jpg",
+        bio: "Leading the vision and operations at Achtrex, driving innovation in digital product development.",
+        socials: { linkedin: "#", twitter: "#", mail: "mailto:achim@achtrex.com" }
+    },
+    {
+        name: "Dr. Emmanuella Yeboah-Appiah",
+        role: "CFO",
+        image: "/team/emmanuella_v2.jpg",
+        bio: "Steering the financial strategy and ensuring sustainable growth for our global operations.",
+        socials: { linkedin: "#", twitter: "#", mail: "mailto:emmanuella@achtrex.com" }
+    },
+    {
+        name: "Kojo Thompson",
+        role: "SEO & ASO",
+        image: "/team/kojo_real.png",
+        bio: "Optimizing digital presence and driving organic growth through advanced search strategies.",
+        socials: { linkedin: "#", twitter: "#", mail: "mailto:kojo@achtrex.com" }
+    },
+    {
+        name: "Junior Achim",
+        role: "Business Analyst and QA",
+        image: "/team/junior_real.jpg",
+        bio: "Ensuring product quality and aligning business strategies with technical execution.",
+        socials: { linkedin: "#", twitter: "#", mail: "mailto:junior@achtrex.com" }
+    },
+    {
+        name: "Rashid Ahmed",
+        role: "Backend Developer",
+        image: "/team/rashid.png",
+        bio: "Architecting scalable server-side solutions and robust APIs that power our high-performance applications.",
+        socials: { linkedin: "#", twitter: "#", mail: "mailto:rashid@achtrex.com" }
+    },
+    {
+        name: "Elvis Boahen Gyau",
+        role: "Frontend Developer",
+        image: "/team/elvis_v2.jpg",
+        bio: "Crafting immersive, responsive user interfaces with cutting-edge frontend technologies.",
+        socials: { linkedin: "#", twitter: "#", mail: "mailto:elvis@achtrex.com" }
+    },
+    {
+        name: "Dede Davis",
+        role: "DevOps Engineer",
+        image: "/team/dede_v2.jpg",
+        bio: "Streamlining deployment pipelines and ensuring maximum system reliability and uptime.",
+        socials: { linkedin: "#", twitter: "#", mail: "mailto:dede@achtrex.com" }
+    }
+];
 
-interface TeamSectionProps {
-    teamMembers: TeamMember[];
-}
-
-export const TeamSection = ({ teamMembers }: TeamSectionProps) => {
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-    const scrollToEnd = () => {
-        if (scrollContainerRef.current) {
-            const container = scrollContainerRef.current;
-            container.scrollTo({
-                left: container.scrollWidth,
-                behavior: 'smooth'
-            });
-        }
-    };
-
+export const TeamSection = () => {
     return (
-        <section className="py-20 px-6 bg-[#E8EEF2]">
-            <div className="max-w-7xl mx-auto">
+        <section className="pt-40 pb-24 bg-[image:var(--bg-dark-blue)] relative overflow-hidden">
+            <div className="absolute inset-0 bg-tech-mesh opacity-10 pointer-events-none" />
+            {/* Hero Background Effects */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[128px] pointer-events-none" />
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[128px] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-12 flex justify-between items-end"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-24"
                 >
-                    <div>
-                        <span className="bg-white px-4 py-1 rounded-full text-sm font-medium text-gray-600">Our team</span>
-                        <h2 className="text-4xl md:text-5xl font-bold text-black mt-4 mb-6">Meet our team members</h2>
-                        <p className="text-gray-600 max-w-3xl">
-                            Behind every successful project is a passionate team. At AchTech, our developers, designers, and strategists unite creativity with precision, building digital solutions that empower brands and redefine how businesses grow online.
-                        </p>
+                    <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+                        <span className="text-sm font-semibold text-primary tracking-widest uppercase">Our Leadership</span>
                     </div>
-                    <button
-                        onClick={scrollToEnd}
-                        className="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white hover:bg-gray-100 transition-colors shadow-sm"
-                        aria-label="Scroll to end"
-                    >
-                        <ChevronRight className="w-6 h-6 text-gray-600" />
-                    </button>
+                    <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8">
+                        The minds behind the <br /> <span className="text-gradient">innovation</span>.
+                    </h1>
+                    <p className="text-muted-foreground text-xl max-w-2xl mx-auto leading-relaxed">
+                        We are a diverse team of visionaries, builders, and strategists united by a single purpose: to redefine what's possible in the digital age.
+                    </p>
                 </motion.div>
 
-                <div
-                    ref={scrollContainerRef}
-                    className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide"
-                >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {teamMembers.map((member, index) => (
                         <motion.div
-                            key={member.id}
+                            key={index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="relative group rounded-2xl overflow-hidden min-w-[300px] h-[400px] snap-center shrink-0"
+                            className="group relative"
                         >
-                            {member.image ? (
+                            <div className="relative h-[420px] w-full rounded-2xl overflow-hidden mb-6 border border-white/10 bg-white/5 backdrop-blur-sm group-hover:border-primary/50 transition-all duration-500 shadow-lg group-hover:shadow-primary/10">
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-80 z-10" />
+
                                 <Image
                                     src={member.image}
                                     alt={member.name}
                                     fill
-                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                 />
-                            ) : (
-                                <div className="w-full h-full bg-linear-to-br from-primary/80 to-primary/40 flex items-center justify-center text-white font-bold text-6xl">
-                                    {member.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+
+                                {/* Socials Overlay (Slide Up) */}
+                                <div className="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-black/60 backdrop-blur-md border-t border-white/10">
+                                    <div className="flex justify-center gap-4">
+                                        <a href={member.socials.linkedin} className="p-2 bg-white/10 rounded-full hover:bg-primary hover:text-white transition-colors text-white">
+                                            <Linkedin className="w-5 h-5" />
+                                        </a>
+                                        <a href={member.socials.twitter} className="p-2 bg-white/10 rounded-full hover:bg-primary hover:text-white transition-colors text-white">
+                                            <Twitter className="w-5 h-5" />
+                                        </a>
+                                        <a href={member.socials.mail} className="p-2 bg-white/10 rounded-full hover:bg-primary hover:text-white transition-colors text-white">
+                                            <Mail className="w-5 h-5" />
+                                        </a>
+                                    </div>
                                 </div>
-                            )}
-                            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-6 text-white">
-                                <h3 className="text-xl font-bold">{member.name}</h3>
-                                <p className="text-sm opacity-90 mb-4">{member.role}</p>
-                                <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <Facebook size={16} className="cursor-pointer hover:text-[#2496B3]" />
-                                    <Twitter size={16} className="cursor-pointer hover:text-[#2496B3]" />
-                                    <Linkedin size={16} className="cursor-pointer hover:text-[#2496B3]" />
-                                </div>
+                            </div>
+
+                            <div className="text-center">
+                                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">{member.name}</h3>
+                                <p className="text-sm font-medium text-secondary uppercase tracking-wider mb-3">{member.role}</p>
+                                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 px-2">
+                                    {member.bio}
+                                </p>
                             </div>
                         </motion.div>
                     ))}
@@ -96,4 +135,3 @@ export const TeamSection = ({ teamMembers }: TeamSectionProps) => {
         </section>
     );
 };
-

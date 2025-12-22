@@ -1,24 +1,14 @@
-import { CTASection } from "@/components/cta";
-import { AboutHero } from "@/components/about-page/about-hero";
+import React from 'react';
 import { TeamSection } from "@/components/about-page/team-section";
-import { createClient } from "@/utilities/supabase/server";
+import { StorySection } from "@/components/about-page/story-section";
+import { CTASection } from "@/components/cta";
 
-export default async function AboutPage() {
-    const supabase = await createClient();
-    
-    const { data: teamMembers } = await supabase
-        .from('teams')
-        .select('*')
-        .order('created_at', { ascending: true });
-
+export default function AboutPage() {
     return (
-        <main className="bg-gray-50">
-            <div className="pt-20">
-                <AboutHero />
-                <TeamSection teamMembers={teamMembers || []} />
-                <CTASection />
-            </div>
+        <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+            <TeamSection />
+            <StorySection />
+            <CTASection />
         </main>
     );
 }
-

@@ -1,19 +1,25 @@
 'use client';
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram, Twitter, ArrowRight, ChevronDown } from "lucide-react";
+import { Button } from "@/components/buttons";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     contact: "",
+    company: "",
+    service: "",
+    budget: "",
+    source: "",
     message: ""
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -36,140 +42,171 @@ const ContactForm = () => {
 
       if (response.ok) {
         setStatus('success');
-        setFormData({ name: "", email: "", contact: "", message: "" });
+        setFormData({
+          name: "", email: "", contact: "", company: "",
+          service: "", budget: "", source: "", message: ""
+        });
+        setErrorMessage("");
       } else {
+        const data = await response.json();
+        setErrorMessage(data.error || "Failed to send message.");
         setStatus('error');
       }
     } catch (error) {
       console.error('Error sending message:', error);
+      setErrorMessage("An unexpected error occurred.");
       setStatus('error');
     }
   };
 
+  const services = ["App Development", "Web Development", "UI/UX Design", "Digital Marketing", "IT Consultation", "Other"];
+  const budgets = ["<$5k", "$5k - $10k", "$10k - $25k", "$25k - $50k", ">$50k"];
+  const sources = ["Google Search", "Social Media", "Referral", "Blog/Article", "Other"];
+
+  const inputClasses = "w-full py-3 border-b border-white/10 text-white placeholder-white/20 focus:border-primary outline-none transition-colors bg-transparent text-base appearance-none";
+  const labelClasses = "text-muted-foreground text-xs uppercase tracking-wider group-focus-within:text-primary transition-colors";
+
   return (
-    <section id="contact" className="py-24 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="py-20 px-4 bg-[image:var(--bg-dark-purple)] border-t border-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 bg-dot-white opacity-10 pointer-events-none" />
+      {/* Background Glow */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[128px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-20">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <span className="text-base md:text-lg text-gray-600 mb-4 block">Contact Us</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-black font-red-hat-display">
-              Get in touch with us.<br />
-              We're here to assist you.
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-2 block">Let's Connect</span>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white font-display">
+              Have a vision? <br />
+              Let's make it <span className="text-primary italic">reality</span>.
             </h2>
           </motion.div>
 
           {/* Social Icons */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex gap-4 mt-8 md:mt-0"
+            className="flex gap-4 mt-6 md:mt-0"
           >
-            <a href="#" className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors">
-              <Facebook className="w-5 h-5 text-gray-600" />
-            </a>
-            <a href="#" className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors">
-              <Instagram className="w-5 h-5 text-gray-600" />
-            </a>
-            <a href="#" className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors">
-              <Twitter className="w-5 h-5 text-gray-600" />
-            </a>
+            {[Facebook, Instagram, Twitter].map((Icon, idx) => (
+              <a key={idx} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all text-muted-foreground hover:text-white">
+                <Icon size={18} />
+              </a>
+            ))}
           </motion.div>
         </div>
 
         {/* Form Section */}
-        <form className="space-y-12" onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-2"
-            >
-              <label className="text-gray-600 text-base">Your Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full py-3 border-b text-gray-500 border-gray-300 focus:border-[#2496B3] outline-none transition-colors bg-transparent"
-              />
+        <form className="space-y-8" onSubmit={handleSubmit}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="space-y-1 group">
+              <label className={labelClasses}>Your Name *</label>
+              <input type="text" name="name" value={formData.name} onChange={handleChange} required className={inputClasses} placeholder="John Doe" />
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-2"
-            >
-              <label className="text-gray-600 text-base">Email Address</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full py-3 border-b text-gray-500 border-gray-300 focus:border-[#2496B3] outline-none transition-colors bg-transparent"
-              />
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="space-y-1 group">
+              <label className={labelClasses}>Email Address *</label>
+              <input type="email" name="email" value={formData.email} onChange={handleChange} required className={inputClasses} placeholder="john@example.com" />
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="space-y-2"
-            >
-              <label className="text-gray-600 text-base">Phone Number (optional)</label>
-              <input
-                type="tel"
-                name="contact"
-                value={formData.contact}
-                onChange={handleChange}
-                className="w-full py-3 border-b text-gray-500 border-gray-300 focus:border-[#2496B3] outline-none transition-colors bg-transparent"
-              />
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="space-y-1 group">
+              <label className={labelClasses}>Phone Number</label>
+              <input type="tel" name="contact" value={formData.contact} onChange={handleChange} className={inputClasses} placeholder="+1 (555) 000-0000" />
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="space-y-1 group">
+              <label className={labelClasses}>Company Name</label>
+              <input type="text" name="company" value={formData.company} onChange={handleChange} className={inputClasses} placeholder="Acme Inc." />
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="space-y-1 group relative">
+              <label className={labelClasses}>Service Interested In</label>
+              <div className="relative">
+                <select name="service" value={formData.service} onChange={handleChange} className={inputClasses}>
+                  <option value="" disabled className="bg-black text-gray-500">Select a service</option>
+                  {services.map(s => <option key={s} value={s} className="bg-[#111] text-white">{s}</option>)}
+                </select>
+                <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
+              </div>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="space-y-1 group relative">
+              <label className={labelClasses}>Budget Range</label>
+              <div className="relative">
+                <select name="budget" value={formData.budget} onChange={handleChange} className={inputClasses}>
+                  <option value="" disabled className="bg-black text-gray-500">Select budget</option>
+                  {budgets.map(b => <option key={b} value={b} className="bg-[#111] text-white">{b}</option>)}
+                </select>
+                <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
+              </div>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }} className="space-y-1 group relative">
+              <label className={labelClasses}>How did you hear about us?</label>
+              <div className="relative">
+                <select name="source" value={formData.source} onChange={handleChange} className={inputClasses}>
+                  <option value="" disabled className="bg-black text-gray-500">Select source</option>
+                  {sources.map(s => <option key={s} value={s} className="bg-[#111] text-white">{s}</option>)}
+                </select>
+                <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
+              </div>
             </motion.div>
           </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-y-2"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="space-y-1 group"
           >
-            <label className="text-gray-600 text-base">Message</label>
+            <label className={labelClasses}>Message *</label>
             <textarea
-              rows={1}
+              rows={4}
               name="message"
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full py-3 border-b text-gray-500 border-gray-300 focus:border-[#2496B3] outline-none transition-colors bg-transparent resize-none"
+              placeholder="Tell us about your project goals, timeline, and requirements..."
+              className="w-full py-3 border-b border-white/10 text-white placeholder-white/20 focus:border-primary outline-none transition-colors bg-transparent resize-none text-base min-h-[100px]"
             ></textarea>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            className="flex flex-col md:flex-row items-center gap-6 pt-4"
           >
-            <button
+            <Button
               type="submit"
               disabled={status === 'loading'}
-              className="bg-[#2496B3] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#1d7a91] transition-colors flex items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+              size="lg"
+              className="w-full md:w-auto bg-white text-black hover:bg-gray-200 rounded-full px-8 py-4 text-base font-semibold"
             >
-              {status === 'loading' ? 'Sending...' : 'Leave us a Message'}
-              <span className="text-xl">→</span>
-            </button>
+              {status === 'loading' ? 'Sending...' : 'Send Message'}
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+
             {status === 'success' && (
-              <p className="mt-4 text-green-600">Message sent successfully!</p>
+              <p className="text-emerald-400 font-medium text-sm animate-fade-in-up">Message sent successfully!</p>
             )}
             {status === 'error' && (
-              <p className="mt-4 text-red-600">Failed to send message. Please try again.</p>
+              <p className="text-red-400 font-medium text-sm animate-fade-in-up">
+                {errorMessage || "Failed to send message. Please try again."}
+              </p>
             )}
           </motion.div>
         </form>

@@ -1,126 +1,87 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { servicesData } from './services-data';
+import { ServiceModal } from './service-modal';
 
 const cardVariants = {
-    hidden: {
-        opacity: 0,
-        y: 30
-    },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.5,
-            ease: "easeOut" as const,
-        }
-    }
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } }
 };
 
 const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.15,
-        },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-export function ServiceCard({
-    icon,
-    title,
-    description,
-}: {
-    icon: React.ReactNode;
-    title: string;
-    description: string;
-}) {
+export function ServiceCard({ icon: Icon, title, description, highlighted = false, onClick }: any) {
     return (
         <motion.div
             variants={cardVariants}
-            className="
-                flex
-                flex-col
-                items-start
-                text-left
-                h-full
-                p-6
-            "
+            onClick={onClick}
+            className={`
+                group relative overflow-hidden rounded-3xl p-8 h-full transition-all duration-300
+                border border-white/10 bg-white/5 backdrop-blur-md
+                hover:bg-white/10 hover:border-primary/50 hover:-translate-y-1
+                flex flex-col cursor-pointer
+            `}
         >
-            {/* Icon */}
-            <div className="mb-6 inline-block">
-                <div className="p-[10px] rounded-full bg-gradient-to-b from-[#0066FF] to-[#0066FF40]">
-                    <div className="w-28 h-28 rounded-full bg-white flex items-center justify-center">
-                        {icon}
-                    </div>
-                </div>
+            <div className={`
+                w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300
+                ${highlighted ? 'bg-primary text-white' : 'bg-white/10 text-primary group-hover:bg-primary group-hover:text-white'}
+            `}>
+                <Icon className="w-7 h-7" />
             </div>
 
-            <h3 className="font-manrope font-bold text-3xl mb-4 text-gray-900">
+            <h3 className="text-2xl font-bold text-white mb-4 font-display group-hover:text-primary transition-colors">
                 {title}
             </h3>
 
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="text-muted-foreground leading-relaxed flex-grow mb-6 line-clamp-4">
                 {description}
             </p>
+
+            <div className="flex items-center text-sm font-semibold text-white/50 group-hover:text-primary transition-colors mt-auto">
+                <span>Learn more</span>
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </div>
+
+            {/* Gradient Glow */}
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 pointer-events-none" />
         </motion.div>
     );
 }
 
 export const ServicesList = () => {
-    const services = [
-        {
-            icon: <img src="/services-page/app-dev.png" alt="App Development" className="w-12 h-12 object-contain" />,
-            title: 'App Development',
-            description: 'We build apps that blend performance, beauty, and usability. Our team at AchTech designs and develops mobile applications for iOS, Android, and cross-platform environments, focusing on creating smooth, engaging experiences that meet both user needs and business goals. From backend integration to interface design, we ensure every app is robust, scalable, and aligned with your digital strategy.'
-        },
-        {
-            icon: <img src="/services-page/web-dev.png" alt="Web Development" className="w-12 h-12 object-contain" />,
-            title: 'Web Development',
-            description: 'We build responsive, high-performing websites tailored to your brand\'s identity and audience. From concept to code, every detail is designed to express your uniqueness and elevate your digital presence. We combine strategy, creativity, and technical precision to create websites that don\'t just look good but work hard for your business.'
-        },
-        {
-            icon: <img src="/services-page/ui-ux.png" alt="UI/UX Design" className="w-12 h-12 object-contain" />,
-            title: 'UI/UX Design',
-            description: 'Great design is more than aesthetics; it\'s about how users feel and interact. We craft intuitive interfaces and thoughtful user journeys that connect people to your product effortlessly. Through user research, wireframes, and prototypes, we transform ideas into designs that delight and convert. Our approach focuses on accessibility, responsiveness, and clarity.'
-        },
-        {
-            icon: <img src="/services-page/seo.png" alt="Digital Marketing Specialist" className="w-12 h-12 object-contain" />,
-            title: 'Digital Marketing Specialist',
-            description: 'We help brands grow through data-driven visibility. Our Digital Marketing service ensures your digital presence ranks higher, reaches further, and performs better. We handle on-page optimization, keyword strategy, and site performance tracking to help you attract the right audience. With insights from advanced analytics tools, we refine strategies to boost engagement, increase conversions, and maximize your return on investment.'
-        },
-        {
-            icon: <img src="/services-page/consultation.png" alt="IT Consultation" className="w-12 h-12 object-contain" />,
-            title: 'IT Consultation',
-            description: 'We guide your business toward smarter digital decisions. We offer IT consulting that bridges strategy with technology. Whether you\'re scaling operations, migrating systems, or integrating new technologies, our consultants provide clarity, direction, and technical expertise to move your business forward confidently.'
-        },
-        {
-            icon: <img src="/service/videography.png" alt="Visual Content" className="w-12 h-12 object-contain" />,
-            title: 'Visual Content',
-            description: 'We provide professional videography and photography services to elevate your brand\'s visual identity. From corporate shoots to creative campaigns, we ensure your brand looks its best.'
-        },
-        {
-            icon: <img src="/service/print.png" alt="Printing Services" className="w-12 h-12 object-contain" />,
-            title: 'Printing Services',
-            description: 'High-quality printing services for all your business needs. From brochures and business cards to large-format prints, we deliver crisp, professional results.'
-        }
-    ];
+    const [selectedService, setSelectedService] = useState<any>(null);
 
     return (
-        <section className="py-20 px-6 bg-gray-50">
+        <section className="py-24 px-6 bg-[image:var(--bg-dark-purple)] relative z-10">
             <div className="max-w-7xl mx-auto">
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                     variants={containerVariants}
                     initial="hidden"
-                    animate="visible"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
                 >
-                    {services.map((service, index) => (
-                        <ServiceCard key={index} {...service} />
+                    {servicesData.map((service, index) => (
+                        <ServiceCard
+                            key={index}
+                            {...service}
+                            onClick={() => setSelectedService(service)}
+                        />
                     ))}
                 </motion.div>
             </div>
+
+            <ServiceModal
+                isOpen={!!selectedService}
+                onClose={() => setSelectedService(null)}
+                service={selectedService}
+            />
         </section>
     );
 };

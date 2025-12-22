@@ -1,45 +1,75 @@
-import { Users, Code, Globe } from 'lucide-react';
+'use client';
+
+import { Users, Code, Globe, Zap, Heart, Target } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export function CoreValues() {
     const values = [
         {
-            icon: <Users className="w-8 h-8 text-[#005AB0]" />,
-            title: "Human-Centered Design",
-            description: "We prioritize understanding and meeting the needs of our users, ensuring our solutions are intuitive and impactful."
+            icon: Users,
+            title: "Human-Centered",
+            description: "We design for people first. Empathy acts as our compass in every line of code we write."
         },
         {
-            icon: <Code className="w-8 h-8 text-[#005AB0]" />,
-            title: "Tech-Forward Innovation",
-            description: "We embrace cutting-edge technologies and methodologies to create innovative solutions that push boundaries."
+            icon: Zap,
+            title: "Innovation First",
+            description: "We challenge the status quo. If there's a better way to do it, we'll find it—or build it."
         },
         {
-            icon: <Globe className="w-8 h-8 text-[#005AB0]" />,
-            title: "Global Ambition",
-            description: "We aim to make a global impact, leveraging our African roots to bring unique perspectives to the world stage."
+            icon: Globe,
+            title: "Global Impact",
+            description: "Building locally, thinking globally. Our solutions are designed to scale across borders."
+        },
+        {
+            icon: Code,
+            title: "Excellence in Craft",
+            description: "Good enough isn't enough. We obsess over details, performance, and code quality."
+        },
+        {
+            icon: Heart,
+            title: "Transparent & Open",
+            description: "Trust is our currency. We believe in open communication with our team and clients."
+        },
+        {
+            icon: Target,
+            title: "Result Driven",
+            description: "We don't just ship features; we deliver measurable value and business outcomes."
         }
     ];
 
     return (
-        <section className="py-12 md:py-20 px-4 md:px-8 max-w-7xl mx-auto">
-            <div className="mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 font-manrope text-gray-900">Our Core Values</h2>
-                <p className="text-gray-800 max-w-2xl font-manrope">
-                    At Achtrex, we are driven by a set of core values that guide our work and interactions. These principles shape our culture and ensure we deliver exceptional results.
-                </p>
-            </div>
+        <section className="py-24 px-6 bg-[image:var(--bg-dark-blue)] relative border-t border-white/5 overflow-hidden">
+            <div className="absolute inset-0 bg-tech-mesh opacity-10 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="grid md:grid-cols-3 gap-6">
-                {values.map((value, index) => (
-                    <div key={index} className="p-6 md:p-8 border border-gray-100 rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white">
-                        <div className="mb-6">
-                            {value.icon}
-                        </div>
-                        <h3 className="text-xl font-bold mb-3 font-manrope text-gray-900">{value.title}</h3>
-                        <p className="text-gray-800 text-sm leading-relaxed font-manrope">
-                            {value.description}
-                        </p>
-                    </div>
-                ))}
+            <div className="max-w-7xl mx-auto relative z-10">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 font-display text-white">Our Core Values</h2>
+                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                        The principles that guide our decisions and shape our culture.
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {values.map((value, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group hover:-translate-y-1"
+                        >
+                            <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                                <value.icon className="w-6 h-6" />
+                            </div>
+                            <h3 className="text-xl font-bold mb-3 font-display text-white group-hover:text-primary transition-colors">{value.title}</h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                                {value.description}
+                            </p>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </section>
     );

@@ -3,28 +3,32 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
+import { Button } from "@/components/buttons";
 
 export const AboutSection = () => {
     const router = useRouter();
     return (
-        <section id="about" className="py-24 px-4 bg-[#2496B3] text-white overflow-hidden">
-            <div className="max-w-7xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <section id="about" className="py-20 px-4 bg-background relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[128px]" />
+
+            <div className="max-w-7xl mx-auto relative z-10">
+                <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="relative h-[400px] md:h-[600px] w-full rounded-3xl overflow-hidden"
+                        className="relative h-[400px] w-full rounded-2xl overflow-hidden glass-card border-none"
                     >
                         <Image
                             src="/life-at-achtrex/Rectangle 789.png"
                             alt="Team working together"
                             fill
-                            className="object-cover"
+                            className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                     </motion.div>
+
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -32,38 +36,36 @@ export const AboutSection = () => {
                         transition={{ duration: 0.8 }}
                         className="space-y-6"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-2">Life At Achtrex</h2>
-                        <h3 className="text-xl md:text-2xl font-bold mb-6">Driven by passion. United by purpose.</h3>
+                        <div>
+                            <h2 className="text-primary text-sm font-semibold tracking-wider uppercase mb-2">Our DNA</h2>
+                            <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Driven by passion. <br /> United by purpose.</h3>
+                        </div>
 
-                        <div className="space-y-4 md:space-y-6 text-base leading-relaxed opacity-90 font-light">
+                        <div className="space-y-4 text-base text-muted-foreground leading-relaxed font-light">
                             <p>
-                                At Achtrex, we're a family of thinkers, builders, and dreamers who believe in
-                                doing ordinary things extraordinarily well. We combine dedication, creativity,
-                                and technical expertise to craft digital experiences that help brands thrive
-                                across the world.
+                                At Achtrex, we are more than a software studio. We are a collective of visionaries,
+                                engineers, and strategists dedicated to redefining what's possible in the digital realm.
                             </p>
                             <p>
-                                Our team is made up of bold innovators who embrace modern tools and
-                                forward-thinking strategies — from designing and developing user-focused
-                                websites, to crafting SEO-optimized content and creating visuals that tell
-                                your story with clarity and impact.
+                                We don't just write code; we architect solutions that propel businesses forward.
+                                Our culture is built on relentless curiosity, technical excellence, and a shared
+                                commitment to delivering extraordinary results.
                             </p>
                             <p>
-                                What makes us different is how we work together. We value collaboration,
-                                curiosity, and constant learning. Every project at Achtrex is a shared journey,
-                                and every success, a celebration of teamwork.
-                            </p>
-                            <p>
-                                When we work with you, your goals become our mission. We go beyond
-                                delivery, we build lasting relationships, offer continued support, and ensure
-                                your digital presence doesn't just exist, but evolves.
+                                From intricate backend systems to stunning user interfaces, we bring a holistic
+                                approach to every project, ensuring your digital presence is not just functional,
+                                but transformative.
                             </p>
                         </div>
 
-                        <div className="pt-4">
-                            <button onClick={() => router.push('/life-at-achtrex')} className="bg-white text-[#2496B3] hover:bg-gray-100 transition-colors font-bold py-3 px-8 rounded-full text-lg shadow-md w-full md:w-auto">
-                                Learn More
-                            </button>
+                        <div className="pt-2">
+                            <Button
+                                onClick={() => router.push('/life-at-achtrex')}
+                                size="lg"
+                                className="bg-white text-black hover:bg-gray-200 px-8 rounded-full shadow-lg shadow-white/10"
+                            >
+                                Discover Our Culture
+                            </Button>
                         </div>
                     </motion.div>
                 </div>

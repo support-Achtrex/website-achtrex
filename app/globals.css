@@ -2,12 +2,29 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --head1: 70px;
-  --primary: #005AB0;
-  --secondary: #2097B5;
+  --background: #030712;
+  /* Deep dark blue/black - Retaining for depth */
+  --foreground: #f8fafc;
+  /* Slate 50 */
+  --primary: #3B82F6;
+  /* Softer Tech Blue (Blue 500) */
+  --primary-foreground: #ffffff;
+  --secondary: #2DD4BF;
+  /* Softer Tech Teal (Teal 400) */
+  --secondary-foreground: #000000;
+  --accent: #2DD4BF;
+  /* Matching Secondary */
+  --accent-foreground: #ffffff;
+  --muted: #1e293b;
+  /* Slate 800 */
+  --muted-foreground: #94a3b8;
+  /* Slate 400 */
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #3b82f6;
 
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-red-hat-display);
 }
 
 @theme inline {
@@ -15,27 +32,97 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-manrope: var(--font-manrope);
-  --font-montserrat: var(--font-montserrat);
-  --font-red-hat-display: var(--font-red-hat-display);
-  --font-display: var(--font-red-hat-display);
-  --text-head1: var(--head1);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
 
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Tech Background Variables */
+:root {
+  --bg-dark-blue: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+  --bg-dark-purple: linear-gradient(to bottom right, #1e1b4b 0%, #020617 100%);
+  --bg-dark-teal: radial-gradient(ellipse at top, #115e59 0%, #020617 100%);
+  --bg-mesh: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(45, 212, 191, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%);
+}
+
+/* Tech Textures & Utilities */
+.bg-grid-white {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgba(59, 130, 246, 0.08)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+.bg-dot-white {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3e%3ccircle fill='rgba(45, 212, 191, 0.1)' cx='10' cy='10' r='1.6'/%3e%3c/svg%3e");
+}
+
+.bg-tech-mesh {
+  background-color: var(--background);
+  background-image: var(--bg-mesh);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(to right, #fbbf24, #d97706);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -10px var(--primary);
+  }
+
+  to {
+    box-shadow: 0 0 20px 5px var(--primary);
+  }
 }
 
 @keyframes fade-in-up {
@@ -54,93 +141,28 @@ body {
   animation: fade-in-up 0.8s ease-out forwards;
 }
 
-@keyframes hero-reveal {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-    filter: blur(10px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
-.hero-animate {
-  animation: hero-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both paused;
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
-.hero-visible .hero-animate {
-  animation-play-state: running;
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@keyframes column-reveal {
-  0% {
-    clip-path: inset(0 0 100% 0);
-  }
-
-  100% {
-    clip-path: inset(0 0 0 0);
-  }
+::-webkit-scrollbar-track {
+  background: var(--background);
 }
 
-.column-animate {
-  animation: column-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) both paused;
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
 }
 
-.hero-visible .column-animate {
-  animation-play-state: running;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
-
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-/* Custom Scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #e5e7eb;
-  border-radius: 20px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #d1d5db;
-}
-
-/* Marquee Animation */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }

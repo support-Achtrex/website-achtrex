@@ -2,19 +2,15 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MoveLeft, MoveRight } from 'lucide-react';
+import { MoveLeft, MoveRight, Code2, Palette, TrendingUp, Cpu, Video, Printer } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
 const cardVariants = {
-    hidden: {
-        opacity: 0,
-        y: 30
-    },
+    hidden: { opacity: 0, y: 30 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: {
-            duration: 0.5,
-            ease: "easeOut" as const,
-        }
+        transition: { duration: 0.5, ease: "easeOut" as const }
     }
 };
 
@@ -22,10 +18,8 @@ const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: {
-            staggerChildren: 0.15,
-        },
-    },
+        transition: { staggerChildren: 0.1 }
+    }
 };
 
 export function FeatureCard({
@@ -37,143 +31,57 @@ export function FeatureCard({
     title: string;
     description: string;
 }) {
-    const divRef = React.useRef<HTMLDivElement>(null);
-    const [position, setPosition] = React.useState({ x: 0, y: 0 });
-    const [opacity, setOpacity] = React.useState(0);
-
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!divRef.current) return;
-
-        const div = divRef.current;
-        const rect = div.getBoundingClientRect();
-
-        setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-    };
-
-    const handleFocus = () => {
-        setOpacity(1);
-    };
-
-    const handleBlur = () => {
-        setOpacity(0);
-    };
-
-    const handleMouseEnter = () => {
-        setOpacity(1);
-    };
-
-    const handleMouseLeave = () => {
-        setOpacity(0);
-    };
-
     return (
-        <motion.div
-            ref={divRef}
-            onMouseMove={handleMouseMove}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={cardVariants}
-            className="
-                bg-[url('/Union.png')]
-                bg-no-repeat
-                bg-top
-                bg-size-[100%_100%]
-                w-full
-                h-[450px] lg:h-[330px]
-                pt-[100px]  
-                pb-6
-                px-4
-                text-center
-                rounded-none
-                mx-auto
-                relative
-                group
-                border-none
-                flex
-                flex-col
-                justify-center
-            "
-            style={{
-                maskImage: "url('/Union.png')",
-                maskSize: "100% 100%",
-                maskPosition: "top center",
-                maskRepeat: "no-repeat",
-                WebkitMaskImage: "url('/Union.png')",
-                WebkitMaskSize: "100% 100%",
-                WebkitMaskPosition: "top center",
-                WebkitMaskRepeat: "no-repeat",
-                filter: "drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.08))"
-            }}
-        >
-            <div
-                className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
-                style={{
-                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(0, 90, 176, 0.15), transparent 40%)`,
-                }}
-            />
-            <div
-                className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
-                style={{
-                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(0, 90, 176, 0.4), transparent 40%)`,
-                    maskImage: `linear-gradient(black, black) content-box, linear-gradient(black, black)`,
-                    WebkitMaskImage: `linear-gradient(black, black) content-box, linear-gradient(black, black)`,
-                    maskComposite: `exclude`,
-                    WebkitMaskComposite: `xor`,
-                }}
-            />
-
-            {/* Icon */}
-            <div className="absolute top-[40px] lg:top-[28px] left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center z-10">
-                <span className="text-5xl">{icon}</span>
+        <div className="group relative h-full">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/50 to-secondary/50 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur-sm" />
+            <div className="relative h-full glass-card hover:bg-slate-800/80 p-6 md:p-8 rounded-2xl transition-all duration-300 flex flex-col items-start justify-between border border-white/5 group-hover:border-primary/20">
+                <div>
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 text-primary group-hover:text-white group-hover:bg-primary transition-colors duration-300">
+                        {icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                        {title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                        {description}
+                    </p>
+                </div>
             </div>
-
-            <h3 className="w-full py-2 font-manrope font-bold text-3xl leading-tight tracking-tight text-center text-black/90 mx-auto relative z-10">
-                {title}
-            </h3>
-
-            <p className="w-full font-normal text-lg leading-relaxed text-center text-black/70 mx-auto mt-2 relative z-10">
-                {description}
-            </p>
-        </motion.div>
+        </div>
     );
 }
 
 export const ServicesGrid = () => {
     const services = [
         {
-            icon: <img src="/service/product-development.png" alt="product development icon" />,
-            title: 'Product Development',
-            description: 'We transform your ideas into scalable digital products.'
+            icon: <Cpu size={24} />,
+            title: 'Product Engineering',
+            description: 'End-to-end software development transforming complex requirements into scalable solutions.'
         },
         {
-            icon: <img src="/service/ui-ux-design.png" alt="ui ux design icon" />,
+            icon: <Palette size={24} />,
             title: 'UI/UX Design',
-            description: 'We create intuitive interfaces & meaningful user journeys for a seamless experience.'
+            description: 'Crafting immersive user experiences that blend aesthetics with intuitive functionality.'
         },
         {
-            icon: <img src="/service/seo-analytics.png" alt="digital marketing specialist icon" />,
-            title: 'Digital Marketing',
-            description: 'We help brands grow through data-driven strategies and boost visibility.'
+            icon: <TrendingUp size={24} />,
+            title: 'Growth Strategy',
+            description: 'Data-driven digital marketing campaigns designed to maximize ROI and market presence.'
         },
         {
-            icon: <img src="/service/it-consultation.png" alt="it consultation icon" />,
-            title: 'IT Consultation',
-            description: 'We provide expert guidance for sustainable digital growth that helps businesses thrive.'
+            icon: <Code2 size={24} />,
+            title: 'Tech Consulting',
+            description: 'Strategic guidance on architecture, stack selection, and digital transformation roadmaps.'
         },
         {
-            icon: <img src="/service/videography.png" alt="visual content icon" />,
-            title: 'Visual Content',
-            description: 'We provide professional videography and photography services to elevate your brand.'
+            icon: <Video size={24} />,
+            title: 'Multimedia Production',
+            description: 'High-fidelity video and visual content that tells your brand story with cinematic quality.'
         },
         {
-            icon: <img src="/service/print.png" alt="printing services icon" />,
-            title: 'Printing Services',
-            description: 'We provide high-quality and cost-effective printing services for all your business needs.'
+            icon: <Printer size={24} />,
+            title: 'Physical Branding',
+            description: 'Premium print and physical assets that extend your digital identity into the real world.'
         }
     ];
 
@@ -187,8 +95,7 @@ export const ServicesGrid = () => {
         const maxScroll = scrollWidth - clientWidth;
         const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
         setScrollProgress(progress);
-        
-        // Calculate bar width percentage based on viewport ratio
+
         const widthPercentage = (clientWidth / scrollWidth) * 100;
         setBarWidth(widthPercentage);
     };
@@ -210,68 +117,71 @@ export const ServicesGrid = () => {
     };
 
     return (
-        <section id="services" className="py-24 px-6 overflow-hidden">
-            <div className="max-w-8xl mx-auto relative group/section">
-                <style jsx global>{`
-                    .scrollbar-hide::-webkit-scrollbar {
-                        display: none;
-                    }
-                    .scrollbar-hide {
-                        -ms-overflow-style: none;
-                        scrollbar-width: none;
-                    }
-                `}</style>
-                
-                {/* Scroll Indicator Gradient */}
-                <div className="absolute right-0 top-0 bottom-24 w-24 bg-linear-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
-
-                <motion.div
-                    ref={scrollContainerRef}
-                    onScroll={handleScroll}
-                    className="flex overflow-x-auto gap-6 pb-8 scrollbar-hide snap-x snap-mandatory"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
-                >
-                    {services.map((service, index) => (
-                        <div key={index} className="snap-center shrink-0 w-[85vw] md:w-[40vw] lg:w-[calc(20%-1.2rem)]">
-                            <FeatureCard {...service} />
-                        </div>
-                    ))}
-                </motion.div>
-
-                {/* Progress Bar and Navigation */}
-                <div className="mt-8 flex items-center justify-end gap-8 max-w-xs mx-auto md:max-w-none md:mx-0">
-                    <div className="flex-1 flex items-center gap-4 max-w-md mx-auto md:mx-0">
-                        
-                        <div className="flex-1 h-[2px] bg-gray-200 rounded-full relative overflow-hidden">
-                            <div 
-                                className="absolute top-0 left-0 h-full bg-primary transition-all duration-100 ease-out rounded-full"
-                                style={{ 
-                                    width: `${barWidth}%`,
-                                    left: `${scrollProgress * (100 - barWidth)}%`
-                                }}
-                            />
-                        </div>
-
-<button 
-                            onClick={() => scroll('left')}
-                            disabled={scrollProgress <= 0}
-                            className="p-2 rounded-full border border-gray-500 hover:bg-gray-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                            aria-label="Scroll left"
-                        >
-                            <MoveLeft width="18" height="18" className='text-gray-400' />
-                        </button>
-                        <button 
-                            onClick={() => scroll('right')}
-                            disabled={scrollProgress >= 0.99 || barWidth >= 100}
-                            className="p-2 rounded-full border border-gray-500 hover:bg-gray-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                            aria-label="Scroll right"
-                        >
-                            <MoveRight width="18" height="18" className='text-gray-400' />
-                        </button>
+        <section id="services" className="py-20 relative overflow-hidden bg-background">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
+                    <div>
+                        <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-2 block">Our Expertise</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white font-display">Comprehensive Digital Solutions</h2>
                     </div>
+
+                    <div className="flex flex-col md:items-end gap-4">
+                        <p className="text-muted-foreground text-sm leading-relaxed max-w-md md:text-right">
+                            Grounded in technical excellence, defined by creative innovation.
+                        </p>
+
+                        {/* Navigation - Desktop */}
+                        <div className="hidden md:flex gap-4">
+                            <button
+                                onClick={() => scroll('left')}
+                                disabled={scrollProgress <= 0}
+                                className="p-3 rounded-full border border-white/10 hover:bg-white/5 disabled:opacity-30 transition-colors text-white"
+                            >
+                                <MoveLeft size={18} />
+                            </button>
+                            <button
+                                onClick={() => scroll('right')}
+                                disabled={scrollProgress >= 0.99}
+                                className="p-3 rounded-full border border-white/10 hover:bg-white/5 disabled:opacity-30 transition-colors text-white"
+                            >
+                                <MoveRight size={18} />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="relative">
+                    {/* Gradient Masks */}
+                    <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none md:hidden" />
+                    <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none md:hidden" />
+
+                    <motion.div
+                        ref={scrollContainerRef}
+                        onScroll={handleScroll}
+                        className="flex overflow-x-auto gap-6 pb-12 snap-x snap-mandatory scrollbar-hide px-1"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.1 }}
+                    >
+                        {services.map((service, index) => (
+                            <motion.div
+                                key={index}
+                                variants={cardVariants}
+                                className="snap-center shrink-0 w-[85vw] md:w-[320px]"
+                            >
+                                <FeatureCard {...service} />
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="mt-4 h-[2px] bg-white/10 w-full max-w-xs mx-auto relative rounded-full overflow-hidden md:hidden">
+                    <div
+                        className="absolute h-full bg-primary transition-all duration-300"
+                        style={{ width: `${barWidth}%`, left: `${scrollProgress * (100 - barWidth)}%` }}
+                    />
                 </div>
             </div>
         </section>

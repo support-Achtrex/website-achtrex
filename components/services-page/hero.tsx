@@ -4,30 +4,42 @@ import { motion } from "framer-motion";
 
 export const ServicesHero = () => {
     return (
-        <section className="relative py-20 md:py-32 px-4 overflow-hidden bg-gray-50">
+        <section className="relative min-h-[60vh] flex items-center justify-center py-20 px-4 overflow-hidden bg-[image:var(--bg-dark-teal)]">
+            {/* Background Effects */}
+            <div className="absolute inset-0 bg-grid-white opacity-5 pointer-events-none" />
+            <div className="absolute inset-0 bg-tech-mesh opacity-20 pointer-events-none" />
+
+            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03]" />
+            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[128px] pointer-events-none mix-blend-screen" />
+            <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[128px] pointer-events-none mix-blend-screen" />
+
             <div className="max-w-7xl mx-auto text-center relative z-10">
-                <motion.h1
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-red-hat-display text-gray-900"
+                    className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
                 >
-                    Our Services
+                    <span className="text-secondary text-sm font-semibold tracking-widest uppercase">What We Do</span>
+                </motion.div>
+
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="text-5xl md:text-7xl font-bold mb-8 font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/60 tracking-tight leading-tight"
+                >
+                    Services designed <br /> for <span className="text-primary italic">impact</span>.
                 </motion.h1>
+
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+                    className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
                 >
-                    We offer a comprehensive suite of digital solutions to help your business grow and succeed in the modern digital landscape. From development to design, we have you covered.
+                    From concept to code, we deliver cutting-edge digital solutions tailored to elevate your business. Explore our suite of expert services.
                 </motion.p>
-            </div>
-
-            {/* Decorative Elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-blue-100/50 rounded-full blur-3xl" />
-                <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-purple-100/50 rounded-full blur-3xl" />
             </div>
         </section>
     );

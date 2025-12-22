@@ -2,326 +2,182 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
+import { Button } from '@/components/buttons';
 
 interface PortfolioItem {
     title: string;
     description: string;
-    image: string;
+    images: string[];
     challenge: string;
     product: string;
     outcome: string;
-    reverse?: boolean;
+    category: string;
+    tags: string[];
 }
 
 const portfolioItems: PortfolioItem[] = [
     {
         title: 'Carkasa',
         description: 'Trusted Car Marketplace',
-        image: '/projects/carkasa.png',
-        challenge: 'The Ghanaian used car market was fragmented and lacked transparency, making it difficult for buyers to trust sellers and verify vehicle history. Users needed a reliable platform to find quality cars without the risk of fraud or hidden issues.',
-        product: 'We partnered with Carkasa to design and build a trusted automotive marketplace for the Ghanaian market. Our team developed a comprehensive platform where users can browse verified listings, check vehicle history reports, and connect with reputable sellers, ensuring a confident buying experience.',
-        outcome: 'Carkasa has established itself as a go-to destination for car buyers in Ghana. The platform\'s emphasis on transparency and verification has built significant user trust, resulting in a growing community of satisfied buyers and sellers and a streamlined car purchasing process.',
-        reverse: false
+        category: 'Web App',
+        tags: ['Marketplace', 'Next.js', 'PostgreSQL'],
+        images: ['/projects/carkasa_real.png', '/projects/carkasa_detail.png'],
+        challenge: 'The automotive market suffers from information asymmetry and a lack of transparency. Buyers often lack access to verified vehicle history, auction photos, and accurate sales data, leading to mistrust and potential fraud. Existing solutions were fragmented, expensive, and difficult to navigate.',
+        product: 'We engineered Carkasa as a comprehensive verification platform integrating with global vehicle databases (NMVTIS) and auction APIs. The platform features an intuitive interface for vehicle history reports, real-time market valuations, and a seamless buy/sell marketplace.',
+        outcome: 'Carkasa has become a pivotal tool for transparency in local and international markets, enabling informed decisions with 99.9% data accuracy. It has streamlined the car buying process for thousands of users and reduced fraudulent listings significantly.',
     },
     {
-        title: 'Africa Auto Connect',
-        description: 'Web & Mobile Development',
-        image: '/projects/auto-connect.png',
-        challenge: 'The existing platform had an outdated design and poor user experience, leading to low engagement and conversion rates. They needed a modern, mobile-first solution that could handle high traffic while providing an intuitive user experience across all devices.',
-        product: 'Africa Auto Connect is a comprehensive automotive marketplace connecting buyers and sellers across Africa. We partnered with them to redesign their website and build a high-engaging mobile application, optimizing both front-end and back-end development with modern UX/UI design.',
-        outcome: 'We delivered a completely redesigned website and a high-performance mobile application with optimized UX/UI. The new platform saw increased user engagement, improved conversion rates, and significant growth in traffic and sales through our SEO optimization strategies.',
-        reverse: true
+        title: 'Automotive Dataset',
+        description: 'Global Automotive Intelligence',
+        category: 'API Platform',
+        tags: ['API', 'Big Data', 'Cloud'],
+        images: ['/projects/automotive_real.png', '/projects/automotive_detail.png'],
+        challenge: 'Businesses requiring accurate vehicle data for insurance, retail, or apps faced high costs, inconsistent data quality, and complex, poorly documented APIs. Integrating this data was a major bottleneck for innovation in the automotive tech space.',
+        product: 'We built a high-performance, developer-first API solution. It provides granular data for over 1.2 million trims, real-time market valuations, and decoding capabilities in a unified, modern web platform with robust SDKs and clear documentation.',
+        outcome: 'The platform now powers dealerships, insurance apps, and automotive startups globally. We achieved a 40% reduction in integration time for developers, enabling faster product launches and more reliable data-driven applications.',
     },
     {
         title: 'Yach Telemedicine',
         description: 'Digital Healthcare Platform',
-        image: '/projects/yach-telemedicine.png',
-        challenge: 'Accessing quality healthcare often involves long wait times and geographical barriers. Patients needed a convenient, secure way to consult with medical professionals without physically visiting a clinic, especially for non-emergency issues.',
-        product: 'We collaborated with Yach Telemedicine to develop a digital health platform that brings healthcare directly to users\' smart devices. Our team built a secure, user-friendly application that allows patients to book online consultations, video chat with doctors, and manage their health records from anywhere.',
-        outcome: 'The platform has democratized access to healthcare, allowing users to receive timely medical advice from the comfort of their homes. This has reduced the burden on physical clinics and provided a safe, efficient alternative for routine consultations and health management.',
-        reverse: false
+        category: 'Mobile & Web',
+        tags: ['Healthcare', 'Telemedicine', 'Mobile App'],
+        images: ['/projects/yach-telemedicine.png'],
+        challenge: 'Patients often faced long wait times and geographical barriers when accessing quality healthcare for non-emergency issues. Traditional clinic visits were inefficient for routine follow-ups, and there was a need for a secure, remote alternative.',
+        product: 'We collaborated to develop a HIPAA-compliant digital health platform that brings healthcare to users\' smart devices. The solution includes secure video consultations, digital prescription management, and easy appointment scheduling.',
+        outcome: 'Democratized access to healthcare, allowing patients to receive timely medical advice from home. This has reduced the burden on physical clinics, improved patient engagement, and provided a safe, efficient alternative for routine health management.',
     },
     {
-        title: 'Global Solutions Software',
+        title: 'Global Solutions',
         description: 'Software Development & Consulting',
-        image: '/projects/Rectangle 796 (3).png',
-        challenge: 'They needed to scale their development capabilities while maintaining code quality and project delivery timelines. Their development processes required optimization to handle growing client demands and complex project requirements.',
-        product: 'Global Solutions Software is a technology consulting firm that provides enterprise-level software solutions and digital transformation services to businesses worldwide. We collaborated with them to provide software development and consulting services focused on building scalable digital solutions.',
-        outcome: 'Through our consulting services and collaborative development approach, we helped them build scalable digital solutions and streamline their development processes. This resulted in improved project delivery times, enhanced code quality, and increased capacity to handle larger, more complex projects.',
-        reverse: true
+        category: 'Enterprise',
+        tags: ['Consulting', 'Digital Transformation'],
+        images: ['/projects/Rectangle 796 (3).png'],
+        challenge: 'A leading tech consulting firm needed to rapidly scale its development capabilities to handle growing client demands. They required optimization of their development workflows and code quality standards to ensure timely delivery of complex enterprise projects.',
+        product: 'We engaged in a strategic collaboration to provide enterprise-level software development and consulting. Our team focused on implementing scalable architectures, modernizing legacy systems, and establishing best practices for their development lifecycle.',
+        outcome: 'The partnership resulted in improved project delivery times by 30%, enhanced overall code quality, and significantly increased their capacity to handle larger, more complex projects, driving business growth and client satisfaction.',
     }
 ];
 
-const StackedProject = ({ project, index }: { project: PortfolioItem; index: number }) => {
-    return (
-        <div className="relative min-h-screen flex flex-col">
-            {/* Image Section - Stacked on top for all screens */}
-            <div className="w-full h-[60vh] min-[1920px]:h-[55vh] relative">
-                <motion.div
-                    className="relative w-full h-full"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: "-20%" }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                        priority={index === 0}
-                    />
-                    {/* Overlay gradient for text readability */}
-                    <div className="absolute inset-0 bg-linear-to-b from-black/20 via-black/20 to-black/60" />
-
-                    {/* Project title overlay on image */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-12 xl:p-16">
-                        <div className="max-w-7xl mx-auto">
-                            <h3 className="text-3xl md:text-5xl lg:text-7xl font-red-hat-display font-bold text-white mb-2 lg:mb-4">
-                                {project.title}
-                            </h3>
-                            <p className="text-white/90 text-sm md:text-xl lg:text-2xl max-w-2xl">
-                                {project.description}
-                            </p>
-                        </div>
-                    </div>
-                </motion.div>
-            </div>
-
-            {/* Content Section - Below image */}
-            <div className="bg-white py-16 lg:py-24">
-                <div className="max-w-5xl mx-auto px-6">
-                    {/* Content Blocks */}
-                    <div className="grid grid-cols-1 gap-12 lg:gap-20">
-                        {/* Block 1: The Challenge */}
-                        <motion.div
-                            className="flex flex-col md:flex-row gap-6 md:gap-12"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-10%" }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                        >
-                            <div className="md:w-1/3 shrink-0">
-                                <div className="flex items-center mb-4">
-                                    <div className="w-3 h-3 rounded-full bg-secondary mr-4"></div>
-                                    <h4 className="text-2xl lg:text-3xl font-red-hat-display font-bold text-gray-900">
-                                        The Challenge
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="md:w-2/3">
-                                <p className="text-gray-600 text-lg lg:text-xl leading-relaxed">
-                                    {project.challenge}
-                                </p>
-                            </div>
-                        </motion.div>
-
-                        {/* Block 2: The Product/Solution */}
-                        <motion.div
-                            className="flex flex-col md:flex-row gap-6 md:gap-12"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-10%" }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            <div className="md:w-1/3 shrink-0">
-                                <div className="flex items-center mb-4">
-                                    <div className="w-3 h-3 rounded-full bg-primary mr-4"></div>
-                                    <h4 className="text-2xl lg:text-3xl font-red-hat-display font-bold text-gray-900">
-                                        The Product
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="md:w-2/3">
-                                <p className="text-gray-600 text-lg lg:text-xl leading-relaxed">
-                                    {project.product}
-                                </p>
-                            </div>
-                        </motion.div>
-
-                        {/* Block 3: The Outcome */}
-                        <motion.div
-                            className="flex flex-col md:flex-row gap-6 md:gap-12"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-10%" }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                        >
-                            <div className="md:w-1/3 shrink-0">
-                                <div className="flex items-center mb-4">
-                                    <div className="w-3 h-3 rounded-full bg-primary mr-4"></div>
-                                    <h4 className="text-2xl lg:text-3xl font-red-hat-display font-bold text-gray-900">
-                                        The Outcome
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="md:w-2/3">
-                                <p className="text-gray-600 text-lg lg:text-xl leading-relaxed">
-                                    {project.outcome}
-                                </p>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
 };
 
-const SplitProject = ({ project, index }: { project: PortfolioItem; index: number }) => {
-    return (
-        <div className={`relative min-h-screen ${project.reverse ? 'lg:flex-row-reverse' : ''}`}>
-            <div className="lg:flex lg:min-h-screen">
-                {/* Sticky Visual Column */}
-                <div className={`lg:w-1/2 lg:sticky lg:top-0 lg:h-screen ${project.reverse ? 'lg:order-2' : 'lg:order-1'}`}>
-                    <motion.div
-                        className="relative h-[50vh] lg:h-full w-full"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true, margin: "-20%" }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            className="object-cover"
-                            priority={index === 0}
-                        />
-                        {/* Overlay gradient for better text readability on mobile */}
-                        <div className="absolute inset-0 bg-linear-to-b from-black/20 to-black/40 lg:hidden" />
-
-                        {/* Project title overlay on image (mobile only) */}
-                        <div className="absolute bottom-0 left-0 right-0 p-6 lg:hidden">
-                            <h3 className="text-3xl font-red-hat-display font-bold text-white mb-2">
-                                {project.title}
-                            </h3>
-                            <p className="text-white/90 text-sm">
-                                {project.description}
-                            </p>
-                        </div>
-                    </motion.div>
-                </div>
-
-                {/* Scrolling Content Column */}
-                <div className={`lg:w-1/2 bg-white ${project.reverse ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className="lg:min-h-screen flex flex-col">
-                        {/* Project Header (Desktop only) */}
-                        <motion.div
-                            className="hidden lg:block p-12 xl:p-16 border-b border-gray-200"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-10%" }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <h3 className="text-4xl xl:text-5xl font-red-hat-display font-black text-gray-900 mb-3">
-                                {project.title}
-                            </h3>
-                            <p className="text-lg text-primary font-semibold">
-                                {project.description}
-                            </p>
-                        </motion.div>
-
-                        {/* Content Blocks */}
-                        <div className="flex-1">
-                            {/* Block 1: The Challenge */}
-                            <motion.div
-                                className="p-8 lg:p-12 xl:p-16 min-h-[40vh] lg:min-h-[50vh] flex flex-col justify-center border-b border-gray-100"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-20%" }}
-                                transition={{ duration: 0.6, delay: 0.1 }}
-                            >
-                                <div className="flex items-center mb-4">
-                                    <div className="w-3 h-3 rounded-full bg-secondary mr-4"></div>
-                                    <h4 className="text-2xl lg:text-3xl font-red-hat-display font-bold text-gray-900">
-                                        The Challenge
-                                    </h4>
-                                </div>
-                                <p className="text-gray-600 text-lg leading-relaxed pl-7">
-                                    {project.challenge}
-                                </p>
-                            </motion.div>
-
-                            {/* Block 2: The Product/Solution */}
-                            <motion.div
-                                className="p-8 lg:p-12 xl:p-16 min-h-[40vh] lg:min-h-[50vh] flex flex-col justify-center border-b border-gray-100 bg-gray-50/50"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-20%" }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                            >
-                                <div className="flex items-center mb-4">
-                                    <div className="w-3 h-3 rounded-full bg-primary mr-4"></div>
-                                    <h4 className="text-2xl lg:text-3xl font-red-hat-display font-bold text-gray-900">
-                                        The Product
-                                    </h4>
-                                </div>
-                                <p className="text-gray-600 text-lg leading-relaxed pl-7">
-                                    {project.product}
-                                </p>
-                            </motion.div>
-
-                            {/* Block 3: The Outcome */}
-                            <motion.div
-                                className="p-8 lg:p-12 xl:p-16 min-h-[40vh] lg:min-h-[50vh] flex flex-col justify-center"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-20%" }}
-                                transition={{ duration: 0.6, delay: 0.3 }}
-                            >
-                                <div className="flex items-center mb-4">
-                                    <div className="w-3 h-3 rounded-full bg-primary mr-4"></div>
-                                    <h4 className="text-2xl lg:text-3xl font-red-hat-display font-bold text-gray-900">
-                                        The Outcome
-                                    </h4>
-                                </div>
-                                <p className="text-gray-600 text-lg leading-relaxed pl-7">
-                                    {project.outcome}
-                                </p>
-                            </motion.div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6 }
+    }
 };
 
 export const PortfolioGrid = () => {
     return (
-        <section id="portfolio" className="bg-gray-50">
-            {/* Section Header */}
-            <div className="py-16 lg:py-24 px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center max-w-4xl mx-auto"
-                >
-                    <h2 className="text-4xl text-gray-900 md:text-5xl lg:text-6xl font-red-hat-display font-black text-foreground mb-4">
-                        Our <span className="text-primary">Portfolio</span>
-                    </h2>
-                    <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
-                        Explore our successful projects and see how we've transformed ideas into powerful digital solutions.
-                        Scroll through each story to discover the challenge, our approach, and the results.
-                    </p>
-                </motion.div>
-            </div>
+        <section className="relative py-24 px-6 overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[128px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[128px] pointer-events-none" />
 
-            {/* Projects */}
-            <div className="bg-white">
-                {portfolioItems.map((project, index) => (
-                    <div key={index}>
-<div className="block lg:hidden min-[1920px]:!block">
-    <StackedProject project={project} index={index} />
-</div>
-<div className="hidden lg:block min-[1920px]:!hidden">
-    <SplitProject project={project} index={index} />
-</div>
-                    </div>
-                ))}
+            <div className="max-w-7xl mx-auto relative z-10">
+                {/* Header */}
+                <div className="text-center max-w-3xl mx-auto mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6"
+                    >
+                        <span className="w-2 h-2 rounded-full bg-secondary mr-2 animate-pulse"></span>
+                        <span className="text-xs font-semibold tracking-wide text-white/80 uppercase">
+                            Case Studies
+                        </span>
+                    </motion.div>
+
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6"
+                    >
+                        Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Impact</span>
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="text-lg text-muted-foreground leading-relaxed"
+                    >
+                        Explore how we translate complex challenges into elegant, high-performance digital solutions for industry leaders.
+                    </motion.p>
+                </div>
+
+                {/* Grid */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10"
+                >
+                    {portfolioItems.map((project, index) => (
+                        <motion.div
+                            key={index}
+                            variants={itemVariants}
+                            className="group relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-primary/50 transition-colors duration-500"
+                        >
+                            {/* Image Container */}
+                            <div className="relative h-[300px] lg:h-[400px] w-full overflow-hidden">
+                                <Image
+                                    src={project.images[0]}
+                                    alt={project.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/40 to-transparent opacity-80" />
+
+                                {/* Top Right Arrow */}
+                                <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                    <ArrowUpRight size={20} />
+                                </div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="relative p-8 -mt-20">
+                                <div className="flex flex-wrap gap-2 mb-4">
+                                    <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-semibold border border-primary/20">
+                                        {project.category}
+                                    </span>
+                                    {project.tags.map(tag => (
+                                        <span key={tag} className="px-3 py-1 rounded-full bg-white/5 text-white/70 text-xs border border-white/5">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <h3 className="text-3xl font-display font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                                    {project.title}
+                                </h3>
+                                <p className="text-white/60 mb-6 text-sm lg:text-base line-clamp-2 group-hover:line-clamp-none transition-all">
+                                    {project.challenge}
+                                </p>
+
+                                <div className="space-y-4 pt-4 border-t border-white/10">
+                                    <div>
+                                        <p className="text-xs text-secondary font-semibold uppercase tracking-wider mb-1">Impact</p>
+                                        <p className="text-white/90 text-sm">{project.outcome}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
             </div>
         </section>
     );

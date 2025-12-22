@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 
 const ContactDetails = () => {
     return (
-        <section className="bg-secondary py-24 px-4 text-white">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-start">
+        <section className="bg-background py-20 px-4 text-white border-t border-white/5">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
                 {/* Left Side - Headings */}
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
@@ -15,28 +16,27 @@ const ContactDetails = () => {
                     transition={{ duration: 0.6 }}
                     className="space-y-4"
                 >
-                    <span className="text-base font-medium opacity-90">Contact Info</span>
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight font-red-hat-display">
-                        We are always happy <br className="hidden md:block" />
-                        to assist you
+                    <span className="text-primary text-sm font-semibold tracking-wider uppercase">Contact Info</span>
+                    <h2 className="text-3xl md:text-5xl lg:text-5xl font-bold leading-tight font-display">
+                        We are here <br />
+                        to help you scale.
                     </h2>
                 </motion.div>
 
                 {/* Right Side - Details */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-8 pt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Email Column */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="space-y-4"
+                        className="space-y-3 p-6 glass-card rounded-2xl border-l-4 border-l-primary"
                     >
-                        <h3 className="text-xl font-semibold">Email Address</h3>
-                        <div className="w-8 h-0.5 bg-white/80"></div>
+                        <h3 className="text-lg font-semibold text-white/90">Email Address</h3>
                         <a
                             href="mailto:support@achtrex.com"
-                            className="block text-lg hover:opacity-80 transition-opacity"
+                            className="block text-base hover:text-primary transition-colors text-muted-foreground"
                         >
                             support@achtrex.com
                         </a>
@@ -48,13 +48,12 @@ const ContactDetails = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="space-y-4"
+                        className="space-y-3 p-6 glass-card rounded-2xl border-l-4 border-l-secondary"
                     >
-                        <h3 className="text-xl font-semibold">Number</h3>
-                        <div className="w-8 h-0.5 bg-white/80"></div>
-                        <div className="space-y-1 text-lg">
-                            <p>Ghana +233 500 496700</p>
-                            <p>USA +1 973 385 1305</p>
+                        <h3 className="text-lg font-semibold text-white/90">Phone Numbers</h3>
+                        <div className="space-y-1 text-base text-muted-foreground">
+                            <p className="hover:text-white transition-colors">GH +233 500 496700</p>
+                            <p className="hover:text-white transition-colors">US +1 973 385 1305</p>
                         </div>
                     </motion.div>
                 </div>

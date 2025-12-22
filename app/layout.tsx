@@ -19,9 +19,9 @@ const redHatDisplay = Red_Hat_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Achtrex | Building Digital Products That Matter",
-  description: "Achtrex partners with you to design, build, and scale digital products users love. We specialize in human-centered design, tech-forward innovation, and global ambition.",
-  keywords: ["Achtrex", "Digital Products", "Software Development", "Web Design", "Mobile Apps", "Tech Innovation", "Africa Tech", "Global Tech"],
+  title: "Achtrex | Future-Forward Digital Product Studio",
+  description: "Achtrex is a premium digital product studio building the future of technology. We design, engineer, and scale world-class software.",
+  keywords: ["Achtrex", "Digital Products", "Software Engineering", "Tech Innovation", "Global Tech Studio"],
   authors: [{ name: "Achtrex Team" }],
   creator: "Achtrex",
   icons: {
@@ -32,34 +32,20 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
   openGraph: {
-    title: "Achtrex | Building Digital Products That Matter",
-    description: "Achtrex partners with you to design, build, and scale digital products users love.",
+    title: "Achtrex | Future-Forward Digital Product Studio",
+    description: "Achtrex is a premium digital product studio building the future of technology.",
     url: "https://achtrex.com",
     siteName: "Achtrex",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/logo.png",
-        width: 800,
-        height: 600,
-        alt: "Achtrex Logo",
-      },
-    ],
+    images: ["/logo.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Achtrex | Building Digital Products That Matter",
-    description: "Achtrex partners with you to design, build, and scale digital products users love.",
+    title: "Achtrex | Future-Forward Digital Product Studio",
+    description: "Achtrex is a premium digital product studio building the future of technology.",
     images: ["/logo.png"],
     creator: "@achtrex",
   },
@@ -72,9 +58,9 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${manrope.variable} bg-gray-50 ${montserrat.variable} ${redHatDisplay.variable} antialiased`}
+        className={`${manrope.variable} bg-background text-foreground ${montserrat.variable} ${redHatDisplay.variable} antialiased selection:bg-primary selection:text-white`}
       >
         <ToastProvider>
           {children}
