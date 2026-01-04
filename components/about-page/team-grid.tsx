@@ -28,6 +28,7 @@ export const TeamGrid = ({ members }: { members: any[] }) => {
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                priority={index < 4}
                             />
 
                             {/* Socials Overlay (Slide Up) */}
