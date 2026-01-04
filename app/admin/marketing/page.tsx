@@ -42,7 +42,10 @@ export default async function MarketingPage() {
                             </div>
                         </div>
 
-                        <form action={sendCampaign} className="space-y-4">
+                        <form action={async (formData) => {
+                            'use server';
+                            await sendCampaign(formData);
+                        }} className="space-y-4">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
                                 <input name="subject" required className="w-full p-3 border border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all" placeholder="e.g. New Features Out Now!" />
