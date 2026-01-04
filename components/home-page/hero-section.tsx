@@ -106,64 +106,64 @@ export const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.6 }}
-                        className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-5 md:p-6 relative"
+                        className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl p-4 relative mx-auto max-w-sm lg:max-w-full"
                     >
-                        <div className="text-center mb-4">
-                            <h3 className="text-xl md:text-2xl font-bold text-white">Let's connect to help you and your team.</h3>
+                        <div className="text-center mb-3">
+                            <h3 className="text-lg font-bold text-white">Let's connect.</h3>
                         </div>
 
-                        <form className="space-y-3" action={handleSubmit}>
-                            <div className="grid grid-cols-2 gap-3">
+                        <form className="space-y-2" action={handleSubmit}>
+                            <div className="grid grid-cols-2 gap-2">
                                 <div className="col-span-2 md:col-span-1">
-                                    <label htmlFor="hero-name" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Name</label>
-                                    <input id="hero-name" name="name" type="text" autoComplete="name" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="John Doe" required />
+                                    <label htmlFor="hero-name" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Name</label>
+                                    <input id="hero-name" name="name" type="text" autoComplete="name" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-xs" placeholder="John Doe" required />
                                 </div>
                                 <div className="col-span-2 md:col-span-1">
-                                    <label htmlFor="hero-phone" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Phone</label>
-                                    <input id="hero-phone" name="phone" type="tel" autoComplete="tel" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="+1 234 567 890" />
+                                    <label htmlFor="hero-phone" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Phone</label>
+                                    <input id="hero-phone" name="phone" type="tel" autoComplete="tel" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-xs" placeholder="+1 234..." />
                                 </div>
                             </div>
 
                             <div>
-                                <label htmlFor="hero-email" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Work Email</label>
-                                <input id="hero-email" name="email" type="email" autoComplete="email" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="john@company.com" required />
+                                <label htmlFor="hero-email" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Work Email</label>
+                                <input id="hero-email" name="email" type="email" autoComplete="email" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-xs" placeholder="john@company.com" required />
                             </div>
 
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-2 gap-2">
                                 <div className="col-span-2 md:col-span-1">
-                                    <label htmlFor="hero-company" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Company</label>
-                                    <input id="hero-company" name="company" type="text" autoComplete="organization" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="Company Inc." />
+                                    <label htmlFor="hero-company" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Company</label>
+                                    <input id="hero-company" name="company" type="text" autoComplete="organization" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-xs" placeholder="Acme Inc" />
                                 </div>
                                 <div className="col-span-2 md:col-span-1">
-                                    <label htmlFor="hero-service" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Service</label>
-                                    <select id="hero-service" name="service" autoComplete="off" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white text-sm appearance-none">
+                                    <label htmlFor="hero-service" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Service</label>
+                                    <select id="hero-service" name="service" autoComplete="off" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white text-xs appearance-none">
                                         <option value="" className="bg-slate-900 text-zinc-500">Select...</option>
-                                        <option value="Software Dev" className="bg-slate-900">Software Dev</option>
-                                        <option value="Mobile App" className="bg-slate-900">Mobile App</option>
-                                        <option value="Web Dev" className="bg-slate-900">Web Dev</option>
+                                        <option value="Software" className="bg-slate-900">Software</option>
+                                        <option value="Mobile" className="bg-slate-900">Mobile</option>
+                                        <option value="Web" className="bg-slate-900">Web</option>
                                         <option value="Consulting" className="bg-slate-900">Consulting</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div>
-                                <label htmlFor="hero-message" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">How can we help?</label>
-                                <textarea id="hero-message" name="message" autoComplete="off" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all resize-none h-20 text-white placeholder-zinc-500 text-sm" placeholder="Tell us about your project..." required />
+                                <label htmlFor="hero-message" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Datails</label>
+                                <textarea id="hero-message" name="message" autoComplete="off" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all resize-none h-12 text-white placeholder-zinc-500 text-xs" placeholder="Project info..." required />
                             </div>
 
-                            <Button disabled={isSubmitting} className="w-full bg-primary hover:bg-cyan-600 text-white py-3 rounded-lg font-bold text-base shadow-lg shadow-primary/30 transition-all hover:scale-[1.02] active:scale-[0.98]">
-                                {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin mx-auto" /> : 'Jump-start Your Project'}
+                            <Button disabled={isSubmitting} className="w-full bg-primary hover:bg-cyan-600 text-white py-2 rounded-md font-bold text-sm shadow-lg shadow-primary/30 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                                {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : 'Get Started'}
                             </Button>
 
-                            <p className="text-center text-xs text-zinc-500 mt-3">
-                                By clicking, you agree to our Terms & Privacy Policy.
+                            <p className="text-center text-[10px] text-zinc-500 mt-2">
+                                Term & Privacy apply.
                             </p>
                         </form>
                     </motion.div>
 
                     {/* Decorative Elements around form */}
-                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10" />
-                    <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-secondary/20 rounded-full blur-2xl -z-10" />
+                    <div className="absolute -top-10 -right-10 w-24 h-24 bg-primary/20 rounded-full blur-2xl -z-10" />
+                    <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-secondary/20 rounded-full blur-2xl -z-10" />
                 </div>
             </div>
 
