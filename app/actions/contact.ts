@@ -30,19 +30,14 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
     // 2. Send Emails via Nodemailer (Gmail/SMTP)
     // This solves the issue of "free tier" restrictions. Gmail allows sending to anyone.
     try {
-        const smtpEmail = process.env.SMTP_EMAIL;
-        const smtpPassword = process.env.SMTP_PASSWORD;
-
-        if (!smtpEmail || !smtpPassword) {
-            console.warn("⚠️ SMTP credentials missing. Skipping email. Set SMTP_EMAIL and SMTP_PASSWORD in .env");
-            return { success: true }; // Return success to UI even if server config is missing
-        }
+        const smtpEmail = 'support@achtrex.com';
+        const smtpPassword = 'iygw lvjk zagq dcwr';
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: smtpEmail,
-                pass: smtpPassword // App Password, not login password
+                pass: smtpPassword
             }
         });
 
