@@ -2,15 +2,9 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
-import { createClient } from '@/utilities/supabase/server';
-
-const StatsCards = async () => {
-    const supabase = await createClient();
-    
-    // Fetch team count
-    const { count: teamCount } = await supabase
-        .from('teams')
-        .select('*', { count: 'exact', head: true });
+const StatsCards = () => {
+    // Mock data for now since we removed Supabase
+    const teamCount = 12; // Placeholder
 
     const stats = [
         {

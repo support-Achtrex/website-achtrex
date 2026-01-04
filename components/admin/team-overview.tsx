@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { createClient } from '@/utilities/supabase/server';
+
 
 interface TeamMember {
     id: string;
@@ -11,13 +11,11 @@ interface TeamMember {
 }
 
 const TeamOverview = async () => {
-    const supabase = await createClient();
-    
-    const { data: teamMembers } = await supabase
-        .from('teams')
-        .select('*')
-        .order('created_at', { ascending: true })
-        .limit(4);
+    // Mock data for now since we removed Supabase
+    const teamMembers: TeamMember[] = [
+        { id: '1', name: 'Achim Godwin', email: 'achim@achtrex.com', role: 'CEO', image: null },
+        { id: '2', name: 'Support', email: 'support@achtrex.com', role: 'Support', image: null },
+    ];
 
     return (
         <div className="rounded-3xl p-px bg-linear-to-br from-gray-200 to-gray-50">
