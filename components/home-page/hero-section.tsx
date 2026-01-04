@@ -4,116 +4,131 @@ import React from 'react';
 import { Button } from '@/components/buttons';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { Code2, Smartphone, Globe, Cloud, Shield, Sparkles, Zap, Activity } from 'lucide-react';
+import { Mail, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
 export const Hero = () => {
     const router = useRouter();
 
     return (
-        <section id="home" className="relative min-h-[100vh] flex items-center pt-20 overflow-hidden bg-[#030014]">
-            {/* 1. Ultra-Dark Deep Space Background */}
+        <section id="home" className="relative min-h-[90vh] flex items-center pt-24 pb-32 overflow-hidden bg-slate-900">
+            {/* Background Image with Gradient Overlay */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-[#030014] via-[#090024] to-[#030014] opacity-100" />
-
-                {/* 2. Cyberpunk Grid Floor */}
-                <div className="absolute bottom-0 left-0 right-0 h-[600px] bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:linear-gradient(to_top,theme(colors.background),transparent)] opacity-20 pointer-events-none transform perspective-[2000px] rotate-x-[60deg]" style={{ transform: 'perspective(1000px) rotateX(60deg) translateY(200px) scale(2)' }} />
-
-                {/* 3. Glowing Nebula Effects */}
-                <div className="absolute top-[-20%] left-[20%] w-[600px] h-[600px] bg-primary/30 rounded-full blur-[150px] mix-blend-screen animate-pulse-slow pointer-events-none" />
-                <div className="absolute bottom-[-10%] right-[10%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none" />
+                <Image
+                    src="/hero-bg-tech.png" // Using existing asset as base
+                    alt="Background"
+                    fill
+                    className="object-cover opacity-40 mix-blend-overlay"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/95 to-slate-900/50" />
             </div>
 
-            <div className="container relative mx-auto px-6 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Left Content - Typography & CTA */}
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-left relative z-20"
-                >
+            <div className="container relative mx-auto px-6 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                {/* Left Content - Text */}
+                <div className="lg:col-span-7 text-left pt-10">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/50 bg-primary/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+                        className="mb-6 flex items-center gap-2"
                     >
-                        <span className="relative flex h-3 w-3">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                        <span className="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase">
+                            Top Rated Development Team
                         </span>
-                        <span className="text-primary-foreground text-xs font-bold uppercase tracking-[0.2em] drop-shadow-md">Bold Ideas. Global Impact.</span>
                     </motion.div>
 
                     <motion.h1
-                        className="text-6xl md:text-8xl font-display font-black leading-[1.1] mb-8 text-white tracking-tight"
-                        initial={{ opacity: 0, y: 30 }}
+                        className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 text-white"
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                     >
                         Empowering Digital <br />
-                        <span className="relative inline-block">
-                            <span className="absolute -inset-2 bg-gradient-to-r from-primary to-purple-600 blur-2xl opacity-50" />
-                            <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x">
-                                Transformation
-                            </span>
-                        </span>
+                        <span className="text-primary">Transformation.</span>
                     </motion.h1>
-
-                    <div className="text-2xl md:text-3xl text-white font-light mb-10 flex items-center gap-3">
-                        Let's Go The
-                        <span className="relative font-bold text-white px-2">
-                            Extra Mile
-                            <svg className="absolute w-full h-3 -bottom-1 left-0 text-primary" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="4" fill="none" />
-                            </svg>
-                        </span>
-                    </div>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed mb-12 border-l-4 border-primary/50 pl-6"
+                        className="text-lg md:text-xl text-slate-300 max-w-xl leading-relaxed mb-8"
                     >
-                        We convert your complex challenges into revenue-generating digital assets. Specializing in high-performance <strong className="text-white">Custom Software</strong>, scalable <strong className="text-white">Web & Mobile Apps</strong>, and strategic <strong className="text-white">IT Consulting</strong>.
+                        We convert your complex challenges into revenue-generating digital assets. Specializing in high-performance Custom Software, scalable Web & Mobile Apps, and strategic IT Consulting.
                     </motion.p>
 
-                    {/* Bold CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-5">
-                        <Button
-                            onClick={() => router.push('/contact-us')}
-                            className="group relative bg-white text-black hover:bg-gray-100 px-10 py-7 rounded-sm text-lg font-bold tracking-wide transition-all duration-300 overflow-hidden"
-                        >
-                            <span className="relative z-10 flex items-center gap-2">
-                                Get Started Today <Zap size={20} className="group-hover:fill-black text-black" />
-                            </span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-10 transition-opacity" />
-                        </Button>
-                        <Button
-                            onClick={() => router.push('/portfolio')}
-                            variant="outline"
-                            className="border border-white/20 text-white px-10 py-7 rounded-sm text-lg font-bold hover:bg-white/10 backdrop-blur-sm transition-all"
-                        >
-                            View Our Work
-                        </Button>
+                    <div className="flex flex-wrap gap-4 text-slate-400 text-sm font-medium">
+                        <div className="flex items-center gap-2">
+                            <CheckCircle2 className="text-primary w-5 h-5" />
+                            <span>Top 1% Talent</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <CheckCircle2 className="text-primary w-5 h-5" />
+                            <span>Timezone Aligned</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <CheckCircle2 className="text-primary w-5 h-5" />
+                            <span>Enterprise Grade Security</span>
+                        </div>
                     </div>
-                </motion.div>
-
-                {/* Right Content - Abstract Tech Visualization - REMOVED per user request for a cleaner look */}
-                <div className="relative h-[800px] w-full hidden lg:block perspective-[1000px] pointer-events-none">
-                    {/* Subtle Background Elements Only */}
-                    <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                        className="absolute right-[0px] top-[20%] w-[600px] h-[600px] border border-white/5 rounded-full z-0 border-dashed opacity-50"
-                    />
-                    <motion.div
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                        className="absolute right-[50px] top-[30%] w-[400px] h-[400px] border border-primary/10 rounded-full z-0 opacity-50"
-                    />
                 </div>
+
+                {/* Right Content - Lead Form */}
+                <div className="lg:col-span-5 relative">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.6 }}
+                        className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 relative z-20"
+                    >
+                        <div className="text-center mb-6">
+                            <h3 className="text-2xl font-bold text-slate-900">Let's connect to help you and your team.</h3>
+                        </div>
+
+                        <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="col-span-2 md:col-span-1">
+                                    <label className="block text-xs font-semibold text-slate-500 mb-1 uppercase">Name</label>
+                                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-slate-900" placeholder="John Doe" />
+                                </div>
+                                <div className="col-span-2 md:col-span-1">
+                                    <label className="block text-xs font-semibold text-slate-500 mb-1 uppercase">Company</label>
+                                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-slate-900" placeholder="Company Inc." />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-semibold text-slate-500 mb-1 uppercase">Work Email</label>
+                                <input type="email" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-slate-900" placeholder="john@company.com" />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-semibold text-slate-500 mb-1 uppercase">How can we help?</label>
+                                <textarea className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none h-24 text-slate-900" placeholder="Tell us about your project..." />
+                            </div>
+
+                            <Button className="w-full bg-[#ff5722] hover:bg-[#f4511e] text-white py-4 rounded-lg font-bold text-lg shadow-lg transition-transform active:scale-[0.98]">
+                                Jump-start Your Project
+                            </Button>
+
+                            <p className="text-center text-xs text-slate-400 mt-4">
+                                By clicking, you agree to our Terms & Privacy Policy.
+                            </p>
+                        </form>
+                    </motion.div>
+
+                    {/* Decorative Elements around form */}
+                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10" />
+                    <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-secondary/20 rounded-full blur-2xl -z-10" />
+                </div>
+            </div>
+
+            {/* Bottom Curve Wave */}
+            <div className="absolute bottom-0 left-0 w-full leading-none z-20">
+                <svg className="w-full h-12 md:h-24 text-background" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                    <path fill="currentColor" d="M0,0 C480,120 960,120 1440,0 L1440,100 L0,100 Z" />
+                </svg>
             </div>
         </section>
     );
