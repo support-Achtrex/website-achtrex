@@ -8,7 +8,8 @@ export async function addTeamMember(formData: FormData) {
     const role = formData.get('role') as string;
     const bio = formData.get('bio') as string;
     const email = formData.get('email') as string;
-    const image = '/team/placeholder-user.jpg'; // Pending real file upload implementation
+    // Allow user to provide an image path, default to placeholder if empty
+    const image = (formData.get('image') as string) || '/team/placeholder-user.jpg';
 
     await sql`
         INSERT INTO team_members (name, role, bio, email, image)

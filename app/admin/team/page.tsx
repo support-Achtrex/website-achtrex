@@ -31,7 +31,8 @@ export default async function TeamPage() {
                     <input name="name" placeholder="Full Name" required className="p-3 border rounded-xl" />
                     <input name="role" placeholder="Role (e.g. CEO)" required className="p-3 border rounded-xl" />
                     <input name="email" placeholder="Email" required className="p-3 border rounded-xl" />
-                    <input name="bio" placeholder="Short Bio" className="p-3 border rounded-xl" />
+                    <input name="image" placeholder="Image Path (e.g. /team/name.jpg)" className="p-3 border rounded-xl" />
+                    <textarea name="bio" placeholder="Short Bio" className="p-3 border rounded-xl md:col-span-2 h-24 resize-none" />
                     <div className="md:col-span-2">
                         <button type="submit" className="bg-primary text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors">
                             <Plus size={18} /> Add Member
