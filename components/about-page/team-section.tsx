@@ -2,6 +2,80 @@ import React from 'react';
 import { sql } from '@vercel/postgres';
 import { TeamGrid } from './team-grid';
 
+// Fallback data in case DB is empty or not initialized
+const FALLBACK_TEAM = [
+    {
+        id: 1,
+        name: 'Achim Godwin Tetteh',
+        role: 'CEO & Operations Project Manager',
+        image: '/team/achim_real.jpg',
+        bio: 'Leading the vision and operations at Achtrex, driving innovation in digital product development.',
+        linkedin: '#',
+        twitter: '#',
+        email: 'achim@achtrex.com'
+    },
+    {
+        id: 2,
+        name: 'Dr. Emmanuella Yeboah-Appiah',
+        role: 'CFO',
+        image: '/team/emmanuella_v2.jpg',
+        bio: 'Steering the financial strategy and ensuring sustainable growth for our global operations.',
+        linkedin: '#',
+        twitter: '#',
+        email: 'emmanuella@achtrex.com'
+    },
+    {
+        id: 3,
+        name: 'Kojo Thompson',
+        role: 'SEO & ASO',
+        image: '/team/kojo_real.png',
+        bio: 'Optimizing digital presence and driving organic growth through advanced search strategies.',
+        linkedin: '#',
+        twitter: '#',
+        email: 'kojo@achtrex.com'
+    },
+    {
+        id: 4,
+        name: 'Junior Achim',
+        role: 'Business Analyst and QA',
+        image: '/team/junior_real.jpg',
+        bio: 'Ensuring product quality and aligning business strategies with technical execution.',
+        linkedin: '#',
+        twitter: '#',
+        email: 'junior@achtrex.com'
+    },
+    {
+        id: 5,
+        name: 'Rashid Ahmed',
+        role: 'Backend Developer',
+        image: '/team/rashid.png',
+        bio: 'Architecting scalable server-side solutions and robust APIs that power our high-performance applications.',
+        linkedin: '#',
+        twitter: '#',
+        email: 'rashid@achtrex.com'
+    },
+    {
+        id: 6,
+        name: 'Kelvin Davis',
+        role: 'Software Engineer',
+        image: '/team/kelvin-davis.png',
+        bio: 'Building robust, scalable software solutions with a focus on code quality and performance optimization.',
+        linkedin: '#',
+        twitter: '#',
+        email: 'kelvin@achtrex.com'
+    },
+    {
+        id: 7,
+        name: 'Dede Davis',
+        role: 'DevOps Engineer',
+        image: '/team/dede_v2.jpg',
+        bio: 'Streamlining deployment pipelines and ensuring maximum system reliability and uptime.',
+        linkedin: '#',
+        twitter: '#',
+        email: 'dede@achtrex.com'
+    }
+];
+
 export const TeamSection = async () => {
     let teamMembers: any[] = [];
 
@@ -10,6 +84,12 @@ export const TeamSection = async () => {
         teamMembers = rows;
     } catch (error) {
         console.error("Failed to fetch team members:", error);
+    }
+
+    // Use fallback if DB is empty
+    if (!teamMembers || teamMembers.length === 0) {
+        console.log("Using fallback team data due to empty DB");
+        teamMembers = FALLBACK_TEAM;
     }
 
     return (

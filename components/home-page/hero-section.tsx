@@ -100,64 +100,18 @@ export const Hero = () => {
                     </div>
                 </motion.div>
 
-                {/* Right Content - Abstract Tech Visualization */}
-                <div className="relative h-[800px] w-full hidden lg:block perspective-[1000px]">
-                    {/* Floating Code Cubes */}
-                    <motion.div
-                        animate={{ y: [-20, 20, -20], rotateY: [0, 10, 0] }}
-                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[600px] bg-gradient-to-tr from-gray-900/90 to-black/90 border border-white/10 backdrop-blur-xl rounded-3xl p-6 shadow-2xl z-20 flex flex-col gap-6"
-                    >
-                        <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                            <div className="flex gap-2">
-                                <div className="w-3 h-3 rounded-full bg-red-500" />
-                                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                                <div className="w-3 h-3 rounded-full bg-green-500" />
-                            </div>
-                            <div className="text-xs font-mono text-gray-500">server_status: <span className="text-green-400">online</span></div>
-                        </div>
-
-                        {/* Animated Data Streams */}
-                        <div className="flex-1 space-y-3 font-mono text-sm overflow-hidden relative">
-                            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 z-10" />
-                            {[...Array(10)].map((_, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: [0, 1, 0.5], x: 0 }}
-                                    transition={{ delay: i * 0.2, duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                                    className="flex items-center gap-3 text-gray-400"
-                                >
-                                    <span className="text-primary">{'>'}</span>
-                                    <span className="text-purple-400">deploying</span>
-                                    <span className="text-white">module_{100 + i}</span>
-                                    <span className="text-green-500 ml-auto text-xs">[SUCCESS]</span>
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        {/* Interactive Widget */}
-                        <div className="bg-white/5 rounded-xl p-4 border border-white/5 flex items-center gap-4">
-                            <div className="h-12 w-12 rounded-full bg-blue-500/20 flex items-center justify-center">
-                                <Activity className="text-blue-400 animate-pulse" />
-                            </div>
-                            <div>
-                                <div className="text-xl font-bold text-white">99.9%</div>
-                                <div className="text-xs text-gray-400 uppercase tracking-wider">System Uptime</div>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Background Elements */}
+                {/* Right Content - Abstract Tech Visualization - REMOVED per user request for a cleaner look */}
+                <div className="relative h-[800px] w-full hidden lg:block perspective-[1000px] pointer-events-none">
+                    {/* Subtle Background Elements Only */}
                     <motion.div
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                        className="absolute right-[-50px] top-[20%] w-[600px] h-[600px] border border-white/5 rounded-full z-0 border-dashed"
+                        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                        className="absolute right-[0px] top-[20%] w-[600px] h-[600px] border border-white/5 rounded-full z-0 border-dashed opacity-50"
                     />
                     <motion.div
                         animate={{ rotate: -360 }}
-                        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                        className="absolute right-[50px] top-[30%] w-[400px] h-[400px] border border-primary/20 rounded-full z-0"
+                        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                        className="absolute right-[50px] top-[30%] w-[400px] h-[400px] border border-primary/10 rounded-full z-0 opacity-50"
                     />
                 </div>
             </div>
