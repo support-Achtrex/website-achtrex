@@ -17,6 +17,24 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
         }
 
+        // Save to Local DB
+        try {
+            // Dynamically import to avoid build time static analysis issues in some environments
+            const { LeadsDB } = await import('@/lib/local-db');
+            LeadsDB.add({
+                name,
+                email,
+                message,
+                service,
+                budget,
+                company,
+                source
+            });
+        } catch (dbError) {
+            console.error("Failed to save lead to local DB:", dbError);
+            // Continue sending email even if DB save fails
+        }
+
         const { data, error } = await resend.emails.send({
             from: "onboarding@resend.dev",
             to: "support@achtrex.com",

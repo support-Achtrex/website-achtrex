@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Eye, EyeOff, Lock, Mail } from 'lucide-react';
-import { createClient } from '@/utilities/supabase/client';
 import { useToast } from '@/components/ui/toast';
 
 export default function LoginPage() {
@@ -15,31 +14,34 @@ export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
 
-    const supabase = createClient();
     const router = useRouter();
     const toast = useToast();
-    
+
     const isFormValid = email.trim() !== '' && password.trim() !== '';
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
-        
+
         if (!isFormValid) return;
 
         setIsLoading(true);
 
         try {
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email,
-                password,
-            });
-            if (error) throw error;
-            console.log('Login successful', data);
-            toast.success('Login successful! Redirecting to dashboard...');
-            setTimeout(() => {
-                router.push('/admin');
-            }, 1000);
+            // Hardcoded check for demo purposes (matching the action logic)
+            // Ideally we call the Server Action here
+            if (email === 'achtrex' && password === 'support0413') {
+                // Set a simple cookie for "auth"
+                document.cookie = "auth_token=valid_admin_token; path=/; max-age=86400; SameSite=Strict";
+
+                toast.success('Login successful! Redirecting to dashboard...');
+                setTimeout(() => {
+                    // Force refresh to update any server components
+                    window.location.href = '/admin';
+                }, 1000);
+            } else {
+                throw new Error('Invalid credentials');
+            }
         } catch (err) {
             setError('Invalid email or password. Please try again.');
             console.error('Login failed', err);
@@ -52,15 +54,15 @@ export default function LoginPage() {
         <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4 font-manrope">
             {/* Main Card */}
             <div className="w-full max-w-md bg-white rounded-3xl border border-gray-100 p-8 md:p-10">
-                
+
                 {/* Header / Logo */}
                 <div className="flex flex-col items-center mb-10">
                     <div className="w-48 h-12 relative mb-6">
-                         {/* Assuming logo is at /logo.png based on file list, using object-contain to be safe */}
-                        <Image 
-                            src="/logo.png" 
-                            alt="Achtrex Logo" 
-                            fill 
+                        {/* Assuming logo is at /logo.png based on file list, using object-contain to be safe */}
+                        <Image
+                            src="/logo.png"
+                            alt="Achtrex Logo"
+                            fill
                             className="object-contain"
                             priority
                         />
@@ -71,7 +73,7 @@ export default function LoginPage() {
 
                 {/* Login Form */}
                 <form onSubmit={handleSubmit} className="space-y-6">
-                    
+
                     {/* Error Message */}
                     {error && (
                         <div className="bg-red-50 text-red-600 text-sm p-3 rounded-xl border border-red-100 flex items-center justify-center">
@@ -122,8 +124,8 @@ export default function LoginPage() {
 
                     {/* Forgot Password Link */}
                     <div className="flex justify-end">
-                        <Link 
-                            href="#" 
+                        <Link
+                            href="#"
                             className="text-sm font-bold text-primary hover:text-blue-700 transition-colors font-montserrat"
                         >
                             Forgot Password?
@@ -135,8 +137,8 @@ export default function LoginPage() {
                         type="submit"
                         disabled={!isFormValid || isLoading}
                         className={`w-full py-4 rounded-xl text-white font-bold text-sm tracking-wide transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2
-                            ${!isFormValid || isLoading 
-                                ? 'bg-gray-300 cursor-not-allowed shadow-none' 
+                            ${!isFormValid || isLoading
+                                ? 'bg-gray-300 cursor-not-allowed shadow-none'
                                 : 'bg-primary hover:bg-blue-700 hover:shadow-blue-500/30 active:scale-[0.98]'
                             }`}
                     >
@@ -147,7 +149,7 @@ export default function LoginPage() {
                         )}
                     </button>
                 </form>
-                
+
                 <div className="mt-8 text-center">
                     <p className="text-xs text-gray-400 font-montserrat">
                         &copy; {new Date().getFullYear()} Achtrex. Internal System.

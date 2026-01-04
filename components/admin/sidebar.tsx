@@ -16,17 +16,16 @@ import {
 } from 'lucide-react';
 
 import Image from 'next/image';
-import { createClient } from '@/utilities/supabase/client';
 import { useToast } from '@/components/ui/toast';
 
 const AdminSidebar = () => {
     const pathname = usePathname();
     const router = useRouter();
-    const supabase = createClient();
     const toast = useToast();
 
     const handleLogout = async () => {
-        await supabase.auth.signOut();
+        // Clear auth cookie
+        document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
         toast.success('Logged out successfully');
         router.push('/login');
     };
@@ -70,6 +69,15 @@ const AdminSidebar = () => {
                             )}
                             <LayoutDashboard size={20} />
                             <span>Dashboard</span>
+                        </Link>
+                        <Link href="/admin/leads" className={getLinkClass('/admin/leads')}>
+                            {isActive('/admin/leads') && (
+                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
+                            )}
+                            <MessageSquare size={20} />
+                            <span className="flex-1">Inbox</span>
+                            {/* Mock count for now, could be dynamic later */}
+                            <span className={`text-[10px] px-1.5 py-0.5 rounded-md transition-opacity ${isActive('/admin/leads') ? 'bg-primary text-white opacity-100' : 'bg-gray-100 text-gray-600 opacity-0 group-hover:opacity-100'}`}>New</span>
                         </Link>
                         <Link href="/admin/blogs" className={getLinkClass('/admin/blogs')}>
                             {isActive('/admin/blogs') && (
@@ -115,7 +123,7 @@ const AdminSidebar = () => {
                             <HelpCircle size={20} />
                             <span>Help</span>
                         </Link>
-                        <button 
+                        <button
                             onClick={handleLogout}
                             className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-xl font-medium transition-colors text-left"
                         >
