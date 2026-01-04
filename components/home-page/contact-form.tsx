@@ -109,31 +109,31 @@ const ContactForm = () => {
         <form className="space-y-8" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="space-y-1 group">
-              <label className={labelClasses}>Your Name *</label>
-              <input type="text" name="name" value={formData.name} onChange={handleChange} required className={inputClasses} placeholder="John Doe" />
+              <label htmlFor="contact-name" className={labelClasses}>Your Name *</label>
+              <input id="contact-name" type="text" name="name" autoComplete="name" value={formData.name} onChange={handleChange} required className={inputClasses} placeholder="John Doe" />
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="space-y-1 group">
-              <label className={labelClasses}>Email Address *</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange} required className={inputClasses} placeholder="john@example.com" />
+              <label htmlFor="contact-email" className={labelClasses}>Email Address *</label>
+              <input id="contact-email" type="email" name="email" autoComplete="email" value={formData.email} onChange={handleChange} required className={inputClasses} placeholder="john@example.com" />
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="space-y-1 group">
-              <label className={labelClasses}>Phone Number</label>
-              <input type="tel" name="contact" value={formData.contact} onChange={handleChange} className={inputClasses} placeholder="+1 (555) 000-0000" />
+              <label htmlFor="contact-phone" className={labelClasses}>Phone Number</label>
+              <input id="contact-phone" type="tel" name="contact" autoComplete="tel" value={formData.contact} onChange={handleChange} className={inputClasses} placeholder="+1 (555) 000-0000" />
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="space-y-1 group">
-              <label className={labelClasses}>Company Name</label>
-              <input type="text" name="company" value={formData.company} onChange={handleChange} className={inputClasses} placeholder="Acme Inc." />
+              <label htmlFor="contact-company" className={labelClasses}>Company Name</label>
+              <input id="contact-company" type="text" name="company" autoComplete="organization" value={formData.company} onChange={handleChange} className={inputClasses} placeholder="Acme Inc." />
             </motion.div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="space-y-1 group relative">
-              <label className={labelClasses}>Service Interested In</label>
+              <label htmlFor="contact-service" className={labelClasses}>Service Interested In</label>
               <div className="relative">
-                <select name="service" value={formData.service} onChange={handleChange} className={inputClasses}>
+                <select id="contact-service" name="service" autoComplete="off" value={formData.service} onChange={handleChange} className={inputClasses}>
                   <option value="" disabled className="bg-black text-gray-500">Select a service</option>
                   {services.map(s => <option key={s} value={s} className="bg-[#111] text-white">{s}</option>)}
                 </select>
@@ -142,9 +142,9 @@ const ContactForm = () => {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="space-y-1 group relative">
-              <label className={labelClasses}>Budget Range</label>
+              <label htmlFor="contact-budget" className={labelClasses}>Budget Range</label>
               <div className="relative">
-                <select name="budget" value={formData.budget} onChange={handleChange} className={inputClasses}>
+                <select id="contact-budget" name="budget" autoComplete="off" value={formData.budget} onChange={handleChange} className={inputClasses}>
                   <option value="" disabled className="bg-black text-gray-500">Select budget</option>
                   {budgets.map(b => <option key={b} value={b} className="bg-[#111] text-white">{b}</option>)}
                 </select>
@@ -153,9 +153,9 @@ const ContactForm = () => {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }} className="space-y-1 group relative">
-              <label className={labelClasses}>How did you hear about us?</label>
+              <label htmlFor="contact-source" className={labelClasses}>How did you hear about us?</label>
               <div className="relative">
-                <select name="source" value={formData.source} onChange={handleChange} className={inputClasses}>
+                <select id="contact-source" name="source" autoComplete="off" value={formData.source} onChange={handleChange} className={inputClasses}>
                   <option value="" disabled className="bg-black text-gray-500">Select source</option>
                   {sources.map(s => <option key={s} value={s} className="bg-[#111] text-white">{s}</option>)}
                 </select>
@@ -171,8 +171,9 @@ const ContactForm = () => {
             transition={{ duration: 0.5, delay: 0.7 }}
             className="space-y-1 group"
           >
-            <label className={labelClasses}>Message *</label>
+            <label htmlFor="contact-message" className={labelClasses}>Message *</label>
             <textarea
+              id="contact-message"
               rows={4}
               name="message"
               value={formData.message}

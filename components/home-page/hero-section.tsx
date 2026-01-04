@@ -41,10 +41,10 @@ export const Hero = () => {
                     src="/hero-bg-team.png" // Team collaboration image
                     alt="Background"
                     fill
-                    className="object-cover opacity-40 mix-blend-overlay"
+                    className="object-cover opacity-60 mix-blend-overlay"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/95 to-slate-900/50" />
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/75 to-slate-900/20" />
             </div>
 
             <div className="container relative mx-auto px-6 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
