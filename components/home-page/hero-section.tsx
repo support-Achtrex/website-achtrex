@@ -100,18 +100,6 @@ export const Hero = () => {
                     </div>
                 </div>
 
-                {/* Hero Image (Person) - Center/Right absolute */}
-                <div className="hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[5%] z-10 w-[500px] pointer-events-none">
-                    <Image
-                        src="/team/kelvin-davis.png"
-                        alt="Expert Developer"
-                        width={500}
-                        height={600}
-                        className="object-contain drop-shadow-2xl"
-                        priority
-                    />
-                </div>
-
                 {/* Right Content - Lead Form */}
                 <div className="lg:col-span-5 relative z-30">
                     <motion.div
@@ -127,28 +115,28 @@ export const Hero = () => {
                         <form className="space-y-3" action={handleSubmit}>
                             <div className="grid grid-cols-2 gap-3">
                                 <div className="col-span-2 md:col-span-1">
-                                    <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Name</label>
-                                    <input name="name" type="text" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="John Doe" required />
+                                    <label htmlFor="hero-name" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Name</label>
+                                    <input id="hero-name" name="name" type="text" autoComplete="name" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="John Doe" required />
                                 </div>
                                 <div className="col-span-2 md:col-span-1">
-                                    <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Phone</label>
-                                    <input name="phone" type="tel" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="+1 234 567 890" />
+                                    <label htmlFor="hero-phone" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Phone</label>
+                                    <input id="hero-phone" name="phone" type="tel" autoComplete="tel" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="+1 234 567 890" />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Work Email</label>
-                                <input name="email" type="email" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="john@company.com" required />
+                                <label htmlFor="hero-email" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Work Email</label>
+                                <input id="hero-email" name="email" type="email" autoComplete="email" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="john@company.com" required />
                             </div>
 
                             <div className="grid grid-cols-2 gap-3">
                                 <div className="col-span-2 md:col-span-1">
-                                    <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Company</label>
-                                    <input name="company" type="text" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="Company Inc." />
+                                    <label htmlFor="hero-company" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Company</label>
+                                    <input id="hero-company" name="company" type="text" autoComplete="organization" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="Company Inc." />
                                 </div>
                                 <div className="col-span-2 md:col-span-1">
-                                    <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Service</label>
-                                    <select name="service" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white text-sm appearance-none">
+                                    <label htmlFor="hero-service" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Service</label>
+                                    <select id="hero-service" name="service" autoComplete="off" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white text-sm appearance-none">
                                         <option value="" className="bg-slate-900 text-zinc-500">Select...</option>
                                         <option value="Software Dev" className="bg-slate-900">Software Dev</option>
                                         <option value="Mobile App" className="bg-slate-900">Mobile App</option>
@@ -159,8 +147,8 @@ export const Hero = () => {
                             </div>
 
                             <div>
-                                <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">How can we help?</label>
-                                <textarea name="message" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all resize-none h-20 text-white placeholder-zinc-500 text-sm" placeholder="Tell us about your project..." required />
+                                <label htmlFor="hero-message" className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">How can we help?</label>
+                                <textarea id="hero-message" name="message" autoComplete="off" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all resize-none h-20 text-white placeholder-zinc-500 text-sm" placeholder="Tell us about your project..." required />
                             </div>
 
                             <Button disabled={isSubmitting} className="w-full bg-primary hover:bg-cyan-600 text-white py-3 rounded-lg font-bold text-base shadow-lg shadow-primary/30 transition-all hover:scale-[1.02] active:scale-[0.98]">
