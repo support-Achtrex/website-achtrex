@@ -18,7 +18,7 @@ export const LifeHero = () => {
                     transition={{ duration: 0.6 }}
                     className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
                 >
-                    <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Careers & Culture</span>
+                    <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Why Achtrex</span>
                 </motion.div>
 
                 <motion.h1

@@ -5,8 +5,8 @@ export const blogPosts = [
         category: 'Web Development',
         title: 'The Future of Web Development: Trends to Watch in 2025',
         author: {
-            name: 'Elvis Boahen Gyan',
-            image: '/about-us/members/elvis.jpg',
+            name: 'Achim Godwin Tetteh',
+            image: '/team/achim_real.jpg',
             date: 'November 28, 2025'
         },
         image: '/blog/blog-web-dev.png',
@@ -39,7 +39,7 @@ export const blogPosts = [
         title: 'Why UI/UX Design is Critical for Business Success',
         author: {
             name: 'Junior Achim',
-            image: '/about-us/members/jnr-achim.jpg',
+            image: '/team/junior_real.jpg',
             date: 'November 25, 2025'
         },
         image: '/blog/blog-ui-ux.png',
@@ -66,8 +66,8 @@ export const blogPosts = [
         category: 'App Development',
         title: 'Mobile App Development: Native vs. Cross-Platform',
         author: {
-            name: 'Elvis Boahen Gyan',
-            image: '/about-us/members/elvis.jpg',
+            name: 'Achim Godwin Tetteh',
+            image: '/team/achim_real.jpg',
             date: 'November 20, 2025'
         },
         image: '/blog/blog-mobile-app.png',
@@ -95,7 +95,7 @@ export const blogPosts = [
         title: 'The Role of AI in Modern Software Engineering',
         author: {
             name: 'Dede Davis',
-            image: '/about-us/members/dede.jpg',
+            image: '/team/dede_v2.jpg',
             date: 'November 15, 2025'
         },
         image: '/blog/blog-ai-tech.png',
@@ -123,16 +123,16 @@ export const blogPosts = [
         title: 'How to Choose the Right Tech Stack for Your Startup',
         author: {
             name: 'Achim Godwin Tetteh',
-            image: '/about-us/members/achim.jpg',
+            image: '/team/achim_real.jpg',
             date: 'November 10, 2025'
         },
-        image: '/blog/blog-web-dev.png', // Reusing image
+        image: '/blog/blog-web-dev.png',
         excerpt: 'Selecting the right technology stack is a critical decision for any startup. Here are the key factors to consider.',
         content: `
             <p>Choosing the right <strong>tech stack</strong> is one of the most important decisions a startup founder or CTO has to make. The right choice can accelerate development and scalability, while the wrong one can lead to technical debt and costly rewrites.</p>
             
             <h3>Define Your Requirements</h3>
-            <p>Start by clearly defining your product's requirements. Are you building a real-time chat app? A data-heavy analytics platform? An e-commerce store? Different problems require different tools.</p>
+            <p>Start by clearly defining your product's requirements. Are you building a real-time chat app? A data-heavy analytics platform? A e-commerce store? Different problems require different tools.</p>
             
             <h3>Consider Scalability</h3>
             <p>Your tech stack should be able to grow with your business. Choose technologies that are known for their scalability and performance. Cloud-native solutions and microservices architectures are often good choices for high-growth startups.</p>
@@ -151,10 +151,10 @@ export const blogPosts = [
         title: 'The Importance of SEO in Digital Marketing',
         author: {
             name: 'Kojo Thompson',
-            image: '/about-us/members/Thompson.jpg',
+            image: '/team/kojo_real.png',
             date: 'November 5, 2025'
         },
-        image: '/blog/blog-ui-ux.png', // Reusing image
+        image: '/blog/blog-ui-ux.png',
         excerpt: 'SEO is the backbone of digital visibility. Learn why it matters and how to implement a successful SEO strategy.',
         content: `
             <p><strong>Search Engine Optimization (SEO)</strong> is the process of optimizing your website to rank higher in search engine results pages (SERPs). In a world where Google processes billions of searches every day, SEO is essential for driving organic traffic to your site.</p>
@@ -172,4 +172,136 @@ export const blogPosts = [
             <p>SEO is a long-term game, but the rewards are worth it. Start investing in your SEO strategy today to build a sustainable source of organic traffic and growth. Check out our <a href="/services">SEO services</a>.</p>
         `
     },
+    {
+        id: '7',
+        slug: 'mastering-cloud-migration',
+        category: 'Cloud Computing',
+        title: 'Mastering Cloud Migration: A Strategic Guide',
+        author: {
+            name: 'Achim Godwin Tetteh',
+            image: '/team/achim_real.jpg',
+            date: 'October 28, 2025'
+        },
+        image: '/blog/blog-ai-tech.png',
+        excerpt: 'Transitioning to the cloud is complex but rewarding. Learn the strategies for a seamless and secure migration.',
+        content: `
+            <p>Cloud migration is more than just a technical shift; it's a strategic move that can redefine how a business operates. For enterprises looking to scale, moving to the cloud creates opportunities for innovation, cost savings, and enhanced agility.</p>
+            <h3>Planning Phase</h3>
+            <p>A successful migration starts with a comprehensive audit of existing infrastructure. Identifying dependencies and legacy systems prevents roadblocks down the line.</p>
+            <h3>Execution and Optimization</h3>
+            <p>Once the plan is in place, the migration should be executed in phases to minimize downtime. Post-migration, continuous optimization ensures that you are only paying for the resources you use.</p>
+            <h3>Conclusion</h3>
+            <p>With the right strategy, cloud migration can be a smooth process that propels your business forward.</p>
+        `
+    },
+    {
+        id: '8',
+        slug: 'impact-of-5g-on-mobile-apps',
+        category: 'Mobile Tech',
+        title: 'The Impact of 5G on Mobile Application Development',
+        author: {
+            name: 'Rashid Ahmed',
+            image: '/team/rashid.png',
+            date: 'October 22, 2025'
+        },
+        image: '/blog/blog-mobile-app.png',
+        excerpt: '5G is set to revolutionize mobile apps with lightning-fast speeds and ultra-low latency, enabling new experiences like AR/VR on the go.',
+        content: `
+            <p>The rollout of 5G networks involves more than just faster download speeds. It represents a paradigm shift for mobile app developers, enabling data-intensive applications that were previously impossible.</p>
+            <h3>Enhanced User Experiences</h3>
+            <p>With lower latency, real-time interactions become smoother, paving the way for advanced gaming, augmented reality (AR), and virtual reality (VR) experiences on mobile devices.</p>
+            <h3>IoT Integration</h3>
+            <p>5G will also accelerate the adoption of Internet of Things (IoT) devices, allowing mobile apps to communicate seamlessly with smart homes, vehicles, and industrial sensors.</p>
+            <h3>Conclusion</h3>
+            <p>Developers who leverage 5G capabilities early will define the next generation of mobile experiences.</p>
+        `
+    },
+    {
+        id: '9',
+        slug: 'cybersecurity-best-practices',
+        category: 'Security',
+        title: 'Cybersecurity Best Practices for Remote Teams',
+        author: {
+            name: 'Achim Godwin Tetteh',
+            image: '/team/achim_real.jpg',
+            date: 'October 15, 2025'
+        },
+        image: '/blog/blog-web-dev.png',
+        excerpt: 'As remote work becomes the norm, securing your distributed workforce is paramount. Here are the essential practices to keep your data safe.',
+        content: `
+            <p>Remote work offers flexibility but introduces new security challenges. Ensuring that your team follows best practices is critical to protecting organizational data.</p>
+            <h3>Zero Trust Architecture</h3>
+            <p>Adopting a Zero Trust model means never trusting, always verifying. Every access request must be authenticated, regardless of where it originates.</p>
+            <h3>Regular Training</h3>
+            <p>Human error remains a leading cause of breaches. Regular security awareness training helps employees recognize phishing attempts and other social engineering tactics.</p>
+            <h3>Conclusion</h3>
+            <p>Security is an ongoing process. By staying vigilant and adopting modern security frameworks, remote teams can work safely and effectively.</p>
+        `
+    },
+    {
+        id: '10',
+        slug: 'data-analytics-automotive-industry',
+        category: 'Data Science',
+        title: 'Driving Sales with Data Analytics in the Automotive Industry',
+        author: {
+            name: 'Achim Godwin Tetteh',
+            image: '/team/achim_real.jpg',
+            date: 'October 10, 2025'
+        },
+        image: '/blog/blog-ai-tech.png',
+        excerpt: 'How leveraging big data is helping dealerships and marketplaces predict trends, price accurately, and sell faster.',
+        content: `
+            <p>The automotive industry is sitting on a goldmine of data. From auction histories to consumer browsing patterns, this data holds the key to unlocking higher efficiency and profitability.</p>
+            <h3>Predictive Pricing</h3>
+            <p>Manual appraisals are a thing of the past. By analyzing millions of historical transaction records, predictive models can suggest the optimal selling price for a vehicle in seconds, considering localized demand and market fluctuations.</p>
+            <h3>Inventory Management</h3>
+            <p>Data analytics helps dealerships understand what sells and what sits. By aligning inventory with market demand, businesses can reduce holding costs and improve turnover rates.</p>
+            <h3>Conclusion</h3>
+            <p>Data-driven decision making is the future of automotive retail. Apps like <a href="/portfolio/carkasa">Carkasa</a> are leading the way.</p>
+        `
+    },
+    {
+        id: '11',
+        slug: 'building-scalable-apis',
+        category: 'Backend Engineering',
+        title: 'Principles of Building Scalable APIs for Enterprise',
+        author: {
+            name: 'Achim Godwin Tetteh',
+            image: '/team/achim_real.jpg',
+            date: 'October 05, 2025'
+        },
+        image: '/blog/blog-web-dev.png',
+        excerpt: 'Scalability is not an afterthought. Learn the core principles of designing APIs that can handle millions of requests without breaking.',
+        content: `
+            <p>In an interconnected world, APIs are the glue that holds digital ecosystems together. But building an API that works for ten users is very different from building one for ten million.</p>
+            <h3>Statelessness</h3>
+            <p>RESTful APIs should be stateless. This means each request contains all the information needed to process it. This allows any server in a cluster to handle any request, making horizontal scaling trivial.</p>
+            <h3>Rate Limiting and Caching</h3>
+            <p> Protecting your resources is key. Implementing intelligent rate limiting prevents abuse, while caching frequently accessed data reduces database load and improves response times for end-users.</p>
+            <h3>Conclusion</h3>
+            <p>Building scalable systems requires foresight and discipline. Our platform, <a href="/portfolio/automotive-dataset">Automotive Dataset</a>, is a testament to these principles in action.</p>
+        `
+    },
+    {
+        id: '12',
+        slug: 'healthcare-digital-transformation',
+        category: 'HealthTech',
+        title: 'The Next Wave of Digital Transformation in Healthcare',
+        author: {
+            name: 'Achim Godwin Tetteh',
+            image: '/team/achim_real.jpg',
+            date: 'September 28, 2025'
+        },
+        image: '/blog/blog-mobile-app.png',
+        excerpt: 'From telemedicine to AI diagnostics, technology is creating a more accessible and efficient healthcare system.',
+        content: `
+            <p>Healthcare is undergoing a massive digital overhaul. Patients now expect the same level of convenience in their medical care as they do in their banking or shopping.</p>
+            <h3>Refining Telemedicine</h3>
+            <p>Telemedicine is moving beyond simple video calls. Integrated platforms now allow for remote monitoring via wearable devices, sharing of health records securely, and AI-assisted triage.</p>
+            <h3>Interoperability</h3>
+            <p>One of the biggest challenges in healthcare is data silos. Modern standards like HL7 FHIR are enabling different systems to talk to each other, ensuring that a patient's medical history travels with them.</p>
+            <h3>Conclusion</h3>
+            <p>Technology has the power to save lives. Projects like <a href="/portfolio/yach-telemedicine">Yach Telemedicine</a> are bringing quality care to remote areas effectively.</p>
+        `
+    }
 ];

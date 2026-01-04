@@ -42,11 +42,11 @@ const teamMembers = [
         socials: { linkedin: "#", twitter: "#", mail: "mailto:rashid@achtrex.com" }
     },
     {
-        name: "Elvis Boahen Gyau",
-        role: "Frontend Developer",
-        image: "/team/elvis_v2.jpg",
-        bio: "Crafting immersive, responsive user interfaces with cutting-edge frontend technologies.",
-        socials: { linkedin: "#", twitter: "#", mail: "mailto:elvis@achtrex.com" }
+        name: "Kelvin Davis",
+        role: "Software Engineer",
+        image: "/team/kelvin-davis.png",
+        bio: "Building robust, scalable software solutions with a focus on code quality and performance optimization.",
+        socials: { linkedin: "#", twitter: "#", mail: "mailto:kelvin@achtrex.com" }
     },
     {
         name: "Dede Davis",

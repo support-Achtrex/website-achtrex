@@ -5,7 +5,7 @@ import { FAQSection } from "@/components/home-page/faq";
 
 export default function ContactUsPage() {
     return (
-        <main className="pt-24 bg-gray-50">
+        <main className="pt-24 bg-background">
             {/* Contact Form Section */}
             <ContactForm />
 

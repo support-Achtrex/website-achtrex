@@ -26,7 +26,7 @@ export const Navbar = () => {
         { label: 'About', href: '/about-us' },
         { label: 'Services', href: '/services' },
         { label: 'Portfolio', href: '/portfolio' },
-        { label: 'Life at Achtrex', href: '/life-at-achtrex' },
+        { label: 'Why Achtrex', href: '/why-achtrex' },
         { label: 'Blog', href: '/blog' },
     ];
 

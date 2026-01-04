@@ -102,7 +102,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${manrope.variable} bg-background text-foreground ${montserrat.variable} ${redHatDisplay.variable} antialiased selection:bg-primary selection:text-white`}
       >

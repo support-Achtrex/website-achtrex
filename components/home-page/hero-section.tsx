@@ -16,10 +16,10 @@ export const Hero = () => {
             <div className="absolute inset-0 z-0">
                 {/* Generated Tech Gadgets Background Image */}
                 <Image
-                    src="/tech_gadgets_hero_bg.png"
+                    src="/hero-bg-tech.png"
                     alt="Futuristic Tech Gadgets Background"
                     fill
-                    className="object-cover opacity-40 mix-blend-lighten"
+                    className="object-cover opacity-60"
                     priority
                 />
 
