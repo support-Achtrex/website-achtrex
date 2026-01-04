@@ -1,9 +1,17 @@
 import React from 'react';
 import { Mail, Clock, CheckCircle, XCircle, Search } from 'lucide-react';
-import { LeadsDB } from '@/lib/local-db';
+import { sql } from '@vercel/postgres';
 
-export default function LeadsPage() {
-    const leads = LeadsDB.getAll();
+export const dynamic = 'force-dynamic';
+
+export default async function LeadsPage() {
+    let leads: any[] = [];
+    try {
+        const { rows } = await sql`SELECT * FROM leads ORDER BY created_at DESC`;
+        leads = rows;
+    } catch (error) {
+        console.error('Failed to fetch leads:', error);
+    }
 
     return (
         <div className="space-y-6">

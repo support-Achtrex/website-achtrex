@@ -1,0 +1,24 @@
+import { sql } from '@vercel/postgres';
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+    try {
+        const result = await sql`
+      CREATE TABLE IF NOT EXISTS leads (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        message TEXT,
+        service VARCHAR(100),
+        budget VARCHAR(100),
+        company VARCHAR(255),
+        source VARCHAR(100),
+        status VARCHAR(50) DEFAULT 'new',
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+    `;
+        return NextResponse.json({ result }, { status: 200 });
+    } catch (error) {
+        return NextResponse.json({ error }, { status: 500 });
+    }
+}

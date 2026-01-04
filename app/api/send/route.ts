@@ -17,21 +17,15 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
         }
 
-        // Save to Local DB
+        // Save to Postgres DB
         try {
-            // Dynamically import to avoid build time static analysis issues in some environments
-            const { LeadsDB } = await import('@/lib/local-db');
-            LeadsDB.add({
-                name,
-                email,
-                message,
-                service,
-                budget,
-                company,
-                source
-            });
+            const { sql } = await import('@vercel/postgres');
+            await sql`
+                INSERT INTO leads (name, email, message, service, budget, company, source)
+                VALUES (${name}, ${email}, ${message}, ${service}, ${budget}, ${company}, ${source})
+            `;
         } catch (dbError) {
-            console.error("Failed to save lead to local DB:", dbError);
+            console.error("Failed to save lead to Postgres DB:", dbError);
             // Continue sending email even if DB save fails
         }
 
