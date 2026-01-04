@@ -38,7 +38,7 @@ export const Hero = () => {
             {/* Background Image with Gradient Overlay */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/hero-bg-team.png" // Team collaboration image
+                    src="/hero-bg-team-new.png" // Team collaboration image
                     alt="Background"
                     fill
                     className="object-cover opacity-60 mix-blend-overlay"

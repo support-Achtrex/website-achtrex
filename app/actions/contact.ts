@@ -84,8 +84,8 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
         .service-card { padding: 20px; border-bottom: 1px solid #222222; }
         .footer { padding: 30px; text-align: center; font-size: 12px; color: #888888; }
         
-        h1 { font-size: 28px; margin-bottom: 20px; letter-spacing: -1px; }
-        p { line-height: 1.6; font-size: 16px; color: #cccccc; }
+        h1 { font-size: 28px; margin-bottom: 20px; letter-spacing: -1px; color: #ffffff; }
+        p { line-height: 1.6; font-size: 16px; color: #e5e5e5; }
     </style>
 </head>
 <body>
@@ -98,28 +98,28 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
                     <h1 style="margin:0; font-weight: 800; letter-spacing: 2px; color: #ffffff;">
                         ACH<span class="cyan-text">TREX</span>
                     </h1>
-                    <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px;">Future-Forward Digital Studio</p>
+                    <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #aaaaaa;">Future-Forward Digital Studio</p>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600&h=300" alt="Future Tech" width="600">
+                    <img src="https://www.achtrex.com/email-team.png" alt="Achtrex Team" width="600">
                 </td>
             </tr>
 
             <tr>
                 <td class="hero">
-                    <h1>Thanks for reaching out!</h1>
-                    <p>Hello <strong class="cyan-text">${name}</strong>,</p>
-                    <p>We’ve received your inquiry regarding <strong>${service || 'a potential collaboration'}</strong> and our team is already reviewing your details. At <span class="cyan-text">Achtrex</span>, we don’t just write code—we architect solutions that propel businesses forward.</p>
+                    <h1 style="color: #ffffff;">Thanks for reaching out!</h1>
+                    <p style="color: #e5e5e5;">Hello <strong class="cyan-text">${name}</strong>,</p>
+                    <p style="color: #e5e5e5;">We’ve received your inquiry regarding <strong>${service || 'a potential collaboration'}</strong> and our team is already reviewing your details. At <span class="cyan-text">Achtrex</span>, we don’t just write code—we architect solutions that propel businesses forward.</p>
                     
                      <div style="background-color: #1a1a1a; border-left: 4px solid #00FFFF; padding: 15px; margin: 25px 0;">
-                        <p style="margin: 0; color: #cccccc; font-size: 14px;"><strong>Your Message:</strong><br/>
-                        <span style="color: #999;">${message}</span></p>
+                        <p style="margin: 0; color: #e5e5e5; font-size: 14px;"><strong>Your Message:</strong><br/>
+                        <span style="color: #bbbbbb;">${message}</span></p>
                     </div>
 
-                    <p>While we prepare a tailored response for you, here is a quick look at how we help our global partners scale.</p>
+                    <p style="color: #e5e5e5;">While we prepare a tailored response for you, here is a quick look at how we help our global partners scale.</p>
                     <br>
                     <a href="https://achtrex.com/portfolio" class="btn">View Our Portfolio</a>
                 </td>
@@ -138,7 +138,7 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
                             <td width="20%"><img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" width="40" style="filter: invert(80%) sepia(100%) saturate(1000%) hue-rotate(140deg);"></td>
                             <td>
                                 <strong style="color: #ffffff; font-size: 18px;">Product Engineering</strong>
-                                <p style="margin: 5px 0 0; font-size: 14px;">End-to-end software development transforming complex requirements into scalable solutions.</p>
+                                <p style="margin: 5px 0 0; font-size: 14px; color: #aaaaaa;">End-to-end software development transforming complex requirements into scalable solutions.</p>
                             </td>
                         </tr>
                     </table>
@@ -152,7 +152,7 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
                             <td width="20%"><img src="https://cdn-icons-png.flaticon.com/512/1157/1157109.png" width="40" style="filter: invert(80%) sepia(100%) saturate(1000%) hue-rotate(140deg);"></td>
                             <td>
                                 <strong style="color: #ffffff; font-size: 18px;">UI/UX Design</strong>
-                                <p style="margin: 5px 0 0; font-size: 14px;">Crafting immersive user experiences that blend aesthetics with intuitive functionality.</p>
+                                <p style="margin: 5px 0 0; font-size: 14px; color: #aaaaaa;">Crafting immersive user experiences that blend aesthetics with intuitive functionality.</p>
                             </td>
                         </tr>
                     </table>
@@ -166,7 +166,7 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
                             <td width="20%"><img src="https://cdn-icons-png.flaticon.com/512/2103/2103533.png" width="40" style="filter: invert(80%) sepia(100%) saturate(1000%) hue-rotate(140deg);"></td>
                             <td>
                                 <strong style="color: #ffffff; font-size: 18px;">AI & Tech Consulting</strong>
-                                <p style="margin: 5px 0 0; font-size: 14px;">Harnessing AI integration and strategic architecture to modernize your tech stack.</p>
+                                <p style="margin: 5px 0 0; font-size: 14px; color: #aaaaaa;">Harnessing AI integration and strategic architecture to modernize your tech stack.</p>
                             </td>
                         </tr>
                     </table>
@@ -182,13 +182,13 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
 
             <tr>
                 <td class="footer">
-                    <p><strong>Achtrex Studio</strong><br>
+                    <p style="color: #888888;"><strong>Achtrex Studio</strong><br>
                     Accra, Ghana | New Jersey, USA</p>
                     <p>
                         <a href="https://achtrex.com" style="color: #00FFFF; text-decoration: none;">Website</a> | 
                         <a href="https://achtrex.com/blog" style="color: #00FFFF; text-decoration: none;">Blog</a>
                     </p>
-                    <p>&copy; ${new Date().getFullYear()} Achtrex. All rights reserved.</p>
+                    <p style="color: #888888;">&copy; ${new Date().getFullYear()} Achtrex. All rights reserved.</p>
                 </td>
             </tr>
         </table>
