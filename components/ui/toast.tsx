@@ -35,6 +35,10 @@ export const useToast = () => {
 export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
     const [toasts, setToasts] = useState<Toast[]>([]);
 
+    const removeToast = useCallback((id: string) => {
+        setToasts((prev) => prev.filter((toast) => toast.id !== id));
+    }, []);
+
     const addToast = useCallback((message: string, type: ToastType) => {
         const id = Math.random().toString(36).substring(2, 9);
         setToasts((prev) => [...prev, { id, message, type }]);
@@ -47,14 +51,10 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
         }
 
         return id;
-    }, []);
-
-    const removeToast = useCallback((id: string) => {
-        setToasts((prev) => prev.filter((toast) => toast.id !== id));
-    }, []);
+    }, [removeToast]);
 
     const updateToast = useCallback((id: string, message: string, type: ToastType) => {
-        setToasts((prev) => prev.map((toast) => 
+        setToasts((prev) => prev.map((toast) =>
             toast.id === id ? { ...toast, message, type } : toast
         ));
 
@@ -114,7 +114,7 @@ const ToastItem = ({ toast, onRemove }: { toast: Toast; onRemove: () => void }) 
                 {toast.message}
             </p>
             {toast.type !== 'loading' && (
-                <button 
+                <button
                     onClick={onRemove}
                     className="text-gray-400 hover:text-gray-600 transition-colors p-1 hover:bg-black/5 rounded-full"
                 >
