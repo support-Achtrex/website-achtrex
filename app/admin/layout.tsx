@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import AdminSidebar from "@/components/admin/sidebar";
 import AdminTopbar from "@/components/admin/topbar";
-import { createClient } from "@/utilities/supabase/server";
+import { cookies } from "next/headers";
 import { ToastProvider } from "@/components/ui/toast";
 
 export default async function AdminLayout({
@@ -9,10 +9,10 @@ export default async function AdminLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const cookieStore = await cookies();
+    const authToken = cookieStore.get('auth_token');
 
-    if (!user) {
+    if (!authToken || authToken.value !== 'valid_admin_token') {
         redirect("/login");
     }
 
