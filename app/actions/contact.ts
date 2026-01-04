@@ -57,28 +57,145 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
                                                 `;
 
         const userHtml = `
-                                            < div style = "font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;" >
-                                                <div style="background-color: #0f172a; padding: 30px 20px; text-align: center;" >
-                                                    <h1 style="color: #ffffff; margin: 0; font-size: 24px; letter-spacing: 1px;" > ACHTREX </h1>
-                                                        < p style = "color: #0ea5e9; margin: 5px 0 0; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;" > Digital Transformation Partners </p>
-                                                            </div>
-                                                            < div style = "padding: 40px 30px;" >
-                                                                <h2 style="color: #1e293b; margin-top: 0;" > Hi ${name}, </h2>
-                                                                    < p style = "color: #475569; line-height: 1.6;" > Thank you for contacting < strong > Achtrex < /strong>. We have received your inquiry regarding <strong>${service || 'your project'}</strong >.</p>
-                                                                        < p style = "color: #475569; line-height: 1.6;" > Our team involves top 1 % talent dedicated to turning complex challenges into revenue - generating digital assets.We are reviewing your details and will get back to you shortly(usually within 24 hours).</p>
-                                                                            < div style = "background-color: #f8fafc; border-left: 4px solid #0ea5e9; padding: 15px; margin: 25px 0;" >
-                                                                                <p style="margin: 0; color: #334155; font-size: 14px;" > <strong>Your Submission: </strong><br/ >
-                                                                                    <span style="color: #64748b;" > ${message} </span></p >
-                                                                                        </div>
-                                                                                        < p style = "color: #475569; line-height: 1.6;" > In the meantime, feel free to browse our portfolio details.</p>
-                                                                                            < p style = "color: #475569; margin-top: 30px;" > Best regards, <br/><strong>Achtrex Support Team</strong > </p>
-                                                                                                </div>
-                                                                                                < div style = "background-color: #f1f5f9; padding: 20px; text-align: center; color: #94a3b8; font-size: 12px;" >
-                                                                                                    <p style="margin: 0;" >& copy; ${new Date().getFullYear()} Achtrex.All rights reserved.</p>
-                                                                                                        < a href = "https://achtrex.com" style = "color: #0ea5e9; text-decoration: none;" > www.achtrex.com </a>
-                                                                                                            </div>
-                                                                                                            </div>
-                                                                                                                `;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Achtrex</title>
+    <style>
+        /* Base Styles */
+        body { margin: 0; padding: 0; background-color: #0a0a0a; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #ffffff; }
+        table { border-spacing: 0; width: 100%; }
+        td { padding: 0; }
+        img { border: 0; display: block; max-width: 100%; }
+        
+        /* Layout */
+        .wrapper { width: 100%; table-layout: fixed; background-color: #0a0a0a; padding-bottom: 40px; }
+        .main { background-color: #111111; margin: 0 auto; width: 100%; max-width: 600px; border-collapse: collapse; border: 1px solid #222222; }
+        
+        /* Content */
+        .header { padding: 40px 20px; text-align: center; background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%); }
+        .hero { padding: 40px 30px; text-align: left; }
+        .cyan-text { color: #00FFFF; }
+        .btn { background-color: #00FFFF; color: #000000 !important; padding: 15px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; display: inline-block; }
+        
+        /* Services Section */
+        .service-card { padding: 20px; border-bottom: 1px solid #222222; }
+        .footer { padding: 30px; text-align: center; font-size: 12px; color: #888888; }
+        
+        h1 { font-size: 28px; margin-bottom: 20px; letter-spacing: -1px; }
+        p { line-height: 1.6; font-size: 16px; color: #cccccc; }
+    </style>
+</head>
+<body>
+    <center class="wrapper">
+        <table class="main">
+            <tr>
+                <td class="header">
+                    <!-- Brand Logo -->
+                    <img src="https://www.achtrex.com/achtrex-logo-email.png" alt="ACHTREX" width="120" style="margin: 0 auto 20px auto; display: block;">
+                    <h1 style="margin:0; font-weight: 800; letter-spacing: 2px; color: #ffffff;">
+                        ACH<span class="cyan-text">TREX</span>
+                    </h1>
+                    <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px;">Future-Forward Digital Studio</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600&h=300" alt="Future Tech" width="600">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="hero">
+                    <h1>Thanks for reaching out!</h1>
+                    <p>Hello <strong class="cyan-text">${name}</strong>,</p>
+                    <p>We’ve received your inquiry regarding <strong>${service || 'a potential collaboration'}</strong> and our team is already reviewing your details. At <span class="cyan-text">Achtrex</span>, we don’t just write code—we architect solutions that propel businesses forward.</p>
+                    
+                     <div style="background-color: #1a1a1a; border-left: 4px solid #00FFFF; padding: 15px; margin: 25px 0;">
+                        <p style="margin: 0; color: #cccccc; font-size: 14px;"><strong>Your Message:</strong><br/>
+                        <span style="color: #999;">${message}</span></p>
+                    </div>
+
+                    <p>While we prepare a tailored response for you, here is a quick look at how we help our global partners scale.</p>
+                    <br>
+                    <a href="https://achtrex.com/portfolio" class="btn">View Our Portfolio</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding: 0 30px 20px;">
+                    <h3 style="color: #00FFFF; border-bottom: 1px solid #00FFFF; padding-bottom: 10px;">Our Expertise</h3>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="service-card">
+                    <table width="100%">
+                        <tr>
+                            <td width="20%"><img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" width="40" style="filter: invert(80%) sepia(100%) saturate(1000%) hue-rotate(140deg);"></td>
+                            <td>
+                                <strong style="color: #ffffff; font-size: 18px;">Product Engineering</strong>
+                                <p style="margin: 5px 0 0; font-size: 14px;">End-to-end software development transforming complex requirements into scalable solutions.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="service-card">
+                    <table width="100%">
+                        <tr>
+                            <td width="20%"><img src="https://cdn-icons-png.flaticon.com/512/1157/1157109.png" width="40" style="filter: invert(80%) sepia(100%) saturate(1000%) hue-rotate(140deg);"></td>
+                            <td>
+                                <strong style="color: #ffffff; font-size: 18px;">UI/UX Design</strong>
+                                <p style="margin: 5px 0 0; font-size: 14px;">Crafting immersive user experiences that blend aesthetics with intuitive functionality.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="service-card">
+                    <table width="100%">
+                        <tr>
+                            <td width="20%"><img src="https://cdn-icons-png.flaticon.com/512/2103/2103533.png" width="40" style="filter: invert(80%) sepia(100%) saturate(1000%) hue-rotate(140deg);"></td>
+                            <td>
+                                <strong style="color: #ffffff; font-size: 18px;">AI & Tech Consulting</strong>
+                                <p style="margin: 5px 0 0; font-size: 14px;">Harnessing AI integration and strategic architecture to modernize your tech stack.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding: 40px 30px; background-color: #00FFFF; color: #000000; text-align: center;">
+                    <h2 style="margin: 0;">Global Impact.</h2>
+                    <p style="color: #000000; font-weight: 500;">Serving visionary companies across Ghana, the USA, and beyond.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="footer">
+                    <p><strong>Achtrex Studio</strong><br>
+                    Accra, Ghana | New Jersey, USA</p>
+                    <p>
+                        <a href="https://achtrex.com" style="color: #00FFFF; text-decoration: none;">Website</a> | 
+                        <a href="https://achtrex.com/blog" style="color: #00FFFF; text-decoration: none;">Blog</a>
+                    </p>
+                    <p>&copy; ${new Date().getFullYear()} Achtrex. All rights reserved.</p>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
+        `;
 
         // Send Admin Notification
         await transporter.sendMail({
