@@ -38,7 +38,7 @@ export const Hero = () => {
             {/* Background Image with Gradient Overlay */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/hero-bg-tech.png" // Using existing asset as base
+                    src="/hero-bg-team.png" // Team collaboration image
                     alt="Background"
                     fill
                     className="object-cover opacity-40 mix-blend-overlay"
@@ -118,39 +118,56 @@ export const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.6 }}
-                        className="bg-white rounded-2xl shadow-2xl p-5 md:p-6 relative"
+                        className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-5 md:p-6 relative"
                     >
                         <div className="text-center mb-4">
-                            <h3 className="text-xl md:text-2xl font-bold text-slate-900">Let's connect to help you and your team.</h3>
+                            <h3 className="text-xl md:text-2xl font-bold text-white">Let's connect to help you and your team.</h3>
                         </div>
 
                         <form className="space-y-3" action={handleSubmit}>
                             <div className="grid grid-cols-2 gap-3">
                                 <div className="col-span-2 md:col-span-1">
-                                    <label className="block text-[10px] font-bold text-slate-500 mb-1 uppercase tracking-wide">Name</label>
-                                    <input name="name" type="text" className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-slate-900 text-sm" placeholder="John Doe" required />
+                                    <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Name</label>
+                                    <input name="name" type="text" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="John Doe" required />
                                 </div>
                                 <div className="col-span-2 md:col-span-1">
-                                    <label className="block text-[10px] font-bold text-slate-500 mb-1 uppercase tracking-wide">Company</label>
-                                    <input name="company" type="text" className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-slate-900 text-sm" placeholder="Company Inc." required />
+                                    <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Phone</label>
+                                    <input name="phone" type="tel" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="+1 234 567 890" />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-[10px] font-bold text-slate-500 mb-1 uppercase tracking-wide">Work Email</label>
-                                <input name="email" type="email" className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-slate-900 text-sm" placeholder="john@company.com" required />
+                                <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Work Email</label>
+                                <input name="email" type="email" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="john@company.com" required />
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-3">
+                                <div className="col-span-2 md:col-span-1">
+                                    <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Company</label>
+                                    <input name="company" type="text" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-sm" placeholder="Company Inc." />
+                                </div>
+                                <div className="col-span-2 md:col-span-1">
+                                    <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">Service</label>
+                                    <select name="service" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white text-sm appearance-none">
+                                        <option value="" className="bg-slate-900 text-zinc-500">Select...</option>
+                                        <option value="Software Dev" className="bg-slate-900">Software Dev</option>
+                                        <option value="Mobile App" className="bg-slate-900">Mobile App</option>
+                                        <option value="Web Dev" className="bg-slate-900">Web Dev</option>
+                                        <option value="Consulting" className="bg-slate-900">Consulting</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div>
-                                <label className="block text-[10px] font-bold text-slate-500 mb-1 uppercase tracking-wide">How can we help?</label>
-                                <textarea name="message" className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none h-20 text-slate-900 text-sm" placeholder="Tell us about your project..." required />
+                                <label className="block text-[10px] font-bold text-zinc-400 mb-1 uppercase tracking-wide">How can we help?</label>
+                                <textarea name="message" className="w-full px-3 py-2 rounded-lg border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all resize-none h-20 text-white placeholder-zinc-500 text-sm" placeholder="Tell us about your project..." required />
                             </div>
 
                             <Button disabled={isSubmitting} className="w-full bg-primary hover:bg-cyan-600 text-white py-3 rounded-lg font-bold text-base shadow-lg shadow-primary/30 transition-all hover:scale-[1.02] active:scale-[0.98]">
                                 {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin mx-auto" /> : 'Jump-start Your Project'}
                             </Button>
 
-                            <p className="text-center text-xs text-slate-400 mt-3">
+                            <p className="text-center text-xs text-zinc-500 mt-3">
                                 By clicking, you agree to our Terms & Privacy Policy.
                             </p>
                         </form>
