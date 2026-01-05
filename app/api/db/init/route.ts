@@ -35,6 +35,24 @@ export async function GET() {
         subscribed_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
       );
 
+      CREATE TABLE IF NOT EXISTS client_notes (
+        id SERIAL PRIMARY KEY,
+        subscriber_id INTEGER REFERENCES subscribers(id) ON DELETE CASCADE,
+        content TEXT NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+
+      CREATE TABLE IF NOT EXISTS client_payments (
+        id SERIAL PRIMARY KEY,
+        subscriber_id INTEGER REFERENCES subscribers(id) ON DELETE CASCADE,
+        amount DECIMAL(10, 2) NOT NULL,
+        currency VARCHAR(3) DEFAULT 'USD',
+        description VARCHAR(255),
+        status VARCHAR(50) DEFAULT 'pending', -- pending, paid
+        invoice_number VARCHAR(50),
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+
       -- Check if team_members is empty
       DO $$
       BEGIN

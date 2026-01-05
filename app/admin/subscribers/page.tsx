@@ -1,6 +1,7 @@
-import React from 'react';
+import Link from 'next/link';
 import { sql } from '@vercel/postgres';
 import { Mail, Clock, MoreVertical, DollarSign, FileText } from 'lucide-react';
+
 
 export const dynamic = 'force-dynamic';
 
@@ -57,12 +58,9 @@ export default async function SubscribersPage() {
                                     </td>
                                     <td className="p-4 text-right">
                                         <div className="flex items-center justify-end gap-2">
-                                            <button className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Add Note/Update">
+                                            <Link href={`/admin/subscribers/${sub.id}`} className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Manage Client">
                                                 <FileText size={16} />
-                                            </button>
-                                            <button className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors" title="Record Payment">
-                                                <DollarSign size={16} />
-                                            </button>
+                                            </Link>
                                         </div>
                                     </td>
                                 </tr>
