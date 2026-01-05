@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { sql } from '@vercel/postgres';
-import { Mail, Clock, MoreVertical, DollarSign, FileText } from 'lucide-react';
-
+import { Mail, Clock, MoreVertical, DollarSign, FileText, UserPlus } from 'lucide-react';
+import { subscribeToNewsletter } from '@/app/actions/marketing';
+import { Button } from '@/components/buttons';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,6 +22,29 @@ export default async function SubscribersPage() {
                     <h1 className="text-3xl font-bold text-gray-900">Client & Subscriber Management</h1>
                     <p className="text-gray-500 text-sm">Track client updates, payments, and notes.</p>
                 </div>
+            </div>
+
+            {/* Add New Subscriber Form */}
+            <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                <h3 className="text-sm font-bold text-gray-800 mb-3 flex items-center gap-2">
+                    <UserPlus size={16} className="text-primary" />
+                    Manually Add Subscriber / Client
+                </h3>
+                <form action={async (formData) => {
+                    'use server';
+                    await subscribeToNewsletter(formData);
+                }} className="flex gap-2">
+                    <input
+                        name="email"
+                        type="email"
+                        required
+                        className="flex-1 p-2 border border-gray-200 rounded-lg text-sm focus:border-primary outline-none"
+                        placeholder="client@example.com"
+                    />
+                    <Button className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90">
+                        Add Client
+                    </Button>
+                </form>
             </div>
 
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">

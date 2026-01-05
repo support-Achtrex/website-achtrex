@@ -154,10 +154,10 @@ export default async function SubscriberDetailPage({ params }: { params: { id: s
                                                     ${Number(pay.amount).toLocaleString()}
                                                 </td>
                                                 <td className="p-3 text-right">
-                                                    <span className="inline-flex items-center gap-1 text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded cursor-pointer hover:bg-gray-200 transition-colors" title={`Invoice #${pay.invoice_number}`}>
+                                                    <a href={`/admin/invoices/${pay.invoice_number}`} target="_blank" className="inline-flex items-center gap-1 text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded cursor-pointer hover:bg-gray-200 transition-colors" title={`Invoice #${pay.invoice_number}`}>
                                                         #{pay.invoice_number}
                                                         <Download size={10} />
-                                                    </span>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         ))

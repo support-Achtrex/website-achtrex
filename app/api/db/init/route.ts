@@ -3,7 +3,8 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    const result = await sql`
+    // 1. Leads Table
+    await sql`
       CREATE TABLE IF NOT EXISTS leads (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
@@ -15,8 +16,19 @@ export async function GET() {
         source VARCHAR(100),
         status VARCHAR(50) DEFAULT 'new',
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-      );
+      )
+    `;
 
+    // 2. Add missing columns (Safe migration)
+    try {
+      await sql`ALTER TABLE leads ADD COLUMN IF NOT EXISTS service VARCHAR(100)`;
+      await sql`ALTER TABLE leads ADD COLUMN IF NOT EXISTS phone VARCHAR(50)`;
+    } catch (e) {
+      // Ignore if error
+    }
+
+    // 3. Team Members
+    await sql`
       CREATE TABLE IF NOT EXISTS team_members (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
@@ -27,21 +39,30 @@ export async function GET() {
         twitter VARCHAR(255),
         email VARCHAR(255),
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-      );
+      )
+    `;
 
+    // 4. Subscribers
+    await sql`
       CREATE TABLE IF NOT EXISTS subscribers (
         id SERIAL PRIMARY KEY,
         email VARCHAR(255) UNIQUE NOT NULL,
         subscribed_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-      );
+      )
+    `;
 
+    // 5. Client Notes
+    await sql`
       CREATE TABLE IF NOT EXISTS client_notes (
         id SERIAL PRIMARY KEY,
         subscriber_id INTEGER REFERENCES subscribers(id) ON DELETE CASCADE,
         content TEXT NOT NULL,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-      );
+      )
+    `;
 
+    // 6. Payments
+    await sql`
       CREATE TABLE IF NOT EXISTS client_payments (
         id SERIAL PRIMARY KEY,
         subscriber_id INTEGER REFERENCES subscribers(id) ON DELETE CASCADE,
@@ -51,9 +72,11 @@ export async function GET() {
         status VARCHAR(50) DEFAULT 'pending', -- pending, paid
         invoice_number VARCHAR(50),
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-      );
+      )
+    `;
 
-      -- Check if team_members is empty
+    // 7. Initial Data (Team)
+    await sql`
       DO $$
       BEGIN
         IF NOT EXISTS (SELECT 1 FROM team_members) THEN
@@ -69,7 +92,7 @@ export async function GET() {
       END $$;
     `;
 
-    return NextResponse.json({ result }, { status: 200 });
+    return NextResponse.json({ message: 'Database Initialized Successfully' }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
