@@ -80,6 +80,13 @@ const AdminSidebar = () => {
                             {/* Mock count for now, could be dynamic later */}
                             <span className={`text-[10px] px-1.5 py-0.5 rounded-md transition-opacity ${isActive('/admin/leads') ? 'bg-primary text-white opacity-100' : 'bg-gray-100 text-gray-600 opacity-0 group-hover:opacity-100'}`}>New</span>
                         </Link>
+                        <Link href="/admin/subscribers" className={getLinkClass('/admin/subscribers')}>
+                            {isActive('/admin/subscribers') && (
+                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
+                            )}
+                            <Users size={20} />
+                            <span>Subscribers</span>
+                        </Link>
                         <Link href="/admin/marketing" className={getLinkClass('/admin/marketing')}>
                             {isActive('/admin/marketing') && (
                                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>

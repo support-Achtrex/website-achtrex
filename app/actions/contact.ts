@@ -18,11 +18,23 @@ export async function submitContactForm(formData: FormData) {
     // 1. Save to Database (Resilient)
     // We attempt this first. If it fails, we log it but proceed to email so at least we get a notification.
     try {
-        const fullMessage = `Service: ${service} \nPhone: ${phone} \n\nMessage: ${message} `;
+        const fullMessage = `Phone: ${phone}\n\nMessage: ${message}`;
         await sql`
-            INSERT INTO leads(name, email, company, message, status)
-VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
-    `;
+            INSERT INTO leads (name, email, company, message, service, status)
+            VALUES (${name}, ${email}, ${company}, ${fullMessage}, ${service}, 'new')
+        `;
+
+        // Auto-subscribe to newsletter (ignore if already exists)
+        try {
+            await sql`
+                INSERT INTO subscribers (email)
+                VALUES (${email})
+                ON CONFLICT (email) DO NOTHING
+            `;
+        } catch (subError) {
+            console.error('Subscriber insertion warning:', subError);
+        }
+
     } catch (dbError) {
         console.error('Database insertion warning (proceeding to email):', dbError);
     }
@@ -43,18 +55,18 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
 
         // Email Templates
         const adminHtml = `
-    < div style = "font-family: system-ui, sans-serif; color: #333;" >
-        <h2 style="color: #0ea5e9;" > New Project Inquiry </h2>
-            < p > <strong>Name: </strong> ${name}</p >
-                <p><strong>Email: </strong> <a href="mailto:${email}">${email}</a > </p>
-                    < p > <strong>Phone: </strong> ${phone || 'N/A'}</p>
-                        < p > <strong>Company: </strong> ${company || 'N/A'}</p>
-                            < p > <strong>Service: </strong> ${service || 'N/A'}</p>
-                                < hr style = "border: 1px solid #eee; margin: 20px 0;" />
-                                    <h3>Message: </h3>
-                                        < p style = "white-space: pre-wrap; background: #f9f9f9; padding: 15px; border-radius: 5px;" > ${message} </p>
-                                            </div>
-                                                `;
+            <div style="font-family: system-ui, sans-serif; color: #333;">
+                <h2 style="color: #0ea5e9;">New Project Inquiry</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+                <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+                <p><strong>Company:</strong> ${company || 'N/A'}</p>
+                <p><strong>Service:</strong> ${service || 'N/A'}</p>
+                <hr style="border: 1px solid #eee; margin: 20px 0;" />
+                <h3>Message:</h3>
+                <p style="white-space: pre-wrap; background: #f9f9f9; padding: 15px; border-radius: 5px;">${message}</p>
+            </div>
+        `;
 
         const userHtml = `
 <!DOCTYPE html>
@@ -104,7 +116,7 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
 
             <tr>
                 <td>
-                    <img src="https://www.achtrex.com/email-team.png" alt="Achtrex Team" width="600">
+                    <img src="https://www.achtrex.com/email-banner.jpg" alt="Achtrex Team" width="600">
                 </td>
             </tr>
 
@@ -199,7 +211,7 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
 
         // Send Admin Notification
         await transporter.sendMail({
-            from: `"Achtrex Website" < ${smtpEmail}> `,
+            from: `"Achtrex Website" <${smtpEmail}>`,
             to: "support@achtrex.com, info@achtrex.com",
             subject: `New Lead: ${name} (${company || 'No Company'})`,
             html: adminHtml,
@@ -210,7 +222,7 @@ VALUES(${name}, ${email}, ${company}, ${fullMessage}, 'new')
         // With Gmail, this will successfully land in the user's inbox
         if (email) {
             await transporter.sendMail({
-                from: `"Achtrex Support" < ${smtpEmail}> `,
+                from: `"Achtrex Support" <${smtpEmail}>`,
                 to: email,
                 cc: "info@achtrex.com",
                 subject: "We received your inquiry - Achtrex",

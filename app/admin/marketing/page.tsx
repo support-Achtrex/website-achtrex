@@ -50,6 +50,20 @@ export default async function MarketingPage() {
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
                                 <input name="subject" required className="w-full p-3 border border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all" placeholder="e.g. New Features Out Now!" />
                             </div>
+
+                            <div className="bg-gray-50/50 p-4 rounded-xl border border-gray-100">
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Recipients</label>
+                                <div className="space-y-3">
+                                    <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                                        <input type="checkbox" name="send_to_all" defaultChecked className="w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary" />
+                                        Send to all {subscribers.length} subscribers
+                                    </label>
+                                    <div>
+                                        <input name="manual_recipients" className="w-full p-2 text-sm border border-gray-200 rounded-lg focus:border-primary outline-none" placeholder="Or add specific emails (comma separated)..." />
+                                    </div>
+                                </div>
+                            </div>
+
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Message Body (HTML supported)</label>
                                 <textarea name="body" required className="w-full p-3 border border-gray-200 rounded-xl h-48 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all resize-none" placeholder="Hello team..." />

@@ -2,7 +2,7 @@
 
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
 // Actions for the Public Site (Subscribe)
 export async function subscribeToNewsletter(formData: FormData) {
@@ -32,30 +32,51 @@ export async function deleteSubscriber(id: number) {
 export async function sendCampaign(formData: FormData) {
     const subject = formData.get('subject') as string;
     const body = formData.get('body') as string;
+    const sendToAll = formData.get('send_to_all') === 'on';
+    const manualRecipientsStr = formData.get('manual_recipients') as string;
 
-    // In a real app with many subscribers, you'd use a queue or batch sending.
-    // For this MVP, we'll fetch all and loop (careful with limits).
+    const recipientsSet = new Set<string>();
 
     try {
-        const { rows: subscribers } = await sql`SELECT email FROM subscribers`;
-
-        if (subscribers.length === 0) {
-            return { error: 'No subscribers to send to.' };
+        // 1. Fetch Subscribers if requested
+        if (sendToAll) {
+            const { rows: subscribers } = await sql`SELECT email FROM subscribers`;
+            subscribers.forEach(sub => recipientsSet.add(sub.email));
         }
 
-        const resend = new Resend(process.env.RESEND_API_KEY);
+        // 2. Add Manual Recipients
+        if (manualRecipientsStr) {
+            const manualEmails = manualRecipientsStr.split(',').map(e => e.trim()).filter(e => e.includes('@'));
+            manualEmails.forEach(email => recipientsSet.add(email));
+        }
 
-        // Sending to the first 50 for safety/demo limits
-        const recipients = subscribers.slice(0, 50).map(sub => sub.email);
+        if (recipientsSet.size === 0) {
+            return { error: 'No valid recipients selected.' };
+        }
 
-        const { data, error } = await resend.emails.send({
-            from: 'Achtrex Updates <onboarding@resend.dev>', // Update this when you have a verified domain
-            to: recipients,
-            subject: subject,
-            html: body.replace(/\n/g, '<br>'),
+        const recipients = Array.from(recipientsSet);
+
+        // 3. Configure Nodemailer (Gmail)
+        const smtpEmail = 'support@achtrex.com';
+        const smtpPassword = 'iygw lvjk zagq dcwr';
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: smtpEmail,
+                pass: smtpPassword
+            }
         });
 
-        if (error) throw error;
+        // 4. Send Email (using BCC for privacy)
+        // We send "To" ourselves, and "Bcc" everyone else.
+        await transporter.sendMail({
+            from: `"Achtrex Update" <${smtpEmail}>`,
+            to: smtpEmail, // Send to self so "To" isn't empty
+            bcc: recipients, // Everyone else in BCC
+            subject: subject,
+            html: body.replace(/\n/g, '<br>'), // Basic newline to BR conversion if basic text
+        });
 
         return { success: true, count: recipients.length };
 

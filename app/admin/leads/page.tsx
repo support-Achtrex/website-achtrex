@@ -51,7 +51,7 @@ export default async function LeadsPage() {
                                             <div className="flex items-center gap-2 text-gray-500">
                                                 <Clock size={14} />
                                                 <span className="text-sm font-medium">
-                                                    {new Date(lead.createdAt).toLocaleDateString()}
+                                                    {new Date(lead.created_at).toLocaleDateString()}
                                                 </span>
                                             </div>
                                         </td>
