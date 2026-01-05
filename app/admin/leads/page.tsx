@@ -1,6 +1,7 @@
 import React from 'react';
-import { Mail, Clock, CheckCircle, XCircle, Search } from 'lucide-react';
+import { Mail, Clock, CheckCircle, XCircle, Search, UserPlus } from 'lucide-react';
 import { sql } from '@vercel/postgres';
+import { subscribeToNewsletter } from '@/app/actions/marketing';
 
 export const dynamic = 'force-dynamic';
 
@@ -73,9 +74,17 @@ export default async function LeadsPage() {
                                             <StatusBadge status={lead.status} />
                                         </td>
                                         <td className="p-4 text-right">
-                                            <button className="text-gray-400 hover:text-primary transition-colors">
-                                                View
-                                            </button>
+                                            <div className="flex items-center justify-end gap-2">
+                                                <form action={async (formData) => {
+                                                    'use server';
+                                                    await subscribeToNewsletter(formData);
+                                                }}>
+                                                    <input type="hidden" name="email" value={lead.email} />
+                                                    <button className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors" title="Add as Client/Subscriber">
+                                                        <UserPlus size={16} />
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))
