@@ -7,7 +7,7 @@ const FALLBACK_TEAM = [
     {
         id: 1,
         name: 'Achim Godwin Tetteh',
-        role: 'CEO & Operations Project Manager',
+        role: 'Operations Project Manager',
         image: '/team/achim_real.jpg',
         bio: 'Leading the vision and operations at Achtrex, driving innovation in digital product development.',
         linkedin: '#',

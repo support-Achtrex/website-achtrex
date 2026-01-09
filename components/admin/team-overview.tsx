@@ -13,7 +13,7 @@ interface TeamMember {
 const TeamOverview = async () => {
     // Mock data for now since we removed Supabase
     const teamMembers: TeamMember[] = [
-        { id: '1', name: 'Achim Godwin', email: 'achim@achtrex.com', role: 'CEO', image: null },
+        { id: '1', name: 'Achim Godwin', email: 'achim@achtrex.com', role: 'Operations Project Manager', image: null },
         { id: '2', name: 'Support', email: 'support@achtrex.com', role: 'Support', image: null },
     ];
 
