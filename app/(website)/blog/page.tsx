@@ -3,6 +3,13 @@ import { BlogCard } from "@/components/blog/blog-card";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Blog | Insights on Tech, Design & Innovation",
+    description: "Explore the latest trends in web development, mobile apps, UI/UX design, and digital transformation.",
+};
+
 export default function BlogListingPage() {
     const featuredPost = blogPosts[0];
     const otherPosts = blogPosts.slice(0, 9); // Show first 9 posts

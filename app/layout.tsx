@@ -82,10 +82,18 @@ const jsonLd = {
   "logo": "https://achtrex.com/logo.png",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+233-500-496-700",
+    "telephone": "+1-613-366-4271",
     "contactType": "customer service",
     "areaServed": ["GH", "US", "GB"],
-    "availableLanguage": "en"
+    "availableLanguage": "en",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1111B S Governors Ave STE 48362",
+      "addressLocality": "Dover",
+      "addressRegion": "DE",
+      "postalCode": "19904",
+      "addressCountry": "US"
+    }
   },
   "sameAs": [
     "https://twitter.com/achtrex",

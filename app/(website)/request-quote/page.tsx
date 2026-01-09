@@ -1,5 +1,12 @@
 import ContactForm from "@/components/home-page/contact-form";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Request a Quote | Start Your Project with Achtrex",
+    description: "Ready to start your digital transformation? Request a customized quote for your web, mobile, or software development project.",
+};
+
 export default function RequestQuotePage() {
     return (
         <main className="pt-24 bg-background min-h-screen">
