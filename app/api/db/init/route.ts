@@ -92,6 +92,13 @@ export async function GET() {
       END $$;
     `;
 
+    // 8. Fix existing data: Ensure Achim's role is correct
+    await sql`
+        UPDATE team_members
+        SET role = 'Operations Project Manager'
+        WHERE email = 'achim@achtrex.com';
+    `;
+
     return NextResponse.json({ message: 'Database Initialized Successfully' }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });

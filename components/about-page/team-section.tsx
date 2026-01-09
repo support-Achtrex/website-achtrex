@@ -86,6 +86,16 @@ export const TeamSection = async () => {
         console.error("Failed to fetch team members:", error);
     }
 
+    // FORCE FIX: Ensure Achim's role is correct even if DB is outdated
+    if (teamMembers && teamMembers.length > 0) {
+        teamMembers = teamMembers.map(member => {
+            if (member.name === 'Achim Godwin Tetteh') {
+                return { ...member, role: 'Operations Project Manager' };
+            }
+            return member;
+        });
+    }
+
     // Use fallback if DB is empty
     if (!teamMembers || teamMembers.length === 0) {
         console.log("Using fallback team data due to empty DB");
