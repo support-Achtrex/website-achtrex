@@ -12,7 +12,8 @@ import {
     HelpCircle,
     LogOut,
     MessageSquare,
-    Megaphone
+    Megaphone,
+    Receipt
 
 } from 'lucide-react';
 
@@ -108,6 +109,13 @@ const AdminSidebar = () => {
                             )}
                             <BarChart2 size={20} />
                             <span>Analytics</span>
+                        </Link>
+                        <Link href="/admin/invoices" className={getLinkClass('/admin/invoices')}>
+                            {isActive('/admin/invoices') && (
+                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
+                            )}
+                            <Receipt size={20} />
+                            <span>Invoices</span>
                         </Link>
                         <Link href="/admin/team" className={getLinkClass('/admin/team')}>
                             {isActive('/admin/team') && (
