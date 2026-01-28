@@ -91,15 +91,13 @@ function generateEmailHtml(data: InvoiceData) {
             .amount { font-size: 24px; font-weight: bold; color: #111827; }
             .status { display: inline-block; padding: 4px 12px; border-radius: 9999px; font-size: 12px; font-weight: bold; color: white; background-color: ${statusColor}; text-transform: uppercase; }
             .footer { background-color: #f9fafb; padding: 20px; text-align: center; font-size: 12px; color: #6b7280; border-top: 1px solid #e5e7eb; }
-            .ad-section { margin-top: 30px; border-top: 2px dashed #e5e7eb; padding-top: 30px; }
-            .ad-title { font-size: 18px; font-weight: bold; color: #111827; margin-bottom: 10px; }
-            .button { display: inline-block; background-color: #D97706; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 20px; }
+
         </style>
     </head>
     <body>
         <div class="container">
             <div class="header">
-                 <img src="https://www.achtrex.com/images/achtrex-logo.png" alt="Achtrex" style="max-height: 50px; width: auto; margin: 0 auto; display: block;">
+                 <h1 style="color: white; margin: 0;">Achtrex</h1>
             </div>
             <div class="content">
                 <h2>Invoice Details</h2>
@@ -130,16 +128,7 @@ function generateEmailHtml(data: InvoiceData) {
 
                 <p>A PDF copy of this invoice is attached to this email.</p>
 
-                <!-- Advertisement Section -->
-                <div class="ad-section">
-                    <div class="ad-title">Check Out Our Premium Products</div>
-                    <p>Upgrade your workflow with Achtrex Pro. Get advanced analytics, unlimited invoicing, and priority support.</p>
-                    <div style="display: flex; gap: 10px; margin-top: 15px;">
-                         <img src="https://placehold.co/150x80/png?text=Analytics" alt="Analytics" style="border-radius: 4px; display: block;">
-                         <img src="https://placehold.co/150x80/png?text=CRM" alt="CRM" style="border-radius: 4px; display: block;">
-                    </div>
-                    <a href="https://achtrex.com/products" class="button">Explore Products</a>
-                </div>
+
             </div>
             <div class="footer">
                 &copy; ${new Date().getFullYear()} Achtrex. All rights reserved.
