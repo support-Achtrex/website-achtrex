@@ -6,14 +6,16 @@ import InvoiceView from './InvoiceView';
 
 export const dynamic = 'force-dynamic';
 
-export default async function InvoicePage({ params }: { params: { id: string } }) {
+export default async function InvoicePage(props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
+
     // This 'id' refers to the payment ID in client_payments
     // If invoice numbers are unique UUIDs, that's better, but let's assume filtering by payment ID for simplicity? 
     // Wait, the user sees "Invoice #INV-..." but URL should probably be the payment ID or invoice number.
     // Let's assume params.id is the invoice_number (string) or payment.id.
     // Let's use Invoice Number search first, as it's cleaner in URL.
 
-    const invoiceNum = params.id;
+    const invoiceNum = decodeURIComponent(params.id);
     let payment: any = null;
     let client: any = null;
 
