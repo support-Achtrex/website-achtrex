@@ -3,8 +3,9 @@ import path from 'path';
 import fs from 'fs';
 import nodemailer from 'nodemailer';
 import React from 'react';
-// Imports moved to dynamic import inside generateInvoicePDF
 import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
+import { InvoicePDF } from '@/components/invoice/InvoicePDF';
+import { renderToBuffer } from '@react-pdf/renderer';
 
 // Setup Transporter
 // using credentials found in marketing.ts
@@ -147,13 +148,8 @@ function generateEmailHtml(data: InvoiceData) {
 
 export async function generateInvoicePDF(data: InvoiceData): Promise<Buffer> {
     try {
-        const ReactDOMServerMod = await import('react-dom/server');
-        const ReactDOMServer = ReactDOMServerMod.default || ReactDOMServerMod;
+        console.log("PDF Generation: Starting browserless generation for invoice", data.invoice_number);
 
-        const puppeteerMod = await import('puppeteer');
-        const puppeteer = puppeteerMod.default || puppeteerMod;
-
-        console.log("PDF Generation: Starting for invoice", data.invoice_number);
         // Read Logo
         const logoPath = path.join(process.cwd(), 'public', 'images', 'achtrex-logo.png');
         let logoBase64 = '';
@@ -164,13 +160,10 @@ export async function generateInvoicePDF(data: InvoiceData): Promise<Buffer> {
             console.error("Error reading logo for PDF:", e);
         }
 
-        // Mock payment/client objects to match InvoiceTemplate props
         const payment = {
             invoice_number: data.invoice_number,
             created_at: data.date,
             status: data.status,
-            card_brand: 'Visa', // Default/Placeholder as fallback
-            card_last4: '4242',
             description: data.description,
             amount: data.amount,
             currency: data.currency
@@ -182,51 +175,14 @@ export async function generateInvoicePDF(data: InvoiceData): Promise<Buffer> {
             company: ''
         };
 
-        const componentHtml = ReactDOMServer.renderToStaticMarkup(
-            <InvoiceTemplate payment={payment} client={client} logoSrc={logoBase64} />
+        const buffer = await renderToBuffer(
+            <InvoicePDF payment={payment} client={client} logoSrc={logoBase64} />
         );
 
-        const fullHtml = `
-            <!DOCTYPE html>
-            <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <script src="https://cdn.tailwindcss.com"></script>
-                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-                    <style>
-                        body { font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; }
-                    </style>
-                </head>
-                <body>
-                    ${componentHtml}
-                </body>
-            </html>
-        `;
-
-        const browser = await puppeteer.launch({
-            args: ['--no-sandbox', '--disable-setuid-sandbox'],
-            headless: true
-        });
-        const page = await browser.newPage();
-
-        // precise rendering
-        await page.setContent(fullHtml, { waitUntil: 'networkidle0' });
-
-        const pdfBuffer = await page.pdf({
-            format: 'A4',
-            printBackground: true,
-            margin: { top: '0px', right: '0px', bottom: '0px', left: '0px' }
-        });
-
-        await browser.close();
-
-        return Buffer.from(pdfBuffer);
+        return buffer as Buffer;
 
     } catch (error: any) {
-        console.error("Puppeteer PDF generation failed:", error);
-        // Log more details if possible
-        if (error.message) console.error("Error Message:", error.message);
-        if (error.stack) console.error("Error Stack:", error.stack);
+        console.error("PDF generation failed:", error);
         throw new Error(`PDF generation failed: ${error.message}`);
     }
 }
