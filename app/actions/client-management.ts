@@ -28,6 +28,24 @@ export async function recordPayment(subscriberId: number, amount: number, descri
             INSERT INTO client_payments (subscriber_id, amount, description, status, invoice_number)
             VALUES (${subscriberId}, ${amount}, ${description}, ${status}, ${invoiceNum})
         `;
+
+        // Send Email
+        const clientRes = await sql`SELECT email, name FROM subscribers WHERE id = ${subscriberId}`;
+        const client = clientRes.rows[0];
+
+        if (client && client.email) {
+            const { sendInvoiceEmail } = await import('../../lib/email');
+            await sendInvoiceEmail({
+                invoice_number: invoiceNum,
+                amount,
+                description,
+                status,
+                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                client_name: client.name,
+                client_email: client.email
+            });
+        }
+
         revalidatePath(`/admin/subscribers/${subscriberId}`);
         return { success: true };
     } catch (error) {

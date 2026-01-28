@@ -26,12 +26,10 @@ export default async function InvoicesIndexPage() {
                     <h1 className="text-2xl font-bold text-gray-900">Invoices</h1>
                     <p className="text-gray-500 text-sm">Manage and view all client invoices.</p>
                 </div>
-                {/* 
-                <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
+                <Link href="/admin/invoices/create" className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
                     <Plus size={16} />
                     <span>Create Invoice</span>
-                </button>
-                */}
+                </Link>
             </div>
 
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
