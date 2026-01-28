@@ -1,9 +1,9 @@
+import 'server-only';
 import path from 'path';
 import fs from 'fs';
 import nodemailer from 'nodemailer';
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import puppeteer from 'puppeteer';
+// Imports moved to dynamic import inside generateInvoicePDF
 import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
 
 // Setup Transporter
@@ -147,6 +147,8 @@ function generateEmailHtml(data: InvoiceData) {
 
 async function generateInvoicePDF(data: InvoiceData): Promise<Buffer> {
     try {
+        const ReactDOMServer = (await import('react-dom/server')).default || await import('react-dom/server');
+        const puppeteer = (await import('puppeteer')).default || await import('puppeteer');
         // Read Logo
         const logoPath = path.join(process.cwd(), 'public', 'images', 'achtrex-logo.png');
         let logoBase64 = '';
