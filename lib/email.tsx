@@ -5,6 +5,7 @@ import nodemailer from 'nodemailer';
 import React from 'react';
 import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
 import { InvoicePDF } from '@/components/invoice/InvoicePDF';
+import { ProjectReport } from '@/components/invoice/ProjectReport';
 import { renderToBuffer } from '@react-pdf/renderer';
 
 // Setup Transporter
@@ -184,5 +185,102 @@ export async function generateInvoicePDF(data: InvoiceData): Promise<Buffer> {
     } catch (error: any) {
         console.error("PDF generation failed:", error);
         throw new Error(`PDF generation failed: ${error.message}`);
+    }
+}
+
+export async function generateProjectReportPDF(subscriber: any, notes: any[], milestones: any[], reportType: string = "Weekly Progress Report"): Promise<Buffer> {
+    try {
+        const logoPath = path.join(process.cwd(), 'public', 'images', 'achtrex-logo.png');
+        let logoBase64 = '';
+        try {
+            const logoBuffer = fs.readFileSync(logoPath);
+            logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`;
+        } catch (e) {
+            console.error("Error reading logo for Report:", e);
+        }
+
+        const buffer = await renderToBuffer(
+            <ProjectReport
+                subscriber={subscriber}
+                notes={notes}
+                milestones={milestones}
+                logoSrc={logoBase64}
+                reportType={reportType}
+            />
+        );
+
+        return buffer as Buffer;
+    } catch (error: any) {
+        console.error("Report PDF generation failed:", error);
+        throw new Error(`Report PDF generation failed: ${error.message}`);
+    }
+}
+
+export async function sendWeeklyReportEmail(subscriber: any, notes: any[], milestones: any[]) {
+    try {
+        const pdfBuffer = await generateProjectReportPDF(subscriber, notes, milestones, "Weekly Progress Report");
+
+        const oneWeekAgo = new Date();
+        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+        const weeklyNotes = notes.filter(n => new Date(n.created_at) >= oneWeekAgo);
+
+        const completedCount = milestones.filter(m => m.status === 'completed').length;
+        const progressPercent = milestones.length > 0 ? Math.round((completedCount / milestones.length) * 100) : 0;
+
+        const html = `
+            <!DOCTYPE html>
+            <html>
+            <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                <div style="max-width: 600px; margin: 0 auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;">
+                    <h2 style="color: #111827;">Project Weekly Update</h2>
+                    <p>Hello ${subscriber.name || 'Valued Client'},</p>
+                    <p>Here is your weekly progress report for the project. Our team has been working hard to keep things on track.</p>
+                    
+                    <div style="background: #f9fafb; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                        <h3 style="margin-top: 0; color: #8b5cf6;">Status Overview</h3>
+                        <p style="font-size: 24px; font-weight: bold; margin: 5px 0;">${progressPercent}% Complete</p>
+                        <div style="width: 100%; height: 8px; background: #e5e7eb; border-radius: 4px;">
+                            <div style="width: ${progressPercent}%; height: 100%; background: #8b5cf6; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+
+                    <h3 style="border-bottom: 2px solid #f3f4f6; padding-bottom: 5px;">Updates from This Week</h3>
+                    ${weeklyNotes.length > 0 ? `
+                        <ul style="padding-left: 20px;">
+                            ${weeklyNotes.map(n => `<li style="margin-bottom: 10px;">${n.content}</li>`).join('')}
+                        </ul>
+                    ` : '<p style="color: #999; font-style: italic;">No specific updates logged this week. We are continuing work on the current milestones.</p>'}
+
+                    <p style="margin-top: 30px;">A detailed PDF report is attached to this email for your records.</p>
+                    
+                    <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; font-size: 12px; color: #666; text-align: center;">
+                        &copy; ${new Date().getFullYear()} Achtrex. All rights reserved.<br>
+                        "Transforming Ideas into Digital Reality"
+                    </div>
+                </div>
+            </body>
+            </html>
+        `;
+
+        const senderEmail = process.env.SMTP_FROM || process.env.SMTP_USER || 'support@achtrex.com';
+
+        await transporter.sendMail({
+            from: `"Achtrex Project Updates" <${senderEmail}>`,
+            to: subscriber.email,
+            subject: `Weekly Progress Report - ${new Date().toLocaleDateString()}`,
+            html: html,
+            attachments: [
+                {
+                    filename: `Project-Report-${new Date().toISOString().split('T')[0]}.pdf`,
+                    content: pdfBuffer,
+                    contentType: 'application/pdf',
+                },
+            ],
+        });
+
+        console.log(`Weekly report sent to ${subscriber.email}`);
+    } catch (error) {
+        console.error('Error sending weekly report:', error);
+        throw error;
     }
 }

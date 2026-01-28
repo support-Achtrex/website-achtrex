@@ -129,3 +129,24 @@ export async function deleteFile(subscriberId: number, fileId: number) {
         return { error: 'Failed to delete file' };
     }
 }
+
+export async function sendWeeklyReport(subscriberId: number) {
+    try {
+        const subRes = await sql`SELECT * FROM subscribers WHERE id = ${subscriberId}`;
+        const subscriber = subRes.rows[0];
+
+        const notesRes = await sql`SELECT * FROM client_notes WHERE subscriber_id = ${subscriberId} ORDER BY created_at DESC`;
+        const notes = notesRes.rows;
+
+        const progressRes = await sql`SELECT * FROM project_progress WHERE subscriber_id = ${subscriberId} ORDER BY created_at ASC`;
+        const milestones = progressRes.rows;
+
+        const { sendWeeklyReportEmail } = await import('../../lib/email');
+        await sendWeeklyReportEmail(subscriber, notes, milestones);
+
+        return { success: true };
+    } catch (error) {
+        console.error('Report send error:', error);
+        return { error: 'Failed to send report' };
+    }
+}

@@ -3,14 +3,14 @@ import { sql } from '@vercel/postgres';
 import {
     ArrowLeft, Plus, DollarSign, FileText, Download, Clock,
     CheckCircle2, Circle, ListTodo, Paperclip, File, Trash2,
-    ExternalLink, CheckCircle, AlertCircle
+    ExternalLink, CheckCircle, AlertCircle, Mail
 } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
     addNote, recordPayment,
     addMilestone, updateMilestoneStatus, deleteMilestone,
-    addFile, deleteFile
+    addFile, deleteFile, sendWeeklyReport
 } from '@/app/actions/client-management';
 import { Button } from '@/components/buttons';
 
@@ -69,6 +69,25 @@ export default async function SubscriberDetailPage({ params }: { params: { id: s
                     <div className="bg-green-50 text-green-700 px-4 py-2 rounded-xl font-bold border border-green-100 shadow-sm flex items-center gap-2">
                         <DollarSign size={16} />
                         Total revenue: ${totalPaid.toLocaleString()}
+                    </div>
+                    <div className="flex gap-2">
+                        <a
+                            href={`/api/subscribers/${id}/report`}
+                            target="_blank"
+                            className="flex items-center gap-2 px-4 py-2 bg-white text-gray-700 rounded-xl font-bold border border-gray-100 shadow-sm hover:bg-gray-50 transition-all text-sm"
+                        >
+                            <Download size={16} />
+                            Download Report
+                        </a>
+                        <form action={async () => {
+                            'use server';
+                            await sendWeeklyReport(id);
+                        }}>
+                            <Button className="bg-purple-600 text-white px-4 py-2 rounded-xl font-bold shadow-lg shadow-purple-100 flex items-center gap-2 text-sm">
+                                <Mail size={16} />
+                                Send Weekly Update
+                            </Button>
+                        </form>
                     </div>
                 </div>
             </div>
