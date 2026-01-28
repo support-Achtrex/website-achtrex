@@ -143,36 +143,36 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
       {/* Invoice Container */}
       <div
         ref={invoiceRef}
-        className="bg-white w-full max-w-[800px] p-12 shadow-sm text-[#111827]"
-        style={{ minHeight: '1123px' }} // Approx A4 height pixel ratio
+        className="w-full max-w-[800px] p-12 shadow-sm"
+        style={{ minHeight: '1123px', backgroundColor: '#ffffff', color: '#111827' }} // Explicit inline styles for safety
       >
         {/* Header Section */}
         <div className="flex justify-between items-start mb-16">
           <div>
-            <h1 className="text-4xl font-extrabold text-[#111827] mb-8">Invoice</h1>
+            <h1 className="text-4xl font-extrabold mb-8" style={{ color: '#111827' }}>Invoice</h1>
 
             <div className="space-y-3 text-sm">
               <div className="grid grid-cols-[140px_1fr] items-center">
-                <span className="font-bold text-[#111827]">Invoice number</span>
-                <span className="font-bold text-[#111827]">{payment.invoice_number}</span>
+                <span className="font-bold" style={{ color: '#111827' }}>Invoice number</span>
+                <span className="font-bold" style={{ color: '#111827' }}>{payment.invoice_number}</span>
               </div>
               <div className="grid grid-cols-[140px_1fr] items-center">
-                <span className="font-semibold text-[#111827]">Date of issue</span>
-                <span className="text-[#111827]">{issueDate}</span>
+                <span className="font-semibold" style={{ color: '#111827' }}>Date of issue</span>
+                <span style={{ color: '#111827' }}>{issueDate}</span>
               </div>
               <div className="grid grid-cols-[140px_1fr] items-center">
-                <span className="font-semibold text-[#111827]">Date paid</span>
-                <span className="text-[#111827]">{issueDate}</span>
+                <span className="font-semibold" style={{ color: '#111827' }}>Date paid</span>
+                <span style={{ color: '#111827' }}>{issueDate}</span>
               </div>
               <div className="grid grid-cols-[140px_1fr] items-center">
-                <span className="font-semibold text-[#111827]">Credit card</span>
-                <span className="text-[#111827] uppercase">
+                <span className="font-semibold" style={{ color: '#111827' }}>Credit card</span>
+                <span className="uppercase" style={{ color: '#111827' }}>
                   {payment.card_brand || 'CARD'} - XXXX XXXX XXXX {payment.card_last4 || 'XXXX'}
                 </span>
               </div>
               <div className="grid grid-cols-[140px_1fr] items-center">
-                <span className="font-semibold text-[#111827]">Time of transaction</span>
-                <span className="text-[#111827]">{timeString}</span>
+                <span className="font-semibold" style={{ color: '#111827' }}>Time of transaction</span>
+                <span style={{ color: '#111827' }}>{timeString}</span>
               </div>
             </div>
           </div>
@@ -195,69 +195,53 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
         {/* Addresses Section */}
         <div className="grid grid-cols-2 gap-12 mb-12">
           <div>
-            <h3 className="font-bold text-[#111827] text-sm mb-1">Achtrex</h3>
-            <p className="text-[#111827] text-sm">support@achtrex.com</p>
+            <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Achtrex</h3>
+            <p className="text-sm" style={{ color: '#111827' }}>support@achtrex.com</p>
           </div>
           <div>
-            <h3 className="font-bold text-[#111827] text-sm mb-1">Bill to</h3>
-            <p className="text-[#111827] text-sm mb-1">{client?.name || 'Valued Client'}</p>
-            {client?.company && <p className="text-[#111827] text-sm mb-1">{client.company}</p>}
-            <p className="text-[#111827] text-sm">{client?.email}</p>
+            <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Bill to</h3>
+            <p className="text-sm mb-1" style={{ color: '#111827' }}>{client?.name || 'Valued Client'}</p>
+            {client?.company && <p className="text-sm mb-1" style={{ color: '#111827' }}>{client.company}</p>}
+            <p className="text-sm" style={{ color: '#111827' }}>{client?.email}</p>
           </div>
         </div>
 
         {/* Description & Credits */}
         <div className="grid grid-cols-2 gap-12 mb-8">
           <div>
-            <h3 className="font-bold text-[#111827] text-sm mb-1">Description</h3>
-            <p className="text-[#111827] text-sm">{payment.description}</p>
+            <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Description</h3>
+            <p className="text-sm" style={{ color: '#111827' }}>{payment.description}</p>
           </div>
           <div>
-            {/* 
-                  Since we might not have credits in the payment object, 
-                  we'll conditionally render or leave blank related to credits 
-                  unless it's part of the description or extracted. 
-                  For now, I'll assume we can display something if available, or just Price.
-                */}
-            {/* <h3 className="font-bold text-gray-900 text-sm mb-1">Credits</h3>
-                 <p className="text-gray-900 text-sm">3,000</p> */}
-            <h3 className="font-bold text-[#111827] text-sm mb-1">Amount</h3>
-            <p className="text-[#111827] text-sm">${Number(payment.amount).toFixed(2)}</p>
+            <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Amount</h3>
+            <p className="text-sm" style={{ color: '#111827' }}>${Number(payment.amount).toFixed(2)}</p>
           </div>
         </div>
 
         {/* Paid Stamp */}
         {payment.status === 'paid' && (
-          <div className="absolute top-40 right-40 opacity-20 pointer-events-none rotate-[-15deg] border-4 border-green-600 text-green-600 font-black text-6xl px-4 py-2 rounded-lg uppercase tracking-widest z-0">
+          <div
+            className="absolute top-40 right-40 opacity-20 pointer-events-none rotate-[-15deg] border-4 font-black text-6xl px-4 py-2 rounded-lg uppercase tracking-widest z-0"
+            style={{ color: '#16a34a', borderColor: '#16a34a' }}
+          >
             PAID
           </div>
         )}
 
-        {/* Extra Details / APIs (Mocked/Static relative to image if no data) 
-            The image shows a list of APIs. If 'APIs' aren't in the data, 
-            I shouldn't invent them, but I can layout the 'Description' area nicely.
-        */}
-
-        <div className="mb-20">
-          {/* Placeholder for item details if expanded, otherwise the description above covers it.
-                 The design has a specific list of features. 
-                 If the payload doesn't support structured features, we skip.
-             */}
-        </div>
-
+        <div className="mb-20"></div>
 
         {/* Total Paid Block */}
         <div className="mb-32">
-          <h2 className="text-2xl font-bold text-[#111827]">
+          <h2 className="text-2xl font-bold" style={{ color: '#111827' }}>
             ${Number(payment.amount).toLocaleString()} USD paid {issueDate}
           </h2>
         </div>
 
         {/* Thank You Footer */}
         <div className="text-center">
-          <h2 className="text-4xl font-extrabold text-[#111827] mb-16">Thank you for your payment!</h2>
+          <h2 className="text-4xl font-extrabold mb-16" style={{ color: '#111827' }}>Thank you for your payment!</h2>
 
-          <div className="text-xs text-gray-500 font-medium">
+          <div className="text-xs font-medium" style={{ color: '#6b7280' }}>
             <p className="mb-1">© {new Date().getFullYear()} Copyright Achtrex. All rights reserved.</p>
             <div className="flex justify-center gap-4">
               <span>Contact Us</span>
