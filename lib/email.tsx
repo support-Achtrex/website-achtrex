@@ -145,7 +145,7 @@ function generateEmailHtml(data: InvoiceData) {
     `;
 }
 
-async function generateInvoicePDF(data: InvoiceData): Promise<Buffer> {
+export async function generateInvoicePDF(data: InvoiceData): Promise<Buffer> {
     try {
         const ReactDOMServer = (await import('react-dom/server')).default || await import('react-dom/server');
         const puppeteer = (await import('puppeteer')).default || await import('puppeteer');

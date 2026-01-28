@@ -2,9 +2,7 @@
 
 import React, { useRef, useState, useTransition } from 'react';
 // Image import removed
-import { Download, RefreshCcw, CheckCircle, Clock, Loader2 } from 'lucide-react';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+import { Download, RefreshCcw, CheckCircle, Clock } from 'lucide-react';
 
 import { updateInvoiceStatus, resendInvoiceEmail } from '@/app/actions/invoice-management';
 import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
@@ -15,11 +13,10 @@ interface InvoiceViewProps {
 }
 
 export default function InvoiceView({ payment, client }: InvoiceViewProps) {
-  const invoiceRef = useRef<HTMLDivElement>(null);
 
   const [isPending, startTransition] = useTransition();
   const [emailStatus, setEmailStatus] = useState<string | null>(null);
-  const [isDownloading, setIsDownloading] = useState(false);
+
 
   const handleStatusChange = async (newStatus: string) => {
     startTransition(async () => {
@@ -40,42 +37,7 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
     }
   };
 
-  const handleDownloadPdf = async () => {
-    if (!invoiceRef.current) return;
-    setIsDownloading(true);
 
-    try {
-      // Small delay to ensure rendering - extended to 500ms
-      await new Promise(resolve => setTimeout(resolve, 500));
-
-      const canvas = await html2canvas(invoiceRef.current, {
-        scale: 2, // Higher scale for better quality
-        useCORS: true, // Handle external images if any
-        logging: true,
-        backgroundColor: '#ffffff',
-        allowTaint: false, // Changed to false to avoid security errors with cross-origin
-      });
-
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4',
-      });
-
-      const imgWidth = 210; // A4 width in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-      const safeInvoiceNumber = payment.invoice_number.replace(/[^a-z0-9-]/gi, '_');
-      pdf.save(`Invoice-${safeInvoiceNumber}.pdf`);
-    } catch (error: any) {
-      console.error('Error generating PDF:', error);
-      alert(`Failed to generate PDF: ${error.message || error}`);
-    } finally {
-      setIsDownloading(false);
-    }
-  };
 
   // Date formatting logic moved to InvoiceTemplate component
 
@@ -114,21 +76,18 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
           </button>
         </div>
 
-        <button
-          onClick={handleDownloadPdf}
-          disabled={isDownloading}
-          className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
+        <a
+          href={`/api/invoices/${payment.id}/pdf`}
+          target="_blank"
+          className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm"
         >
-          {isDownloading ? <Loader2 size={18} className="animate-spin" /> : <Download size={18} />}
-          {isDownloading ? 'Generating...' : 'Download PDF'}
-        </button>
+          <Download size={18} />
+          Download PDF
+        </a>
       </div>
 
       {/* Invoice Container */}
-      <div
-        ref={invoiceRef}
-        className="w-full max-w-[800px] shadow-sm" // invoiceTemplate has padding and styles
-      >
+      <div className="w-full max-w-[800px] shadow-sm">
         <InvoiceTemplate
           payment={payment}
           client={client}
