@@ -19,7 +19,7 @@ export async function GET(
         // Fetch Invoice and Client Data
         // We replicate the query from invoice-management actions
         const res = await sql`
-        SELECT cp.*, s.email as client_email, s.name as client_name, s.company as client_company
+        SELECT cp.*, s.email as client_email
         FROM client_payments cp
         JOIN subscribers s ON cp.subscriber_id = s.id
         WHERE cp.id = ${Number(paymentId)}
@@ -31,10 +31,24 @@ export async function GET(
 
         const invoice = res.rows[0];
 
+        // Attempt to get name and company safely
+        let clientName = invoice.name || 'Valued Client';
+        let clientCompany = '';
+
+        try {
+            const extraInfo = await sql`SELECT name, company FROM subscribers WHERE id = ${invoice.subscriber_id}`;
+            if (extraInfo.rows.length > 0) {
+                clientName = extraInfo.rows[0].name || clientName;
+                clientCompany = extraInfo.rows[0].company || '';
+            }
+        } catch (e) {
+            console.warn("Could not fetch extra subscriber details (likely missing columns):", e);
+        }
+
         // Format Data for Generator
-        const clientName = invoice.client_company
-            ? `${invoice.client_name} (${invoice.client_company})`
-            : invoice.client_name;
+        const finalClientName = clientCompany
+            ? `${clientName} (${clientCompany})`
+            : clientName;
 
         const invoiceData = {
             invoice_number: invoice.invoice_number,
@@ -42,7 +56,7 @@ export async function GET(
             description: invoice.description,
             status: invoice.status,
             date: new Date(invoice.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-            client_name: clientName,
+            client_name: finalClientName,
             client_email: invoice.client_email,
             currency: invoice.currency || 'USD'
         };

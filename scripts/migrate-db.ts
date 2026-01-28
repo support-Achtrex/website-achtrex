@@ -9,6 +9,10 @@ async function main() {
         await sql`ALTER TABLE client_payments ADD COLUMN IF NOT EXISTS currency VARCHAR(3) DEFAULT 'USD';`;
         console.log("Added column 'currency' to client_payments (if it didn't exist).");
 
+        await sql`ALTER TABLE subscribers ADD COLUMN IF NOT EXISTS name VARCHAR(255);`;
+        await sql`ALTER TABLE subscribers ADD COLUMN IF NOT EXISTS company VARCHAR(255);`;
+        console.log("Added columns 'name' and 'company' to subscribers (if they didn't exist).");
+
         console.log("Migration successful.");
     } catch (e) {
         console.error("Migration failed:", e);

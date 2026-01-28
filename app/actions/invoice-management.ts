@@ -25,7 +25,7 @@ export async function resendInvoiceEmail(id: number) {
     try {
         // Fetch Invoice and Client
         const res = await sql`
-            SELECT cp.*, s.email as client_email, s.name as client_name, s.company as client_company
+            SELECT cp.*, s.email as client_email
             FROM client_payments cp
             JOIN subscribers s ON cp.subscriber_id = s.id
             WHERE cp.id = ${id}
@@ -37,9 +37,23 @@ export async function resendInvoiceEmail(id: number) {
 
         const invoice = res.rows[0];
 
-        const clientName = invoice.client_company
-            ? `${invoice.client_name} (${invoice.client_company})`
-            : invoice.client_name;
+        // Attempt to get name and company safely
+        let clientName = invoice.name || 'Valued Client';
+        let clientCompany = '';
+
+        try {
+            const extraInfo = await sql`SELECT name, company FROM subscribers WHERE id = ${invoice.subscriber_id}`;
+            if (extraInfo.rows.length > 0) {
+                clientName = extraInfo.rows[0].name || clientName;
+                clientCompany = extraInfo.rows[0].company || '';
+            }
+        } catch (e) {
+            console.warn("Could not fetch extra subscriber details (likely missing columns):", e);
+        }
+
+        const finalClientName = clientCompany
+            ? `${clientName} (${clientCompany})`
+            : clientName;
 
         // Try/catch the email sending specifically if we make it throw later
         // But for now, just calling it.
@@ -49,7 +63,7 @@ export async function resendInvoiceEmail(id: number) {
             description: invoice.description,
             status: invoice.status,
             date: new Date(invoice.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-            client_name: clientName,
+            client_name: finalClientName,
             client_email: invoice.client_email,
             currency: invoice.currency || 'USD'
         });

@@ -147,8 +147,13 @@ function generateEmailHtml(data: InvoiceData) {
 
 export async function generateInvoicePDF(data: InvoiceData): Promise<Buffer> {
     try {
-        const ReactDOMServer = (await import('react-dom/server')).default || await import('react-dom/server');
-        const puppeteer = (await import('puppeteer')).default || await import('puppeteer');
+        const ReactDOMServerMod = await import('react-dom/server');
+        const ReactDOMServer = ReactDOMServerMod.default || ReactDOMServerMod;
+
+        const puppeteerMod = await import('puppeteer');
+        const puppeteer = puppeteerMod.default || puppeteerMod;
+
+        console.log("PDF Generation: Starting for invoice", data.invoice_number);
         // Read Logo
         const logoPath = path.join(process.cwd(), 'public', 'images', 'achtrex-logo.png');
         let logoBase64 = '';
@@ -217,8 +222,11 @@ export async function generateInvoicePDF(data: InvoiceData): Promise<Buffer> {
 
         return Buffer.from(pdfBuffer);
 
-    } catch (error) {
+    } catch (error: any) {
         console.error("Puppeteer PDF generation failed:", error);
-        throw error;
+        // Log more details if possible
+        if (error.message) console.error("Error Message:", error.message);
+        if (error.stack) console.error("Error Stack:", error.stack);
+        throw new Error(`PDF generation failed: ${error.message}`);
     }
 }
