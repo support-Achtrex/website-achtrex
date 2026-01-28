@@ -74,7 +74,7 @@ function generateEmailHtml(data: InvoiceData) {
     <body>
         <div class="container">
             <div class="header">
-                 <h1 style="color: white; margin: 0;">Achtrex</h1>
+                 <img src="https://www.achtrex.com/images/achtrex-logo.png" alt="Achtrex" style="max-height: 50px; width: auto; margin: 0 auto; display: block;">
             </div>
             <div class="content">
                 <h2>Invoice Details</h2>
@@ -110,8 +110,8 @@ function generateEmailHtml(data: InvoiceData) {
                     <div class="ad-title">Check Out Our Premium Products</div>
                     <p>Upgrade your workflow with Achtrex Pro. Get advanced analytics, unlimited invoicing, and priority support.</p>
                     <div style="display: flex; gap: 10px; margin-top: 15px;">
-                         <img src="https://via.placeholder.com/150x80?text=Analytics" alt="Product 1" style="border-radius: 4px;">
-                         <img src="https://via.placeholder.com/150x80?text=CRM" alt="Product 2" style="border-radius: 4px;">
+                         <img src="https://placehold.co/150x80/png?text=Analytics" alt="Analytics" style="border-radius: 4px; display: block;">
+                         <img src="https://placehold.co/150x80/png?text=CRM" alt="CRM" style="border-radius: 4px; display: block;">
                     </div>
                     <a href="https://achtrex.com/products" class="button">Explore Products</a>
                 </div>
