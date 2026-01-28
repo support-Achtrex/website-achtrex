@@ -1,8 +1,8 @@
 import React from 'react';
 import { sql } from '@vercel/postgres';
-import { Send, Trash2, Users, Mail } from 'lucide-react';
-import { deleteSubscriber, sendCampaign } from '@/app/actions/marketing';
-import { Button } from '@/components/buttons';
+import { Trash2, Users } from 'lucide-react';
+import { deleteSubscriber } from '@/app/actions/marketing';
+import { MarketingForm } from '@/components/admin/marketing/MarketingForm';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,94 +16,51 @@ export default async function MarketingPage() {
     }
 
     return (
-        <div className="space-y-8">
-            <div className="flex justify-between items-center">
+        <div className="space-y-8 animate-in fade-in duration-500">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900">Marketing & Newsletter</h1>
-                    <p className="text-gray-500 text-sm">Manage your subscribers and send updates.</p>
+                    <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Marketing Center</h1>
+                    <p className="text-gray-500 text-sm">Design campaigns and manage your audience.</p>
                 </div>
-                <div className="bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
-                    <Users size={16} />
-                    <span>{subscribers.length} Subscribers</span>
+                <div className="bg-white border border-gray-100 shadow-sm text-gray-700 px-5 py-2.5 rounded-2xl text-sm font-bold flex items-center gap-2">
+                    <Users size={16} className="text-primary" />
+                    <span>{subscribers.length} Global Subscribers</span>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
                 {/* Send Campaign Column */}
-                <div className="lg:col-span-2">
-                    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                <Mail size={20} />
-                            </div>
-                            <div>
-                                <h3 className="text-lg font-bold text-gray-800">Send Campaign</h3>
-                                <p className="text-xs text-gray-500">Email all your subscribers at once.</p>
-                            </div>
-                        </div>
-
-                        <form action={async (formData) => {
-                            'use server';
-                            await sendCampaign(formData);
-                        }} className="space-y-4">
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                                <input name="subject" required className="w-full p-3 border border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all" placeholder="e.g. New Features Out Now!" />
-                            </div>
-
-                            <div className="bg-gray-50/50 p-4 rounded-xl border border-gray-100">
-                                <label className="block text-sm font-medium text-gray-700 mb-2">Recipients</label>
-                                <div className="space-y-3">
-                                    <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
-                                        <input type="checkbox" name="send_to_all" defaultChecked className="w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary" />
-                                        Send to all {subscribers.length} subscribers
-                                    </label>
-                                    <div>
-                                        <input name="manual_recipients" className="w-full p-2 text-sm border border-gray-200 rounded-lg focus:border-primary outline-none" placeholder="Or add specific emails (comma separated)..." />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Message Body (HTML supported)</label>
-                                <textarea name="body" required className="w-full p-3 border border-gray-200 rounded-xl h-48 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all resize-none" placeholder="Hello team..." />
-                            </div>
-                            <div className="flex justify-end">
-                                <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl flex items-center gap-2 font-bold shadow-lg shadow-primary/20">
-                                    <Send size={18} />
-                                    Send Broadcast
-                                </Button>
-                            </div>
-                        </form>
-                    </div>
+                <div className="xl:col-span-3">
+                    <MarketingForm subscriberCount={subscribers.length} />
                 </div>
 
                 {/* Subscribers List Column */}
-                <div className="lg:col-span-1">
-                    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col h-[600px]">
-                        <div className="p-4 border-b border-gray-50 bg-gray-50/50">
-                            <h3 className="font-bold text-gray-800 text-sm">Subscriber List</h3>
+                <div className="xl:col-span-1 border-l border-gray-100 pl-4">
+                    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col h-[800px]">
+                        <div className="p-4 border-b border-gray-50 bg-gray-50/50 flex justify-between items-center">
+                            <h3 className="font-bold text-gray-800 text-xs uppercase tracking-wider">Subscribers</h3>
+                            <span className="text-[10px] bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full font-bold">{subscribers.length}</span>
                         </div>
-                        <div className="flex-1 overflow-y-auto p-2 space-y-2 custom-scrollbar">
+                        <div className="flex-1 overflow-y-auto p-3 space-y-2 custom-scrollbar">
                             {subscribers.length > 0 ? (
                                 subscribers.map((sub) => (
-                                    <div key={sub.id} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-xl transition-colors group border border-transparent hover:border-gray-100">
+                                    <div key={sub.id} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-xl transition-all group border border-transparent hover:border-gray-50">
                                         <div className="min-w-0">
-                                            <p className="text-sm font-medium text-gray-900 truncate">{sub.email}</p>
-                                            <p className="text-[10px] text-gray-400">
-                                                Joined {new Date(sub.subscribed_at).toLocaleDateString()}
+                                            <p className="text-xs font-bold text-gray-900 truncate">{sub.email}</p>
+                                            <p className="text-[9px] text-gray-400 font-medium">
+                                                {new Date(sub.subscribed_at).toLocaleDateString()}
                                             </p>
                                         </div>
                                         <form action={deleteSubscriber.bind(null, sub.id)}>
-                                            <button className="text-gray-300 hover:text-red-500 p-2 rounded-full hover:bg-red-50 transition-all opacity-0 group-hover:opacity-100">
-                                                <Trash2 size={14} />
+                                            <button className="text-gray-300 hover:text-red-500 p-2 rounded-lg hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-sm">
+                                                <Trash2 size={12} />
                                             </button>
                                         </form>
                                     </div>
                                 ))
                             ) : (
-                                <div className="text-center py-10 text-gray-400 text-sm">
-                                    No subscribers yet.
+                                <div className="text-center py-20 text-gray-400 text-xs">
+                                    Your list is empty.
                                 </div>
                             )}
                         </div>

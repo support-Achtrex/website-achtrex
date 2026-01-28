@@ -68,14 +68,15 @@ export async function sendCampaign(formData: FormData) {
             }
         });
 
+        const isHtml = /<[a-z][\s\S]*>/i.test(body);
+
         // 4. Send Email (using BCC for privacy)
-        // We send "To" ourselves, and "Bcc" everyone else.
         await transporter.sendMail({
             from: `"Achtrex Update" <${smtpEmail}>`,
-            to: smtpEmail, // Send to self so "To" isn't empty
-            bcc: recipients, // Everyone else in BCC
+            to: smtpEmail,
+            bcc: recipients,
             subject: subject,
-            html: body.replace(/\n/g, '<br>'), // Basic newline to BR conversion if basic text
+            html: isHtml ? body : body.replace(/\n/g, '<br>'),
         });
 
         return { success: true, count: recipients.length };
