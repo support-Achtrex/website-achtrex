@@ -45,6 +45,30 @@ export default async function CreateInvoicePage() {
                         <p className="mt-1 text-xs text-gray-400">Can't find the client? Make sure they are subscribed first.</p>
                     </div>
 
+                    {/* Client Details Override */}
+                    <div className="grid grid-cols-2 gap-6">
+                        <div>
+                            <label htmlFor="client_name" className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                            <input
+                                type="text"
+                                name="client_name"
+                                id="client_name"
+                                placeholder="Client's Full Name"
+                                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="client_company" className="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+                            <input
+                                type="text"
+                                name="client_company"
+                                id="client_company"
+                                placeholder="Client's Company"
+                                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                            />
+                        </div>
+                    </div>
+
                     {/* Invoice Number (Optional) */}
                     <div>
                         <label htmlFor="invoice_number" className="block text-sm font-medium text-gray-700 mb-2">Invoice Number</label>

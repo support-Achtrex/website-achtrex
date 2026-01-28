@@ -18,6 +18,9 @@ export async function createInvoice(formData: FormData) {
     const status = formData.get('status') as string;
     let invoiceNumber = formData.get('invoice_number') as string;
 
+    const client_name = formData.get('client_name') as string;
+    const client_company = formData.get('client_company') as string;
+
     if (!invoiceNumber) {
         invoiceNumber = generateInvoiceNumber();
     }
@@ -32,7 +35,33 @@ export async function createInvoice(formData: FormData) {
             VALUES (${Number(subscriberId)}, ${amount}, ${description}, ${status}, ${invoiceNumber})
         `;
 
-        // Fetch client details for email
+        if (client_name || client_company) {
+            try {
+                // Attempt to update subscriber details. 
+                // We'll try updating 'company' column. If it fails (column doesn't exist), we catch and only update name.
+                // NOTE: Ideally we run a migration, but here we try to be adaptive.
+                try {
+                    await sql`UPDATE subscribers SET name = ${client_name}, company = ${client_company} WHERE id = ${Number(subscriberId)}`;
+                } catch (dbError: any) {
+                    // If column 'company' does not exist, fallback to just name
+                    if (dbError.message.includes('column "company" of relation "subscribers" does not exist')) {
+                        console.warn("Company column missing, updating name only.");
+                        await sql`UPDATE subscribers SET name = ${client_name} WHERE id = ${Number(subscriberId)}`;
+                    } else {
+                        throw dbError;
+                    }
+                }
+            } catch (updateError) {
+                console.error("Failed to update subscriber details:", updateError);
+            }
+        }
+
+        // Fetch client details for email (reload to get updated info)
+        // We select 'company' explicitly, hoping it exists now or returns null if query structure allows, 
+        // but simple SELECT * or specific columns is safer. 
+        // To be safe against missing column in SELECT, we just use the variables we have if we updated them, 
+        // or re-fetch basic info.
+
         const clientRes = await sql`SELECT email, name FROM subscribers WHERE id = ${Number(subscriberId)}`;
         const client = clientRes.rows[0];
 
@@ -40,14 +69,21 @@ export async function createInvoice(formData: FormData) {
             // Import dynamically to avoid build issues if server components strictness
             const { sendInvoiceEmail } = await import('../../lib/email');
 
+            // Use provided values or DB values
+            const finalName = client_name || client.name;
+            const finalCompany = client_company || ''; // We might not be able to fetch company if column missing
+
+            console.log(`Sending invoice email to ${client.email} for ${finalName}`);
+
             await sendInvoiceEmail({
                 invoice_number: invoiceNumber,
                 amount,
                 description,
                 status,
                 date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-                client_name: client.name,
-                client_email: client.email
+                client_email: client.email,
+                // Combine Name and Company for the email if company exists
+                client_name: finalCompany ? `${finalName} (${finalCompany})` : finalName
             });
         }
     } catch (e) {
