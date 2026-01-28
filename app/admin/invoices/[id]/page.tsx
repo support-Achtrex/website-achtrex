@@ -39,6 +39,9 @@ export default async function InvoicePage({ params }: { params: { id: string } }
     }
 
     return (
-        <InvoiceView payment={payment} client={client} />
+        <InvoiceView
+            payment={JSON.parse(JSON.stringify(payment))}
+            client={client ? JSON.parse(JSON.stringify(client)) : null}
+        />
     );
 }

@@ -1,14 +1,12 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useTransition } from 'react';
 import Image from 'next/image';
-import { Download } from 'lucide-react';
+import { Download, RefreshCcw, CheckCircle, Clock, Loader2 } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 import { updateInvoiceStatus, resendInvoiceEmail } from '@/app/actions/invoice-management';
-import { useState, useTransition } from 'react';
-import { RefreshCcw, CheckCircle, Clock } from 'lucide-react';
 
 interface InvoiceViewProps {
   payment: any;
@@ -20,6 +18,7 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
 
   const [isPending, startTransition] = useTransition();
   const [emailStatus, setEmailStatus] = useState<string | null>(null);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   const handleStatusChange = async (newStatus: string) => {
     startTransition(async () => {
@@ -31,22 +30,29 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
     setEmailStatus('sending');
     const res = await resendInvoiceEmail(payment.id);
     if (res.success) {
-      setEmailStatus('sent');
+      alert('Email sent successfully!');
       setTimeout(() => setEmailStatus(null), 3000);
     } else {
       setEmailStatus('error');
       console.error(res.error);
-      alert(res.error); // Simple feedback
+      alert(res.error || 'Failed to send email');
     }
   };
 
   const handleDownloadPdf = async () => {
     if (!invoiceRef.current) return;
+    setIsDownloading(true);
 
     try {
+      // Small delay to ensure rendering
+      await new Promise(resolve => setTimeout(resolve, 100));
+
       const canvas = await html2canvas(invoiceRef.current, {
         scale: 2, // Higher scale for better quality
         useCORS: true, // Handle external images if any
+        logging: true,
+        backgroundColor: '#ffffff',
+        allowTaint: true,
       });
 
       const imgData = canvas.toDataURL('image/png');
@@ -63,6 +69,9 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
       pdf.save(`Invoice-${payment.invoice_number}.pdf`);
     } catch (error) {
       console.error('Error generating PDF:', error);
+      alert('Failed to generate PDF. Please try again or contact support.');
+    } finally {
+      setIsDownloading(false);
     }
   };
 
@@ -114,10 +123,11 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
 
         <button
           onClick={handleDownloadPdf}
-          className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm"
+          disabled={isDownloading}
+          className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
         >
-          <Download size={18} />
-          Download PDF
+          {isDownloading ? <Loader2 size={18} className="animate-spin" /> : <Download size={18} />}
+          {isDownloading ? 'Generating...' : 'Download PDF'}
         </button>
       </div>
 
@@ -167,6 +177,7 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
                 fill
                 className="object-contain object-right-top"
                 priority
+                unoptimized // Critical for html2canvas to capture it properly
               />
             </div>
           </div>
