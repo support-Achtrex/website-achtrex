@@ -51,6 +51,14 @@ export async function GET() {
       )
     `;
 
+    // 4b. Ensure subscriber columns exist
+    try {
+      await sql`ALTER TABLE subscribers ADD COLUMN IF NOT EXISTS name VARCHAR(255)`;
+      await sql`ALTER TABLE subscribers ADD COLUMN IF NOT EXISTS company VARCHAR(255)`;
+    } catch (e) {
+      console.warn("Could not add subscriber columns:", e);
+    }
+
     // 5. Client Notes
     await sql`
       CREATE TABLE IF NOT EXISTS client_notes (
