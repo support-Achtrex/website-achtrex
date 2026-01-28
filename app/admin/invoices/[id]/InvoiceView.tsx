@@ -214,7 +214,7 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
           </div>
           <div>
             <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Amount</h3>
-            <p className="text-sm" style={{ color: '#111827' }}>${Number(payment.amount).toFixed(2)}</p>
+            <p className="text-sm" style={{ color: '#111827' }}>{Number(payment.amount).toLocaleString('en-US', { style: 'currency', currency: payment.currency || 'USD' })}</p>
           </div>
         </div>
 
@@ -233,7 +233,7 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
         {/* Total Paid Block */}
         <div className="mb-32">
           <h2 className="text-2xl font-bold" style={{ color: '#111827' }}>
-            ${Number(payment.amount).toLocaleString()} USD paid {issueDate}
+            {Number(payment.amount).toLocaleString('en-US', { style: 'currency', currency: payment.currency || 'USD' })} paid {issueDate}
           </h2>
         </div>
 

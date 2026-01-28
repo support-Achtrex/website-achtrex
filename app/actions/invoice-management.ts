@@ -50,7 +50,8 @@ export async function resendInvoiceEmail(id: number) {
             status: invoice.status,
             date: new Date(invoice.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
             client_name: clientName,
-            client_email: invoice.client_email
+            client_email: invoice.client_email,
+            currency: invoice.currency || 'USD'
         });
 
         return { success: true, message: `Email sent to ${invoice.client_email}` };

@@ -81,11 +81,25 @@ export default async function CreateInvoicePage() {
                         />
                     </div>
 
+                    {/* Currency */}
+                    <div>
+                        <label htmlFor="currency" className="block text-sm font-medium text-gray-700 mb-2">Currency</label>
+                        <select
+                            name="currency"
+                            id="currency"
+                            defaultValue="USD"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white"
+                        >
+                            <option value="USD">USD - US Dollar ($)</option>
+                            <option value="EUR">EUR - Euro (€)</option>
+                            <option value="GHS">GHS - Ghana Cedis (GH₵)</option>
+                        </select>
+                    </div>
+
                     {/* Amount */}
                     <div>
-                        <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-2">Amount (USD)</label>
+                        <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-2">Amount</label>
                         <div className="relative">
-                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">$</span>
                             <input
                                 type="number"
                                 name="amount"
@@ -94,7 +108,7 @@ export default async function CreateInvoicePage() {
                                 min="0"
                                 step="0.01"
                                 placeholder="0.00"
-                                className="w-full pl-8 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                             />
                         </div>
                     </div>

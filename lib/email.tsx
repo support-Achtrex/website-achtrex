@@ -19,6 +19,7 @@ interface InvoiceData {
     date: string;
     client_name?: string;
     client_email: string;
+    currency?: string;
 }
 
 export async function sendInvoiceEmail(data: InvoiceData) {
@@ -63,7 +64,8 @@ function generatePlainText(data: InvoiceData) {
     Invoice #: ${data.invoice_number}
     Date: ${data.date}
     Description: ${data.description}
-    Total Amount: $${Number(data.amount).toLocaleString()}
+    Description: ${data.description}
+    Total Amount: ${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}
     Status: ${data.status.toUpperCase()}
     
     A PDF copy of this invoice is attached to this email.
@@ -119,7 +121,7 @@ function generateEmailHtml(data: InvoiceData) {
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; border-top: 1px solid #d1d5db; padding-top: 10px;">
                         <span>Total Amount</span>
-                        <span class="amount">$${Number(data.amount).toLocaleString()}</span>
+                        <span class="amount">${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}</span>
                     </div>
                     <div style="text-align: right; margin-top: 10px;">
                         <span class="status">${data.status}</span>
@@ -163,12 +165,12 @@ async function generateSimpleInvoicePDF(data: InvoiceData): Promise<ArrayBuffer>
     doc.line(20, 135, 190, 135);
 
     doc.text(data.description, 20, 145);
-    doc.text(`$${Number(data.amount).toLocaleString()}`, 150, 145);
+    doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 150, 145);
 
     doc.line(20, 155, 190, 155);
 
     doc.setFontSize(16);
-    doc.text(`Total: $${Number(data.amount).toLocaleString()}`, 120, 170);
+    doc.text(`Total: ${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 120, 170);
 
     doc.setFontSize(10);
     doc.text('Thank you for your business!', 20, 200);

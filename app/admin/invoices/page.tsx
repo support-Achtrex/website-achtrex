@@ -64,7 +64,7 @@ export default async function InvoicesIndexPage() {
                                         {new Date(payment.created_at).toLocaleDateString()}
                                     </td>
                                     <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                                        ${Number(payment.amount).toLocaleString()}
+                                        {Number(payment.amount).toLocaleString('en-US', { style: 'currency', currency: payment.currency || 'USD' })}
                                     </td>
                                     <td className="px-6 py-4">
                                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize

@@ -18,6 +18,8 @@ export async function createInvoice(formData: FormData) {
     const status = formData.get('status') as string;
     let invoiceNumber = formData.get('invoice_number') as string;
 
+    const currency = (formData.get('currency') as string) || 'USD';
+
     const client_name = formData.get('client_name') as string;
     const client_company = formData.get('client_company') as string;
 
@@ -32,8 +34,8 @@ export async function createInvoice(formData: FormData) {
     try {
         const createdAt = new Date().toISOString();
         await sql`
-            INSERT INTO client_payments (subscriber_id, amount, description, status, invoice_number, created_at)
-            VALUES (${Number(subscriberId)}, ${amount}, ${description}, ${status}, ${invoiceNumber}, ${createdAt})
+            INSERT INTO client_payments (subscriber_id, amount, description, status, invoice_number, created_at, currency)
+            VALUES (${Number(subscriberId)}, ${amount}, ${description}, ${status}, ${invoiceNumber}, ${createdAt}, ${currency})
         `;
 
         if (client_name || client_company) {
@@ -84,7 +86,8 @@ export async function createInvoice(formData: FormData) {
                 date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
                 client_email: client.email,
                 // Combine Name and Company for the email if company exists
-                client_name: finalCompany ? `${finalName} (${finalCompany})` : finalName
+                client_name: finalCompany ? `${finalName} (${finalCompany})` : finalName,
+                currency
             });
         }
     } catch (e) {
