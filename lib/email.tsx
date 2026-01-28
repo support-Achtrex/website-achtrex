@@ -27,6 +27,7 @@ export async function sendInvoiceEmail(data: InvoiceData) {
     try {
         const pdfBuffer = await generateSimpleInvoicePDF(data);
         const htmlContent = generateEmailHtml(data);
+        const textContent = generatePlainText(data);
 
         const senderEmail = process.env.SMTP_FROM || process.env.SMTP_USER || 'support@achtrex.com';
 
@@ -34,6 +35,7 @@ export async function sendInvoiceEmail(data: InvoiceData) {
             from: `"Achtrex Billing" <${senderEmail}>`,
             to: data.client_email,
             subject: `Invoice #${data.invoice_number} from Achtrex`,
+            text: textContent, // Plain text fallback reduces spam score
             html: htmlContent,
             attachments: [
                 {
@@ -48,6 +50,29 @@ export async function sendInvoiceEmail(data: InvoiceData) {
         console.error('Error sending invoice email:', error);
         throw error;
     }
+}
+
+function generatePlainText(data: InvoiceData) {
+    return `
+    ACHTREX INVOICE
+    
+    Hello ${data.client_name || 'Valued Client'},
+    
+    Here is the invoice for your recent transaction.
+    
+    Invoice #: ${data.invoice_number}
+    Date: ${data.date}
+    Description: ${data.description}
+    Total Amount: $${Number(data.amount).toLocaleString()}
+    Status: ${data.status.toUpperCase()}
+    
+    A PDF copy of this invoice is attached to this email.
+    
+    Thank you for your business!
+    
+    Achtrex
+    support@achtrex.com
+    `;
 }
 
 function generateEmailHtml(data: InvoiceData) {
