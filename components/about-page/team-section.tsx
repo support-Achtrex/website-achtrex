@@ -16,7 +16,7 @@ const FALLBACK_TEAM = [
     },
     {
         id: 2,
-        name: 'Dr. Emmanuella Yeboah-Appiah',
+        name: 'Emmanuella Yeboah-Appiah',
         role: 'CFO',
         image: '/team/emmanuella_v2.jpg',
         bio: 'Steering the financial strategy and ensuring sustainable growth for our global operations.',
@@ -86,13 +86,22 @@ export const TeamSection = async () => {
         console.error("Failed to fetch team members:", error);
     }
 
-    // FORCE FIX: Ensure Achim's role is correct even if DB is outdated
+    // FORCE FIX: Ensure specific team member data is correct
     if (teamMembers && teamMembers.length > 0) {
         teamMembers = teamMembers.map(member => {
+            let updatedMember = { ...member };
+
+            // Fix Achim's role
             if (member.name === 'Achim Godwin Tetteh') {
-                return { ...member, role: 'Operations Project Manager' };
+                updatedMember.role = 'Operations Project Manager';
             }
-            return member;
+
+            // Remove Dr. prefix from Emmanuella (or anyone else)
+            if (updatedMember.name && updatedMember.name.startsWith('Dr. ')) {
+                updatedMember.name = updatedMember.name.replace('Dr. ', '');
+            }
+
+            return updatedMember;
         });
     }
 
