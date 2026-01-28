@@ -6,10 +6,11 @@ import { generateInvoicePDF } from '@/lib/email';
 
 export async function GET(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    context: { params: Promise<{ id: string }> }
 ) {
     try {
-        const paymentId = params.id;
+        const { id } = await context.params;
+        const paymentId = id;
 
         if (!paymentId) {
             return new NextResponse('Missing Invoice ID', { status: 400 });
