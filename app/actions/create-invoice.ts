@@ -30,9 +30,10 @@ export async function createInvoice(formData: FormData) {
     }
 
     try {
+        const createdAt = new Date().toISOString();
         await sql`
-            INSERT INTO client_payments (subscriber_id, amount, description, status, invoice_number)
-            VALUES (${Number(subscriberId)}, ${amount}, ${description}, ${status}, ${invoiceNumber})
+            INSERT INTO client_payments (subscriber_id, amount, description, status, invoice_number, created_at)
+            VALUES (${Number(subscriberId)}, ${amount}, ${description}, ${status}, ${invoiceNumber}, ${createdAt})
         `;
 
         if (client_name || client_company) {

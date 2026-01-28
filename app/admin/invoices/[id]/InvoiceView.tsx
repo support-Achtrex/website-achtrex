@@ -44,15 +44,15 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
     setIsDownloading(true);
 
     try {
-      // Small delay to ensure rendering
-      await new Promise(resolve => setTimeout(resolve, 100));
+      // Small delay to ensure rendering - extended to 500ms
+      await new Promise(resolve => setTimeout(resolve, 500));
 
       const canvas = await html2canvas(invoiceRef.current, {
         scale: 2, // Higher scale for better quality
         useCORS: true, // Handle external images if any
         logging: true,
         backgroundColor: '#ffffff',
-        allowTaint: true,
+        allowTaint: false, // Changed to false to avoid security errors with cross-origin
       });
 
       const imgData = canvas.toDataURL('image/png');
@@ -66,10 +66,11 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
       pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-      pdf.save(`Invoice-${payment.invoice_number}.pdf`);
-    } catch (error) {
+      const safeInvoiceNumber = payment.invoice_number.replace(/[^a-z0-9-]/gi, '_');
+      pdf.save(`Invoice-${safeInvoiceNumber}.pdf`);
+    } catch (error: any) {
       console.error('Error generating PDF:', error);
-      alert('Failed to generate PDF. Please try again or contact support.');
+      alert(`Failed to generate PDF: ${error.message || error}`);
     } finally {
       setIsDownloading(false);
     }
@@ -81,10 +82,18 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
     day: 'numeric',
     year: 'numeric',
   };
-  const issueDate = new Date(payment.created_at).toLocaleDateString('en-US', dateOptions);
 
-  // Create a time string if available, else Mock
-  const timeString = new Date(payment.created_at).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+  let issueDate = 'N/A';
+  let timeString = 'N/A';
+
+  try {
+    if (payment.created_at) {
+      issueDate = new Date(payment.created_at).toLocaleDateString('en-US', dateOptions);
+      timeString = new Date(payment.created_at).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+    }
+  } catch (e) {
+    console.error("Date parsing error", e);
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center py-10">
