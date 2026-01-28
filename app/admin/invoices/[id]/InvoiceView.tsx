@@ -6,6 +6,10 @@ import { Download } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
+import { updateInvoiceStatus, resendInvoiceEmail } from '@/app/actions/invoice-management';
+import { useState, useTransition } from 'react';
+import { RefreshCcw, CheckCircle, Clock } from 'lucide-react';
+
 interface InvoiceViewProps {
   payment: any;
   client: any;
@@ -13,6 +17,28 @@ interface InvoiceViewProps {
 
 export default function InvoiceView({ payment, client }: InvoiceViewProps) {
   const invoiceRef = useRef<HTMLDivElement>(null);
+
+  const [isPending, startTransition] = useTransition();
+  const [emailStatus, setEmailStatus] = useState<string | null>(null);
+
+  const handleStatusChange = async (newStatus: string) => {
+    startTransition(async () => {
+      await updateInvoiceStatus(payment.id, newStatus);
+    });
+  };
+
+  const handleResendEmail = async () => {
+    setEmailStatus('sending');
+    const res = await resendInvoiceEmail(payment.id);
+    if (res.success) {
+      setEmailStatus('sent');
+      setTimeout(() => setEmailStatus(null), 3000);
+    } else {
+      setEmailStatus('error');
+      console.error(res.error);
+      alert(res.error); // Simple feedback
+    }
+  };
 
   const handleDownloadPdf = async () => {
     if (!invoiceRef.current) return;
@@ -55,7 +81,37 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
     <div className="min-h-screen bg-gray-50 flex flex-col items-center py-10">
 
       {/* Top Controls */}
-      <div className="w-full max-w-[800px] flex justify-end mb-6">
+      <div className="w-full max-w-[800px] flex justify-between mb-6">
+        <div className="flex gap-2">
+          {/* Status Toggle */}
+          <div className="flex items-center bg-white rounded shadow-sm p-1">
+            <button
+              onClick={() => handleStatusChange('pending')}
+              disabled={isPending}
+              className={`px-3 py-1 text-sm font-medium rounded transition-colors flex items-center gap-1 ${payment.status === 'pending' ? 'bg-orange-100 text-orange-700' : 'text-gray-500 hover:bg-gray-50'}`}
+            >
+              <Clock size={14} /> Pending
+            </button>
+            <button
+              onClick={() => handleStatusChange('paid')}
+              disabled={isPending}
+              className={`px-3 py-1 text-sm font-medium rounded transition-colors flex items-center gap-1 ${payment.status === 'paid' ? 'bg-green-100 text-green-700' : 'text-gray-500 hover:bg-gray-50'}`}
+            >
+              <CheckCircle size={14} /> Paid
+            </button>
+          </div>
+
+          {/* Resend Email */}
+          <button
+            onClick={handleResendEmail}
+            disabled={emailStatus === 'sending'}
+            className="bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm text-sm border border-gray-200"
+          >
+            <RefreshCcw size={14} className={emailStatus === 'sending' ? 'animate-spin' : ''} />
+            {emailStatus === 'sending' ? 'Sending...' : emailStatus === 'sent' ? 'Sent!' : 'Resend Email'}
+          </button>
+        </div>
+
         <button
           onClick={handleDownloadPdf}
           className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm"

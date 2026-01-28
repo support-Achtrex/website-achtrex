@@ -75,7 +75,7 @@ export default async function InvoicesIndexPage() {
                                     </td>
                                     <td className="px-6 py-4 text-right">
                                         <Link
-                                            href={`/admin/invoices/${payment.invoice_number}`}
+                                            href={`/admin/invoices/${payment.invoice_number || payment.id}`}
                                             className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-gray-500 hover:bg-primary hover:text-white transition-colors"
                                             title="View Invoice"
                                         >
