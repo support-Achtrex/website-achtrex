@@ -1,5 +1,10 @@
+import path from 'path';
+import fs from 'fs';
 import nodemailer from 'nodemailer';
-import { jsPDF } from 'jspdf';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import puppeteer from 'puppeteer';
+import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
 
 // Setup Transporter
 // using credentials found in marketing.ts
@@ -26,7 +31,7 @@ export async function sendInvoiceEmail(data: InvoiceData) {
     // Credentials are now hardcoded as fallback in transporter setup
 
     try {
-        const pdfBuffer = await generateSimpleInvoicePDF(data);
+        const pdfBuffer = await generateInvoicePDF(data);
         const htmlContent = generateEmailHtml(data);
         const textContent = generatePlainText(data);
 
@@ -41,7 +46,7 @@ export async function sendInvoiceEmail(data: InvoiceData) {
             attachments: [
                 {
                     filename: `Invoice-${data.invoice_number}.pdf`,
-                    content: Buffer.from(pdfBuffer),
+                    content: pdfBuffer, // Buffer matches expectation
                     contentType: 'application/pdf',
                 },
             ],
@@ -63,7 +68,6 @@ function generatePlainText(data: InvoiceData) {
     
     Invoice #: ${data.invoice_number}
     Date: ${data.date}
-    Description: ${data.description}
     Description: ${data.description}
     Total Amount: ${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}
     Status: ${data.status.toUpperCase()}
@@ -141,40 +145,78 @@ function generateEmailHtml(data: InvoiceData) {
     `;
 }
 
-async function generateSimpleInvoicePDF(data: InvoiceData): Promise<ArrayBuffer> {
-    // Basic text-only PDF generation
-    const doc = new jsPDF();
+async function generateInvoicePDF(data: InvoiceData): Promise<Buffer> {
+    try {
+        // Read Logo
+        const logoPath = path.join(process.cwd(), 'public', 'images', 'achtrex-logo.png');
+        let logoBase64 = '';
+        try {
+            const logoBuffer = fs.readFileSync(logoPath);
+            logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`;
+        } catch (e) {
+            console.error("Error reading logo for PDF:", e);
+        }
 
-    doc.setFontSize(22);
-    doc.text('INVOICE', 20, 20);
+        // Mock payment/client objects to match InvoiceTemplate props
+        const payment = {
+            invoice_number: data.invoice_number,
+            created_at: data.date,
+            status: data.status,
+            card_brand: 'Visa', // Default/Placeholder as fallback
+            card_last4: '4242',
+            description: data.description,
+            amount: data.amount,
+            currency: data.currency
+        };
 
-    doc.setFontSize(12);
-    doc.text(`Invoice #: ${data.invoice_number}`, 20, 40);
-    doc.text(`Date: ${data.date}`, 20, 50);
-    doc.text(`Status: ${data.status.toUpperCase()}`, 20, 60);
+        const client = {
+            name: data.client_name,
+            email: data.client_email,
+            company: ''
+        };
 
-    doc.line(20, 70, 190, 70);
+        const componentHtml = ReactDOMServer.renderToStaticMarkup(
+            <InvoiceTemplate payment={payment} client={client} logoSrc={logoBase64} />
+        );
 
-    doc.text('Bill To:', 20, 85);
-    doc.text(`${data.client_name || 'Client'}`, 20, 95);
-    doc.text(`${data.client_email}`, 20, 105);
+        const fullHtml = `
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <script src="https://cdn.tailwindcss.com"></script>
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+                    <style>
+                        body { font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; }
+                    </style>
+                </head>
+                <body>
+                    ${componentHtml}
+                </body>
+            </html>
+        `;
 
-    doc.text('Description', 20, 130);
-    doc.text('Amount', 150, 130);
+        const browser = await puppeteer.launch({
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],
+            headless: true
+        });
+        const page = await browser.newPage();
 
-    doc.line(20, 135, 190, 135);
+        // precise rendering
+        await page.setContent(fullHtml, { waitUntil: 'networkidle0' });
 
-    doc.text(data.description, 20, 145);
-    doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 150, 145);
+        const pdfBuffer = await page.pdf({
+            format: 'A4',
+            printBackground: true,
+            margin: { top: '0px', right: '0px', bottom: '0px', left: '0px' }
+        });
 
-    doc.line(20, 155, 190, 155);
+        await browser.close();
 
-    doc.setFontSize(16);
-    doc.text(`Total: ${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 120, 170);
+        return Buffer.from(pdfBuffer);
 
-    doc.setFontSize(10);
-    doc.text('Thank you for your business!', 20, 200);
-    doc.text('Achtrex', 20, 205);
-
-    return doc.output('arraybuffer');
+    } catch (error) {
+        console.error("Puppeteer PDF generation failed:", error);
+        throw error;
+    }
 }
