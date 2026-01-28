@@ -46,6 +46,7 @@ export async function sendInvoiceEmail(data: InvoiceData) {
         console.log(`Invoice email sent to ${data.client_email}`);
     } catch (error) {
         console.error('Error sending invoice email:', error);
+        throw error;
     }
 }
 

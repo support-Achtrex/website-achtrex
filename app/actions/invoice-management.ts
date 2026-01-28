@@ -19,6 +19,8 @@ export async function updateInvoiceStatus(id: number, newStatus: string) {
     }
 }
 
+import { sendInvoiceEmail } from '@/lib/email';
+
 export async function resendInvoiceEmail(id: number) {
     try {
         // Fetch Invoice and Client
@@ -35,13 +37,12 @@ export async function resendInvoiceEmail(id: number) {
 
         const invoice = res.rows[0];
 
-        // Dynamically import email sender
-        const { sendInvoiceEmail } = await import('../../lib/email');
-
         const clientName = invoice.client_company
             ? `${invoice.client_name} (${invoice.client_company})`
             : invoice.client_name;
 
+        // Try/catch the email sending specifically if we make it throw later
+        // But for now, just calling it.
         await sendInvoiceEmail({
             invoice_number: invoice.invoice_number,
             amount: invoice.amount,
@@ -54,8 +55,8 @@ export async function resendInvoiceEmail(id: number) {
 
         return { success: true, message: `Email sent to ${invoice.client_email}` };
 
-    } catch (error) {
+    } catch (error: any) {
         console.error('Failed to resend email:', error);
-        return { error: 'Failed to send email. Check logs.' };
+        return { error: `Failed to send email: ${error.message || error}` };
     }
 }
