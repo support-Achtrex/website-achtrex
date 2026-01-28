@@ -83,6 +83,29 @@ export async function GET() {
       )
     `;
 
+    // 7. Client Files
+    await sql`
+      CREATE TABLE IF NOT EXISTS client_files (
+        id SERIAL PRIMARY KEY,
+        subscriber_id INTEGER REFERENCES subscribers(id) ON DELETE CASCADE,
+        file_name VARCHAR(255) NOT NULL,
+        file_url TEXT NOT NULL,
+        file_size INTEGER,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      )
+    `;
+
+    // 8. Project Progress
+    await sql`
+      CREATE TABLE IF NOT EXISTS project_progress (
+        id SERIAL PRIMARY KEY,
+        subscriber_id INTEGER REFERENCES subscribers(id) ON DELETE CASCADE,
+        milestone VARCHAR(255) NOT NULL,
+        status VARCHAR(50) DEFAULT 'pending', -- pending, in-progress, completed
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      )
+    `;
+
     // 7. Initial Data (Team)
     await sql`
       DO $$

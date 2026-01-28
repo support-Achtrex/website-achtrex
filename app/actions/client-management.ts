@@ -63,3 +63,69 @@ export async function deletePayment(paymentId: number, subscriberId: number) {
         return { error: 'Failed to delete payment' };
     }
 }
+
+// Project Progress
+export async function addMilestone(subscriberId: number, milestone: string) {
+    if (!milestone) return { error: 'Milestone is required' };
+    try {
+        await sql`
+            INSERT INTO project_progress (subscriber_id, milestone)
+            VALUES (${subscriberId}, ${milestone})
+        `;
+        revalidatePath(`/admin/subscribers/${subscriberId}`);
+        return { success: true };
+    } catch (error) {
+        console.error('Milestone error:', error);
+        return { error: 'Failed to add milestone' };
+    }
+}
+
+export async function updateMilestoneStatus(subscriberId: number, milestoneId: number, status: string) {
+    try {
+        await sql`
+            UPDATE project_progress
+            SET status = ${status}
+            WHERE id = ${milestoneId} AND subscriber_id = ${subscriberId}
+        `;
+        revalidatePath(`/admin/subscribers/${subscriberId}`);
+        return { success: true };
+    } catch (error) {
+        return { error: 'Failed to update milestone' };
+    }
+}
+
+export async function deleteMilestone(subscriberId: number, milestoneId: number) {
+    try {
+        await sql`DELETE FROM project_progress WHERE id = ${milestoneId}`;
+        revalidatePath(`/admin/subscribers/${subscriberId}`);
+        return { success: true };
+    } catch (error) {
+        return { error: 'Failed to delete milestone' };
+    }
+}
+
+// Client Files
+export async function addFile(subscriberId: number, fileName: string, fileUrl: string, fileSize?: number) {
+    if (!fileName || !fileUrl) return { error: 'Name and URL are required' };
+    try {
+        await sql`
+            INSERT INTO client_files (subscriber_id, file_name, file_url, file_size)
+            VALUES (${subscriberId}, ${fileName}, ${fileUrl}, ${fileSize || 0})
+        `;
+        revalidatePath(`/admin/subscribers/${subscriberId}`);
+        return { success: true };
+    } catch (error) {
+        console.error('File add error:', error);
+        return { error: 'Failed to add file' };
+    }
+}
+
+export async function deleteFile(subscriberId: number, fileId: number) {
+    try {
+        await sql`DELETE FROM client_files WHERE id = ${fileId}`;
+        revalidatePath(`/admin/subscribers/${subscriberId}`);
+        return { success: true };
+    } catch (error) {
+        return { error: 'Failed to delete file' };
+    }
+}
