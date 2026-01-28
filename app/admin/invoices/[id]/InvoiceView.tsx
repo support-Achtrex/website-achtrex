@@ -175,85 +175,127 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
                 <span style={{ color: '#111827' }}>{timeString}</span>
               </div>
             </div>
+            {payment.status === 'paid' && (
+              <div className="grid grid-cols-[140px_1fr] items-center">
+                <span className="font-semibold" style={{ color: '#111827' }}>Credit card</span>
+                <span className="uppercase" style={{ color: '#111827' }}>
+                  {payment.card_brand || 'CARD'} - XXXX XXXX XXXX {payment.card_last4 || 'XXXX'}
+                </span>
+              </div>
+            )}
+            {payment.status === 'paid' && (
+              <div className="grid grid-cols-[140px_1fr] items-center">
+                <span className="font-semibold" style={{ color: '#111827' }}>Time of transaction</span>
+                <span style={{ color: '#111827' }}>{timeString}</span>
+              </div>
+            )}
           </div>
+        </div>
 
-          <div className="flex flex-col items-end">
-            {/* Logo */}
-            <div className="relative w-48 h-20 mb-2">
-              <Image
-                src="/images/achtrex-logo.png"
-                alt="Achtrex Logo"
-                fill
-                className="object-contain object-right-top"
-                priority
-                unoptimized // Critical for html2canvas to capture it properly
-              />
+        <div className="flex flex-col items-end">
+          {/* Logo */}
+          <div className="relative w-48 h-20 mb-2">
+            <Image
+              src="/images/achtrex-logo.png"
+              alt="Achtrex Logo"
+              fill
+              className="object-contain object-right-top"
+              priority
+              unoptimized // Critical for html2canvas to capture it properly
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Addresses Section */}
+      <div className="grid grid-cols-2 gap-12 mb-12">
+        <div>
+          <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Achtrex</h3>
+          <p className="text-sm" style={{ color: '#111827' }}>support@achtrex.com</p>
+        </div>
+        <div>
+          <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Bill to</h3>
+          <p className="text-sm mb-1" style={{ color: '#111827' }}>{client?.name || 'Valued Client'}</p>
+          {client?.company && <p className="text-sm mb-1" style={{ color: '#111827' }}>{client.company}</p>}
+          <p className="text-sm" style={{ color: '#111827' }}>{client?.email}</p>
+        </div>
+      </div>
+
+      {/* Description & Credits */}
+      <div className="grid grid-cols-2 gap-12 mb-8">
+        <div>
+          <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Description</h3>
+          <p className="text-sm" style={{ color: '#111827' }}>{payment.description}</p>
+        </div>
+        <div>
+          <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Amount</h3>
+          <p className="text-sm" style={{ color: '#111827' }}>{Number(payment.amount).toLocaleString('en-US', { style: 'currency', currency: payment.currency || 'USD' })}</p>
+        </div>
+      </div>
+
+      {/* Paid Stamp */}
+      {payment.status === 'paid' && (
+        <div
+          className="absolute top-40 right-40 opacity-20 pointer-events-none rotate-[-15deg] border-4 font-black text-6xl px-4 py-2 rounded-lg uppercase tracking-widest z-0"
+          style={{ color: '#16a34a', borderColor: '#16a34a' }}
+        >
+          PAID
+        </div>
+      )}
+
+      <div className="mb-20"></div>
+
+      {/* Total Paid / Due Block */}
+      <div className="mb-32">
+        <h2 className="text-2xl font-bold" style={{ color: '#111827' }}>
+          {Number(payment.amount).toLocaleString('en-US', { style: 'currency', currency: payment.currency || 'USD' })} {payment.status === 'paid' ? `paid ${issueDate}` : 'due'}
+        </h2>
+
+        {payment.status !== 'paid' && (
+          <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200" style={{ backgroundColor: '#F9FAFB', borderColor: '#E5E7EB' }}>
+            <h3 className="font-bold text-lg mb-4" style={{ color: '#111827' }}>Payment Details</h3>
+            <div className="space-y-2 text-sm" style={{ color: '#374151' }}>
+              <div className="grid grid-cols-[140px_1fr]">
+                <span className="font-semibold">Bank Name:</span>
+                <span>Fidelity Bank</span>
+              </div>
+              <div className="grid grid-cols-[140px_1fr]">
+                <span className="font-semibold">Account Name:</span>
+                <span>Achtrex Services</span>
+              </div>
+              <div className="grid grid-cols-[140px_1fr]">
+                <span className="font-semibold">Account Number:</span>
+                <span>2400931904813</span>
+              </div>
+              <div className="grid grid-cols-[140px_1fr]">
+                <span className="font-semibold">SWIFT/BIC:</span>
+                <span>FBLIGHAC</span>
+              </div>
             </div>
-          </div>
-        </div>
-
-        {/* Addresses Section */}
-        <div className="grid grid-cols-2 gap-12 mb-12">
-          <div>
-            <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Achtrex</h3>
-            <p className="text-sm" style={{ color: '#111827' }}>support@achtrex.com</p>
-          </div>
-          <div>
-            <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Bill to</h3>
-            <p className="text-sm mb-1" style={{ color: '#111827' }}>{client?.name || 'Valued Client'}</p>
-            {client?.company && <p className="text-sm mb-1" style={{ color: '#111827' }}>{client.company}</p>}
-            <p className="text-sm" style={{ color: '#111827' }}>{client?.email}</p>
-          </div>
-        </div>
-
-        {/* Description & Credits */}
-        <div className="grid grid-cols-2 gap-12 mb-8">
-          <div>
-            <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Description</h3>
-            <p className="text-sm" style={{ color: '#111827' }}>{payment.description}</p>
-          </div>
-          <div>
-            <h3 className="font-bold text-sm mb-1" style={{ color: '#111827' }}>Amount</h3>
-            <p className="text-sm" style={{ color: '#111827' }}>{Number(payment.amount).toLocaleString('en-US', { style: 'currency', currency: payment.currency || 'USD' })}</p>
-          </div>
-        </div>
-
-        {/* Paid Stamp */}
-        {payment.status === 'paid' && (
-          <div
-            className="absolute top-40 right-40 opacity-20 pointer-events-none rotate-[-15deg] border-4 font-black text-6xl px-4 py-2 rounded-lg uppercase tracking-widest z-0"
-            style={{ color: '#16a34a', borderColor: '#16a34a' }}
-          >
-            PAID
+            <p className="mt-4 text-xs text-gray-500 italic">Please use Invoice #{payment.invoice_number} as payment reference.</p>
           </div>
         )}
+      </div>
 
-        <div className="mb-20"></div>
+      {/* Thank You Footer */}
+      <div className="text-center">
+        <h2 className="text-4xl font-extrabold mb-16" style={{ color: '#111827' }}>
+          {payment.status === 'paid' ? 'Thank you for your payment!' : 'Thank you for your business!'}
+        </h2>
 
-        {/* Total Paid Block */}
-        <div className="mb-32">
-          <h2 className="text-2xl font-bold" style={{ color: '#111827' }}>
-            {Number(payment.amount).toLocaleString('en-US', { style: 'currency', currency: payment.currency || 'USD' })} paid {issueDate}
-          </h2>
-        </div>
-
-        {/* Thank You Footer */}
-        <div className="text-center">
-          <h2 className="text-4xl font-extrabold mb-16" style={{ color: '#111827' }}>Thank you for your payment!</h2>
-
-          <div className="text-xs font-medium" style={{ color: '#6b7280' }}>
-            <p className="mb-1">© {new Date().getFullYear()} Copyright Achtrex. All rights reserved.</p>
-            <div className="flex justify-center gap-4">
-              <span>Contact Us</span>
-              <span>|</span>
-              <span>Privacy</span>
-              <span>|</span>
-              <span>Terms & Conditions</span>
-            </div>
+        <div className="text-xs font-medium" style={{ color: '#6b7280' }}>
+          <p className="mb-1">© {new Date().getFullYear()} Copyright Achtrex. All rights reserved.</p>
+          <div className="flex justify-center gap-4">
+            <span>Contact Us</span>
+            <span>|</span>
+            <span>Privacy</span>
+            <span>|</span>
+            <span>Terms & Conditions</span>
           </div>
         </div>
-
       </div>
+
     </div>
+    </div >
   );
 }
