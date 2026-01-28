@@ -296,6 +296,6 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
       </div>
 
     </div>
-    </div >
+    </div>
   );
 }
