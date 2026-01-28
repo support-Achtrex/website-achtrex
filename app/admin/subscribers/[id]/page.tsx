@@ -16,8 +16,9 @@ import { Button } from '@/components/buttons';
 
 export const dynamic = 'force-dynamic';
 
-export default async function SubscriberDetailPage({ params }: { params: { id: string } }) {
-    const id = parseInt(params.id);
+export default async function SubscriberDetailPage({ params }: { params: Promise<{ id: string }> }) {
+    const { id: idStr } = await params;
+    const id = parseInt(idStr);
     if (isNaN(id)) notFound();
 
     let subscriber: any = null;
