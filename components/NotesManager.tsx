@@ -159,7 +159,12 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
     });
 
     const handleAddNote = async () => {
-        if (!editor || editor.isEmpty) return;
+        if (!editor) return;
+
+        if (editor.isEmpty) {
+            alert('Please add some text or an image before saving.');
+            return;
+        }
 
         const content = editor.getHTML();
 
@@ -215,7 +220,7 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
                 <div className="p-2 bg-gray-50 border-t border-gray-100 flex justify-end">
                     <button
                         onClick={handleAddNote}
-                        disabled={isSubmitting || !editor || editor.isEmpty}
+                        disabled={isSubmitting}
                         className="bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm font-bold shadow-md shadow-blue-100 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-all"
                     >
                         {isSubmitting ? (
