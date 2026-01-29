@@ -133,6 +133,7 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
             }),
         ],
         content: '',
+        immediatelyRender: false, // Fixes hydration mismatch
         editorProps: {
             attributes: {
                 class: 'prose prose-sm max-w-none focus:outline-none min-h-[100px] p-4 text-gray-700',
