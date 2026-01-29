@@ -36,26 +36,44 @@ const MenuBar = ({ editor }: { editor: any }) => {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        // Check file size (e.g., limit to 5MB to prevent huge DB entries)
-        if (file.size > 5 * 1024 * 1024) {
-            alert('Image is too large. Please choose an image under 5MB.');
-            if (fileInputRef.current) fileInputRef.current.value = '';
-            return;
-        }
-
+        // Resize image to max 800px width/height
         const reader = new FileReader();
         reader.onload = (event) => {
-            const src = event.target?.result as string;
-            if (src) {
-                editor.chain().focus().setImage({ src }).run();
-            }
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+
+                const maxW = 800;
+                const maxH = 800;
+                let width = img.width;
+                let height = img.height;
+
+                if (width > height) {
+                    if (width > maxW) {
+                        height *= maxW / width;
+                        width = maxW;
+                    }
+                } else {
+                    if (height > maxH) {
+                        width *= maxH / height;
+                        height = maxH;
+                    }
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+                ctx?.drawImage(img, 0, 0, width, height);
+                // Compress to 70% quality
+                const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+
+                editor.chain().focus().setImage({ src: dataUrl }).run();
+            };
+            img.src = event.target?.result as string;
         };
         reader.readAsDataURL(file);
 
-        // Reset input
-        if (fileInputRef.current) {
-            fileInputRef.current.value = '';
-        }
+        if (fileInputRef.current) fileInputRef.current.value = '';
     };
 
     return (
@@ -144,6 +162,13 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
         if (!editor || editor.isEmpty) return;
 
         const content = editor.getHTML();
+
+        // Basic check for extreme size
+        if (content.length > 9 * 1024 * 1024) {
+            alert('Note is too large (likely due to images). Please try fewer images.');
+            return;
+        }
+
         setIsSubmitting(true);
 
         try {
@@ -153,9 +178,12 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
                 startTransition(() => {
                     router.refresh();
                 });
+            } else {
+                alert('Failed to save note. Payload might be too large.');
             }
         } catch (error) {
             console.error('Failed to add note', error);
+            alert('An unexpected error occurred while saving.');
         } finally {
             setIsSubmitting(false);
         }
@@ -180,7 +208,10 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
             {/* Editor Area */}
             <div className="mb-8 border border-gray-200 rounded-xl overflow-hidden focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition-all shadow-sm bg-white">
                 <MenuBar editor={editor} />
-                <EditorContent editor={editor} />
+                <EditorContent
+                    editor={editor}
+                    className="[&_.ProseMirror]:min-h-[150px] [&_img]:max-w-[45%] [&_img]:max-h-[300px] [&_img]:inline-block [&_img]:m-1 [&_img]:border [&_img]:border-gray-200 [&_img]:rounded-lg [&_img]:shadow-sm"
+                />
                 <div className="p-2 bg-gray-50 border-t border-gray-100 flex justify-end">
                     <button
                         onClick={handleAddNote}
