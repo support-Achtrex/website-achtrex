@@ -13,6 +13,7 @@ import {
     addFile, deleteFile, sendWeeklyReport
 } from '@/app/actions/client-management';
 import { Button } from '@/components/buttons';
+import NotesManager from '@/components/NotesManager';
 
 export const dynamic = 'force-dynamic';
 
@@ -173,44 +174,14 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                         </div>
                     </div>
 
-                    {/* Notes Section */}
-                    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                        <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                            <FileText size={18} className="text-blue-500" />
-                            Project Notes
-                        </h2>
-
-                        <form action={async (formData) => {
-                            'use server';
-                            await addNote(id, formData.get('note') as string);
-                        }} className="mb-6 flex gap-2">
-                            <input
-                                name="note"
-                                required
-                                className="flex-1 p-2 border border-gray-200 rounded-lg text-sm focus:border-blue-500 outline-none"
-                                placeholder="Add a internal note or update..."
-                            />
-                            <Button className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700">
-                                <Plus size={20} />
-                            </Button>
-                        </form>
-
-                        <div className="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar pr-2">
-                            {notes.length > 0 ? (
-                                notes.map((note) => (
-                                    <div key={note.id} className="bg-gray-50/50 p-4 rounded-xl text-sm border border-gray-50">
-                                        <p className="text-gray-700 whitespace-pre-wrap leading-relaxed">{note.content}</p>
-                                        <div className="mt-3 text-[10px] text-gray-400 flex items-center gap-1 font-medium">
-                                            <Clock size={10} />
-                                            {new Date(note.created_at).toLocaleString()}
-                                        </div>
-                                    </div>
-                                ))
-                            ) : (
-                                <p className="text-center text-gray-400 text-sm py-4">No notes yet.</p>
-                            )}
-                        </div>
-                    </div>
+                    {/* Notes Section - Now handled by NotesManager */}
+                    <NotesManager
+                        subscriberId={id}
+                        initialNotes={notes.map(n => ({
+                            ...n,
+                            created_at: new Date(n.created_at).toISOString()
+                        }))}
+                    />
                 </div>
 
                 {/* Right Column: Payments & Files */}

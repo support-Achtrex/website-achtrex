@@ -19,6 +19,17 @@ export async function addNote(subscriberId: number, content: string) {
     }
 }
 
+export async function deleteNote(subscriberId: number, noteId: number) {
+    try {
+        await sql`DELETE FROM client_notes WHERE id = ${noteId}`;
+        revalidatePath(`/admin/subscribers/${subscriberId}`);
+        return { success: true };
+    } catch (error) {
+        console.error('Delete note error:', error);
+        return { error: 'Failed to delete note' };
+    }
+}
+
 // Payments
 export async function recordPayment(subscriberId: number, amount: number, description: string, status: string = 'paid') {
     if (!amount) return { error: 'Amount is required' };
