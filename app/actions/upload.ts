@@ -21,12 +21,19 @@ export async function uploadImage(formData: FormData) {
     const relativeUploadDir = '/uploads';
     const uploadDir = join(process.cwd(), 'public', relativeUploadDir);
 
+    console.log('Attemping upload to:', uploadDir);
+
     try {
         await mkdir(uploadDir, { recursive: true });
-        await writeFile(join(uploadDir, filename), buffer);
+        const filePath = join(uploadDir, filename);
+        console.log('Writing file to:', filePath);
+
+        await writeFile(filePath, buffer);
+        console.log('Write success');
+
         return { url: `${relativeUploadDir}/${filename}` };
     } catch (error) {
-        console.error('Upload error:', error);
+        console.error('Upload error details:', error);
         return { error: 'Failed to upload file' };
     }
 }

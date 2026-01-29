@@ -113,25 +113,27 @@ const MenuBar = ({ editor }: { editor: any }) => {
     );
 };
 
+const extensions = [
+    StarterKit,
+    ImageExtension.configure({
+        inline: true,
+        allowBase64: true,
+    }),
+    LinkExtension.configure({
+        openOnClick: false,
+    }),
+    Placeholder.configure({
+        placeholder: 'Write a note, update, or paste an image...',
+    }),
+];
+
 export default function NotesManager({ subscriberId, initialNotes }: NotesManagerProps) {
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const editor = useEditor({
-        extensions: [
-            StarterKit,
-            ImageExtension.configure({
-                inline: true,
-                allowBase64: true,
-            }),
-            LinkExtension.configure({
-                openOnClick: false,
-            }),
-            Placeholder.configure({
-                placeholder: 'Write a note, update, or paste an image...',
-            }),
-        ],
+        extensions,
         content: '',
         immediatelyRender: false, // Fixes hydration mismatch
         editorProps: {
