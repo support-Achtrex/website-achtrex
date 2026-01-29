@@ -12,7 +12,6 @@ import {
     AlignLeft, AlignCenter, AlignRight, Upload
 } from 'lucide-react';
 import { addNote, deleteNote } from '@/app/actions/client-management';
-import { uploadImage } from '@/app/actions/upload';
 import { useRouter } from 'next/navigation';
 
 interface Note {
@@ -28,35 +27,34 @@ interface NotesManagerProps {
 
 const MenuBar = ({ editor }: { editor: any }) => {
     const fileInputRef = React.useRef<HTMLInputElement>(null);
-    const [isUploading, setIsUploading] = useState(false);
 
     if (!editor) {
         return null;
     }
 
-    const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        setIsUploading(true);
-        const formData = new FormData();
-        formData.append('file', file);
+        // Check file size (e.g., limit to 5MB to prevent huge DB entries)
+        if (file.size > 5 * 1024 * 1024) {
+            alert('Image is too large. Please choose an image under 5MB.');
+            if (fileInputRef.current) fileInputRef.current.value = '';
+            return;
+        }
 
-        try {
-            const result = await uploadImage(formData);
-            if (result.url) {
-                editor.chain().focus().setImage({ src: result.url }).run();
-            } else {
-                alert('Upload failed');
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            const src = event.target?.result as string;
+            if (src) {
+                editor.chain().focus().setImage({ src }).run();
             }
-        } catch (error) {
-            console.error('Upload error:', error);
-            alert('Upload failed');
-        } finally {
-            setIsUploading(false);
-            if (fileInputRef.current) {
-                fileInputRef.current.value = '';
-            }
+        };
+        reader.readAsDataURL(file);
+
+        // Reset input
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
         }
     };
 
@@ -103,11 +101,10 @@ const MenuBar = ({ editor }: { editor: any }) => {
             <div className="w-px h-4 bg-gray-300 mx-1" />
             <button
                 onClick={() => fileInputRef.current?.click()}
-                disabled={isUploading}
                 className="p-1.5 rounded hover:bg-white hover:shadow-sm transition-all text-gray-500 hover:text-blue-600 disabled:opacity-50"
                 title="Upload Image"
             >
-                {isUploading ? <Loader2 size={16} className="animate-spin" /> : <ImageIcon size={16} />}
+                <ImageIcon size={16} />
             </button>
         </div>
     );
