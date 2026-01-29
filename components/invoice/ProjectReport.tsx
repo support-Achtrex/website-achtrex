@@ -150,6 +150,47 @@ interface ProjectReportProps {
     reportType?: string; // e.g., "Weekly Progress Report"
 }
 
+const HtmlContent = ({ html }: { html: string }) => {
+    // Basic parser to split text and images
+    // Matches <img ... src="data:..." ... >
+    const parts = html.split(/(<img[^>]+src="([^">]+)"[^>]*>)/g);
+
+    return (
+        <View>
+            {parts.map((part, index) => {
+                // If it starts with <img, it's the full tag (captured by group 1) -> we ignore this as we use group 2
+                if (part.startsWith('<img')) return null;
+
+                // If it looks like a data URL or http url (captured by group 2 url), it's the image source
+                if (part.startsWith('data:image') || part.startsWith('http')) {
+                    return (
+                        <Image
+                            key={index}
+                            src={part}
+                            style={{
+                                marginVertical: 5,
+                                borderRadius: 4,
+                                maxHeight: 200,
+                                objectFit: 'contain'
+                            }}
+                        />
+                    );
+                }
+
+                // Otherwise it's text (html tags stripped)
+                const text = part.replace(/<[^>]+>/g, '').trim();
+                if (!text) return null;
+
+                return (
+                    <Text key={index} style={styles.noteContent}>
+                        {text}
+                    </Text>
+                );
+            })}
+        </View>
+    );
+};
+
 export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes, milestones, logoSrc, reportType = "Project Status Report" }) => {
     const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -216,7 +257,7 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                     {weeklyUpdates.length > 0 ? (
                         weeklyUpdates.map((note, i) => (
                             <View key={i} style={styles.noteItem}>
-                                <Text style={styles.noteContent}>{note.content}</Text>
+                                <HtmlContent html={note.content} />
                                 <Text style={styles.noteDate}>{new Date(note.created_at).toLocaleDateString()} {new Date(note.created_at).toLocaleTimeString()}</Text>
                             </View>
                         ))
