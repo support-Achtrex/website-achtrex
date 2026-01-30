@@ -10,6 +10,8 @@ export async function submitContactForm(formData: FormData) {
     const message = formData.get('message') as string;
     const phone = formData.get('phone') as string || '';
     const service = formData.get('service') as string || '';
+    const budget = formData.get('budget') as string || '';
+    const source = formData.get('source') as string || '';
 
     if (!name || !email) {
         return { error: 'Name and Email are required.' };
@@ -20,8 +22,8 @@ export async function submitContactForm(formData: FormData) {
     try {
         const fullMessage = `Phone: ${phone}\n\nMessage: ${message}`;
         await sql`
-            INSERT INTO leads (name, email, company, message, service, status)
-            VALUES (${name}, ${email}, ${company}, ${fullMessage}, ${service}, 'new')
+            INSERT INTO leads (name, email, company, message, service, budget, source, status)
+            VALUES (${name}, ${email}, ${company}, ${fullMessage}, ${service}, ${budget}, ${source}, 'new')
         `;
 
         // Auto-subscribe to newsletter (ignore if already exists)
@@ -62,6 +64,8 @@ export async function submitContactForm(formData: FormData) {
                 <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
                 <p><strong>Company:</strong> ${company || 'N/A'}</p>
                 <p><strong>Service:</strong> ${service || 'N/A'}</p>
+                <p><strong>Budget:</strong> ${budget || 'N/A'}</p>
+                <p><strong>Source:</strong> ${source || 'N/A'}</p>
                 <hr style="border: 1px solid #eee; margin: 20px 0;" />
                 <h3>Message:</h3>
                 <p style="white-space: pre-wrap; background: #f9f9f9; padding: 15px; border-radius: 5px;">${message}</p>

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Twitter, ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/buttons";
+import { submitContactForm } from "@/app/actions/contact";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -27,20 +28,26 @@ const ContactForm = () => {
     }));
   };
 
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
 
-    try {
-      const response = await fetch('/api/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    const form = new FormData();
+    form.append('name', formData.name);
+    form.append('email', formData.email);
+    form.append('phone', formData.contact); // Map contact to phone
+    form.append('company', formData.company);
+    form.append('service', formData.service);
+    form.append('budget', formData.budget);
+    form.append('source', formData.source);
+    form.append('message', formData.message);
 
-      if (response.ok) {
+    try {
+      const result = await submitContactForm(form);
+
+      if (result.success) {
         setStatus('success');
         setFormData({
           name: "", email: "", contact: "", company: "",
@@ -48,8 +55,7 @@ const ContactForm = () => {
         });
         setErrorMessage("");
       } else {
-        const data = await response.json();
-        setErrorMessage(data.error || "Failed to send message.");
+        setErrorMessage(result.error || "Failed to send message.");
         setStatus('error');
       }
     } catch (error) {
