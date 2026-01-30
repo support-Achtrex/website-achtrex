@@ -8,15 +8,18 @@ import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
 
-export default async function TeamMemberPage({ params }: { params: { id: string } }) {
+export default async function TeamMemberPage(props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const { id } = params;
 
     let member;
     let payrollHistory = [];
 
     try {
+        console.log(`Debug: Fetching team member with ID: ${id}`);
         const { rows } = await sql`SELECT * FROM team_members WHERE id = ${id}`;
         if (rows.length === 0) {
+            console.log(`Debug: No team member found for ID: ${id}`);
             notFound();
         }
         member = rows[0];
@@ -25,7 +28,7 @@ export default async function TeamMemberPage({ params }: { params: { id: string 
         payrollHistory = history;
 
     } catch (error) {
-        console.error('Error details:', error);
+        console.error('Error details querying team member:', error);
         notFound();
     }
 
