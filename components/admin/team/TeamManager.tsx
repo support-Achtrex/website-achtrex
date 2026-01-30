@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { User, DollarSign, Calendar, CreditCard, Send, Trash2, Save } from 'lucide-react';
+import { User, DollarSign, Calendar, CreditCard, Send, Trash2, Save, Download } from 'lucide-react';
 import { updateTeamMember, recordPayroll, deletePayroll } from '@/app/actions/team';
 import Image from 'next/image';
 
@@ -269,8 +269,17 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                                     </span>
                                                 </td>
                                                 <td className="p-4 text-right flex justify-end gap-2">
+                                                    <a
+                                                        href={`/api/payroll/${record.id}/pdf`}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="p-2 text-gray-400 hover:text-primary transition-colors"
+                                                        title="Download Payslip"
+                                                    >
+                                                        <Download size={16} />
+                                                    </a>
                                                     <form action={deletePayroll.bind(null, record.id, member.id)}>
-                                                        <button className="p-2 text-gray-400 hover:text-red-500 transition-colors">
+                                                        <button className="p-2 text-gray-400 hover:text-red-500 transition-colors" title="Delete Record">
                                                             <Trash2 size={16} />
                                                         </button>
                                                     </form>

@@ -136,9 +136,10 @@ interface InvoicePDFProps {
     payment: any;
     client: any;
     logoSrc?: string;
+    documentTitle?: string;
 }
 
-export const InvoicePDF: React.FC<InvoicePDFProps> = ({ payment, client, logoSrc }) => {
+export const InvoicePDF: React.FC<InvoicePDFProps> = ({ payment, client, logoSrc, documentTitle = 'Invoice' }) => {
     const isPaid = payment.status === 'paid';
     const amountFormatted = Number(payment.amount).toLocaleString('en-US', {
         style: 'currency',
@@ -159,7 +160,7 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({ payment, client, logoSrc
                 {/* Header */}
                 <View style={styles.header}>
                     <View>
-                        <Text style={styles.title}>Invoice</Text>
+                        <Text style={styles.title}>{documentTitle}</Text>
                         <View style={styles.detailsRow}>
                             <Text style={styles.detailLabel}>Invoice number</Text>
                             <Text style={styles.detailValue}>{payment.invoice_number}</Text>
