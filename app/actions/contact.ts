@@ -42,8 +42,8 @@ export async function submitContactForm(formData: FormData) {
     // 2. Send Emails via Nodemailer (Gmail/SMTP)
     // This solves the issue of "free tier" restrictions. Gmail allows sending to anyone.
     try {
-        const smtpEmail = 'support@achtrex.com';
-        const smtpPassword = 'iygw lvjk zagq dcwr';
+        const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
+        const smtpPassword = process.env.SMTP_PASS || 'npec ngix uixj jyam';
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',

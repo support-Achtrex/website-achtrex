@@ -1,15 +1,7 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
-    const apiKey = process.env.RESEND_API_KEY;
-
-    if (!apiKey) {
-        console.error("RESEND_API_KEY is missing in environment variables.");
-        return NextResponse.json({ error: "Server misconfiguration: Missing email API key" }, { status: 500 });
-    }
-
-    const resend = new Resend(apiKey);
     try {
         const { name, email, message, contact, company, service, budget, source } = await request.json();
 
@@ -29,12 +21,26 @@ export async function POST(request: Request) {
             // Continue sending email even if DB save fails
         }
 
-        const { data, error } = await resend.emails.send({
-            from: "onboarding@resend.dev",
-            to: "support@achtrex.com",
-            subject: `New Lead: ${name} - ${service || 'General Inquiry'}`,
-            html: `
-                <h1>New Contact Form Submission</h1>
+        // Configure Nodemailer (Unified Gmail/SMTP)
+        const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
+        const smtpPassword = process.env.SMTP_PASS || 'npec ngix uixj jyam';
+
+        if (!smtpEmail || !smtpPassword) {
+            throw new Error('Missing SMTP credentials');
+        }
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: smtpEmail,
+                pass: smtpPassword
+            }
+        });
+
+        // Email Html
+        const htmlContent = `
+            <div style="font-family: Arial, sans-serif; color: #333;">
+                <h2 style="color: #0ea5e9;">New Contact Form Submission</h2>
                 <p><strong>Name:</strong> ${name}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Phone:</strong> ${contact || 'N/A'}</p>
@@ -42,24 +48,25 @@ export async function POST(request: Request) {
                 <p><strong>Service Interest:</strong> ${service || 'N/A'}</p>
                 <p><strong>Budget Range:</strong> ${budget || 'N/A'}</p>
                 <p><strong>Source:</strong> ${source || 'N/A'}</p>
-                <hr />
-                <p><strong>Message:</strong></p>
-                <p>${message.replace(/\n/g, '<br>')}</p>
-            `,
+                <hr style="border: 1px solid #eee; margin: 20px 0;">
+                <h3>Message:</h3>
+                <p style="background: #f9f9f9; padding: 15px; border-radius: 5px;">${message.replace(/\n/g, '<br>')}</p>
+            </div>
+        `;
+
+        // Send Email
+        await transporter.sendMail({
+            from: `"Achtrex Website" <${smtpEmail}>`,
+            to: "support@achtrex.com", // Send to support
+            replyTo: email, // Allow reply to the lead
+            subject: `New Lead: ${name} - ${service || 'General Inquiry'}`,
+            html: htmlContent,
         });
 
-        if (error) {
-            console.error("Resend email error:", error);
-            return NextResponse.json({ error }, { status: 500 });
-        }
-
-        return NextResponse.json({ success: true, data });
+        return NextResponse.json({ success: true });
 
     } catch (error) {
         console.error("API error during email sending:", error);
-        const errorMessage = error && typeof error === 'object' && 'message' in error
-            ? (error as any).message
-            : "Failed to send contact email";
-        return NextResponse.json({ error: errorMessage }, { status: 500 });
+        return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
 }
