@@ -284,3 +284,69 @@ export async function sendWeeklyReportEmail(subscriber: any, notes: any[], miles
         throw error;
     }
 }
+
+// ... (existing imports)
+
+export async function sendPayslipEmail(member: any, payroll: any) {
+    try {
+        // Reuse invoice PDF logic for now, mimicking a payslip
+        // Ideally we would create a dedicated PayslipPDF component
+        const pdfData = {
+            invoice_number: `PAYSLIP-${payroll.id}`,
+            amount: payroll.amount,
+            description: `Salary Payment - ${new Date(payroll.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`,
+            status: 'paid', // Payslips are usually confirmation of payment
+            date: new Date(payroll.date).toLocaleDateString(),
+            client_name: member.name,
+            client_email: member.email,
+            currency: 'USD' // Default or fetch from settings
+        };
+
+        const pdfBuffer = await generateInvoicePDF(pdfData);
+
+        const html = `
+            <!DOCTYPE html>
+            <html>
+            <body style="font-family: sans-serif; color: #333;">
+                <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+                    <h2 style="color: #111827;">Payslip Available</h2>
+                    <p>Hi ${member.name},</p>
+                    <p>Your payslip for <strong>${new Date(payroll.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</strong> has been generated.</p>
+                    
+                    <div style="background: #f3f4f6; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                        <p style="margin: 0; font-size: 14px; color: #666;">Amount Paid:</p>
+                        <p style="margin: 5px 0 0 0; font-size: 24px; font-weight: bold; color: #10B981;">$${Number(payroll.amount).toLocaleString()}</p>
+                    </div>
+
+                    <p>Please find the payslip attached to this email.</p>
+                    
+                    <p style="margin-top: 30px; font-size: 12px; color: #999;">Achtrex Payroll System</p>
+                </div>
+            </body>
+            </html>
+        `;
+
+        const senderEmail = process.env.SMTP_USER || 'support@achtrex.com';
+
+        await transporter.sendMail({
+            from: `"Achtrex HR" <${senderEmail}>`,
+            to: member.email,
+            subject: `Payslip: ${new Date(payroll.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`,
+            html: html,
+            attachments: [
+                {
+                    filename: `Payslip-${payroll.id}.pdf`,
+                    content: pdfBuffer,
+                    contentType: 'application/pdf',
+                },
+            ],
+        });
+
+        console.log(`Payslip sent to ${member.email}`);
+        return { success: true };
+
+    } catch (error) {
+        console.error('Error sending payslip:', error);
+        throw error;
+    }
+}

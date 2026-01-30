@@ -67,6 +67,12 @@ export default async function TeamPage() {
                             </form>
                         </div>
                         <p className="text-sm text-gray-600 line-clamp-2">{member.bio}</p>
+
+                        <div className="pt-2 border-t border-gray-50 flex justify-end">
+                            <a href={`/admin/team/${member.id}`} className="text-xs font-bold text-primary hover:text-primary/80 transition-colors">
+                                Manage & Payroll &rarr;
+                            </a>
+                        </div>
                     </div>
                 ))}
                 {teamMembers.length === 0 && (
