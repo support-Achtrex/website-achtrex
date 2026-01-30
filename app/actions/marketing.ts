@@ -58,7 +58,7 @@ export async function sendCampaign(formData: FormData) {
 
         // 3. Configure Nodemailer (Gmail)
         const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
-        const smtpPassword = process.env.SMTP_PASS || 'iygw lvjk zagq dcwr';
+        const smtpPassword = process.env.SMTP_PASS || 'npec ngix uixj jyam';
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',

@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: process.env.SMTP_USER || 'support@achtrex.com',
-        pass: process.env.SMTP_PASS || 'iygw lvjk zagq dcwr',
+        pass: process.env.SMTP_PASS || 'npec ngix uixj jyam',
     },
 });
 
