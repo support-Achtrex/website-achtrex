@@ -13,10 +13,6 @@ export const CTASection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 opacity-40" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
-      {/* Floating Blobs */}
-      <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
-      <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-secondary/20 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
-
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.h2
@@ -26,7 +22,8 @@ export const CTASection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display text-white tracking-tight leading-tight"
         >
-          Ready to Build the <span className="text-gradient">Impossible?</span>
+          Explore our platforms or <br />
+          <span className="text-gradient">get in touch to collaborate</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

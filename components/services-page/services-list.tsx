@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { servicesData } from './services-data';
+import { productsData, capabilitiesData } from './services-data';
 import { ServiceModal } from './service-modal';
 
 const cardVariants = {
@@ -60,21 +60,51 @@ export const ServicesList = () => {
     return (
         <section className="py-24 px-6 bg-[image:var(--bg-dark-purple)] relative z-10">
             <div className="max-w-7xl mx-auto">
-                <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                >
-                    {servicesData.map((service, index) => (
-                        <ServiceCard
-                            key={index}
-                            {...service}
-                            onClick={() => setSelectedService(service)}
-                        />
-                    ))}
-                </motion.div>
+                {/* Flagship Products Section */}
+                <div className="mb-20">
+                    <div className="flex items-center gap-4 mb-10">
+                        <h2 className="text-3xl font-display font-bold text-white">Flagship Products</h2>
+                        <div className="h-px flex-grow bg-white/10" />
+                    </div>
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                    >
+                        {productsData.map((product, index) => (
+                            <ServiceCard
+                                key={index}
+                                {...product}
+                                onClick={() => setSelectedService(product)}
+                            />
+                        ))}
+                    </motion.div>
+                </div>
+
+                {/* Platform Capabilities Section */}
+                <div>
+                    <div className="flex items-center gap-4 mb-10">
+                        <h2 className="text-3xl font-display font-bold text-white">Platform Capabilities</h2>
+                        <div className="h-px flex-grow bg-white/10" />
+                    </div>
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                    >
+                        {capabilitiesData.map((capability, index) => (
+                            <ServiceCard
+                                key={index}
+                                {...capability}
+                                onClick={() => setSelectedService(capability)}
+                            />
+                        ))}
+                    </motion.div>
+                </div>
             </div>
 
             <ServiceModal

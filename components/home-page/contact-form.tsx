@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Twitter, ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/buttons";
 import { submitContactForm } from "@/app/actions/contact";
 
@@ -27,8 +27,6 @@ const ContactForm = () => {
       [name]: value
     }));
   };
-
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,7 +53,7 @@ const ContactForm = () => {
         });
         setErrorMessage("");
       } else {
-        setErrorMessage(result.error || "Failed to send message.");
+        setErrorMessage(result.error || "Failed to submit request.");
         setStatus('error');
       }
     } catch (error) {
@@ -65,107 +63,90 @@ const ContactForm = () => {
     }
   };
 
-  const services = ["App Development", "Web Development", "UI/UX Design", "Digital Marketing", "IT Consultation", "Other"];
+  const services = ["Automotive Data API", "AI Platform Access", "Enterprise Architecture", "Integration Support", "Other"];
   const budgets = ["<$5k", "$5k - $10k", "$10k - $25k", "$25k - $50k", ">$50k"];
-  const sources = ["Google Search", "Social Media", "Referral", "Blog/Article", "Other"];
+  const sources = ["Reference/Documentation", "Search Engine", "Referral", "Other"];
 
-  const inputClasses = "w-full py-3 border-b border-white/10 text-white placeholder-white/20 focus:border-primary outline-none transition-colors bg-transparent text-base appearance-none";
-  const labelClasses = "text-muted-foreground text-xs uppercase tracking-wider group-focus-within:text-primary transition-colors";
+  const inputClasses = "w-full py-4 px-4 border border-white/10 rounded-sm text-white focus:border-primary outline-none transition-colors bg-[#0a0f1c] text-base appearance-none";
+  const labelClasses = "text-gray-400 text-xs font-bold uppercase tracking-wider mb-2 block group-focus-within:text-primary transition-colors";
 
   return (
-    <section id="contact" className="py-20 px-4 bg-[image:var(--bg-dark-purple)] border-t border-white/5 relative overflow-hidden">
-      <div className="absolute inset-0 bg-dot-white opacity-10 pointer-events-none" />
-      {/* Background Glow */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[128px] pointer-events-none" />
-
+    <section id="contact" className="py-24 px-6 bg-background border-t border-b border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-2xl"
+            className="max-w-3xl"
           >
-            <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-2 block">Let's Connect</span>
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white font-display">
-              Have a vision? <br />
-              Let's make it <span className="text-primary italic">reality</span>.
+            <span className="text-secondary text-sm font-bold tracking-widest uppercase mb-4 block">Enterprise Partnerships</span>
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white mb-6">
+              Discuss infrastructure <br /> and API limits.
             </h2>
-          </motion.div>
-
-          {/* Social Icons */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex gap-4 mt-6 md:mt-0"
-          >
-            {[Facebook, Instagram, Twitter].map((Icon, idx) => (
-              <a key={idx} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all text-muted-foreground hover:text-white">
-                <Icon size={18} />
-              </a>
-            ))}
+            <p className="text-xl text-gray-400">
+              Connect with our deployment team to gain technical access, discuss pipeline integration, or explore custom enterprise architecture deployments.
+            </p>
           </motion.div>
         </div>
 
         {/* Form Section */}
-        <form className="space-y-8" onSubmit={handleSubmit}>
+        <form className="space-y-8 max-w-4xl" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="space-y-1 group">
-              <label htmlFor="contact-name" className={labelClasses}>Your Name *</label>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group">
+              <label htmlFor="contact-name" className={labelClasses}>Primary Contact *</label>
               <input id="contact-name" type="text" name="name" autoComplete="name" value={formData.name} onChange={handleChange} required className={inputClasses} placeholder="John Doe" />
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="space-y-1 group">
-              <label htmlFor="contact-email" className={labelClasses}>Email Address *</label>
-              <input id="contact-email" type="email" name="email" autoComplete="email" value={formData.email} onChange={handleChange} required className={inputClasses} placeholder="john@example.com" />
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="group">
+              <label htmlFor="contact-email" className={labelClasses}>Corporate Email *</label>
+              <input id="contact-email" type="email" name="email" autoComplete="email" value={formData.email} onChange={handleChange} required className={inputClasses} placeholder="john@enterprise.com" />
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="space-y-1 group">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="group">
               <label htmlFor="contact-phone" className={labelClasses}>Phone Number</label>
               <input id="contact-phone" type="tel" name="contact" autoComplete="tel" value={formData.contact} onChange={handleChange} className={inputClasses} placeholder="+1 (555) 000-0000" />
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="space-y-1 group">
-              <label htmlFor="contact-company" className={labelClasses}>Company Name</label>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="group">
+              <label htmlFor="contact-company" className={labelClasses}>Organization Name</label>
               <input id="contact-company" type="text" name="company" autoComplete="organization" value={formData.company} onChange={handleChange} className={inputClasses} placeholder="Acme Inc." />
             </motion.div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="space-y-1 group relative">
-              <label htmlFor="contact-service" className={labelClasses}>Service Interested In</label>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="group relative">
+              <label htmlFor="contact-service" className={labelClasses}>Inquiry Type</label>
               <div className="relative">
                 <select id="contact-service" name="service" autoComplete="off" value={formData.service} onChange={handleChange} className={inputClasses}>
-                  <option value="" disabled className="bg-black text-gray-500">Select a service</option>
-                  {services.map(s => <option key={s} value={s} className="bg-[#111] text-white">{s}</option>)}
+                  <option value="" disabled className="text-gray-500">Select inquiry type</option>
+                  {services.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
-                <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="space-y-1 group relative">
-              <label htmlFor="contact-budget" className={labelClasses}>Budget Range</label>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="group relative">
+              <label htmlFor="contact-budget" className={labelClasses}>Expected Volume/Budget</label>
               <div className="relative">
                 <select id="contact-budget" name="budget" autoComplete="off" value={formData.budget} onChange={handleChange} className={inputClasses}>
-                  <option value="" disabled className="bg-black text-gray-500">Select budget</option>
-                  {budgets.map(b => <option key={b} value={b} className="bg-[#111] text-white">{b}</option>)}
+                  <option value="" disabled className="text-gray-500">Select parameter</option>
+                  {budgets.map(b => <option key={b} value={b}>{b}</option>)}
                 </select>
-                <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }} className="space-y-1 group relative">
-              <label htmlFor="contact-source" className={labelClasses}>How did you hear about us?</label>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }} className="group relative">
+              <label htmlFor="contact-source" className={labelClasses}>Lead Source</label>
               <div className="relative">
                 <select id="contact-source" name="source" autoComplete="off" value={formData.source} onChange={handleChange} className={inputClasses}>
-                  <option value="" disabled className="bg-black text-gray-500">Select source</option>
-                  {sources.map(s => <option key={s} value={s} className="bg-[#111] text-white">{s}</option>)}
+                  <option value="" disabled className="text-gray-500">Select source</option>
+                  {sources.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
-                <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
               </div>
             </motion.div>
           </div>
@@ -175,9 +156,9 @@ const ContactForm = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="space-y-1 group"
+            className="group"
           >
-            <label htmlFor="contact-message" className={labelClasses}>Message *</label>
+            <label htmlFor="contact-message" className={labelClasses}>Technical Scope / Request *</label>
             <textarea
               id="contact-message"
               rows={4}
@@ -185,8 +166,8 @@ const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              placeholder="Tell us about your project goals, timeline, and requirements..."
-              className="w-full py-3 border-b border-white/10 text-white placeholder-white/20 focus:border-primary outline-none transition-colors bg-transparent resize-none text-base min-h-[100px]"
+              placeholder="Describe your infrastructure requirements, API needs, or integration timeline..."
+              className={`${inputClasses} resize-y min-h-[120px]`}
             ></textarea>
           </motion.div>
 
@@ -201,18 +182,18 @@ const ContactForm = () => {
               type="submit"
               disabled={status === 'loading'}
               size="lg"
-              className="w-full md:w-auto bg-white text-black hover:bg-gray-200 rounded-full px-8 py-4 text-base font-semibold"
+              className="w-full md:w-auto bg-primary text-white hover:bg-primary/90 rounded-sm px-10 py-4 font-bold tracking-wide"
             >
-              {status === 'loading' ? 'Sending...' : 'Send Message'}
-              <ArrowRight className="ml-2 w-4 h-4" />
+              {status === 'loading' ? 'Submitting...' : 'Submit Request'}
+              <ArrowRight className="ml-2 w-4 h-4 inline-block" />
             </Button>
 
             {status === 'success' && (
-              <p className="text-emerald-400 font-medium text-sm animate-fade-in-up">Message sent successfully!</p>
+              <p className="text-green-500 font-bold text-sm bg-green-500/10 px-4 py-2 rounded-sm">Request submitted. Our technical team will follow up quickly.</p>
             )}
             {status === 'error' && (
-              <p className="text-red-400 font-medium text-sm animate-fade-in-up">
-                {errorMessage || "Failed to send message. Please try again."}
+              <p className="text-red-500 font-bold text-sm bg-red-500/10 px-4 py-2 rounded-sm">
+                {errorMessage || "Failed to submit request. Please try again."}
               </p>
             )}
           </motion.div>

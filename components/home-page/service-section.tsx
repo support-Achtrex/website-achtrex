@@ -2,113 +2,111 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Palette, TrendingUp, Cpu, Video, Printer, ArrowUpRight } from 'lucide-react';
-import { cn } from '@/lib/utils'; // Keep this assumption or remove if not needed, likely exists
 
 export const ServicesGrid = () => {
-    const services = [
+    // Custom substantial icons instead of thin outline lines
+    const SolidGlobeIcon = () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" className="text-white">
+            <path d="M12 2C6.48 2 2 6.48 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 12 2ZM11 19.93A8.04 8.04 0 0 1 4.26 13H11V19.93ZM11 11H4.26A8.04 8.04 0 0 1 11 4.07V11ZM13 4.07A8.04 8.04 0 0 1 19.74 11H13V4.07ZM13 19.93V13H19.74A8.04 8.04 0 0 1 13 19.93Z" />
+        </svg>
+    );
+
+    const SolidDatabaseIcon = () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" className="text-white">
+            <path d="M12 3C7.58 3 4 4.79 4 7C4 9.21 7.58 11 12 11C16.42 11 20 9.21 20 7C20 4.79 16.42 3 12 3ZM12 9C8.36 9 5.86 7.69 5.15 7C5.86 6.31 8.36 5 12 5C15.64 5 18.14 6.31 18.85 7C18.14 7.69 15.64 9 12 9ZM4 10.42V13C4 15.21 7.58 17 12 17C16.42 17 20 15.21 20 13V10.42C19.1 11.39 16.14 12.5 12 12.5C7.86 12.5 4.9 11.39 4 10.42ZM20 16.42V19C20 21.21 16.42 23 12 23C7.58 23 4 21.21 4 19V16.42C4.9 17.39 7.86 18.5 12 18.5C16.14 18.5 19.1 17.39 20 16.42Z" />
+        </svg>
+    );
+
+    const SolidShieldIcon = () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" className="text-white">
+            <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" />
+        </svg>
+    );
+
+    const technologies = [
         {
-            icon: <Cpu size={32} />,
-            title: 'Product Engineering',
-            description: 'We build the engines that power your business. From complex backends to scalable microservices.',
+            icon: <SolidGlobeIcon />,
+            title: 'Global API Gateways',
+            description: 'Low-latency REST and GraphQL infrastructure. We architect globally distributed gateways utilizing highly optimized edge caching mechanisms ensuring zero jitter cross-continental data delivery.',
+            details: ['Millisecond routing', 'Edge Caching', 'Horizontal Load Balancing'],
             colSpan: 'md:col-span-2',
-            bgGradient: 'from-blue-500/20 to-cyan-500/20'
         },
         {
-            icon: <Palette size={32} />,
-            title: 'UI/UX Design',
-            description: 'Award-winning designs that captivate and convert.',
+            icon: <SolidDatabaseIcon />,
+            title: 'Data Aggregation Engines',
+            description: 'Massive-scale structured database systems built for fast, complex querying over billions of individual asset rows.',
+            details: ['PostgreSQL Core', 'Vector Search', 'Real-Time Sync'],
             colSpan: 'md:col-span-1',
-            bgGradient: 'from-purple-500/20 to-pink-500/20'
         },
         {
-            icon: <TrendingUp size={32} />,
-            title: 'Growth Strategy',
-            description: 'Data-driven marketing that scales your revenue.',
-            colSpan: 'md:col-span-1',
-            bgGradient: 'from-orange-500/20 to-red-500/20'
-        },
-        {
-            icon: <Code2 size={32} />,
-            title: 'Tech Consulting',
-            description: 'Expert guidance on stack, architecture, and roadmap.',
-            colSpan: 'md:col-span-2',
-            bgGradient: 'from-emerald-500/20 to-green-500/20'
-        },
-        {
-            icon: <Video size={32} />,
-            title: 'Multimedia',
-            description: 'Cinematic storytelling for the digital age.',
-            colSpan: 'md:col-span-1',
-            bgGradient: 'from-indigo-500/20 to-violet-500/20'
-        },
-        {
-            icon: <Printer size={32} />,
-            title: 'Physical Branding',
-            description: 'Tangible assets that leave a lasting impression.',
-            colSpan: 'md:col-span-2 md:col-start-2',
-            bgGradient: 'from-yellow-500/20 to-amber-500/20'
+            icon: <SolidShieldIcon />,
+            title: 'Enterprise Security Architecture',
+            description: 'Bank-grade compliance, end-to-end encryption, and isolated Virtual Private Clouds guaranteeing absolute platform integrity.',
+            details: ['AES-256 Encryption', 'Zero-Trust Networks', 'Automated Failovers'],
+            colSpan: 'md:col-span-3',
         }
     ];
 
     return (
-        <section id="services" className="py-24 relative bg-[#030014] overflow-hidden">
-            {/* Background Accents */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-
+        <section id="technologies" className="py-32 relative bg-[#060913] overflow-hidden border-y border-white/5">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="text-center mb-16">
-                    <motion.span
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block"
-                    >
-                        Our Expertise
-                    </motion.span>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-display font-bold text-white mb-6"
-                    >
-                        Beyond Standard Solutions
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                <div className="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+                    <div>
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-white text-sm font-bold tracking-wider uppercase mb-4 block"
+                        >
+                            Infrastructure Foundation
+                        </motion.span>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-4xl md:text-6xl font-bold text-white leading-tight"
+                        >
+                            Engineered for <br/> Absolute Scale.
+                        </motion.h2>
+                    </div>
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-400 max-w-2xl mx-auto text-lg"
+                        className="text-gray-400 text-lg leading-relaxed border-l-2 border-white/20 pl-6 lg:pl-10 h-full flex flex-col justify-end"
                     >
-                        We don't just build software; we engineer digital dominance.
-                    </motion.p>
+                        Our entire internal portfolio operates on top of a highly optimized, custom-engineered technology stack. We do not rely on fragile external dependencies. By owning the foundational layers—from the API gate to the data lake—we guarantee unprecedented reliability.
+                    </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(250px,auto)]">
-                    {services.map((service, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    {technologies.map((tech, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className={`${service.colSpan} group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300`}
+                            className={`${tech.colSpan} relative overflow-hidden bg-background border-t border-white/10 p-10 pt-12 group`}
                         >
-                            {/* Hover Gradient Overlay */}
-                            <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
-                            {/* Content */}
-                            <div className="relative p-8 h-full flex flex-col justify-between z-10">
-                                <div>
-                                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
-                                        {service.icon}
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
-                                    <p className="text-gray-400 group-hover:text-gray-200 transition-colors leading-relaxed">
-                                        {service.description}
-                                    </p>
+                            <div className="flex flex-col h-full relative z-10">
+                                <div className="mb-10 text-white">
+                                    {tech.icon}
                                 </div>
-                                <div className="flex justify-end mt-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                                    <ArrowUpRight className="text-white w-6 h-6" />
+                                <h3 className="text-2xl font-bold text-white mb-4">{tech.title}</h3>
+                                <p className="text-gray-400 leading-relaxed text-lg mb-8 max-w-3xl">
+                                    {tech.description}
+                                </p>
+                                
+                                <div className="mt-auto pt-8 border-t border-white/5 flex flex-wrap gap-4">
+                                   {tech.details.map((detail, idx) => (
+                                       <span key={idx} className="flex items-center text-sm font-bold text-white uppercase tracking-wider gap-2">
+                                           <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                                           {detail}
+                                       </span>
+                                   ))}
                                 </div>
                             </div>
                         </motion.div>

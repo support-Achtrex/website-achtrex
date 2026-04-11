@@ -23,8 +23,8 @@
   --input: #1e293b;
   --ring: #3b82f6;
 
-  --font-sans: var(--font-manrope);
-  --font-display: var(--font-red-hat-display);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-inter);
 }
 
 @theme inline {
@@ -36,9 +36,6 @@
   --color-muted: var(--muted);
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
-
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-glow: glow 2s ease-in-out infinite alternate;
 }
 
 body {
@@ -50,13 +47,7 @@ body {
 
 /* Tech Background Variables */
 :root {
-  --bg-dark-blue: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
-  --bg-dark-purple: linear-gradient(to bottom right, #1e1b4b 0%, #020617 100%);
-  --bg-dark-teal: radial-gradient(ellipse at top, #115e59 0%, #020617 100%);
-  --bg-mesh: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(45, 212, 191, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.15) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%);
+  --bg-dark-blue: linear-gradient(to bottom, #0f172a 0%, #020617 100%);
 }
 
 /* Tech Textures & Utilities */

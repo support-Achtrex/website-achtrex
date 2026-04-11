@@ -10,12 +10,12 @@ import { SectionTitle } from '@/components/section-title';
 const projects = [
     {
         title: 'Carkasa',
-        subtitle: 'Detailed Vehicle History',
-        description: 'We worked for Carkasa to redesign their website and build a high-engaging application, optimized their front and back end development, UX/UI design and applied SEO techniques to drive traffic and sales to their website.',
+        subtitle: 'Automotive Data Application',
+        description: 'Achtrex powered the core data infrastructure for Carkasa, enabling rapid vehicle history reports and market analytics. We built a high-performance system optimized for scalability and conversion.',
         image: '/projects/carkasa-mockup-blue.png',
         link: 'https://carkasa.com',
         color: '#38bdf8', // Sky Blue
-        tags: ['UX/UI', 'React', 'SEO']
+        tags: ['Client Success', 'Platform API', 'Data Engine']
     },
     {
         title: 'Automotive Dataset',
@@ -56,10 +56,10 @@ export const ProjectsSection = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="mb-20 text-center">
-                    <span className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block">Selected Works</span>
-                    <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">Built for Impact</h2>
+                    <span className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block">Platform Use Case</span>
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">Built on Achtrex</h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        We partner with visionary companies to build products that define industries.
+                        Discover how industry leaders leverage our data platforms and AI solutions to scale their digital infrastructure.
                     </p>
                 </div>
 
@@ -141,7 +141,7 @@ export const ProjectsSection = () => {
                                                 target="_blank"
                                                 className="group flex items-center gap-2 text-white font-bold text-lg hover:text-primary transition-colors"
                                             >
-                                                <span>View Case Study</span>
+                                                <span>Launch Platform</span>
                                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                             </Link>
                                         </motion.div>

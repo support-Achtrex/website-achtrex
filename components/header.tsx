@@ -24,8 +24,8 @@ export const Navbar = () => {
     const navLinks = [
         { label: 'Home', href: '/' },
         { label: 'About', href: '/about-us' },
-        { label: 'Services', href: '/services' },
-        { label: 'Portfolio', href: '/portfolio' },
+        { label: 'Products', href: '/products' },
+        { label: 'Platform & Use Cases', href: '/platform-and-use-cases' },
         { label: 'Why Achtrex', href: '/why-achtrex' },
         { label: 'Blog', href: '/blog' },
     ];

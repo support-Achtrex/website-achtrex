@@ -19,44 +19,44 @@ interface PortfolioItem {
 const portfolioItems: PortfolioItem[] = [
     {
         title: 'Carkasa',
-        description: 'Trusted Car Marketplace',
-        category: 'Web App',
-        tags: ['Marketplace', 'Next.js', 'PostgreSQL'],
+        description: 'Automotive Platform Use Case',
+        category: 'Platform Implementation',
+        tags: ['Marketplace', 'Next.js', 'Data Engine'],
         images: ['/projects/carkasa-mockup.png', '/projects/carkasa_detail.png'],
-        challenge: 'The automotive market suffers from information asymmetry and a lack of transparency. Buyers often lack access to verified vehicle history, auction photos, and accurate sales data, leading to mistrust and potential fraud. Existing solutions were fragmented, expensive, and difficult to navigate.',
-        product: 'We engineered Carkasa as a comprehensive verification platform integrating with global vehicle databases (NMVTIS) and auction APIs. The platform features an intuitive interface for vehicle history reports, real-time market valuations, and a seamless buy/sell marketplace.',
-        outcome: 'Carkasa has become a pivotal tool for transparency in local and international markets, enabling informed decisions with 99.9% data accuracy. It has streamlined the car buying process for thousands of users and reduced fraudulent listings significantly.',
+        challenge: 'The automotive market suffers from information asymmetry. Buyers often lack access to verified vehicle history and accurate sales data. This use case demonstrates how Achtrex technology provides transparency and data accuracy at scale.',
+        product: 'Utilizing Achtrex data infrastructure, we powered a verification platform integrating with global vehicle databases and auction APIs. The system features a high-performance interface for vehicle history reports and market valuations.',
+        outcome: 'Achtrex technology maintains 99.9% data accuracy for thousands of users, successfully reducing information gaps and demonstrating the scalability of our automotive data engine.',
     },
     {
         title: 'Automotive Dataset',
-        description: 'Global Automotive Intelligence',
-        category: 'API Platform',
-        tags: ['API', 'Big Data', 'Cloud'],
+        description: 'Global Data Intelligence Solution',
+        category: 'Data Platform',
+        tags: ['API', 'Big Data', 'Intelligence'],
         images: ['/projects/automotive-mockup.png', '/projects/automotive_detail.png'],
-        challenge: 'Businesses requiring accurate vehicle data for insurance, retail, or apps faced high costs, inconsistent data quality, and complex, poorly documented APIs. Integrating this data was a major bottleneck for innovation in the automotive tech space.',
-        product: 'We built a high-performance, developer-first API solution. It provides granular data for over 1.2 million trims, real-time market valuations, and decoding capabilities in a unified, modern web platform with robust SDKs and clear documentation.',
-        outcome: 'The platform now powers dealerships, insurance apps, and automotive startups globally. We achieved a 40% reduction in integration time for developers, enabling faster product launches and more reliable data-driven applications.',
+        challenge: 'Acquiring accurate vehicle data for insurance or retail often involves high costs and inconsistent quality. Integrating this data is a major bottleneck for innovation in the automotive tech space.',
+        product: 'Achtrex provides a high-performance, developer-first API solution. It offers granular data for over 1.2 million trims and real-time market valuations, delivered through a unified, modern web platform.',
+        outcome: 'The platform powers global automotive applications, achieving a 40% reduction in integration time for developers while ensuring reliable, data-driven system performance.',
     },
     {
         title: 'Yach Telemedicine',
-        description: 'Digital Healthcare Platform',
-        category: 'Mobile & Web',
-        tags: ['Healthcare', 'Telemedicine', 'Mobile App'],
+        description: 'Digital Infrastructure Use Case',
+        category: 'Health Platform',
+        tags: ['Architecture', 'Infrastructure', 'Scale'],
         images: ['/projects/yach-telemedicine.png'],
-        challenge: 'Patients often faced long wait times and geographical barriers when accessing quality healthcare for non-emergency issues. Traditional clinic visits were inefficient for routine follow-ups, and there was a need for a secure, remote alternative.',
-        product: 'We collaborated to develop a HIPAA-compliant digital health platform that brings healthcare to users\' smart devices. The solution includes secure video consultations, digital prescription management, and easy appointment scheduling.',
-        outcome: 'Democratized access to healthcare, allowing patients to receive timely medical advice from home. This has reduced the burden on physical clinics, improved patient engagement, and provided a safe, efficient alternative for routine health management.',
+        challenge: 'Healthcare access often faces geographical barriers. This use case highlights how robust digital infrastructure can support secure, remote consultations and real-time medical data management.',
+        product: 'Achtrex technologies enabled a HIPAA-compliant digital health environment. The solution supports secure video connectivity, digital prescription workflows, and automated appointment scheduling.',
+        outcome: 'Successfully demonstrated democratic access to services through technical efficiency, reducing physical infrastructure reliance by providing a safe, efficient digital alternative.',
     },
     {
         title: 'Global Solutions',
-        description: 'Software Development & Consulting',
-        category: 'Enterprise',
-        tags: ['Consulting', 'Digital Transformation'],
+        description: 'Enterprise Scalability Application',
+        category: 'Platform Strategy',
+        tags: ['Engineering', 'Architecture', 'Transformation'],
         images: ['/projects/Rectangle 796 (3).png'],
-        challenge: 'A leading tech consulting firm needed to rapidly scale its development capabilities to handle growing client demands. They required optimization of their development workflows and code quality standards to ensure timely delivery of complex enterprise projects.',
-        product: 'We engaged in a strategic collaboration to provide enterprise-level software development and consulting. Our team focused on implementing scalable architectures, modernizing legacy systems, and establishing best practices for their development lifecycle.',
-        outcome: 'The partnership resulted in improved project delivery times by 30%, enhanced overall code quality, and significantly increased their capacity to handle larger, more complex projects, driving business growth and client satisfaction.',
-    }
+        challenge: 'Scaling development capabilities to handle complex enterprise projects requires modular architecture and professional code standards. This use case shows Achtrex’s capacity for technical transformation.',
+        product: 'We applied Achtrex engineering principles to modernize legacy systems and implement scalable architectures. Our focus was on establishing optimized lifecycles and robust technical foundations.',
+        outcome: 'Achieved 30% faster project delivery and enhanced code quality, significantly increasing the capacity to handle large-scale digital initiatives.',
+    },
 ];
 
 const containerVariants = {
@@ -96,7 +96,7 @@ export const PortfolioGrid = () => {
                     >
                         <span className="w-2 h-2 rounded-full bg-secondary mr-2 animate-pulse"></span>
                         <span className="text-xs font-semibold tracking-wide text-white/80 uppercase">
-                            Case Studies
+                            Platform & Use Cases
                         </span>
                     </motion.div>
 
@@ -106,7 +106,7 @@ export const PortfolioGrid = () => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6"
                     >
-                        Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Impact</span>
+                        Achtrex in <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Action</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -114,7 +114,7 @@ export const PortfolioGrid = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg text-muted-foreground leading-relaxed"
                     >
-                        Explore how we translate complex challenges into elegant, high-performance digital solutions for industry leaders.
+                        Explore how Achtrex technologies and platforms are applied to build real-world digital solutions across industries.
                     </motion.p>
                 </div>
 
@@ -178,6 +178,18 @@ export const PortfolioGrid = () => {
                         </motion.div>
                     ))}
                 </motion.div>
+
+                {/* How Our Technology Is Applied Section */}
+                <div className="mt-32 pt-20 border-t border-white/5">
+                    <div className="text-center max-w-4xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-8">How Our Technology Is Applied</h2>
+                        <p className="text-gray-400 text-lg leading-relaxed mb-12">
+                            Achtrex platforms are designed to be flexible and scalable, enabling application across multiple industries 
+                            including automotive, data services, and AI-driven solutions. Our architecture prioritizes modularity and 
+                            performance, ensuring that the same core engines can power diverse digital ecosystems.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
     );

@@ -20,7 +20,7 @@ export const ServicesHero = () => {
                     transition={{ duration: 0.6 }}
                     className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
                 >
-                    <span className="text-secondary text-sm font-semibold tracking-widest uppercase">What We Do</span>
+                    <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Products & Platforms</span>
                 </motion.div>
 
                 <motion.h1
@@ -29,7 +29,7 @@ export const ServicesHero = () => {
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="text-5xl md:text-7xl font-bold mb-8 font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/60 tracking-tight leading-tight"
                 >
-                    Services designed <br /> for <span className="text-primary italic">impact</span>.
+                    Our Products & <br /> <span className="text-primary italic">Platforms</span>.
                 </motion.h1>
 
                 <motion.p
@@ -38,7 +38,7 @@ export const ServicesHero = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
                 >
-                    From concept to code, we deliver cutting-edge digital solutions tailored to elevate your business. Explore our suite of expert services.
+                    Achtrex builds scalable digital platforms powered by data, APIs, and AI to enable businesses and developers to create intelligent solutions.
                 </motion.p>
             </div>
         </section>

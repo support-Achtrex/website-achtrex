@@ -1,36 +1,25 @@
 import type { Metadata } from "next";
-import { Manrope, Montserrat, Red_Hat_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/ui/toast";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ['latin']
-})
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ['latin']
-})
-
-const redHatDisplay = Red_Hat_Display({
-  variable: "--font-red-hat-display",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ['latin']
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://achtrex.com'), // Replace with actual domain
   title: {
-    default: "Achtrex | Future-Forward Digital Product Studio",
+    default: "Achtrex | Scalable Data & AI Platforms",
     template: "%s | Achtrex"
   },
-  description: "Achtrex is a premium digital product studio building the future of technology. We specialize in custom software development, mobile apps, and enterprise solutions.",
+  description: "Achtrex is an enterprise SaaS builder specializing in scalable data architectures, AI platforms, and high-performance APIs.",
   keywords: [
-    "Achtrex", "Digital Product Studio", "Software Development", "Web Development",
-    "Mobile App Development", "UI/UX Design", "Tech Innovation", "Enterprise Software",
-    "React Native", "Next.js", "Cloud Solutions"
+    "Achtrex", "SaaS Builder", "Data Platform", "AI Developer Platform",
+    "API Infrastructure", "Enterprise Software", "Tech Innovation"
   ],
-  authors: [{ name: "Achtrex Team", url: "https://achtrex.com" }],
+  authors: [{ name: "Achtrex Engineering", url: "https://achtrex.com" }],
   creator: "Achtrex",
   alternates: {
     canonical: '/',
@@ -52,8 +41,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Achtrex | Future-Forward Digital Product Studio",
-    description: "Achtrex is a premium digital product studio building the future of technology.",
+    title: "Achtrex | Scalable Data & AI Platforms",
+    description: "Achtrex is an enterprise SaaS builder specializing in scalable data architectures, AI platforms, and high-performance APIs.",
     url: "https://achtrex.com",
     siteName: "Achtrex",
     locale: "en_US",
@@ -67,8 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Achtrex | Future-Forward Digital Product Studio",
-    description: "Achtrex is a premium digital product studio building the future of technology.",
+    title: "Achtrex | Scalable Data & AI Platforms",
+    description: "Achtrex is an enterprise SaaS builder specializing in scalable data architectures, AI platforms, and high-performance APIs.",
     images: ["/logo.png"],
     creator: "@achtrex",
   },
@@ -112,7 +101,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} bg-background text-foreground ${montserrat.variable} ${redHatDisplay.variable} antialiased selection:bg-primary selection:text-white`}
+        className={`${inter.variable} font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-white`}
       >
         <script
           type="application/ld+json"

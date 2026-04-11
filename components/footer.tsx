@@ -5,11 +5,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'luc
 
 export const Footer = () => {
     return (
-        <footer className="bg-background border-t border-white/5 pt-20 pb-10 relative overflow-hidden">
-            {/* Decorative background elements */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[128px] pointer-events-none" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[128px] pointer-events-none" />
-
+        <footer className="bg-background border-t border-white/5 relative overflow-hidden pt-20 pb-10">
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand Column */}
@@ -32,13 +28,13 @@ export const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Services */}
+                    {/* Products & Platforms */}
                     <div>
-                        <h4 className="text-white font-bold text-lg mb-6">Services</h4>
+                        <h4 className="text-white font-bold text-lg mb-6">Products</h4>
                         <ul className="space-y-4">
-                            {['Web Development', 'Mobile Apps', 'UI/UX Design', 'Cloud Solutions', 'Digital Marketing', 'Consulting'].map((item) => (
+                            {['Automotive Data Platform', 'AI Solutions', 'Platform Engineering', 'Strategy & Consulting'].map((item) => (
                                 <li key={item}>
-                                    <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">
+                                    <Link href="/products" className="text-muted-foreground hover:text-primary transition-colors">
                                         {item}
                                     </Link>
                                 </li>
@@ -52,7 +48,7 @@ export const Footer = () => {
                         <ul className="space-y-4">
                             {[
                                 { label: 'About Us', href: '/about-us' },
-                                { label: 'Portfolio', href: '/portfolio' },
+                                { label: 'Platform & Use Cases', href: '/platform-and-use-cases' },
                                 { label: 'Careers', href: '/life-at-achtrex' },
                                 { label: 'Blog', href: '/blog' },
                                 { label: 'Contact', href: '/contact-us' }

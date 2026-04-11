@@ -8,9 +8,7 @@ import { Button } from "@/components/buttons";
 export const AboutSection = () => {
     const router = useRouter();
     return (
-        <section id="about" className="py-20 px-4 bg-background relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[128px]" />
-
+        <section id="why-achtrex" className="py-24 px-6 bg-background relative overflow-hidden border-y border-white/5">
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <motion.div
@@ -18,15 +16,15 @@ export const AboutSection = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="relative h-[400px] w-full rounded-2xl overflow-hidden glass-card border-none"
+                        className="relative h-[450px] w-full rounded-2xl overflow-hidden border border-white/10 bg-[#0a0f1c]"
                     >
                         <Image
-                            src="/life-at-achtrex/Rectangle 789.png"
-                            alt="Team working together"
+                            src="/server_infrastructure.png" 
+                            alt="Scalable Architecture Server Infrastructure"
                             fill
-                            className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
+                            className="object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-[#030712]/40 mix-blend-multiply" />
                     </motion.div>
 
                     <motion.div
@@ -37,34 +35,26 @@ export const AboutSection = () => {
                         className="space-y-6"
                     >
                         <div>
-                            <h2 className="text-primary text-sm font-semibold tracking-wider uppercase mb-2">Our DNA</h2>
-                            <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Driven by passion. <br /> United by purpose.</h3>
+                            <h2 className="text-secondary text-sm font-bold tracking-widest uppercase mb-2">Why Achtrex</h2>
+                            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Built for Scale.<br /> Engineered for Authority.</h3>
                         </div>
 
-                        <div className="space-y-4 text-base text-muted-foreground leading-relaxed font-light">
+                        <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
                             <p>
-                                At Achtrex, we are more than a software studio. We are a collective of visionaries,
-                                engineers, and strategists dedicated to redefining what's possible in the digital realm.
+                                Achtrex is not an agency. We are an enterprise SaaS venture builder focused exclusively on deploying scalable data architectures and AI-driven platforms.
                             </p>
                             <p>
-                                We don't just write code; we architect solutions that propel businesses forward.
-                                Our culture is built on relentless curiosity, technical excellence, and a shared
-                                commitment to delivering extraordinary results.
-                            </p>
-                            <p>
-                                From intricate backend systems to stunning user interfaces, we bring a holistic
-                                approach to every project, ensuring your digital presence is not just functional,
-                                but transformative.
+                                By owning our proprietary tech stack globally, we eliminate integration bottlenecks, allowing businesses to plug directly into high-fidelity data engines and cognitive automation frameworks without touching legacy infrastructure.
                             </p>
                         </div>
 
-                        <div className="pt-2">
+                        <div className="pt-4">
                             <Button
-                                onClick={() => router.push('/life-at-achtrex')}
+                                onClick={() => router.push('/why-achtrex')}
                                 size="lg"
-                                className="bg-white text-black hover:bg-gray-200 px-8 rounded-full shadow-lg shadow-white/10"
+                                className="bg-white text-black hover:bg-gray-200 px-8 rounded-sm font-bold"
                             >
-                                Discover Our Culture
+                                Explore Our Advantage
                             </Button>
                         </div>
                     </motion.div>

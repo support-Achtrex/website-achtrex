@@ -6,13 +6,14 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Blog | Insights on Tech, Design & Innovation",
-    description: "Explore the latest trends in web development, mobile apps, UI/UX design, and digital transformation.",
+    title: "Engineering Blog | Architecture & Infrastructure",
+    description: "Deep dives into API scaling, data engineering, and SaaS venture building from the Achtrex architecture team.",
 };
 
 export default function BlogListingPage() {
     const featuredPost = blogPosts[0];
-    const otherPosts = blogPosts.slice(0, 9); // Show first 9 posts
+    const otherPosts = blogPosts.slice(1, 5); // Show remaining 4 posts
+
 
     return (
         <main className="pt-24 min-h-screen bg-white pb-20">

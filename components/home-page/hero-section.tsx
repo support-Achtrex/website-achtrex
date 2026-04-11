@@ -1,177 +1,109 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/buttons';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { CheckCircle2, Loader2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import { submitContactForm } from '@/app/actions/contact';
-import { useToast } from '@/components/ui/toast';
 
 export const Hero = () => {
     const router = useRouter();
-    const { addToast } = useToast();
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
-    async function handleSubmit(formData: FormData) {
-        setIsSubmitting(true);
-        try {
-            const result = await submitContactForm(formData);
-            if (result.success) {
-                addToast('Message sent successfully! We check our emails constantly.', 'success');
-                // Optional: Reset form via ref or just let it be
-                const form = document.querySelector('form') as HTMLFormElement;
-                if (form) form.reset();
-            } else {
-                addToast(result.error || 'Something went wrong.', 'error');
-            }
-        } catch (error) {
-            addToast('Failed to send message.', 'error');
-        } finally {
-            setIsSubmitting(false);
-        }
-    }
 
     return (
-        <section id="home" className="relative min-h-[90vh] flex items-center pt-24 pb-32 overflow-hidden bg-slate-900">
+        <section id="home" className="relative min-h-[90vh] flex items-center pt-32 pb-32 overflow-hidden bg-slate-900 border-b border-white/10">
             {/* Background Image with Gradient Overlay */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0 bg-[#0a0f1c]">
                 <Image
-                    src="/hero-bg-team-new.png" // Team collaboration image
-                    alt="Background"
+                    src="/enterprise_command_center.png" 
+                    alt="Enterprise Tech Command Center"
                     fill
-                    className="object-cover opacity-60 mix-blend-overlay"
+                    className="object-cover opacity-30"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/75 to-slate-900/20" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f1c]/80 via-[#0a0f1c]/60 to-[#0a0f1c]" />
             </div>
 
-            <div className="container relative mx-auto px-6 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="container relative mx-auto px-6 z-10 text-center max-w-5xl">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="mb-6 flex justify-center"
+                >
+                    <span className="text-sm font-bold tracking-[0.2em] text-white/70 uppercase">
+                        Venture Builder & SaaS Platform
+                    </span>
+                </motion.div>
 
-                {/* Left Content - Text */}
-                <div className="lg:col-span-7 text-left pt-10 relative z-20">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="mb-8 flex items-center gap-2"
+                <motion.h1
+                    className="text-5xl md:text-7xl font-display font-bold leading-tight mb-8 text-white"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                >
+                    Building Scalable <br />
+                    <span className="text-white">
+                        Data & AI Products.
+                    </span>
+                </motion.h1>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="text-lg md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10"
+                >
+                    Achtrex engineers and operates high-performance SaaS applications, API gateways, and intelligent data platforms for the global market.
+                </motion.p>
+                
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+                >
+                    <Button
+                        onClick={() => router.push('/products')}
+                        className="w-full sm:w-auto bg-white hover:bg-gray-200 text-black px-10 py-6 rounded-sm font-bold text-lg transition-transform hover:scale-[1.02]"
                     >
-                        <span className="bg-primary/10 text-primary border border-primary/50 px-5 py-2 rounded-full text-xs font-bold tracking-[0.2em] uppercase shadow-[0_0_20px_rgba(14,165,233,0.3)] backdrop-blur-md animate-pulse-slow">
-                            Let's Go The Extra Mile
-                        </span>
-                    </motion.div>
-
-                    <motion.h1
-                        className="text-5xl md:text-7xl font-display font-bold leading-tight mb-8 text-white"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
+                        Explore Our Products
+                        <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                    <Button
+                        onClick={() => router.push('/about-us')}
+                        variant="secondary"
+                        className="w-full sm:w-auto bg-transparent hover:bg-white/5 text-white border border-white/20 px-10 py-6 rounded-sm font-bold text-lg transition-transform hover:scale-[1.02]"
                     >
-                        Empowering Digital <br />
-                        <span className="text-primary relative">
-                            Transformation.
-                            <span className="absolute -inset-1 blur-2xl bg-primary/20 -z-10"></span>
-                        </span>
-                    </motion.h1>
+                        Our Company
+                    </Button>
+                </motion.div>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="text-lg md:text-xl text-slate-300 max-w-xl leading-relaxed mb-10"
-                    >
-                        We convert your complex challenges into revenue-generating digital assets. Specializing in high-performance <span className="text-white font-semibold">Custom Software</span>, scalable <span className="text-white font-semibold">Web & Mobile Apps</span>, and strategic <span className="text-white font-semibold">IT Consulting</span>.
-                    </motion.p>
-
-                    <div className="flex flex-wrap gap-6 text-slate-400 text-sm font-medium">
-                        <div className="flex items-center gap-2">
-                            <CheckCircle2 className="text-primary w-5 h-5 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-                            <span>Top 1% Talent</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle2 className="text-primary w-5 h-5 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-                            <span>Timezone Aligned</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle2 className="text-primary w-5 h-5 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-                            <span>Enterprise Grade Security</span>
-                        </div>
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.7 }}
+                    className="flex flex-wrap justify-center gap-12 md:gap-24 text-white text-sm font-bold uppercase tracking-[0.1em]"
+                >
+                    <div className="flex flex-col items-center gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 3C7.58 3 4 4.79 4 7C4 9.21 7.58 11 12 11C16.42 11 20 9.21 20 7C20 4.79 16.42 3 12 3ZM12 9C8.36 9 5.86 7.69 5.15 7C5.86 6.31 8.36 5 12 5C15.64 5 18.14 6.31 18.85 7C18.14 7.69 15.64 9 12 9ZM4 10.42V13C4 15.21 7.58 17 12 17C16.42 17 20 15.21 20 13V10.42C19.1 11.39 16.14 12.5 12 12.5C7.86 12.5 4.9 11.39 4 10.42ZM20 16.42V19C20 21.21 16.42 23 12 23C7.58 23 4 21.21 4 19V16.42C4.9 17.39 7.86 18.5 12 18.5C16.14 18.5 19.1 17.39 20 16.42Z" />
+                        </svg>
+                        <span>Structured Datasets</span>
                     </div>
-                </div>
-
-                {/* Right Content - Lead Form */}
-                <div className="lg:col-span-5 relative z-30">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.6 }}
-                        className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl p-4 relative mx-auto max-w-sm lg:max-w-full"
-                    >
-                        <div className="text-center mb-3">
-                            <h3 className="text-lg font-bold text-white">Let's connect.</h3>
-                        </div>
-
-                        <form className="space-y-2" action={handleSubmit}>
-                            <div className="grid grid-cols-2 gap-2">
-                                <div className="col-span-2 md:col-span-1">
-                                    <label htmlFor="hero-name" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Name</label>
-                                    <input id="hero-name" name="name" type="text" autoComplete="name" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-xs" placeholder="John Doe" required />
-                                </div>
-                                <div className="col-span-2 md:col-span-1">
-                                    <label htmlFor="hero-phone" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Phone</label>
-                                    <input id="hero-phone" name="phone" type="tel" autoComplete="tel" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-xs" placeholder="+1 234..." />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label htmlFor="hero-email" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Work Email</label>
-                                <input id="hero-email" name="email" type="email" autoComplete="email" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-xs" placeholder="john@company.com" required />
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-2">
-                                <div className="col-span-2 md:col-span-1">
-                                    <label htmlFor="hero-company" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Company</label>
-                                    <input id="hero-company" name="company" type="text" autoComplete="organization" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white placeholder-zinc-500 text-xs" placeholder="Acme Inc" />
-                                </div>
-                                <div className="col-span-2 md:col-span-1">
-                                    <label htmlFor="hero-service" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Service</label>
-                                    <select id="hero-service" name="service" autoComplete="off" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all text-white text-xs appearance-none">
-                                        <option value="" className="bg-slate-900 text-zinc-500">Select...</option>
-                                        <option value="Software" className="bg-slate-900">Software</option>
-                                        <option value="Mobile" className="bg-slate-900">Mobile</option>
-                                        <option value="Web" className="bg-slate-900">Web</option>
-                                        <option value="Consulting" className="bg-slate-900">Consulting</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label htmlFor="hero-message" className="block text-[9px] font-bold text-zinc-400 mb-0.5 uppercase tracking-wide">Datails</label>
-                                <textarea id="hero-message" name="message" autoComplete="off" className="w-full px-2 py-1.5 rounded-md border border-white/10 bg-black/50 focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all resize-none h-12 text-white placeholder-zinc-500 text-xs" placeholder="Project info..." required />
-                            </div>
-
-                            <Button disabled={isSubmitting} className="w-full bg-primary hover:bg-cyan-600 text-white py-2 rounded-md font-bold text-sm shadow-lg shadow-primary/30 transition-all hover:scale-[1.02] active:scale-[0.98]">
-                                {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : 'Get Started'}
-                            </Button>
-
-                            <p className="text-center text-[10px] text-zinc-500 mt-2">
-                                Term & Privacy apply.
-                            </p>
-                        </form>
-                    </motion.div>
-
-                    {/* Decorative Elements around form */}
-                    <div className="absolute -top-10 -right-10 w-24 h-24 bg-primary/20 rounded-full blur-2xl -z-10" />
-                    <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-secondary/20 rounded-full blur-2xl -z-10" />
-                </div>
-            </div>
-
-            {/* Bottom Curve Wave */}
-            <div className="absolute bottom-0 left-0 w-full leading-none z-20">
-                <svg className="w-full h-12 md:h-24 text-background" viewBox="0 0 1440 100" preserveAspectRatio="none">
-                    <path fill="currentColor" d="M0,0 C480,120 960,120 1440,0 L1440,100 L0,100 Z" />
-                </svg>
+                    <div className="flex flex-col items-center gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4C9.11 4 6.6 5.64 5.35 8.04C2.34 8.36 0 10.91 0 14C0 17.31 2.69 20 6 20H19C21.76 20 24 17.76 24 15C24 12.36 21.95 10.22 19.35 10.04Z" />
+                        </svg>
+                        <span>Global APIs</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21 10H19C19 8.9 18.1 8 17 8H16V6C16 4.9 15.1 4 14 4H10C8.9 4 8 4.9 8 6V8H7C5.9 8 5 8.9 5 10H3V14H5V16C5 17.1 5.9 18 7 18H17C18.1 18 19 17.1 19 16V14H21V10ZM14 12H10V10H14V12ZM17 12H16V10H17V12ZM8 12H7V10H8V12Z" />
+                        </svg>
+                        <span>AI Agents</span>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );
