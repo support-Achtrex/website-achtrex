@@ -2,8 +2,14 @@ import { CTASection } from "@/components/cta";
 import { Server, ShieldAlert, Cpu, Globe2, Activity } from 'lucide-react';
 
 export const metadata = {
-    title: 'Why Achtrex | The Platform Advantage',
-    description: 'Achtrex provides unmatched technical velocity and scalable infrastructure for modern digital economies.',
+    title: 'Why Achtrex | The Structural Intelligence Advantage',
+    description: 'Explore the technical leverage of Achtrex infrastructure. From proprietary autonomy to planetary scale, learn why our architectural engines are the foundation of high-velocity enterprises.',
+    keywords: ["Proprietary Data Autonomy", "Geo-Agnostic Scaling", "Resilient API Infrastructure", "Algorithmic Transparency", "SaaS Architectural Advantage"],
+    openGraph: {
+        title: "Why Achtrex | Unmatched Technical Velocity",
+        description: "Plug directly into a state-of-the-art enterprise-grade cognitive infrastructure.",
+        images: ["/projects/lumi_ui_v2.jpg"],
+    }
 };
 
 export default function WhyAchtrexPage() {

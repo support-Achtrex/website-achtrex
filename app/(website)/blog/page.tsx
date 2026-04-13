@@ -7,7 +7,13 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Engineering Blog | Architecture & Infrastructure",
-    description: "Deep dives into API scaling, data engineering, and SaaS venture building from the Achtrex architecture team.",
+    description: "Deep dives into API scaling, data engineering, and SaaS venture building from the Achtrex architecture team. Learn our technical approach to building high-velocity platforms.",
+    keywords: ["Engineering Blog", "System Architecture", "SaaS Engineering", "Data Engineering Articles", "Tech Infrastructure Blog", "Achtrex Insights"],
+    openGraph: {
+        title: "Achtrex Engineering Blog | Technical Deep Dives",
+        description: "Scaling high-velocity data platforms and resilient architectures.",
+        images: ["/projects/lumi_ui_v2.jpg"],
+    }
 };
 
 export default function BlogListingPage() {

@@ -8,8 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const routes = [
         '',
         '/about-us',
-        '/services',
-        '/portfolio',
+        '/products',
+        '/products/automotive',
+        '/products/carkasa',
+        '/products/lumi',
+        '/products/vehiclereport',
         '/why-achtrex',
         '/contact-us',
         '/blog',
@@ -17,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
+        changeFrequency: route === '' ? 'weekly' : 'monthly' as const,
         priority: route === '' ? 1 : 0.8,
     }));
 

@@ -54,8 +54,38 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         notFound();
     }
 
+    const articleJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "description": post.excerpt,
+        "image": post.image,
+        "datePublished": new Date(post.date).toISOString() || new Date().toISOString(),
+        "author": {
+            "@type": "Organization",
+            "name": "Achtrex Engineering",
+            "url": "https://achtrex.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Achtrex",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://achtrex.com/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://achtrex.com/blog/${post.slug}`
+        }
+    };
+
     return (
         <main className="pt-32 pb-20 min-h-screen bg-white">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+            />
             <article className="max-w-4xl mx-auto px-4 md:px-8">
                 {/* Header */}
                 <div className="mb-8">
