@@ -5,7 +5,13 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Partner & Scale | Enterprise Inquiries",
-    description: "Discuss API integration, infrastructure architecture, or enterprise partnerships with the Achtrex technical deployment team.",
+    description: "Discuss API integration, infrastructure architecture, or enterprise partnerships with the Achtrex technical deployment team. Secure high-volume SLA agreements and custom pipeline access.",
+    keywords: ["Contact Achtrex", "SaaS Partnership", "API Integration Support", "Enterprise Data Solutions", "Achtrex Support"],
+    openGraph: {
+        title: "Achtrex Inquiries | Enterprise Partnerships",
+        description: "Connect with our architecture team for high-volume deployments.",
+        images: ["/projects/lumi_ui_v2.jpg"],
+    }
 };
 
 export default function ContactUsPage() {

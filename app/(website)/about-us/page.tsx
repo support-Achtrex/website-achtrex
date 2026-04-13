@@ -5,8 +5,14 @@ import { CTASection } from "@/components/cta";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About Achtrex | Building Scalable Data & AI Platforms",
-    description: "Learn about Achtrex's mission to empower businesses with data infrastructure and AI-powered platforms.",
+    title: "Our Mission & Architectural Vision",
+    description: "Discover how Achtrex is redefining enterprise data and AI infrastructure. Learn about our mission to architect high-velocity platforms that power the global digital economy.",
+    keywords: ["Achtrex Mission", "Data Architecture Vision", "Enterprise AI Strategy", "Venture Builder History", "Scalable Tech Foundation"],
+    openGraph: {
+        title: "Achtrex Mission | Architecting the Future of Data",
+        description: "Learn about our commitment to engineering excellence and scalable proprietary technology.",
+        images: ["/projects/lumi_ui_v2.jpg"],
+    }
 };
 
 export default function AboutPage() {

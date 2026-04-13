@@ -9,57 +9,73 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://achtrex.com'), // Replace with actual domain
+  metadataBase: new URL('https://achtrex.com'),
   title: {
-    default: "Achtrex | Scalable Data & AI Platforms",
+    default: "Achtrex | Enterprise Data Architectures & Cognitive AI Platforms",
     template: "%s | Achtrex"
   },
-  description: "Achtrex is an enterprise SaaS builder specializing in scalable data architectures, AI platforms, and high-performance APIs.",
+  description: "Achtrex is a leading enterprise SaaS venture builder specializing in high-velocity data architectures, autonomous AI agents (LUMI), and resilient API infrastructure for automotive and global SaaS sectors.",
   keywords: [
-    "Achtrex", "SaaS Builder", "Data Platform", "AI Developer Platform",
-    "API Infrastructure", "Enterprise Software", "Tech Innovation"
+    "Achtrex", "Enterprise SaaS", "Data Infrastructure", "AI Platforms", 
+    "LUMI AI Agent", "Automotive Intelligence", "Vehicle Data API", 
+    "Scalable Architecture", "Venture Builder", "Proprietary Tech", 
+    "SaaS Operations", "Real-time Telemetry"
   ],
-  authors: [{ name: "Achtrex Engineering", url: "https://achtrex.com" }],
-  creator: "Achtrex",
+  authors: [{ name: "Achtrex Engineering Team", url: "https://achtrex.com" }],
+  creator: "Achtrex Corporation",
+  publisher: "Achtrex",
+  formatDetection: {
+    email: false,
+    address: true,
+    telephone: true,
+  },
   alternates: {
     canonical: '/',
   },
   icons: {
-    icon: "/logo.png",
+    icon: [
+      { url: "/logo.png" },
+      { url: "/logo.png", size: "32x32", type: "image/png" },
+    ],
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
   },
   openGraph: {
-    title: "Achtrex | Scalable Data & AI Platforms",
-    description: "Achtrex is an enterprise SaaS builder specializing in scalable data architectures, AI platforms, and high-performance APIs.",
+    title: "Achtrex | Enterprise Data & AI Infrastructure",
+    description: "Architecting high-velocity data platforms and autonomous AI agent frameworks. Discover Achtrex's proprietary enterprise solutions.",
     url: "https://achtrex.com",
     siteName: "Achtrex",
     locale: "en_US",
     type: "website",
     images: [{
-      url: "/logo.png", // Ideally update to a 1200x630 OG image
-      width: 800,
-      height: 600,
-      alt: "Achtrex Logo",
+      url: "/projects/lumi_ui_v2.jpg", // Using a high-fidelity image for OG
+      width: 1200,
+      height: 630,
+      alt: "Achtrex Enterprise AI Platform",
     }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Achtrex | Scalable Data & AI Platforms",
-    description: "Achtrex is an enterprise SaaS builder specializing in scalable data architectures, AI platforms, and high-performance APIs.",
-    images: ["/logo.png"],
+    description: "Next-gen enterprise SaaS builder specializing in data architectures and cognitive AI platforms.",
+    images: ["/projects/lumi_ui_v2.jpg"],
     creator: "@achtrex",
+  },
+  verification: {
+    google: "google-site-verification-placeholder", // User should replace this with real key
   },
 };
 
