@@ -1,0 +1,1 @@
+const https = require('https'); https.get('https://www.broadcom.com/', (res) => { let data = ''; res.on('data', chunk => data += chunk); res.on('end', () => { const matches = data.match(/<h[1-3][^>]*>.*?<\/h[1-3]>|<section[^>]*>/ig); if (matches) console.log(matches.join('\n')); }); });

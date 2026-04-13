@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function BlogListingPage() {
     const featuredPost = blogPosts[0];
-    const otherPosts = blogPosts.slice(1, 5); // Show remaining 4 posts
+    const otherPosts = blogPosts.slice(1); // Show all remaining posts
 
 
     return (
@@ -36,16 +36,7 @@ export default function BlogListingPage() {
                                 {featuredPost.title}
                             </h1>
                             <div className="flex items-center gap-4 text-white/90 mb-8">
-                                <div className="relative w-10 h-10 rounded-full overflow-hidden">
-                                    <Image
-                                        src={featuredPost.author.image}
-                                        alt={featuredPost.author.name}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                                <span className="font-medium">{featuredPost.author.name}</span>
-                                <span>{featuredPost.author.date}</span>
+                                <span className="font-medium text-sm border border-white/20 px-3 py-1 rounded-sm">{featuredPost.date || 'March 2026'}</span>
                             </div>
                             <Link
                                 href={`/blog/${featuredPost.slug}`}

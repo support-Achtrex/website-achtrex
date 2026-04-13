@@ -18,7 +18,7 @@ export const Button = ({
     const baseStyles = 'font-semibold rounded-full transition-all duration-300 inline-flex items-center justify-center relative group overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed';
 
     const variants = {
-        primary: 'bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_-5px_var(--primary)]',
+        primary: 'bg-logo-gradient hover:opacity-95 text-white shadow-xl',
         secondary: 'bg-secondary hover:bg-secondary/90 text-white shadow-[0_0_20px_-5px_var(--secondary)]',
         outline: 'border border-white/20 hover:border-primary/50 text-white hover:bg-white/5 backdrop-blur-sm',
         ghost: 'bg-transparent hover:bg-white/10 text-white'

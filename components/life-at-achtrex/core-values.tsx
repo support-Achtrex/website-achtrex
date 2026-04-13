@@ -13,7 +13,7 @@ export function CoreValues() {
         {
             icon: Zap,
             title: "Innovation First",
-            description: "We challenge the status quo. If there's a better way to do it, we'll find it—or build it."
+            description: "We challenge the status quo. If there's a better way to do it, we'll find it, or build it."
         },
         {
             icon: Globe,

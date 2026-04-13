@@ -8,7 +8,24 @@ import { Button } from "@/components/buttons";
 export const AboutSection = () => {
     const router = useRouter();
     return (
-        <section id="why-achtrex" className="py-24 px-6 bg-background relative overflow-hidden border-y border-white/5">
+        <section id="why-achtrex" className="py-24 px-6 relative overflow-hidden bg-black text-white border-y border-white/5">
+            {/* Background: Horizontal Black to Purple with Perforated Texture */}
+            <div className="absolute inset-0 z-0 flex">
+                <div className="w-[60%] bg-black h-full" />
+                <div className="w-[40%] h-full relative" 
+                     style={{ 
+                        background: 'linear-gradient(to right, #000 0%, #2e1065 100%)'
+                     }}>
+                    <div className="absolute inset-0 opacity-[0.2]" 
+                         style={{ 
+                            backgroundImage: `radial-gradient(circle at center, white 1px, transparent 1px)`,
+                            backgroundSize: '24px 24px'
+                         }} 
+                    />
+                </div>
+                <div className="absolute top-0 left-[50%] bottom-0 w-[20%] bg-gradient-to-r from-black to-transparent z-1" />
+            </div>
+
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <motion.div

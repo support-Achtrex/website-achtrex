@@ -197,7 +197,7 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
         html: wrapTemplate(`
             <h2>How is everything going?</h2>
             <p>It's been a while since we finished our last phase, and we wanted to check in and see how the solution is performing for you.</p>
-            <p>At Achtrex, we don't just build and leave—we want to ensure our work continues to drive value for your business.</p>
+            <p>At Achtrex, we don't just build and leave - we want to ensure our work continues to drive value for your business.</p>
             
             <div style="border-left: 4px solid #0ea5e9; padding: 16px 24px; background: #f0f9ff; margin: 30px 0; border-radius: 0 8px 8px 0;">
                 <p style="margin:0; font-style: italic; color: #0369a1;">"Is there any new feature you've been considering? Or perhaps some maintenance or scaling needed?"</p>

@@ -4,15 +4,15 @@ export const productsData = [
     {
         id: 'automotive-data',
         icon: Car,
-        title: 'Automotive Data Platform',
-        description: 'Our flagship product providing structured vehicle data for developers, businesses, and mobility platforms. The platform enables seamless access to vehicle data through APIs and datasets.',
+        title: 'AutomotiveDataset.com',
+        description: 'A massive vehicle intelligence API providing 2.5M+ records, VIN-to-Build-Sheet data, and recall databases for the global mobility market.',
         details: {
-            overview: "A comprehensive verification platform integrating with global vehicle databases (NMVTIS) and auction APIs.",
+            overview: "A comprehensive verification platform delivering granular life-cycle data and historical vehicle records via a high-performance API.",
             features: [
-                "Structured vehicle data",
-                "API integration",
-                "Global brand coverage",
-                "Built for developers"
+                "VIN-to-Build-Sheet Decoding",
+                "Odometer & Service History",
+                "Real-time Recall Database",
+                "Global Stock Imagery API"
             ],
             technologies: ["Next.js", "PostgreSQL", "Python", "AWS"]
         },
@@ -21,14 +21,15 @@ export const productsData = [
     {
         id: 'ai-platform',
         icon: Bot,
-        title: 'AI Platform (Coming Soon)',
-        description: 'Achtrex is developing AI-powered chatbot and automation tools designed to deliver intelligent insights and enhance digital experiences across industries.',
+        title: 'LUMI // Communications Platform',
+        description: 'LUMI is a unified communications platform designed to power intelligent interactions and automate complex enterprise workflows.',
         details: {
-            overview: "Architecting advanced AI tools to create seamless, intelligent digital experiences.",
+            overview: "A cross-platform cognitive ecosystem for messaging, voice, video, and autonomous business logic.",
             features: [
-                "Conversational AI",
-                "Intelligent automation",
-                "Scalable deployment"
+                "Instant Messaging & Presence",
+                "Voice & Video Conferencing",
+                "Workflow SDK & Integrations",
+                "Real-time Insights & NLP"
             ],
             technologies: ["OpenAI", "LangChain", "Vector Databases", "Node.js"]
         }

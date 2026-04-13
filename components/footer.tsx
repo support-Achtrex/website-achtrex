@@ -48,7 +48,6 @@ export const Footer = () => {
                         <ul className="space-y-4">
                             {[
                                 { label: 'About Us', href: '/about-us' },
-                                { label: 'Platform & Use Cases', href: '/platform-and-use-cases' },
                                 { label: 'Careers', href: '/life-at-achtrex' },
                                 { label: 'Blog', href: '/blog' },
                                 { label: 'Contact', href: '/contact-us' }
@@ -66,16 +65,16 @@ export const Footer = () => {
                     <div>
                         <h4 className="text-white font-bold text-lg mb-6">Contact Us</h4>
                         <ul className="space-y-6">
-                            <li className="flex gap-3 text-muted-foreground">
-                                <Mail className="w-5 h-5 text-primary shrink-0" />
+                            <li className="flex flex-col gap-1 text-muted-foreground">
+                                <span className="text-[10px] font-black uppercase tracking-widest text-primary">Email</span>
                                 <span>support@achtrex.com</span>
                             </li>
-                            <li className="flex gap-3 text-muted-foreground">
-                                <Phone className="w-5 h-5 text-primary shrink-0" />
+                            <li className="flex flex-col gap-1 text-muted-foreground">
+                                <span className="text-[10px] font-black uppercase tracking-widest text-primary">Phone</span>
                                 <p>+1 613 366 4271</p>
                             </li>
-                            <li className="flex gap-3 text-muted-foreground">
-                                <MapPin className="w-5 h-5 text-primary shrink-0" />
+                            <li className="flex flex-col gap-1 text-muted-foreground">
+                                <span className="text-[10px] font-black uppercase tracking-widest text-primary">Headquarters</span>
                                 <div className="flex flex-col">
                                     <span>1111B S Governors Ave STE 48362</span>
                                     <span>Dover, DE 19904</span>

@@ -7,33 +7,30 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SectionTitle } from '@/components/section-title';
 
-const projects = [
+import { MultiDeviceMockup } from '@/components/multi-device-mockup';
+
+const products = [
     {
-        title: 'Carkasa',
-        subtitle: 'Automotive Data Application',
-        description: 'Achtrex powered the core data infrastructure for Carkasa, enabling rapid vehicle history reports and market analytics. We built a high-performance system optimized for scalability and conversion.',
-        image: '/projects/carkasa-mockup-blue.png',
-        link: 'https://carkasa.com',
-        color: '#38bdf8', // Sky Blue
-        tags: ['Client Success', 'Platform API', 'Data Engine']
+        title: 'LUMI',
+        subtitle: 'Communications Ecosystem',
+        description: 'LUMI is a unified communications platform featuring instant messaging, voice calls, video conferencing, and file sharing. Engineered to integrate seamlessly into any business workflow with AI-powered logic.',
+        image: '/projects/lumi_ui_new.jpg',
+        link: '/products',
+        color: '#818cf8',
+        tags: ['Unified Comms', 'Workflow SDK', 'Cross-Platform'],
+        hasMobile: true,
+        isRawImage: true
     },
     {
-        title: 'Automotive Dataset',
-        subtitle: 'Global Automotive Intelligence',
-        description: 'We engineered a high-performance data solution providing accurate vehicle specifications and real-time market values. Trusted by industry leaders for data-driven decision-making and effortless API integration.',
-        image: '/projects/automotive-mockup-blue.png',
+        title: 'AutomotiveDataset.com',
+        subtitle: 'Deep Vehicle Intelligence',
+        description: 'Unlock the power of vehicle data with a comprehensive API suite providing VIN-to-Build-Sheet decoding, real-time specs, service history, and official recall databases.',
+        image: '/projects/automotive_ui_new.jpg',
         link: 'https://automotivedataset.com',
-        color: '#818cf8', // Indigo
-        tags: ['Data Engineering', 'API', 'Cloud']
-    },
-    {
-        title: 'Yach Telemedicine',
-        subtitle: 'Accessible Healthcare',
-        description: 'Democratizing healthcare access with a secure telemedicine platform. The solution provides encrypted video consultations and digital prescriptions, making expert care accessible from anywhere.',
-        image: '/projects/yach-telemedicine.png', // Fallback to existing if available, or placeholder
-        link: '/portfolio',
-        color: '#34d399', // Emerald
-        tags: ['Telehealth', 'Security', 'WebRTC']
+        color: '#3b82f6',
+        tags: ['VIN Decoding', 'Recall API', 'Service History'],
+        hasMobile: true,
+        isRawImage: true
     }
 ];
 
@@ -41,151 +38,126 @@ export const ProjectsSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = () => {
-        setCurrentIndex((prev) => (prev + 1) % projects.length);
+        setCurrentIndex((prev) => (prev + 1) % products.length);
     };
 
     const prevSlide = () => {
-        setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+        setCurrentIndex((prev) => (prev - 1 + products.length) % products.length);
     };
 
-    return (
-        <section id="projects" className="py-32 bg-[#030014] relative overflow-hidden">
-            {/* Background Decoration */}
-            <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] -translate-y-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-purple-900/10 rounded-full blur-[150px] pointer-events-none" />
+    const AppStoreBadge = () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40">
+            <rect width="135" height="40" rx="6" fill="black"/>
+            <path d="M19.1 16.2c0-2.8 2.2-4.1 2.3-4.2-1.3-1.9-3.3-2.1-4-2.2-1.7-.2-3.4 1-4.2 1-.9 0-2.2-1-3.6-.9-1.9 0-3.6 1.1-4.6 2.8-2 3.4-.5 8.5 1.4 11.3 1 1.4 2.1 2.9 3.6 2.9 1.4 0 2-.9 3.7-.9s2.3.9 3.7.9c1.5 0 2.5-1.4 3.5-2.8 1.1-1.6 1.6-3.2 1.6-3.2s-2.6-1-2.6-4.6zm-3.3-9.5c.8-1 1.3-2.3 1.1-3.7-1.2.1-2.6.8-3.4 1.8-.8.9-1.4 2.3-1.2 3.6 1.3.1 2.6-.7 3.5-1.7z" fill="white"/>
+            <text x="42" y="18" fill="white" font-family="Arial" font-size="8">Download on the</text>
+            <text x="42" y="32" fill="white" font-family="Arial" font-weight="bold" font-size="14">App Store</text>
+        </svg>
+    );
 
+    const PlayStoreBadge = () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40">
+            <rect width="135" height="40" rx="6" fill="black"/>
+            <path d="M8.2 5.1c-.2.2-.4.6-.4 1.1v27.6c0 .5.2.9.4 1.1l.1.1 15.4-15.4v-.2L8.3 5l-.1.1z" fill="#3bccff"/>
+            <path d="M23.7 21.1l-5.4-5.4-5.4 5.4.1.1 5.3 5.3 5.4-5.4z" fill="#ff3030"/>
+            <path d="M30.4 17.5l-6.7-3.8-5.4 5.4 5.4 5.4 6.7-3.8c1.9-1.1 1.9-2.8 0-3.2z" fill="#ffc300"/>
+            <path d="M23.7 13.7L18.3 19.1l-.1-.1-5.3-5.3 5.4-5.4z" fill="#48ff48"/>
+            <text x="42" y="18" fill="white" font-family="Arial" font-size="8">GET IT ON</text>
+            <text x="42" y="32" fill="white" font-family="Arial" font-weight="bold" font-size="14">Google Play</text>
+        </svg>
+    );
+
+    return (
+        <section id="products" className="py-32 bg-[#030014] relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="mb-20 text-center">
-                    <span className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block">Platform Use Case</span>
-                    <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">Built on Achtrex</h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        Discover how industry leaders leverage our data platforms and AI solutions to scale their digital infrastructure.
-                    </p>
+                <div className="mb-20 text-center lg:text-left">
+                    <span className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block">Market-Ready Solutions</span>
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">Our Internal Products</h2>
                 </div>
 
-                {/* Main Carousel Card */}
                 <div className="relative">
-
-                    {/* Navigation Buttons (Outside on Large Screens) */}
-                    <div className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 z-30 hidden md:block">
-                        <button onClick={prevSlide} className="p-4 rounded-full border border-white/10 bg-black/50 hover:bg-white/10 text-white transition-all backdrop-blur-md group">
-                            <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
-                        </button>
-                    </div>
-                    <div className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 z-30 hidden md:block">
-                        <button onClick={nextSlide} className="p-4 rounded-full border border-white/10 bg-black/50 hover:bg-white/10 text-white transition-all backdrop-blur-md group">
-                            <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
-
-
-                    <div className="relative bg-white/5 border border-white/10 rounded-[3rem] overflow-hidden min-h-[600px] backdrop-blur-xl">
-                        <div className="w-full h-full">
-                            <AnimatePresence mode='wait'>
-                                <motion.div
-                                    key={currentIndex}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.6 }}
-                                    className="grid grid-cols-1 lg:grid-cols-2 h-full min-h-[600px]"
-                                >
-                                    {/* Left Content */}
-                                    <div className="p-8 md:p-16 flex flex-col justify-center h-full order-2 lg:order-1 relative z-10">
-
-                                        {/* Project Tags */}
-                                        <div className="flex flex-wrap gap-2 mb-8">
-                                            {projects[currentIndex].tags.map((tag, i) => (
-                                                <span key={i} className="px-3 py-1 rounded-full text-xs font-mono border border-white/10 bg-white/5 text-gray-300">
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-
-                                        <motion.h3
-                                            initial={{ opacity: 0, y: 20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.2 }}
-                                            className="text-4xl md:text-5xl font-bold text-white mb-2"
-                                        >
-                                            {projects[currentIndex].title}
-                                        </motion.h3>
-
-                                        <motion.span
-                                            initial={{ opacity: 0, y: 20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.3 }}
-                                            className="text-xl text-primary font-medium mb-8 block"
-                                            style={{ color: projects[currentIndex].color }}
-                                        >
-                                            {projects[currentIndex].subtitle}
-                                        </motion.span>
-
-                                        <motion.p
-                                            initial={{ opacity: 0, y: 20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.4 }}
-                                            className="text-gray-400 text-lg leading-relaxed mb-10 max-w-lg"
-                                        >
-                                            {projects[currentIndex].description}
-                                        </motion.p>
-
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.5 }}
-                                            className="flex items-center gap-6"
-                                        >
-                                            <Link
-                                                href={projects[currentIndex].link}
-                                                target="_blank"
-                                                className="group flex items-center gap-2 text-white font-bold text-lg hover:text-primary transition-colors"
-                                            >
-                                                <span>Launch Platform</span>
-                                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                            </Link>
-                                        </motion.div>
+                    <div className="flex flex-col gap-20">
+                        <AnimatePresence mode='wait'>
+                            <motion.div
+                                key={currentIndex}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 1.05 }}
+                                transition={{ duration: 0.5 }}
+                                className="grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-12"
+                            >
+                                {/* Left Content */}
+                                <div className="order-2 lg:order-1 flex flex-col justify-center">
+                                    <div className="flex flex-wrap gap-2 mb-8">
+                                        {products[currentIndex].tags.map((tag, i) => (
+                                            <span key={i} className="px-3 py-1 rounded-full text-[10px] font-mono border border-white/10 bg-white/5 text-gray-400 uppercase tracking-wider">
+                                                {tag}
+                                            </span>
+                                        ))}
                                     </div>
 
-                                    {/* Right Image area with gradient */}
-                                    <div className="relative h-[300px] lg:h-full w-full order-1 lg:order-2 bg-gradient-to-br from-black/20 to-black/60 flex items-center justify-center p-8 lg:p-0 overflow-hidden">
-                                        {/* Background Glow */}
-                                        <div
-                                            className="absolute inset-0 opacity-30"
-                                            style={{ background: `radial-gradient(circle at center, ${projects[currentIndex].color} 0%, transparent 70%)` }}
-                                        />
+                                    <h3 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ color: products[currentIndex].color }}>
+                                        {products[currentIndex].title}
+                                    </h3>
 
-                                        <motion.div
-                                            initial={{ scale: 0.8, opacity: 0, rotate: 5 }}
-                                            animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                                            transition={{ duration: 0.8, ease: "easeOut" }}
-                                            className="relative z-10 w-full max-w-md lg:max-w-full lg:absolute lg:right-[-5%] lg:w-[120%]"
+                                    <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl">
+                                        {products[currentIndex].description}
+                                    </p>
+
+                                    <div className="flex flex-col gap-8">
+                                        <Link 
+                                            href={products[currentIndex].link}
+                                            target="_blank"
+                                            className="inline-flex items-center justify-center gap-2 bg-[#1e40af] hover:bg-[#1e3a8a] text-white px-10 py-4 rounded-sm font-bold text-lg transition-all w-full sm:w-fit"
                                         >
-                                            <Image
-                                                src={projects[currentIndex].image}
-                                                alt={projects[currentIndex].title}
-                                                width={1000}
-                                                height={800}
-                                                className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-[1.02] transition-transform duration-500"
-                                                priority
+                                            Explore Product
+                                        </Link>
+
+                                        {products[currentIndex].hasMobile && (
+                                            <div className="flex gap-4">
+                                                <div className="cursor-pointer transition-transform hover:scale-105">
+                                                    <PlayStoreBadge />
+                                                </div>
+                                                <div className="cursor-pointer transition-transform hover:scale-105">
+                                                    <AppStoreBadge />
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
+                                <div className="order-1 lg:order-2">
+                                    {products[currentIndex].isRawImage ? (
+                                        <motion.div 
+                                            whileHover={{ scale: 1.02 }}
+                                            className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl shadow-primary/20 aspect-[4/3] w-full"
+                                        >
+                                            <Image 
+                                                src={products[currentIndex].image} 
+                                                alt={products[currentIndex].title}
+                                                fill
+                                                className="object-contain p-4"
                                             />
                                         </motion.div>
-                                    </div>
-                                </motion.div>
-                            </AnimatePresence>
-                        </div>
+                                    ) : (
+                                        <MultiDeviceMockup 
+                                            desktopImage={products[currentIndex].image}
+                                            accentColor={products[currentIndex].color}
+                                        />
+                                    )}
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
 
-                    {/* Mobile Navigation */}
-                    <div className="flex justify-center gap-4 mt-8 md:hidden">
-                        <button onClick={prevSlide} className="p-3 rounded-full border border-white/10 bg-white/5 text-white">
+                    {/* Navigation Buttons */}
+                    <div className="flex justify-center lg:justify-start gap-4 mt-12">
+                        <button onClick={prevSlide} className="p-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white transition-all">
                             <ChevronLeft className="w-6 h-6" />
                         </button>
-                        <button onClick={nextSlide} className="p-3 rounded-full border border-white/10 bg-white/5 text-white">
+                        <button onClick={nextSlide} className="p-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white transition-all">
                             <ChevronRight className="w-6 h-6" />
                         </button>
                     </div>
-
                 </div>
             </div>
         </section>

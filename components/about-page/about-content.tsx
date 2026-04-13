@@ -2,168 +2,192 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, Target, Cpu, ShieldCheck, Car, Bot, User, CheckCircle2, Globe } from 'lucide-react';
-
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
-};
-
-const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-};
+import { Rocket, Target, Cpu, ShieldCheck, Car, Bot, User, CheckCircle2, Globe, Database, Compass, Eye, Wrench, Zap, Layers, BarChart3 } from 'lucide-react';
 
 export const AboutContent = () => {
     return (
-        <section className="bg-background relative pt-40 pb-20 overflow-hidden text-white">
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-                {/* Hero Section */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="max-w-4xl mb-32"
-                >
-                    <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-[#111827] border border-white/10 rounded-sm">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">About Achtrex</span>
-                    </div>
-                    <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-                        We build platforms.<br /> Not client projects.
-                    </h1>
-                    <div className="space-y-6 text-gray-400 text-lg md:text-xl leading-relaxed max-w-3xl">
-                        <p>
-                            Achtrex is not a digital agency. We are an enterprise technology venture builder focused exclusively on developing scalable digital platforms, automated data architectures, and proprietary APIs.
-                        </p>
-                        <p>
-                            Our core thesis is that software should be an asset, not a service. By owning the underlying infrastructure of high-fidelity data engines, we provide businesses with unfiltered access to scale without the overhead of legacy development.
-                        </p>
-                    </div>
-                </motion.div>
+        <section className="bg-black relative pt-20 lg:pt-24 overflow-hidden text-white">
+            {/* Top Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-white via-[#10b981] to-[#3b82f6] z-50" />
 
-                {/* Mission & Vision Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32">
-                    <motion.div 
-                        variants={itemVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="p-10 rounded-sm bg-[#0a0f1c] border border-white/10 relative group overflow-hidden"
-                    >
-                        <div className="absolute top-0 right-0 p-8 opacity-5">
-                            <Target size={120} className="text-primary" />
-                        </div>
-                        <div className="relative z-10">
-                            <span className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs mb-6">
-                                <Rocket className="w-4 h-4" /> Our Mission
-                            </span>
-                            <p className="text-2xl font-bold leading-relaxed">
-                                To engineer global data infrastructure and proprietary APIs that power the next generation of scalable digital economies.
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    <motion.div 
-                        variants={itemVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="p-10 rounded-sm bg-[#0a0f1c] border border-white/10 relative group overflow-hidden"
-                    >
-                        <div className="absolute top-0 right-0 p-8 opacity-5">
-                            <Cpu size={120} className="text-secondary" />
-                        </div>
-                        <div className="relative z-10">
-                            <span className="inline-flex items-center gap-2 text-secondary font-bold uppercase tracking-widest text-xs mb-6">
-                                <Globe className="w-4 h-4" /> Our Model
-                            </span>
-                            <p className="text-2xl font-bold leading-relaxed">
-                                Establish high-leverage SaaS products. Automate the aggregation of intelligence. Deploy API access at global scale.
-                            </p>
-                        </div>
-                    </motion.div>
+            {/* Background: Horizontal Black to Purple with Perforated Texture */}
+            <div className="absolute inset-0 z-0 flex">
+                <div className="w-[60%] bg-black h-full" />
+                <div className="w-[40%] h-full relative" 
+                     style={{ 
+                        background: 'linear-gradient(to right, #000 0%, #2e1065 100%)'
+                     }}>
+                    <div className="absolute inset-0 opacity-[0.2]" 
+                         style={{ 
+                            backgroundImage: `radial-gradient(circle at center, white 1px, transparent 1px)`,
+                            backgroundSize: '24px 24px'
+                         }} 
+                    />
                 </div>
+                <div className="absolute top-0 left-[50%] bottom-0 w-[20%] bg-gradient-to-r from-black to-transparent z-1" />
+            </div>
 
-                {/* Internal Pipeline - Products */}
-                <div className="mb-32">
-                    <div className="flex items-center gap-4 mb-12">
-                        <h2 className="text-3xl font-bold">Our Venture Pipeline</h2>
-                        <div className="h-px flex-grow bg-white/10" />
+            <div className="max-w-7xl mx-auto px-6 relative z-10 pb-32">
+                
+                {/* 1. STRATEGIC THESIS */}
+                <div id="strategic-thesis" className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40 pt-10">
+                    <div className="lg:col-span-12 mb-8">
+                         <nav className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">
+                            <span>Company</span>
+                            <span className="opacity-50">/</span>
+                            <span className="text-white font-black">About Us</span>
+                        </nav>
                     </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <motion.div
-                            whileHover={{ y: -5 }}
-                            className="group p-8 rounded-sm bg-[#0a0f1c] border border-white/10 transition-transform"
-                        >
-                            <div className="w-14 h-14 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
-                                <Car className="w-7 h-7 text-primary" />
-                            </div>
-                            <h3 className="text-2xl font-bold mb-4">Automotive Data Platform</h3>
-                            <p className="text-gray-400 leading-relaxed mb-6">
-                                An active enterprise API processing millions of market variables, allowing autonomous vehicle valuation and VIN decoding for global marketplaces.
-                            </p>
-                            <div className="flex items-center gap-2 text-sm text-primary font-bold">
-                                <span>Live Operations</span>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            whileHover={{ y: -5 }}
-                            className="group p-8 rounded-sm bg-[#0a0f1c] border border-white/10 transition-transform"
-                        >
-                            <div className="w-14 h-14 rounded-sm bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-6">
-                                <Bot className="w-7 h-7 text-secondary" />
-                            </div>
-                            <h3 className="text-2xl font-bold mb-4">Cognitive AI Platform</h3>
-                            <p className="text-gray-400 leading-relaxed mb-6">
-                                An isolated infrastructure designed to deploy conversational logic flows and autonomous agents directly into corporate tech stacks via a single proxy API.
-                            </p>
-                            <div className="flex items-center gap-2 text-sm text-secondary font-bold">
-                                <span>Architecture Phase</span>
-                            </div>
-                        </motion.div>
+                    <div className="lg:col-span-5">
+                         <h2 className="text-gradient font-bold uppercase tracking-widest text-xs mb-6">Strategic Thesis</h2>
+                         <h3 className="text-3xl md:text-5xl font-bold mb-8 leading-tight tracking-tight">
+                            We build platforms as assets,<br/> not projects as services.
+                         </h3>
+                    </div>
+                    <div className="lg:col-span-7 space-y-8 text-gray-400 text-lg leading-relaxed border-l border-white/10 pl-8 lg:pl-16">
+                        <p>
+                            Achtrex is an autonomous enterprise technology laboratory. We operate under the core conviction that the traditional digital agency model is fundamentally flawed for high-leverage growth. Instead, we position ourselves as an incubator of architectural assets.
+                        </p>
+                        <p>
+                            Our operations are focused exclusively on **Infrastructure-as-a-Product**. By owning the underlying mechanisms of data aggregation, specific-use APIs, and autonomous reasoning frameworks, we provide our stakeholders with unfiltered access to technology that scales without the overhead of bespoke development.
+                        </p>
                     </div>
                 </div>
 
-                {/* Founder Section */}
-                <div className="mb-32 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="relative"
-                    >
-                        <div className="relative z-10 rounded-sm overflow-hidden aspect-[4/5] sm:aspect-square group bg-white/5 border border-white/10">
+                {/* 2. LEADERSHIP & OWNERSHIP */}
+                <div id="ownership" className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center mb-48">
+                    <div className="lg:col-span-4">
+                         <div className="relative aspect-[4/5] bg-gray-900 overflow-hidden border border-white/10 grayscale-[0.3] hover:grayscale-0 transition-all duration-1000 shadow-2xl">
                             <img 
                                 src="/team/achim_real.jpg" 
-                                alt="Achim Godwin Tetteh - Founder" 
-                                className="w-full h-full object-cover grayscale-[0.8] hover:grayscale-0 transition-all duration-700"
+                                alt="Achim Godwin Tetteh" 
+                                className="w-full h-full object-cover"
                             />
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <span className="text-secondary font-bold uppercase tracking-widest text-xs mb-4 flex items-center gap-2">
-                             <User className="w-4 h-4" /> Chief Architect
-                        </span>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-2">Achim Godwin Tetteh</h2>
-                        <p className="text-primary font-bold mb-8 uppercase tracking-widest text-sm">Founder, Achtrex</p>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+                            <div className="absolute bottom-8 left-8">
+                                <p className="text-white font-bold text-2xl tracking-tight">Achim Godwin Tetteh</p>
+                                <p className="text-logo-gradient text-sm font-bold uppercase tracking-widest mt-1">Founder & Chief Architect</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div className="lg:col-span-8 space-y-10">
+                        <header>
+                            <h2 className="text-gradient font-bold uppercase tracking-widest text-xs mb-4">Architectural Leadership</h2>
+                            <h3 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">Driven by a global <br className="hidden lg:block"/> engineering mindset.</h3>
+                        </header>
                         
-                        <div className="space-y-6 text-gray-400 text-lg leading-relaxed border-l-2 border-primary pl-8">
+                        <div className="space-y-8 text-gray-400 text-lg md:text-xl leading-relaxed max-w-3xl">
                             <p>
-                                Achim is a systems architect building a horizontally scalable technology venture. Recognizing the inherent limitations of the digital agency model, he repositioned Achtrex strictly as a product incubator.
+                                Achim Godwin Tetteh founded Achtrex to resolve the fundamental asymmetry in technology delivery. By focusing on **Product over Service**, he has built a distributed laboratory capable of standing up complex infrastructure synchronously across major global timezones.
+                            </p>
+                            <p className="text-white font-medium border-l-2 border-logo-gradient-start pl-8 italic">
+                                "Our immediate mission is the commoditization of transparency within the mobility sector. We are architecting the infrastructure required to provide absolute **global coverage on every vehicle history in the world**, eliminating information asymmetry for every stakeholder in the automotive value chain."
                             </p>
                             <p>
-                                His focus is engineering proprietary, high-availability platforms that eliminate information asymmetry across industries. Driven by a global mindset, his current focus is optimizing the Automotive API and standing up the foundational proxy systems for Achtrex's upcoming AI ventures.
+                                Every asset in the Achtrex portfolio is owned and maintained by an elite, global team of senior developers. This ensures that our systems are not only built for today but are architected for the sheer scale of the automated world.
                             </p>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
+
+                {/* 3. MISSION & VISION (New Replacement) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/10 border border-white/10 mb-48">
+                    <div className="bg-black p-12 lg:p-20 relative overflow-hidden group">
+                        <div className="relative z-10">
+                            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-logo-gradient-start mb-8 block">Our Mission</h2>
+                            <p className="text-2xl md:text-4xl font-bold text-white leading-tight">
+                                To engineer the foundational protocols and API sub-structures required for planetary-scale data intelligence and autonomous operations.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="bg-black p-12 lg:p-20 relative overflow-hidden group border-t lg:border-t-0 lg:border-l border-white/10">
+                        <div className="relative z-10">
+                            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-logo-gradient-end mb-8 block">Our Vision</h2>
+                            <p className="text-2xl md:text-4xl font-bold text-white leading-tight">
+                                To consolidate global data opacity into a unified, mathematically verifiable infrastructure layer that accelerates technological velocity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 4. WHAT WE BUILD (New Replacement) */}
+                <div className="mb-48">
+                    <div className="flex items-center justify-between mb-16 border-b border-white/10 pb-8">
+                        <div>
+                            <h2 className="text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Portfolio Focus</h2>
+                            <h3 className="text-4xl font-bold tracking-tighter">What We Build</h3>
+                        </div>
+                        <p className="text-gray-400 text-lg max-w-md text-right hidden lg:block">
+                            At Achtrex, we focus on developing scalable and globally applicable technology platforms.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        {/* Automotive */}
+                        <div className="flex flex-col gap-4 items-start">
+                            <h4 className="text-2xl font-bold mb-2">Global Telemetry Data Platform</h4>
+                            <p className="text-gray-400 leading-relaxed text-lg mb-6">
+                                An ultra-low latency gateway aggregating deeply fragmented automotive data across continents into a unified, queryable schema for enterprise integrators.
+                            </p>
+                        </div>
+
+                        {/* CarKasa */}
+                        <div className="flex flex-col gap-4 items-start">
+                            <h4 className="text-2xl font-bold mb-2">CarKasa Asset Index</h4>
+                            <p className="text-gray-400 leading-relaxed text-lg mb-6">
+                                A high-availability transaction protocol combining localized market intelligence, structured vehicle valuation, and verified ledger asset tracking.
+                            </p>
+                        </div>
+
+                        {/* Vehicle Report Check */}
+                        <div className="flex flex-col gap-4 items-start">
+                            <h4 className="text-2xl font-bold mb-2">Omni-Vehicle Verification Protocol</h4>
+                            <p className="text-gray-400 leading-relaxed text-lg mb-6">
+                                A forensic aggregation engine that compiles millions of distinct origin nodes into an undisputed truth mechanism for cross-border vehicle lifecycle analysis.
+                            </p>
+                        </div>
+
+                        {/* LUMI */}
+                        <div className="flex flex-col gap-4 items-start">
+                            <h4 className="text-2xl font-bold mb-2">LUMI, Autonomous Agent Architecture</h4>
+                            <p className="text-gray-400 leading-relaxed text-lg mb-6">
+                                A proprietary cognitive framework built to interpret complex enterprise logic, autonomously synthesize datasets, and execute deterministic workflows with millisecond latency.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 5. OUR APPROACH (New Replacement) */}
+                <div className="bg-[#0a0f1c] border border-white/5 p-12 lg:p-20 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-[300px] h-full bg-logo-gradient opacity-[0.03] blur-[120px] pointer-events-none" />
+                    
+                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16">
+                        <div className="lg:col-span-5">
+                            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-8 block">Our Approach</h2>
+                            <p className="text-2xl font-bold text-white leading-tight mb-8">
+                                Platform-First Engineering.
+                            </p>
+                            <p className="text-gray-400 leading-relaxed font-medium">
+                                Our goal is to create solutions that are adaptable, efficient, and capable of powering the next generation of digital applications through architectural ownership.
+                            </p>
+                        </div>
+                        
+                        <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-12">
+                            {[
+                                { title: "Scalability & Performance", text: "Optimized for extreme throughput and negligible latency." },
+                                { title: "Global Use Cases", text: "Architected for cross-border applicability and localization." },
+                                { title: "Modern Practices", text: "Built with the latest engineering paradigms and CI/CD." },
+                                { title: "Continuous Innovation", text: "Leveraging state-of-the-art developments in Data and AI." }
+                            ].map((item, idx) => (
+                                <div key={idx} className="space-y-4 border-l-2 border-white/5 pl-6">
+                                    <h5 className="font-bold text-lg text-white">{item.title}</h5>
+                                    <p className="text-sm text-gray-500 leading-relaxed">{item.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     );

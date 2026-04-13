@@ -128,7 +128,7 @@ export async function submitContactForm(formData: FormData) {
                 <td class="hero">
                     <h1 style="color: #ffffff;">Thanks for reaching out!</h1>
                     <p style="color: #e5e5e5;">Hello <strong class="cyan-text">${name}</strong>,</p>
-                    <p style="color: #e5e5e5;">We’ve received your inquiry regarding <strong>${service || 'a potential collaboration'}</strong> and our team is already reviewing your details. At <span class="cyan-text">Achtrex</span>, we don’t just write code—we architect solutions that propel businesses forward.</p>
+                    <p style="color: #e5e5e5;">We’ve received your inquiry regarding <strong>${service || 'a potential collaboration'}</strong> and our team is already reviewing your details. At <span class="cyan-text">Achtrex</span>, we don’t just write code - we architect solutions that propel businesses forward.</p>
                     
                      <div style="background-color: #1a1a1a; border-left: 4px solid #00FFFF; padding: 15px; margin: 25px 0;">
                         <p style="margin: 0; color: #e5e5e5; font-size: 14px;"><strong>Your Message:</strong><br/>

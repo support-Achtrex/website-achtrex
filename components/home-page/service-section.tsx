@@ -26,23 +26,23 @@ export const ServicesGrid = () => {
     const technologies = [
         {
             icon: <SolidGlobeIcon />,
-            title: 'Global API Gateways',
-            description: 'Low-latency REST and GraphQL infrastructure. We architect globally distributed gateways utilizing highly optimized edge caching mechanisms ensuring zero jitter cross-continental data delivery.',
-            details: ['Millisecond routing', 'Edge Caching', 'Horizontal Load Balancing'],
+            title: 'Geo-Distributed API Gateways',
+            description: 'Ultra-low-latency REST and GraphQL delivery networks. We deploy globally distributed microservices utilizing advanced edge-caching and predictive load-balancing to ensure zero query jitter across cross-continental infrastructures.',
+            details: ['Sub-10ms Routing', 'Intelligent Caching', 'Horizontal Sync'],
             colSpan: 'md:col-span-2',
         },
         {
             icon: <SolidDatabaseIcon />,
-            title: 'Data Aggregation Engines',
-            description: 'Massive-scale structured database systems built for fast, complex querying over billions of individual asset rows.',
-            details: ['PostgreSQL Core', 'Vector Search', 'Real-Time Sync'],
+            title: 'Deep Aggregation Engines',
+            description: 'Massive-scale, distributed schema architectures engineered for complex vector charting and multi-dimensional querying across billions of unified asset rows asynchronously.',
+            details: ['Distributed SQL', 'Vector Indexing', 'Streaming Sync'],
             colSpan: 'md:col-span-1',
         },
         {
             icon: <SolidShieldIcon />,
-            title: 'Enterprise Security Architecture',
-            description: 'Bank-grade compliance, end-to-end encryption, and isolated Virtual Private Clouds guaranteeing absolute platform integrity.',
-            details: ['AES-256 Encryption', 'Zero-Trust Networks', 'Automated Failovers'],
+            title: 'Zero-Trust Enterprise Security',
+            description: 'Institutional-grade cryptographic compliance, end-to-end payload encryption, and strictly isolated Virtual Private Clouds guaranteeing tamper-proof platform integrity under intense enterprise threat vectors.',
+            details: ['AES-256 Transit', 'Zero-Trust Auth', 'Automated Fallbacks'],
             colSpan: 'md:col-span-3',
         }
     ];
@@ -67,7 +67,7 @@ export const ServicesGrid = () => {
                             transition={{ delay: 0.1 }}
                             className="text-4xl md:text-6xl font-bold text-white leading-tight"
                         >
-                            Engineered for <br/> Absolute Scale.
+                            Architected for <br/> Absolute Scale.
                         </motion.h2>
                     </div>
                     <motion.div 
@@ -75,9 +75,9 @@ export const ServicesGrid = () => {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-400 text-lg leading-relaxed border-l-2 border-white/20 pl-6 lg:pl-10 h-full flex flex-col justify-end"
+                        className="text-gray-400 text-lg leading-relaxed border-l-4 border-logo-gradient pl-6 lg:pl-10 h-full flex flex-col justify-end"
                     >
-                        Our entire internal portfolio operates on top of a highly optimized, custom-engineered technology stack. We do not rely on fragile external dependencies. By owning the foundational layers—from the API gate to the data lake—we guarantee unprecedented reliability.
+                        Our portfolio operates exclusively on a proprietary, optimized technology stack engineered for mission-critical velocity. By fully integrating our foundational layers, from geo-distributed API gateways to underlying vector data lakes, we eliminate fragile external dependencies and guarantee unprecedented uptime and query performance.
                     </motion.div>
                 </div>
 
@@ -89,11 +89,11 @@ export const ServicesGrid = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className={`${tech.colSpan} relative overflow-hidden bg-background border-t border-white/10 p-10 pt-12 group`}
+                            className={`${tech.colSpan} relative overflow-hidden bg-background border-t-2 border-logo-gradient p-10 pt-12 group transition-all duration-300 hover:bg-white/[0.02]`}
                         >
                             <div className="flex flex-col h-full relative z-10">
-                                <div className="mb-10 text-white">
-                                    {tech.icon}
+                                <div className="mb-8 text-logo-gradient text-4xl font-black opacity-20 group-hover:opacity-100 transition-opacity">
+                                    0{index + 1}
                                 </div>
                                 <h3 className="text-2xl font-bold text-white mb-4">{tech.title}</h3>
                                 <p className="text-gray-400 leading-relaxed text-lg mb-8 max-w-3xl">

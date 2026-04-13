@@ -8,17 +8,13 @@ interface AdminBlogCardProps {
     slug: string;
     category: string;
     title: string;
-    author: {
-        name: string;
-        image: string;
-        date: string;
-    };
+    date: string;
     image: string;
     views: string;
     readTime: string;
 }
 
-export function AdminBlogCard({ slug, category, title, author, image, views, readTime }: AdminBlogCardProps) {
+export function AdminBlogCard({ slug, category, title, date, image, views, readTime }: AdminBlogCardProps) {
     const [showActions, setShowActions] = useState(false);
 
     const handleDelete = (e: React.MouseEvent) => {
@@ -98,26 +94,14 @@ export function AdminBlogCard({ slug, category, title, author, image, views, rea
                         {readTime}
                     </span>
                     <span>•</span>
-                    <span>{author.date}</span>
+                    <span>{date}</span>
                 </div>
 
                 <h3 className="text-lg font-bold text-gray-900 mb-4 line-clamp-2 font-manrope group-hover:text-primary transition-colors">
                     {title}
                 </h3>
 
-                <div className="mt-auto pt-4 border-t border-gray-50 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <div className="relative w-6 h-6 rounded-full overflow-hidden ring-2 ring-gray-50">
-                            <Image
-                                src={author.image}
-                                alt={author.name}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                        <span className="text-xs font-bold text-gray-700 font-manrope">{author.name}</span>
-                    </div>
-
+                <div className="mt-auto pt-4 border-t border-gray-50 flex items-center justify-end">
                     <div className="flex items-center gap-4 text-gray-400">
                         <div className="flex items-center gap-1.5 text-xs font-medium" title="Views">
                             <Eye size={14} />
