@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "message": "Interested in custom software development.",
+    "service": "Custom Software",
+    "budget": "$10k - $24k",
+    "createdAt": "2024-01-01T10:00:00Z",
+    "status": "new"
+  }
+]
