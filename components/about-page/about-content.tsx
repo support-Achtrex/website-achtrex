@@ -6,7 +6,7 @@ import { Rocket, Target, Cpu, ShieldCheck, Car, Bot, User, CheckCircle2, Globe, 
 
 export const AboutContent = () => {
     return (
-        <section className="bg-black relative pt-20 lg:pt-24 overflow-hidden text-white">
+        <section className="bg-black relative pt-32 lg:pt-40 overflow-hidden text-white">
             {/* Top Accent Line */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-white via-[#10b981] to-[#3b82f6] z-50" />
 
