@@ -10,12 +10,13 @@ export const AboutSection = () => {
     return (
         <section id="why-achtrex" className="py-24 px-6 relative overflow-hidden bg-black text-white border-y border-white/5">
             {/* Background: Horizontal Black to Purple with Perforated Texture */}
-            <div className="absolute inset-0 z-0 flex">
-                <div className="w-[60%] bg-black h-full" />
-                <div className="w-[40%] h-full relative" 
+            <div className="absolute inset-0 z-0 flex flex-col lg:flex-row">
+                <div className="w-full lg:w-[60%] bg-black h-1/2 lg:h-full" />
+                <div className="w-full lg:w-[40%] h-1/2 lg:h-full relative" 
                      style={{ 
-                        background: 'linear-gradient(to right, #000 0%, #2e1065 100%)'
+                        background: 'linear-gradient(to bottom, #000 0%, #2e1065 100%)'
                      }}>
+                    <div className="lg:hidden absolute inset-0" style={{ background: 'linear-gradient(to right, #000 0%, #2e1065 100%)' }} />
                     <div className="absolute inset-0 opacity-[0.2]" 
                          style={{ 
                             backgroundImage: `radial-gradient(circle at center, white 1px, transparent 1px)`,
@@ -23,7 +24,7 @@ export const AboutSection = () => {
                          }} 
                     />
                 </div>
-                <div className="absolute top-0 left-[50%] bottom-0 w-[20%] bg-gradient-to-r from-black to-transparent z-1" />
+                <div className="absolute top-0 left-[50%] bottom-0 w-[20%] bg-gradient-to-r from-black to-transparent z-1 hidden lg:block" />
             </div>
 
             <div className="max-w-7xl mx-auto relative z-10">
