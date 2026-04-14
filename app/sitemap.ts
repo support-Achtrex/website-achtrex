@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://achtrex.com';
 
     // Static Routes
-    const routes = [
+    const routes: MetadataRoute.Sitemap = [
         '',
         '/about-us',
         '/products',
@@ -20,15 +20,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
-        changeFrequency: route === '' ? 'weekly' : 'monthly' as const,
+        changeFrequency: (route === '' ? 'weekly' : 'monthly') as 'weekly' | 'monthly',
         priority: route === '' ? 1 : 0.8,
     }));
 
     // Dynamic Blog Routes
-    const blogRoutes = blogPosts.map((post) => ({
+    const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
         url: `${baseUrl}/blog/${post.slug}`,
         lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
+        changeFrequency: 'weekly',
         priority: 0.7,
     }));
 
