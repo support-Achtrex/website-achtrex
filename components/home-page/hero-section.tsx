@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin } from 'lucide-react';
 
 const IMAGES = [
     "/projects/automotive_ui_new.jpg",
@@ -98,22 +99,21 @@ export const Hero = () => {
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-white p-4 border border-gray-200 shadow-sm flex gap-4 hover:shadow-md transition-shadow">
-                            <div className="relative w-20 h-20 shrink-0 rounded overflow-hidden border border-gray-100 flex items-center justify-center bg-black">
-                                <img src="/projects/real_time_telemetry_icon.png" alt="Automotive Data" className="object-cover w-full h-full" />
-                            </div>
-                            <div className="flex flex-col justify-center">
-                                <h3 className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#3b82f6] mb-1">Real-Time Telemetry</h3>
-                                <p className="text-xs text-gray-600 leading-relaxed font-medium">Predictive odometer records and 2.5M+ automotive datasets delivered with millisecond latency.</p>
+                        <div className="bg-white p-6 border border-gray-200 shadow-sm flex flex-col justify-center hover:shadow-md transition-shadow">
+                            <h3 className="text-[10px] font-black uppercase tracking-widest text-[#10b981] mb-2">Headquarters</h3>
+                            <div className="text-xs text-gray-900 font-bold leading-relaxed">
+                                1111B S Governors Ave STE 48362<br />
+                                Dover, DE 19904<br />
+                                United States
                             </div>
                         </div>
-                        <div className="bg-white p-4 border border-gray-200 shadow-sm flex gap-4 hover:shadow-md transition-shadow">
-                            <div className="relative w-20 h-20 shrink-0 rounded overflow-hidden border border-gray-100 flex items-center justify-center bg-black">
-                                <img src="/projects/autonomous_ai_icon.png" alt="Cognitive AI" className="object-cover w-full h-full rounded" />
+                        <div className="bg-white p-4 border border-gray-200 shadow-sm flex gap-4 hover:shadow-md transition-shadow items-center">
+                            <div className="relative w-24 h-24 shrink-0 rounded-2xl overflow-hidden shadow-lg flex items-center justify-center bg-gradient-to-br from-[#10b981] to-[#3b82f6]">
+                                <span className="text-white font-bold text-4xl">A</span>
                             </div>
                             <div className="flex flex-col justify-center">
-                                <h3 className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#3b82f6] mb-1">Autonomous Frameworks</h3>
-                                <p className="text-xs text-gray-600 leading-relaxed font-medium">Enterprise communications and autonomous logic frameworks driving scalable, deterministic workflows.</p>
+                                <h3 className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#3b82f6] mb-1">Achtrex Brand</h3>
+                                <p className="text-xs text-gray-600 leading-relaxed font-medium">Building a scalable ecosystem of data and AI platforms designed for global use.</p>
                             </div>
                         </div>
                         <div className="bg-white p-4 border border-gray-200 shadow-sm flex gap-4 hover:shadow-md transition-shadow">
