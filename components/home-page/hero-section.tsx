@@ -83,9 +83,14 @@ export const Hero = () => {
                     <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-6">
                         <div>
                             <h2 className="bg-clip-text text-transparent bg-gradient-to-r from-[#10b981] to-[#3b82f6] text-2xl font-bold mb-2 tracking-tight">Global SaaS Infrastructure</h2>
-                            <p className="text-[#333] text-sm md:text-base font-medium max-w-2xl leading-relaxed">
-                                Discover how Achtrex securely processes millions of actionable data signals daily. We architect highly proprietary API engines and data aggregators that scale globally.
+                            <p className="text-[#333] text-sm md:text-base font-medium max-w-2xl leading-relaxed mb-4">
+                                <span className="font-bold">Achtrex is building a scalable ecosystem of data and AI platforms designed for global use.</span> Discover how we securely process millions of actionable data signals daily. We architect highly proprietary API engines and data aggregators that scale globally.
                             </p>
+                            <div className="flex flex-wrap gap-2 md:gap-3 mt-1">
+                                <span className="text-[10px] sm:text-xs font-bold bg-[#10b981]/10 text-[#10b981] px-2 py-1.5 rounded-md border border-[#10b981]/20 uppercase tracking-wider">Platform in active development</span>
+                                <span className="text-[10px] sm:text-xs font-bold bg-[#3b82f6]/10 text-[#3b82f6] px-2 py-1.5 rounded-md border border-[#3b82f6]/20 uppercase tracking-wider">Expanding dataset coverage</span>
+                                <span className="text-[10px] sm:text-xs font-bold bg-[#8b5cf6]/10 text-[#8b5cf6] px-2 py-1.5 rounded-md border border-[#8b5cf6]/20 uppercase tracking-wider">Early-stage product rollout</span>
+                            </div>
                         </div>
                         <button className="bg-gradient-to-r from-white via-[#10b981] to-[#3b82f6] hover:opacity-90 text-black px-8 py-3 font-bold text-sm transition-all shrink-0 shadow-md">
                             Learn more
