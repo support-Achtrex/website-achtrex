@@ -19,6 +19,7 @@ const ContactForm = () => {
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState("");
+  const [warningMessage, setWarningMessage] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -52,9 +53,11 @@ const ContactForm = () => {
           service: "", budget: "", source: "", message: ""
         });
         setErrorMessage("");
+        setWarningMessage(result.warning || "");
       } else {
         setErrorMessage(result.error || "Failed to submit request.");
         setStatus('error');
+        setWarningMessage("");
       }
     } catch (error) {
       console.error('Error sending message:', error);
@@ -189,7 +192,10 @@ const ContactForm = () => {
             </Button>
 
             {status === 'success' && (
-              <p className="text-green-500 font-bold text-sm bg-green-500/10 px-4 py-2 rounded-sm">Request submitted. Our technical team will follow up quickly.</p>
+              <div className="flex flex-col gap-2">
+                <p className="text-green-500 font-bold text-sm bg-green-500/10 px-4 py-2 rounded-sm">Request submitted. Our technical team will follow up quickly.</p>
+                {warningMessage && <p className="text-amber-500 text-xs italic">{warningMessage}</p>}
+              </div>
             )}
             {status === 'error' && (
               <p className="text-red-500 font-bold text-sm bg-red-500/10 px-4 py-2 rounded-sm">
