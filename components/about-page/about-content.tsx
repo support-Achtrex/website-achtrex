@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Rocket, Target, Cpu, ShieldCheck, Car, Bot, User, CheckCircle2, Globe, Database, Compass, Eye, Wrench, Zap, Layers, BarChart3 } from 'lucide-react';
 
@@ -58,10 +59,11 @@ export const AboutContent = () => {
                 <div id="ownership" className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center mb-48">
                     <div className="lg:col-span-4">
                          <div className="relative aspect-[4/5] bg-gray-900 overflow-hidden border border-white/10 grayscale-[0.3] hover:grayscale-0 transition-all duration-1000 shadow-2xl">
-                            <img 
+                            <Image 
                                 src="/team/achim_real.jpg" 
                                 alt="Achim Godwin Tetteh" 
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                             <div className="absolute bottom-8 left-8">

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/buttons';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -45,10 +46,11 @@ export const Navbar = () => {
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-3 group">
                         <div className="relative w-12 h-12">
-                            <img
+                            <Image
                                 src="/logo.png"
                                 alt="Achtrex Logo"
-                                className="w-full h-full object-contain filter brightness-100 group-hover:brightness-110 transition-all"
+                                fill
+                                className="object-contain filter brightness-100 group-hover:brightness-110 transition-all"
                             />
                         </div>
                         <span className="text-xl font-display font-bold text-white tracking-wide group-hover:text-primary transition-colors">Achtrex</span>
