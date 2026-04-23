@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Bot, Workflow, Zap, Database, ArrowRight } from 'lucide-react';
 
 export const LumiSection = () => {
@@ -71,7 +72,12 @@ export const LumiSection = () => {
 
                     <div className="lg:w-1/2 w-full">
                         <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(59,130,246,0.15)] transform hover:-translate-y-2 transition-transform duration-500">
-                            <img src="/projects/lumi_ui_v2.jpg" alt="LUMI AI Interface" className="w-full h-full object-cover" />
+                            <Image 
+                                src="/projects/lumi_ui_v2.jpg" 
+                                alt="LUMI AI Interface" 
+                                fill
+                                className="object-cover" 
+                            />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#060b14] via-transparent to-transparent pointer-events-none" />
                             <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl pointer-events-none" />
                         </div>

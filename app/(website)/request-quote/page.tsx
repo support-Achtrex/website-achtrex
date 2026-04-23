@@ -3,8 +3,8 @@ import ContactForm from "@/components/home-page/contact-form";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Request a Quote | Start Your Project with Achtrex",
-    description: "Ready to start your digital transformation? Request a customized quote for your web, mobile, or software development project.",
+    title: "Request a Technical Proposal | Enterprise Solutions",
+    description: "Submit your requirements for a customized technical proposal. From high-volume API integrations to autonomous AI agent deployments, let's architect your next-gen infrastructure.",
 };
 
 export default function RequestQuotePage() {

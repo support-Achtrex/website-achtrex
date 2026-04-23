@@ -14,12 +14,13 @@ export const metadata: Metadata = {
     default: "Achtrex | Enterprise Data Architectures & Cognitive AI Platforms",
     template: "%s | Achtrex"
   },
-  description: "Achtrex is a leading enterprise SaaS venture builder specializing in high-velocity data architectures, autonomous AI agents (LUMI), and resilient API infrastructure for automotive and global SaaS sectors.",
+  description: "Achtrex is a leading enterprise SaaS venture builder. We architect high-velocity data platforms, autonomous AI agents (LUMI), and resilient API infrastructure for automotive and global digital economies.",
   keywords: [
-    "Achtrex", "Enterprise SaaS", "Data Infrastructure", "AI Platforms", 
-    "LUMI AI Agent", "Automotive Intelligence", "Vehicle Data API", 
-    "Scalable Architecture", "Venture Builder", "Proprietary Tech", 
-    "SaaS Operations", "Real-time Telemetry"
+    "Achtrex", "Enterprise SaaS Venture Builder", "Data Infrastructure Architecture", 
+    "Cognitive AI Platforms", "LUMI AI Agent Framework", "Automotive Intelligence Data", 
+    "Vehicle History API", "VIN Decoding Service", "Scalable SaaS Architecture", 
+    "Real-time Telemetry Processing", "Digital Twin Technology", "Planetary Scale Data",
+    "High-Velocity Data Ingestion", "Enterprise API Gateway", "Mobility Intelligence"
   ],
   authors: [{ name: "Achtrex Engineering Team", url: "https://achtrex.com" }],
   creator: "Achtrex Corporation",
@@ -43,11 +44,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,
-      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
@@ -61,7 +60,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
     images: [{
-      url: "/projects/lumi_ui_v2.jpg", // Using a high-fidelity image for OG
+      url: "/projects/lumi_ui_v2.jpg",
       width: 1200,
       height: 630,
       alt: "Achtrex Enterprise AI Platform",
@@ -75,7 +74,7 @@ export const metadata: Metadata = {
     creator: "@achtrex",
   },
   verification: {
-    google: "google-site-verification-placeholder", // User should replace this with real key
+    google: "google-site-verification-placeholder",
   },
 };
 
@@ -85,11 +84,12 @@ const jsonLd = {
   "name": "Achtrex",
   "url": "https://achtrex.com",
   "logo": "https://achtrex.com/logo.png",
+  "description": "Enterprise SaaS venture builder specializing in high-velocity data architectures and cognitive AI platforms.",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-613-366-4271",
+    "telephone": "+1-973-385-1305",
     "contactType": "customer service",
-    "areaServed": ["GH", "US", "GB"],
+    "areaServed": ["GH", "US", "GB", "NL"],
     "availableLanguage": "en",
     "address": {
       "@type": "PostalAddress",
@@ -102,10 +102,14 @@ const jsonLd = {
   },
   "sameAs": [
     "https://twitter.com/achtrex",
-    "https://facebook.com/achtrex",
     "https://linkedin.com/company/achtrex",
     "https://instagram.com/achtrex"
-  ]
+  ],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://achtrex.com/blog?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
 };
 
 export default function RootLayout({
