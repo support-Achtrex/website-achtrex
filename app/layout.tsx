@@ -90,15 +90,7 @@ const jsonLd = {
     "telephone": "+1-973-385-1305",
     "contactType": "customer service",
     "areaServed": ["GH", "US", "GB", "NL"],
-    "availableLanguage": "en",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "1111B S Governors Ave STE 48362",
-      "addressLocality": "Dover",
-      "addressRegion": "DE",
-      "postalCode": "19904",
-      "addressCountry": "US"
-    }
+    "availableLanguage": "en"
   },
   "sameAs": [
     "https://twitter.com/achtrex",

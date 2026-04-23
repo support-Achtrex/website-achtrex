@@ -73,14 +73,6 @@ export const Footer = () => {
                                 <span className="text-[10px] font-black uppercase tracking-widest text-primary">Phone</span>
                                 <p>+1 613 366 4271</p>
                             </li>
-                            <li className="flex flex-col gap-1 text-muted-foreground">
-                                <span className="text-[10px] font-black uppercase tracking-widest text-primary">Headquarters</span>
-                                <div className="flex flex-col">
-                                    <span>1111B S Governors Ave STE 48362</span>
-                                    <span>Dover, DE 19904</span>
-                                    <span>United States</span>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>

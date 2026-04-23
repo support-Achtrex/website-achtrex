@@ -18,7 +18,8 @@ export async function submitContactForm(formData: FormData) {
     }
 
     // 1. Save to Database (Resilient)
-    // We attempt this first. If it fails, we log it but proceed to email so at least we get a notification.
+    // We attempt this first.
+    let dbErrorOccurred = false;
     try {
         const fullMessage = `Phone: ${phone}\n\nMessage: ${message}`;
         await sql`
@@ -38,14 +39,15 @@ export async function submitContactForm(formData: FormData) {
         }
 
     } catch (dbError) {
-        console.error('Database insertion warning (proceeding to email):', dbError);
+        console.error('Database insertion error:', dbError);
+        dbErrorOccurred = true;
     }
 
     // 2. Send Emails via Nodemailer (Gmail/SMTP)
     // This solves the issue of "free tier" restrictions. Gmail allows sending to anyone.
     try {
-        const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
-        const smtpPassword = process.env.SMTP_PASS || 'npec ngix uixj jyam';
+        const smtpEmail = (process.env.SMTP_USER || 'support@achtrex.com').replace(/['"]/g, '');
+        const smtpPassword = (process.env.SMTP_PASS || 'npec ngix uixj jyam').replace(/['"]/g, '');
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -236,8 +238,12 @@ export async function submitContactForm(formData: FormData) {
 
     } catch (emailError: any) {
         console.error('Email service failed:', emailError);
-        // We log the error but do not fail the request to the user.
-        // It's better for them to think it succeeded than to see a scary error.
+        // If both DB and Email failed, we should definitely tell the user.
+        if (dbErrorOccurred) {
+            return { error: 'Our systems are currently experiencing issues. Please try again later or email us directly at support@achtrex.com' };
+        }
+        // If only email failed, we still have the lead in the DB, but the user won't get a confirmation.
+        return { success: true, warning: 'Request received, but we encountered an issue sending the confirmation email.' };
     }
 
     return { success: true };
