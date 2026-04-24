@@ -3,26 +3,9 @@ import { Database, Terminal, LayoutDashboard, CheckCircle2 } from 'lucide-react'
 
 export const BusinessModelSection = () => {
     return (
-        <section className="py-24 bg-black relative overflow-hidden text-white border-y border-white/10">
+        <section className="py-24 bg-[#0a0f1c] relative overflow-hidden text-white border-y border-white/10">
             {/* Top Accent Line */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-white via-[#10b981] to-[#3b82f6] z-50" />
-
-            {/* Background: Horizontal Black to Purple with Perforated Texture */}
-            <div className="absolute inset-0 z-0 flex pointer-events-none">
-                <div className="w-[60%] bg-black h-full" />
-                <div className="w-[40%] h-full relative" 
-                     style={{ 
-                        background: 'linear-gradient(to right, #000 0%, #2e1065 100%)'
-                     }}>
-                    <div className="absolute inset-0 opacity-[0.2]" 
-                         style={{ 
-                            backgroundImage: `radial-gradient(circle at center, white 1px, transparent 1px)`,
-                            backgroundSize: '24px 24px'
-                         }} 
-                    />
-                </div>
-                <div className="absolute top-0 left-[50%] bottom-0 w-[20%] bg-gradient-to-r from-black to-transparent z-1" />
-            </div>
             
             <div className="container mx-auto px-6 lg:px-20 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-20">
@@ -35,7 +18,7 @@ export const BusinessModelSection = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-10">
                     {/* Model 1: Subscription Access */}
-                    <div className="bg-[#0a0f1c] p-8 lg:p-10 rounded-3xl border border-white/5 hover:border-white/10 transition-all duration-300 relative overflow-hidden group">
+                    <div className="bg-black p-8 lg:p-10 rounded-3xl border border-white/5 hover:border-white/10 transition-all duration-300 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3b82f6]/10 to-transparent rounded-bl-full pointer-events-none transition-transform group-hover:scale-110" />
                         <div className="w-16 h-16 bg-[#3b82f6]/10 text-[#3b82f6] rounded-2xl flex items-center justify-center mb-8 border border-white/5">
                             <Database className="w-8 h-8" />
@@ -67,7 +50,7 @@ export const BusinessModelSection = () => {
                     </div>
 
                     {/* Model 3: SaaS Access */}
-                    <div className="bg-[#0a0f1c] p-8 lg:p-10 rounded-3xl border border-white/5 hover:border-white/10 transition-all duration-300 relative overflow-hidden group">
+                    <div className="bg-black p-8 lg:p-10 rounded-3xl border border-white/5 hover:border-white/10 transition-all duration-300 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#8b5cf6]/10 to-transparent rounded-bl-full pointer-events-none transition-transform group-hover:scale-110" />
                         <div className="w-16 h-16 bg-[#8b5cf6]/10 text-[#8b5cf6] rounded-2xl flex items-center justify-center mb-8 border border-white/5">
                             <LayoutDashboard className="w-8 h-8" />
