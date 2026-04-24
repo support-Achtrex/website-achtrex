@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import TeamMemberCard from '@/components/admin/team-member-card';
 import TeamMemberForm, { TeamMemberFormData } from '@/components/admin/team-member-form';
-import { createTeamMember, updateTeamMember, deleteTeamMember } from '@/app/admin/team/actions';
+import { createTeamMember, updateTeamMember, deleteTeamMember } from '@/app/(dashboard)/admin/team/actions';
 import { Plus } from 'lucide-react';
 import { useToast } from '@/components/ui/toast';
 

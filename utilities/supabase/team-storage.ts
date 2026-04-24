@@ -7,7 +7,7 @@ export const fetchAllImagesFromTeamBucket = async () => {
         .from('team')
         .list();
     
-    const imagesWithUrls = images?.map(image => ({
+    const imagesWithUrls = images?.map((image: any) => ({
         ...image,
         publicUrl: getPublicURL(image.name).data.publicUrl
     }));
@@ -23,7 +23,7 @@ export const fetchAllImagesFromTeamBucketServer = async () => {
     
     // Use Promise.all to await all publicUrl calls
     const imagesWithUrls = await Promise.all(
-        images?.map(async (image) => ({
+        images?.map(async (image: any) => ({
             ...image,
             publicUrl: (await getPublicURLServer(image.name)).data.publicUrl
         })) || []
