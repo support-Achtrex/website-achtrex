@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Bot, Workflow, Zap, Database, ArrowRight } from 'lucide-react';
+import { Sprout, Workflow, Zap, Database, ArrowRight } from 'lucide-react';
 
 export const LumiSection = () => {
     return (
@@ -12,13 +12,16 @@ export const LumiSection = () => {
             <div className="container mx-auto px-6 lg:px-20 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-16 items-center">
                     <div className="lg:w-1/2">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-[#3b82f6]/30 rounded-full mb-6">
-                            <Bot className="w-4 h-4 text-[#3b82f6]" />
-                            <span className="text-xs font-bold text-[#3b82f6] tracking-wider uppercase">In Development</span>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#10b981]/10 border border-[#10b981]/30 rounded-full mb-6">
+                            <Sprout className="w-4 h-4 text-[#10b981]" />
+                            <span className="text-xs font-bold text-[#10b981] tracking-wider uppercase">In Development</span>
                         </div>
                         
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-                            🤖 LUMI — <br className="hidden md:block" />
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight flex flex-col gap-2">
+                            <span className="flex items-center gap-4">
+                                <Image src="/images/lumi-chat-icon.png" alt="LUMI Logo" width={48} height={48} className="object-contain" />
+                                LUMI —
+                            </span>
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#3b82f6]">AI Agent Platform</span>
                         </h2>
                         
