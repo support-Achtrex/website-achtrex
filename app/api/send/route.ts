@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 
         // Save to Postgres DB
         try {
-            const { sql } = await import('@vercel/postgres');
+            const { sql } = await import('@/lib/db');
             await sql`
                 INSERT INTO leads (name, email, message, service, budget, company, source)
                 VALUES (${name}, ${email}, ${message}, ${service}, ${budget}, ${company}, ${source})

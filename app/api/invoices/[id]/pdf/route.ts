@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 // Lazy import of generateInvoicePDF to avoid build issues if it imports server modules eagerly, 
 // though we fixed that in lib/email.tsx already.

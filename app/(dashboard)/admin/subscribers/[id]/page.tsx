@@ -1,5 +1,5 @@
 import React from 'react';
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import {
     ArrowLeft, Plus, DollarSign, FileText, Download, Clock,
     CheckCircle2, Circle, ListTodo, Paperclip, File, Trash2,

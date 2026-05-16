@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import { Mail, Clock, MoreVertical, DollarSign, FileText, UserPlus } from 'lucide-react';
 import { subscribeToNewsletter } from '@/app/actions/marketing';
 import { Button } from '@/components/buttons';

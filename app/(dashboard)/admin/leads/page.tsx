@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, Clock, CheckCircle, XCircle, Search, UserPlus } from 'lucide-react';
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import { subscribeToNewsletter } from '@/app/actions/marketing';
 
 export const dynamic = 'force-dynamic';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import { Trash2, Users } from 'lucide-react';
 import { deleteSubscriber } from '@/app/actions/marketing';
 import { MarketingForm } from '@/components/admin/marketing/MarketingForm';

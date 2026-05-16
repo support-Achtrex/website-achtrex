@@ -1,5 +1,5 @@
 import React from 'react';
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import { TeamGrid } from './team-grid';
 
 // Fallback data in case DB is empty or not initialized

@@ -1,6 +1,6 @@
 'use server';
 
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import { revalidatePath } from 'next/cache';
 
 export async function updateInvoiceStatus(id: number, newStatus: string) {

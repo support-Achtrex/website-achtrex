@@ -1,5 +1,5 @@
 import React from 'react';
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import { Plus, Trash2 } from 'lucide-react';
 import { addTeamMember, deleteTeamMember } from '@/app/actions/team';
 import Image from 'next/image';
