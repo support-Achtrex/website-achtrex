@@ -27,7 +27,7 @@
   --font-display: var(--font-inter);
   
   /* Brand Logo Gradient Context */
-  --logo-gradient: linear-gradient(to right, #ffffff, #10b981, #3b82f6);
+  --logo-gradient: linear-gradient(to right, #10b981, #3b82f6);
 }
 
 @theme inline {
@@ -72,6 +72,10 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  background-image: var(--logo-gradient);
+}
+
+.bg-logo-gradient {
   background-image: var(--logo-gradient);
 }
 

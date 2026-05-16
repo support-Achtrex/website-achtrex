@@ -8,48 +8,44 @@ export interface EmailTemplate {
 
 const COMMON_STYLES = `
     /* Base Reset */
-    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; color: #374151; margin: 0; padding: 0; background-color: #f3f4f6; }
+    body { font-family: system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; color: #334155; margin: 0; padding: 0; background-color: #f1f5f9; }
     
     /* Layout */
-    .wrapper { width: 100%; table-layout: fixed; background-color: #f3f4f6; padding-bottom: 40px; }
+    .wrapper { width: 100%; table-layout: fixed; background-color: #f1f5f9; padding-bottom: 40px; }
     .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); }
     
     /* Header */
-    .header { background: #111827; padding: 40px; text-align: center; background-image: linear-gradient(to bottom right, #111827, #1f2937); }
-    .header h1 { color: #ffffff; margin: 0; font-size: 24px; letter-spacing: 1px; font-weight: 700; text-transform: uppercase; }
-    .header-logo { font-size: 32px; font-weight: 800; color: #0ea5e9; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+    .header { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); padding: 40px; text-align: center; }
     
     /* Content */
     .content { padding: 40px; background-color: #ffffff; }
-    .content h2 { color: #111827; font-size: 22px; font-weight: 700; margin-bottom: 20px; margin-top: 0; line-height: 1.3; }
-    .content p { margin-bottom: 20px; color: #4b5563; font-size: 16px; }
-    .content strong { color: #1f2937; font-weight: 600; }
+    .content h2 { color: #0f172a; font-size: 22px; font-weight: 700; margin-bottom: 20px; margin-top: 0; line-height: 1.3; }
+    .content p { margin-bottom: 20px; color: #334155; font-size: 16px; }
+    .content strong { color: #0f172a; font-weight: 600; }
     
     /* Buttons */
     .button-container { text-align: center; margin: 35px 0; }
     .button { 
-        background-color: #0ea5e9; 
+        background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); 
         color: #ffffff !important; 
-        padding: 16px 32px; 
-        border-radius: 8px; 
+        padding: 14px 28px; 
+        border-radius: 6px; 
         text-decoration: none; 
         font-weight: 600; 
         font-size: 16px; 
         display: inline-block; 
-        box-shadow: 0 4px 6px rgba(14, 165, 233, 0.25);
-        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    .button:hover { background-color: #0284c7; transform: translateY(-1px); box-shadow: 0 6px 8px rgba(14, 165, 233, 0.3); }
     
     /* Footer */
-    .footer { background-color: #f9fafb; padding: 30px 40px; text-align: center; font-size: 13px; color: #9ca3af; border-top: 1px solid #e5e7eb; }
-    .footer a { color: #0ea5e9; text-decoration: none; }
+    .footer { background-color: #f8fafc; padding: 30px 40px; text-align: center; font-size: 13px; color: #64748b; border-top: 1px solid #e2e8f0; }
+    .footer a { color: #3b82f6; text-decoration: none; }
     
     /* Utilities */
-    .divider { height: 1px; background-color: #e5e7eb; margin: 30px 0; border: none; }
+    .divider { height: 1px; background-color: #e2e8f0; margin: 30px 0; border: none; }
     .text-center { text-align: center; }
     .text-small { font-size: 14px; }
-    .highlight-box { background: #f0f9ff; border: 1px solid #bae6fd; padding: 24px; border-radius: 8px; margin: 24px 0; }
+    .highlight-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 24px; border-radius: 8px; margin: 24px 0; }
     
     /* Grid System for Email */
     .grid-2 { display: table; width: 100%; border-spacing: 15px 0; border-collapse: separate; table-layout: fixed; }
@@ -71,8 +67,8 @@ const wrapTemplate = (content: string, title: string = 'Achtrex') => `
         <center>
             <div class="container">
                 <div class="header">
-                    <a href="https://achtrex.com" class="header-logo">ACHTREX</a>
-                    <h1>${title}</h1>
+                    <img src="https://www.achtrex.com/achtrex-logo-email.png" alt="ACHTREX" width="140" style="margin: 0 auto 10px auto; display: block;">
+                    <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.9); margin: 0; font-weight: 600;">Enterprise Data & AI Platforms</p>
                 </div>
                 <div class="content">
                     ${content}
@@ -89,7 +85,7 @@ const wrapTemplate = (content: string, title: string = 'Achtrex') => `
                     </p>
                     <p style="margin-top: 20px; font-size: 11px;">
                         You received this because you are subscribed to our updates.<br>
-                        <a href="https://achtrex.com/unsubscribe" style="color:#9ca3af; text-decoration: underline;">Unsubscribe</a>
+                        <a href="https://achtrex.com/unsubscribe" style="color:#64748b; text-decoration: underline;">Unsubscribe</a>
                     </p>
                 </div>
             </div>
@@ -102,375 +98,313 @@ const wrapTemplate = (content: string, title: string = 'Achtrex') => `
 export const EMAIL_TEMPLATES: EmailTemplate[] = [
     {
         id: 'welcome_series_1',
-        name: 'Welcome Onboard 🚀',
-        subject: 'Welcome to Achtrex - Let’s Build Something Amazing!',
+        name: 'Welcome to Achtrex 🚀',
+        subject: 'Welcome to Achtrex - Let’s Build Your Data & AI Foundation',
         html: wrapTemplate(`
             <h2>We're thrilled to have you!</h2>
-            <p>Hello! Thank you for choosing Achtrex as your digital partner. We are committed to transforming your ideas into high-performance digital reality.</p>
+            <p>Hello! Thank you for choosing Achtrex as your technology partner. We are committed to transforming your business with high-performance Data and AI platforms.</p>
             <p>Our team is already preparing to dive into your requirements. We focus on three core pillars to ensure your success:</p>
             
             <div class="grid-2">
                 <div class="col-2" style="background: #f8fafc; border-radius: 8px; padding: 20px;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" width="40" style="margin-bottom: 10px; opacity: 0.8;">
-                    <h4 style="margin:0 0 5px 0; color:#1e293b;">Elite Design</h4>
-                    <p style="margin:0; font-size:13px; line-height:1.4;">Premium interfaces that captivate users.</p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" width="40" style="margin-bottom: 10px; opacity: 0.8;">
+                    <h4 style="margin:0 0 5px 0; color:#0f172a;">Data Engineering</h4>
+                    <p style="margin:0; font-size:13px; line-height:1.4;">Scalable pipelines and real-time processing architectures.</p>
                 </div>
                 <div class="col-2" style="background: #f8fafc; border-radius: 8px; padding: 20px;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" width="40" style="margin-bottom: 10px; opacity: 0.8;">
-                    <h4 style="margin:0 0 5px 0; color:#1e293b;">Clean Code</h4>
-                    <p style="margin:0; font-size:13px; line-height:1.4;">Scalable, secure, and fast architectures.</p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2103/2103533.png" width="40" style="margin-bottom: 10px; opacity: 0.8;">
+                    <h4 style="margin:0 0 5px 0; color:#0f172a;">Enterprise AI</h4>
+                    <p style="margin:0; font-size:13px; line-height:1.4;">Custom AI models and autonomous agents like LUMI.</p>
                 </div>
             </div>
 
             <p style="margin-top: 25px;">Next steps: You will receive an invitation to our project management board shortly where we will track every milestone together.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/login" class="button">Access Client Portal</a>
+                <a href="https://achtrex.com/client-portal" class="button">Access Client Portal</a>
             </div>
             
-            <p style="text-align: center; color: #6b7280; font-style: italic;">Welcome to the future of digital excellence.</p>
+            <p style="text-align: center; color: #64748b; font-style: italic;">Welcome to the future of digital excellence.</p>
         `, "Welcome to Achtrex")
     },
     {
         id: 'weekly_update',
         name: 'Weekly Progress 📈',
-        subject: 'Weekly Progress Report - Your Project Status',
+        subject: 'Weekly Progress Report - Your Platform Status',
         html: wrapTemplate(`
             <h2>Things are moving fast!</h2>
-            <p>We've made significant progress on your project this week. Our engineers and designers have been working hard to hit our recent milestones.</p>
+            <p>We've made significant progress on your platform this week. Our engineers have been working hard to hit our recent milestones.</p>
             
             <div class="highlight-box" style="text-align: center;">
-                <div style="font-size: 48px; font-weight: 800; color: #4f46e5; line-height: 1;">65%</div>
-                <div style="text-transform: uppercase; font-size: 12px; font-weight: 700; color: #6366f1; letter-spacing: 1px; margin-top: 5px;">Overall Completion</div>
-                <div style="width: 100%; height: 6px; background: #e0e7ff; border-radius: 99px; margin-top: 20px; overflow: hidden;">
-                    <div style="width: 65%; height: 100%; background: #4f46e5;"></div>
+                <div style="font-size: 48px; font-weight: 800; color: #10b981; line-height: 1;">65%</div>
+                <div style="text-transform: uppercase; font-size: 12px; font-weight: 700; color: #3b82f6; letter-spacing: 1px; margin-top: 5px;">Overall Completion</div>
+                <div style="width: 100%; height: 6px; background: #e2e8f0; border-radius: 99px; margin-top: 20px; overflow: hidden;">
+                    <div style="width: 65%; height: 100%; background: linear-gradient(to right, #10b981, #3b82f6);"></div>
                 </div>
             </div>
 
             <h3>Key Achievements This Week:</h3>
-            <ul style="padding-left: 20px; color: #4b5563;">
-                <li style="margin-bottom: 10px;"><strong>Dashboard UI:</strong> Completed mobile responsiveness adjustments.</li>
-                <li style="margin-bottom: 10px;"><strong>Backend:</strong> Successfully integrated initial payment gateway.</li>
-                <li style="margin-bottom: 10px;"><strong>Performance:</strong> Optimized database query speeds by 40%.</li>
+            <ul style="padding-left: 20px; color: #334155;">
+                <li style="margin-bottom: 10px;"><strong>Data Pipeline:</strong> Completed the integration of real-time event streaming.</li>
+                <li style="margin-bottom: 10px;"><strong>LUMI Integration:</strong> Successfully trained the initial model on your domain data.</li>
+                <li style="margin-bottom: 10px;"><strong>Security:</strong> Implemented Zero-Trust authentication protocols.</li>
             </ul>
 
             <div class="button-container">
-                <a href="https://achtrex.com/login?view=roadmap" class="button">View Detailed Roadmap</a>
+                <a href="https://achtrex.com/roadmap" class="button">View Detailed Roadmap</a>
             </div>
         `, "Progress Update")
     },
     {
-        id: 'project_handover',
-        name: 'Completion Handover 🎉',
-        subject: 'Your Project is Live! - Handover & Next Steps',
+        id: 'lumi_launch',
+        name: 'LUMI AI Platform Launch 🤖',
+        subject: 'Introducing LUMI: The Autonomous AI Agent Platform',
         html: wrapTemplate(`
-            <div style="text-align: center; margin-bottom: 30px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/7641/7641624.png" width="80" alt="Success">
-            </div>
-            <h2 style="text-align: center;">Congratulations!</h2>
-            <p>Your project is now <strong>100% complete</strong> and has been successfully deployed to production. This is just the beginning of your digital growth.</p>
+            <h2>Automate with LUMI Intelligence</h2>
+            <p>We are excited to announce the launch of <strong>LUMI</strong>, our proprietary AI agent platform designed to automate complex enterprise workflows.</p>
             
-            <p>We've compiled all the necessary documentation, source code, and assets for your records.</p>
-            
-            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 24px; border-radius: 8px; margin: 24px 0;">
-                <h4 style="color: #15803d; margin: 0 0 10px 0; font-size: 18px;">All Systems Go ✅</h4>
-                <div style="display: flex; justify-content: space-between; font-size: 14px; color: #166534;">
-                    <span>Deployment: <strong>Successful</strong></span>
-                    <span>Speed: <strong>Optimized</strong></span>
-                    <span>Security: <strong>Hardened</strong></span>
-                </div>
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 24px; border-radius: 8px; margin: 24px 0;">
+                <h4 style="color: #0f172a; margin: 0 0 10px 0; font-size: 18px;">What LUMI Can Do for You:</h4>
+                <ul style="color: #334155; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;"><strong>Autonomous Operations:</strong> Handles data entry and processing without intervention.</li>
+                    <li style="margin-bottom: 5px;"><strong>Predictive Analytics:</strong> Forecasts trends based on your historical data.</li>
+                    <li style="margin-bottom: 5px;"><strong>24/7 Availability:</strong> Operates continuously to ensure zero downtime.</li>
+                </ul>
             </div>
 
-            <p>Our support team will remain available for the next 30 days for any technical adjustments or questions you might have.</p>
+            <p>As an existing partner, you get early access to integrate LUMI into your current platform with full support from our engineering team.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/files/download" class="button">Download Assets Package</a>
+                <a href="https://achtrex.com/products/lumi" class="button">Explore LUMI Now</a>
             </div>
-            
-            <p style="text-align: center;">Thank you for trusting Achtrex with your vision.</p>
-        `, "Project Live")
+        `, "Product Launch")
     },
     {
-        id: 'check_in',
-        name: 'Client Follow-up 🔍',
-        subject: 'Checking In - How can we help?',
+        id: 'security_notice',
+        name: 'Security Advisory 🔒',
+        subject: 'Zero-Trust Security Framework Update',
         html: wrapTemplate(`
-            <h2>How is everything going?</h2>
-            <p>It's been a while since we finished our last phase, and we wanted to check in and see how the solution is performing for you.</p>
-            <p>At Achtrex, we don't just build and leave - we want to ensure our work continues to drive value for your business.</p>
+            <h2>Hardening Your Infrastructure</h2>
+            <p>At Achtrex, security is not an afterthought. We are rolling out updates to our Zero-Trust Security Framework to ensure your data remains protected against emerging threats.</p>
             
-            <div style="border-left: 4px solid #0ea5e9; padding: 16px 24px; background: #f0f9ff; margin: 30px 0; border-radius: 0 8px 8px 0;">
-                <p style="margin:0; font-style: italic; color: #0369a1;">"Is there any new feature you've been considering? Or perhaps some maintenance or scaling needed?"</p>
+            <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 20px; border-radius: 8px; margin: 25px 0;">
+                <strong style="display: block; color: #dc2626; margin-bottom: 5px;">What's Changing:</strong>
+                <p style="margin: 0; font-size: 14px; color: #991b1b;">We are implementing stricter mutual TLS (mTLS) requirements for all API communications and upgrading our edge firewalls.</p>
             </div>
-
-            <p>We'd love to jump on a quick 15-minute call to discuss your 2026 roadmap and see how we can assist.</p>
+            
+            <p>No action is required on your part. Our team will handle the migration during off-peak hours to ensure zero impact on your operations.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/contact-us" class="button">Schedule Quick Chat</a>
+                <a href="https://achtrex.com/security" class="button">Read Security Whitepaper</a>
             </div>
-        `, "Checking In")
+        `, "Security Update")
     },
     {
-        id: 'new_service_launch',
-        name: 'Service Launch 🏷️',
-        subject: 'New: Enterprise Cloud Scaling Solutions',
+        id: 'newsletter_trends',
+        name: 'Newsletter: AI Trends 📰',
+        subject: 'The State of Enterprise AI in 2026',
         html: wrapTemplate(`
-            <h2>Scale Without Limits</h2>
-            <p>We are excited to announce our newest service offering: <strong>Achtrex Enterprise Cloud Scaling</strong>. Designed for businesses that need high availability and zero downtime.</p>
-            
-            <img src="https://images.unsplash.com/photo-1451187530270-91a9d4aee878?auto=format&fit=crop&w=600&q=80" style="width: 100%; border-radius: 8px; margin: 20px 0; display: block;" alt="Cloud Space">
-            
-            <div class="grid-2">
-                <div class="col-2" style="padding-right: 10px;">
-                    <div style="background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 8px; padding: 20px; height: 100%;">
-                        <h4 style="margin: 0 0 8px 0; color: #7e22ce;">Auto-Scaling</h4>
-                        <p style="margin: 0; font-size: 13px; color: #6b21a8;">Handle traffic spikes effortlessly with our new AI balancer.</p>
-                    </div>
-                </div>
-                <div class="col-2" style="padding-left: 10px;">
-                    <div style="background: #f0fdfa; border: 1px solid #ccfbf1; border-radius: 8px; padding: 20px; height: 100%;">
-                        <h4 style="margin: 0 0 8px 0; color: #0f766e;">Edge Opt.</h4>
-                        <p style="margin: 0; font-size: 13px; color: #115e59;">Globally fast content delivery network integration.</p>
-                    </div>
-                </div>
-            </div>
-
-            <p style="margin-top: 25px;">As a valued client, we are offering you a <strong>20% discount</strong> on your first 3 months if you sign up this month.</p>
-            
-            <div class="button-container">
-                <a href="https://achtrex.com/services/cloud" class="button">Claim Discount</a>
-            </div>
-        `, "New Service")
-    },
-    {
-        id: 'newsletter_tech_trends',
-        name: 'Newsletter: Tech Trends 📰',
-        subject: 'The Future of Web Development in 2026',
-        html: wrapTemplate(`
-            <h2>What's Next in Tech?</h2>
-            <p>The digital landscape is shifting rapidly. At Achtrex, we keep a pulse on the industry so you don't have to. Here are the top 3 trends dominating this quarter:</p>
+            <h2>The Future of Data & AI</h2>
+            <p>The digital landscape is shifting rapidly. Here are the top 3 trends we are tracking this quarter in the enterprise AI space:</p>
             
             <div style="margin: 30px 0;">
                 <div style="margin-bottom: 25px;">
-                    <h3 style="margin: 0 0 5px; color: #0ea5e9;">1. AI-Driven Interfaces</h3>
-                    <p style="margin: 0; font-size: 14px;">User experiences that adapt in real-time based on behavior are becoming the new standard.</p>
+                    <h3 style="color: #10b981; margin: 0 0 5px 0;">1. Agentic AI Workflows</h3>
+                    <p style="margin: 0; font-size: 14px;">Moving from simple chat interfaces to autonomous agents that can execute complex tasks.</p>
                 </div>
                 <div style="margin-bottom: 25px;">
-                    <h3 style="margin: 0 0 5px; color: #0ea5e9;">2. Server-Side Efficiency</h3>
-                    <p style="margin: 0; font-size: 14px;">With edge computing, applications are faster and more reliable than ever before.</p>
+                    <h3 style="color: #10b981; margin: 0 0 5px 0;">2. Edge Data Processing</h3>
+                    <p style="margin: 0; font-size: 14px;">Processing data closer to the source to reduce latency and improve privacy.</p>
                 </div>
                 <div style="margin-bottom: 25px;">
-                    <h3 style="margin: 0 0 5px; color: #0ea5e9;">3. Enhanced Security</h3>
-                    <p style="margin: 0; font-size: 14px;">Zero-trust architectures are moving from enterprise-only to mainstream application requirements.</p>
+                    <h3 style="color: #10b981; margin: 0 0 5px 0;">3. Verifiable AI</h3>
+                    <p style="margin: 0; font-size: 14px;">Ensuring AI outputs are explainable, traceable, and free from bias.</p>
                 </div>
             </div>
             
             <p>Want to see how these apply to your business?</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/blog/2026-trends" class="button">Read Full Article</a>
+                <a href="https://achtrex.com/blog" class="button">Read Full Article</a>
             </div>
         `, "Tech Trends")
     },
     {
-        id: 'webinar_invite',
-        name: 'Webinar Invitation 🎥',
-        subject: 'Inviting you: "The Future of AI in Software"',
+        id: 'api_gateway_update',
+        name: 'API Gateway Update 🌐',
+        subject: 'New Features in Achtrex Global API Gateway',
         html: wrapTemplate(`
-            <div style="background: #1e293b; color: white; padding: 30px; border-radius: 8px; text-align: center; margin-bottom: 30px;">
-                <h2 style="color: white; margin: 0;">LIVE WEBINAR</h2>
-                <p style="color: #94a3b8; margin: 10px 0 0;">February 15th, 2026 • 2:00 PM EST</p>
+            <h2>Faster, Safer API Management</h2>
+            <p>We are rolling out significant upgrades to the Achtrex Global API Gateway to improve performance and security for your services.</p>
+            
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 8px; margin: 25px 0;">
+                <h4 style="color: #15803d; margin: 0 0 5px 0;">What's New:</h4>
+                <ul style="color: #166534; padding-left: 20px; margin: 0;">
+                    <li><strong>Global Edge Caching:</strong> Reduces latency by serving static responses from the nearest edge node.</li>
+                    <li><strong>AI Rate Limiting:</strong> Automatically detects and blocks malicious traffic patterns.</li>
+                </ul>
             </div>
-
-            <h2>You're Invited!</h2>
-            <p>Join our Lead Architect, <strong>David Chen</strong>, as he breaks down the practical applications of AI in modern software development.</p>
             
-            <h3>In this session, we will cover:</h3>
-            <ul style="color: #4b5563;">
-                <li>Automating mundane workflows</li>
-                <li>AI for predictive analytics</li>
-                <li>Ethical considerations in AI deployment</li>
-            </ul>
-            
-            <p>Spaces are limited to ensure a quality Q&A session at the end.</p>
+            <p>These updates will be applied automatically. No code changes are required on your part.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/webinars/ai-future" class="button">Reserve Your Spot</a>
+                <a href="https://achtrex.com/products/gateway" class="button">View Gateway Docs</a>
             </div>
-        `, "Exclusive Webinar")
+        `, "API Gateway")
     },
     {
-        id: 'case_study_spotlight',
-        name: 'Case Study Spotlight 🏆',
-        subject: 'How we helped Carkasa increase traffic by 200%',
+        id: 'data_governance',
+        name: 'Data Governance 📊',
+        subject: 'Mastering Data Governance with Achtrex',
         html: wrapTemplate(`
-            <h2>Real Results for Real Business</h2>
-            <p>We love sharing our success stories. Recently, we partnered with <strong>Carkasa</strong> to revamp their digital presence. The results were outstanding.</p>
+            <h2>Ensure Compliance and Quality</h2>
+            <p>Managing data at scale requires strict governance. Achtrex provides the tools you need to ensure your data is compliant, secure, and high-quality.</p>
             
-            <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; margin: 25px 0;">
-                <img src="https://achtrex.com/projects/carkasa-mockup-blue.png" style="width: 100%; height: auto; display: block;" alt="Carkasa Project">
-                <div style="padding: 20px;">
-                    <div class="grid-2">
-                        <div class="col-2" style="text-align: center;">
-                            <h3 style="margin:0; font-size: 24px; color: #10b981;">+200%</h3>
-                            <p style="margin:0; font-size: 12px; text-transform: uppercase;">Traffic Growth</p>
-                        </div>
-                        <div class="col-2" style="text-align: center;">
-                            <h3 style="margin:0; font-size: 24px; color: #10b981;">-45%</h3>
-                            <p style="margin:0; font-size: 12px; text-transform: uppercase;">Load Time</p>
-                        </div>
-                    </div>
-                </div>
+            <div style="border-left: 4px solid #10b981; padding: 16px 24px; background: #f8fafc; margin: 30px 0; border-radius: 0 8px 8px 0;">
+                <p style="margin:0; font-style: italic; color: #334155;">"Good data governance isn't about restriction; it's about enablement."</p>
             </div>
 
-            <p>Read the full story on how we achieved these metrics through strategic UX/UI design and robust engineering.</p>
+            <p>Our platform now includes automated data lineage tracking and PII masking out of the box.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/portfolio/carkasa" class="button">Read Case Study</a>
+                <a href="https://achtrex.com/solutions/governance" class="button">Learn More</a>
+            </div>
+        `, "Data Governance")
+    },
+    {
+        id: 'ai_finetuning',
+        name: 'AI Fine-Tuning 🎯',
+        subject: 'Custom AI Model Fine-Tuning for Your Business',
+        html: wrapTemplate(`
+            <h2>Your Data, Your Model</h2>
+            <p>Generic AI models only get you so far. With Achtrex, you can fine-tune state-of-the-art models on your own proprietary data securely.</p>
+            
+            <p>Our infrastructure is optimized for large-scale training workloads, ensuring fast turnaround times and maximum accuracy.</p>
+            
+            <div class="button-container">
+                <a href="https://achtrex.com/services/ai-training" class="button">Schedule Consultation</a>
+            </div>
+        `, "AI Fine-Tuning")
+    },
+    {
+        id: 'cloud_migration',
+        name: 'Cloud Migration ☁️',
+        subject: 'Migrate Your Legacy Data to the Cloud Effortlessly',
+        html: wrapTemplate(`
+            <h2>Seamless Data Migration</h2>
+            <p>Are legacy systems holding you back? Achtrex specializes in migrating complex, large-scale datasets to modern cloud architectures with zero downtime.</p>
+            
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin: 25px 0;">
+                <p style="margin: 0; font-size: 14px; color: #334155;">We handles everything from schema mapping to data validation, ensuring a smooth transition.</p>
+            </div>
+            
+            <div class="button-container">
+                <a href="https://achtrex.com/services/migration" class="button">Get Migration Quote</a>
+            </div>
+        `, "Cloud Migration")
+    },
+    {
+        id: 'realtime_analytics',
+        name: 'Real-Time Analytics ⏱️',
+        subject: 'New Feature: Real-Time Analytics Dashboard',
+        html: wrapTemplate(`
+            <h2>Decision Making at the Speed of Data</h2>
+            <p>Stop waiting for batch processing. Our new Real-Time Analytics Dashboard gives you instant visibility into your operations as they happen.</p>
+            
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" style="width: 100%; border-radius: 8px; margin: 20px 0; display: block;" alt="Analytics Dashboard">
+            
+            <p>Monitor API latency, active user sessions, and database throughput in real-time with zero performance overhead.</p>
+            
+            <div class="button-container">
+                <a href="https://achtrex.com/dashboard" class="button">Try Live Demo</a>
+            </div>
+        `, "Analytics Update")
+    },
+    {
+        id: 'webinar_data_eng',
+        name: 'Webinar Invitation 🎥',
+        subject: 'Webinar: Scaling Data Pipelines for AI Workloads',
+        html: wrapTemplate(`
+            <div style="background: #0f172a; color: white; padding: 30px; border-radius: 8px; text-align: center; margin-bottom: 30px;">
+                <h2 style="color: white; margin: 0;">LIVE WEBINAR</h2>
+                <p style="color: #94a3b8; margin: 10px 0 0;">June 5th, 2026 • 10:00 AM EST</p>
+            </div>
+
+            <h2>Join Our Experts</h2>
+            <p>Learn how to design and scale data pipelines that can feed modern AI models with high throughput and low latency.</p>
+            
+            <div class="button-container">
+                <a href="https://achtrex.com/webinars" class="button">Reserve Your Spot</a>
+            </div>
+        `, "Webinar Invite")
+    },
+    {
+        id: 'case_study_fintech',
+        name: 'Case Study: Fintech 💰',
+        subject: 'How Achtrex Scaled a Fintech Platform to 10k RPS',
+        html: wrapTemplate(`
+            <h2>Enterprise Scaling Success</h2>
+            <p>Read how we helped a leading fintech company rebuild their core data infrastructure to handle over 10,000 requests per second securely.</p>
+            
+            <p>The solution involved a combination of our Global API Gateway, edge processing, and a custom Zero-Trust security layer.</p>
+            
+            <div class="button-container">
+                <a href="https://achtrex.com/case-studies/fintech" class="button">Read Case Study</a>
             </div>
         `, "Case Study")
     },
     {
-        id: 'seasonal_offer',
-        name: 'Seasonal Offer 🎁',
-        subject: 'End of Year Development Audit - 50% Off',
+        id: 'product_roadmap',
+        name: 'Product Roadmap 🗺️',
+        subject: 'Q3 2026 Product Roadmap & Vision',
         html: wrapTemplate(`
-            <h2>Prepare for a Strong Year</h2>
-            <p>As the year comes to a close, it's the perfect time to review your digital infrastructure. Ensure your applications are secure, fast, and ready for the year ahead.</p>
+            <h2>What's Coming Next</h2>
+            <p>We are excited to share our vision for the next quarter. We are focusing on making our platforms even more autonomous and secure.</p>
             
-            <div style="background: linear-gradient(to right, #0ea5e9, #2563eb); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 30px 0;">
-                <h3 style="margin: 0; font-size: 28px; color:white;">50% OFF</h3>
-                <p style="margin: 5px 0 0; color: #bfdbfe;">Comprehensive Tech Audit</p>
-                <div style="margin-top: 15px; background: rgba(255,255,255,0.2); display: inline-block; padding: 5px 15px; border-radius: 4px; font-family: monospace;">CODE: AUDIT2026</div>
-            </div>
-            
-            <p><strong>Offer ends December 31st.</strong> Don't miss this chance to optimize your business at a fraction of the cost.</p>
+            <h3>Upcoming Features:</h3>
+            <ul style="color: #334155; padding-left: 20px;">
+                <li><strong>LUMI v2:</strong> Multi-modal agent capabilities.</li>
+                <li><strong>Self-Healing Pipelines:</strong> Automatic error recovery in data flows.</li>
+            </ul>
             
             <div class="button-container">
-                <a href="https://achtrex.com/contact-us?subject=Audit" class="button">Book Your Audit</a>
+                <a href="https://achtrex.com/roadmap" class="button">View Full Roadmap</a>
             </div>
-        `, "Special Offer")
+        `, "Product Roadmap")
     },
     {
-        id: 'referral_program',
-        name: 'Referral Program 🤝',
-        subject: 'Refer a friend, get $500 credit',
+        id: 'partner_program',
+        name: 'Partner Program 🤝',
+        subject: 'Join the Achtrex Partner Program',
         html: wrapTemplate(`
-            <h2>Love working with Achtrex?</h2>
-            <p>The best compliment we can receive is a referral. Do you know other business owners looking to upgrade their digital presence?</p>
+            <h2>Grow Your Business with Achtrex</h2>
+            <p>Are you a consultant or agency helping enterprises with digital transformation? Partner with Achtrex to offer your clients best-in-class Data and AI solutions.</p>
             
-            <div style="display: flex; align-items: center; background: #fdf2f8; border: 1px solid #fbcfe8; padding: 20px; border-radius: 8px; margin: 25px 0;">
-                <div style="font-size: 40px; margin-right: 20px;">🎁</div>
-                <div>
-                    <h4 style="margin: 0 0 5px 0; color: #be185d;">Give $500, Get $500</h4>
-                    <p style="margin: 0; font-size: 13px; color: #9d174d;">When you refer a client who signs a contract, you BOTH receive a $500 service credit.</p>
-                </div>
-            </div>
-            
-            <p>It's simple. Just introduce us, and we'll handle the rest.</p>
+            <p>Get access to exclusive co-marketing opportunities, technical training, and referral rewards.</p>
             
             <div class="button-container">
-                <a href="mailto:support@achtrex.com?subject=Referral" class="button">Make a Referral</a>
+                <a href="https://achtrex.com/partners" class="button">Become a Partner</a>
             </div>
-        `, "Referral Program")
+        `, "Partner Program")
     },
     {
-        id: 'system_maintenance',
-        name: 'System Maintenance ⚠️',
-        subject: 'Scheduled Maintenance Notice: Feb 20',
+        id: 'maintenance_notice',
+        name: 'Maintenance Notice ⚠️',
+        subject: 'Scheduled Maintenance Notice: Infrastructure Upgrades',
         html: wrapTemplate(`
             <h2>Scheduled Maintenance</h2>
-            <p>To ensure the best possible performance and security for your services, we will be performing scheduled maintenance on our infrastructure.</p>
+            <p>To ensure the best possible performance and security, we will be performing scheduled maintenance on our core infrastructure.</p>
             
-            <div style="background: #fff7ed; border-left: 4px solid #f97316; padding: 20px; margin: 25px 0;">
-                <strong style="display: block; color: #c2410c; margin-bottom: 5px;">Maintenance Window:</strong>
-                <p style="margin: 0; font-size: 14px;">Date: Saturday, February 20, 2026<br>Time: 02:00 AM - 04:00 AM UTC<br>Expected Duration: 2 Hours</p>
+            <div style="background: #fffbe6; border: 1px solid #ffe58f; padding: 20px; border-radius: 8px; margin: 25px 0;">
+                <p style="margin: 0; font-size: 14px; color: #d46b08;"><strong>Window:</strong> Sunday, June 14, 2026 | 01:00 AM - 03:00 AM UTC</p>
             </div>
             
-            <p>During this time, you may experience brief intermittent connectivity to your dashboard. No end-user public traffic will be affected.</p>
-            <p>We appreciate your patience as we make these upgrades.</p>
+            <p>Expect intermittent connectivity to the dashboard during this window. Public APIs will not be affected.</p>
             
             <div class="button-container">
-                <a href="https://status.achtrex.com" style="color: #6b7280; text-decoration: underline; font-size: 14px;">Check System Status</a>
+                <a href="https://status.achtrex.com" class="button">Check Status</a>
             </div>
-        `, "System Notice")
-    },
-    {
-        id: 'feedback_request',
-        name: 'Feedback Request 📝',
-        subject: 'We value your opinion - Quick Survey',
-        html: wrapTemplate(`
-            <h2>Help us serve you better</h2>
-            <p>We are constantly striving to improve our services and your experience. Would you mind sparing 2 minutes to share your thoughts?</p>
-            
-            <div style="text-align: center; margin: 30px 0;">
-                <p style="margin-bottom: 10px; font-weight: bold;">How likely are you to recommend Achtrex?</p>
-                <div style="display: inline-flex; gap: 10px;">
-                    <a href="https://achtrex.com/survey?score=10" style="padding: 10px 15px; background: #ecfdf5; color: #059669; border-radius: 4px; text-decoration: none; border: 1px solid #d1fae5;">10</a>
-                    <a href="https://achtrex.com/survey?score=9" style="padding: 10px 15px; background: #ecfdf5; color: #059669; border-radius: 4px; text-decoration: none; border: 1px solid #d1fae5;">9</a>
-                    <a href="https://achtrex.com/survey?score=8" style="padding: 10px 15px; background: #ecfdf5; color: #059669; border-radius: 4px; text-decoration: none; border: 1px solid #d1fae5;">8</a>
-                </div>
-            </div>
-            
-            <p>Your honest feedback helps us shape the future of our product roadmap.</p>
-            
-            <div class="button-container">
-                <a href="https://achtrex.com/feedback" class="button">Take Full Survey</a>
-            </div>
-        `, "Feedback Request")
-    },
-    {
-        id: 'new_team_member',
-        name: 'Team Announcement 👋',
-        subject: 'Welcome Sarah, our new Head of Design',
-        html: wrapTemplate(`
-            <h2>Growing our Family</h2>
-            <p>We are excited to announce a new addition to the Achtrex leadership team. Please join us in welcoming <strong>Sarah Jenkins</strong> as our new Head of Product Design.</p>
-            
-            <div style="display: flex; gap: 20px; align-items: center; margin: 30px 0;">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" width="80" height="80" style="border-radius: 50%; object-fit: cover;" alt="Sarah Jenkins">
-                <div>
-                    <h4 style="margin: 0 0 5px 0;">Sarah Jenkins</h4>
-                    <p style="margin: 0; font-size: 13px; color: #6b7280;">Formerly Lead Designer at TechCorp. Sarah brings 10+ years of experience in crafting user-centric digital experiences.</p>
-                </div>
-            </div>
-            
-            <p>Sarah will be overseeing all client design projects starting next month, ensuring we continue to deliver world-class aesthetics.</p>
-            
-            <div class="button-container">
-                <a href="https://linkedin.com/in/example" class="button" style="background: #0077b5;">Connect on LinkedIn</a>
-            </div>
-        `, "Team Update")
-    },
-    {
-        id: 'blog_roundup',
-        name: 'Blog Round-Up 📚',
-        subject: 'Topreads: AI, React 19, and More',
-        html: wrapTemplate(`
-            <h2>This Month's Top Reads</h2>
-            <p>Missed our latest articles? We've curated the most popular posts from our engineering blog this month.</p>
-            
-            <div style="margin: 25px 0;">
-                <a href="https://achtrex.com/blog/react-19" style="text-decoration: none; display: block; margin-bottom: 20px;">
-                    <strong style="color: #0ea5e9; font-size: 18px;">React 19: All You Need to Know</strong>
-                    <p style="color: #4b5563; font-size: 14px; margin-top: 5px;">A deep dive into the new compiler and server actions...</p>
-                </a>
-                <div class="divider"></div>
-                <a href="https://achtrex.com/blog/ai-ethics" style="text-decoration: none; display: block; margin-bottom: 20px;">
-                    <strong style="color: #0ea5e9; font-size: 18px;">The Ethics of Generative AI</strong>
-                    <p style="color: #4b5563; font-size: 14px; margin-top: 5px;">How to balance innovation with responsibility...</p>
-                </a>
-                <div class="divider"></div>
-                <a href="https://achtrex.com/blog/css-tricks" style="text-decoration: none; display: block;">
-                    <strong style="color: #0ea5e9; font-size: 18px;">5 CSS Tricks for Modern Layouts</strong>
-                    <p style="color: #4b5563; font-size: 14px; margin-top: 5px;">Grid, Flexbox, and Subgrid explained in simple terms...</p>
-                </a>
-            </div>
-            
-            <div class="button-container">
-                <a href="https://achtrex.com/blog" class="button">Visit Blog</a>
-            </div>
-        `, "Monthly Digest")
+        `, "Maintenance Notice")
     }
 ];
 

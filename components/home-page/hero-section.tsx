@@ -26,7 +26,7 @@ export const Hero = () => {
 
     return (
         <div className="relative">
-            <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 min-h-[500px] lg:min-h-[650px] flex items-center bg-[#0a0f1c] overflow-hidden">
+            <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 min-h-[500px] lg:min-h-[650px] flex items-center bg-slate-50 overflow-hidden">
                 {/* Section Borders (Top & Bottom) with White to Logo Gradient */}
                 <div className="absolute top-0 left-0 right-0 h-[5px] bg-gradient-to-r from-white via-[#10b981] to-[#3b82f6] z-30" />
                 <div className="absolute bottom-0 left-0 right-0 h-[4px] bg-gradient-to-r from-white via-[#10b981] to-[#3b82f6] z-30 opacity-90" />
@@ -38,7 +38,7 @@ export const Hero = () => {
                             <motion.div
                                 key={currentImage}
                                 initial={{ opacity: 0 }}
-                                animate={{ opacity: 0.6 }}
+                                animate={{ opacity: 0.95 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 1.5 }}
                                 className="absolute inset-0"
@@ -52,31 +52,29 @@ export const Hero = () => {
                                 />
                             </motion.div>
                         </AnimatePresence>
-                        {/* Gradient Mask for Blending */}
-                        <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-[#0a0f1c] via-[#0a0f1c]/60 lg:via-[#0a0f1c]/40 to-transparent z-10" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-[#0a0f1c] z-10" />
+                        {/* Gradient Mask for Blending (Less aggressive to make image more visible) */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/10 to-transparent z-10" />
                     </div>
                 </div>
 
                 <div className="container mx-auto px-6 lg:px-20 z-20 flex items-center justify-start pointer-events-none">
-                    {/* Content (Broadcom Style) - Left Aligned */}
                     <div className="w-full xl:max-w-2xl pointer-events-auto">
-                        <h1 className="text-3xl md:text-4xl lg:text-[50px] font-bold leading-[1.1] mb-5 text-white tracking-tight">
-                            Architecting High-Velocity Data <br className="hidden xl:block" /> & Cognitive AI Platforms
+                        <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.1] mb-6 text-slate-900 tracking-tight">
+                            Enterprise Data & AI <br className="hidden xl:block" /> <span className="text-gradient">Platforms at Scale.</span>
                         </h1>
-                        <p className="text-base md:text-lg text-gray-300 leading-relaxed mb-8 font-normal max-w-lg">
-                            Achtrex engineers mission-critical infrastructure for modern enterprises. From zero-latency Automotive Telemetry APIs to LUMI, our autonomous AI agent framework, we deploy resilient architectures that process massive datasets at scale.
+                        <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 font-normal max-w-lg">
+                            We build high-performance infrastructure for modern businesses. From global automotive data APIs to LUMI, our autonomous AI agent framework, we deliver fast, secure, and scalable solutions.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button
                                 onClick={() => router.push('/products')}
-                                className="bg-gradient-to-r from-white via-[#10b981] to-[#3b82f6] hover:opacity-90 text-black px-8 py-3.5 font-bold text-sm transition-all inline-block tracking-wide shadow-xl text-center"
+                                className="bg-logo-gradient hover:opacity-90 text-white px-8 py-3.5 font-bold text-sm transition-all inline-block tracking-wide shadow-xl text-center"
                             >
                                 Get Started
                             </button>
                             <button
                                 onClick={() => router.push('/about-us')}
-                                className="bg-transparent hover:bg-white/5 text-white border border-white/20 px-8 py-3.5 font-bold text-sm transition-colors inline-block tracking-wide text-center"
+                                className="bg-transparent hover:bg-slate-100 text-slate-900 border border-slate-300 px-8 py-3.5 font-bold text-sm transition-colors inline-block tracking-wide text-center"
                             >
                                 Our Company
                             </button>

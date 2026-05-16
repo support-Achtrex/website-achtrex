@@ -23,7 +23,7 @@ export async function POST(request: Request) {
 
         // Configure Nodemailer (Unified Gmail/SMTP)
         const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
-        const smtpPassword = process.env.SMTP_PASS || 'npec ngix uixj jyam';
+        const smtpPassword = process.env.SMTP_PASS || 'krsg kvyz zlzo bnax';
 
         if (!smtpEmail || !smtpPassword) {
             throw new Error('Missing SMTP credentials');
