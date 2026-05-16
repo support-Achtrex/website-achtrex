@@ -20,6 +20,7 @@ export async function submitContactForm(formData: FormData) {
     // 1. Save to Database (Resilient)
     // We attempt this first.
     let dbErrorOccurred = false;
+    let dbErrorMessage = '';
     try {
         const fullMessage = `Phone: ${phone}\n\nMessage: ${message}`;
         await sql`
@@ -38,9 +39,10 @@ export async function submitContactForm(formData: FormData) {
             console.error('Subscriber insertion warning:', subError);
         }
 
-    } catch (dbError) {
+    } catch (dbError: any) {
         console.error('Database insertion error:', dbError);
         dbErrorOccurred = true;
+        dbErrorMessage = dbError.message;
     }
 
     // 2. Send Emails via Nodemailer (Gmail/SMTP)
@@ -189,7 +191,7 @@ export async function submitContactForm(formData: FormData) {
         console.error('Email service failed:', emailError);
         // If both DB and Email failed, we should definitely tell the user.
         if (dbErrorOccurred) {
-            return { error: `Our systems are currently experiencing issues. Please try again later or email us directly at support@achtrex.com. Error: ${emailError.message}` };
+            return { error: `Our systems are currently experiencing issues. DB Error: ${dbErrorMessage}. Email Error: ${emailError.message}` };
         }
         // If only email failed, we still have the lead in the DB, but the user won't get a confirmation.
         return { success: true, warning: `Request received, but we encountered an issue sending the confirmation email. Error: ${emailError.message}` };
