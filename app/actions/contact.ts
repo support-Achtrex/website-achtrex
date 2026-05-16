@@ -54,7 +54,10 @@ export async function submitContactForm(formData: FormData) {
             auth: {
                 user: smtpEmail,
                 pass: smtpPassword
-            }
+            },
+            connectionTimeout: 5000,
+            greetingTimeout: 5000,
+            socketTimeout: 10000
         });
 
         // Email Templates
@@ -227,7 +230,10 @@ export async function submitPartnerForm(formData: FormData) {
             auth: {
                 user: smtpEmail,
                 pass: smtpPassword
-            }
+            },
+            connectionTimeout: 5000,
+            greetingTimeout: 5000,
+            socketTimeout: 10000
         });
 
         const adminHtml = `
