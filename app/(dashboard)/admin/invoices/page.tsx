@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import Link from 'next/link';
 import { Eye, Plus } from 'lucide-react';
 

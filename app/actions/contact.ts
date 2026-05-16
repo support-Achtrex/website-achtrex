@@ -1,6 +1,6 @@
 'use server';
 
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import nodemailer from 'nodemailer';
 
 export async function submitContactForm(formData: FormData) {

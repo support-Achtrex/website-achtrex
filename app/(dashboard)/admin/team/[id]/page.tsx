@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import { TeamManager } from '@/components/admin/team/TeamManager';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';

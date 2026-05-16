@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/db';
 import { createInvoice } from '@/app/actions/create-invoice';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
