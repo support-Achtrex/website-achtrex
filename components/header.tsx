@@ -64,7 +64,7 @@ export const Navbar = () => {
                                     href={link.href}
                                     className={cn(
                                         "text-sm font-medium transition-colors group-hover:text-white relative py-4 flex items-center gap-1",
-                                        pathname === link.href || pathname.startsWith(link.href + '/') && link.href !== '/' ? "text-white" : "text-gray-300"
+                                        pathname === link.href || pathname.startsWith(link.href + '/') && link.href !== '/' ? "text-gradient font-bold" : "text-gray-300"
                                     )}
                                 >
                                     {link.label}
@@ -100,7 +100,7 @@ export const Navbar = () => {
                     {/* Actions */}
                     <div className="hidden lg:flex items-center gap-4">
                         <Link href="/contact-us">
-                            <button className="bg-white text-black hover:bg-gray-200 font-bold px-8 py-2.5 rounded-full text-sm transition-colors shadow-md">
+                            <button className="bg-logo-gradient text-white hover:opacity-90 font-bold px-8 py-2.5 rounded-full text-sm transition-colors shadow-md">
                                 Let's Talk
                             </button>
                         </Link>
