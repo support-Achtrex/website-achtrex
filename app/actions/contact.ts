@@ -42,7 +42,7 @@ export async function submitContactForm(formData: FormData) {
     } catch (dbError: any) {
         console.error('Database insertion error:', dbError);
         dbErrorOccurred = true;
-        dbErrorMessage = dbError.message;
+        dbErrorMessage = dbError.message || String(dbError);
     }
 
     // 2. Send Emails via Nodemailer (Gmail/SMTP)
