@@ -40,12 +40,14 @@ export async function resendInvoiceEmail(id: number) {
         // Attempt to get name and company safely
         let clientName = invoice.name || 'Valued Client';
         let clientCompany = '';
+        let clientAddress = '';
 
         try {
-            const extraInfo = await sql`SELECT name, company FROM subscribers WHERE id = ${invoice.subscriber_id}`;
+            const extraInfo = await sql`SELECT name, company, address FROM subscribers WHERE id = ${invoice.subscriber_id}`;
             if (extraInfo.rows.length > 0) {
                 clientName = extraInfo.rows[0].name || clientName;
                 clientCompany = extraInfo.rows[0].company || '';
+                clientAddress = extraInfo.rows[0].address || '';
             }
         } catch (e) {
             console.warn("Could not fetch extra subscriber details (likely missing columns):", e);
@@ -65,6 +67,7 @@ export async function resendInvoiceEmail(id: number) {
             date: new Date(invoice.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
             client_name: finalClientName,
             client_email: invoice.client_email,
+            client_address: clientAddress,
             currency: invoice.currency || 'USD'
         });
 
