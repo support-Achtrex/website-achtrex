@@ -15,6 +15,32 @@ export async function addNote(subscriberId: number, content: string) {
         return { success: true };
     } catch (error: any) {
         console.error('Add note error:', error);
+        
+        // Self-healing: If table doesn't exist, create it and retry
+        if (error.message && error.message.includes('relation "client_notes" does not exist')) {
+            try {
+                console.log('Table client_notes missing. Creating it...');
+                await sql`
+                  CREATE TABLE IF NOT EXISTS client_notes (
+                    id SERIAL PRIMARY KEY,
+                    subscriber_id INTEGER REFERENCES subscribers(id) ON DELETE CASCADE,
+                    content TEXT NOT NULL,
+                    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+                  )
+                `;
+                // Retry the insert
+                await sql`
+                    INSERT INTO client_notes (subscriber_id, content)
+                    VALUES (${subscriberId}, ${content})
+                `;
+                revalidatePath(`/admin/subscribers/${subscriberId}`);
+                return { success: true };
+            } catch (createError: any) {
+                console.error('Failed to auto-create client_notes table:', createError);
+                return { error: `Failed to auto-create table: ${createError.message}` };
+            }
+        }
+        
         return { error: error.message || 'Failed to add note' };
     }
 }
