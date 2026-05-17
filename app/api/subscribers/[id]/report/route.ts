@@ -1,4 +1,3 @@
-
 import { sql } from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 import { generateProjectReportPDF } from '@/lib/email';
@@ -20,11 +19,31 @@ export async function GET(
         if (subRes.rows.length === 0) return new NextResponse('Not found', { status: 404 });
         const subscriber = subRes.rows[0];
 
-        const notesRes = await sql`SELECT * FROM client_notes WHERE subscriber_id = ${subscriberId} ORDER BY created_at DESC`;
-        const notes = notesRes.rows;
+        // Robust fetch for Notes
+        let notes: any[] = [];
+        try {
+            const notesRes = await sql`SELECT * FROM client_notes WHERE subscriber_id = ${subscriberId} ORDER BY created_at DESC`;
+            notes = notesRes.rows;
+        } catch (e: any) {
+            if (e.message && e.message.includes('relation "client_notes" does not exist')) {
+                console.log('client_notes table does not exist, returning empty array');
+            } else {
+                throw e;
+            }
+        }
 
-        const progressRes = await sql`SELECT * FROM project_progress WHERE subscriber_id = ${subscriberId} ORDER BY created_at ASC`;
-        const milestones = progressRes.rows;
+        // Robust fetch for Progress
+        let milestones: any[] = [];
+        try {
+            const progressRes = await sql`SELECT * FROM project_progress WHERE subscriber_id = ${subscriberId} ORDER BY created_at ASC`;
+            milestones = progressRes.rows;
+        } catch (e: any) {
+            if (e.message && e.message.includes('relation "project_progress" does not exist')) {
+                console.log('project_progress table does not exist, returning empty array');
+            } else {
+                throw e;
+            }
+        }
 
         // Generate PDF
         const pdfBuffer = await generateProjectReportPDF(subscriber, notes, milestones, "Project Progress Report");
@@ -37,8 +56,8 @@ export async function GET(
             },
         });
 
-    } catch (error) {
+    } catch (error: any) {
         console.error('Report Generation Error:', error);
-        return new NextResponse('Internal Server Error', { status: 500 });
+        return new NextResponse(`Internal Server Error: ${error.message}`, { status: 500 });
     }
 }
