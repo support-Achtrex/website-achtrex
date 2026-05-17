@@ -60,7 +60,7 @@ export default async function TeamPage() {
                                     <p className="text-xs text-gray-500">{member.role}</p>
                                 </div>
                             </div>
-                            <form action={deleteTeamMember.bind(null, member.id)}>
+                            <form action={async () => { await deleteTeamMember(member.id); }}>
                                 <button className="text-gray-400 hover:text-red-500 transition-colors">
                                     <Trash2 size={18} />
                                 </button>
