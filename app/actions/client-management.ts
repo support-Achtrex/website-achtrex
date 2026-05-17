@@ -13,9 +13,9 @@ export async function addNote(subscriberId: number, content: string) {
         `;
         revalidatePath(`/admin/subscribers/${subscriberId}`);
         return { success: true };
-    } catch (error) {
+    } catch (error: any) {
         console.error('Add note error:', error);
-        return { error: 'Failed to add note' };
+        return { error: error.message || 'Failed to add note' };
     }
 }
 

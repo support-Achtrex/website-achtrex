@@ -184,7 +184,7 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
                     router.refresh();
                 });
             } else {
-                alert('Failed to save note. Payload might be too large.');
+                alert(result.error || 'Failed to save note. Payload might be too large.');
             }
         } catch (error) {
             console.error('Failed to add note', error);
