@@ -48,11 +48,10 @@ export default async function TeamPage() {
                         <div className="flex items-start justify-between">
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 rounded-full bg-gray-100 overflow-hidden relative">
-                                    <Image
-                                        src={member.image || '/team/placeholder-user.jpg'}
+                                    <img
+                                        src={member.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}`}
                                         alt={member.name}
-                                        fill
-                                        className="object-cover"
+                                        className="w-full h-full object-cover"
                                     />
                                 </div>
                                 <div>
