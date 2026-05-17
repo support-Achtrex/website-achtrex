@@ -210,19 +210,19 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({ payment, client, logoSrc
                     <View style={styles.paymentDetails}>
                         <Text style={styles.paymentTitle}>Payment Details</Text>
                         <View style={styles.detailsRow}>
-                            <Text style={{ width: 100, fontWeight: 'bold' }}>Bank Name:</Text>
+                            <Text style={{ width: 100 }}>Bank Name:</Text>
                             <Text>Fidelity Bank</Text>
                         </View>
                         <View style={styles.detailsRow}>
-                            <Text style={{ width: 100, fontWeight: 'bold' }}>Account Name:</Text>
+                            <Text style={{ width: 100 }}>Account Name:</Text>
                             <Text>Achtrex Services</Text>
                         </View>
                         <View style={styles.detailsRow}>
-                            <Text style={{ width: 100, fontWeight: 'bold' }}>Account Number:</Text>
+                            <Text style={{ width: 100 }}>Account Number:</Text>
                             <Text>2400931904813</Text>
                         </View>
                         <View style={styles.detailsRow}>
-                            <Text style={{ width: 100, fontWeight: 'bold' }}>SWIFT/BIC:</Text>
+                            <Text style={{ width: 100 }}>SWIFT/BIC:</Text>
                             <Text>FBLIGHAC</Text>
                         </View>
                         <Text style={{ marginTop: 10, fontSize: 8, fontStyle: 'italic', color: '#6B7280' }}>
