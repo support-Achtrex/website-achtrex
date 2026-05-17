@@ -67,16 +67,16 @@ export const Hero = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button
-                                onClick={() => router.push('/products')}
+                                onClick={() => router.push('/contact-us')}
                                 className="bg-logo-gradient hover:opacity-90 text-white px-8 py-3.5 font-bold text-sm transition-all inline-block tracking-wide shadow-xl text-center"
                             >
                                 Get Started
                             </button>
                             <button
-                                onClick={() => router.push('/contact-us')}
+                                onClick={() => router.push('/about-us')}
                                 className="bg-transparent hover:bg-slate-100 text-slate-900 border border-slate-300 px-8 py-3.5 font-bold text-sm transition-colors inline-block tracking-wide text-center"
                             >
-                                Let's Talk
+                                Our Company
                             </button>
                         </div>
                     </div>
