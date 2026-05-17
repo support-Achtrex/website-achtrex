@@ -42,9 +42,13 @@ export default async function InvoicePage(props: { params: Promise<{ id: string 
         return notFound();
     }
 
-    const filePath = path.join(process.cwd(), 'lib', 'payment-details.json');
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    const paymentDetails = JSON.parse(fileContent);
+    const settingsRes = await sql`SELECT value FROM settings WHERE key = 'payment_details'`;
+    const paymentDetails = settingsRes.rows.length > 0 ? JSON.parse(settingsRes.rows[0].value) : {
+        bank_name: "Fidelity Bank",
+        account_name: "Achtrex Services",
+        account_number: "2400931904813",
+        swift_bic: "FBLIGHAC"
+    };
 
     return (
         <InvoiceView

@@ -8,6 +8,7 @@ import { InvoicePDF } from '@/components/invoice/InvoicePDF';
 import { ProjectReport } from '@/components/invoice/ProjectReport';
 import { renderToBuffer } from '@react-pdf/renderer';
 import { jsPDF } from 'jspdf';
+import { sql } from '@/lib/db';
 
 // Initialize Resend with the API key from environment variables
 const apiKey = (process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY || '').replace(/['"]/g, '');
@@ -199,9 +200,13 @@ export async function generateInvoicePDF(data: InvoiceData, title: string = 'Inv
 
         const doc = new jsPDF();
         
-        const filePath = path.join(process.cwd(), 'lib', 'payment-details.json');
-        const fileContent = fs.readFileSync(filePath, 'utf8');
-        const paymentDetails = JSON.parse(fileContent);
+        const settingsRes = await sql`SELECT value FROM settings WHERE key = 'payment_details'`;
+        const paymentDetails = settingsRes.rows.length > 0 ? JSON.parse(settingsRes.rows[0].value) : {
+            bank_name: "Fidelity Bank",
+            account_name: "Achtrex Services",
+            account_number: "2400931904813",
+            swift_bic: "FBLIGHAC"
+        };
 
         // Header
         doc.setFontSize(24);
