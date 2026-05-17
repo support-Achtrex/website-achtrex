@@ -74,6 +74,6 @@ export async function GET(
 
     } catch (error: any) {
         console.error('PDF Generation Error:', error);
-        return new NextResponse(`Internal Server Error: ${error.message}`, { status: 500 });
+        return new NextResponse(`Internal Server Error: ${error.stack}`, { status: 500 });
     }
 }
