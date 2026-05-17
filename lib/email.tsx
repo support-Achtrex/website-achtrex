@@ -7,6 +7,7 @@ import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
 import { InvoicePDF } from '@/components/invoice/InvoicePDF';
 import { ProjectReport } from '@/components/invoice/ProjectReport';
 import { renderToBuffer } from '@react-pdf/renderer';
+import { jsPDF } from 'jspdf';
 
 // Initialize Resend with the API key from environment variables
 const apiKey = (process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY || '').replace(/['"]/g, '');
@@ -153,26 +154,27 @@ export async function generateInvoicePDF(data: InvoiceData, title: string = 'Inv
             console.error("Error reading logo for PDF:", e);
         }
 
-        const payment = {
-            invoice_number: data.invoice_number,
-            created_at: data.date,
-            status: data.status,
-            description: data.description,
-            amount: data.amount,
-            currency: data.currency
-        };
-
-        const client = {
-            name: data.client_name,
-            email: data.client_email,
-            company: ''
-        };
-
-        const buffer = await renderToBuffer(
-            <InvoicePDF payment={payment} client={client} logoSrc={logoBase64} documentTitle={title} />
-        );
-
-        return buffer as Buffer;
+        const doc = new jsPDF();
+        doc.setFontSize(20);
+        doc.text(title || 'Invoice', 10, 20);
+        
+        doc.setFontSize(12);
+        doc.text(`Invoice Number: ${data.invoice_number || 'N/A'}`, 10, 40);
+        doc.text(`Date: ${data.date || 'N/A'}`, 10, 50);
+        doc.text(`Status: ${data.status || 'N/A'}`, 10, 60);
+        
+        doc.text(`Bill To:`, 10, 80);
+        doc.text(`Name: ${data.client_name || 'N/A'}`, 10, 90);
+        doc.text(`Email: ${data.client_email || 'N/A'}`, 10, 100);
+        
+        doc.text(`Description:`, 10, 120);
+        doc.text(`${data.description || 'No description'}`, 10, 130);
+        
+        doc.setFontSize(16);
+        doc.text(`Total Amount: ${data.currency || 'USD'} ${data.amount || '0.00'}`, 10, 150);
+        
+        const pdfOutput = doc.output('arraybuffer');
+        return Buffer.from(pdfOutput);
 
     } catch (error: any) {
         console.error("PDF generation failed:", error);
@@ -191,17 +193,31 @@ export async function generateProjectReportPDF(subscriber: any, notes: any[], mi
             console.error("Error reading logo for Report:", e);
         }
 
-        const buffer = await renderToBuffer(
-            <ProjectReport
-                subscriber={subscriber}
-                notes={notes}
-                milestones={milestones}
-                logoSrc={logoBase64}
-                reportType={reportType}
-            />
-        );
-
-        return buffer as Buffer;
+        const doc = new jsPDF();
+        doc.setFontSize(20);
+        doc.text(reportType || 'Project Report', 10, 20);
+        
+        doc.setFontSize(12);
+        doc.text(`Client: ${subscriber.name || subscriber.email || 'N/A'}`, 10, 40);
+        doc.text(`Company: ${subscriber.company || 'N/A'}`, 10, 50);
+        
+        doc.text(`Milestones:`, 10, 70);
+        let y = 80;
+        milestones.forEach((m: any) => {
+            doc.text(`- ${m.milestone || 'Untitled'} (${m.status || 'pending'})`, 10, y);
+            y += 10;
+        });
+        
+        doc.text(`Notes:`, 10, y + 10);
+        y += 20;
+        notes.forEach((n: any) => {
+            const text = n.content ? n.content.replace(/<[^>]+>/g, '').trim() : 'No content';
+            doc.text(`- ${text.substring(0, 80)}`, 10, y); // Limit length to avoid wrapping issues in simple generator
+            y += 10;
+        });
+        
+        const pdfOutput = doc.output('arraybuffer');
+        return Buffer.from(pdfOutput);
     } catch (error: any) {
         console.error("Report PDF generation failed:", error);
         throw new Error(`Report PDF generation failed: ${error.message}`);
