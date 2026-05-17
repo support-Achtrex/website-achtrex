@@ -2,9 +2,6 @@
 
 import { Resend } from 'resend';
 
-// Initialize Resend with the API key from environment variables
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function submitContactForm(formData: FormData) {
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
@@ -20,6 +17,9 @@ export async function submitContactForm(formData: FormData) {
     }
 
     try {
+        // Initialize Resend inside the try block to catch missing API key errors
+        const resend = new Resend(process.env.RESEND_API_KEY);
+
         const adminHtml = `
             <div style="font-family: system-ui, sans-serif; color: #333;">
                 <h2 style="color: #0ea5e9;">New Project Inquiry</h2>
@@ -36,9 +36,6 @@ export async function submitContactForm(formData: FormData) {
             </div>
         `;
 
-        // Send to admin
-        // Note: If using Resend free tier without domain verification,
-        // you can only send emails to the email you signed up with.
         await resend.emails.send({
             from: 'Achtrex Website <onboarding@resend.dev>',
             to: 'support@achtrex.com',
@@ -67,6 +64,8 @@ export async function submitPartnerForm(formData: FormData) {
     }
 
     try {
+        const resend = new Resend(process.env.RESEND_API_KEY);
+
         const adminHtml = `
             <div style="font-family: system-ui, sans-serif; color: #333;">
                 <h2 style="color: #10b981;">New Partner Application</h2>
