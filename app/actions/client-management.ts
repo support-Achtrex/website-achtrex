@@ -56,16 +56,21 @@ export async function deleteNote(subscriberId: number, noteId: number) {
     }
 }
 
-// Payments
+// Payments (Invoices)
 export async function recordPayment(subscriberId: number, amount: number, description: string, status: string = 'paid') {
     if (!amount) return { error: 'Amount is required' };
-    try {
-        const invoiceNum = `INV-${Date.now().toString().slice(-6)}`;
+    
+    const executeInsert = async (invoiceNum: string) => {
         await sql`
             INSERT INTO client_payments (subscriber_id, amount, description, status, invoice_number)
             VALUES (${subscriberId}, ${amount}, ${description}, ${status}, ${invoiceNum})
         `;
+    };
 
+    try {
+        const invoiceNum = `INV-${Date.now().toString().slice(-6)}`;
+        await executeInsert(invoiceNum);
+        
         // Send Email
         const clientRes = await sql`SELECT email, name FROM subscribers WHERE id = ${subscriberId}`;
         const client = clientRes.rows[0];
@@ -85,9 +90,37 @@ export async function recordPayment(subscriberId: number, amount: number, descri
 
         revalidatePath(`/admin/subscribers/${subscriberId}`);
         return { success: true };
-    } catch (error) {
+    } catch (error: any) {
         console.error('Payment error:', error);
-        return { error: 'Failed to record payment' };
+        
+        // Self-healing: If table doesn't exist, create it and retry
+        if (error.message && error.message.includes('relation "client_payments" does not exist')) {
+            try {
+                console.log('Table client_payments missing. Creating it...');
+                await sql`
+                  CREATE TABLE IF NOT EXISTS client_payments (
+                    id SERIAL PRIMARY KEY,
+                    subscriber_id INTEGER REFERENCES subscribers(id) ON DELETE CASCADE,
+                    amount DECIMAL(10, 2) NOT NULL,
+                    currency VARCHAR(3) DEFAULT 'USD',
+                    description VARCHAR(255),
+                    status VARCHAR(50) DEFAULT 'pending',
+                    invoice_number VARCHAR(50),
+                    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+                  )
+                `;
+                
+                const invoiceNum = `INV-${Date.now().toString().slice(-6)}`;
+                await executeInsert(invoiceNum);
+                revalidatePath(`/admin/subscribers/${subscriberId}`);
+                return { success: true };
+            } catch (createError: any) {
+                console.error('Failed to auto-create client_payments table:', createError);
+                return { error: `Failed to auto-create table: ${createError.message}` };
+            }
+        }
+        
+        return { error: error.message || 'Failed to record payment' };
     }
 }
 
@@ -101,7 +134,7 @@ export async function deletePayment(paymentId: number, subscriberId: number) {
     }
 }
 
-// Project Progress
+// Project Progress (Milestones)
 export async function addMilestone(subscriberId: number, milestone: string) {
     if (!milestone) return { error: 'Milestone is required' };
     try {
@@ -111,9 +144,35 @@ export async function addMilestone(subscriberId: number, milestone: string) {
         `;
         revalidatePath(`/admin/subscribers/${subscriberId}`);
         return { success: true };
-    } catch (error) {
+    } catch (error: any) {
         console.error('Milestone error:', error);
-        return { error: 'Failed to add milestone' };
+        
+        // Self-healing: If table doesn't exist, create it and retry
+        if (error.message && error.message.includes('relation "project_progress" does not exist')) {
+            try {
+                console.log('Table project_progress missing. Creating it...');
+                await sql`
+                  CREATE TABLE IF NOT EXISTS project_progress (
+                    id SERIAL PRIMARY KEY,
+                    subscriber_id INTEGER REFERENCES subscribers(id) ON DELETE CASCADE,
+                    milestone TEXT NOT NULL,
+                    status VARCHAR(50) DEFAULT 'pending',
+                    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+                  )
+                `;
+                
+                await sql`
+                    INSERT INTO project_progress (subscriber_id, milestone)
+                    VALUES (${subscriberId}, ${milestone})
+                `;
+                revalidatePath(`/admin/subscribers/${subscriberId}`);
+                return { success: true };
+            } catch (createError: any) {
+                return { error: `Failed to auto-create table: ${createError.message}` };
+            }
+        }
+        
+        return { error: error.message || 'Failed to add milestone' };
     }
 }
 
@@ -151,9 +210,36 @@ export async function addFile(subscriberId: number, fileName: string, fileUrl: s
         `;
         revalidatePath(`/admin/subscribers/${subscriberId}`);
         return { success: true };
-    } catch (error) {
+    } catch (error: any) {
         console.error('File add error:', error);
-        return { error: 'Failed to add file' };
+        
+        // Self-healing: If table doesn't exist, create it and retry
+        if (error.message && error.message.includes('relation "client_files" does not exist')) {
+            try {
+                console.log('Table client_files missing. Creating it...');
+                await sql`
+                  CREATE TABLE IF NOT EXISTS client_files (
+                    id SERIAL PRIMARY KEY,
+                    subscriber_id INTEGER REFERENCES subscribers(id) ON DELETE CASCADE,
+                    file_name VARCHAR(255) NOT NULL,
+                    file_url TEXT NOT NULL,
+                    file_size INTEGER,
+                    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+                  )
+                `;
+                
+                await sql`
+                    INSERT INTO client_files (subscriber_id, file_name, file_url, file_size)
+                    VALUES (${subscriberId}, ${fileName}, ${fileUrl}, ${fileSize || 0})
+                `;
+                revalidatePath(`/admin/subscribers/${subscriberId}`);
+                return { success: true };
+            } catch (createError: any) {
+                return { error: `Failed to auto-create table: ${createError.message}` };
+            }
+        }
+        
+        return { error: error.message || 'Failed to add file' };
     }
 }
 
