@@ -199,66 +199,109 @@ export async function generateInvoicePDF(data: InvoiceData, title: string = 'Inv
 
         const doc = new jsPDF();
         
-        // Add Logo
-        if (logoBase64) {
-            try {
-                doc.addImage(logoBase64, 'PNG', 10, 10, 40, 15);
-            } catch (e) {
-                console.error("Error adding logo to PDF:", e);
-                doc.setFontSize(20);
-                doc.text('Achtrex', 10, 20);
-            }
-        } else {
-            doc.setFontSize(20);
-            doc.text('Achtrex', 10, 20);
-        }
-        
-        // Header line
-        doc.setDrawColor(229, 231, 235); // #E5E7EB
-        doc.line(10, 30, 200, 30);
-        
-        // Title
+        // Header
         doc.setFontSize(24);
         doc.setTextColor(17, 24, 39); // #111827
-        doc.text(title || 'Invoice', 10, 45);
+        doc.text('INVOICE', 10, 20);
         
-        // Invoice Details
         doc.setFontSize(10);
         doc.setTextColor(107, 114, 128); // #6B7280
-        doc.text(`Invoice number:`, 10, 55);
-        doc.setTextColor(17, 24, 39);
-        doc.text(`${data.invoice_number || 'N/A'}`, 40, 55);
+        doc.text(`# ${data.invoice_number || 'N/A'}`, 10, 26);
         
-        doc.setTextColor(107, 114, 128);
-        doc.text(`Date of issue:`, 10, 60);
-        doc.setTextColor(17, 24, 39);
-        doc.text(`${data.date || 'N/A'}`, 40, 60);
+        // Add Logo on the right
+        if (logoBase64) {
+            try {
+                doc.addImage(logoBase64, 'PNG', 160, 10, 40, 15);
+            } catch (e) {
+                console.error("Error adding logo to PDF:", e);
+            }
+        }
         
-        // Bill To
+        // Divider line
+        doc.setDrawColor(229, 231, 235); // #E5E7EB
+        doc.line(10, 32, 200, 32);
+        
+        // Two Columns: From and Billed To
         doc.setFontSize(12);
-        doc.text(`Bill to`, 10, 75);
+        doc.setTextColor(107, 114, 128);
+        doc.text('FROM:', 10, 42);
+        doc.text('BILLED TO:', 120, 42);
+        
         doc.setFontSize(10);
-        doc.text(`${data.client_name || 'Valued Client'}`, 10, 82);
-        doc.text(`${data.client_email || ''}`, 10, 87);
+        doc.setTextColor(17, 24, 39);
+        // From Address
+        doc.setFont("Helvetica", "bold");
+        doc.text('Achtrex Services', 10, 48);
+        doc.setFont("Helvetica", "normal");
+        doc.text('support@achtrex.com', 10, 53);
+        doc.text('www.achtrex.com', 10, 58);
+        
+        // Billed To Address
+        doc.setFont("Helvetica", "bold");
+        doc.text(`${data.client_name || 'Valued Client'}`, 120, 48);
+        doc.setFont("Helvetica", "normal");
+        doc.text(`${data.client_email || ''}`, 120, 53);
+        doc.text('123 Business Road, Suite 100', 120, 58);
+        doc.text('City, Country', 120, 63);
+        
+        // Invoice Details
+        doc.setDrawColor(229, 231, 235);
+        doc.line(10, 70, 200, 70);
+        
+        doc.setFontSize(10);
+        doc.setTextColor(107, 114, 128);
+        doc.text('Invoice Details:', 10, 78);
+        
+        doc.setTextColor(17, 24, 39);
+        doc.setFont("Helvetica", "bold");
+        doc.text('Date of Issue:', 10, 84);
+        doc.setFont("Helvetica", "normal");
+        doc.text(`${data.date || 'N/A'}`, 40, 84);
+        
+        doc.setFont("Helvetica", "bold");
+        doc.text('Status:', 10, 89);
+        doc.setFont("Helvetica", "normal");
+        const isPaid = (data.status || '').toLowerCase() === 'paid';
+        doc.setTextColor(isPaid ? 16 : 245, isPaid ? 185 : 158, isPaid ? 129 : 11); // Green or Orange
+        doc.text(`${(data.status || 'N/A').toUpperCase()}`, 40, 89);
         
         // Table Header
-        doc.setFillColor(243, 244, 246); // #F3F4F6
+        doc.setFillColor(17, 24, 39); // #111827
         doc.rect(10, 100, 190, 10, 'F');
         doc.setFontSize(10);
-        doc.setTextColor(17, 24, 39);
+        doc.setTextColor(255, 255, 255);
+        doc.setFont("Helvetica", "bold");
         doc.text('Description', 15, 106);
         doc.text('Amount', 170, 106);
         
         // Table Content
+        doc.setTextColor(17, 24, 39);
+        doc.setFont("Helvetica", "normal");
         doc.text(`${data.description || 'No description'}`, 15, 120);
         doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 170, 120);
         
-        // Total
+        // Divider
         doc.setDrawColor(229, 231, 235);
         doc.line(10, 130, 200, 130);
-        doc.setFontSize(14);
-        doc.text(`Total Amount:`, 120, 142);
-        doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 170, 142);
+        
+        // Totals
+        doc.setFontSize(10);
+        doc.setTextColor(107, 114, 128);
+        doc.text('Subtotal:', 120, 140);
+        doc.setTextColor(17, 24, 39);
+        doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 170, 140);
+        
+        doc.setFontSize(12);
+        doc.setFont("Helvetica", "bold");
+        doc.text('Total:', 120, 150);
+        doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 170, 150);
+        
+        // Footer
+        doc.setFontSize(10);
+        doc.setTextColor(107, 114, 128);
+        doc.setFont("Helvetica", "normal");
+        doc.text('Thank you for your business!', 105, 200, { align: 'center' });
+        doc.text(`© ${new Date().getFullYear()} Achtrex. All rights reserved.`, 105, 205, { align: 'center' });
         
         const pdfOutput = doc.output('arraybuffer');
         return Buffer.from(pdfOutput);
