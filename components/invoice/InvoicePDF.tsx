@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
         top: 40,
         right: 40,
         fontSize: 24,
-        fontWeight: 'bold',
         color: '#10B981',
         borderWidth: 2,
         borderColor: '#10B981',
@@ -41,7 +40,6 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
-        fontWeight: 'bold',
         color: '#111827',
     },
     detailsRow: {
@@ -53,7 +51,6 @@ const styles = StyleSheet.create({
         color: '#6B7280',
     },
     detailValue: {
-        fontWeight: 'bold',
         color: '#111827',
     },
     addressContainer: {
@@ -66,7 +63,6 @@ const styles = StyleSheet.create({
     },
     addressTitle: {
         fontSize: 12,
-        fontWeight: 'bold',
         color: '#111827',
         marginBottom: 5,
     },
@@ -78,7 +74,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: '#F3F4F6',
         padding: 8,
-        fontWeight: 'bold',
         color: '#111827',
     },
     tableRow: {
@@ -94,7 +89,6 @@ const styles = StyleSheet.create({
     colAmount: {
         flex: 1,
         textAlign: 'right',
-        fontWeight: 'bold',
     },
     totalSection: {
         flexDirection: 'row',
@@ -103,7 +97,6 @@ const styles = StyleSheet.create({
     },
     totalText: {
         fontSize: 14,
-        fontWeight: 'bold',
         color: '#111827',
         backgroundColor: '#F9FAFB',
         padding: 10,
@@ -117,7 +110,6 @@ const styles = StyleSheet.create({
     },
     paymentTitle: {
         fontSize: 12,
-        fontWeight: 'bold',
         color: '#111827',
         marginBottom: 10,
     },
@@ -136,7 +128,6 @@ const styles = StyleSheet.create({
     },
     thankYou: {
         fontSize: 10,
-        fontWeight: 'bold',
         color: '#4B5563',
         marginBottom: 5,
     }

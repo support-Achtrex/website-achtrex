@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     },
     reportTitle: {
         fontSize: 24,
-        fontWeight: 'bold',
         color: '#111827',
     },
     dateRange: {
@@ -39,7 +38,6 @@ const styles = StyleSheet.create({
     },
     sectionTitle: {
         fontSize: 14,
-        fontWeight: 'bold',
         color: '#111827',
         backgroundColor: '#F3F4F6',
         padding: 5,
@@ -62,7 +60,6 @@ const styles = StyleSheet.create({
     },
     infoValue: {
         fontSize: 11,
-        fontWeight: 'bold',
         color: '#111827',
     },
     noteItem: {
@@ -239,7 +236,7 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                         <View style={styles.progressTrack}>
                             <View style={{ ...styles.progressValue, width: `${progressPercent || 0}%` }} />
                         </View>
-                        <Text style={{ fontWeight: 'bold' }}>{progressPercent || 0}%</Text>
+                        <Text>{progressPercent || 0}%</Text>
                     </View>
                     <View style={{ marginTop: 15 }}>
                         {milestones.map((m, i) => (
