@@ -296,12 +296,37 @@ export async function generateInvoicePDF(data: InvoiceData, title: string = 'Inv
         doc.text('Total:', 120, 150);
         doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 170, 150);
         
+        // Payment Details Block
+        doc.setFillColor(249, 250, 251); // #F9FAFB
+        doc.setDrawColor(229, 231, 235); // #E5E7EB
+        doc.rect(10, 165, 100, 32, 'FD');
+        
+        doc.setFontSize(10);
+        doc.setTextColor(17, 24, 39);
+        doc.setFont("Helvetica", "bold");
+        doc.text('Payment Details', 15, 171);
+        
+        doc.setFontSize(8);
+        doc.setTextColor(107, 114, 128);
+        doc.setFont("Helvetica", "bold");
+        doc.text('Bank Name:', 15, 177);
+        doc.text('Account Name:', 15, 182);
+        doc.text('Account Number:', 15, 187);
+        doc.text('SWIFT/BIC:', 15, 192);
+        
+        doc.setTextColor(17, 24, 39);
+        doc.setFont("Helvetica", "normal");
+        doc.text('Fidelity Bank', 45, 177);
+        doc.text('Achtrex Services', 45, 182);
+        doc.text('2400931904813', 45, 187);
+        doc.text('FBLIGHAC', 45, 192);
+        
         // Footer
         doc.setFontSize(10);
         doc.setTextColor(107, 114, 128);
         doc.setFont("Helvetica", "normal");
-        doc.text('Thank you for your business!', 105, 200, { align: 'center' });
-        doc.text(`© ${new Date().getFullYear()} Achtrex. All rights reserved.`, 105, 205, { align: 'center' });
+        doc.text('Thank you for your business!', 105, 210, { align: 'center' });
+        doc.text(`© ${new Date().getFullYear()} Copyright Achtrex. All rights reserved.`, 105, 215, { align: 'center' });
         
         const pdfOutput = doc.output('arraybuffer');
         return Buffer.from(pdfOutput);
