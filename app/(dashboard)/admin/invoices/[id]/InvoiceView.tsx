@@ -19,28 +19,8 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
   const [emailStatus, setEmailStatus] = useState<string | null>(null);
   const invoiceRef = useRef<HTMLDivElement>(null);
 
-  const handleDownloadPDF = async () => {
-    if (!invoiceRef.current) return;
-    
-    try {
-      const html2canvas = (await import('html2canvas')).default;
-      const { jsPDF } = await import('jspdf');
-      
-      const canvas = await html2canvas(invoiceRef.current, {
-        scale: 2,
-        useCORS: true,
-      });
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const imgWidth = 210;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-      pdf.save(`Invoice-${payment.invoice_number || payment.id}.pdf`);
-    } catch (error: any) {
-      console.error("PDF generation failed:", error);
-      alert(`Failed to generate PDF: ${error.message}`);
-    }
+  const handleDownloadPDF = () => {
+    window.print();
   };
 
 
@@ -69,6 +49,14 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center py-10">
+      <style>{`
+        @media print {
+          body * { visibility: hidden; }
+          #invoice-container, #invoice-container * { visibility: visible; }
+          #invoice-container { position: absolute; left: 0; top: 0; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+          .min-h-screen { min-height: auto !important; }
+        }
+      `}</style>
 
       {/* Top Controls */}
       <div className="w-full max-w-[800px] flex justify-between mb-6">
@@ -112,7 +100,7 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
       </div>
 
       {/* Invoice Container */}
-      <div ref={invoiceRef} className="w-full max-w-[800px] shadow-sm">
+      <div id="invoice-container" ref={invoiceRef} className="w-full max-w-[800px] shadow-sm">
         <InvoiceTemplate
           payment={payment}
           client={client}
