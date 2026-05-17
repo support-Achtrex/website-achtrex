@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
     try {
-        const res = await sql`SELECT * FROM client_payments ORDER BY id DESC`;
+        const res = await sql`SELECT * FROM subscribers LIMIT 1`;
         return NextResponse.json({
             count: res.rows.length,
             rows: res.rows
