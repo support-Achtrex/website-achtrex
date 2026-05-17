@@ -77,60 +77,69 @@ function generatePlainText(data: InvoiceData) {
 }
 
 function generateEmailHtml(data: InvoiceData) {
-    const statusColor = data.status.toLowerCase() === 'paid' ? '#10B981' : '#F59E0B';
-
     return `
     <!DOCTYPE html>
     <html>
     <head>
         <style>
             body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f9fafb; margin: 0; padding: 0; }
-            .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-            .header { background-color: #111827; padding: 40px; text-align: center; }
-            .content { padding: 40px; color: #374151; line-height: 1.6; }
-            .invoice-box { background-color: #f3f4f6; border-radius: 6px; padding: 20px; margin: 20px 0; border: 1px solid #e5e7eb; }
-            .amount { font-size: 24px; font-weight: bold; color: #111827; }
-            .status { display: inline-block; padding: 4px 12px; border-radius: 9999px; font-size: 12px; font-weight: bold; color: white; background-color: ${statusColor}; text-transform: uppercase; }
-            .footer { background-color: #f9fafb; padding: 20px; text-align: center; font-size: 12px; color: #6b7280; border-top: 1px solid #e5e7eb; }
-
+            .container { max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); padding: 40px; }
+            .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+            .logo { max-height: 40px; }
+            .title { font-size: 24px; font-weight: bold; color: #111827; }
+            .details { font-size: 14px; color: #374151; margin-bottom: 30px; }
+            .details-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
+            .label { font-weight: 600; color: #111827; }
+            .table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+            .table th { background-color: #f3f4f6; text-align: left; padding: 12px; font-size: 14px; color: #111827; }
+            .table td { padding: 12px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #374151; }
+            .total { font-size: 18px; font-weight: bold; color: #111827; text-align: right; }
+            .footer { text-align: center; font-size: 12px; color: #6b7280; margin-top: 40px; }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="header">
-                 <h1 style="color: white; margin: 0;">Achtrex</h1>
+                <span class="title">Invoice</span>
+                <img src="https://achtrex.com/images/achtrex-logo.png" class="logo" alt="Achtrex" />
             </div>
-            <div class="content">
-                <h2>Invoice Details</h2>
-                <p>Hello ${data.client_name || 'Valued Client'},</p>
-                <p>Here is the invoice for your recent transaction.</p>
-                
-                <div class="invoice-box">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <span>Invoice #</span>
-                        <strong>${data.invoice_number}</strong>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <span>Date</span>
-                        <strong>${data.date}</strong>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <span>Description</span>
-                        <strong>${data.description}</strong>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; border-top: 1px solid #d1d5db; padding-top: 10px;">
-                        <span>Total Amount</span>
-                        <span class="amount">${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}</span>
-                    </div>
-                    <div style="text-align: right; margin-top: 10px;">
-                        <span class="status">${data.status}</span>
-                    </div>
+            
+            <div class="details">
+                <div class="details-row">
+                    <span class="label">Invoice number:</span>
+                    <span>${data.invoice_number}</span>
                 </div>
-
-                <p>A PDF copy of this invoice is attached to this email.</p>
-
-
+                <div class="details-row">
+                    <span class="label">Date of issue:</span>
+                    <span>${data.date}</span>
+                </div>
             </div>
+
+            <div class="details">
+                <div class="label">Bill to:</div>
+                <div>${data.client_name || 'Valued Client'}</div>
+                <div>${data.client_email}</div>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th style="text-align: right;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>${data.description || 'No description'}</td>
+                        <td style="text-align: right;">${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="total">
+                Total Amount: ${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}
+            </div>
+
             <div class="footer">
                 &copy; ${new Date().getFullYear()} Achtrex. All rights reserved.
             </div>
