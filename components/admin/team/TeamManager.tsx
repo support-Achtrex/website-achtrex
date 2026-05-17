@@ -278,7 +278,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                                     >
                                                         <Download size={16} />
                                                     </a>
-                                                    <form action={deletePayroll.bind(null, record.id, member.id)}>
+                                                    <form action={async () => { await deletePayroll(record.id, member.id); }}>
                                                         <button className="p-2 text-gray-400 hover:text-red-500 transition-colors" title="Delete Record">
                                                             <Trash2 size={16} />
                                                         </button>
