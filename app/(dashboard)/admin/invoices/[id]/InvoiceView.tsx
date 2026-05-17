@@ -3,6 +3,8 @@
 import React, { useRef, useState, useTransition } from 'react';
 // Image import removed
 import { Download, RefreshCcw, CheckCircle, Clock } from 'lucide-react';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 import { updateInvoiceStatus, resendInvoiceEmail } from '@/app/actions/invoice-management';
 import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
@@ -16,6 +18,22 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
 
   const [isPending, startTransition] = useTransition();
   const [emailStatus, setEmailStatus] = useState<string | null>(null);
+  const invoiceRef = useRef<HTMLDivElement>(null);
+
+  const handleDownloadPDF = async () => {
+    if (!invoiceRef.current) return;
+    
+    const canvas = await html2canvas(invoiceRef.current, {
+      scale: 2,
+    });
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const imgWidth = 210;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    
+    pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+    pdf.save(`Invoice-${payment.invoice_number || payment.id}.pdf`);
+  };
 
 
   const handleStatusChange = async (newStatus: string) => {
@@ -76,18 +94,17 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
           </button>
         </div>
 
-        <a
-          href={`/api/invoices/${payment.id}/pdf`}
-          target="_blank"
+        <button
+          onClick={handleDownloadPDF}
           className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm"
         >
           <Download size={18} />
           Download PDF
-        </a>
+        </button>
       </div>
 
       {/* Invoice Container */}
-      <div className="w-full max-w-[800px] shadow-sm">
+      <div ref={invoiceRef} className="w-full max-w-[800px] shadow-sm">
         <InvoiceTemplate
           payment={payment}
           client={client}
