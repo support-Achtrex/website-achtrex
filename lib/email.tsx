@@ -1,22 +1,16 @@
 import 'server-only';
 import path from 'path';
 import fs from 'fs';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import React from 'react';
 import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
 import { InvoicePDF } from '@/components/invoice/InvoicePDF';
 import { ProjectReport } from '@/components/invoice/ProjectReport';
 import { renderToBuffer } from '@react-pdf/renderer';
 
-// Setup Transporter
-// using credentials found in marketing.ts
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.SMTP_USER || 'support@achtrex.com',
-        pass: process.env.SMTP_PASS || 'npec ngix uixj jyam',
-    },
-});
+// Initialize Resend with the API key from environment variables
+const apiKey = (process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY || '').replace(/['"]/g, '');
+const resend = new Resend(apiKey);
 
 interface InvoiceData {
     invoice_number: string;
@@ -30,26 +24,24 @@ interface InvoiceData {
 }
 
 export async function sendInvoiceEmail(data: InvoiceData) {
-    // Credentials are now hardcoded as fallback in transporter setup
-
     try {
         const pdfBuffer = await generateInvoicePDF(data);
         const htmlContent = generateEmailHtml(data);
         const textContent = generatePlainText(data);
 
-        const senderEmail = process.env.SMTP_FROM || process.env.SMTP_USER || 'support@achtrex.com';
-
-        await transporter.sendMail({
-            from: `"Achtrex Billing" <${senderEmail}>`,
+        // Note: If using Resend free tier without domain verification,
+        // you can only send emails to the email you signed up with.
+        // For production, change onboarding@resend.dev to your verified domain email (e.g. billing@achtrex.com)
+        await resend.emails.send({
+            from: 'Achtrex Billing <onboarding@resend.dev>',
             to: data.client_email,
             subject: `Invoice #${data.invoice_number} from Achtrex`,
-            text: textContent, // Plain text fallback reduces spam score
+            text: textContent,
             html: htmlContent,
             attachments: [
                 {
                     filename: `Invoice-${data.invoice_number}.pdf`,
-                    content: pdfBuffer, // Buffer matches expectation
-                    contentType: 'application/pdf',
+                    content: pdfBuffer,
                 },
             ],
         });
@@ -262,10 +254,8 @@ export async function sendWeeklyReportEmail(subscriber: any, notes: any[], miles
             </html>
         `;
 
-        const senderEmail = process.env.SMTP_FROM || process.env.SMTP_USER || 'support@achtrex.com';
-
-        await transporter.sendMail({
-            from: `"Achtrex Project Updates" <${senderEmail}>`,
+        await resend.emails.send({
+            from: 'Achtrex Project Updates <onboarding@resend.dev>',
             to: subscriber.email,
             subject: `Weekly Progress Report - ${new Date().toLocaleDateString()}`,
             html: html,
@@ -273,7 +263,6 @@ export async function sendWeeklyReportEmail(subscriber: any, notes: any[], miles
                 {
                     filename: `Project-Report-${new Date().toISOString().split('T')[0]}.pdf`,
                     content: pdfBuffer,
-                    contentType: 'application/pdf',
                 },
             ],
         });
@@ -300,10 +289,8 @@ export async function sendPayslipEmail(member: any, payroll: any) {
             currency: 'USD'
         };
 
-        // Generate PDF with "Payslip" title
         const pdfBuffer = await generateInvoicePDF(pdfData, 'Payslip');
 
-        // Enhanced HTML Template
         const html = `
             <!DOCTYPE html>
             <html>
@@ -368,10 +355,8 @@ export async function sendPayslipEmail(member: any, payroll: any) {
             </html>
         `;
 
-        const senderEmail = process.env.SMTP_USER || 'support@achtrex.com';
-
-        await transporter.sendMail({
-            from: `"Achtrex HR" <${senderEmail}>`,
+        await resend.emails.send({
+            from: 'Achtrex HR <onboarding@resend.dev>',
             to: member.email,
             subject: `Payslip Available: ${formattedDate}`,
             html: html,
@@ -379,7 +364,6 @@ export async function sendPayslipEmail(member: any, payroll: any) {
                 {
                     filename: `Payslip-${formattedDate.replace(/ /g, '-')}.pdf`,
                     content: pdfBuffer,
-                    contentType: 'application/pdf',
                 },
             ],
         });
