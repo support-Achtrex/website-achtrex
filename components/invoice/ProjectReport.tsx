@@ -262,7 +262,7 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                             </View>
                         ))
                     ) : (
-                        <Text style={{ color: '#9CA3AF', fontStyle: 'italic' }}>No updates recorded for this week.</Text>
+                        <Text style={{ color: '#9CA3AF' }}>No updates recorded for this week.</Text>
                     )}
                 </View>
 
