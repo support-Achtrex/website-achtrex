@@ -4,6 +4,7 @@ import AdminSidebar from '@/components/admin/sidebar';
 import fs from 'fs';
 import path from 'path';
 import { revalidatePath } from 'next/cache';
+import { sql } from '@/lib/db';
 import AdminTopbar from '@/components/admin/topbar';
 import StatsCards from '@/components/admin/stats-cards';
 import AnalyticsWidget from '@/components/admin/analytics-widget';
@@ -13,9 +14,13 @@ import ProjectProgress from '@/components/admin/project-progress';
 import TotalViewsWidget from '@/components/admin/total-views-widget';
 
 export default function AdminDashboard() {
-    const filePath = path.join(process.cwd(), 'lib', 'payment-details.json');
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    const paymentDetails = JSON.parse(fileContent);
+    const settingsRes = await sql`SELECT value FROM settings WHERE key = 'payment_details'`;
+    const paymentDetails = settingsRes.rows.length > 0 ? JSON.parse(settingsRes.rows[0].value) : {
+        bank_name: "Fidelity Bank",
+        account_name: "Achtrex Services",
+        account_number: "2400931904813",
+        swift_bic: "FBLIGHAC"
+    };
 
     async function updatePaymentDetails(formData: FormData) {
         'use server';
@@ -25,8 +30,7 @@ export default function AdminDashboard() {
             account_number: formData.get('account_number') as string,
             swift_bic: formData.get('swift_bic') as string,
         };
-        const fPath = path.join(process.cwd(), 'lib', 'payment-details.json');
-        fs.writeFileSync(fPath, JSON.stringify(details, null, 2));
+        await sql`UPDATE settings SET value = ${JSON.stringify(details)} WHERE key = 'payment_details'`;
         revalidatePath('/admin');
     }
 
