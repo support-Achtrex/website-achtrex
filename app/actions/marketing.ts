@@ -2,7 +2,7 @@
 
 import { sql } from '@/lib/db';
 import { revalidatePath } from 'next/cache';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 // Actions for the Public Site (Subscribe)
 export async function subscribeToNewsletter(formData: FormData) {
@@ -56,17 +56,9 @@ export async function sendCampaign(formData: FormData) {
 
         const recipients = Array.from(recipientsSet);
 
-        // 3. Configure Nodemailer (Gmail)
-        const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
-        const smtpPassword = process.env.SMTP_PASS || 'krsg kvyz zlzo bnax';
-
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: smtpEmail,
-                pass: smtpPassword
-            }
-        });
+        // 3. Configure Resend
+        const apiKey = (process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY || '').replace(/['"]/g, '');
+        const resend = new Resend(apiKey);
 
         const isHtml = /<[a-z][\s\S]*>/i.test(body);
 
@@ -119,10 +111,10 @@ export async function sendCampaign(formData: FormData) {
 `;
 
         // 4. Send Email (using BCC for privacy)
-        await transporter.sendMail({
-            from: `"Achtrex Update" <${smtpEmail}>`,
-            to: smtpEmail,
-            bcc: recipients,
+        await resend.emails.send({
+            from: '"Achtrex Update" <support@achtrex.com>',
+            to: 'support@achtrex.com', // Send to self
+            bcc: recipients, // Hide recipients from each other
             subject: subject,
             html: emailHtml,
         });
