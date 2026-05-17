@@ -3,8 +3,7 @@
 import React, { useRef, useState, useTransition } from 'react';
 // Image import removed
 import { Download, RefreshCcw, CheckCircle, Clock } from 'lucide-react';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
+
 
 import { updateInvoiceStatus, resendInvoiceEmail } from '@/app/actions/invoice-management';
 import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
@@ -22,6 +21,9 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
 
   const handleDownloadPDF = async () => {
     if (!invoiceRef.current) return;
+    
+    const html2canvas = (await import('html2canvas')).default;
+    const { jsPDF } = await import('jspdf');
     
     const canvas = await html2canvas(invoiceRef.current, {
       scale: 2,
