@@ -71,7 +71,7 @@ export const ServicesGrid = () => {
                         transition={{ delay: 0.2 }}
                         className="text-slate-600 text-lg leading-relaxed border-l-4 border-logo-gradient pl-6 lg:pl-10 h-full flex flex-col justify-end"
                     >
-                        Our portfolio operates exclusively on a proprietary, optimized technology stack engineered for mission-critical velocity. By fully integrating our foundational layers, from geo-distributed API gateways to underlying vector data lakes, we eliminate fragile external dependencies and guarantee unprecedented uptime and query performance.
+                        We build and maintain our own optimized technology stack. By eliminating external dependencies, we guarantee maximum speed, security, and uptime for all our platforms.
                     </motion.div>
                 </div>
 
