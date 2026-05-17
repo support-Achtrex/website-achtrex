@@ -65,7 +65,7 @@ export async function createInvoice(formData: FormData) {
         // To be safe against missing column in SELECT, we just use the variables we have if we updated them, 
         // or re-fetch basic info.
 
-        const clientRes = await sql`SELECT email, name FROM subscribers WHERE id = ${Number(subscriberId)}`;
+        const clientRes = await sql`SELECT email, name, address FROM subscribers WHERE id = ${Number(subscriberId)}`;
         const client = clientRes.rows[0];
 
         if (client && client.email) {
@@ -85,6 +85,7 @@ export async function createInvoice(formData: FormData) {
                 status,
                 date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
                 client_email: client.email,
+                client_address: client.address || '',
                 // Combine Name and Company for the email if company exists
                 client_name: finalCompany ? `${finalName} (${finalCompany})` : finalName,
                 currency

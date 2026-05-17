@@ -22,6 +22,7 @@ interface InvoiceData {
     date: string;
     client_name?: string;
     client_email: string;
+    client_address?: string;
     currency?: string;
 }
 
@@ -128,8 +129,7 @@ function generateEmailHtml(data: InvoiceData) {
                     <div class="address">
                         <strong>${data.client_name || 'Valued Client'}</strong><br>
                         ${data.client_email}<br>
-                        123 Business Road, Suite 100<br>
-                        City, Country
+                        ${data.client_address ? data.client_address.replace(/\n/g, '<br>') : '123 Business Road, Suite 100<br>City, Country'}
                     </div>
                 </div>
             </div>
@@ -250,8 +250,17 @@ export async function generateInvoicePDF(data: InvoiceData, title: string = 'Inv
         doc.text(`${data.client_name || 'Valued Client'}`, 120, 48);
         doc.setFont("Helvetica", "normal");
         doc.text(`${data.client_email || ''}`, 120, 53);
-        doc.text('123 Business Road, Suite 100', 120, 58);
-        doc.text('City, Country', 120, 63);
+        if (data.client_address) {
+            const lines = data.client_address.split('\n');
+            let y = 58;
+            lines.forEach(line => {
+                doc.text(line, 120, y);
+                y += 5;
+            });
+        } else {
+            doc.text('123 Business Road, Suite 100', 120, 58);
+            doc.text('City, Country', 120, 63);
+        }
         
         // Invoice Details
         doc.setDrawColor(229, 231, 235);
