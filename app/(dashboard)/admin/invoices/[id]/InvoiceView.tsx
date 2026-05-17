@@ -22,19 +22,25 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
   const handleDownloadPDF = async () => {
     if (!invoiceRef.current) return;
     
-    const html2canvas = (await import('html2canvas')).default;
-    const { jsPDF } = await import('jspdf');
-    
-    const canvas = await html2canvas(invoiceRef.current, {
-      scale: 2,
-    });
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const imgWidth = 210;
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-    
-    pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-    pdf.save(`Invoice-${payment.invoice_number || payment.id}.pdf`);
+    try {
+      const html2canvas = (await import('html2canvas')).default;
+      const { jsPDF } = await import('jspdf');
+      
+      const canvas = await html2canvas(invoiceRef.current, {
+        scale: 2,
+        useCORS: true,
+      });
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const imgWidth = 210;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      
+      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      pdf.save(`Invoice-${payment.invoice_number || payment.id}.pdf`);
+    } catch (error: any) {
+      console.error("PDF generation failed:", error);
+      alert(`Failed to generate PDF: ${error.message}`);
+    }
   };
 
 
