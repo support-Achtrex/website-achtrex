@@ -290,18 +290,38 @@ export async function sendWeeklyReport(subscriberId: number) {
         const subRes = await sql`SELECT * FROM subscribers WHERE id = ${subscriberId}`;
         const subscriber = subRes.rows[0];
 
-        const notesRes = await sql`SELECT * FROM client_notes WHERE subscriber_id = ${subscriberId} ORDER BY created_at DESC`;
-        const notes = notesRes.rows;
+        // Robust fetch for Notes
+        let notes: any[] = [];
+        try {
+            const notesRes = await sql`SELECT * FROM client_notes WHERE subscriber_id = ${subscriberId} ORDER BY created_at DESC`;
+            notes = notesRes.rows;
+        } catch (e: any) {
+            if (e.message && e.message.includes('relation "client_notes" does not exist')) {
+                console.log('client_notes table does not exist, returning empty array');
+            } else {
+                throw e;
+            }
+        }
 
-        const progressRes = await sql`SELECT * FROM project_progress WHERE subscriber_id = ${subscriberId} ORDER BY created_at ASC`;
-        const milestones = progressRes.rows;
+        // Robust fetch for Progress
+        let milestones: any[] = [];
+        try {
+            const progressRes = await sql`SELECT * FROM project_progress WHERE subscriber_id = ${subscriberId} ORDER BY created_at ASC`;
+            milestones = progressRes.rows;
+        } catch (e: any) {
+            if (e.message && e.message.includes('relation "project_progress" does not exist')) {
+                console.log('project_progress table does not exist, returning empty array');
+            } else {
+                throw e;
+            }
+        }
 
         const { sendWeeklyReportEmail } = await import('../../lib/email');
         await sendWeeklyReportEmail(subscriber, notes, milestones);
 
         return { success: true };
-    } catch (error) {
+    } catch (error: any) {
         console.error('Report send error:', error);
-        return { error: 'Failed to send report' };
+        return { error: error.message || 'Failed to send report' };
     }
 }
