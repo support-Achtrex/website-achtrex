@@ -85,7 +85,7 @@ const wrapTemplate = (content: string, title: string = 'Achtrex') => `
                     </p>
                     <p style="margin-top: 20px; font-size: 11px;">
                         You received this because you are subscribed to our updates.<br>
-                        <a href="https://achtrex.com/unsubscribe" style="color:#64748b; text-decoration: underline;">Unsubscribe</a>
+                        <a href="https://achtrex.com/contact-us" style="color:#64748b; text-decoration: underline;">Unsubscribe</a>
                     </p>
                 </div>
             </div>
@@ -121,7 +121,7 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
             <p style="margin-top: 25px;">Next steps: You will receive an invitation to our project management board shortly where we will track every milestone together.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/client-portal" class="button">Access Client Portal</a>
+                <a href="https://achtrex.com/login" class="button">Access Client Portal</a>
             </div>
             
             <p style="text-align: center; color: #64748b; font-style: italic;">Welcome to the future of digital excellence.</p>
@@ -151,7 +151,7 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
             </ul>
 
             <div class="button-container">
-                <a href="https://achtrex.com/roadmap" class="button">View Detailed Roadmap</a>
+                <a href="https://achtrex.com/about-us" class="button">View Detailed Roadmap</a>
             </div>
         `, "Progress Update")
     },
@@ -195,7 +195,7 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
             <p>No action is required on your part. Our team will handle the migration during off-peak hours to ensure zero impact on your operations.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/security" class="button">Read Security Whitepaper</a>
+                <a href="https://achtrex.com/about-us" class="button">Read Security Whitepaper</a>
             </div>
         `, "Security Update")
     },
@@ -248,7 +248,7 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
             <p>These updates will be applied automatically. No code changes are required on your part.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/products/gateway" class="button">View Gateway Docs</a>
+                <a href="https://achtrex.com/products" class="button">View Gateway Docs</a>
             </div>
         `, "API Gateway")
     },
@@ -267,7 +267,7 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
             <p>Our platform now includes automated data lineage tracking and PII masking out of the box.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/solutions/governance" class="button">Learn More</a>
+                <a href="https://achtrex.com/services" class="button">Learn More</a>
             </div>
         `, "Data Governance")
     },
