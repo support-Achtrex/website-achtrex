@@ -1,6 +1,5 @@
-
+import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
     page: {
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#111827',
         backgroundColor: '#F3F4F6',
-        padding: '5 10',
+        padding: 5,
         marginBottom: 10,
         borderRadius: 4,
     },
@@ -85,7 +84,7 @@ const styles = StyleSheet.create({
     milestoneRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: '5 0',
+        padding: 5,
         borderBottomWidth: 0.5,
         borderBottomColor: '#F3F4F6',
         borderBottomStyle: 'solid',
@@ -147,21 +146,24 @@ interface ProjectReportProps {
     notes: any[];
     milestones: any[];
     logoSrc?: string;
-    reportType?: string; // e.g., "Weekly Progress Report"
+    reportType?: string;
 }
 
 const HtmlContent = ({ html }: { html: string }) => {
+    if (!html) return null;
+    
     // Basic parser to split text and images
-    // Matches <img ... src="data:..." ... >
     const parts = html.split(/(<img[^>]+src="([^">]+)"[^>]*>)/g);
 
     return (
         <View>
             {parts.map((part, index) => {
-                // If it starts with <img, it's the full tag (captured by group 1) -> we ignore this as we use group 2
+                if (!part) return null;
+                
+                // If it starts with <img, we ignore this as we use the captured src group
                 if (part.startsWith('<img')) return null;
 
-                // If it looks like a data URL or http url (captured by group 2 url), it's the image source
+                // If it looks like a data URL or http url, it's the image source
                 if (part.startsWith('data:image') || part.startsWith('http')) {
                     return (
                         <Image
@@ -183,7 +185,7 @@ const HtmlContent = ({ html }: { html: string }) => {
 
                 return (
                     <Text key={index} style={styles.noteContent}>
-                        {text}
+                        {text || ''}
                     </Text>
                 );
             })}
@@ -197,7 +199,7 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
     // Filter notes for the last 7 days for "weekly updates"
     const oneWeekAgo = new Date();
     oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-    const weeklyUpdates = notes.filter(n => new Date(n.created_at) >= oneWeekAgo);
+    const weeklyUpdates = notes.filter(n => n.created_at && new Date(n.created_at) >= oneWeekAgo);
 
     const completedCount = milestones.filter(m => m.status === 'completed').length;
     const progressPercent = milestones.length > 0 ? Math.round((completedCount / milestones.length) * 100) : 0;
@@ -208,8 +210,8 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                 {/* Header */}
                 <View style={styles.header}>
                     <View>
-                        <Text style={styles.reportTitle}>{reportType}</Text>
-                        <Text style={styles.dateRange}>Generated on {today}</Text>
+                        <Text style={styles.reportTitle}>{reportType || 'Report'}</Text>
+                        <Text style={styles.dateRange}>Generated on {today || ''}</Text>
                     </View>
                     {logoSrc && <Image src={logoSrc} style={styles.logo} />}
                 </View>
@@ -218,15 +220,15 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                 <View style={styles.infoGrid}>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Client</Text>
-                        <Text style={styles.infoValue}>{subscriber.name || subscriber.email}</Text>
+                        <Text style={styles.infoValue}>{(subscriber && (subscriber.name || subscriber.email)) || 'N/A'}</Text>
                     </View>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Company</Text>
-                        <Text style={styles.infoValue}>{subscriber.company || 'N/A'}</Text>
+                        <Text style={styles.infoValue}>{(subscriber && subscriber.company) || 'N/A'}</Text>
                     </View>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Project Status</Text>
-                        <Text style={styles.infoValue}>{progressPercent}% Complete</Text>
+                        <Text style={styles.infoValue}>{progressPercent || 0}% Complete</Text>
                     </View>
                 </View>
 
@@ -235,16 +237,16 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                     <Text style={styles.sectionTitle}>Project Roadmap & Progress</Text>
                     <View style={styles.statusBar}>
                         <View style={styles.progressTrack}>
-                            <View style={{ ...styles.progressValue, width: `${progressPercent}%` }} />
+                            <View style={{ ...styles.progressValue, width: `${progressPercent || 0}%` }} />
                         </View>
-                        <Text style={{ fontWeight: 'bold' }}>{progressPercent}%</Text>
+                        <Text style={{ fontWeight: 'bold' }}>{progressPercent || 0}%</Text>
                     </View>
                     <View style={{ marginTop: 15 }}>
                         {milestones.map((m, i) => (
                             <View key={i} style={styles.milestoneRow}>
                                 <View style={[styles.milestoneDot, m.status === 'completed' ? styles.completedDot : styles.pendingDot]} />
                                 <Text style={[styles.milestoneText, m.status === 'completed' ? styles.completedText : {}]}>
-                                    {m.milestone}
+                                    {m.milestone || 'Untitled Milestone'}
                                 </Text>
                             </View>
                         ))}
@@ -257,22 +259,15 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                     {weeklyUpdates.length > 0 ? (
                         weeklyUpdates.map((note, i) => (
                             <View key={i} style={styles.noteItem}>
-                                <HtmlContent html={note.content} />
-                                <Text style={styles.noteDate}>{new Date(note.created_at).toLocaleDateString()} {new Date(note.created_at).toLocaleTimeString()}</Text>
+                                <HtmlContent html={note.content || ''} />
+                                <Text style={styles.noteDate}>
+                                    {note.created_at ? new Date(note.created_at).toLocaleDateString() : ''}
+                                </Text>
                             </View>
                         ))
                     ) : (
                         <Text style={{ color: '#9CA3AF', fontStyle: 'italic' }}>No updates recorded for this week.</Text>
                     )}
-                </View>
-
-                {/* Project Files (Optional placeholder) */}
-                <View style={styles.section}>
-                    <Text style={styles.sectionTitle}>Notes</Text>
-                    <Text style={{ fontSize: 9, color: '#6B7280' }}>
-                        This report details the work completed and upcoming milestones for your project.
-                        If you have any questions, please reach out to our team at support@achtrex.com.
-                    </Text>
                 </View>
 
                 {/* Footer */}
