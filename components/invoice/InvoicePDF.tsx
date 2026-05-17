@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         padding: 5,
         borderRadius: 4,
-        transform: 'rotate(-10deg)',
         opacity: 0.8,
     },
     header: {
@@ -36,7 +35,6 @@ const styles = StyleSheet.create({
     logo: {
         width: 120,
         height: 50,
-        objectFit: 'contain',
     },
     title: {
         fontSize: 24,
