@@ -28,12 +28,12 @@ export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Hero />
+      <AboutSection />
       <ServicesGrid />
       <LumiSection />
       <PopularLinks />
       <LatestNews />
       <BusinessModelSection />
-      <AboutSection />
       <CTASection />
     </div>
   );
