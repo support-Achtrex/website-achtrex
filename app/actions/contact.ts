@@ -18,7 +18,8 @@ export async function submitContactForm(formData: FormData) {
 
     try {
         // Initialize Resend inside the try block to catch missing API key errors
-        const resend = new Resend(process.env.RESEND_API_KEY);
+        const apiKey = (process.env.RESEND_API_KEY || '').replace(/['"]/g, '');
+        const resend = new Resend(apiKey);
 
         const adminHtml = `
             <div style="font-family: system-ui, sans-serif; color: #333;">
@@ -64,7 +65,8 @@ export async function submitPartnerForm(formData: FormData) {
     }
 
     try {
-        const resend = new Resend(process.env.RESEND_API_KEY);
+        const apiKey = (process.env.RESEND_API_KEY || '').replace(/['"]/g, '');
+        const resend = new Resend(apiKey);
 
         const adminHtml = `
             <div style="font-family: system-ui, sans-serif; color: #333;">
