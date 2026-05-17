@@ -155,23 +155,67 @@ export async function generateInvoicePDF(data: InvoiceData, title: string = 'Inv
         }
 
         const doc = new jsPDF();
-        doc.setFontSize(20);
-        doc.text(title || 'Invoice', 10, 20);
         
+        // Add Logo
+        if (logoBase64) {
+            try {
+                doc.addImage(logoBase64, 'PNG', 10, 10, 40, 15);
+            } catch (e) {
+                console.error("Error adding logo to PDF:", e);
+                doc.setFontSize(20);
+                doc.text('Achtrex', 10, 20);
+            }
+        } else {
+            doc.setFontSize(20);
+            doc.text('Achtrex', 10, 20);
+        }
+        
+        // Header line
+        doc.setDrawColor(229, 231, 235); // #E5E7EB
+        doc.line(10, 30, 200, 30);
+        
+        // Title
+        doc.setFontSize(24);
+        doc.setTextColor(17, 24, 39); // #111827
+        doc.text(title || 'Invoice', 10, 45);
+        
+        // Invoice Details
+        doc.setFontSize(10);
+        doc.setTextColor(107, 114, 128); // #6B7280
+        doc.text(`Invoice number:`, 10, 55);
+        doc.setTextColor(17, 24, 39);
+        doc.text(`${data.invoice_number || 'N/A'}`, 40, 55);
+        
+        doc.setTextColor(107, 114, 128);
+        doc.text(`Date of issue:`, 10, 60);
+        doc.setTextColor(17, 24, 39);
+        doc.text(`${data.date || 'N/A'}`, 40, 60);
+        
+        // Bill To
         doc.setFontSize(12);
-        doc.text(`Invoice Number: ${data.invoice_number || 'N/A'}`, 10, 40);
-        doc.text(`Date: ${data.date || 'N/A'}`, 10, 50);
-        doc.text(`Status: ${data.status || 'N/A'}`, 10, 60);
+        doc.text(`Bill to`, 10, 75);
+        doc.setFontSize(10);
+        doc.text(`${data.client_name || 'Valued Client'}`, 10, 82);
+        doc.text(`${data.client_email || ''}`, 10, 87);
         
-        doc.text(`Bill To:`, 10, 80);
-        doc.text(`Name: ${data.client_name || 'N/A'}`, 10, 90);
-        doc.text(`Email: ${data.client_email || 'N/A'}`, 10, 100);
+        // Table Header
+        doc.setFillColor(243, 244, 246); // #F3F4F6
+        doc.rect(10, 100, 190, 10, 'F');
+        doc.setFontSize(10);
+        doc.setTextColor(17, 24, 39);
+        doc.text('Description', 15, 106);
+        doc.text('Amount', 170, 106);
         
-        doc.text(`Description:`, 10, 120);
-        doc.text(`${data.description || 'No description'}`, 10, 130);
+        // Table Content
+        doc.text(`${data.description || 'No description'}`, 15, 120);
+        doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 170, 120);
         
-        doc.setFontSize(16);
-        doc.text(`Total Amount: ${data.currency || 'USD'} ${data.amount || '0.00'}`, 10, 150);
+        // Total
+        doc.setDrawColor(229, 231, 235);
+        doc.line(10, 130, 200, 130);
+        doc.setFontSize(14);
+        doc.text(`Total Amount:`, 120, 142);
+        doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 170, 142);
         
         const pdfOutput = doc.output('arraybuffer');
         return Buffer.from(pdfOutput);
