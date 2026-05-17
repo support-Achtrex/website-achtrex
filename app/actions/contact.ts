@@ -1,6 +1,7 @@
 'use server';
 
 import { Resend } from 'resend';
+import { sql } from '@/lib/db';
 
 export async function submitContactForm(formData: FormData) {
     const name = formData.get('name') as string;
@@ -16,8 +17,35 @@ export async function submitContactForm(formData: FormData) {
         return { error: 'Name and Email are required.' };
     }
 
+    // 1. Save to Database (Resilient)
+    let dbErrorOccurred = false;
+    let dbErrorMessage = '';
     try {
-        // Initialize Resend inside the try block to catch missing API key errors
+        const fullMessage = `Phone: ${phone}\n\nMessage: ${message}`;
+        await sql`
+            INSERT INTO leads (name, email, company, message, service, budget, source, status)
+            VALUES (${name}, ${email}, ${company}, ${fullMessage}, ${service}, ${budget}, ${source}, 'new')
+        `;
+
+        // Auto-subscribe to newsletter (ignore if already exists)
+        try {
+            await sql`
+                INSERT INTO subscribers (email)
+                VALUES (${email})
+                ON CONFLICT (email) DO NOTHING
+            `;
+        } catch (subError) {
+            console.error('Subscriber insertion warning:', subError);
+        }
+
+    } catch (dbError: any) {
+        console.error('Database insertion error:', dbError);
+        dbErrorOccurred = true;
+        dbErrorMessage = dbError.message || String(dbError);
+    }
+
+    // 2. Send Email via Resend
+    try {
         const apiKey = (process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY || '').replace(/['"]/g, '');
         const resend = new Resend(apiKey);
 
@@ -45,11 +73,18 @@ export async function submitContactForm(formData: FormData) {
             replyTo: email
         });
 
+        if (dbErrorOccurred) {
+            return { success: true, warning: `Lead received, but failed to save to database: ${dbErrorMessage}` };
+        }
+
         return { success: true, warning: '' };
 
     } catch (error: any) {
         console.error('Resend email failed:', error);
-        return { error: `Failed to send inquiry. Please email us directly at support@achtrex.com. Error: ${error.message}` };
+        if (dbErrorOccurred) {
+            return { error: `Failed to send inquiry and failed to save to database. DB Error: ${dbErrorMessage}. Email Error: ${error.message}` };
+        }
+        return { success: true, warning: `Request received (saved to DB), but we encountered an issue sending the confirmation email. Error: ${error.message}` };
     }
 }
 
@@ -62,6 +97,20 @@ export async function submitPartnerForm(formData: FormData) {
 
     if (!name || !email) {
         return { error: 'Name and Email are required.' };
+    }
+
+    let dbErrorOccurred = false;
+    let dbErrorMessage = '';
+    try {
+        const fullMessage = `Partnership Type: ${type}\n\nMessage: ${message}`;
+        await sql`
+            INSERT INTO leads (name, email, company, message, service, status)
+            VALUES (${name}, ${email}, ${company}, ${fullMessage}, 'Partnership', 'new')
+        `;
+    } catch (dbError: any) {
+        console.error('Database insertion error:', dbError);
+        dbErrorOccurred = true;
+        dbErrorMessage = dbError.message || String(dbError);
     }
 
     try {
@@ -89,10 +138,17 @@ export async function submitPartnerForm(formData: FormData) {
             replyTo: email
         });
 
+        if (dbErrorOccurred) {
+            return { success: true, warning: `Application received, but failed to save to database: ${dbErrorMessage}` };
+        }
+
         return { success: true, warning: '' };
 
     } catch (error: any) {
         console.error('Resend email failed:', error);
-        return { error: `Failed to send application. Please email us directly at support@achtrex.com. Error: ${error.message}` };
+        if (dbErrorOccurred) {
+            return { error: `Failed to send application and failed to save to database. DB Error: ${dbErrorMessage}. Email Error: ${error.message}` };
+        }
+        return { success: true, warning: `Application received (saved to DB), but we encountered an issue sending the confirmation email. Error: ${error.message}` };
     }
 }
