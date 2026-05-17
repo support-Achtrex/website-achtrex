@@ -13,7 +13,7 @@ import TeamOverview from '@/components/admin/team-overview';
 import ProjectProgress from '@/components/admin/project-progress';
 import TotalViewsWidget from '@/components/admin/total-views-widget';
 
-export default function AdminDashboard() {
+export default async function AdminDashboard() {
     const settingsRes = await sql`SELECT value FROM settings WHERE key = 'payment_details'`;
     const paymentDetails = settingsRes.rows.length > 0 ? JSON.parse(settingsRes.rows[0].value) : {
         bank_name: "Fidelity Bank",
