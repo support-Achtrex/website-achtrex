@@ -4,9 +4,10 @@ interface InvoiceTemplateProps {
     payment: any;
     client: any;
     logoSrc: string;
+    paymentDetails?: any;
 }
 
-export const InvoiceTemplate: React.FC<InvoiceTemplateProps> = ({ payment, client, logoSrc }) => {
+export const InvoiceTemplate: React.FC<InvoiceTemplateProps> = ({ payment, client, logoSrc, paymentDetails }) => {
     // Format dates
     const dateOptions: Intl.DateTimeFormatOptions = {
         month: 'long',
@@ -142,19 +143,19 @@ export const InvoiceTemplate: React.FC<InvoiceTemplateProps> = ({ payment, clien
                         <div className="space-y-2 text-sm" style={{ color: '#374151' }}>
                             <div className="grid grid-cols-[140px_1fr]">
                                 <span className="font-semibold">Bank Name:</span>
-                                <span>Fidelity Bank</span>
+                                <span>{paymentDetails?.bank_name || 'Fidelity Bank'}</span>
                             </div>
                             <div className="grid grid-cols-[140px_1fr]">
                                 <span className="font-semibold">Account Name:</span>
-                                <span>Achtrex Services</span>
+                                <span>{paymentDetails?.account_name || 'Achtrex Services'}</span>
                             </div>
                             <div className="grid grid-cols-[140px_1fr]">
                                 <span className="font-semibold">Account Number:</span>
-                                <span>2400931904813</span>
+                                <span>{paymentDetails?.account_number || '2400931904813'}</span>
                             </div>
                             <div className="grid grid-cols-[140px_1fr]">
                                 <span className="font-semibold">SWIFT/BIC:</span>
-                                <span>FBLIGHAC</span>
+                                <span>{paymentDetails?.swift_bic || 'FBLIGHAC'}</span>
                             </div>
                         </div>
                         <p className="mt-4 text-xs text-gray-500 italic">Please use Invoice #{payment.invoice_number} as payment reference.</p>

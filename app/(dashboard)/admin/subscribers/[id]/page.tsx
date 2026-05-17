@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 import {
     addNote, recordPayment,
     addMilestone, updateMilestoneStatus, deleteMilestone,
@@ -55,6 +56,13 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
     const completedMilestones = progress.filter(p => p.status === 'completed').length;
     const progressPercentage = progress.length > 0 ? Math.round((completedMilestones / progress.length) * 100) : 0;
 
+    async function updateAddress(formData: FormData) {
+        'use server';
+        const address = formData.get('address') as string;
+        await sql`UPDATE subscribers SET address = ${address} WHERE id = ${id}`;
+        revalidatePath(`/admin/subscribers/${id}`);
+    }
+
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
             <div className="flex flex-col md:flex-row md:items-center gap-4">
@@ -66,6 +74,18 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                     <p className="text-sm text-gray-500">
                         Client since {new Date(subscriber.subscribed_at).toLocaleDateString()}
                     </p>
+                    <form action={updateAddress} className="mt-2 flex gap-2">
+                        <input
+                            type="text"
+                            name="address"
+                            defaultValue={subscriber.address || ''}
+                            placeholder="Add or edit address..."
+                            className="border border-gray-200 rounded-lg px-3 py-1 text-sm w-full max-w-[300px]"
+                        />
+                        <button type="submit" className="text-xs bg-gray-900 text-white px-3 py-1 rounded-lg hover:bg-gray-800 transition-colors">
+                            Save
+                        </button>
+                    </form>
                 </div>
                 <div className="md:ml-auto flex items-center gap-3">
                     <div className="bg-green-50 text-green-700 px-4 py-2 rounded-xl font-bold border border-green-100 shadow-sm flex items-center gap-2">
