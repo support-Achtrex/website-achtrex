@@ -169,9 +169,7 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({ payment, client, logoSrc
                             <Text style={styles.detailValue}>{issueDate || 'N/A'}</Text>
                         </View>
                     </View>
-                    {logoSrc && (
-                        <Image src={logoSrc} style={styles.logo} />
-                    )}
+
                 </View>
 
                 {/* Addresses */}

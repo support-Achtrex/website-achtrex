@@ -209,7 +209,7 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                         <Text style={styles.reportTitle}>{reportType || 'Report'}</Text>
                         <Text style={styles.dateRange}>Generated on {today || ''}</Text>
                     </View>
-                    {logoSrc && <Image src={logoSrc} style={styles.logo} />}
+                    
                 </View>
 
                 {/* Client Info */}
