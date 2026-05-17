@@ -31,9 +31,9 @@ export async function sendInvoiceEmail(data: InvoiceData) {
 
         // Note: If using Resend free tier without domain verification,
         // you can only send emails to the email you signed up with.
-        // For production, change onboarding@resend.dev to your verified domain email (e.g. billing@achtrex.com)
+        // For production, change support@achtrex.com to your verified domain email (e.g. billing@achtrex.com)
         await resend.emails.send({
-            from: 'Achtrex Billing <onboarding@resend.dev>',
+            from: 'Achtrex Billing <support@achtrex.com>',
             to: data.client_email,
             subject: `Invoice #${data.invoice_number} from Achtrex`,
             text: textContent,
@@ -255,7 +255,7 @@ export async function sendWeeklyReportEmail(subscriber: any, notes: any[], miles
         `;
 
         await resend.emails.send({
-            from: 'Achtrex Project Updates <onboarding@resend.dev>',
+            from: 'Achtrex Project Updates <support@achtrex.com>',
             to: subscriber.email,
             subject: `Weekly Progress Report - ${new Date().toLocaleDateString()}`,
             html: html,
@@ -356,7 +356,7 @@ export async function sendPayslipEmail(member: any, payroll: any) {
         `;
 
         await resend.emails.send({
-            from: 'Achtrex HR <onboarding@resend.dev>',
+            from: 'Achtrex HR <support@achtrex.com>',
             to: member.email,
             subject: `Payslip Available: ${formattedDate}`,
             html: html,
