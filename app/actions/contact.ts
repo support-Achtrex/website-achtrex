@@ -66,7 +66,7 @@ export async function submitContactForm(formData: FormData) {
         `;
 
         await resend.emails.send({
-            from: 'Achtrex Website <onboarding@resend.dev>',
+            from: 'Achtrex Website <support@achtrex.com>',
             to: 'support@achtrex.com',
             subject: `New Lead: ${name} (${company || 'No Company'})`,
             html: adminHtml,
