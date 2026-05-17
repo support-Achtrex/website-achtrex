@@ -27,7 +27,7 @@ export default async function TeamPage() {
             {/* Add Member Form */}
             <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
                 <h3 className="text-lg font-bold text-gray-800 mb-4">Add New Member</h3>
-                <form action={addTeamMember} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form action={async (formData) => { await addTeamMember(formData); }} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input name="name" placeholder="Full Name" required className="p-3 border rounded-xl" />
                     <input name="role" placeholder="Role (e.g. CEO)" required className="p-3 border rounded-xl" />
                     <input name="email" placeholder="Email" required className="p-3 border rounded-xl" />
