@@ -1,6 +1,9 @@
 import React from 'react';
 import { Plus, Upload } from 'lucide-react';
 import AdminSidebar from '@/components/admin/sidebar';
+import fs from 'fs';
+import path from 'path';
+import { revalidatePath } from 'next/cache';
 import AdminTopbar from '@/components/admin/topbar';
 import StatsCards from '@/components/admin/stats-cards';
 import AnalyticsWidget from '@/components/admin/analytics-widget';
@@ -10,6 +13,23 @@ import ProjectProgress from '@/components/admin/project-progress';
 import TotalViewsWidget from '@/components/admin/total-views-widget';
 
 export default function AdminDashboard() {
+    const filePath = path.join(process.cwd(), 'lib', 'payment-details.json');
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const paymentDetails = JSON.parse(fileContent);
+
+    async function updatePaymentDetails(formData: FormData) {
+        'use server';
+        const details = {
+            bank_name: formData.get('bank_name') as string,
+            account_name: formData.get('account_name') as string,
+            account_number: formData.get('account_number') as string,
+            swift_bic: formData.get('swift_bic') as string,
+        };
+        const fPath = path.join(process.cwd(), 'lib', 'payment-details.json');
+        fs.writeFileSync(fPath, JSON.stringify(details, null, 2));
+        revalidatePath('/admin');
+    }
+
     return (
         <>
 
@@ -53,6 +73,34 @@ export default function AdminDashboard() {
                 <div className="lg:col-span-1 h-64">
                     <TotalViewsWidget />
                 </div>
+            </div>
+
+            {/* Payment Details Section */}
+            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm mb-6">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Payment Details</h2>
+                <form action={updatePaymentDetails} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Bank Name</label>
+                        <input type="text" name="bank_name" defaultValue={paymentDetails.bank_name} className="border border-gray-200 rounded-lg px-3 py-2 w-full text-sm" />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Account Name</label>
+                        <input type="text" name="account_name" defaultValue={paymentDetails.account_name} className="border border-gray-200 rounded-lg px-3 py-2 w-full text-sm" />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Account Number</label>
+                        <input type="text" name="account_number" defaultValue={paymentDetails.account_number} className="border border-gray-200 rounded-lg px-3 py-2 w-full text-sm" />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">SWIFT/BIC</label>
+                        <input type="text" name="swift_bic" defaultValue={paymentDetails.swift_bic} className="border border-gray-200 rounded-lg px-3 py-2 w-full text-sm" />
+                    </div>
+                    <div className="md:col-span-2 text-right">
+                        <button type="submit" className="bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
+                            Save Payment Details
+                        </button>
+                    </div>
+                </form>
             </div>
         </>
     );

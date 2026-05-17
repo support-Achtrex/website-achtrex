@@ -11,9 +11,10 @@ import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
 interface InvoiceViewProps {
   payment: any;
   client: any;
+  paymentDetails: any;
 }
 
-export default function InvoiceView({ payment, client }: InvoiceViewProps) {
+export default function InvoiceView({ payment, client, paymentDetails }: InvoiceViewProps) {
 
   const [isPending, startTransition] = useTransition();
   const [emailStatus, setEmailStatus] = useState<string | null>(null);
@@ -105,6 +106,7 @@ export default function InvoiceView({ payment, client }: InvoiceViewProps) {
           payment={payment}
           client={client}
           logoSrc="/images/achtrex-logo.png"
+          paymentDetails={paymentDetails}
         />
       </div>
     </div>

@@ -199,6 +199,10 @@ export async function generateInvoicePDF(data: InvoiceData, title: string = 'Inv
 
         const doc = new jsPDF();
         
+        const filePath = path.join(process.cwd(), 'lib', 'payment-details.json');
+        const fileContent = fs.readFileSync(filePath, 'utf8');
+        const paymentDetails = JSON.parse(fileContent);
+
         // Header
         doc.setFontSize(24);
         doc.setTextColor(17, 24, 39); // #111827
@@ -316,10 +320,10 @@ export async function generateInvoicePDF(data: InvoiceData, title: string = 'Inv
         
         doc.setTextColor(17, 24, 39);
         doc.setFont("Helvetica", "normal");
-        doc.text('Fidelity Bank', 45, 177);
-        doc.text('Achtrex Services', 45, 182);
-        doc.text('2400931904813', 45, 187);
-        doc.text('FBLIGHAC', 45, 192);
+        doc.text(`${paymentDetails.bank_name}`, 45, 177);
+        doc.text(`${paymentDetails.account_name}`, 45, 182);
+        doc.text(`${paymentDetails.account_number}`, 45, 187);
+        doc.text(`${paymentDetails.swift_bic}`, 45, 192);
         
         // Footer
         doc.setFontSize(10);

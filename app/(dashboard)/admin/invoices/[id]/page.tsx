@@ -1,6 +1,8 @@
 import { sql } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import fs from 'fs';
+import path from 'path';
 import { Download } from 'lucide-react';
 import InvoiceView from './InvoiceView';
 
@@ -40,10 +42,15 @@ export default async function InvoicePage(props: { params: Promise<{ id: string 
         return notFound();
     }
 
+    const filePath = path.join(process.cwd(), 'lib', 'payment-details.json');
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const paymentDetails = JSON.parse(fileContent);
+
     return (
         <InvoiceView
             payment={JSON.parse(JSON.stringify(payment))}
             client={client ? JSON.parse(JSON.stringify(client)) : null}
+            paymentDetails={paymentDetails}
         />
     );
 }
