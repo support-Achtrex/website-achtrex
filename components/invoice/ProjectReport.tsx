@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     logo: {
         width: 120,
         height: 50,
-        objectFit: 'contain',
     },
     reportTitle: {
         fontSize: 24,
@@ -170,7 +169,7 @@ const HtmlContent = ({ html }: { html: string }) => {
                                 marginVertical: 5,
                                 borderRadius: 4,
                                 maxHeight: 200,
-                                objectFit: 'contain'
+                                
                             }}
                         />
                     );
