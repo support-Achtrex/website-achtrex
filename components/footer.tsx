@@ -28,14 +28,19 @@ export const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Products & Platforms */}
+                    {/* Products & Services */}
                     <div>
-                        <h4 className="text-white font-bold text-lg mb-6">Products</h4>
+                        <h4 className="text-white font-bold text-lg mb-6">Products & Services</h4>
                         <ul className="space-y-4">
-                            {['Automotive Data Platform', 'AI Solutions', 'Platform Engineering', 'Strategy & Consulting'].map((item) => (
-                                <li key={item}>
-                                    <Link href="/products" className="text-muted-foreground hover:text-primary transition-colors">
-                                        {item}
+                            {[
+                                { label: 'Automotive Data Platform', href: '/products' },
+                                { label: 'AI Training', href: '/services/ai-training' },
+                                { label: 'Platform Engineering', href: '/products' },
+                                { label: 'Strategy & Consulting', href: '/products' }
+                            ].map((item) => (
+                                <li key={item.label}>
+                                    <Link href={item.href} className="text-muted-foreground hover:text-primary transition-colors">
+                                        {item.label}
                                     </Link>
                                 </li>
                             ))}
@@ -50,6 +55,7 @@ export const Footer = () => {
                                 { label: 'About Us', href: '/about-us' },
                                 { label: 'Careers', href: '/life-at-achtrex' },
                                 { label: 'Blog', href: '/blog' },
+                                { label: 'Partners', href: '/partners' },
                                 { label: 'Contact', href: '/contact-us' }
                             ].map((item) => (
                                 <li key={item.label}>
