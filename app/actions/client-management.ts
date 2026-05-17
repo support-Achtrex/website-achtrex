@@ -16,6 +16,11 @@ export async function addNote(subscriberId: number, content: string) {
     } catch (error: any) {
         console.error('Add note error:', error);
         
+        // Handle Foreign Key violation
+        if (error.message && error.message.includes('violates foreign key constraint')) {
+            return { error: 'Subscriber does not exist in the database.' };
+        }
+
         // Self-healing: If table doesn't exist, create it and retry
         if (error.message && error.message.includes('relation "client_notes" does not exist')) {
             try {
@@ -67,32 +72,20 @@ export async function recordPayment(subscriberId: number, amount: number, descri
         `;
     };
 
-    try {
-        const invoiceNum = `INV-${Date.now().toString().slice(-6)}`;
-        await executeInsert(invoiceNum);
-        
-        // Send Email
-        const clientRes = await sql`SELECT email, name FROM subscribers WHERE id = ${subscriberId}`;
-        const client = clientRes.rows[0];
+    const invoiceNum = `INV-${Date.now().toString().slice(-6)}`;
+    let inserted = false;
 
-        if (client && client.email) {
-            const { sendInvoiceEmail } = await import('../../lib/email');
-            await sendInvoiceEmail({
-                invoice_number: invoiceNum,
-                amount,
-                description,
-                status,
-                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-                client_name: client.name,
-                client_email: client.email
-            });
+    try {
+        await executeInsert(invoiceNum);
+        inserted = true;
+    } catch (error: any) {
+        console.error('Payment error during insert:', error);
+        
+        // Handle Foreign Key violation
+        if (error.message && error.message.includes('violates foreign key constraint')) {
+            return { error: 'Subscriber does not exist in the database.' };
         }
 
-        revalidatePath(`/admin/subscribers/${subscriberId}`);
-        return { success: true };
-    } catch (error: any) {
-        console.error('Payment error:', error);
-        
         // Self-healing: If table doesn't exist, create it and retry
         if (error.message && error.message.includes('relation "client_payments" does not exist')) {
             try {
@@ -110,18 +103,47 @@ export async function recordPayment(subscriberId: number, amount: number, descri
                   )
                 `;
                 
-                const invoiceNum = `INV-${Date.now().toString().slice(-6)}`;
                 await executeInsert(invoiceNum);
-                revalidatePath(`/admin/subscribers/${subscriberId}`);
-                return { success: true };
+                inserted = true;
             } catch (createError: any) {
                 console.error('Failed to auto-create client_payments table:', createError);
                 return { error: `Failed to auto-create table: ${createError.message}` };
             }
+        } else {
+            return { error: error.message || 'Failed to record payment' };
         }
-        
-        return { error: error.message || 'Failed to record payment' };
     }
+
+    // Send Email if inserted successfully
+    if (inserted) {
+        try {
+            const clientRes = await sql`SELECT email, name FROM subscribers WHERE id = ${subscriberId}`;
+            const client = clientRes.rows[0];
+
+            if (client && client.email) {
+                const { sendInvoiceEmail } = await import('../../lib/email');
+                await sendInvoiceEmail({
+                    invoice_number: invoiceNum,
+                    amount,
+                    description,
+                    status,
+                    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                    client_name: client.name,
+                    client_email: client.email
+                });
+            }
+            
+            revalidatePath(`/admin/subscribers/${subscriberId}`);
+            return { success: true };
+        } catch (emailError: any) {
+            console.error('Invoice email failed:', emailError);
+            revalidatePath(`/admin/subscribers/${subscriberId}`);
+            // Return success but with a warning about the email
+            return { success: true, warning: `Invoice recorded successfully, but notification email failed to send: ${emailError.message}` };
+        }
+    }
+
+    return { error: 'Failed to record payment' };
 }
 
 export async function deletePayment(paymentId: number, subscriberId: number) {
@@ -147,6 +169,11 @@ export async function addMilestone(subscriberId: number, milestone: string) {
     } catch (error: any) {
         console.error('Milestone error:', error);
         
+        // Handle Foreign Key violation
+        if (error.message && error.message.includes('violates foreign key constraint')) {
+            return { error: 'Subscriber does not exist in the database.' };
+        }
+
         // Self-healing: If table doesn't exist, create it and retry
         if (error.message && error.message.includes('relation "project_progress" does not exist')) {
             try {
@@ -213,6 +240,11 @@ export async function addFile(subscriberId: number, fileName: string, fileUrl: s
     } catch (error: any) {
         console.error('File add error:', error);
         
+        // Handle Foreign Key violation
+        if (error.message && error.message.includes('violates foreign key constraint')) {
+            return { error: 'Subscriber does not exist in the database.' };
+        }
+
         // Self-healing: If table doesn't exist, create it and retry
         if (error.message && error.message.includes('relation "client_files" does not exist')) {
             try {
