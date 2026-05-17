@@ -47,7 +47,7 @@ export async function submitContactForm(formData: FormData) {
             replyTo: email
         });
 
-        return { success: true };
+        return { success: true, warning: '' };
 
     } catch (error: any) {
         console.error('Resend email failed:', error);
@@ -88,7 +88,7 @@ export async function submitPartnerForm(formData: FormData) {
             replyTo: email
         });
 
-        return { success: true };
+        return { success: true, warning: '' };
 
     } catch (error: any) {
         console.error('Resend email failed:', error);
