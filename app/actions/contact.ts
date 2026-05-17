@@ -44,7 +44,7 @@ export async function submitContactForm(formData: FormData) {
             to: 'support@achtrex.com',
             subject: `New Lead: ${name} (${company || 'No Company'})`,
             html: adminHtml,
-            reply_to: email
+            replyTo: email
         });
 
         return { success: true };
@@ -85,7 +85,7 @@ export async function submitPartnerForm(formData: FormData) {
             to: 'support@achtrex.com',
             subject: `New Partner Application from ${company}`,
             html: adminHtml,
-            reply_to: email
+            replyTo: email
         });
 
         return { success: true };
