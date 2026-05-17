@@ -32,7 +32,7 @@ export const Hero = () => {
                 <div className="absolute bottom-0 left-0 right-0 h-[4px] bg-gradient-to-r from-white via-[#10b981] to-[#3b82f6] z-30 opacity-90" />
                 
                 {/* Full Height Blended Image Box (Right Side) */}
-                <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 z-0">
+                <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 z-0 opacity-20 lg:opacity-100">
                     <div className="relative w-full h-full">
                         <AnimatePresence mode="popLayout">
                             <motion.div
@@ -73,10 +73,10 @@ export const Hero = () => {
                                 Get Started
                             </button>
                             <button
-                                onClick={() => router.push('/about-us')}
+                                onClick={() => router.push('/contact-us')}
                                 className="bg-transparent hover:bg-slate-100 text-slate-900 border border-slate-300 px-8 py-3.5 font-bold text-sm transition-colors inline-block tracking-wide text-center"
                             >
-                                Our Company
+                                Let's Talk
                             </button>
                         </div>
                     </div>
