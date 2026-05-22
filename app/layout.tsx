@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/ui/toast";
 import { SmoothScrollProvider } from "@/components/smooth-scroll";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -126,7 +126,7 @@ export default function RootLayout({
             {children}
           </ToastProvider>
         </SmoothScrollProvider>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-YOUR_MEASUREMENT_ID'} />
+        <GoogleTagManager gtmId="GTM-N3733PLR" />
       </body>
     </html>
   );
