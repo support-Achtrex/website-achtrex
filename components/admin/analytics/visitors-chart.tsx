@@ -32,10 +32,10 @@ const VisitorsChart = () => {
             </div>
 
             <div className="flex items-end gap-4 mb-10">
-                <span className="text-5xl font-bold text-gray-900 font-manrope tracking-tight">827</span>
+                <span className="text-5xl font-bold text-gray-900 font-sans tracking-tight">827</span>
                 <div className="flex items-center gap-1.5 text-emerald-500 mb-2 bg-emerald-50/80 px-2.5 py-1 rounded-full border border-emerald-100">
                     <ArrowUp size={16} strokeWidth={3} />
-                    <span className="text-sm font-bold font-manrope">3%</span>
+                    <span className="text-sm font-bold font-sans">3%</span>
                 </div>
             </div>
 
@@ -56,13 +56,13 @@ const VisitorsChart = () => {
                             dataKey="name"
                             axisLine={false}
                             tickLine={false}
-                            tick={{ fill: '#9ca3af', fontSize: 12, fontFamily: 'var(--font-manrope)' }}
+                            tick={{ fill: '#9ca3af', fontSize: 12, fontFamily: 'var(--font-sans)' }}
                             dy={15}
                         />
                         <YAxis
                             axisLine={false}
                             tickLine={false}
-                            tick={{ fill: '#9ca3af', fontSize: 12, fontFamily: 'var(--font-manrope)' }}
+                            tick={{ fill: '#9ca3af', fontSize: 12, fontFamily: 'var(--font-sans)' }}
                             tickFormatter={(value) => value >= 1000 ? `${value / 1000}K` : value}
                         />
                         <Tooltip
@@ -70,7 +70,7 @@ const VisitorsChart = () => {
                                 borderRadius: '16px',
                                 border: 'none',
                                 boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.1)',
-                                fontFamily: 'var(--font-manrope)',
+                                fontFamily: 'var(--font-sans)',
                                 padding: '12px 16px'
                             }}
                             cursor={{ stroke: '#8b5cf6', strokeWidth: 2, strokeDasharray: '4 4' }}

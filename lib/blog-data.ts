@@ -5,7 +5,7 @@ export const blogPosts = [
         category: 'Data Engineering',
         title: 'Scaling Massive NMVTIS Data Pipelines in Real-Time',
         date: 'March 15, 2026',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+        image: '/blog/achtrex-nmvtis-pipeline.png',
         excerpt: 'Processing millions of vehicle history variables simultaneously requires advanced data structures. How the Achtrex automotive engine manages latency.',
         content: `
             <p>Processing automotive data at a national scale - specifically parsing NMVTIS data streams - presents severe algorithmic challenges. Our Automotive Data Platform ingests over 1.2 million properties daily. Building a pipeline that decodes VINs and standardizes complex strings without bottlenecking our API endpoints required a fundamental rethink of our ETL layers.</p>

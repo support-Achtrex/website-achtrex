@@ -1,4 +1,4 @@
-import { CTASection } from "@/components/cta";
+
 import { Server, ShieldAlert, Cpu, Globe2, Activity } from 'lucide-react';
 
 export const metadata = {
@@ -83,7 +83,7 @@ export default function WhyAchtrexPage() {
                 </div>
             </section>
 
-            <CTASection />
+            
         </main>
     );
 }

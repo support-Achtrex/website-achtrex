@@ -63,7 +63,7 @@ const StatsCards = () => {
                 <div key={index} className={`rounded-3xl p-px ${stat.bg === 'bg-primary' ? 'bg-primary' : 'bg-linear-to-br from-gray-200 to-gray-50'} border border-gray-100 relative overflow-hidden group hover:shadow-sm transition-shadow`}>
                     <div className={`${stat.bg} rounded-[23px] p-6 h-full`}>
                         <div className="flex justify-between items-start mb-4">
-                            <h3 className={`text-sm font-medium font-manrope ${stat.bg === 'bg-primary' ? 'text-blue-100' : 'text-gray-500'}`}>
+                            <h3 className={`text-sm font-medium font-sans ${stat.bg === 'bg-primary' ? 'text-blue-100' : 'text-gray-500'}`}>
                                 {stat.title}
                             </h3>
                             <Link href={stat.href}>
@@ -78,10 +78,10 @@ const StatsCards = () => {
                         </div>
 
                         <div className="flex items-center gap-2 whitespace-nowrap">
-                            <div className={`px-1.5 py-0.5 rounded text-[10px] font-bold font-manrope ${stat.bg === 'bg-primary' ? 'bg-white/20 text-white' : 'bg-green-100 text-green-700'}`}>
+                            <div className={`px-1.5 py-0.5 rounded text-[10px] font-bold font-sans ${stat.bg === 'bg-primary' ? 'bg-white/20 text-white' : 'bg-green-100 text-green-700'}`}>
                                 {stat.trend === 'up' ? '-' : '+'}
                             </div>
-                            <span className={`text-xs font-manrope ${stat.subtext}`}>
+                            <span className={`text-xs font-sans ${stat.subtext}`}>
                                 {stat.change}
                             </span>
                         </div>

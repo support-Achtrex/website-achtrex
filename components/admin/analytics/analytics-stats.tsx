@@ -20,7 +20,7 @@ const StatCard = ({
                 <Icon size={26} strokeWidth={2} />
             </div>
             <div>
-                <h3 className="text-3xl font-bold text-gray-900 font-manrope tracking-tight">{value}</h3>
+                <h3 className="text-3xl font-bold text-gray-900 font-sans tracking-tight">{value}</h3>
                 <p className="text-sm text-gray-500 font-medium font-montserrat">{label}</p>
             </div>
         </div>

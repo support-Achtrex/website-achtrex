@@ -111,7 +111,7 @@ export default function BlogEditor() {
                                 <input
                                     type="text"
                                     placeholder="Enter post title..."
-                                    className="text-xl font-bold text-gray-900 placeholder:text-gray-300 outline-none bg-transparent font-manrope w-96"
+                                    className="text-xl font-bold text-gray-900 placeholder:text-gray-300 outline-none bg-transparent font-sans w-96"
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
                                 />
@@ -125,14 +125,14 @@ export default function BlogEditor() {
                     <div className="flex items-center gap-3">
                         <button
                             onClick={handlePreview}
-                            className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-gray-600 text-sm font-bold hover:bg-gray-50 transition-colors font-manrope"
+                            className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-gray-600 text-sm font-bold hover:bg-gray-50 transition-colors font-sans"
                         >
                             <Eye size={16} />
                             <span>Preview</span>
                         </button>
                         <button
                             onClick={handleSave}
-                            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1E1E1E] text-white text-sm font-bold hover:bg-black transition-colors font-manrope shadow-lg shadow-gray-200"
+                            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1E1E1E] text-white text-sm font-bold hover:bg-black transition-colors font-sans shadow-lg shadow-gray-200"
                         >
                             <Check size={16} />
                             <span>Save & Close</span>
@@ -154,7 +154,7 @@ export default function BlogEditor() {
                                 type="text"
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
-                                className="font-manrope font-bold text-4xl mb-6 w-full border-none outline-none bg-transparent placeholder:text-gray-300"
+                                className="font-sans font-bold text-4xl mb-6 w-full border-none outline-none bg-transparent placeholder:text-gray-300"
                                 placeholder="Post Title"
                             />
                             <EditorContent editor={editor} />

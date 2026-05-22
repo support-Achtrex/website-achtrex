@@ -10,12 +10,12 @@ const RecentBlogsList = () => {
             <div className="bg-white rounded-[23px] p-6 h-full border border-transparent flex flex-col">
                 <div className="flex justify-between items-center mb-6">
                     <div>
-                        <h3 className="text-lg font-bold text-gray-900 font-manrope">Recent Blogs</h3>
+                        <h3 className="text-lg font-bold text-gray-900 font-sans">Recent Blogs</h3>
                         <p className="text-xs text-gray-500 font-montserrat mt-1">Latest updates from your team</p>
                     </div>
                     <Link 
                         href="/admin/blogs/new"
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-900 text-white text-xs font-bold hover:bg-gray-800 transition-all shadow-lg shadow-gray-200 font-manrope"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-900 text-white text-xs font-bold hover:bg-gray-800 transition-all shadow-lg shadow-gray-200 font-sans"
                     >
                         <Plus size={14} />
                         <span>New Post</span>
@@ -37,7 +37,7 @@ const RecentBlogsList = () => {
 
                             {/* Content */}
                             <div className="flex-1 min-w-0">
-                                <h4 className="text-sm font-bold text-gray-700 group-hover:text-primary transition-colors line-clamp-2 font-manrope leading-snug">
+                                <h4 className="text-sm font-bold text-gray-700 group-hover:text-primary transition-colors line-clamp-2 font-sans leading-snug">
                                     {blog.title}
                                 </h4>
                             </div>
@@ -51,7 +51,7 @@ const RecentBlogsList = () => {
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-gray-50 text-center">
-                    <Link href="/admin/blogs" className="text-xs font-bold text-gray-500 hover:text-primary transition-colors font-manrope">
+                    <Link href="/admin/blogs" className="text-xs font-bold text-gray-500 hover:text-primary transition-colors font-sans">
                         View All Posts
                     </Link>
                 </div>

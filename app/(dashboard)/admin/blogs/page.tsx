@@ -18,10 +18,10 @@ export default function AdminBlogsPage() {
         <div className="space-y-8">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900 font-manrope">Blogs</h1>
+                    <h1 className="text-2xl font-bold text-gray-900 font-sans">Blogs</h1>
                     <p className="text-sm text-gray-500 font-montserrat mt-1">Manage and track your blog posts performance</p>
                 </div>
-                <Link href="/admin/blogs/new" className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-primary/90 transition-colors shadow-[0_4px_14px_rgba(0,90,176,0.3)] font-manrope">
+                <Link href="/admin/blogs/new" className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-primary/90 transition-colors shadow-[0_4px_14px_rgba(0,90,176,0.3)] font-sans">
                     <Plus size={18} />
                     <span>New Post</span>
                 </Link>

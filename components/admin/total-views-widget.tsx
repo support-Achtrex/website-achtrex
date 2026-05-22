@@ -9,7 +9,7 @@ const TotalViewsWidget = () => {
                     <div className="p-2 bg-blue-50 text-blue-600 rounded-xl">
                         <Eye size={20} />
                     </div>
-                    <span className="flex items-center gap-1 text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full font-manrope">
+                    <span className="flex items-center gap-1 text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full font-sans">
                         <TrendingUp size={12} />
                         +12.5%
                     </span>
@@ -17,7 +17,7 @@ const TotalViewsWidget = () => {
                 
                 <div>
                     <h3 className="text-sm font-medium text-gray-500 font-montserrat mb-1">Total Views</h3>
-                    <div className="text-3xl font-bold text-gray-900 font-manrope">
+                    <div className="text-3xl font-bold text-gray-900 font-sans">
                         45.2k
                     </div>
                 </div>

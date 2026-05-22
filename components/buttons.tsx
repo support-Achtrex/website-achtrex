@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes } from 'react';
-import { cn } from '@/lib/utils'; // Assuming cn utility exists, otherwise I'll fallback
+import { cn } from '@/lib/utils';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
@@ -14,20 +14,19 @@ export const Button = ({
     ...props
 }: ButtonProps) => {
 
-    // Manual class merging if cn doesn't exist (I'll assume it doesn't to be safe or use simple template literals)
-    const baseStyles = 'font-semibold rounded-full transition-all duration-300 inline-flex items-center justify-center relative group overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed';
+    const baseStyles = 'font-semibold rounded-md transition-all duration-300 inline-flex items-center justify-center relative disabled:opacity-50 disabled:cursor-not-allowed';
 
     const variants = {
-        primary: 'bg-logo-gradient hover:opacity-95 text-white shadow-xl',
-        secondary: 'bg-secondary hover:bg-secondary/90 text-white shadow-[0_0_20px_-5px_var(--secondary)]',
-        outline: 'border border-white/20 hover:border-primary/50 text-white hover:bg-white/5 backdrop-blur-sm',
-        ghost: 'bg-transparent hover:bg-white/10 text-white'
+        primary: 'bg-[#111112] text-white hover:bg-gray-800',
+        secondary: 'bg-white text-[#111112] border border-[#e5e5e5] hover:bg-gray-50 hover:border-gray-300',
+        outline: 'border border-[#e5e5e5] text-[#111112] hover:bg-gray-50',
+        ghost: 'bg-transparent text-[#111112] hover:bg-gray-50'
     };
 
     const sizes = {
         sm: 'px-4 py-2 text-sm',
-        md: 'px-6 py-3 text-base',
-        lg: 'px-8 py-4 text-lg'
+        md: 'px-6 py-2.5 text-base',
+        lg: 'px-8 py-3.5 text-[17px]'
     };
 
     return (
@@ -35,7 +34,6 @@ export const Button = ({
             className={cn(baseStyles, variants[variant], sizes[size], className)}
             {...props}
         >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] skew-x-12 pointer-events-none" />
             <span className="relative z-10 flex items-center justify-center gap-2">{children}</span>
         </button>
     );

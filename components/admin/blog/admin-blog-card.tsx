@@ -55,7 +55,7 @@ export function AdminBlogCard({ slug, category, title, date, image, views, readT
                             <div className="absolute right-0 top-full mt-2 w-32 bg-white rounded-xl shadow-xl border border-gray-100 py-1 z-30 animate-in fade-in zoom-in-95 duration-100">
                                 <Link
                                     href={`/admin/blogs/new`} // Linking to new for demo as requested
-                                    className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors font-manrope"
+                                    className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors font-sans"
                                     onClick={(e) => e.stopPropagation()}
                                 >
                                     <Edit size={14} />
@@ -63,7 +63,7 @@ export function AdminBlogCard({ slug, category, title, date, image, views, readT
                                 </Link>
                                 <button
                                     onClick={handleDelete}
-                                    className="w-full flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors font-manrope text-left"
+                                    className="w-full flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors font-sans text-left"
                                 >
                                     <Trash2 size={14} />
                                     Delete
@@ -97,7 +97,7 @@ export function AdminBlogCard({ slug, category, title, date, image, views, readT
                     <span>{date}</span>
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-4 line-clamp-2 font-manrope group-hover:text-primary transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 line-clamp-2 font-sans group-hover:text-primary transition-colors">
                     {title}
                 </h3>
 

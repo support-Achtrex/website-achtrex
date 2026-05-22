@@ -26,7 +26,7 @@ const AnalyticsWidget = () => {
                                 dataKey="day"
                                 axisLine={false}
                                 tickLine={false}
-                                tick={{ fill: '#9ca3af', fontSize: 12, fontWeight: 500, fontFamily: 'var(--font-manrope)' }}
+                                tick={{ fill: '#9ca3af', fontSize: 12, fontWeight: 500, fontFamily: 'var(--font-sans)' }}
                                 dy={10}
                             />
                             <Bar dataKey="value" radius={[20, 20, 20, 20]}>

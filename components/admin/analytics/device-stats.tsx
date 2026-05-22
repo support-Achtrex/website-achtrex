@@ -34,8 +34,8 @@ const DeviceStats = () => {
             <div className="mb-8">
                 <p className="text-xs text-gray-500 mb-2 font-montserrat font-medium uppercase tracking-wide">Total visitors</p>
                 <div className="flex items-center gap-3">
-                    <span className="text-4xl font-bold text-gray-900 font-manrope tracking-tight">2147</span>
-                    <span className="bg-emerald-50 text-emerald-500 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-100 font-manrope">+8.21%</span>
+                    <span className="text-4xl font-bold text-gray-900 font-sans tracking-tight">2147</span>
+                    <span className="bg-emerald-50 text-emerald-500 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-100 font-sans">+8.21%</span>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@ const DeviceStats = () => {
 
                             {/* Value Label */}
                             <span
-                                className="absolute top-1/2 -translate-y-1/2 text-[10px] font-bold text-gray-700 ml-3 font-manrope"
+                                className="absolute top-1/2 -translate-y-1/2 text-[10px] font-bold text-gray-700 ml-3 font-sans"
                                 style={{ left: `${device.value}%` }}
                             >
                                 {device.value}%
@@ -72,7 +72,7 @@ const DeviceStats = () => {
             </div>
 
             {/* X Axis Labels */}
-            <div className="flex justify-between text-[10px] font-medium text-gray-400 pl-20 pr-4 mb-8 font-manrope">
+            <div className="flex justify-between text-[10px] font-medium text-gray-400 pl-20 pr-4 mb-8 font-sans">
                 <span>0%</span>
                 <span>25%</span>
                 <span>50%</span>

@@ -1,4 +1,4 @@
-import { CTASection } from "@/components/cta";
+
 import PartnerForm from "./PartnerForm";
 import { Metadata } from "next";
 
@@ -60,7 +60,7 @@ export default function PartnersPage() {
             {/* Form Section */}
             <PartnerForm />
             
-            <CTASection />
+            
         </main>
     );
 }

@@ -17,19 +17,13 @@ export const PillarsSection = () => {
             title: 'LUMI AI Platform',
             description: 'Intelligent AI agents and reasoning frameworks designed to automate workflows and deliver real-time insights.',
             color: 'from-purple-600 to-pink-700'
-        },
-        {
-            image: '/projects/vehiclereport_full.jpg',
-            title: 'Global Data Reports',
-            description: 'High-fidelity vehicle history verification, normalizing fragmented records into a single source of truth.',
-            color: 'from-orange-500 to-red-600'
         }
     ];
 
     return (
         <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
                     {pillars.map((pillar, idx) => (
                         <motion.div
                             key={idx}

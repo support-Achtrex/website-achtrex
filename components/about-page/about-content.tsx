@@ -2,195 +2,192 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Rocket, Target, Cpu, ShieldCheck, Car, Bot, User, CheckCircle2, Globe, Database, Compass, Eye, Wrench, Zap, Layers, BarChart3 } from 'lucide-react';
+import { Database, Bot, LayoutTemplate, Globe, ShieldCheck } from 'lucide-react';
 
 export const AboutContent = () => {
     return (
-        <section className="bg-black relative pt-32 lg:pt-40 overflow-hidden text-white">
-            {/* Top Accent Line */}
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-white via-[#10b981] to-[#3b82f6] z-50" />
-
-            {/* Background: Horizontal Black to Purple with Perforated Texture */}
-            <div className="absolute inset-0 z-0 flex">
-                <div className="w-[60%] bg-black h-full" />
-                <div className="w-[40%] h-full relative" 
-                     style={{ 
-                        background: 'linear-gradient(to right, #000 0%, #2e1065 100%)'
-                     }}>
-                    <div className="absolute inset-0 opacity-[0.2]" 
-                         style={{ 
-                            backgroundImage: `radial-gradient(circle at center, white 1px, transparent 1px)`,
-                            backgroundSize: '24px 24px'
-                         }} 
-                    />
+        <section className="bg-white text-[#111112] font-sans">
+            
+            {/* Hero Banner */}
+            <div className="bg-[#005AB0] text-white pt-40 pb-24 px-6 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/10 to-transparent pointer-events-none" />
+                <div className="max-w-[1200px] mx-auto relative z-10">
+                    <h1 className="text-[48px] md:text-[64px] font-bold mb-6">About Achtrex</h1>
+                    <p className="text-xl md:text-3xl max-w-4xl font-light leading-relaxed text-white/90">
+                        Building Intelligent Automotive Infrastructure for the Future of Mobility
+                    </p>
                 </div>
-                <div className="absolute top-0 left-[50%] bottom-0 w-[20%] bg-gradient-to-r from-black to-transparent z-1" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10 pb-32">
-                
-                {/* 1. STRATEGIC THESIS */}
-                <div id="strategic-thesis" className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40 pt-10">
-                    <div className="lg:col-span-12 mb-8">
-                         <nav className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">
-                            <span>Company</span>
-                            <span className="opacity-50">/</span>
-                            <span className="text-white font-black">About Us</span>
-                        </nav>
-                    </div>
+            {/* Intro Section */}
+            <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-32 border-b border-gray-200">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
                     <div className="lg:col-span-5">
-                         <h2 className="text-gradient font-bold uppercase tracking-widest text-xs mb-6">Strategic Thesis</h2>
-                         <h3 className="text-3xl md:text-5xl font-bold mb-8 leading-tight tracking-tight">
-                            We build platforms as assets,<br/> not projects as services.
-                         </h3>
+                        <h2 className="text-3xl font-bold text-[#005AB0] mb-6">Who We Are</h2>
+                        <div className="w-16 h-1 bg-[#10b981] mb-8" />
                     </div>
-                    <div className="lg:col-span-7 space-y-8 text-gray-400 text-lg leading-relaxed border-l border-white/10 pl-8 lg:pl-16">
+                    <div className="lg:col-span-7 space-y-6 text-xl text-gray-700 leading-relaxed font-light">
                         <p>
-                            Achtrex is an autonomous enterprise technology laboratory. We operate under the core conviction that the traditional digital agency model is fundamentally flawed for high-leverage growth. Instead, we position ourselves as an incubator of architectural assets.
+                            Achtrex is a technology-driven automotive intelligence company focused on building scalable automotive datasets, enterprise API infrastructure, and AI-powered vehicle intelligence platforms for the global mobility ecosystem.
                         </p>
                         <p>
-                            Our operations are focused exclusively on **Infrastructure-as-a-Product**. By owning the underlying mechanisms of data aggregation, specific-use APIs, and autonomous reasoning frameworks, we provide our stakeholders with unfiltered access to technology that scales without the overhead of bespoke development.
+                            Our mission is to modernize how automotive data is accessed, interpreted, and utilized by dealerships, insurers, marketplaces, fleet operators, developers, and mobility technology companies worldwide.
+                        </p>
+                        <p>
+                            We are developing one of the most advanced intelligent automotive ecosystems by combining large-scale vehicle datasets, real-time integrations, enterprise APIs, and artificial intelligence technologies into a unified automotive infrastructure platform.
                         </p>
                     </div>
                 </div>
-
-                {/* 2. LEADERSHIP & OWNERSHIP */}
-                <div id="ownership" className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center mb-48">
-                    <div className="lg:col-span-4">
-                         <div className="relative aspect-[4/5] bg-gray-900 overflow-hidden border border-white/10 grayscale-[0.3] hover:grayscale-0 transition-all duration-1000 shadow-2xl">
-                            <Image 
-                                src="/team/achim_real.jpg" 
-                                alt="Achim Godwin Tetteh" 
-                                fill
-                                className="object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                            <div className="absolute bottom-8 left-8">
-                                <p className="text-white font-bold text-2xl tracking-tight">Achim Godwin Tetteh</p>
-                                <p className="text-logo-gradient text-sm font-bold uppercase tracking-widest mt-1">Founder & Chief Architect</p>
-                            </div>
-                         </div>
-                    </div>
-                    <div className="lg:col-span-8 space-y-10">
-                        <header>
-                            <h2 className="text-gradient font-bold uppercase tracking-widest text-xs mb-4">Architectural Leadership</h2>
-                            <h3 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">Driven by a global <br className="hidden lg:block"/> engineering mindset.</h3>
-                        </header>
-                        
-                        <div className="space-y-8 text-gray-400 text-lg md:text-xl leading-relaxed max-w-3xl">
-                            <p>
-                                Achim Godwin Tetteh founded Achtrex to resolve the fundamental asymmetry in technology delivery. By focusing on **Product over Service**, he has built a distributed laboratory capable of standing up complex infrastructure synchronously across major global timezones.
-                            </p>
-                            <p className="text-white font-medium border-l-2 border-logo-gradient-start pl-8 italic">
-                                "Our immediate mission is the commoditization of transparency within the mobility sector. We are architecting the infrastructure required to provide absolute **global coverage on every vehicle history in the world**, eliminating information asymmetry for every stakeholder in the automotive value chain."
-                            </p>
-                            <p>
-                                Every asset in the Achtrex portfolio is owned and maintained by an elite, global team of senior developers. This ensures that our systems are not only built for today but are architected for the sheer scale of the automated world.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* 3. MISSION & VISION (New Replacement) */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/10 border border-white/10 mb-48">
-                    <div className="bg-black p-12 lg:p-20 relative overflow-hidden group">
-                        <div className="relative z-10">
-                            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-logo-gradient-start mb-8 block">Our Mission</h2>
-                            <p className="text-2xl md:text-4xl font-bold text-white leading-tight">
-                                To engineer the foundational protocols and API sub-structures required for planetary-scale data intelligence and autonomous operations.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="bg-black p-12 lg:p-20 relative overflow-hidden group border-t lg:border-t-0 lg:border-l border-white/10">
-                        <div className="relative z-10">
-                            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-logo-gradient-end mb-8 block">Our Vision</h2>
-                            <p className="text-2xl md:text-4xl font-bold text-white leading-tight">
-                                To consolidate global data opacity into a unified, mathematically verifiable infrastructure layer that accelerates technological velocity.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* 4. WHAT WE BUILD (New Replacement) */}
-                <div className="mb-48">
-                    <div className="flex items-center justify-between mb-16 border-b border-white/10 pb-8">
-                        <div>
-                            <h2 className="text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Portfolio Focus</h2>
-                            <h3 className="text-4xl font-bold tracking-tighter">What We Build</h3>
-                        </div>
-                        <p className="text-gray-400 text-lg max-w-md text-right hidden lg:block">
-                            At Achtrex, we focus on developing scalable and globally applicable technology platforms.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        {/* Automotive */}
-                        <div className="flex flex-col gap-4 items-start">
-                            <h4 className="text-2xl font-bold mb-2">Global Telemetry Data Platform</h4>
-                            <p className="text-gray-400 leading-relaxed text-lg mb-6">
-                                An ultra-low latency gateway aggregating deeply fragmented automotive data across continents into a unified, queryable schema for enterprise integrators.
-                            </p>
-                        </div>
-
-                        {/* CarKasa */}
-                        <div className="flex flex-col gap-4 items-start">
-                            <h4 className="text-2xl font-bold mb-2">CarKasa Asset Index</h4>
-                            <p className="text-gray-400 leading-relaxed text-lg mb-6">
-                                A high-availability transaction protocol combining localized market intelligence, structured vehicle valuation, and verified ledger asset tracking.
-                            </p>
-                        </div>
-
-                        {/* Vehicle Report Check */}
-                        <div className="flex flex-col gap-4 items-start">
-                            <h4 className="text-2xl font-bold mb-2">Omni-Vehicle Verification Protocol</h4>
-                            <p className="text-gray-400 leading-relaxed text-lg mb-6">
-                                A forensic aggregation engine that compiles millions of distinct origin nodes into an undisputed truth mechanism for cross-border vehicle lifecycle analysis.
-                            </p>
-                        </div>
-
-                        {/* LUMI */}
-                        <div className="flex flex-col gap-4 items-start">
-                            <h4 className="text-2xl font-bold mb-2">LUMI, Autonomous Agent Architecture</h4>
-                            <p className="text-gray-400 leading-relaxed text-lg mb-6">
-                                A proprietary cognitive framework built to interpret complex enterprise logic, autonomously synthesize datasets, and execute deterministic workflows with millisecond latency.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* 5. OUR APPROACH (New Replacement) */}
-                <div className="bg-[#0a0f1c] border border-white/5 p-12 lg:p-20 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-[300px] h-full bg-logo-gradient opacity-[0.03] blur-[120px] pointer-events-none" />
-                    
-                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16">
-                        <div className="lg:col-span-5">
-                            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-8 block">Our Approach</h2>
-                            <p className="text-2xl font-bold text-white leading-tight mb-8">
-                                Platform-First Engineering.
-                            </p>
-                            <p className="text-gray-400 leading-relaxed font-medium">
-                                Our goal is to create solutions that are adaptable, efficient, and capable of powering the next generation of digital applications through architectural ownership.
-                            </p>
-                        </div>
-                        
-                        <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-12">
-                            {[
-                                { title: "Scalability & Performance", text: "Optimized for extreme throughput and negligible latency." },
-                                { title: "Global Use Cases", text: "Architected for cross-border applicability and localization." },
-                                { title: "Modern Practices", text: "Built with the latest engineering paradigms and CI/CD." },
-                                { title: "Continuous Innovation", text: "Leveraging state-of-the-art developments in Data and AI." }
-                            ].map((item, idx) => (
-                                <div key={idx} className="space-y-4 border-l-2 border-white/5 pl-6">
-                                    <h5 className="font-bold text-lg text-white">{item.title}</h5>
-                                    <p className="text-sm text-gray-500 leading-relaxed">{item.text}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+            {/* Leadership (Moved up) */}
+            <div className="bg-gray-50 py-20 lg:py-32 border-b border-gray-200">
+                <div className="max-w-[1200px] mx-auto px-6">
+                    <div className="mb-16">
+                        <h2 className="text-4xl font-bold text-[#111112] mb-4">Architectural Leadership</h2>
+                        <div className="w-16 h-1 bg-[#005AB0]" />
+                    </div>
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                        <div className="lg:col-span-4">
+                            <div className="relative aspect-[4/5] bg-gray-100 shadow-xl overflow-hidden rounded-xl">
+                                <Image 
+                                    src="/team/achim_real.jpg" 
+                                    alt="Achim Godwin Tetteh" 
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                        </div>
+                        <div className="lg:col-span-8">
+                            <h3 className="text-3xl font-bold mb-2">Achim Godwin Tetteh</h3>
+                            <p className="text-[#005AB0] font-bold uppercase tracking-wider text-sm mb-8">Founder & Chief Architect</p>
+                            
+                            <div className="space-y-6 text-xl text-gray-700 leading-relaxed font-light">
+                                <p>
+                                    With a relentless focus on enterprise-grade architecture, Achim Godwin Tetteh founded Achtrex to resolve the immense data fragmentation currently hindering the global mobility ecosystem.
+                                </p>
+                                <blockquote className="border-l-4 border-[#10b981] pl-6 italic font-medium text-gray-900 my-8">
+                                    "The future of the automotive industry isn't just connected; it's autonomous and data-driven. Our mandate is to build the definitive API infrastructure and AI reasoning layers required to power this next generation of global mobility—ensuring total data transparency and extreme scalability for our enterprise partners."
+                                </blockquote>
+                                <p>
+                                    By prioritizing scalable platforms over bespoke projects, Achim directs the engineering of Achtrex’s core assets, including our high-frequency data pipelines and the LUMI AI cognitive framework. His architectural vision ensures that every system we deploy can seamlessly process millions of data points across global timezones without compromising latency or reliability.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* What We Build */}
+            <div className="py-20 lg:py-32">
+                <div className="max-w-[1200px] mx-auto px-6">
+                    <div className="mb-16">
+                        <h2 className="text-4xl font-bold text-[#111112] mb-4">What We Build</h2>
+                        <div className="w-16 h-1 bg-[#005AB0]" />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        {/* Infra */}
+                        <div className="bg-white p-10 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                            <Database className="w-12 h-12 text-[#10b981] mb-6" />
+                            <h3 className="text-2xl font-bold mb-4">Automotive Data Infrastructure</h3>
+                            <p className="text-gray-600 leading-relaxed">
+                                Through platforms such as AutomotiveDataset.com, we provide scalable automotive data systems designed to power VIN intelligence, vehicle specifications, analytics, and enterprise-grade automotive integrations. Our infrastructure is designed to support developers, dealerships, insurance providers, fleet operators, and automotive technology companies requiring reliable and scalable automotive data solutions.
+                            </p>
+                        </div>
+
+                        {/* AI */}
+                        <div className="bg-white p-10 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                            <Bot className="w-12 h-12 text-[#10b981] mb-6" />
+                            <h3 className="text-2xl font-bold mb-4">AI-Powered Vehicle Intelligence</h3>
+                            <p className="text-gray-600 leading-relaxed">
+                                LUMI represents our next-generation AI-powered automotive intelligence initiative designed to deliver intelligent vehicle reasoning, predictive insights, conversational automotive assistance, and advanced mobility intelligence. By combining AI with structured automotive datasets, we are building systems that can transform how automotive decisions are made across the industry.
+                            </p>
+                        </div>
+
+                        {/* Enterprise Platforms */}
+                        <div className="bg-white p-10 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                            <LayoutTemplate className="w-12 h-12 text-[#10b981] mb-6" />
+                            <h3 className="text-2xl font-bold mb-4">Enterprise Automotive Platforms</h3>
+                            <p className="text-gray-600 leading-relaxed mb-4">
+                                Our ecosystem also includes specialized automotive platforms and use cases including:
+                            </p>
+                            <ul className="space-y-2 text-gray-600 list-disc pl-5">
+                                <li>Automotive commerce solutions</li>
+                                <li>Vehicle intelligence & reporting systems</li>
+                                <li>Intelligent dealership & service platforms</li>
+                                <li>Automotive workflow automation technologies</li>
+                            </ul>
+                            <p className="text-gray-600 mt-4 leading-relaxed">
+                                These platforms allow us to continuously validate, scale, and expand our automotive intelligence infrastructure in real-world environments.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Vision & Focus */}
+            <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-32 border-t border-gray-200">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+                    <div>
+                        <h2 className="text-3xl font-bold text-[#005AB0] mb-6">Our Vision</h2>
+                        <div className="w-16 h-1 bg-[#10b981] mb-8" />
+                        <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                            We believe the future of mobility will be driven by intelligent, connected, and data-powered systems.
+                        </p>
+                        <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                            Our vision is to build a globally scalable automotive intelligence ecosystem capable of powering the next generation of:
+                        </p>
+                        <ul className="space-y-3 text-lg text-gray-700 list-disc pl-5 font-semibold mb-6">
+                            <li>Connected vehicles</li>
+                            <li>Automotive marketplaces</li>
+                            <li>Insurance technologies</li>
+                            <li>Fleet intelligence systems</li>
+                            <li>AI-driven mobility platforms</li>
+                            <li>Intelligent automotive experiences</li>
+                        </ul>
+                        <p className="text-lg text-gray-700 leading-relaxed">
+                            Achtrex is committed to building the infrastructure layer that helps shape the future of automotive technology.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 className="text-3xl font-bold text-[#005AB0] mb-6">Our Focus</h2>
+                        <div className="w-16 h-1 bg-[#10b981] mb-8" />
+                        <ul className="space-y-6">
+                            {[
+                                "Scalable automotive datasets",
+                                "Enterprise API infrastructure",
+                                "AI-powered automotive intelligence",
+                                "Vehicle data standardization",
+                                "Mobility technology innovation",
+                                "Intelligent automotive integrations"
+                            ].map((focus, idx) => (
+                                <li key={idx} className="flex items-center gap-4 border-b border-gray-100 pb-4">
+                                    <ShieldCheck className="w-6 h-6 text-[#005AB0] shrink-0" />
+                                    <span className="text-lg text-gray-800 font-medium">{focus}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            {/* The Future */}
+            <div className="bg-[#005AB0] text-white py-20 lg:py-32">
+                <div className="max-w-[1200px] mx-auto px-6 text-center">
+                    <Globe className="w-16 h-16 mx-auto mb-8 text-white/80" />
+                    <h2 className="text-4xl font-bold mb-8">The Future</h2>
+                    <p className="text-xl md:text-2xl max-w-4xl mx-auto font-light leading-relaxed mb-8 text-white/90">
+                        As automotive technologies continue evolving toward connected, intelligent, and autonomous ecosystems, Achtrex is positioning itself at the intersection of automotive data, artificial intelligence, and scalable digital infrastructure.
+                    </p>
+                    <p className="text-xl md:text-2xl max-w-4xl mx-auto font-medium leading-relaxed">
+                        We are continuously expanding our platforms, integrations, and intelligent systems to support the future of global mobility.
+                    </p>
+                </div>
+            </div>
+
         </section>
     );
 };

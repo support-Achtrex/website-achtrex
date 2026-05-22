@@ -1,6 +1,6 @@
 import React from 'react';
 import { AboutContent } from "@/components/about-page/about-content";
-import { CTASection } from "@/components/cta";
+
 
 import { Metadata } from "next";
 
@@ -19,7 +19,7 @@ export default function AboutPage() {
     return (
         <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
             <AboutContent />
-            <CTASection />
+            
         </main>
     );
 }

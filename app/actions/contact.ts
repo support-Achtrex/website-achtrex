@@ -1,6 +1,6 @@
 'use server';
 
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 import { sql } from '@/lib/db';
 
 export async function submitContactForm(formData: FormData) {
@@ -44,10 +44,22 @@ export async function submitContactForm(formData: FormData) {
         dbErrorMessage = dbError.message || String(dbError);
     }
 
-    // 2. Send Email via Resend
+    // 2. Send Email via Nodemailer
     try {
-        const apiKey = (process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY || '').replace(/['"]/g, '');
-        const resend = new Resend(apiKey);
+        const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
+        const smtpPassword = (process.env.SMTP_PASS || '').replace(/['"]/g, '');
+
+        if (!smtpEmail || !smtpPassword) {
+            throw new Error('Missing SMTP credentials');
+        }
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: smtpEmail,
+                pass: smtpPassword
+            }
+        });
 
         const adminHtml = `
             <div style="font-family: system-ui, sans-serif; color: #333;">
@@ -65,8 +77,8 @@ export async function submitContactForm(formData: FormData) {
             </div>
         `;
 
-        await resend.emails.send({
-            from: 'Achtrex Website <support@achtrex.com>',
+        await transporter.sendMail({
+            from: `"Achtrex Website" <${smtpEmail}>`,
             to: 'support@achtrex.com',
             subject: `New Lead: ${name} (${company || 'No Company'})`,
             html: adminHtml,
@@ -114,8 +126,20 @@ export async function submitPartnerForm(formData: FormData) {
     }
 
     try {
-        const apiKey = (process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY || '').replace(/['"]/g, '');
-        const resend = new Resend(apiKey);
+        const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
+        const smtpPassword = (process.env.SMTP_PASS || '').replace(/['"]/g, '');
+
+        if (!smtpEmail || !smtpPassword) {
+            throw new Error('Missing SMTP credentials');
+        }
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: smtpEmail,
+                pass: smtpPassword
+            }
+        });
 
         const adminHtml = `
             <div style="font-family: system-ui, sans-serif; color: #333;">
@@ -130,8 +154,8 @@ export async function submitPartnerForm(formData: FormData) {
             </div>
         `;
 
-        await resend.emails.send({
-            from: 'Achtrex Partner System <onboarding@resend.dev>',
+        await transporter.sendMail({
+            from: `"Achtrex Partner System" <${smtpEmail}>`,
             to: 'support@achtrex.com',
             subject: `New Partner Application from ${company}`,
             html: adminHtml,

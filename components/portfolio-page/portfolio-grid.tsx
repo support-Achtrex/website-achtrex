@@ -18,16 +18,6 @@ interface PortfolioItem {
 
 const portfolioItems: PortfolioItem[] = [
     {
-        title: 'Carkasa',
-        description: 'Automotive Platform Use Case',
-        category: 'Platform Implementation',
-        tags: ['Marketplace', 'Next.js', 'Data Engine'],
-        images: ['/projects/carkasa-mockup.png', '/projects/carkasa_detail.png'],
-        challenge: 'The automotive market suffers from information asymmetry. Buyers often lack access to verified vehicle history and accurate sales data. This use case demonstrates how Achtrex technology provides transparency and data accuracy at scale.',
-        product: 'Utilizing Achtrex data infrastructure, we powered a verification platform integrating with global vehicle databases and auction APIs. The system features a high-performance interface for vehicle history reports and market valuations.',
-        outcome: 'Achtrex technology maintains 99.9% data accuracy for thousands of users, successfully reducing information gaps and demonstrating the scalability of our automotive data engine.',
-    },
-    {
         title: 'Automotive Dataset',
         description: 'Global Data Intelligence Solution',
         category: 'Data Platform',

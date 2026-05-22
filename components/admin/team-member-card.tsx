@@ -106,8 +106,8 @@ const TeamMemberCard = ({ member, onEdit, onDelete }: TeamMemberCardProps) => {
 
                 {/* Info */}
                 <h3 className="text-lg font-bold text-gray-800 font-display mb-1">{member.name}</h3>
-                <p className="text-xs text-gray-400 font-manrope mb-6">{member.email}</p>
-                <span className="px-3 py-1 bg-gray-50 text-gray-600 text-xs rounded-full font-medium mb-6 font-manrope">{member.role}</span>
+                <p className="text-xs text-gray-400 font-sans mb-6">{member.email}</p>
+                <span className="px-3 py-1 bg-gray-50 text-gray-600 text-xs rounded-full font-medium mb-6 font-sans">{member.role}</span>
 
                 {/* Social Actions */}
                 <div className="flex items-center gap-3 mt-auto">
