@@ -11,24 +11,26 @@ interface BlogCardProps {
 
 export function BlogCard({ slug, category, title, date, image }: BlogCardProps) {
     return (
-        <Link href={`/blog/${slug}`} className="group block p-4 border border-gray-100 rounded-xl hover:shadow-lg transition-all duration-300 bg-white">
-            <div className="relative h-60 mb-6 overflow-hidden rounded-lg">
+        <Link href={`/blog/${slug}`} className="group block bg-white">
+            <div className="relative h-[220px] mb-5 overflow-hidden rounded-lg">
                 <Image
                     src={image}
                     alt={title}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
             </div>
-            <div className="flex flex-col gap-4">
-                <span className="bg-blue-50 text-[#005AB0] px-3 py-1 rounded-md text-sm font-medium w-fit">
+            <div className="flex flex-col">
+                <span className="text-[#005AB0] font-bold tracking-wide uppercase text-xs mb-3">
                     {category}
                 </span>
-                <h3 className="text-xl font-bold text-gray-900 line-clamp-3 group-hover:text-[#005AB0] transition-colors">
+                <h3 className="text-[22px] font-bold text-[#111112] leading-snug mb-3 group-hover:text-[#005AB0] transition-colors line-clamp-3">
                     {title}
                 </h3>
-                <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-100">
-                    <span className="text-sm font-medium text-gray-500">{date}</span>
+                <div className="flex items-center gap-2 text-sm text-gray-500 font-medium mt-auto">
+                    <span>By Achtrex Engineering</span>
+                    <span>&bull;</span>
+                    <span>{date}</span>
                 </div>
             </div>
         </Link>

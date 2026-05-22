@@ -31,9 +31,9 @@ const WebsiteInsights = () => {
                 </div>
 
                 <div className="mb-10">
-                    <h2 className="text-6xl font-bold mb-3 font-manrope tracking-tighter">32%</h2>
+                    <h2 className="text-6xl font-bold mb-3 font-sans tracking-tighter">32%</h2>
                     <p className="font-medium mb-3 font-montserrat text-lg">Insight summarized in this month.</p>
-                    <p className="text-orange-50 text-sm leading-relaxed opacity-90 font-manrope">
+                    <p className="text-orange-50 text-sm leading-relaxed opacity-90 font-sans">
                         This is a summary of the statistics of visits that occurred in this month to your website.
                     </p>
                 </div>
@@ -42,13 +42,13 @@ const WebsiteInsights = () => {
                     <div className="bg-white rounded-2xl p-5 text-gray-800 shadow-sm hover:shadow-md transition-shadow">
                         <div className="flex items-center justify-between mb-3">
                             <span className="font-bold text-sm font-montserrat">Link clicked</span>
-                            <span className="text-xs text-gray-400 font-manrope">1 hour ago</span>
+                            <span className="text-xs text-gray-400 font-sans">1 hour ago</span>
                         </div>
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 rounded-full bg-emerald-500 mt-1.5 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.4)]"></div>
                             <div>
-                                <p className="text-sm font-bold mb-1 font-manrope text-gray-900">Page: /</p>
-                                <p className="text-xs text-gray-500 font-manrope">Content: /pricing</p>
+                                <p className="text-sm font-bold mb-1 font-sans text-gray-900">Page: /</p>
+                                <p className="text-xs text-gray-500 font-sans">Content: /pricing</p>
                             </div>
                         </div>
                     </div>
@@ -56,13 +56,13 @@ const WebsiteInsights = () => {
                     <div className="bg-white/90 backdrop-blur-md rounded-2xl p-5 text-gray-800 shadow-sm hover:shadow-md transition-shadow">
                         <div className="flex items-center justify-between mb-3">
                             <span className="font-bold text-sm font-montserrat">Link clicked</span>
-                            <span className="text-xs text-gray-400 font-manrope">2 hour ago</span>
+                            <span className="text-xs text-gray-400 font-sans">2 hour ago</span>
                         </div>
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 rounded-full bg-emerald-500 mt-1.5 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.4)]"></div>
                             <div>
-                                <p className="text-sm font-bold mb-1 font-manrope text-gray-900">Page: /</p>
-                                <p className="text-xs text-gray-500 font-manrope">Content: https://app.nolito.com/sign-in</p>
+                                <p className="text-sm font-bold mb-1 font-sans text-gray-900">Page: /</p>
+                                <p className="text-xs text-gray-500 font-sans">Content: https://app.nolito.com/sign-in</p>
                             </div>
                         </div>
                     </div>

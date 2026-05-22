@@ -42,14 +42,14 @@ const PagesTable = () => {
             <div className="space-y-8 px-2">
                 {pages.map((page, index) => (
                     <div key={index} className="flex items-center gap-6 group">
-                        <span className="w-32 text-sm font-bold text-gray-700 shrink-0 font-manrope">{page.name}</span>
+                        <span className="w-32 text-sm font-bold text-gray-700 shrink-0 font-sans">{page.name}</span>
                         <div className="flex-1 h-3.5 bg-gray-50 rounded-full overflow-hidden shadow-inner">
                             <div
                                 className="h-full bg-linear-to-r from-purple-400 to-purple-500 rounded-full group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-500 ease-out shadow-[0_2px_10px_rgba(168,85,247,0.3)]"
                                 style={{ width: `${page.percent}%` }}
                             ></div>
                         </div>
-                        <span className="w-16 text-right text-sm font-bold text-gray-900 font-manrope">{page.visitors}</span>
+                        <span className="w-16 text-right text-sm font-bold text-gray-900 font-sans">{page.visitors}</span>
                     </div>
                 ))}
             </div>

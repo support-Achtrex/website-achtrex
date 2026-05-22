@@ -22,7 +22,7 @@ const TeamOverview = async () => {
             <div className="bg-white rounded-[23px] p-6 h-full">
                 <div className="flex justify-between items-center mb-6">
                     <h3 className="text-lg font-bold text-gray-800 font-display">Team Members</h3>
-                    <Link href="/admin/team" className="text-xs font-medium text-primary hover:underline font-manrope">
+                    <Link href="/admin/team" className="text-xs font-medium text-primary hover:underline font-sans">
                         View All
                     </Link>
                 </div>
@@ -40,8 +40,8 @@ const TeamOverview = async () => {
                                 )}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h4 className="text-sm font-bold text-gray-800 truncate font-manrope">{member.name}</h4>
-                                <p className="text-xs text-gray-500 truncate font-manrope">{member.role}</p>
+                                <h4 className="text-sm font-bold text-gray-800 truncate font-sans">{member.name}</h4>
+                                <p className="text-xs text-gray-500 truncate font-sans">{member.role}</p>
                             </div>
                         </div>
                     ))}

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Users, Rocket, Target, Heart, Globe, Cpu, Zap, Shield, Sparkles, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/buttons';
-import { CTASection } from "@/components/cta";
+
 
 export default function LifeAtAchtrexPage() {
     return (
@@ -206,7 +206,7 @@ export default function LifeAtAchtrexPage() {
             </section>
 
             <div className="bg-black py-20">
-                <CTASection />
+                
             </div>
         </main>
     );

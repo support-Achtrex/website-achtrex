@@ -10,13 +10,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/about-us',
         '/products',
         '/products/automotive',
-        '/products/carkasa',
         '/products/lumi',
-        '/products/vehiclereport',
         '/why-achtrex',
         '/contact-us',
         '/blog',
-        '/request-quote'
+        '/request-quote',
+        '/life-at-achtrex',
+        '/partners',
+        '/press-release',
+        '/services'
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),

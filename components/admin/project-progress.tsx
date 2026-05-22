@@ -34,7 +34,7 @@ const BlogStats = () => {
                     {/* Inner Text */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
                         <span className="text-3xl font-bold text-gray-800 font-display">120</span>
-                        <span className="text-[10px] text-gray-400 font-medium font-manrope">Total Posts</span>
+                        <span className="text-[10px] text-gray-400 font-medium font-sans">Total Posts</span>
                     </div>
                 </div>
 
@@ -42,15 +42,15 @@ const BlogStats = () => {
                 <div className="flex flex-wrap justify-center gap-3 mt-6 px-2">
                     <div className="flex items-center gap-1.5">
                         <div className="w-2 h-2 rounded-full bg-primary"></div>
-                        <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap font-manrope">Published</span>
+                        <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap font-sans">Published</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                         <div className="w-2 h-2 rounded-full bg-secondary"></div>
-                        <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap font-manrope">Drafts</span>
+                        <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap font-sans">Drafts</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                         <div className="w-2 h-2 rounded-full bg-gray-200"></div>
-                        <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap font-manrope">Scheduled</span>
+                        <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap font-sans">Scheduled</span>
                     </div>
                 </div>
             </div>

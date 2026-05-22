@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/ui/toast";
+import { SmoothScrollProvider } from "@/components/smooth-scroll";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -11,15 +13,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://achtrex.com'),
   title: {
-    default: "Achtrex | Enterprise Data Architectures & Cognitive AI Platforms",
-    template: "%s | Achtrex"
+    default: "Achtrex | Global Automotive Data Infrastructure & AI Platforms",
+    template: "%s | Achtrex - Enterprise Automotive Data"
   },
   description: "Achtrex is a leading enterprise SaaS venture builder. We architect high-velocity data platforms, autonomous AI agents (LUMI), and resilient API infrastructure for automotive and global digital economies.",
   keywords: [
-    "Achtrex", "Enterprise SaaS Venture Builder", "Data Infrastructure Architecture", 
-    "Cognitive AI Platforms", "LUMI AI Agent Framework", "Automotive Intelligence Data", 
+    "Achtrex", "Enterprise SaaS Venture Builder", "Automotive Data Infrastructure", 
+    "Cognitive AI Platforms", "Global Automotive API", "Vehicle Intelligence Data", 
     "Vehicle History API", "VIN Decoding Service", "Scalable SaaS Architecture", 
-    "Real-time Telemetry Processing", "Digital Twin Technology", "Planetary Scale Data",
+    "Automotive AI Platforms", "Dealership Data Solutions", "Fleet Management API",
     "High-Velocity Data Ingestion", "Enterprise API Gateway", "Mobility Intelligence"
   ],
   authors: [{ name: "Achtrex Engineering Team", url: "https://achtrex.com" }],
@@ -53,8 +55,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Achtrex | Enterprise Data & AI Infrastructure",
-    description: "Architecting high-velocity data platforms and autonomous AI agent frameworks. Discover Achtrex's proprietary enterprise solutions.",
+    title: "Achtrex | Global Automotive Data Infrastructure & AI Platforms",
+    description: "Architecting high-velocity automotive data platforms and autonomous AI agent frameworks. Discover Achtrex's proprietary enterprise solutions for the mobility ecosystem.",
     url: "https://achtrex.com",
     siteName: "Achtrex",
     locale: "en_US",
@@ -68,8 +70,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Achtrex | Scalable Data & AI Platforms",
-    description: "Next-gen enterprise SaaS builder specializing in data architectures and cognitive AI platforms.",
+    title: "Achtrex | Global Automotive Data Infrastructure & AI Platforms",
+    description: "Architecting high-velocity automotive data platforms and cognitive AI platforms for global mobility.",
     images: ["/projects/lumi_ui_v2.jpg"],
     creator: "@achtrex",
   },
@@ -111,7 +113,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-white`}
       >
@@ -119,9 +121,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ToastProvider>
-          {children}
-        </ToastProvider>
+        <SmoothScrollProvider>
+          <ToastProvider>
+            {children}
+          </ToastProvider>
+        </SmoothScrollProvider>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-YOUR_MEASUREMENT_ID'} />
       </body>
     </html>
   );

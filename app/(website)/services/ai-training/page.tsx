@@ -154,7 +154,7 @@ export default async function AITrainingPage() {
                             </div>
                             <div className="p-4 bg-[#0b1329] flex justify-between items-center text-sm">
                                 <span className="text-gray-500 flex items-center gap-2"><Users size={14} /> 12 Min Read</span>
-                                <Link href="#" className="text-emerald-500 font-bold flex items-center gap-1 hover:text-emerald-400">
+                                <Link href="/docs" className="text-emerald-500 font-bold flex items-center gap-1 hover:text-emerald-400">
                                     Download PDF <ArrowRight size={14} />
                                 </Link>
                             </div>
@@ -169,7 +169,7 @@ export default async function AITrainingPage() {
                             </div>
                             <div className="p-4 bg-[#0b1329] flex justify-between items-center text-sm">
                                 <span className="text-gray-500 flex items-center gap-2"><Users size={14} /> 8 Min Read</span>
-                                <Link href="#" className="text-emerald-500 font-bold flex items-center gap-1 hover:text-emerald-400">
+                                <Link href="/case-studies" className="text-emerald-500 font-bold flex items-center gap-1 hover:text-emerald-400">
                                     Read Case Study <ArrowRight size={14} />
                                 </Link>
                             </div>
@@ -184,7 +184,7 @@ export default async function AITrainingPage() {
                             </div>
                             <div className="p-4 bg-[#0b1329] flex justify-between items-center text-sm">
                                 <span className="text-gray-500 flex items-center gap-2"><Users size={14} /> 15 Min Read</span>
-                                <Link href="#" className="text-emerald-500 font-bold flex items-center gap-1 hover:text-emerald-400">
+                                <Link href="/docs" className="text-emerald-500 font-bold flex items-center gap-1 hover:text-emerald-400">
                                     View Docs <ArrowRight size={14} />
                                 </Link>
                             </div>

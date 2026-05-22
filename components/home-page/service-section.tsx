@@ -1,126 +1,57 @@
-'use client';
-
 import React from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Link from 'next/link';
 
 export const ServicesGrid = () => {
-    // Custom substantial icons instead of thin outline lines
-    const SolidGlobeIcon = () => (
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" className="text-[#10b981]">
-            <path d="M12 2C6.48 2 2 6.48 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 12 2ZM11 19.93A8.04 8.04 0 0 1 4.26 13H11V19.93ZM11 11H4.26A8.04 8.04 0 0 1 11 4.07V11ZM13 4.07A8.04 8.04 0 0 1 19.74 11H13V4.07ZM13 19.93V13H19.74A8.04 8.04 0 0 1 13 19.93Z" />
-        </svg>
-    );
-
-    const SolidDatabaseIcon = () => (
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" className="text-[#10b981]">
-            <path d="M12 3C7.58 3 4 4.79 4 7C4 9.21 7.58 11 12 11C16.42 11 20 9.21 20 7C20 4.79 16.42 3 12 3ZM12 9C8.36 9 5.86 7.69 5.15 7C5.86 6.31 8.36 5 12 5C15.64 5 18.14 6.31 18.85 7C18.14 7.69 15.64 9 12 9ZM4 10.42V13C4 15.21 7.58 17 12 17C16.42 17 20 15.21 20 13V10.42C19.1 11.39 16.14 12.5 12 12.5C7.86 12.5 4.9 11.39 4 10.42ZM20 16.42V19C20 21.21 16.42 23 12 23C7.58 23 4 21.21 4 19V16.42C4.9 17.39 7.86 18.5 12 18.5C16.14 18.5 19.1 17.39 20 16.42Z" />
-        </svg>
-    );
-
-    const SolidShieldIcon = () => (
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" className="text-[#10b981]">
-            <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" />
-        </svg>
-    );
-
-    const technologies = [
-        {
-            icon: <SolidGlobeIcon />,
-            title: 'Geo-Distributed API Gateways',
-            description: 'Global API networks with ultra-low latency. We use edge caching and smart load balancing to ensure fast, reliable access across the world.',
-            details: ['Sub-10ms Routing', 'Intelligent Caching', 'Horizontal Sync'],
-            colSpan: 'md:col-span-2',
-        },
-        {
-            icon: <SolidDatabaseIcon />,
-            title: 'Deep Aggregation Engines',
-            description: 'Scalable data systems built for complex queries. Process billions of rows of data with speed and precision.',
-            details: ['Distributed SQL', 'Vector Indexing', 'Streaming Sync'],
-            colSpan: 'md:col-span-1',
-        },
-        {
-            icon: <SolidShieldIcon />,
-            title: 'Zero-Trust Enterprise Security',
-            description: 'Enterprise-grade security with zero-trust architecture. We protect your data with end-to-end encryption and isolated cloud environments.',
-            details: ['AES-256 Transit', 'Zero-Trust Auth', 'Automated Fallbacks'],
-            colSpan: 'md:col-span-3',
-            image: '/projects/infrastructure_team.png',
-        }
-    ];
-
     return (
-        <section id="technologies" className="py-32 relative bg-white overflow-hidden border-y border-slate-100">
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
-                    <div>
-                        <motion.h2
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-5xl lg:text-[56px] font-bold text-slate-900 leading-tight tracking-tight"
-                        >
-                            Architected for <br/> <span className="text-gradient">Absolute Scale.</span>
-                        </motion.h2>
+        <section className="py-24 bg-white relative overflow-hidden">
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
+                <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                    
+                    <div className="w-full lg:w-1/2">
+                        <h2 className="text-4xl md:text-[56px] font-semibold text-[#111112] tracking-tight leading-[1.05] mb-6">
+                            Want access to millions of vehicles?<br />
+                            We've got the API keys.
+                        </h2>
+                        <p className="text-[20px] text-[#5C7695] mb-8 font-medium leading-[1.4]">
+                            You build the experience. We'll handle the data. Connect seamlessly to global automotive datasets with our enterprise-grade API infrastructure.
+                        </p>
+                        
+                        <div className="flex flex-col sm:flex-row gap-6 mb-12">
+                            <Link href="/contact-us" className="text-[#111112] font-semibold hover:underline flex items-center gap-1 transition-all">
+                                Get the API keys
+                                <svg className="w-4 h-4 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </Link>
+                        </div>
                     </div>
-                    <motion.div 
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="text-slate-600 text-lg leading-relaxed border-l-4 border-logo-gradient pl-6 lg:pl-10 h-full flex flex-col justify-end"
-                    >
-                        We build and maintain our own optimized technology stack. By eliminating external dependencies, we guarantee maximum speed, security, and uptime for all our platforms.
-                    </motion.div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    {technologies.map((tech, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className={`${tech.colSpan} relative overflow-hidden bg-white border border-slate-100 border-t-2 border-t-logo-gradient p-10 pt-12 group transition-all duration-300 hover:shadow-lg hover:shadow-slate-200/50`}
-                        >
-                            <div className={`flex flex-col h-full relative z-10 ${tech.image ? 'lg:flex-row gap-10' : ''}`}>
-                                <div className={tech.image ? 'lg:w-2/3 flex flex-col h-full' : 'flex flex-col h-full'}>
-                                    <div className="mb-8 text-logo-gradient text-4xl font-black opacity-30 group-hover:opacity-100 transition-opacity">
-                                        0{index + 1}
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-4">{tech.title}</h3>
-                                    <p className="text-slate-600 leading-relaxed text-lg mb-8 max-w-3xl">
-                                        {tech.description}
-                                    </p>
-                                    
-                                    <div className="mt-auto pt-8 border-t border-slate-100 flex flex-wrap gap-4">
-                                       {tech.details.map((detail, idx) => (
-                                           <span key={idx} className="flex items-center text-sm font-bold text-slate-900 uppercase tracking-wider gap-2">
-                                               <span className="w-1.5 h-1.5 bg-slate-900 rounded-full" />
-                                               {detail}
-                                           </span>
-                                       ))}
-                                    </div>
-                                </div>
-                                {tech.image && (
-                                    <div className="lg:w-1/3 relative h-64 lg:h-auto min-h-[250px]">
-                                        <Image 
-                                            src={tech.image} 
-                                            alt={tech.title} 
-                                            fill 
-                                            className="object-contain object-right-bottom"
-                                        />
-                                    </div>
-                                )}
+                    <div className="w-full lg:w-1/2">
+                        <div className="bg-[#111112] rounded-2xl p-6 md:p-8 shadow-2xl overflow-hidden font-mono text-[13px] md:text-[15px] leading-relaxed relative">
+                            {/* Window controls */}
+                            <div className="flex gap-2 mb-6">
+                                <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+                                <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                                <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
                             </div>
-                        </motion.div>
-                    ))}
+
+                            <div className="text-[#5C7695] mb-4">##### /vehicles/decode</div>
+                            <pre className="overflow-x-auto">
+                                <code className="text-[#e5e5e5]">
+                                    <span className="text-[#ff7b72]">request</span> = <span className="text-[#79c0ff]">DecodeRequest</span>(vin=vin_number)<br/>
+                                    <span className="text-[#ff7b72]">response</span> = client.vehicle_decode(request)<br/>
+                                    <br/>
+                                    <span className="text-[#ff7b72]">make</span> = response[<span className="text-[#a5d6ff]">'vehicle'</span>][<span className="text-[#a5d6ff]">'make'</span>]<br/>
+                                    <span className="text-[#ff7b72]">model</span> = response[<span className="text-[#a5d6ff]">'vehicle'</span>][<span className="text-[#a5d6ff]">'model'</span>]<br/>
+                                    <span className="text-[#ff7b72]">year</span> = response[<span className="text-[#a5d6ff]">'vehicle'</span>][<span className="text-[#a5d6ff]">'year'</span>]<br/>
+                                    <span className="text-[#ff7b72]">specs</span> = response[<span className="text-[#a5d6ff]">'specifications'</span>][<span className="text-[#a5d6ff]">'engine'</span>]<br/>
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
     );
 };
-
-export default ServicesGrid;

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "LUMI Platform | Enterprise AI for Automotive",
         description: "Deploy autonomous AI agents that understand the language of mobility.",
-        images: ["/projects/lumi_ui_v2.jpg"],
+        images: ["/projects/lumi_hero_new.png"],
     }
 };
 

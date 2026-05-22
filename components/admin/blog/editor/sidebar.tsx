@@ -68,7 +68,7 @@ export default function Sidebar({ editor }: SidebarProps) {
     return (
         <div className="w-80 bg-white rounded-3xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)] flex flex-col overflow-hidden h-full">
             <div className="p-5 border-b border-gray-50 flex items-center justify-between">
-                <h3 className="font-bold text-gray-900 font-manrope">Edit Block</h3>
+                <h3 className="font-bold text-gray-900 font-sans">Edit Block</h3>
                 <HelpCircle size={16} className="text-gray-300" />
             </div>
 
@@ -80,7 +80,7 @@ export default function Sidebar({ editor }: SidebarProps) {
                         <select
                             value={currentBlockType}
                             onChange={(e) => setBlockType(e.target.value)}
-                            className="w-full appearance-none bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-manrope"
+                            className="w-full appearance-none bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-sans"
                         >
                             <option value="Text">Text</option>
                             <option value="Heading">Heading</option>
@@ -97,7 +97,7 @@ export default function Sidebar({ editor }: SidebarProps) {
                         <select
                             value={currentStyle}
                             onChange={(e) => setBlockStyle(e.target.value)}
-                            className="w-full appearance-none bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-manrope"
+                            className="w-full appearance-none bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-sans"
                         >
                             <option value="Paragraph">Paragraph</option>
                             <option value="Heading 1">Heading 1</option>
@@ -157,7 +157,7 @@ export default function Sidebar({ editor }: SidebarProps) {
 
                 {/* Block Details */}
                 <div>
-                    <h4 className="font-bold text-gray-900 font-manrope mb-1">Block Details</h4>
+                    <h4 className="font-bold text-gray-900 font-sans mb-1">Block Details</h4>
                     <p className="text-xs text-gray-500 font-montserrat leading-relaxed">Here you can edit your block details seamlessly.</p>
                 </div>
 
@@ -168,7 +168,7 @@ export default function Sidebar({ editor }: SidebarProps) {
                         <input
                             type="text"
                             placeholder="e.g. custom-class"
-                            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-manrope"
+                            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-sans"
                         />
                         <Edit3 size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
                     </div>
@@ -176,11 +176,11 @@ export default function Sidebar({ editor }: SidebarProps) {
             </div>
 
             <div className="p-5 border-t border-gray-50 space-y-3 bg-white">
-                <button className="w-full py-3 rounded-xl bg-[#1E1E1E] text-white text-sm font-bold hover:bg-black transition-colors font-manrope flex items-center justify-center gap-2 shadow-lg shadow-gray-200">
+                <button className="w-full py-3 rounded-xl bg-[#1E1E1E] text-white text-sm font-bold hover:bg-black transition-colors font-sans flex items-center justify-center gap-2 shadow-lg shadow-gray-200">
                     <span>Save Changes</span>
                     <Check size={16} />
                 </button>
-                <button className="w-full py-3 rounded-xl border border-gray-200 text-gray-600 text-sm font-bold hover:bg-gray-50 transition-colors font-manrope flex items-center justify-center gap-2">
+                <button className="w-full py-3 rounded-xl border border-gray-200 text-gray-600 text-sm font-bold hover:bg-gray-50 transition-colors font-sans flex items-center justify-center gap-2">
                     <span>Discard Changes</span>
                     <X size={16} />
                 </button>

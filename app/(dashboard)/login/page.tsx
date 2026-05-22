@@ -51,7 +51,7 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4 font-manrope">
+        <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4 font-sans">
             {/* Main Card */}
             <div className="w-full max-w-md bg-white rounded-3xl border border-gray-100 p-8 md:p-10">
 
@@ -125,7 +125,7 @@ export default function LoginPage() {
                     {/* Forgot Password Link */}
                     <div className="flex justify-end">
                         <Link
-                            href="#"
+                            href="/forgot-password"
                             className="text-sm font-bold text-primary hover:text-blue-700 transition-colors font-montserrat"
                         >
                             Forgot Password?

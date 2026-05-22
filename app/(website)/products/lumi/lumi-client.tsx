@@ -2,171 +2,220 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Car, Search, ShieldCheck, BarChart3, Star, CheckCircle2, ArrowRight, Smartphone, Globe, Cloud, Layout, MousePointer2, Code2, AppWindow, Database, Bot, Zap, BrainCircuit } from 'lucide-react';
-import { Button } from '@/components/buttons';
+import { ArrowRight, Bot, Search, Layout, ShieldCheck, MessageSquare, Workflow, Zap, Car, BrainCircuit } from 'lucide-react';
 import Image from "next/image";
-import { CTASection } from "@/components/cta";
 
 export default function LumiClient() {
     return (
-        <main className="min-h-screen bg-white text-black pt-24">
-            {/* 1. Header with Title & Stats */}
-            <div className="bg-[#f0f9ff] border-b border-gray-200 py-12 px-6">
-                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12">
-                    <div className="max-w-2xl">
-                        <nav className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4">
-                            Portfolio / LUMI Platform
-                        </nav>
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-black mb-4">
-                            LUMI Platform
-                        </h1>
-                        <p className="text-lg text-gray-500 font-medium">
-                            The intelligent AI logic layer for unified enterprise communications.
-                        </p>
+        <main className="min-h-screen bg-white text-[#111112] selection:bg-[#861F80] selection:text-white pt-24 pb-20">
+            {/* 1. Header */}
+            <div className="bg-gradient-to-br from-[#f8f9fa] to-[#f4e6ff]/30 border-b border-[#861F80]/10 py-16 px-6">
+                <div className="max-w-[1200px] mx-auto">
+                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#861F80]/60 mb-6 flex items-center gap-2">
+                        <span>Portfolio</span>
+                        <span className="text-[#861F80]/30">/</span>
+                        <span className="text-[#861F80]">LUMI AI Platform</span>
+                    </nav>
+                    <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-8">
+                        <div className="relative w-48 md:w-64 aspect-[3/2]">
+                            <Image 
+                                src="/projects/lumi-logo.png" 
+                                alt="LUMI Platform Logo" 
+                                fill 
+                                className="object-contain" 
+                            />
+                        </div>
+                        <div>
+                            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#174395] via-[#861F80] to-[#F2147A] mb-2">
+                                LUMI AI Platform
+                            </h1>
+                            <p className="text-xl text-gray-500 font-bold max-w-2xl">The AI-powered vehicle intelligence platform for predictive insights and conversational analytics.</p>
+                        </div>
                     </div>
-
-                    <div className="flex flex-wrap gap-8 lg:gap-16">
-                        {[
-                            { value: '0ms', label: 'Human Latency' },
-                            { value: '100+', label: 'Workflows' },
-                            { value: '10K+', label: 'Auto Actions' },
-                            { value: 'Alpha', label: 'Phase Status' },
-                        ].map((stat, i) => (
-                            <div key={i}>
-                                <div className="text-2xl md:text-3xl font-black text-black mb-1">{stat.value}</div>
-                                <div className="text-[10px] font-black uppercase tracking-widest text-gray-400">{stat.label}</div>
-                            </div>
-                        ))}
+                    <div className="flex gap-4">
+                        <span className="px-4 py-1.5 rounded-full bg-white border border-[#861F80]/20 text-[#861F80] text-sm font-semibold shadow-sm">Alpha Phase</span>
+                        <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#861F80] to-[#F2147A] text-white text-sm font-semibold shadow-sm">In Development</span>
                     </div>
                 </div>
             </div>
 
-            {/* 2. Main Content & Info Sidebar */}
+            {/* 2. Main Content Grid */}
             <section className="py-24 px-6">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+                    
                     {/* Left: Info Sidebar */}
-                    <div className="lg:col-span-4 space-y-12">
+                    <div className="lg:col-span-4 space-y-16">
+                        {/* The Challenge */}
                         <div className="space-y-6">
-                            <h2 className="text-2xl font-bold border-b-2 border-black pb-4 inline-block">The Challenge</h2>
-                            <p className="text-gray-600 leading-relaxed">
-                                LUMI is an AI-driven unified communications platform with the prospect of becoming the cutting-edge for intelligent agency workflows worldwide. However, the client needed to directly and openly dedicate new AI reasoning motion graphics to market their various platform services so as to engage their audience and better achieve great business results.
+                            <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#F2147A] pb-4 inline-block text-[#861F80]">The Challenge</h2>
+                            <p className="text-gray-600 leading-relaxed font-medium">
+                                LUMI is being engineered to bridge the gap between static vehicle data and actionable intelligence. Traditional automotive analytics lack true contextual understanding, leading to reactive maintenance and frustrating diagnostic workflows. The challenge is to architect an autonomous reasoning engine that understands the complex language of mobility.
                             </p>
                         </div>
 
+                        {/* Product Scope */}
                         <div className="space-y-6">
-                            <h2 className="text-2xl font-bold border-b-2 border-black pb-4 inline-block">Product Scope</h2>
-                            <p className="text-gray-600 leading-relaxed">
-                                We collaborated with the LUMI team to architect a unified intelligent layer that sits between fragmented communication tools and automated business logic.
+                            <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#489EE6] pb-4 inline-block text-[#861F80]">Product Scope</h2>
+                            <p className="text-gray-600 leading-relaxed font-medium">
+                                We are developing a unified intelligent layer utilizing state-of-the-art cognitive capabilities and proprietary LLM architectures. The platform features conversational vehicle analytics, predictive maintenance alerts, intelligent repair recommendations, and real-time automotive reasoning tailored for enterprise fleets.
                             </p>
-                            <ul className="grid grid-cols-1 gap-3">
-                                {[
-                                    'AI reasoning engine design',
-                                    'Multi-channel messaging integration',
-                                    'Automated task orchestration',
-                                    'Real-time voice-to-logic translation',
-                                    'Interactive developer playground',
-                                    'Enterprise-grade security audits'
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-sm text-gray-500 font-medium">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
                         </div>
 
-                        <div className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-widest text-gray-300 border-b-2 border-gray-100 pb-1 cursor-default">
-                            Alpha Phase - Coming Soon
+                        {/* CTA Group */}
+                        <div className="space-y-3">
+                            <button className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#174395] via-[#861F80] to-[#F2147A] text-white font-bold py-4 rounded-lg hover:opacity-90 transition-all shadow-lg shadow-[#861F80]/20">
+                                Join The Waitlist <ArrowRight size={18} />
+                            </button>
+                            <div className="grid grid-cols-2 gap-3 pt-2">
+                                <button className="inline-flex items-center justify-center w-full bg-[#f8f9fa] text-[#174395] border border-gray-200 font-semibold py-3 rounded-lg hover:bg-white hover:border-[#174395] hover:shadow-sm transition-all text-sm">
+                                    Platform Architecture
+                                </button>
+                                <button className="inline-flex items-center justify-center w-full bg-[#f8f9fa] text-[#861F80] border border-gray-200 font-semibold py-3 rounded-lg hover:bg-white hover:border-[#861F80] hover:shadow-sm transition-all text-sm">
+                                    AI Model Docs
+                                </button>
+                                <button className="inline-flex items-center justify-center w-full bg-[#f8f9fa] text-[#F2147A] border border-gray-200 font-semibold py-3 rounded-lg hover:bg-white hover:border-[#F2147A] hover:shadow-sm transition-all text-sm">
+                                    Developer Beta
+                                </button>
+                                <button className="inline-flex items-center justify-center w-full bg-[#f8f9fa] text-[#489EE6] border border-gray-200 font-semibold py-3 rounded-lg hover:bg-white hover:border-[#489EE6] hover:shadow-sm transition-all text-sm">
+                                    Contact Sales
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Right: Main Story & Process */}
+                    {/* Right: Process & Execution */}
                     <div className="lg:col-span-8 space-y-24">
+                        
                         {/* Big Hero Visual */}
                         <motion.div 
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="bg-[#f0f7ff] p-12 rounded-3xl"
+                            viewport={{ once: true }}
+                            className="bg-gradient-to-br from-[#174395] via-[#861F80] to-[#F2147A] p-1 md:p-2 rounded-3xl shadow-2xl"
                         >
-                            <div className="relative aspect-video w-full">
+                            <div className="relative aspect-[16/10] w-full rounded-[1.3rem] overflow-hidden bg-[#f4f7fc]">
                                 <Image 
-                                    src="/projects/lumi_ui_new.jpg" 
-                                    alt="LUMI Logic Interface"
+                                    src="/projects/lumi_hero_new.png" 
+                                    alt="LUMI AI Vehicle Intelligence Platform"
                                     fill
                                     className="object-contain"
                                 />
                             </div>
                         </motion.div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                        {/* Process Grid (Roadmap) */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+                            
+                            {/* Reasoning Core */}
                             <div className="space-y-6">
-                                <div className="text-black font-black text-xs uppercase tracking-[0.3em] mb-4">Phase 01</div>
-                                <h3 className="text-2xl font-bold">Reasoning Engine</h3>
-                                <p className="text-gray-500 leading-relaxed">
-                                    We developed the graphical user interface of LUMI using advanced logic mapping, ensuring high-speed reasoning and automated response accuracy.
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+                                        <BrainCircuit size={20} />
+                                    </div>
+                                    <h3 className="text-2xl font-bold tracking-tight">Phase 01: Engine Core</h3>
+                                </div>
+                                <ul className="space-y-3">
+                                    {['Developing predictive vehicle logic models', 'Integrating state-of-the-art LLM endpoints', 'Building automotive natural language processors', 'Structuring high-speed diagnostic paths'].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-3 text-gray-600 font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-[#174395] shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Integrations */}
+                            <div className="space-y-6">
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600">
+                                        <MessageSquare size={20} />
+                                    </div>
+                                    <h3 className="text-2xl font-bold tracking-tight">Phase 02: Conversational Analytics</h3>
+                                </div>
+                                <p className="text-gray-600 leading-relaxed font-medium">
+                                    Mapping complex OBD2 telemetry and historical repair data into intuitive, natural language dialogues, allowing users to literally "chat" with their vehicles.
                                 </p>
                             </div>
+
+                            {/* UI Design */}
                             <div className="space-y-6">
-                                <div className="text-black font-black text-xs uppercase tracking-[0.3em] mb-4">Phase 02</div>
-                                <h3 className="text-2xl font-bold">UX Design</h3>
-                                <p className="text-gray-500 leading-relaxed">
-                                    Based on the prototype, we built an interactive and pleasing to the eye design, taking into consideration the extreme speed needed for AI-human interaction.
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className="w-10 h-10 rounded-lg bg-pink-50 flex items-center justify-center text-pink-600">
+                                        <Car size={20} />
+                                    </div>
+                                    <h3 className="text-2xl font-bold tracking-tight">Phase 03: Intelligent Recommendations</h3>
+                                </div>
+                                <p className="text-gray-600 leading-relaxed font-medium">
+                                    Designing the diagnostic reasoning node editor. Focused on translating mechanical symptoms into actionable, step-by-step repair guides and parts lists.
                                 </p>
                             </div>
+
+                            {/* Testing */}
+                            <div className="space-y-6">
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center text-green-600">
+                                        <ShieldCheck size={20} />
+                                    </div>
+                                    <h3 className="text-2xl font-bold tracking-tight">Phase 04: Alpha Testing</h3>
+                                </div>
+                                <p className="text-gray-600 leading-relaxed font-medium">
+                                    Conducting fleet-wide audits and stress tests. LUMI is currently analyzing millions of historical service records to refine its automotive reasoning accuracy.
+                                </p>
+                            </div>
+
                         </div>
 
-                        {/* Mid Visual */}
-                        <div className="bg-[#000] p-12 lg:p-20 rounded-3xl overflow-hidden relative text-white group">
-                            <div className="absolute top-0 right-0 w-[50%] h-full bg-blue-500/20 blur-[100px] pointer-events-none" />
-                            <div className="relative z-10 space-y-8">
-                                <h3 className="text-4xl font-bold">Platform Intelligence</h3>
-                                <p className="text-lg text-gray-400 max-w-lg leading-relaxed">
-                                    We built of a prototype easy to translate to high-level design concepts into tangible and testable artifacts for automated workflows across social media and web.
-                                </p>
-                                <div className="flex gap-4">
-                                    <div className="px-6 py-2 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest">Natural Language Processing</div>
-                                    <div className="px-6 py-2 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest">Logic Flow Orchestration</div>
+                        {/* Ecosystem Preview */}
+                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 pt-16 mt-16 border-t border-gray-200">
+                            
+                            <div className="space-y-6">
+                                <div>
+                                    <h3 className="text-2xl font-bold tracking-tight text-[#174395] mb-2">Cognitive Capabilities</h3>
+                                    <p className="text-sm text-gray-600 font-medium">Upcoming features within the LUMI core engine.</p>
+                                </div>
+                                <div className="grid grid-cols-1 gap-3">
+                                    {[
+                                        { name: 'Predictive Maintenance Alerts', color: 'text-[#174395]' },
+                                        { name: 'Conversational Diagnostics', color: 'text-[#174395]' },
+                                        { name: 'Component Failure Probability', color: 'text-[#174395]' },
+                                        { name: 'Smart Repair Recommendations', color: 'text-[#861F80]' },
+                                        { name: 'Multi-Model Logic Routing', color: 'text-[#861F80]' },
+                                        { name: 'Automated Service Scheduling', color: 'text-[#F2147A]' },
+                                        { name: 'Real-time Fleet Sentiment', color: 'text-[#F2147A]' },
+                                        { name: 'Voice-to-Diagnostic Translation', color: 'text-[#489EE6]' },
+                                    ].map((item, i) => (
+                                        <div key={i} className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 bg-[#f8f9fa] hover:bg-white hover:border-gray-300 hover:shadow-md transition-all group cursor-default">
+                                            <Zap className={`w-4 h-4 shrink-0 ${item.color}`} />
+                                            <span className={`font-bold text-sm text-gray-800`}>{item.name}</span>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
+
+                            <div className="space-y-6">
+                                <div>
+                                    <h3 className="text-2xl font-bold tracking-tight text-[#861F80] mb-2">Target Integrations</h3>
+                                    <p className="text-sm text-gray-600 font-medium">Platforms LUMI will natively orchestrate at launch.</p>
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    {[
+                                        'AutomotiveDataset API', 'Geotab Telematics', 'Samsara Fleet Management', 'Salesforce Automotive', 
+                                        'Mitchell 1', 'ALLDATA', 'Tekmetric', 'Shopmonkey', 
+                                        'Dealer Management Systems (DMS)', 'OEM Connected Car APIs', 'ArkAuto E-Commerce', 'Fleetio'
+                                    ].map((api, i) => (
+                                        <div key={i} className="flex items-center justify-between px-3 py-2 rounded-lg border border-gray-200 bg-white">
+                                            <span className="font-semibold text-xs text-gray-700">{api}</span>
+                                            <Workflow size={12} className="text-gray-300" />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-                            <div className="space-y-6">
-                                <div className="text-black font-black text-xs uppercase tracking-[0.3em] mb-4">Phase 03</div>
-                                <h3 className="text-2xl font-bold">LoFi Design</h3>
-                                <p className="text-gray-500 leading-relaxed">
-                                    Before going live, we did a quality assurance test and review, to give our customers the best final product for their automated communication infrastructure.
-                                </p>
-                            </div>
-                            <div className="space-y-6">
-                                <div className="text-black font-black text-xs uppercase tracking-[0.3em] mb-4">Phase 04</div>
-                                <h3 className="text-2xl font-bold">Project Success</h3>
-                                <p className="text-gray-500 leading-relaxed">
-                                    LUMI has successfully automated over 10,000 internal actions during the alpha phase, proving the scalability of our reasoning architecture.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Final Visual */}
-                        <div className="bg-[#f0f2f5] p-12 rounded-3xl group">
-                            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-900 border border-black/5">
-                                <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent z-10" />
-                                <Image 
-                                    src="/projects/lumi_ui_v2.jpg" 
-                                    alt="LUMI Network Monitor"
-                                    fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-[4s]"
-                                />
-                            </div>
-                            <div className="mt-8 text-center uppercase tracking-[0.4em] font-black text-xs text-gray-400 opacity-50 italic">AI Reasoning Environment Monitor</div>
-                        </div>
                     </div>
                 </div>
             </section>
-
-            <div className="bg-black py-20">
-                <CTASection />
-            </div>
         </main>
     );
 }

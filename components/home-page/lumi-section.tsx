@@ -1,79 +1,63 @@
 import React from 'react';
 import Image from 'next/image';
-import { Sprout, Workflow, Zap, Database, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export const LumiSection = () => {
     return (
-        <section className="py-20 lg:py-32 bg-slate-50 border-y border-slate-100 relative overflow-hidden">
-            {/* Background Effects */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#3b82f6]/5 to-transparent pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-t from-[#10b981]/5 to-transparent pointer-events-none" />
-            
-            <div className="container mx-auto px-6 lg:px-20 relative z-10">
-                <div className="flex flex-col lg:flex-row gap-16 items-center">
-                    <div className="lg:w-1/2">
-                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
-                            Automate with <br /> <span className="text-gradient">LUMI Intelligence.</span>
-                        </h2>
-                        
-                        <p className="text-slate-600 text-lg leading-relaxed mb-10">
-                            LUMI is an AI-powered platform that enables businesses to build intelligent agents capable of automating workflows, interacting with users, and delivering real-time insights from structured data.
-                        </p>
+        <section className="py-24 bg-white relative overflow-hidden">
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
+                <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-16">
+                    <h2 className="text-4xl sm:text-[56px] font-semibold text-[#111112] tracking-tight leading-[1.1] mb-6">
+                        The AI infrastructure behind smarter automotive products
+                    </h2>
+                    <Link href="/products/lumi" className="text-[20px] font-medium text-[#0055FF] hover:text-[#0044CC] transition-colors flex items-center gap-1">
+                        Explore intelligent mobility
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </Link>
+                </div>
 
-                        <div className="space-y-6 mb-10">
-                            <div className="flex items-start gap-5">
-                                <div className="w-12 h-12 rounded-xl bg-[#10b981]/10 border border-[#10b981]/20 flex items-center justify-center shrink-0">
-                                    <Workflow className="w-6 h-6 text-[#10b981]" />
-                                </div>
-                                <div className="pt-1">
-                                    <h3 className="text-slate-900 text-lg font-bold mb-2">Workflow Automation</h3>
-                                    <p className="text-slate-600 text-sm leading-relaxed">Design complex multi-step processes across legacy systems natively via our enterprise API logic bridge.</p>
-                                </div>
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    {/* Mockup area mirroring Plaid's notification stream / UI displays */}
+                    <div className="w-full lg:w-1/2 flex flex-col gap-4">
+                        <div className="bg-white border border-[#e5e5e5] rounded-2xl p-6 shadow-sm flex items-start gap-4 transform transition-transform hover:-translate-y-1">
+                            <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                                <span className="text-xl font-bold text-blue-600">A</span>
                             </div>
-                            
-                            <div className="flex items-start gap-5">
-                                <div className="w-12 h-12 rounded-xl bg-[#3b82f6]/10 border border-[#3b82f6]/20 flex items-center justify-center shrink-0">
-                                    <Zap className="w-6 h-6 text-[#3b82f6]" />
+                            <div>
+                                <div className="flex justify-between items-center w-full mb-1">
+                                    <h4 className="font-semibold text-[#111112] text-lg">Achtrex Fleet</h4>
+                                    <span className="text-[#5C7695] text-sm font-medium">Just now</span>
                                 </div>
-                                <div className="pt-1">
-                                    <h3 className="text-slate-900 text-lg font-bold mb-2">Intelligent User Interaction</h3>
-                                    <p className="text-slate-600 text-sm leading-relaxed">Deploy conversational agents that contextually respond to real user inputs while maintaining global semantic state.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-5">
-                                <div className="w-12 h-12 rounded-xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center shrink-0">
-                                    <Database className="w-6 h-6 text-[#8b5cf6]" />
-                                </div>
-                                <div className="pt-1">
-                                    <h3 className="text-slate-900 text-lg font-bold mb-2">Real-time Data Insights</h3>
-                                    <p className="text-slate-600 text-sm leading-relaxed">Stream structural data analytics instantaneously from connected databases and existing proprietary ledgers.</p>
-                                </div>
+                                <p className="text-[#111112] font-medium">Predictive maintenance alert: Engine oil pressure anomaly detected on Unit 42.</p>
                             </div>
                         </div>
 
-                        <div className="p-6 bg-white border border-slate-200 rounded-2xl relative overflow-hidden group shadow-sm">
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#10b981]/5 to-[#3b82f6]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <h4 className="text-slate-900 font-bold mb-3 flex items-center gap-2">
-                                <span className="w-2.5 h-2.5 rounded-full bg-[#10b981] animate-pulse" />
-                                Primary Use Case
-                            </h4>
-                            <p className="text-slate-600 text-sm md:text-base leading-relaxed relative z-10">
-                                Deploying specialized internal communication agents that instantly query company-wide datasets, vastly reducing enterprise response times and human-driven support overhead by 80%.
-                            </p>
+
+                        
+                        <div className="bg-white border border-[#e5e5e5] rounded-2xl p-6 shadow-sm flex items-start gap-4 transform transition-transform hover:-translate-y-1">
+                            <div className="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center shrink-0">
+                                <span className="text-xl font-bold text-purple-600">L</span>
+                            </div>
+                            <div>
+                                <div className="flex justify-between items-center w-full mb-1">
+                                    <h4 className="font-semibold text-[#111112] text-lg">LUMI Platform</h4>
+                                    <span className="text-[#5C7695] text-sm font-medium">1hr ago</span>
+                                </div>
+                                <p className="text-[#111112] font-medium">Automated chat agent successfully resolved 45 support tickets.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="lg:w-1/2 w-full">
-                        <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
+                    <div className="w-full lg:w-1/2 relative">
+                        <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden bg-gray-50 border border-[#e5e5e5] shadow-lg">
                             <Image 
-                                src="/projects/lumi_ui_v2.jpg" 
+                                src="/projects/lumi_hero_new.png" 
                                 alt="LUMI AI Interface" 
                                 fill
                                 className="object-cover" 
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent pointer-events-none" />
-                            <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-3xl pointer-events-none" />
                         </div>
                     </div>
                 </div>
