@@ -12,10 +12,10 @@ const links = [
 
 export const PopularLinks = () => {
     return (
-        <section className="py-20 bg-gray-50 border-y border-gray-200 relative z-10">
+        <section className="py-14 bg-gray-50 border-y border-gray-200 relative z-10">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="mb-10 flex items-center justify-between">
-                    <h2 className="text-3xl font-bold text-black">Popular Links</h2>
+                    <h2 className="text-2xl font-bold text-black">Popular Links</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {links.map((link, i) => (

@@ -18,7 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/life-at-achtrex',
         '/partners',
         '/press-release',
-        '/services'
+        '/services',
+        '/use-cases'
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),

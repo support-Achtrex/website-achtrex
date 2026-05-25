@@ -38,10 +38,10 @@ export default function WhyAchtrexPage() {
 
     return (
         <main className="min-h-screen bg-background text-white">
-            <section className="relative pt-40 pb-20 px-6 border-b border-white/5 overflow-hidden">
+            <section className="relative pt-32 pb-16 px-6 border-b border-white/5 overflow-hidden">
                 <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div className="text-left">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
                             We are an architectural <br /> technology laboratory.
                         </h1>
                         <p className="text-xl text-gray-400 leading-relaxed">
@@ -60,7 +60,7 @@ export default function WhyAchtrexPage() {
                 </div>
             </section>
 
-            <section className="py-24 px-6 bg-[#0a0f1c] relative border-b border-white/5">
+            <section className="py-16 px-6 bg-[#0a0f1c] relative border-b border-white/5">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {advantages.map((adv, idx) => (
@@ -74,9 +74,9 @@ export default function WhyAchtrexPage() {
                 </div>
             </section>
             
-            <section className="py-24 px-6">
+            <section className="py-16 px-6">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-8">Velocity via vertical integration.</h2>
+                    <h2 className="text-2xl md:text-4xl font-bold mb-8">Velocity via vertical integration.</h2>
                     <p className="text-xl text-gray-400 leading-relaxed italic">
                         "The most sophisticated systems integrate seamlessly into the background. By providing frictionless API access to our architectural core, we completely abstract the friction of massive data orchestration, enabling our partners to structurally outpace their competition."
                     </p>

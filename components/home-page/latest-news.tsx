@@ -10,11 +10,11 @@ const LATEST_POSTS = blogPosts.slice(0, 3);
 
 export const LatestNews = () => {
     return (
-        <section className="py-24 bg-white relative border-y border-gray-200">
+        <section className="py-14 bg-white relative border-y border-gray-200">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                     <div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-black">Latest News</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-black">Latest News</h2>
                     </div>
                     <Link href="/blog" className="flex items-center text-sm font-bold text-black uppercase tracking-widest hover:underline transition-colors">
                         View All News <ArrowRight className="ml-2 w-4 h-4" />
@@ -43,7 +43,7 @@ export const LatestNews = () => {
                                         <Calendar className="w-3.5 h-3.5 mr-2" />
                                         {news.date}
                                     </div>
-                                    <h3 className="text-xl font-bold text-black leading-snug group-hover:underline transition-colors mb-6 line-clamp-3">
+                                    <h3 className="text-lg font-bold text-black leading-snug group-hover:underline transition-colors mb-6 line-clamp-3">
                                         {news.title}
                                     </h3>
                                     <div className="mt-auto flex items-center text-black font-bold text-[13px] tracking-widest uppercase transition-colors">

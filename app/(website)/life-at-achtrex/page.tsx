@@ -11,7 +11,7 @@ export default function LifeAtAchtrexPage() {
     return (
         <main className="min-h-screen bg-white text-black pt-24">
             {/* Hero Section */}
-            <section className="relative py-24 px-6 overflow-hidden bg-[#f8fafc]">
+            <section className="relative py-16 px-6 overflow-hidden bg-[#f8fafc]">
                 <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 -skew-x-12 translate-x-24" />
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -22,27 +22,21 @@ export default function LifeAtAchtrexPage() {
                                 transition={{ duration: 0.6 }}
                             >
                                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-4 block">Careers @ Achtrex</span>
-                                <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-black mb-6 leading-[1.1]">
+                                <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-black mb-6 leading-[1.1]">
                                     Architecting the <br /> 
                                     <span className="text-primary">Next Era</span> of Data.
                                 </h1>
-                                <p className="text-xl text-gray-500 font-medium mb-10 leading-relaxed max-w-lg">
-                                    We don't just build apps. We engineer planetary-scale infrastructure. Join a global team of architects redefining digital ownership.
+                                <p className="text-lg text-gray-500 font-medium mb-8 leading-relaxed max-w-lg">
+                                    We engineer real infrastructure for the global automotive industry. Join a remote-first, pioneering team building AutomotiveDataset.com, LUMI AI, and the Achtrex Core.
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     <Button size="lg" className="bg-black text-white hover:bg-gray-800 px-8 rounded-full font-bold">
                                         View Openings
                                     </Button>
-                                    <div className="flex items-center gap-3 px-6 py-3 border border-gray-200 rounded-full bg-white shadow-sm">
-                                        <div className="flex -space-x-3">
-                                            {[1, 2, 3].map((i) => (
-                                                <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden relative">
-                                                    <Image src={`/team/team-member-${i}.jpg`} alt="Team" fill className="object-cover" />
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <span className="text-xs font-bold text-gray-600">Join 40+ Architects</span>
-                                    </div>
+                                    <a href="mailto:support@achtrex.com" className="flex items-center gap-3 px-6 py-3 border border-gray-200 rounded-full bg-white shadow-sm hover:border-gray-400 transition-colors">
+                                        <svg className="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                        <span className="text-xs font-bold text-gray-600">Reach Out Directly</span>
+                                    </a>
                                 </div>
                             </motion.div>
                         </div>
@@ -66,13 +60,13 @@ export default function LifeAtAchtrexPage() {
             </section>
 
             {/* Core Values */}
-            <section className="py-32 px-6">
+            <section className="py-20 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-20">
                         <h2 className="text-sm font-black uppercase tracking-[0.4em] text-gray-400 mb-4">Our DNA</h2>
-                        <h3 className="text-4xl font-bold text-black mb-6">Built on Engineering Excellence.</h3>
+                        <h3 className="text-3xl font-bold text-black mb-6">Built on Engineering Excellence.</h3>
                         <p className="text-lg text-gray-500 font-medium leading-relaxed">
-                            At Achtrex, we value deterministic logic, high-velocity iteration, and the relentless pursuit of architectural elegance.
+                            At Achtrex, we value infrastructure-first thinking, AI-driven innovation, and the pursuit of data integrity across every layer of the automotive intelligence stack.
                         </p>
                     </div>
 
@@ -119,14 +113,14 @@ export default function LifeAtAchtrexPage() {
             </section>
 
             {/* Culture Grid */}
-            <section className="py-32 px-6 bg-black text-white overflow-hidden relative">
+            <section className="py-20 px-6 bg-black text-white overflow-hidden relative">
                 <div className="absolute top-0 right-0 w-[500px] h-full bg-primary/10 blur-[150px] pointer-events-none" />
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <div className="space-y-12">
                             <header>
                                 <h2 className="text-primary text-sm font-black uppercase tracking-[0.4em] mb-4">Culture of Ownership</h2>
-                                <h3 className="text-4xl md:text-5xl font-bold leading-tight">Every architect is a <br /> stakeholder.</h3>
+                                <h3 className="text-3xl md:text-4xl font-bold leading-tight">Every architect is a <br /> stakeholder.</h3>
                             </header>
                             
                             <div className="space-y-8">
@@ -173,12 +167,12 @@ export default function LifeAtAchtrexPage() {
             </section>
 
             {/* Perks */}
-            <section className="py-32 px-6">
+            <section className="py-20 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                         <div className="max-w-xl">
                             <h2 className="text-sm font-black uppercase tracking-[0.4em] text-gray-400 mb-4">The Benefits</h2>
-                            <h3 className="text-4xl font-bold text-black">Engineered for your well-being.</h3>
+                            <h3 className="text-3xl font-bold text-black">Engineered for your well-being.</h3>
                         </div>
                         <Button className="bg-primary text-white hover:bg-primary/90 px-8 rounded-full font-bold">
                             See All Perks
