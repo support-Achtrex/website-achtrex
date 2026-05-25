@@ -89,7 +89,7 @@ export const Navbar = () => {
             <nav className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex justify-between items-center">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
-                    <div className="relative w-10 h-10">
+                    <div className="relative w-8 h-8 lg:w-10 lg:h-10">
                         <Image
                             src="/logo.png"
                             alt="Achtrex Logo"
@@ -97,7 +97,7 @@ export const Navbar = () => {
                             className="object-contain"
                         />
                     </div>
-                    <span className={cn("text-[22px] font-bold text-white tracking-wide", montserrat.className)}>Achtrex</span>
+                    <span className={cn("text-[20px] lg:text-[22px] font-bold text-white tracking-wide", montserrat.className)}>Achtrex</span>
                 </Link>
 
                 <div className="flex items-center gap-10">
@@ -186,7 +186,7 @@ export const Navbar = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-20 left-4 right-4 bg-[#0f172a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl lg:hidden"
+                        className="absolute top-20 left-4 right-4 bg-[#0f172a] border border-white/10 rounded-2xl overflow-y-auto max-h-[85vh] shadow-2xl lg:hidden"
                     >
                         <div className="px-6 py-6 space-y-1 flex flex-col">
                             {navLinks.map((link) => (
@@ -212,11 +212,7 @@ export const Navbar = () => {
                                                     onClick={() => setIsOpen(false)}
                                                     className="flex items-start gap-3 p-2 rounded-md hover:bg-white/5 transition-colors"
                                                 >
-                                                    {subLink.icon && (
-                                                        <div className="bg-[#1e293b] border border-white/10 p-2 rounded-md shrink-0 text-white">
-                                                            <subLink.icon size={18} />
-                                                        </div>
-                                                    )}
+
                                                     <div className="flex flex-col">
                                                         <span className={cn("font-semibold", subLink.description ? "text-white text-[15px]" : "text-[14px] text-gray-300 hover:text-white")}>
                                                             {subLink.label}
