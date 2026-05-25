@@ -3,16 +3,16 @@ import Link from 'next/link';
 
 export const ServicesGrid = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-16 bg-white relative overflow-hidden">
             <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                     
                     <div className="w-full lg:w-1/2">
-                        <h2 className="text-4xl md:text-[56px] font-semibold text-[#111112] tracking-tight leading-[1.05] mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-[44px] font-semibold text-[#111112] tracking-tight leading-[1.05] mb-6">
                             Want access to millions of vehicles?<br />
                             We've got the API keys.
                         </h2>
-                        <p className="text-[20px] text-[#5C7695] mb-8 font-medium leading-[1.4]">
+                        <p className="text-[16px] text-[#5C7695] mb-8 font-medium leading-[1.4]">
                             You build the experience. We'll handle the data. Connect seamlessly to global automotive datasets with our enterprise-grade API infrastructure.
                         </p>
                         

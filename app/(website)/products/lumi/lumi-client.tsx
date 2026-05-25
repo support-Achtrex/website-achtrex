@@ -9,7 +9,7 @@ export default function LumiClient() {
     return (
         <main className="min-h-screen bg-white text-[#111112] selection:bg-[#861F80] selection:text-white pt-24 pb-20">
             {/* 1. Header */}
-            <div className="bg-gradient-to-br from-[#f8f9fa] to-[#f4e6ff]/30 border-b border-[#861F80]/10 py-16 px-6">
+            <div className="bg-gradient-to-br from-[#f8f9fa] to-[#f4e6ff]/30 border-b border-[#861F80]/10 py-12 px-6">
                 <div className="max-w-[1200px] mx-auto">
                     <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#861F80]/60 mb-6 flex items-center gap-2">
                         <span>Portfolio</span>
@@ -26,21 +26,21 @@ export default function LumiClient() {
                             />
                         </div>
                         <div>
-                            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#174395] via-[#861F80] to-[#F2147A] mb-2">
+                            <h1 className="text-3xl md:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#174395] via-[#861F80] to-[#F2147A] mb-2">
                                 LUMI AI Platform
                             </h1>
-                            <p className="text-xl text-gray-500 font-bold max-w-2xl">The AI-powered vehicle intelligence platform for predictive insights and conversational analytics.</p>
+                            <p className="text-xl text-gray-500 font-bold max-w-2xl">The cognitive automotive platform delivering AI-driven vehicle intelligence, predictive analytics, and conversational diagnostics.</p>
                         </div>
                     </div>
                     <div className="flex gap-4">
-                        <span className="px-4 py-1.5 rounded-full bg-white border border-[#861F80]/20 text-[#861F80] text-sm font-semibold shadow-sm">Alpha Phase</span>
-                        <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#861F80] to-[#F2147A] text-white text-sm font-semibold shadow-sm">In Development</span>
+                        <span className="px-4 py-1.5 rounded-full bg-white border border-[#861F80]/20 text-[#861F80] text-sm font-semibold shadow-sm">Cognitive Platform</span>
+                        <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#1A8B8C] to-[#157172] text-white text-sm font-semibold shadow-sm">● Live</span>
                     </div>
                 </div>
             </div>
 
             {/* 2. Main Content Grid */}
-            <section className="py-24 px-6">
+            <section className="py-16 px-6">
                 <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
                     
                     {/* Left: Info Sidebar */}

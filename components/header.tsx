@@ -7,12 +7,16 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { Database, ScanSearch, CarFront, Bot, Code2, ShieldCheck, Car } from 'lucide-react';
+import { Database, ScanSearch, CarFront, Bot, Code2, ShieldCheck, Car, Store, Wrench, Globe, Search, Key, Package, CircleDollarSign, FileText, Newspaper, Target, Factory } from 'lucide-react';
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['700', '800', '900'] });
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
+    const isHome = pathname === '/';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -51,44 +55,52 @@ export const Navbar = () => {
             label: 'Industries', 
             href: '/industries',
             sub: [
-                { label: 'Car Insurance', href: '/industries/auto-insurance' },
-                { label: 'Car Dealership', href: '/industries/car-dealerships' },
-                { label: 'Auto Repair Service', href: '/industries/auto-repair' },
-                { label: 'Car Website', href: '/industries/car-website' },
-                { label: 'Classified Website', href: '/industries/classifieds-websites' },
-                { label: 'Car Rental', href: '/industries/car-rental' },
-                { label: 'Auto Parts Company', href: '/industries/auto-parts' },
-                { label: 'Car Finance', href: '/industries/car-finance' }
+                { label: 'Car Insurance', description: 'Precise VIN decoding, ADAS specs, and historical data for risk modeling.', href: '/industries/auto-insurance', icon: ShieldCheck },
+                { label: 'Car Dealership', description: 'Real-time market insights, valuation data, and inventory management APIs.', href: '/industries/car-dealerships', icon: Store },
+                { label: 'Auto Repair Service', description: 'Detailed OEM specifications, maintenance schedules, and cross-reference parts data.', href: '/industries/auto-repair', icon: Wrench },
+                { label: 'Car Website', description: 'Rich vehicle databases and high-resolution imagery for digital automotive platforms.', href: '/industries/car-website', icon: Globe },
+                { label: 'Classified Website', description: 'Automated listing enrichment, accurate valuations, and VIN-to-specs integration.', href: '/industries/classifieds-websites', icon: Search },
+                { label: 'Manufacturers', description: 'Competitive intelligence, production insights, and global market trends.', href: '/industries/manufacturers', icon: Factory },
+                { label: 'Car Rental', description: 'Fleet optimization data, lifecycle tracking, and depreciation intelligence.', href: '/industries/car-rental', icon: Key },
+                { label: 'Auto Parts Company', description: 'Comprehensive fitment data, OEM cross-referencing, and supply chain insights.', href: '/industries/auto-parts', icon: Package },
+                { label: 'Car Finance', description: 'Accurate residual values, depreciation curves, and loan origination data.', href: '/industries/car-finance', icon: CircleDollarSign }
             ]
         },
         { 
             label: 'Resources', 
             href: '/resources', 
             sub: [
-                { label: 'Blog', href: '/blog' },
-                { label: 'About Us', href: '/about-us' },
-                { label: 'Press Release', href: '/press-release' }
+                { label: 'Blog', description: 'Latest news & tech insights.', href: '/blog', icon: FileText },
+                { label: 'Press Release', description: 'Company announcements.', href: '/press-release', icon: Newspaper },
+                { label: 'Client & Industry Use Cases', description: 'Real-world data applications.', href: '/use-cases', icon: Target }
             ] 
         },
+        {
+            label: 'About Us',
+            href: '/about-us'
+        }
     ];
 
     return (
-        <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 transition-all">
-            <nav className="w-full max-w-[900px] bg-[#eef3f7] rounded-full px-6 py-3 flex justify-between items-center shadow-sm">
-                <div className="flex items-center gap-10">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 group">
-                        <div className="relative w-7 h-7">
-                            <Image
-                                src="/logo.png"
-                                alt="Achtrex Logo"
-                                fill
-                                className="object-contain"
-                            />
-                        </div>
-                        <span className="text-[17px] font-bold text-[#111112] tracking-wide">ACHTREX</span>
-                    </Link>
+        <div className={cn(
+            "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+            scrolled || !isHome ? "bg-[#070b14]/90 backdrop-blur-md border-b border-white/10 py-4 shadow-sm" : "bg-transparent py-6"
+        )}>
+            <nav className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex justify-between items-center">
+                {/* Logo */}
+                <Link href="/" className="flex items-center gap-2 group">
+                    <div className="relative w-10 h-10">
+                        <Image
+                            src="/logo.png"
+                            alt="Achtrex Logo"
+                            fill
+                            className="object-contain"
+                        />
+                    </div>
+                    <span className={cn("text-[22px] font-bold text-white tracking-wide", montserrat.className)}>Achtrex</span>
+                </Link>
 
+                <div className="flex items-center gap-10">
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-8">
                         {navLinks.map((link) => (
@@ -96,10 +108,7 @@ export const Navbar = () => {
                                 <Link
                                     href={link.sub ? "#" : link.href}
                                     onClick={(e) => link.sub ? e.preventDefault() : null}
-                                    className={cn(
-                                        "text-[14px] font-semibold transition-colors flex items-center gap-1",
-                                        pathname === link.href || pathname.startsWith(link.href + '/') && link.href !== '/' ? "text-[#111112]" : "text-[#111112] hover:text-gray-600"
-                                    )}
+                                    className="text-[14px] font-semibold text-white/90 hover:text-white transition-colors flex items-center gap-1.5"
                                 >
                                     {link.label}
                                     {link.sub && (
@@ -111,35 +120,32 @@ export const Navbar = () => {
                                 {link.sub && (
                                     <div className={cn(
                                         "absolute top-[30px] left-[-20px] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50",
-                                        link.sub[0]?.description ? "w-[400px]" : "w-[240px]"
+                                        link.sub.length > 4 ? "w-[700px] left-[-150px]" : (link.sub[0]?.description ? "w-[400px]" : "w-[240px]")
                                     )}>
                                         <div className={cn(
-                                            "bg-white border border-[#e5e5e5] rounded-xl shadow-lg p-3 flex flex-col",
-                                            link.sub[0]?.description ? "gap-2" : "gap-1"
+                                            "bg-[#0f172a] border border-white/10 rounded-xl shadow-2xl p-3",
+                                            link.sub.length > 4 ? "grid grid-cols-2 gap-x-2 gap-y-1" : "flex flex-col gap-1",
+                                            link.sub[0]?.description && link.sub.length <= 4 && "gap-2"
                                         )}>
                                             {link.sub.map((subLink: any) => (
                                                 <Link
                                                     key={subLink.href}
                                                     href={subLink.href}
                                                     className={cn(
-                                                        "rounded-lg transition-colors hover:bg-gray-50 flex items-start",
+                                                        "rounded-lg transition-colors hover:bg-white/5 flex items-start",
                                                         subLink.description ? "p-3 gap-4" : "px-4 py-2"
                                                     )}
                                                 >
-                                                    {subLink.icon && (
-                                                        <div className="bg-[#eef3f7] p-2 rounded-md shrink-0 text-[#111112]">
-                                                            <subLink.icon size={20} />
-                                                        </div>
-                                                    )}
+
                                                     <div className="flex flex-col">
                                                         <span className={cn(
                                                             "font-semibold",
-                                                            subLink.description ? "text-[15px] text-[#111112]" : "text-[14px] text-[#5C7695] hover:text-[#111112]"
+                                                            subLink.description ? "text-[15px] text-white" : "text-[14px] text-gray-300 hover:text-white"
                                                         )}>
                                                             {subLink.label}
                                                         </span>
                                                         {subLink.description && (
-                                                            <span className="text-[13px] text-gray-500 mt-0.5 leading-snug">
+                                                            <span className="text-[13px] text-gray-400 mt-0.5 leading-snug">
                                                                 {subLink.description}
                                                             </span>
                                                         )}
@@ -152,21 +158,21 @@ export const Navbar = () => {
                             </div>
                         ))}
                     </div>
-                </div>
 
-                {/* Actions */}
-                <div className="hidden lg:flex items-center gap-3">
-                    <Link href="/contact-us" className="relative group rounded-full overflow-hidden p-[2px]">
-                        <div className="absolute inset-0 bg-gradient-to-r from-red-500 via-purple-500 to-green-500 rounded-full" />
-                        <div className="relative bg-[#111112] text-white text-[14px] font-bold px-5 py-2 rounded-full hover:bg-gray-900 transition-colors">
-                            Contact Us
-                        </div>
-                    </Link>
+                    {/* Actions */}
+                    <div className="hidden lg:flex items-center gap-3">
+                        <Link href="/contact-us" className="relative group rounded-md overflow-hidden p-[1px]">
+                            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-500 rounded-md opacity-70 group-hover:opacity-100 transition-opacity" />
+                            <div className="relative bg-[#070b14]/90 backdrop-blur-md text-white text-[14px] font-bold px-6 py-2 rounded-md transition-colors">
+                                Contact Us
+                            </div>
+                        </Link>
+                    </div>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="lg:hidden p-2 text-[#111112] hover:text-gray-600 transition-colors"
+                    className="lg:hidden p-2 text-white hover:text-gray-300 transition-colors"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -180,11 +186,11 @@ export const Navbar = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-20 left-4 right-4 bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-2xl lg:hidden"
+                        className="absolute top-20 left-4 right-4 bg-[#0f172a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl lg:hidden"
                     >
                         <div className="px-6 py-6 space-y-1 flex flex-col">
                             {navLinks.map((link) => (
-                                <div key={link.href} className="border-b border-gray-100 last:border-0 py-2">
+                                <div key={link.href} className="border-b border-white/5 last:border-0 py-2">
                                     <div className="flex justify-between items-center transition-colors rounded-md py-1">
                                         <Link
                                             href={link.sub ? "#" : link.href}
@@ -192,7 +198,7 @@ export const Navbar = () => {
                                                 if (link.sub) e.preventDefault();
                                                 else setIsOpen(false);
                                             }}
-                                            className="text-[16px] font-bold py-2 w-full text-[#111112]"
+                                            className="text-[16px] font-bold py-2 w-full text-white"
                                         >
                                             {link.label}
                                         </Link>
@@ -204,19 +210,19 @@ export const Navbar = () => {
                                                     key={subLink.href}
                                                     href={subLink.href}
                                                     onClick={() => setIsOpen(false)}
-                                                    className="flex items-start gap-3 p-2 rounded-md hover:bg-gray-50 transition-colors"
+                                                    className="flex items-start gap-3 p-2 rounded-md hover:bg-white/5 transition-colors"
                                                 >
                                                     {subLink.icon && (
-                                                        <div className="bg-gray-100 p-2 rounded-md shrink-0 text-[#111112]">
+                                                        <div className="bg-[#1e293b] border border-white/10 p-2 rounded-md shrink-0 text-white">
                                                             <subLink.icon size={18} />
                                                         </div>
                                                     )}
                                                     <div className="flex flex-col">
-                                                        <span className={cn("font-semibold", subLink.description ? "text-[#111112] text-[15px]" : "text-[14px] text-[#5C7695] hover:text-[#111112]")}>
+                                                        <span className={cn("font-semibold", subLink.description ? "text-white text-[15px]" : "text-[14px] text-gray-300 hover:text-white")}>
                                                             {subLink.label}
                                                         </span>
                                                         {subLink.description && (
-                                                            <span className="text-[13px] text-gray-500 mt-0.5">
+                                                            <span className="text-[13px] text-gray-400 mt-0.5">
                                                                 {subLink.description}
                                                             </span>
                                                         )}
@@ -228,7 +234,7 @@ export const Navbar = () => {
                                 </div>
                             ))}
                             <div className="pt-6 flex flex-col gap-3">
-                                <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-[#111112] text-white font-bold py-3 rounded-full">
+                                <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-white text-[#111112] font-bold py-3 rounded-xl">
                                     Contact Us
                                 </Link>
                             </div>

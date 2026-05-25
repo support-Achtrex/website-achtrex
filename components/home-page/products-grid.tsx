@@ -5,12 +5,12 @@ import Link from 'next/link';
 
 export const ProductsGrid = () => {
   return (
-    <section className="py-24 bg-[#f9fafb] relative overflow-hidden">
+    <section className="py-16 bg-[#f9fafb] relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
         
         {/* Header Section */}
         <div className="mb-12">
-          <h2 className="text-[40px] md:text-[48px] font-semibold text-[#111112] leading-[1.1] tracking-tight mb-8">
+          <h2 className="text-[32px] md:text-[40px] font-semibold text-[#111112] leading-[1.1] tracking-tight mb-6">
             Powered by the largest automotive network.<br />
             Built for every mobility need.
           </h2>
@@ -29,14 +29,14 @@ export const ProductsGrid = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Card 1: APIs */}
-            <div className="bg-gradient-to-b from-[#eaf4fe] to-[#f2f7fe] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-[#e5e5e5] h-[450px] shadow-sm hover:shadow-md transition-shadow">
+            <a href="https://automotivedataset.com" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-b from-[#eaf4fe] to-[#f2f7fe] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-[#e5e5e5] h-[450px] shadow-sm hover:shadow-md transition-shadow block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-white transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
               
-              <h3 className="text-[22px] text-[#5C7695] max-w-[320px] leading-[1.3] relative z-10">
+              <h3 className="text-[20px] text-[#5C7695] max-w-[320px] leading-[1.3] relative z-10">
                 <span className="font-bold text-[#111112]">Automotive data infrastructure</span> powering the future of mobility
               </h3>
 
@@ -81,17 +81,17 @@ export const ProductsGrid = () => {
 
                 </div>
               </div>
-            </div>
+            </a>
 
             {/* Card 2: AI Scoring */}
-            <div className="bg-gradient-to-b from-[#eaf4fe] to-[#f2f7fe] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-[#e5e5e5] h-[450px] shadow-sm hover:shadow-md transition-shadow">
+            <Link href="/products/lumi" className="bg-gradient-to-b from-[#eaf4fe] to-[#f2f7fe] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-[#e5e5e5] h-[450px] shadow-sm hover:shadow-md transition-shadow block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-white transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[22px] text-[#5C7695] max-w-[320px] leading-[1.3] relative z-10">
+              <h3 className="text-[20px] text-[#5C7695] max-w-[320px] leading-[1.3] relative z-10">
                 <span className="font-bold text-[#111112]">AI-powered vehicle intelligence</span> and predictive analytics system
               </h3>
 
@@ -121,7 +121,7 @@ export const ProductsGrid = () => {
               <div className="absolute top-[40%] left-[10%] text-[10px] text-blue-300/40 font-semibold tracking-wider blur-[1px]">Conversational Engine</div>
               <div className="absolute top-[60%] right-[10%] text-[10px] text-purple-300/40 font-semibold tracking-wider blur-[1px]">Predictive Analysis</div>
               <div className="absolute bottom-[10%] left-[20%] text-[10px] text-pink-300/40 font-semibold tracking-wider blur-[1px]">Smart Assistant</div>
-            </div>
+            </Link>
 
           </div>
 
@@ -129,14 +129,14 @@ export const ProductsGrid = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Card 3: Enterprise Dataset */}
-            <div className="bg-gradient-to-b from-[#e3fcf7] to-[#eefcf9] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-[#e5e5e5] h-[400px] shadow-sm hover:shadow-md transition-shadow">
+            <a href="https://automotivedataset.com" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-b from-[#e3fcf7] to-[#eefcf9] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-[#e5e5e5] h-[400px] shadow-sm hover:shadow-md transition-shadow block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-white transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[20px] text-[#5C7695] max-w-[220px] leading-[1.3] relative z-10">
+              <h3 className="text-[18px] text-[#5C7695] max-w-[220px] leading-[1.3] relative z-10">
                 <span className="font-bold text-[#111112]">Enterprise automotive dataset</span> provider for seamless integration
               </h3>
 
@@ -173,17 +173,17 @@ export const ProductsGrid = () => {
                     </div>
                  </div>
               </div>
-            </div>
+            </a>
 
             {/* Card 4: Developer API */}
-            <div className="bg-gradient-to-b from-[#f0f2fb] to-[#f4f6fc] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-[#e5e5e5] h-[400px] shadow-sm hover:shadow-md transition-shadow">
+            <Link href="/products" className="bg-gradient-to-b from-[#f0f2fb] to-[#f4f6fc] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-[#e5e5e5] h-[400px] shadow-sm hover:shadow-md transition-shadow block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-white transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[20px] text-[#5C7695] max-w-[220px] leading-[1.3] relative z-10">
+              <h3 className="text-[18px] text-[#5C7695] max-w-[220px] leading-[1.3] relative z-10">
                 <span className="font-bold text-[#111112]">Developer API ecosystem</span> built for modern mobility applications
               </h3>
 
@@ -230,17 +230,17 @@ export const ProductsGrid = () => {
                     Generate API Keys
                  </div>
               </div>
-            </div>
+            </Link>
 
             {/* Card 5: Custom Development */}
-            <div className="bg-gradient-to-b from-[#f2f7fe] to-[#eaf4fe] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-[#e5e5e5] h-[400px] shadow-sm hover:shadow-md transition-shadow">
+            <Link href="/contact-us" className="bg-gradient-to-b from-[#f2f7fe] to-[#eaf4fe] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-[#e5e5e5] h-[400px] shadow-sm hover:shadow-md transition-shadow block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-white transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[19px] text-[#5C7695] max-w-[250px] leading-[1.3] relative z-10">
+              <h3 className="text-[17px] text-[#5C7695] max-w-[250px] leading-[1.3] relative z-10">
                 <span className="font-bold text-[#111112]">Custom development & API integrations</span> empowering your automotive business
               </h3>
 
@@ -268,7 +268,7 @@ export const ProductsGrid = () => {
                     <div className="text-[#c678dd]">await <span className="text-[#e5c07b]">client</span>.lumi.<span className="text-[#61afef]">analyze</span>();</div>
                  </div>
               </div>
-            </div>
+            </Link>
 
           </div>
         </div>

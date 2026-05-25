@@ -54,7 +54,9 @@ export async function submitContactForm(formData: FormData) {
         }
 
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
                 user: smtpEmail,
                 pass: smtpPassword
@@ -78,7 +80,7 @@ export async function submitContactForm(formData: FormData) {
         `;
 
         await transporter.sendMail({
-            from: `"Achtrex Website" <${smtpEmail}>`,
+            from: `"Achtrex Lead Gen" <${smtpEmail}>`,
             to: 'support@achtrex.com',
             subject: `New Lead: ${name} (${company || 'No Company'})`,
             html: adminHtml,
@@ -96,7 +98,7 @@ export async function submitContactForm(formData: FormData) {
         if (dbErrorOccurred) {
             return { error: `Failed to send inquiry and failed to save to database. DB Error: ${dbErrorMessage}. Email Error: ${error.message}` };
         }
-        return { success: true, warning: `Request received (saved to DB), but we encountered an issue sending the confirmation email. Error: ${error.message}` };
+        return { error: `Database saved successfully, but failed to send email. Error: ${error.message}` };
     }
 }
 
@@ -134,7 +136,9 @@ export async function submitPartnerForm(formData: FormData) {
         }
 
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
                 user: smtpEmail,
                 pass: smtpPassword
@@ -155,7 +159,7 @@ export async function submitPartnerForm(formData: FormData) {
         `;
 
         await transporter.sendMail({
-            from: `"Achtrex Partner System" <${smtpEmail}>`,
+            from: `"Achtrex Partner Gen" <${smtpEmail}>`,
             to: 'support@achtrex.com',
             subject: `New Partner Application from ${company}`,
             html: adminHtml,
@@ -173,6 +177,6 @@ export async function submitPartnerForm(formData: FormData) {
         if (dbErrorOccurred) {
             return { error: `Failed to send application and failed to save to database. DB Error: ${dbErrorMessage}. Email Error: ${error.message}` };
         }
-        return { success: true, warning: `Application received (saved to DB), but we encountered an issue sending the confirmation email. Error: ${error.message}` };
+        return { error: `Application saved to DB, but failed to send email. Error: ${error.message}` };
     }
 }
