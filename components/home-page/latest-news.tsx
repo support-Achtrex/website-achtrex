@@ -12,14 +12,19 @@ export const LatestNews = () => {
     return (
         <section className="py-14 bg-transparent relative border-y border-white/10">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                     <div>
                         <h2 className="text-3xl md:text-4xl font-bold text-white">Latest News</h2>
                     </div>
                     <Link href="/blog" className="flex items-center text-sm font-bold text-white hover:text-[#c2fce3] uppercase tracking-widest hover:underline transition-colors">
                         View All News <ArrowRight className="ml-2 w-4 h-4" />
                     </Link>
-                </div>
+                </motion.div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {LATEST_POSTS.map((news, index) => (
                         <motion.div 

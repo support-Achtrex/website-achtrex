@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Linkedin, Twitter, Mail, Phone, ExternalLink } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['700', '800', '900'] });
 
@@ -32,13 +33,23 @@ export const Footer = () => {
 
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 relative z-10">
                     <div className="max-w-2xl">
-                        <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight mb-8">
+                        <motion.h2 
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight mb-8">
                             Not sure <br className="hidden sm:block" /> where to start?
-                        </h2>
-                        <div className="space-y-6 text-[17px] text-white/80 font-medium mb-10 max-w-xl">
+                        </motion.h2>
+                        <motion.div 
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                            className="space-y-6 text-[17px] text-white/80 font-medium mb-10 max-w-xl">
                             <p>Tell us your goals. We'll guide you to the right solution for your data, your challenges, and your growth.</p>
                             <p>Get an assessment of your data quality.</p>
-                        </div>
+                        </motion.div>
                         <button
                             onClick={() => router.push('/contact-us')}
                             className="group relative inline-flex items-center justify-center bg-[#1A8B8C] hover:bg-[#157172] transition-colors duration-300 transform -skew-x-12 px-10 py-4 shadow-lg shadow-teal-900/20"
