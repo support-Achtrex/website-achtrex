@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/products',
         '/products/automotive',
         '/products/lumi',
+        '/products/enterprise-platforms',
         '/why-achtrex',
         '/contact-us',
         '/blog',
@@ -18,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/life-at-achtrex',
         '/partners',
         '/press-release',
-        '/services',
+        '/services/ai-training',
         '/use-cases'
     ].map((route) => ({
         url: `${baseUrl}${route}`,
@@ -35,5 +36,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }));
 
-    return [...routes, ...blogRoutes];
+    // Dynamic Industry Routes
+    const industrySlugs = [
+        'auto-insurance',
+        'car-dealerships',
+        'auto-repair',
+        'car-website',
+        'classifieds-websites',
+        'car-rental',
+        'auto-parts',
+        'car-finance',
+        'manufacturers'
+    ];
+    
+    const industryRoutes: MetadataRoute.Sitemap = industrySlugs.map((slug) => ({
+        url: `${baseUrl}/industries/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    }));
+
+    return [...routes, ...blogRoutes, ...industryRoutes];
 }
