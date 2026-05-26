@@ -21,7 +21,7 @@ export const PillarsSection = () => {
     ];
 
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-transparent">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
                     {pillars.map((pillar, idx) => (
@@ -33,7 +33,7 @@ export const PillarsSection = () => {
                             transition={{ delay: idx * 0.1, duration: 0.6 }}
                             className="flex flex-col group cursor-pointer"
                         >
-                            <div className="relative aspect-[16/10] w-full mb-8 overflow-hidden rounded-xl border border-gray-100 shadow-sm transition-transform duration-500 group-hover:scale-[1.02] group-hover:shadow-xl">
+                            <div className="relative aspect-[16/10] w-full mb-8 overflow-hidden rounded-xl border border-white/10 shadow-sm transition-transform duration-500 group-hover:scale-[1.02] group-hover:shadow-xl">
                                 <Image
                                     src={pillar.image}
                                     alt={pillar.title}

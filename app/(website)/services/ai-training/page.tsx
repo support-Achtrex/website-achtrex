@@ -55,12 +55,12 @@ export default async function AITrainingPage() {
                                 />
                                 {/* Glassmorphism overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-80" />
-                                <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10">
+                                <div className="absolute bottom-6 left-6 right-6 p-6 bg-[#070b14]/5 backdrop-blur-md rounded-xl border border-white/10">
                                     <div className="flex items-center justify-between mb-2">
                                         <span className="text-sm font-bold text-white">Model Accuracy</span>
                                         <span className="text-sm font-bold text-emerald-400">99.4%</span>
                                     </div>
-                                    <div className="w-full h-1.5 bg-white/10 rounded-full">
+                                    <div className="w-full h-1.5 bg-[#070b14]/10 rounded-full">
                                         <div className="h-full bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full" style={{ width: '94%' }} />
                                     </div>
                                 </div>

@@ -14,7 +14,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }: { question: string; answ
         <span className={`text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-primary' : 'text-white group-hover:text-primary/80'}`}>
           {question}
         </span>
-        <div className={`p-1.5 rounded-full border border-white/5 bg-white/5 transition-colors duration-300 group-hover:bg-primary/20 group-hover:border-primary/20 group-hover:text-primary`}>
+        <div className={`p-1.5 rounded-full border border-white/5 bg-transparent/5 transition-colors duration-300 group-hover:bg-primary/20 group-hover:border-primary/20 group-hover:text-primary`}>
           {isOpen ? <Minus size={16} /> : <Plus size={16} />}
         </div>
       </button>

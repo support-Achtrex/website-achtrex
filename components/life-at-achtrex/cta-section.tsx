@@ -13,7 +13,7 @@ export function CTASection() {
                 <p className="text-lg md:text-xl mb-10 font-sans max-w-2xl mx-auto">
                     Partner with our team to design, build, and scale digital products users love. Together we will build, design and scale products beyond your imaginations.
                 </p>
-                <button onClick={() => router.push('/contact-us')} className="inline-block bg-white text-[#005AB0] font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors font-sans">
+                <button onClick={() => router.push('/contact-us')} className="inline-block bg-transparent text-[#005AB0] font-bold py-3 px-8 rounded-full hover:bg-[#1a1a1c]/5 transition-colors font-sans">
                     Talk to Us Today
                 </button>
             </div>

@@ -7,14 +7,14 @@ import Image from "next/image";
 
 export default function LumiClient() {
     return (
-        <main className="min-h-screen bg-white text-[#111112] selection:bg-[#861F80] selection:text-white pt-24 pb-20">
+        <main className="min-h-screen bg-[#070b14] text-white selection:bg-[#861F80] selection:text-white pt-24 pb-20">
             {/* 1. Header */}
             <div className="bg-gradient-to-br from-[#f8f9fa] to-[#f4e6ff]/30 border-b border-[#861F80]/10 py-12 px-6">
                 <div className="max-w-[1200px] mx-auto">
-                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#861F80]/60 mb-6 flex items-center gap-2">
+                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#c2fce3]/60 mb-6 flex items-center gap-2">
                         <span>Portfolio</span>
-                        <span className="text-[#861F80]/30">/</span>
-                        <span className="text-[#861F80]">LUMI AI Platform</span>
+                        <span className="text-[#c2fce3]/30">/</span>
+                        <span className="text-[#c2fce3]">LUMI AI Platform</span>
                     </nav>
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-8">
                         <div className="relative w-48 md:w-64 aspect-[3/2]">
@@ -33,7 +33,7 @@ export default function LumiClient() {
                         </div>
                     </div>
                     <div className="flex gap-4">
-                        <span className="px-4 py-1.5 rounded-full bg-white border border-[#861F80]/20 text-[#861F80] text-sm font-semibold shadow-sm">Cognitive Platform</span>
+                        <span className="px-4 py-1.5 rounded-full bg-[#070b14] border border-[#c2fce3]/20 text-[#c2fce3] text-sm font-semibold shadow-sm">Cognitive Platform</span>
                         <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#1A8B8C] to-[#157172] text-white text-sm font-semibold shadow-sm">● Live</span>
                     </div>
                 </div>
@@ -47,16 +47,16 @@ export default function LumiClient() {
                     <div className="lg:col-span-4 space-y-16">
                         {/* The Challenge */}
                         <div className="space-y-6">
-                            <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#F2147A] pb-4 inline-block text-[#861F80]">The Challenge</h2>
-                            <p className="text-gray-600 leading-relaxed font-medium">
+                            <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#F2147A] pb-4 inline-block text-[#c2fce3]">The Challenge</h2>
+                            <p className="text-gray-400 leading-relaxed font-medium">
                                 LUMI is being engineered to bridge the gap between static vehicle data and actionable intelligence. Traditional automotive analytics lack true contextual understanding, leading to reactive maintenance and frustrating diagnostic workflows. The challenge is to architect an autonomous reasoning engine that understands the complex language of mobility.
                             </p>
                         </div>
 
                         {/* Product Scope */}
                         <div className="space-y-6">
-                            <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#489EE6] pb-4 inline-block text-[#861F80]">Product Scope</h2>
-                            <p className="text-gray-600 leading-relaxed font-medium">
+                            <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#489EE6] pb-4 inline-block text-[#c2fce3]">Product Scope</h2>
+                            <p className="text-gray-400 leading-relaxed font-medium">
                                 We are developing a unified intelligent layer utilizing state-of-the-art cognitive capabilities and proprietary LLM architectures. The platform features conversational vehicle analytics, predictive maintenance alerts, intelligent repair recommendations, and real-time automotive reasoning tailored for enterprise fleets.
                             </p>
                         </div>
@@ -67,16 +67,16 @@ export default function LumiClient() {
                                 Join The Waitlist <ArrowRight size={18} />
                             </button>
                             <div className="grid grid-cols-2 gap-3 pt-2">
-                                <button className="inline-flex items-center justify-center w-full bg-[#f8f9fa] text-[#174395] border border-gray-200 font-semibold py-3 rounded-lg hover:bg-white hover:border-[#174395] hover:shadow-sm transition-all text-sm">
+                                <button className="inline-flex items-center justify-center w-full bg-[#111112] text-[#c2fce3] border border-white/10 font-semibold py-3 rounded-lg hover:bg-[#070b14] hover:border-[#c2fce3] hover:shadow-sm transition-all text-sm">
                                     Platform Architecture
                                 </button>
-                                <button className="inline-flex items-center justify-center w-full bg-[#f8f9fa] text-[#861F80] border border-gray-200 font-semibold py-3 rounded-lg hover:bg-white hover:border-[#861F80] hover:shadow-sm transition-all text-sm">
+                                <button className="inline-flex items-center justify-center w-full bg-[#111112] text-[#c2fce3] border border-white/10 font-semibold py-3 rounded-lg hover:bg-[#070b14] hover:border-[#c2fce3] hover:shadow-sm transition-all text-sm">
                                     AI Model Docs
                                 </button>
-                                <button className="inline-flex items-center justify-center w-full bg-[#f8f9fa] text-[#F2147A] border border-gray-200 font-semibold py-3 rounded-lg hover:bg-white hover:border-[#F2147A] hover:shadow-sm transition-all text-sm">
+                                <button className="inline-flex items-center justify-center w-full bg-[#111112] text-[#F2147A] border border-white/10 font-semibold py-3 rounded-lg hover:bg-[#070b14] hover:border-[#F2147A] hover:shadow-sm transition-all text-sm">
                                     Developer Beta
                                 </button>
-                                <button className="inline-flex items-center justify-center w-full bg-[#f8f9fa] text-[#489EE6] border border-gray-200 font-semibold py-3 rounded-lg hover:bg-white hover:border-[#489EE6] hover:shadow-sm transition-all text-sm">
+                                <button className="inline-flex items-center justify-center w-full bg-[#111112] text-[#489EE6] border border-white/10 font-semibold py-3 rounded-lg hover:bg-[#070b14] hover:border-[#489EE6] hover:shadow-sm transition-all text-sm">
                                     Contact Sales
                                 </button>
                             </div>
@@ -116,7 +116,7 @@ export default function LumiClient() {
                                 </div>
                                 <ul className="space-y-3">
                                     {['Developing predictive vehicle logic models', 'Integrating state-of-the-art LLM endpoints', 'Building automotive natural language processors', 'Structuring high-speed diagnostic paths'].map((item, i) => (
-                                        <li key={i} className="flex items-center gap-3 text-gray-600 font-medium">
+                                        <li key={i} className="flex items-center gap-3 text-gray-400 font-medium">
                                             <div className="w-1.5 h-1.5 rounded-full bg-[#174395] shrink-0" />
                                             {item}
                                         </li>
@@ -132,7 +132,7 @@ export default function LumiClient() {
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">Phase 02: Conversational Analytics</h3>
                                 </div>
-                                <p className="text-gray-600 leading-relaxed font-medium">
+                                <p className="text-gray-400 leading-relaxed font-medium">
                                     Mapping complex OBD2 telemetry and historical repair data into intuitive, natural language dialogues, allowing users to literally "chat" with their vehicles.
                                 </p>
                             </div>
@@ -145,7 +145,7 @@ export default function LumiClient() {
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">Phase 03: Intelligent Recommendations</h3>
                                 </div>
-                                <p className="text-gray-600 leading-relaxed font-medium">
+                                <p className="text-gray-400 leading-relaxed font-medium">
                                     Designing the diagnostic reasoning node editor. Focused on translating mechanical symptoms into actionable, step-by-step repair guides and parts lists.
                                 </p>
                             </div>
@@ -158,7 +158,7 @@ export default function LumiClient() {
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">Phase 04: Alpha Testing</h3>
                                 </div>
-                                <p className="text-gray-600 leading-relaxed font-medium">
+                                <p className="text-gray-400 leading-relaxed font-medium">
                                     Conducting fleet-wide audits and stress tests. LUMI is currently analyzing millions of historical service records to refine its automotive reasoning accuracy.
                                 </p>
                             </div>
@@ -166,27 +166,27 @@ export default function LumiClient() {
                         </div>
 
                         {/* Ecosystem Preview */}
-                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 pt-16 mt-16 border-t border-gray-200">
+                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 pt-16 mt-16 border-t border-white/10">
                             
                             <div className="space-y-6">
                                 <div>
-                                    <h3 className="text-2xl font-bold tracking-tight text-[#174395] mb-2">Cognitive Capabilities</h3>
-                                    <p className="text-sm text-gray-600 font-medium">Upcoming features within the LUMI core engine.</p>
+                                    <h3 className="text-2xl font-bold tracking-tight text-[#c2fce3] mb-2">Cognitive Capabilities</h3>
+                                    <p className="text-sm text-gray-400 font-medium">Upcoming features within the LUMI core engine.</p>
                                 </div>
                                 <div className="grid grid-cols-1 gap-3">
                                     {[
-                                        { name: 'Predictive Maintenance Alerts', color: 'text-[#174395]' },
-                                        { name: 'Conversational Diagnostics', color: 'text-[#174395]' },
-                                        { name: 'Component Failure Probability', color: 'text-[#174395]' },
-                                        { name: 'Smart Repair Recommendations', color: 'text-[#861F80]' },
-                                        { name: 'Multi-Model Logic Routing', color: 'text-[#861F80]' },
+                                        { name: 'Predictive Maintenance Alerts', color: 'text-[#c2fce3]' },
+                                        { name: 'Conversational Diagnostics', color: 'text-[#c2fce3]' },
+                                        { name: 'Component Failure Probability', color: 'text-[#c2fce3]' },
+                                        { name: 'Smart Repair Recommendations', color: 'text-[#c2fce3]' },
+                                        { name: 'Multi-Model Logic Routing', color: 'text-[#c2fce3]' },
                                         { name: 'Automated Service Scheduling', color: 'text-[#F2147A]' },
                                         { name: 'Real-time Fleet Sentiment', color: 'text-[#F2147A]' },
                                         { name: 'Voice-to-Diagnostic Translation', color: 'text-[#489EE6]' },
                                     ].map((item, i) => (
-                                        <div key={i} className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 bg-[#f8f9fa] hover:bg-white hover:border-gray-300 hover:shadow-md transition-all group cursor-default">
+                                        <div key={i} className="flex items-center gap-3 p-3 rounded-xl border border-white/10 bg-[#111112] hover:bg-[#070b14] hover:border-gray-300 hover:shadow-md transition-all group cursor-default">
                                             <Zap className={`w-4 h-4 shrink-0 ${item.color}`} />
-                                            <span className={`font-bold text-sm text-gray-800`}>{item.name}</span>
+                                            <span className={`font-bold text-sm text-gray-200`}>{item.name}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -194,8 +194,8 @@ export default function LumiClient() {
 
                             <div className="space-y-6">
                                 <div>
-                                    <h3 className="text-2xl font-bold tracking-tight text-[#861F80] mb-2">Target Integrations</h3>
-                                    <p className="text-sm text-gray-600 font-medium">Platforms LUMI will natively orchestrate at launch.</p>
+                                    <h3 className="text-2xl font-bold tracking-tight text-[#c2fce3] mb-2">Target Integrations</h3>
+                                    <p className="text-sm text-gray-400 font-medium">Platforms LUMI will natively orchestrate at launch.</p>
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                     {[
@@ -203,7 +203,7 @@ export default function LumiClient() {
                                         'Mitchell 1', 'ALLDATA', 'Tekmetric', 'Shopmonkey', 
                                         'Dealer Management Systems (DMS)', 'OEM Connected Car APIs', 'ArkAuto E-Commerce', 'Fleetio'
                                     ].map((api, i) => (
-                                        <div key={i} className="flex items-center justify-between px-3 py-2 rounded-lg border border-gray-200 bg-white">
+                                        <div key={i} className="flex items-center justify-between px-3 py-2 rounded-lg border border-white/10 bg-[#070b14]">
                                             <span className="font-semibold text-xs text-gray-700">{api}</span>
                                             <Workflow size={12} className="text-gray-300" />
                                         </div>

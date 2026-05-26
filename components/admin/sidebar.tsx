@@ -42,11 +42,11 @@ const AdminSidebar = () => {
         const active = isActive(path);
         return active
             ? "flex items-center gap-3 px-4 py-3 bg-linear-to-r from-primary/10 to-transparent text-primary rounded-xl font-medium transition-all relative group"
-            : "flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-gray-800 hover:bg-gray-50 rounded-xl font-medium transition-colors group";
+            : "flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-gray-200 hover:bg-transparent rounded-xl font-medium transition-colors group";
     };
 
     return (
-        <aside className="w-64 h-screen fixed left-0 top-0 flex flex-col justify-between p-6 bg-white border-r border-gray-100 z-50">
+        <aside className="w-64 h-screen fixed left-0 top-0 flex flex-col justify-between p-6 bg-transparent border-r border-white/10 z-50">
             <div>
                 {/* Logo */}
                 <div className="flex items-center gap-3 mb-12">
@@ -79,7 +79,7 @@ const AdminSidebar = () => {
                             <MessageSquare size={20} />
                             <span className="flex-1">Inbox</span>
                             {/* Mock count for now, could be dynamic later */}
-                            <span className={`text-[10px] px-1.5 py-0.5 rounded-md transition-opacity ${isActive('/admin/leads') ? 'bg-primary text-white opacity-100' : 'bg-gray-100 text-gray-600 opacity-0 group-hover:opacity-100'}`}>New</span>
+                            <span className={`text-[10px] px-1.5 py-0.5 rounded-md transition-opacity ${isActive('/admin/leads') ? 'bg-primary text-white opacity-100' : 'bg-white/5 text-gray-400 opacity-0 group-hover:opacity-100'}`}>New</span>
                         </Link>
                         <Link href="/admin/subscribers" className={getLinkClass('/admin/subscribers')}>
                             {isActive('/admin/subscribers') && (
@@ -101,7 +101,7 @@ const AdminSidebar = () => {
                             )}
                             <FileText size={20} />
                             <span className="flex-1">Blogs</span>
-                            <span className={`text-[10px] px-1.5 py-0.5 rounded-md transition-opacity ${isActive('/admin/blogs') ? 'bg-primary text-white opacity-100' : 'bg-gray-100 text-gray-600 opacity-0 group-hover:opacity-100'}`}>12+</span>
+                            <span className={`text-[10px] px-1.5 py-0.5 rounded-md transition-opacity ${isActive('/admin/blogs') ? 'bg-primary text-white opacity-100' : 'bg-white/5 text-gray-400 opacity-0 group-hover:opacity-100'}`}>12+</span>
                         </Link>
                         <Link href="/admin/analytics" className={getLinkClass('/admin/analytics')}>
                             {isActive('/admin/analytics') && (

@@ -49,7 +49,7 @@ export const ProductSection = () => {
                         {/* Status Badge */}
                         <div className="absolute top-6 right-6 z-20">
                             <span className="flex items-center gap-2 bg-green-500/90 text-white shadow-lg border border-white/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-md">
-                                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                                <span className="w-2 h-2 rounded-full bg-transparent animate-pulse" />
                                 Live Product
                             </span>
                         </div>

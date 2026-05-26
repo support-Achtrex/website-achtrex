@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-[#111112] overflow-x-hidden">
+    <div className="min-h-screen bg-[#070b14] text-white overflow-x-hidden">
       <Hero />
       <ProductsGrid />
       <AboutSection />

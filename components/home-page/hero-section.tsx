@@ -99,9 +99,12 @@ export const Hero = () => {
         >
           <button
             onClick={() => router.push('/contact-us')}
-            className="bg-[#c2fce3] text-black font-bold text-[16px] px-8 py-3.5 rounded-lg hover:bg-white transition-colors"
+            className="relative group overflow-hidden rounded-lg p-[2px] transition-transform hover:scale-[1.02] shadow-[0_0_20px_rgba(59,130,246,0.15)]"
           >
-            Talk with our team
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-teal-400 opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative w-full h-full bg-[#070b14] hover:bg-[#0c1222] text-white font-bold text-[16px] px-8 py-3.5 rounded-[6px] transition-colors duration-500">
+              Talk with our team
+            </div>
           </button>
           <button
             onClick={() => setIsModalOpen(true)}
@@ -117,28 +120,28 @@ export const Hero = () => {
 
       {/* Bottom Logos Banner */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[95%] max-w-[1200px] z-20 hidden md:block">
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex justify-between items-center px-10 py-3.5">
+          <div className="bg-transparent/5 backdrop-blur-md border border-white/10 rounded-2xl flex justify-between items-center px-10 py-3.5">
               
               <div className="flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity cursor-default whitespace-nowrap">
                   <span className="text-white font-black text-base tracking-tighter">Automotive</span>
                   <span className="text-[#38bdf8] font-bold text-base">Dataset</span>
               </div>
 
-              <div className="w-px h-5 bg-white/10"></div>
+              <div className="w-px h-5 bg-transparent/10"></div>
 
               <div className="flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity cursor-default whitespace-nowrap">
                   <span className="text-white font-bold text-base tracking-widest">LUMI</span>
                   <span className="text-[#a855f7] font-medium text-base">AI</span>
               </div>
 
-              <div className="w-px h-5 bg-white/10"></div>
+              <div className="w-px h-5 bg-transparent/10"></div>
 
               <div className="flex items-center opacity-70 hover:opacity-100 transition-opacity cursor-default whitespace-nowrap">
                   <span className="text-white font-bold text-base tracking-tight">Achtrex</span>
                   <span className="text-[#34d399] font-light text-base ml-1">Core</span>
               </div>
 
-              <div className="w-px h-5 bg-white/10"></div>
+              <div className="w-px h-5 bg-transparent/10"></div>
 
               <div className="flex items-center opacity-70 hover:opacity-100 transition-opacity cursor-default whitespace-nowrap">
                   <span className="text-white font-bold text-base tracking-tight">Enterprise</span>

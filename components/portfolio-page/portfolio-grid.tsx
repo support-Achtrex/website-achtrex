@@ -82,7 +82,7 @@ export const PortfolioGrid = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6"
+                        className="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-transparent/5 backdrop-blur-sm mb-6"
                     >
                         <span className="w-2 h-2 rounded-full bg-secondary mr-2 animate-pulse"></span>
                         <span className="text-xs font-semibold tracking-wide text-white/80 uppercase">
@@ -120,7 +120,7 @@ export const PortfolioGrid = () => {
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            className="group relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-primary/50 transition-colors duration-500"
+                            className="group relative rounded-3xl overflow-hidden bg-transparent/5 border border-white/10 hover:border-primary/50 transition-colors duration-500"
                         >
                             {/* Image Container */}
                             <div className="relative h-[300px] lg:h-[400px] w-full overflow-hidden">
@@ -133,7 +133,7 @@ export const PortfolioGrid = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/40 to-transparent opacity-80" />
 
                                 {/* Top Right Arrow */}
-                                <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-transparent/10 backdrop-blur-md flex items-center justify-center text-white opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                                     <ArrowUpRight size={20} />
                                 </div>
                             </div>
@@ -145,7 +145,7 @@ export const PortfolioGrid = () => {
                                         {project.category}
                                     </span>
                                     {project.tags.map(tag => (
-                                        <span key={tag} className="px-3 py-1 rounded-full bg-white/5 text-white/70 text-xs border border-white/5">
+                                        <span key={tag} className="px-3 py-1 rounded-full bg-transparent/5 text-white/70 text-xs border border-white/5">
                                             {tag}
                                         </span>
                                     ))}

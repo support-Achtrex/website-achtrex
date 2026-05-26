@@ -132,7 +132,7 @@ export const Navbar = () => {
                                                     key={subLink.href}
                                                     href={subLink.href}
                                                     className={cn(
-                                                        "rounded-lg transition-colors hover:bg-white/5 flex items-start",
+                                                        "rounded-lg transition-colors hover:bg-transparent/5 flex items-start",
                                                         subLink.description ? "p-3 gap-4" : "px-4 py-2"
                                                     )}
                                                 >
@@ -210,7 +210,7 @@ export const Navbar = () => {
                                                     key={subLink.href}
                                                     href={subLink.href}
                                                     onClick={() => setIsOpen(false)}
-                                                    className="flex items-start gap-3 p-2 rounded-md hover:bg-white/5 transition-colors"
+                                                    className="flex items-start gap-3 p-2 rounded-md hover:bg-transparent/5 transition-colors"
                                                 >
 
                                                     <div className="flex flex-col">
@@ -230,7 +230,7 @@ export const Navbar = () => {
                                 </div>
                             ))}
                             <div className="pt-6 flex flex-col gap-3">
-                                <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-white text-[#111112] font-bold py-3 rounded-xl">
+                                <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-transparent text-white font-bold py-3 rounded-xl">
                                     Contact Us
                                 </Link>
                             </div>

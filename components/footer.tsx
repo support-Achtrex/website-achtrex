@@ -76,15 +76,15 @@ export const Footer = () => {
                             </p>
                             <div className="flex gap-3">
                                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                                    className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#1A8B8C]/30 flex items-center justify-center transition-colors">
+                                    className="w-9 h-9 rounded-full bg-transparent/5 hover:bg-[#1A8B8C]/30 flex items-center justify-center transition-colors">
                                     <Linkedin size={15} className="text-gray-400" />
                                 </a>
                                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
-                                    className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#1A8B8C]/30 flex items-center justify-center transition-colors">
+                                    className="w-9 h-9 rounded-full bg-transparent/5 hover:bg-[#1A8B8C]/30 flex items-center justify-center transition-colors">
                                     <Twitter size={15} className="text-gray-400" />
                                 </a>
                                 <a href="mailto:support@achtrex.com" aria-label="Email"
-                                    className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#1A8B8C]/30 flex items-center justify-center transition-colors">
+                                    className="w-9 h-9 rounded-full bg-transparent/5 hover:bg-[#1A8B8C]/30 flex items-center justify-center transition-colors">
                                     <Mail size={15} className="text-gray-400" />
                                 </a>
                             </div>
@@ -99,7 +99,7 @@ export const Footer = () => {
                                         className="text-gray-300 hover:text-white text-sm font-medium transition-colors flex items-center gap-2 group">
                                         <span className="w-1.5 h-1.5 rounded-full bg-[#1A8B8C] shrink-0"></span>
                                         AutomotiveDataset.com
-                                        <ExternalLink size={11} className="text-gray-600 group-hover:text-gray-400" />
+                                        <ExternalLink size={11} className="text-gray-400 group-hover:text-gray-400" />
                                     </a>
                                 </li>
                                 <li>

@@ -57,10 +57,10 @@ export const ContactClient = () => {
         }
     };
 
-    const inputClasses = "w-full py-2.5 px-3 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors text-[14px] bg-white";
+    const inputClasses = "w-full py-2.5 px-3 border border-gray-300 rounded-lg text-gray-200 placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors text-[14px] bg-[#070b14]";
 
     return (
-        <main className="min-h-[90vh] bg-gradient-to-br from-[#0a4699] via-[#0e74aa] to-[#25cdac] relative flex flex-col justify-center pt-24 pb-16 overflow-hidden">
+        <main className="min-h-[90vh] bg-[#070b14] relative flex flex-col justify-center pt-24 pb-16 overflow-hidden">
             {/* Topographical background overlay */}
             <div 
                 className="absolute inset-0 opacity-10 pointer-events-none z-0"
@@ -91,10 +91,7 @@ export const ContactClient = () => {
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                                     <span className="font-semibold text-lg text-white">+1 613 366-4271</span>
                                 </a>
-                                <a href="tel:+233241336367" className="flex items-center gap-3 hover:text-white transition-colors text-[#a6f7d4]">
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                                    <span className="font-semibold text-lg text-white">+233 24 133-6367</span>
-                                </a>
+
                                 <div className="flex items-center gap-3 text-[#a6f7d4]">
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                     <span className="font-semibold text-lg text-white">Global Remote Operations</span>
@@ -109,15 +106,15 @@ export const ContactClient = () => {
                         <div className="relative">
                             <div className="absolute -inset-1 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 rounded-[32px] blur-xl opacity-40"></div>
                             
-                            <div className="relative bg-white rounded-[24px] p-6 md:p-8 shadow-2xl">
-                                <h3 className="text-xl font-bold text-[#0a2540] mb-6 font-display">Let's get started</h3>
+                            <div className="relative bg-[#070b14] rounded-[24px] p-6 md:p-8 shadow-2xl">
+                                <h3 className="text-xl font-bold text-white mb-6 font-display">Let's get started</h3>
                                 
                                 {status === 'success' ? (
                                     <div className="py-12 text-center">
                                         <div className="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                                             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                                         </div>
-                                        <h4 className="text-xl font-bold text-gray-900 mb-2">Request Received</h4>
+                                        <h4 className="text-xl font-bold text-white mb-2">Request Received</h4>
                                         <p className="text-gray-500">Our team will be in touch shortly to help you start building.</p>
                                     </div>
                                 ) : (
@@ -170,7 +167,7 @@ export const ContactClient = () => {
                                         </div>
 
                                         <p className="text-[12px] text-gray-500 pt-2 pb-4">
-                                            By submitting this form, I confirm that I have read and understood <a href="/privacy" className="underline hover:text-gray-800">Achtrex's Privacy Statement</a>.
+                                            By submitting this form, I confirm that I have read and understood <a href="/privacy" className="underline hover:text-gray-200">Achtrex's Privacy Statement</a>.
                                         </p>
 
                                         {status === 'error' && (
@@ -180,9 +177,12 @@ export const ContactClient = () => {
                                         <button 
                                             type="submit" 
                                             disabled={status === 'loading'}
-                                            className="w-full bg-[#00D4FF] hover:bg-[#00c0e6] text-[#0a2540] font-bold text-[14px] px-8 py-2.5 rounded-full transition-colors disabled:opacity-70"
+                                            className="w-full relative group overflow-hidden rounded-full p-[2px] disabled:opacity-70 transition-transform hover:scale-[1.02] shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                                         >
-                                            {status === 'loading' ? 'Submitting...' : 'Talk with our team'}
+                                            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-teal-400 opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                                            <div className="relative w-full bg-[#070b14] hover:bg-[#0c1222] text-white font-bold text-[15px] px-8 py-3 rounded-full transition-colors duration-500">
+                                                {status === 'loading' ? 'Submitting...' : 'Talk with our team'}
+                                            </div>
                                         </button>
                                     </form>
                                 )}
@@ -191,12 +191,11 @@ export const ContactClient = () => {
                     </div>
                 </div>
 
-                {/* Bottom Banner */}
-                <div className="bg-[#f0e6ff] rounded-full px-6 py-5 flex flex-col md:flex-row items-center justify-between text-[#0a2540] w-full shadow-lg">
+                <div className="bg-[#111112] border border-white/10 rounded-full px-6 py-5 flex flex-col md:flex-row items-center justify-between text-white w-full shadow-lg mt-8">
                     <p className="font-semibold text-[15px] text-center md:text-left mb-2 md:mb-0">
                         When you connect to an app with Achtrex, you're in control of who has access to your data.
                     </p>
-                    <a href="/products" className="font-bold text-[15px] text-[#8b3dff] hover:text-[#742ce0] transition-colors whitespace-nowrap">
+                    <a href="/products" className="font-bold text-[15px] text-[#c2fce3] hover:text-white transition-colors whitespace-nowrap">
                         Manage your connections with Achtrex Portal »
                     </a>
                 </div>

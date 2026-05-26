@@ -80,8 +80,8 @@ export default function BlogEditor() {
                         <script src="https://cdn.tailwindcss.com"></script>
                         <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
                     </head>
-                    <body class="bg-gray-50 p-10">
-                        <div class="max-w-3xl mx-auto bg-white p-10 rounded-xl shadow-sm">
+                    <body class="bg-transparent p-10">
+                        <div class="max-w-3xl mx-auto bg-transparent p-10 rounded-xl shadow-sm">
                             <h1 class="text-4xl font-bold mb-6 font-sans">${title}</h1>
                             <div class="prose prose-lg max-w-none">
                                 ${htmlContent}
@@ -97,9 +97,9 @@ export default function BlogEditor() {
     return (
         <div className="flex h-[calc(100vh-140px)] gap-6">
             {/* Main Editor Canvas */}
-            <div className="flex-1 flex flex-col bg-gray-50 rounded-3xl overflow-hidden border border-gray-200/50 shadow-sm">
+            <div className="flex-1 flex flex-col bg-transparent rounded-3xl overflow-hidden border border-white/10/50 shadow-sm">
                 {/* Editor Top Bar */}
-                <div className="bg-white border-b border-gray-100 p-4 flex items-center justify-between">
+                <div className="bg-transparent border-b border-white/10 p-4 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         <div className="flex flex-col">
                             <div className="flex items-center gap-2 text-xs text-gray-400 font-montserrat mb-1">
@@ -125,7 +125,7 @@ export default function BlogEditor() {
                     <div className="flex items-center gap-3">
                         <button
                             onClick={handlePreview}
-                            className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-gray-600 text-sm font-bold hover:bg-gray-50 transition-colors font-sans"
+                            className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 text-gray-400 text-sm font-bold hover:bg-transparent transition-colors font-sans"
                         >
                             <Eye size={16} />
                             <span>Preview</span>
@@ -137,7 +137,7 @@ export default function BlogEditor() {
                             <Check size={16} />
                             <span>Save & Close</span>
                         </button>
-                        <button className="p-2 text-gray-400 hover:text-gray-600 transition-colors">
+                        <button className="p-2 text-gray-400 hover:text-gray-400 transition-colors">
                             <MoreVertical size={20} />
                         </button>
                     </div>
@@ -145,7 +145,7 @@ export default function BlogEditor() {
 
                 {/* Editor Content Area */}
                 <div className="flex-1 overflow-y-auto p-8 flex justify-center bg-[#F4F5F7]" onClick={() => editor?.chain().focus().run()}>
-                    <div className="w-full max-w-3xl bg-white min-h-full rounded-2xl shadow-sm p-12 cursor-text" onClick={(e) => e.stopPropagation()}>
+                    <div className="w-full max-w-3xl bg-transparent min-h-full rounded-2xl shadow-sm p-12 cursor-text" onClick={(e) => e.stopPropagation()}>
                         <Toolbar editor={editor} />
 
                         {/* Content Area */}

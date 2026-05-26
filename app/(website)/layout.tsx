@@ -8,8 +8,8 @@ export default function WebsiteLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="bg-gray-50">
-        <div className="max-w-[1920px] mx-auto w-full min-w-[320px] relative shadow-none bg-white">
+        <div className="bg-transparent">
+        <div className="max-w-[1920px] mx-auto w-full min-w-[320px] relative shadow-none bg-[#070b14]">
             <Navbar />
             {children}
             <FloatingWhatsApp />

@@ -18,7 +18,7 @@ export const ServicesHero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
+                    className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-transparent/5 backdrop-blur-sm"
                 >
                     <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Products & Platforms</span>
                 </motion.div>
@@ -27,7 +27,7 @@ export const ServicesHero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-5xl md:text-7xl font-bold mb-8 font-display bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/60 tracking-tight leading-tight"
+                    className="text-5xl md:text-7xl font-bold mb-8 font-display bg-clip-text text-transparent bg-gradient-to-r from-[#070b14] via-white/90 to-white/60 tracking-tight leading-tight"
                 >
                     Our Products & <br /> <span className="text-primary italic">Platforms</span>.
                 </motion.h1>

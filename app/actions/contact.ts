@@ -87,6 +87,50 @@ export async function submitContactForm(formData: FormData) {
             replyTo: email
         });
 
+        const customerHtml = `
+            <div style="font-family: 'Inter', Helvetica, sans-serif; background-color: #070b14; color: #ffffff; padding: 40px 20px; max-width: 600px; margin: 0 auto; border-radius: 12px;">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <img src="https://achtrex.com/achtrex-logo-email.png" alt="Achtrex Logo" style="max-height: 40px; margin-bottom: 20px;" />
+                    <h1 style="color: #ffffff; margin: 0; font-size: 28px;">Thank you for reaching out!</h1>
+                    <p style="color: #a0aec0; font-size: 16px; margin-top: 10px;">Hi ${name.split(' ')[0]}, we have received your request and our team will be in touch shortly.</p>
+                </div>
+                
+                <div style="background-color: #111112; border: 1px solid #2d3748; border-radius: 12px; padding: 25px; margin-bottom: 30px;">
+                    <h2 style="color: #c2fce3; font-size: 20px; margin-top: 0;">While you wait...</h2>
+                    <p style="color: #e2e8f0; line-height: 1.6;">Explore some of the powerful platforms driving innovation at Achtrex:</p>
+                    
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
+                        <img src="https://achtrex.com/projects/ad-logo.png" alt="AutomotiveDataset Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
+                        <div>
+                            <h3 style="color: #60a5fa; margin: 0 0 5px 0;">AutomotiveDataset.com</h3>
+                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Integrate the world's most comprehensive vehicle specification and market data API into your business.</p>
+                            <a href="https://automotivedataset.com" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 14px;">Explore Dataset &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
+                        <img src="https://achtrex.com/logos/lumi-logo.png" alt="LUMI AI Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
+                        <div>
+                            <h3 style="color: #c084fc; margin: 0 0 5px 0;">✨ LUMI AI</h3>
+                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Leverage cognitive automotive reasoning to unlock predictive insights and automate vehicle appraisals.</p>
+                            <a href="https://achtrex.com/products/lumi" style="color: #c084fc; text-decoration: none; font-weight: bold; font-size: 14px;">Discover LUMI &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; color: #718096; font-size: 12px;">
+                    <p>&copy; ${new Date().getFullYear()} Achtrex. All rights reserved.</p>
+                </div>
+            </div>
+        `;
+
+        await transporter.sendMail({
+            from: `"Achtrex" <${smtpEmail}>`,
+            to: email,
+            subject: `Thank you for contacting Achtrex, ${name.split(' ')[0]}!`,
+            html: customerHtml
+        });
+
         if (dbErrorOccurred) {
             return { success: true, warning: `Lead received, but failed to save to database: ${dbErrorMessage}` };
         }
@@ -164,6 +208,50 @@ export async function submitPartnerForm(formData: FormData) {
             subject: `New Partner Application from ${company}`,
             html: adminHtml,
             replyTo: email
+        });
+
+        const customerHtml = `
+            <div style="font-family: 'Inter', Helvetica, sans-serif; background-color: #070b14; color: #ffffff; padding: 40px 20px; max-width: 600px; margin: 0 auto; border-radius: 12px;">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <img src="https://achtrex.com/achtrex-logo-email.png" alt="Achtrex Logo" style="max-height: 40px; margin-bottom: 20px;" />
+                    <h1 style="color: #ffffff; margin: 0; font-size: 28px;">Partnership Request Received</h1>
+                    <p style="color: #a0aec0; font-size: 16px; margin-top: 10px;">Hi ${name.split(' ')[0]}, thank you for your interest in partnering with Achtrex. Our team will review your application and be in touch soon.</p>
+                </div>
+                
+                <div style="background-color: #111112; border: 1px solid #2d3748; border-radius: 12px; padding: 25px; margin-bottom: 30px;">
+                    <h2 style="color: #c2fce3; font-size: 20px; margin-top: 0;">While you wait...</h2>
+                    <p style="color: #e2e8f0; line-height: 1.6;">Explore the powerful platforms we can build together:</p>
+                    
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
+                        <img src="https://achtrex.com/projects/ad-logo.png" alt="AutomotiveDataset Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
+                        <div>
+                            <h3 style="color: #60a5fa; margin: 0 0 5px 0;">AutomotiveDataset.com</h3>
+                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Integrate the world's most comprehensive vehicle specification and market data API into your ecosystem.</p>
+                            <a href="https://automotivedataset.com" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 14px;">Explore Dataset &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
+                        <img src="https://achtrex.com/logos/lumi-logo.png" alt="LUMI AI Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
+                        <div>
+                            <h3 style="color: #c084fc; margin: 0 0 5px 0;">✨ LUMI AI</h3>
+                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Leverage cognitive automotive reasoning to unlock predictive insights and automate workflows.</p>
+                            <a href="https://achtrex.com/products/lumi" style="color: #c084fc; text-decoration: none; font-weight: bold; font-size: 14px;">Discover LUMI &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; color: #718096; font-size: 12px;">
+                    <p>&copy; ${new Date().getFullYear()} Achtrex. All rights reserved.</p>
+                </div>
+            </div>
+        `;
+
+        await transporter.sendMail({
+            from: `"Achtrex Partnerships" <${smtpEmail}>`,
+            to: email,
+            subject: `We've received your partnership request, ${name.split(' ')[0]}`,
+            html: customerHtml
         });
 
         if (dbErrorOccurred) {

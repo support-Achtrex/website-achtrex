@@ -93,10 +93,10 @@ const ToastItem = ({ toast, onRemove }: { toast: Toast; onRemove: () => void }) 
     };
 
     const bgColors = {
-        success: 'bg-white/90 border-green-100',
-        error: 'bg-white/90 border-red-100',
-        loading: 'bg-white/90 border-primary/10',
-        info: 'bg-white/90 border-blue-100',
+        success: 'bg-transparent/90 border-green-100',
+        error: 'bg-transparent/90 border-red-100',
+        loading: 'bg-transparent/90 border-primary/10',
+        info: 'bg-transparent/90 border-blue-100',
     };
 
     return (
@@ -116,7 +116,7 @@ const ToastItem = ({ toast, onRemove }: { toast: Toast; onRemove: () => void }) 
             {toast.type !== 'loading' && (
                 <button
                     onClick={onRemove}
-                    className="text-gray-400 hover:text-gray-600 transition-colors p-1 hover:bg-black/5 rounded-full"
+                    className="text-gray-400 hover:text-gray-400 transition-colors p-1 hover:bg-black/5 rounded-full"
                 >
                     <XCircle size={16} />
                 </button>

@@ -5,7 +5,7 @@ const WebsiteInsights = () => {
     return (
         <div className="bg-gradient-to-br from-orange-400 to-orange-500 p-8 rounded-[32px] text-white h-full relative overflow-hidden shadow-lg shadow-orange-500/20">
             {/* Background decoration */}
-            <div className="absolute -right-10 -top-10 w-64 h-64 bg-white/10 rounded-full blur-3xl mix-blend-overlay"></div>
+            <div className="absolute -right-10 -top-10 w-64 h-64 bg-transparent/10 rounded-full blur-3xl mix-blend-overlay"></div>
             <div className="absolute -left-10 bottom-0 w-48 h-48 bg-orange-300/20 rounded-full blur-2xl mix-blend-overlay"></div>
 
             <div className="relative z-10">
@@ -25,7 +25,7 @@ const WebsiteInsights = () => {
                             <p className="text-orange-50 text-xs font-montserrat font-medium tracking-wide opacity-90">Website insights</p>
                         </div>
                     </div>
-                    <button className="p-2 hover:bg-white/10 rounded-full transition-colors">
+                    <button className="p-2 hover:bg-transparent/10 rounded-full transition-colors">
                         <MoreHorizontal size={24} />
                     </button>
                 </div>
@@ -39,7 +39,7 @@ const WebsiteInsights = () => {
                 </div>
 
                 <div className="space-y-4">
-                    <div className="bg-white rounded-2xl p-5 text-gray-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="bg-transparent rounded-2xl p-5 text-gray-200 shadow-sm hover:shadow-md transition-shadow">
                         <div className="flex items-center justify-between mb-3">
                             <span className="font-bold text-sm font-montserrat">Link clicked</span>
                             <span className="text-xs text-gray-400 font-sans">1 hour ago</span>
@@ -53,7 +53,7 @@ const WebsiteInsights = () => {
                         </div>
                     </div>
 
-                    <div className="bg-white/90 backdrop-blur-md rounded-2xl p-5 text-gray-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="bg-transparent/90 backdrop-blur-md rounded-2xl p-5 text-gray-200 shadow-sm hover:shadow-md transition-shadow">
                         <div className="flex items-center justify-between mb-3">
                             <span className="font-bold text-sm font-montserrat">Link clicked</span>
                             <span className="text-xs text-gray-400 font-sans">2 hour ago</span>
