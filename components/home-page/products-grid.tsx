@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-
+import { motion } from 'framer-motion';
 
 export const ProductsGrid = () => {
   return (
@@ -9,7 +9,12 @@ export const ProductsGrid = () => {
       <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="mb-12">
+        <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mb-12">
           <h2 className="text-[32px] md:text-[40px] font-bold text-white leading-[1.1] tracking-tight mb-6">
             Powered by the largest automotive network.<br />
             Built for every mobility need.
@@ -20,10 +25,15 @@ export const ProductsGrid = () => {
               See all products
             </div>
           </Link>
-        </div>
+        </motion.div>
 
         {/* Grid Layout */}
-        <div className="flex flex-col gap-6">
+        <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="flex flex-col gap-6">
           
           {/* Top Row: 2 Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -264,7 +274,7 @@ export const ProductsGrid = () => {
             </Link>
 
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

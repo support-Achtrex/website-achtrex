@@ -1,5 +1,7 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export const ServicesGrid = () => {
     return (
@@ -8,25 +10,45 @@ export const ServicesGrid = () => {
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                     
                     <div className="w-full lg:w-1/2">
-                        <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-[1.05] mb-6">
+                        <motion.h2 
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-[1.05] mb-6">
                             Want access to millions of vehicles?<br />
                             We've got the API keys.
-                        </h2>
-                        <p className="text-[16px] text-gray-400 mb-8 font-medium leading-[1.4]">
+                        </motion.h2>
+                        <motion.p 
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                            className="text-[16px] text-gray-400 mb-8 font-medium leading-[1.4]">
                             You build the experience. We'll handle the data. Connect seamlessly to global automotive datasets with our enterprise-grade API infrastructure.
-                        </p>
+                        </motion.p>
                         
-                        <div className="flex flex-col sm:flex-row gap-6 mb-12">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                            className="flex flex-col sm:flex-row gap-6 mb-12">
                             <Link href="/contact-us" className="text-white font-semibold hover:text-[#c2fce3] flex items-center gap-1 transition-all">
                                 Get the API keys
                                 <svg className="w-4 h-4 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                                 </svg>
                             </Link>
-                        </div>
+                        </motion.div>
                     </div>
 
-                    <div className="w-full lg:w-1/2">
+                    <motion.div 
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="w-full lg:w-1/2">
                         <div className="bg-[#111112] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl overflow-hidden font-mono text-[13px] md:text-[15px] leading-relaxed relative">
                             {/* Window controls */}
                             <div className="flex gap-2 mb-6">
@@ -48,7 +70,7 @@ export const ServicesGrid = () => {
                                 </code>
                             </pre>
                         </div>
-                    </div>
+                    </motion.div>
 
                 </div>
             </div>

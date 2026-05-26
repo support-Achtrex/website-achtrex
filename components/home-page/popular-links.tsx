@@ -14,9 +14,14 @@ export const PopularLinks = () => {
     return (
         <section className="py-14 bg-transparent border-y border-white/10 relative z-10">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="mb-10 flex items-center justify-between">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="mb-10 flex items-center justify-between">
                     <h2 className="text-2xl font-bold text-white">Popular Links</h2>
-                </div>
+                </motion.div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {links.map((link, i) => (
                         <Link href={link.href} key={i}>
