@@ -69,7 +69,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#070b14] via-transparent to-transparent" />
       </div>
 
-      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-48 flex flex-col items-start text-left">
+      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-32 sm:pb-48 flex flex-col items-start text-left">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -95,23 +95,23 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-4"
+          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
         >
           <button
             onClick={() => router.push('/contact-us')}
-            className="relative group overflow-hidden rounded-lg p-[2px] transition-transform hover:scale-[1.02] shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+            className="relative group overflow-hidden rounded-lg p-[2px] transition-transform hover:scale-[1.02] shadow-[0_0_20px_rgba(59,130,246,0.15)] w-full sm:w-auto"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-teal-400 opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative w-full h-full bg-[#070b14] hover:bg-[#0c1222] text-white font-bold text-[16px] px-8 py-3.5 rounded-[6px] transition-colors duration-500">
+            <div className="relative w-full h-full flex items-center justify-center bg-[#070b14] hover:bg-[#0c1222] text-white font-bold text-[16px] px-8 py-3.5 rounded-[6px] transition-colors duration-500">
               Talk with our team
             </div>
           </button>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="relative group rounded-lg overflow-hidden p-[1px]"
+            className="relative group rounded-lg overflow-hidden p-[1px] w-full sm:w-auto"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/50 via-indigo-500/50 to-purple-500/50 rounded-lg group-hover:opacity-100 transition-opacity" />
-            <div className="relative bg-[#070b14]/90 backdrop-blur-sm text-white font-bold text-[16px] px-8 py-3.5 rounded-lg hover:bg-[#111112] transition-colors">
+            <div className="relative w-full h-full flex items-center justify-center bg-[#070b14]/90 backdrop-blur-sm text-white font-bold text-[16px] px-8 py-3.5 rounded-lg hover:bg-[#111112] transition-colors">
               Start building
             </div>
           </button>
