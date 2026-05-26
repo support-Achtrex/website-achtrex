@@ -25,7 +25,7 @@ export const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) 
                 <input
                     type="text"
                     placeholder="Search templates..."
-                    className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-primary transition-all"
+                    className="w-full pl-10 pr-4 py-2 bg-transparent border border-white/10 rounded-xl text-sm outline-none focus:border-primary transition-all"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -42,11 +42,11 @@ export const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) 
                         }}
                         className={`text-left p-4 rounded-xl border transition-all group relative ${selectedId === template.id
                                 ? 'border-primary bg-primary/5 shadow-sm'
-                                : 'border-gray-100 bg-white hover:border-primary/30 hover:shadow-sm'
+                                : 'border-white/10 bg-transparent hover:border-primary/30 hover:shadow-sm'
                             }`}
                     >
                         <div className="flex justify-between items-start mb-1">
-                            <h4 className={`font-bold text-sm ${selectedId === template.id ? 'text-primary' : 'text-gray-800'}`}>
+                            <h4 className={`font-bold text-sm ${selectedId === template.id ? 'text-primary' : 'text-gray-200'}`}>
                                 {template.name}
                             </h4>
                             {selectedId === template.id && (

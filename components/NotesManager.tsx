@@ -77,7 +77,7 @@ const MenuBar = ({ editor }: { editor: any }) => {
     };
 
     return (
-        <div className="flex flex-wrap items-center gap-1 p-2 border-b border-gray-100 bg-gray-50/50 rounded-t-xl">
+        <div className="flex flex-wrap items-center gap-1 p-2 border-b border-white/10 bg-transparent/50 rounded-t-xl">
             <input
                 type="file"
                 ref={fileInputRef}
@@ -88,7 +88,7 @@ const MenuBar = ({ editor }: { editor: any }) => {
             <button
                 onClick={() => editor.chain().focus().toggleBold().run()}
                 disabled={!editor.can().chain().focus().toggleBold().run()}
-                className={`p-1.5 rounded hover:bg-white hover:shadow-sm transition-all ${editor.isActive('bold') ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500'}`}
+                className={`p-1.5 rounded hover:bg-transparent hover:shadow-sm transition-all ${editor.isActive('bold') ? 'bg-transparent shadow-sm text-blue-600' : 'text-gray-500'}`}
                 title="Bold"
             >
                 <Bold size={16} />
@@ -96,7 +96,7 @@ const MenuBar = ({ editor }: { editor: any }) => {
             <button
                 onClick={() => editor.chain().focus().toggleItalic().run()}
                 disabled={!editor.can().chain().focus().toggleItalic().run()}
-                className={`p-1.5 rounded hover:bg-white hover:shadow-sm transition-all ${editor.isActive('italic') ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500'}`}
+                className={`p-1.5 rounded hover:bg-transparent hover:shadow-sm transition-all ${editor.isActive('italic') ? 'bg-transparent shadow-sm text-blue-600' : 'text-gray-500'}`}
                 title="Italic"
             >
                 <Italic size={16} />
@@ -104,14 +104,14 @@ const MenuBar = ({ editor }: { editor: any }) => {
             <div className="w-px h-4 bg-gray-300 mx-1" />
             <button
                 onClick={() => editor.chain().focus().toggleBulletList().run()}
-                className={`p-1.5 rounded hover:bg-white hover:shadow-sm transition-all ${editor.isActive('bulletList') ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500'}`}
+                className={`p-1.5 rounded hover:bg-transparent hover:shadow-sm transition-all ${editor.isActive('bulletList') ? 'bg-transparent shadow-sm text-blue-600' : 'text-gray-500'}`}
                 title="Bullet List"
             >
                 <List size={16} />
             </button>
             <button
                 onClick={() => editor.chain().focus().toggleOrderedList().run()}
-                className={`p-1.5 rounded hover:bg-white hover:shadow-sm transition-all ${editor.isActive('orderedList') ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500'}`}
+                className={`p-1.5 rounded hover:bg-transparent hover:shadow-sm transition-all ${editor.isActive('orderedList') ? 'bg-transparent shadow-sm text-blue-600' : 'text-gray-500'}`}
                 title="Ordered List"
             >
                 <ListOrdered size={16} />
@@ -119,7 +119,7 @@ const MenuBar = ({ editor }: { editor: any }) => {
             <div className="w-px h-4 bg-gray-300 mx-1" />
             <button
                 onClick={() => fileInputRef.current?.click()}
-                className="p-1.5 rounded hover:bg-white hover:shadow-sm transition-all text-gray-500 hover:text-blue-600 disabled:opacity-50"
+                className="p-1.5 rounded hover:bg-transparent hover:shadow-sm transition-all text-gray-500 hover:text-blue-600 disabled:opacity-50"
                 title="Upload Image"
             >
                 <ImageIcon size={16} />
@@ -204,20 +204,20 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
     };
 
     return (
-        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col h-full">
-            <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+        <div className="bg-transparent p-6 rounded-2xl border border-white/10 shadow-sm flex flex-col h-full">
+            <h2 className="text-lg font-bold text-gray-200 mb-4 flex items-center gap-2">
                 <FileText size={18} className="text-blue-500" />
                 Project Notes
             </h2>
 
             {/* Editor Area */}
-            <div className="mb-8 border border-gray-200 rounded-xl overflow-hidden focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition-all shadow-sm bg-white">
+            <div className="mb-8 border border-white/10 rounded-xl overflow-hidden focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition-all shadow-sm bg-transparent">
                 <MenuBar editor={editor} />
                 <EditorContent
                     editor={editor}
-                    className="[&_.ProseMirror]:min-h-[150px] [&_img]:max-w-[45%] [&_img]:max-h-[300px] [&_img]:inline-block [&_img]:m-1 [&_img]:border [&_img]:border-gray-200 [&_img]:rounded-lg [&_img]:shadow-sm"
+                    className="[&_.ProseMirror]:min-h-[150px] [&_img]:max-w-[45%] [&_img]:max-h-[300px] [&_img]:inline-block [&_img]:m-1 [&_img]:border [&_img]:border-white/10 [&_img]:rounded-lg [&_img]:shadow-sm"
                 />
-                <div className="p-2 bg-gray-50 border-t border-gray-100 flex justify-end">
+                <div className="p-2 bg-transparent border-t border-white/10 flex justify-end">
                     <button
                         onClick={handleAddNote}
                         disabled={isSubmitting}
@@ -242,10 +242,10 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
             <div className="space-y-4 flex-1 overflow-y-auto custom-scrollbar pr-2 max-h-[600px]">
                 {initialNotes.length > 0 ? (
                     initialNotes.map((note) => (
-                        <div key={note.id} className="group bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all relative">
+                        <div key={note.id} className="group bg-transparent p-5 rounded-2xl border border-white/10 shadow-sm hover:shadow-md transition-all relative">
                             {/* Note Header */}
                             <div className="flex justify-between items-start mb-3 border-b border-gray-50 pb-2">
-                                <div className="flex items-center gap-2 text-xs text-gray-400 font-medium bg-gray-50 px-2 py-1 rounded-md">
+                                <div className="flex items-center gap-2 text-xs text-gray-400 font-medium bg-transparent px-2 py-1 rounded-md">
                                     <Clock size={12} />
                                     {new Date(note.created_at).toLocaleString(undefined, {
                                         dateStyle: 'medium',
@@ -264,13 +264,13 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
 
                             {/* Note Content */}
                             <div
-                                className="prose prose-sm max-w-none text-gray-700 [&>img]:rounded-lg [&>img]:my-2 [&>img]:bg-gray-50 [&>img]:border [&>img]:border-gray-100"
+                                className="prose prose-sm max-w-none text-gray-700 [&>img]:rounded-lg [&>img]:my-2 [&>img]:bg-transparent [&>img]:border [&>img]:border-white/10"
                                 dangerouslySetInnerHTML={{ __html: note.content }}
                             />
                         </div>
                     ))
                 ) : (
-                    <div className="text-center py-12 text-gray-400 bg-gray-50/50 rounded-2xl border border-dashed border-gray-200">
+                    <div className="text-center py-12 text-gray-400 bg-transparent/50 rounded-2xl border border-dashed border-white/10">
                         <FileText size={32} className="mx-auto mb-3 text-gray-300" />
                         <p className="text-sm">No notes yet. Add your first update above.</p>
                     </div>

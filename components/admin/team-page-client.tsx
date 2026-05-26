@@ -83,11 +83,11 @@ const TeamPageClient = ({ initialMembers }: TeamPageClientProps) => {
     };
 
     return (
-        <div className="p-8 bg-gray-50 min-h-screen">
+        <div className="p-8 bg-transparent min-h-screen">
             {/* Header / Toolbar */}
             <div className="flex justify-between items-center mb-8">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-800 font-display">Team Members</h1>
+                    <h1 className="text-2xl font-bold text-gray-200 font-display">Team Members</h1>
                     <p className="text-gray-500 text-sm">Manage your team and their roles.</p>
                 </div>
                 <button 

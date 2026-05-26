@@ -75,7 +75,7 @@ export const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) =>
                             </div>
                             <button
                                 onClick={onClose}
-                                className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                                className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white/70 hover:text-white hover:bg-transparent/10 transition-all"
                             >
                                 <X className="w-5 h-5" />
                             </button>
@@ -115,7 +115,7 @@ export const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) =>
                                         {service.details?.technologies?.map((tech: string, idx: number) => (
                                             <span
                                                 key={idx}
-                                                className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white/80"
+                                                className="px-3 py-1 rounded-full bg-transparent/5 border border-white/10 text-xs font-medium text-white/80"
                                             >
                                                 {tech}
                                             </span>
@@ -126,7 +126,7 @@ export const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) =>
                         </div>
 
                         {/* Footer */}
-                        <div className="p-6 border-t border-white/10 bg-white/5 flex justify-end shrink-0">
+                        <div className="p-6 border-t border-white/10 bg-transparent/5 flex justify-end shrink-0">
                             <button
                                 onClick={onClose}
                                 className="px-6 py-2.5 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition-colors"

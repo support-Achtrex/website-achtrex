@@ -89,7 +89,7 @@ export const ProjectsSection = () => {
                                 <div className="order-2 lg:order-1 flex flex-col justify-center">
                                     <div className="flex flex-wrap gap-2 mb-8">
                                         {products[currentIndex].tags.map((tag, i) => (
-                                            <span key={i} className="px-3 py-1 rounded-full text-[10px] font-mono border border-white/10 bg-white/5 text-gray-400 uppercase tracking-wider">
+                                            <span key={i} className="px-3 py-1 rounded-full text-[10px] font-mono border border-white/10 bg-transparent/5 text-gray-400 uppercase tracking-wider">
                                                 {tag}
                                             </span>
                                         ))}
@@ -151,10 +151,10 @@ export const ProjectsSection = () => {
 
                     {/* Navigation Buttons */}
                     <div className="flex justify-center lg:justify-start gap-4 mt-12">
-                        <button onClick={prevSlide} className="p-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white transition-all">
+                        <button onClick={prevSlide} className="p-4 rounded-full border border-white/10 bg-transparent/5 hover:bg-transparent/10 text-white transition-all">
                             <ChevronLeft className="w-6 h-6" />
                         </button>
-                        <button onClick={nextSlide} className="p-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white transition-all">
+                        <button onClick={nextSlide} className="p-4 rounded-full border border-white/10 bg-transparent/5 hover:bg-transparent/10 text-white transition-all">
                             <ChevronRight className="w-6 h-6" />
                         </button>
                     </div>

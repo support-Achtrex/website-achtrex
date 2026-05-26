@@ -68,7 +68,7 @@ export const StorySection = () => {
                         className="grid grid-cols-1 sm:grid-cols-2 gap-4"
                     >
                         {techSolutions.map((item, idx) => (
-                            <div key={idx} className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-primary/50 hover:bg-white/10 transition-all duration-300 group">
+                            <div key={idx} className="p-6 rounded-2xl bg-transparent/5 border border-white/10 backdrop-blur-sm hover:border-primary/50 hover:bg-transparent/10 transition-all duration-300 group">
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                     <item.icon className="w-6 h-6 text-primary" />
                                 </div>
@@ -138,7 +138,7 @@ export const StorySection = () => {
                                 We're not just building apps; we're constructing the digital infrastructure that will power the next decade of industry leaders.
                             </p>
                         </div>
-                        <div className="p-12 md:p-16 flex flex-col justify-center space-y-8 bg-white/5">
+                        <div className="p-12 md:p-16 flex flex-col justify-center space-y-8 bg-transparent/5">
                             <div>
                                 <h4 className="text-5xl font-bold text-white mb-1">50+</h4>
                                 <p className="text-sm text-muted-foreground uppercase tracking-wider">Systems Deployed</p>

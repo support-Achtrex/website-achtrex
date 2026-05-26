@@ -14,7 +14,7 @@ const StatsCards = () => {
             trend: 'up',
             bg: 'bg-primary',
             text: 'text-white',
-            iconBg: 'bg-white/20',
+            iconBg: 'bg-transparent/20',
             iconColor: 'text-white',
             subtext: 'text-blue-100',
             href: '/admin/blogs'
@@ -24,10 +24,10 @@ const StatsCards = () => {
             value: teamCount?.toString() || '0',
             change: 'Active',
             trend: 'neutral',
-            bg: 'bg-white',
-            text: 'text-gray-800',
-            iconBg: 'bg-gray-50',
-            iconColor: 'text-gray-800',
+            bg: 'bg-transparent',
+            text: 'text-gray-200',
+            iconBg: 'bg-transparent',
+            iconColor: 'text-gray-200',
             subtext: 'text-gray-400',
             href: '/admin/team'
         },
@@ -36,10 +36,10 @@ const StatsCards = () => {
             value: '12M',
             change: 'Increased from last month',
             trend: 'up',
-            bg: 'bg-white',
-            text: 'text-gray-800',
-            iconBg: 'bg-gray-50',
-            iconColor: 'text-gray-800',
+            bg: 'bg-transparent',
+            text: 'text-gray-200',
+            iconBg: 'bg-transparent',
+            iconColor: 'text-gray-200',
             subtext: 'text-gray-400',
             href: '/admin/analytics'
         },
@@ -48,10 +48,10 @@ const StatsCards = () => {
             value: '2M',
             change: 'Increased from last month',
             trend: 'up',
-            bg: 'bg-white',
-            text: 'text-gray-800',
-            iconBg: 'bg-gray-50',
-            iconColor: 'text-gray-800',
+            bg: 'bg-transparent',
+            text: 'text-gray-200',
+            iconBg: 'bg-transparent',
+            iconColor: 'text-gray-200',
             subtext: 'text-gray-400',
             href: '/admin/analytics'
         }
@@ -60,7 +60,7 @@ const StatsCards = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {stats.map((stat, index) => (
-                <div key={index} className={`rounded-3xl p-px ${stat.bg === 'bg-primary' ? 'bg-primary' : 'bg-linear-to-br from-gray-200 to-gray-50'} border border-gray-100 relative overflow-hidden group hover:shadow-sm transition-shadow`}>
+                <div key={index} className={`rounded-3xl p-px ${stat.bg === 'bg-primary' ? 'bg-primary' : 'bg-linear-to-br from-gray-200 to-gray-50'} border border-white/10 relative overflow-hidden group hover:shadow-sm transition-shadow`}>
                     <div className={`${stat.bg} rounded-[23px] p-6 h-full`}>
                         <div className="flex justify-between items-start mb-4">
                             <h3 className={`text-sm font-medium font-sans ${stat.bg === 'bg-primary' ? 'text-blue-100' : 'text-gray-500'}`}>
@@ -78,7 +78,7 @@ const StatsCards = () => {
                         </div>
 
                         <div className="flex items-center gap-2 whitespace-nowrap">
-                            <div className={`px-1.5 py-0.5 rounded text-[10px] font-bold font-sans ${stat.bg === 'bg-primary' ? 'bg-white/20 text-white' : 'bg-green-100 text-green-700'}`}>
+                            <div className={`px-1.5 py-0.5 rounded text-[10px] font-bold font-sans ${stat.bg === 'bg-primary' ? 'bg-transparent/20 text-white' : 'bg-green-100 text-green-700'}`}>
                                 {stat.trend === 'up' ? '-' : '+'}
                             </div>
                             <span className={`text-xs font-sans ${stat.subtext}`}>

@@ -14,7 +14,7 @@ const StatCard = ({
     colorClass: string,
     bgClass: string
 }) => (
-    <div className="bg-white p-6 rounded-[24px] flex flex-col justify-between h-full shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300 border border-gray-100/50">
+    <div className="bg-transparent p-6 rounded-[24px] flex flex-col justify-between h-full shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300 border border-white/10/50">
         <div className="flex items-start gap-5 mb-6">
             <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${bgClass} ${colorClass} shadow-inner`}>
                 <Icon size={26} strokeWidth={2} />

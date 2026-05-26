@@ -9,6 +9,7 @@ export const UseCasesContent = () => {
         {
             name: "Ark Auto Shop",
             domain: "arkautoshop.com",
+            logoPath: "/logos/use-cases/arkauto.png",
             tagline: "Intelligent Automotive Parts Distribution & Service Infrastructure",
             description: "Achtrex fully designed, engineered, deployed, and continues to manage the complete digital infrastructure powering Ark Auto Shop’s automotive parts distribution and intelligent service ecosystem. The platform was developed end-to-end as a scalable automotive commerce and operational infrastructure platform integrating automotive intelligence systems, AI-powered workflows, intelligent fitment technologies, enterprise operational systems, vehicle compatibility infrastructure, and technical automotive advisory systems.",
             scope: [
@@ -54,6 +55,7 @@ export const UseCasesContent = () => {
         {
             name: "CarReport.com",
             domain: "carreport.com",
+            logoPath: "/logos/use-cases/carreport.png",
             tagline: "Automotive Intelligence Research & Technical Documentation",
             description: "Achtrex contributed automotive research and technical documentation support for vehicle intelligence and automotive reporting systems.",
             scope: [
@@ -74,6 +76,7 @@ export const UseCasesContent = () => {
         {
             name: "OptiCar.ai",
             domain: "opticar.ai",
+            logoPath: "/logos/use-cases/opticar.png",
             tagline: "Enterprise Automotive AI Consultation & API Infrastructure",
             description: "Achtrex provides continuous consultation and enterprise automotive intelligence infrastructure support for AI-powered automotive systems within the OptiCar ecosystem.",
             scope: [
@@ -99,6 +102,7 @@ export const UseCasesContent = () => {
         {
             name: "Price360.ai",
             domain: "price360.ai",
+            logoPath: "/logos/use-cases/price360.png",
             tagline: "AI Vehicle Valuation & Automotive Intelligence Infrastructure",
             description: "Achtrex provides continuous consultation and automotive intelligence infrastructure support for AI-powered vehicle valuation and inspection technologies.",
             scope: [
@@ -123,6 +127,7 @@ export const UseCasesContent = () => {
         {
             name: "Carkasa.com",
             domain: "carkasa.com",
+            logoPath: "/logos/use-cases/vehiclehistory.png",
             tagline: "Automotive Commerce & Vehicle Experience Platform",
             description: "Achtrex fully designed, developed, deployed, and continues to manage the complete infrastructure and operational platform powering Carkasa. The platform was engineered as a scalable automotive commerce ecosystem focused on vehicle experience systems, automotive customer engagement, intelligent automotive workflows, and scalable digital automotive operations.",
             scope: [
@@ -148,6 +153,7 @@ export const UseCasesContent = () => {
         {
             name: "VehicleReportCheck",
             domain: "vehiclereportcheck.com",
+            logoPath: "/logos/use-cases/vehiclereportcheck.png",
             tagline: "Vehicle Verification & Automotive Intelligence Platform",
             description: "Achtrex fully developed and continues to manage the VehicleReportCheck platform as an automotive intelligence and vehicle verification ecosystem focused on VIN intelligence, vehicle transparency, automotive reporting systems, and vehicle verification workflows.",
             scope: [
@@ -173,15 +179,15 @@ export const UseCasesContent = () => {
     ];
 
     return (
-        <div className="bg-[#f9fafb] text-[#111112] font-sans antialiased min-h-screen">
+        <div className="bg-transparent text-white font-sans antialiased min-h-screen">
             
             {/* ─── HERO ─────────────────────────────────────────────────────── */}
-            <div className="relative overflow-hidden pt-32 pb-24 px-6 border-b border-[#e5e5e5] bg-white">
+            <div className="relative overflow-hidden pt-32 pb-24 px-6 border-b border-white/10 bg-transparent">
                 <div className="relative z-10 max-w-[1080px] mx-auto text-center flex flex-col items-center">
-                    <h1 className="text-[48px] md:text-[64px] font-black tracking-[-0.03em] leading-[0.95] text-[#111112] mb-6">
+                    <h1 className="text-[48px] md:text-[64px] font-black tracking-[-0.03em] leading-[0.95] text-white mb-6">
                         Client &amp; Industry <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-500 to-emerald-600">Use Cases</span>
                     </h1>
-                    <p className="text-[17px] md:text-[19px] text-[#5C7695] max-w-2xl leading-relaxed font-medium mb-12">
+                    <p className="text-[17px] md:text-[19px] text-gray-400 max-w-2xl leading-relaxed font-medium mb-12">
                         Enterprise Automotive Infrastructure, APIs &amp; AI Systems Delivered by Achtrex
                     </p>
                 </div>
@@ -191,16 +197,16 @@ export const UseCasesContent = () => {
             <div className="max-w-[1080px] mx-auto px-6 py-20">
                 <div className="flex flex-col gap-16">
                     {useCases.map((useCase, index) => (
-                        <div key={index} className="relative rounded-3xl bg-white border border-[#e5e5e5] p-10 overflow-hidden group hover:border-blue-300 transition-colors shadow-sm">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 blur-[100px] group-hover:bg-blue-100 transition-colors" />
+                        <div key={index} className="relative rounded-3xl bg-transparent border border-white/10 p-10 overflow-hidden group hover:border-blue-300 transition-colors shadow-sm">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-900/10 blur-[100px] group-hover:bg-blue-500/20 transition-colors" />
                             
                             <div className="relative z-10">
                                 {/* Header with Logo */}
-                                <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8 border-b border-[#e5e5e5] pb-8">
-                                    <div className="w-20 h-20 rounded-2xl bg-[#f9fafb] border border-[#e5e5e5] flex items-center justify-center p-3 shrink-0 overflow-hidden shadow-sm">
+                                <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8 border-b border-white/10 pb-8">
+                                    <div className="w-20 h-20 rounded-2xl bg-white border border-white/10 flex items-center justify-center p-3 shrink-0 overflow-hidden shadow-sm">
                                         {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img 
-                                            src={`https://logo.clearbit.com/${useCase.domain}`} 
+                                            src={useCase.logoPath || `https://logo.clearbit.com/${useCase.domain}`} 
                                             alt={`${useCase.name} logo`}
                                             className="max-w-full max-h-full object-contain"
                                             onError={(e) => {
@@ -208,19 +214,19 @@ export const UseCasesContent = () => {
                                                 target.style.display = 'none';
                                                 target.parentElement?.classList.add('fallback-icon');
                                                 if (target.parentElement) {
-                                                    target.parentElement.innerHTML = `<span class="text-2xl font-bold text-[#5C7695]">${useCase.name.charAt(0)}</span>`;
+                                                    target.parentElement.innerHTML = `<span class="text-2xl font-bold text-gray-400">${useCase.name.charAt(0)}</span>`;
                                                 }
                                             }}
                                         />
                                     </div>
                                     <div className="flex-1 w-full">
                                         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-2">
-                                            <h2 className="text-3xl font-black text-[#111112]">{useCase.name}</h2>
+                                            <h2 className="text-3xl font-black text-white">{useCase.name}</h2>
                                             <a 
                                                 href={`https://${useCase.domain}`} 
                                                 target="_blank" 
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-2 text-[13px] font-bold text-[#5C7695] hover:text-[#111112] transition-colors border border-[#e5e5e5] hover:border-[#111112]/30 bg-[#f9fafb] hover:bg-white rounded-full px-4 py-1.5 shrink-0 shadow-sm"
+                                                className="inline-flex items-center gap-2 text-[13px] font-bold text-gray-400 hover:text-white transition-colors border border-white/10 hover:border-[#111112]/30 bg-transparent hover:bg-transparent rounded-full px-4 py-1.5 shrink-0 shadow-sm"
                                             >
                                                 Visit website
                                                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
@@ -234,7 +240,7 @@ export const UseCasesContent = () => {
 
                                 {/* Description */}
                                 <div className="mb-10">
-                                    <p className="text-[16px] text-[#5C7695] leading-relaxed font-medium">
+                                    <p className="text-[16px] text-gray-400 leading-relaxed font-medium">
                                         {useCase.description}
                                     </p>
                                 </div>
@@ -242,13 +248,13 @@ export const UseCasesContent = () => {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
                                     {/* Scope of Work */}
                                     <div>
-                                        <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-[#5C7695] mb-5 flex items-center gap-2">
+                                        <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-gray-400 mb-5 flex items-center gap-2">
                                             <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
                                             Scope of Work
                                         </h3>
                                         <ul className="space-y-3">
                                             {useCase.scope.map((item, i) => (
-                                                <li key={i} className="flex items-start gap-3 text-[14px] text-[#5C7695] font-medium">
+                                                <li key={i} className="flex items-start gap-3 text-[14px] text-gray-400 font-medium">
                                                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                                                     {item}
                                                 </li>
@@ -258,13 +264,13 @@ export const UseCasesContent = () => {
 
                                     {/* Delivered Capabilities */}
                                     <div>
-                                        <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-[#5C7695] mb-5 flex items-center gap-2">
+                                        <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-gray-400 mb-5 flex items-center gap-2">
                                             <svg className="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                                             Delivered Capabilities
                                         </h3>
                                         <ul className="space-y-3">
                                             {useCase.capabilities.map((item, i) => (
-                                                <li key={i} className="flex items-start gap-3 text-[14px] text-[#5C7695] font-medium">
+                                                <li key={i} className="flex items-start gap-3 text-[14px] text-gray-400 font-medium">
                                                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0" />
                                                     {item}
                                                 </li>
@@ -275,17 +281,17 @@ export const UseCasesContent = () => {
 
                                 {/* LUMI AI Section (if exists) */}
                                 {useCase.lumi && (
-                                    <div className="mb-10 rounded-2xl border border-purple-200 bg-purple-50 p-6 shadow-sm">
+                                    <div className="mb-10 rounded-2xl border border-purple-500/30 bg-purple-900/10 p-6 shadow-sm">
                                         <div className="flex items-center gap-3 mb-4">
-                                            <div className="w-8 h-8 rounded-lg bg-white border border-purple-200 flex items-center justify-center shadow-sm">
+                                            <div className="w-8 h-8 rounded-lg bg-transparent border border-purple-200 flex items-center justify-center shadow-sm">
                                                 <span className="text-purple-600 text-sm">✦</span>
                                             </div>
-                                            <h3 className="text-lg font-bold text-[#111112]">{useCase.lumi.title}</h3>
+                                            <h3 className="text-lg font-bold text-white">{useCase.lumi.title}</h3>
                                         </div>
-                                        <p className="text-[14px] text-[#5C7695] mb-4 font-medium">{useCase.lumi.description}</p>
+                                        <p className="text-[14px] text-gray-400 mb-4 font-medium">{useCase.lumi.description}</p>
                                         <div className="flex flex-wrap gap-2 mb-4">
                                             {useCase.lumi.capabilities.map((cap, i) => (
-                                                <span key={i} className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-white border border-purple-200 text-purple-700">
+                                                <span key={i} className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-transparent border border-purple-200 text-purple-700">
                                                     {cap}
                                                 </span>
                                             ))}
@@ -297,9 +303,9 @@ export const UseCasesContent = () => {
                                 )}
 
                                 {/* Strategic Value */}
-                                <div className="rounded-2xl bg-[#f9fafb] border border-[#e5e5e5] p-6 shadow-sm">
-                                    <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-[#5C7695] mb-3">Strategic Value</h3>
-                                    <p className="text-[14px] text-[#5C7695] leading-relaxed font-medium">
+                                <div className="rounded-2xl bg-transparent border border-white/10 p-6 shadow-sm">
+                                    <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-gray-400 mb-3">Strategic Value</h3>
+                                    <p className="text-[14px] text-gray-400 leading-relaxed font-medium">
                                         {useCase.strategicValue}
                                     </p>
                                 </div>
@@ -312,7 +318,7 @@ export const UseCasesContent = () => {
 
             {/* ─── CTA ──────────────────────────────────────────────────────── */}
             <div className="max-w-[1080px] mx-auto px-6 py-20">
-                <div className="relative rounded-3xl bg-gradient-to-r from-blue-50 via-teal-50 to-emerald-50 border border-[#e5e5e5] overflow-hidden shadow-sm">
+                <div className="relative rounded-3xl bg-gradient-to-r from-blue-50 via-teal-50 to-emerald-50 border border-white/10 overflow-hidden shadow-sm">
                     <div className="absolute inset-0 z-0">
                         <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-100 rounded-full blur-[80px]" />
                         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-100 rounded-full blur-[80px]" />
@@ -320,8 +326,8 @@ export const UseCasesContent = () => {
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10 p-12 lg:p-16 text-center md:text-left">
                         <div>
-                            <h2 className="text-[32px] font-black text-[#111112] mb-4 tracking-tight">Ready to build your solution?</h2>
-                            <p className="text-[16px] text-[#5C7695] font-medium">
+                            <h2 className="text-[32px] font-black text-white mb-4 tracking-tight">Ready to build your solution?</h2>
+                            <p className="text-[16px] text-gray-400 font-medium">
                                 Contact our team to discuss integration at{' '}
                                 <a href="mailto:support@achtrex.com" className="text-teal-600 hover:text-teal-700 font-bold transition-colors">
                                     support@achtrex.com

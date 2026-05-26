@@ -7,7 +7,7 @@ import Link from 'next/link';
 const RecentBlogsList = () => {
     return (
         <div className="rounded-3xl p-px bg-linear-to-br from-gray-200 to-gray-50 h-full">
-            <div className="bg-white rounded-[23px] p-6 h-full border border-transparent flex flex-col">
+            <div className="bg-transparent rounded-[23px] p-6 h-full border border-transparent flex flex-col">
                 <div className="flex justify-between items-center mb-6">
                     <div>
                         <h3 className="text-lg font-bold text-gray-900 font-sans">Recent Blogs</h3>
@@ -24,7 +24,7 @@ const RecentBlogsList = () => {
 
                 <div className="space-y-3 overflow-y-auto pr-2 custom-scrollbar flex-1">
                     {blogPosts.slice(0, 5).map((blog, index) => (
-                        <div key={index} className="group flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-all border border-transparent hover:border-gray-100 cursor-pointer">
+                        <div key={index} className="group flex items-center gap-4 p-3 rounded-2xl hover:bg-transparent transition-all border border-transparent hover:border-white/10 cursor-pointer">
                             {/* Thumbnail */}
                             <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-gray-100 group-hover:ring-primary/20 transition-all">
                                 <Image 

@@ -59,10 +59,10 @@ export function PerksBenefits() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-secondary/50 transition-all duration-300 group"
+                            className="p-8 rounded-2xl bg-transparent/5 border border-white/10 backdrop-blur-sm hover:bg-transparent/10 hover:border-secondary/50 transition-all duration-300 group"
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="p-3 rounded-lg bg-secondary/20 text-secondary group-hover:bg-secondary group-hover:text-black transition-colors">
+                                <div className="p-3 rounded-lg bg-secondary/20 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
                                     <perk.icon className="w-6 h-6" />
                                 </div>
                                 <h3 className="text-xl font-bold font-display text-white">{perk.title}</h3>

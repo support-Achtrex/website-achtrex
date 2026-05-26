@@ -63,12 +63,12 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
 
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 backdrop-blur-sm animate-in fade-in duration-200">
-            <div className="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
-                <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
-                    <h2 className="text-xl font-bold text-gray-800 font-display">{title}</h2>
+            <div className="bg-transparent rounded-2xl w-full max-w-md shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+                <div className="p-6 border-b border-white/10 flex justify-between items-center bg-transparent/50">
+                    <h2 className="text-xl font-bold text-gray-200 font-display">{title}</h2>
                     <button 
                         onClick={onCancel}
-                        className="text-gray-400 hover:text-gray-600 transition-colors p-1 hover:bg-gray-100 rounded-full"
+                        className="text-gray-400 hover:text-gray-400 transition-colors p-1 hover:bg-[#1a1a1c]/5 rounded-full"
                     >
                         <X size={20} />
                     </button>
@@ -84,7 +84,7 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
                     {/* Image Upload */}
                     <div className="flex flex-col items-center gap-4">
                         <div 
-                            className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-dashed border-gray-300 hover:border-primary transition-colors cursor-pointer group bg-gray-50"
+                            className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-dashed border-gray-300 hover:border-primary transition-colors cursor-pointer group bg-transparent"
                             onClick={() => fileInputRef.current?.click()}
                         >
                             {previewUrl ? (
@@ -129,7 +129,7 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
                             name="name" 
                             required
                             defaultValue={initialData?.name}
-                            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
+                            className="w-full px-4 py-2.5 rounded-xl border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
                             placeholder="e.g. John Doe"
                         />
                     </div>
@@ -143,7 +143,7 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
                             name="email" 
                             required
                             defaultValue={initialData?.email}
-                            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
+                            className="w-full px-4 py-2.5 rounded-xl border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
                             placeholder="e.g. john@company.com"
                         />
                     </div>
@@ -157,7 +157,7 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
                             name="role" 
                             required
                             defaultValue={initialData?.role}
-                            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
+                            className="w-full px-4 py-2.5 rounded-xl border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
                             placeholder="e.g. Senior Developer"
                         />
                     </div>
@@ -167,7 +167,7 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
                             type="button" 
                             onClick={onCancel}
                             disabled={isLoading}
-                            className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-700 font-medium hover:bg-gray-50 transition-colors disabled:opacity-50"
+                            className="flex-1 px-4 py-2.5 rounded-xl border border-white/10 text-gray-700 font-medium hover:bg-transparent transition-colors disabled:opacity-50"
                         >
                             Cancel
                         </button>

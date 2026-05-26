@@ -16,12 +16,12 @@ export const TechPartners = () => {
             <div className="relative flex overflow-hidden">
                 <div className="flex animate-marquee whitespace-nowrap py-2">
                     {technologies.map((tech, index) => (
-                        <span key={index} className="mx-8 text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white/10 to-white/30 hover:from-primary hover:to-secondary transition-all duration-300 font-display">
+                        <span key={index} className="mx-8 text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#070b14]/10 to-white/30 hover:from-primary hover:to-secondary transition-all duration-300 font-display">
                             {tech}
                         </span>
                     ))}
                     {technologies.map((tech, index) => (
-                        <span key={`clone-${index}`} className="mx-8 text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white/10 to-white/30 hover:from-primary hover:to-secondary transition-all duration-300 font-display">
+                        <span key={`clone-${index}`} className="mx-8 text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#070b14]/10 to-white/30 hover:from-primary hover:to-secondary transition-all duration-300 font-display">
                             {tech}
                         </span>
                     ))}

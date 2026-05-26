@@ -34,12 +34,12 @@ export default function ProductsClient() {
     ];
 
     return (
-        <div className="bg-[#f9fafb] text-[#111112] font-sans antialiased min-h-screen pt-32 pb-24">
+        <div className="bg-transparent text-white font-sans antialiased min-h-screen pt-32 pb-24">
             <div className="max-w-[1200px] mx-auto px-6 text-center mb-16">
-                <h1 className="text-[40px] md:text-[56px] font-black tracking-tight leading-[1.05] text-[#111112] mb-4">
+                <h1 className="text-[40px] md:text-[56px] font-black tracking-tight leading-[1.05] text-white mb-4">
                     Product Ecosystem
                 </h1>
-                <p className="text-[16px] md:text-[18px] text-[#5C7695] max-w-2xl mx-auto font-medium">
+                <p className="text-[16px] md:text-[18px] text-gray-400 max-w-2xl mx-auto font-medium">
                     Explore our proprietary platforms powering modern automotive businesses.
                 </p>
             </div>
@@ -47,10 +47,10 @@ export default function ProductsClient() {
             <div className="max-w-[1200px] mx-auto px-6 flex flex-col gap-12">
                 {products.map((product) => {
                     const CardContent = (
-                        <div className="group relative rounded-[32px] overflow-hidden bg-white shadow-md border border-[#e5e5e5] hover:shadow-2xl transition-all duration-500 cursor-pointer block">
+                        <div className="group relative rounded-[32px] overflow-hidden bg-[#070b14] shadow-md border border-white/10 hover:shadow-2xl transition-all duration-500 cursor-pointer block">
                             
                             {/* Image Container */}
-                            <div className="relative w-full aspect-[4/3] md:aspect-[21/9] bg-[#eef3f7] overflow-hidden">
+                            <div className="relative w-full aspect-[4/3] md:aspect-[21/9] bg-[#0a0a0b] overflow-hidden">
                                 <Image 
                                     src={product.image} 
                                     alt={product.name} 
@@ -62,7 +62,7 @@ export default function ProductsClient() {
                                 
                                 {/* Hover Action Button */}
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                                    <div className="bg-white text-[#111112] font-bold text-[15px] px-8 py-4 rounded-full shadow-lg flex items-center gap-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    <div className="bg-[#070b14] text-white font-bold text-[15px] px-8 py-4 rounded-full shadow-lg flex items-center gap-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                         Select to read more
                                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />

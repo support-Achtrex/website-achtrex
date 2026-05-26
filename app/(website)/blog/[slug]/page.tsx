@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     };
 
     return (
-        <main className="pt-32 pb-20 min-h-screen bg-white">
+        <main className="pt-32 pb-20 min-h-screen bg-[#070b14]">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -92,11 +92,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     <span className="bg-[#005AB0] text-white px-3 py-1 rounded-md text-sm font-medium mb-4 inline-block">
                         {post.category}
                     </span>
-                    <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
                         {post.title}
                     </h1>
                     <div className="flex items-center gap-4 text-gray-500">
-                        <span className="font-bold text-sm bg-gray-100 px-3 py-1 rounded-sm">{post.date}</span>
+                        <span className="font-bold text-sm bg-transparent/5 px-3 py-1 rounded-sm">{post.date}</span>
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
                 {/* Content */}
                 <div
-                    className="prose prose-lg max-w-none prose-h3:text-3xl prose-h3:font-black prose-h3:mt-12 prose-h3:mb-6 prose-p:text-black prose-p:leading-loose prose-p:mb-8 prose-a:text-[#005AB0] prose-a:font-bold prose-strong:text-black prose-strong:font-black prose-li:text-black prose-img:rounded-xl text-gray-500 font-sans"
+                    className="prose prose-lg max-w-none prose-h3:text-3xl prose-h3:font-black prose-h3:mt-12 prose-h3:mb-6 prose-p:text-white prose-p:leading-loose prose-p:mb-8 prose-a:text-[#005AB0] prose-a:font-bold prose-strong:text-white prose-strong:font-black prose-li:text-white prose-img:rounded-xl text-gray-500 font-sans"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
             </article>

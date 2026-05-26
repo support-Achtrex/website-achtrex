@@ -16,7 +16,7 @@ export const LifeHero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
+                    className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-transparent/5 backdrop-blur-sm"
                 >
                     <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Why Achtrex</span>
                 </motion.div>
@@ -25,7 +25,7 @@ export const LifeHero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 font-display bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 tracking-tight leading-none"
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 font-display bg-clip-text text-transparent bg-gradient-to-b from-[#070b14] to-white/50 tracking-tight leading-none"
                 >
                     Build the <br /> <span className="text-primary italic">future</span> with us.
                 </motion.h1>

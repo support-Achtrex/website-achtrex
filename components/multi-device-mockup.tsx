@@ -43,7 +43,7 @@ export const MultiDeviceMockup: React.FC<MultiDeviceMockupProps> = ({
                                 <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
                             </div>
                         </div>
-                        <div className="relative aspect-[16/10] bg-white overflow-hidden">
+                        <div className="relative aspect-[16/10] bg-transparent overflow-hidden">
                             <Image
                                 src={desktopImage}
                                 alt="Desktop Platform Preview"
@@ -64,7 +64,7 @@ export const MultiDeviceMockup: React.FC<MultiDeviceMockupProps> = ({
                     className="absolute z-20 left-0 bottom-4 w-[45%]"
                 >
                     <div className="rounded-[2.5rem] p-3 border-[6px] border-[#1e293b] bg-black shadow-2xl shadow-black/50 overflow-hidden transform rotate-[-5deg]">
-                        <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden bg-white">
+                        <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden bg-transparent">
                              <Image
                                 src={tabletImage || desktopImage}
                                 alt="Tablet view"

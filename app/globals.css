@@ -2,8 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff; /* white */
-  --foreground: #000000; /* black */
+  --background: #070b14; /* deep space black */
+  --foreground: #ffffff; /* white */
   --primary: #109dd7; /* Plaid cerulean */
   --primary-foreground: #ffffff;
   --secondary: #117460; /* Plaid green */

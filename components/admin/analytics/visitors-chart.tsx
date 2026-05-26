@@ -16,11 +16,11 @@ const data = [
 
 const VisitorsChart = () => {
     return (
-        <div className="bg-white p-8 rounded-[32px] shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-gray-100/50 h-full hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300">
+        <div className="bg-transparent p-8 rounded-[32px] shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-white/10/50 h-full hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300">
             <div className="flex items-center justify-between mb-8">
-                <h3 className="font-bold text-gray-800 font-display text-lg">Unique Visitor</h3>
+                <h3 className="font-bold text-gray-200 font-display text-lg">Unique Visitor</h3>
                 <div className="relative">
-                    <select className="appearance-none bg-gray-50 border-none text-xs font-semibold text-gray-500 rounded-xl px-4 py-2 pr-8 outline-none cursor-pointer hover:bg-gray-100 transition-colors font-montserrat">
+                    <select className="appearance-none bg-transparent border-none text-xs font-semibold text-gray-500 rounded-xl px-4 py-2 pr-8 outline-none cursor-pointer hover:bg-[#1a1a1c]/5 transition-colors font-montserrat">
                         <option>Last 3 month</option>
                         <option>Last 6 month</option>
                         <option>Last year</option>

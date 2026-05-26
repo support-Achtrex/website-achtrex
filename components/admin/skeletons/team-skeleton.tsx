@@ -3,10 +3,10 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export default function TeamSkeleton() {
     return (
-        <div className="p-8 bg-gray-50">
+        <div className="p-8 bg-transparent">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {[...Array(8)].map((_, index) => (
-                    <div key={index} className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+                    <div key={index} className="bg-transparent rounded-3xl p-6 border border-white/10 shadow-sm flex flex-col items-center text-center relative overflow-hidden">
                         <div className="absolute top-4 right-4">
                             <Skeleton className="h-8 w-8 rounded-full" />
                         </div>
