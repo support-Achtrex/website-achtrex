@@ -19,7 +19,7 @@ export const AboutSection = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="flex flex-col items-center text-center max-w-4xl mx-auto mb-12 space-y-4">
-                    <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#1A8B8C]">Founded December 2022</span>
+
                     <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-[1.1]">
                         Powering the future of<br />automotive intelligence
                     </h2>
@@ -29,9 +29,8 @@ export const AboutSection = () => {
                 </motion.div>
 
                 {/* Stats Bar */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 max-w-5xl mx-auto">
                     {[
-                        { value: '2022', label: 'Founded', sub: 'December' },
                         { value: '3', label: 'Live Platforms', sub: 'AutomotiveDataset · LUMI · Core' },
                         { value: '4+', label: 'Industries', sub: 'Auto · AI · SaaS · Enterprise' },
                         { value: 'Global', label: 'Operations', sub: 'Remote-first worldwide' },
