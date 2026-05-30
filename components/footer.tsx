@@ -86,7 +86,7 @@ export const Footer = () => {
                                 Automotive intelligence &amp; cognitive infrastructure for the connected mobility era.
                             </p>
                             <div className="flex gap-3">
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                                <a href="https://www.linkedin.com/company/achtrexproducts" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                                     className="w-9 h-9 rounded-full bg-transparent/5 hover:bg-[#1A8B8C]/30 flex items-center justify-center transition-colors">
                                     <Linkedin size={15} className="text-gray-400" />
                                 </a>
@@ -143,7 +143,7 @@ export const Footer = () => {
                             <ul className="space-y-3">
                                 <li><Link href="/about-us" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">About Achtrex</Link></li>
                                 <li><Link href="/why-achtrex" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Why Achtrex</Link></li>
-                                <li><Link href="/services" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Services</Link></li>
+                                <li><Link href="/products" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Products</Link></li>
                                 <li><Link href="/partners" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Partners</Link></li>
                                 <li><Link href="/use-cases" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Client &amp; Industry Use Cases</Link></li>
                             </ul>
