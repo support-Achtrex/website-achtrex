@@ -21,12 +21,12 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#070b14] via-transparent to-transparent" />
       </div>
 
-      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-32 sm:pb-48 flex flex-col items-start text-left">
+      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10 pt-28 pb-16 sm:pt-32 sm:pb-48 flex flex-col items-start text-left">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-[30px] sm:text-[36px] lg:text-[44px] font-bold leading-[1.1] tracking-tight mb-6 text-white max-w-[1000px]"
+          className="text-[32px] sm:text-[42px] lg:text-[52px] font-black leading-[1.1] tracking-tighter mb-6 text-white max-w-[1000px]"
         >
           Engineering the Intelligence Layer <br className="hidden lg:block" />
           Behind Modern Automotive Platforms
@@ -36,7 +36,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-[16px] sm:text-[17px] text-gray-400 font-medium leading-[1.7] max-w-[650px] mb-10"
+          className="text-[16px] sm:text-[18px] text-gray-300 font-medium leading-relaxed max-w-[650px] mb-10"
         >
           Achtrex builds scalable automotive intelligence infrastructure <br className="hidden md:block" />
           powering vehicle data systems, enterprise APIs, AI-driven automation, <br className="hidden md:block" />
