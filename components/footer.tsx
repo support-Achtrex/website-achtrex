@@ -63,7 +63,7 @@ export const Footer = () => {
             </section>
 
             {/* Main Footer */}
-            <footer className="bg-white text-slate-900 pt-16 pb-8 font-sans border-t border-slate-200">
+            <footer className="bg-[#0a0f1c] text-slate-900 pt-16 pb-8 font-sans border-t border-white/5">
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
 
                     {/* Main Footer Grid */}
@@ -174,7 +174,7 @@ export const Footer = () => {
 
 
                     {/* Bottom Legal Bar */}
-                    <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                         <p className="text-[12px] text-slate-400">
                             &copy;{new Date().getFullYear()} Achtrex. All rights reserved.
                         </p>

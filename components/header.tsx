@@ -201,7 +201,7 @@ export const Navbar = () => {
                     >
                         <div className="px-5 py-5 space-y-1 flex flex-col">
                             {navLinks.map((link) => (
-                                <div key={link.href} className="border-b border-slate-100 last:border-0 py-2">
+                                <div key={link.href} className="border-b border-white/5 last:border-0 py-2">
                                     <div className="flex justify-between items-center transition-colors rounded-md py-1">
                                         <Link
                                             href={link.sub ? "#" : link.href}
@@ -221,7 +221,7 @@ export const Navbar = () => {
                                                     key={subLink.href}
                                                     href={subLink.href}
                                                     onClick={() => setIsOpen(false)}
-                                                    className="flex items-start gap-3 p-2 rounded-md hover:bg-slate-50 transition-colors"
+                                                    className="flex items-start gap-3 p-2 rounded-md hover:bg-transparent/5 transition-colors"
                                                 >
 
                                                     <div className="flex flex-col">

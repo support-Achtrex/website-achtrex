@@ -9,7 +9,7 @@ export default function AutomotiveClient() {
     return (
         <main className="min-h-screen bg-[#F8F9FA] text-slate-900 selection:bg-[#174395] selection:text-white pt-24 pb-20">
             {/* 1. Header */}
-            <div className="bg-gradient-to-br from-[#F8F9FA] to-[#174395]/10 border-b border-[#174395]/10 py-16 px-6">
+            <div className="bg-gradient-to-br from-[#0c1222] to-[#174395]/20 border-b border-[#174395]/10 py-16 px-6">
                 <div className="max-w-[1200px] mx-auto">
                     <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#174395]/60 mb-6 flex items-center gap-2">
                         <span>Portfolio</span>
