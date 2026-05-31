@@ -31,14 +31,14 @@ export const Footer = () => {
                     <path d="M-50 100 H100 M50 50 L100 100 L50 150" stroke="currentColor" strokeWidth="20" strokeLinecap="square" strokeLinejoin="miter" />
                 </svg>
 
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-28 relative z-10">
                     <div className="max-w-2xl">
                         <motion.h2 
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
-                            className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight mb-8">
+                            className="text-3xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight mb-8">
                             Not sure <br className="hidden sm:block" /> where to start?
                         </motion.h2>
                         <motion.div 
@@ -67,7 +67,7 @@ export const Footer = () => {
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
 
                     {/* Main Footer Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12 lg:mb-16">
 
                         {/* Column 1: Brand */}
                         <div className="lg:col-span-1">

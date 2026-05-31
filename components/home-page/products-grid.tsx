@@ -39,14 +39,14 @@ export const ProductsGrid = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Card 1: APIs */}
-            <a href="https://automotivedataset.com" target="_blank" rel="noopener noreferrer" className="bg-[#111112] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[450px] hover:bg-[#1a1a1c] transition-colors block">
+            <Link href="/products/automotive" className="bg-[#111112] rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[400px] sm:h-[450px] hover:bg-[#1a1a1c] transition-colors block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-transparent transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
               
-              <h3 className="text-[20px] text-gray-400 max-w-[320px] leading-[1.3] relative z-10">
+              <h3 className="text-[20px] text-gray-300 max-w-[320px] leading-[1.3] relative z-10">
                 <span className="font-bold text-white">Automotive data infrastructure</span> powering the future of mobility
               </h3>
 
@@ -91,17 +91,17 @@ export const ProductsGrid = () => {
 
                 </div>
               </div>
-            </a>
+            </Link>
 
             {/* Card 2: AI Scoring */}
-            <Link href="/products/lumi" className="bg-[#111112] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[450px] hover:bg-[#1a1a1c] transition-colors block">
+            <Link href="/products/lumi" className="bg-[#111112] rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[400px] sm:h-[450px] hover:bg-[#1a1a1c] transition-colors block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-transparent transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[20px] text-gray-400 max-w-[320px] leading-[1.3] relative z-10">
+              <h3 className="text-[20px] text-gray-300 max-w-[320px] leading-[1.3] relative z-10">
                 <span className="font-bold text-white">AI-powered vehicle intelligence</span> and predictive analytics system
               </h3>
 
@@ -132,14 +132,14 @@ export const ProductsGrid = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Card 3: Enterprise Dataset */}
-            <a href="https://automotivedataset.com" target="_blank" rel="noopener noreferrer" className="bg-[#111112] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[400px] hover:bg-[#1a1a1c] transition-colors block">
+            <Link href="/products/automotive" className="bg-[#111112] rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[350px] sm:h-[400px] hover:bg-[#1a1a1c] transition-colors block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-transparent transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[18px] text-gray-400 max-w-[220px] leading-[1.3] relative z-10">
+              <h3 className="text-[18px] text-gray-300 max-w-[220px] leading-[1.3] relative z-10">
                 <span className="font-bold text-white">Enterprise automotive dataset</span> provider for seamless integration
               </h3>
 
@@ -176,17 +176,17 @@ export const ProductsGrid = () => {
                     </div>
                  </div>
               </div>
-            </a>
+            </Link>
 
             {/* Card 4: Developer API */}
-            <Link href="/products" className="bg-[#111112] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[400px] hover:bg-[#1a1a1c] transition-colors block">
+            <Link href="/products" className="bg-[#111112] rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[350px] sm:h-[400px] hover:bg-[#1a1a1c] transition-colors block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-transparent transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[18px] text-gray-400 max-w-[220px] leading-[1.3] relative z-10">
+              <h3 className="text-[18px] text-gray-300 max-w-[220px] leading-[1.3] relative z-10">
                 <span className="font-bold text-white">Developer API ecosystem</span> built for modern mobility applications
               </h3>
 
@@ -236,14 +236,14 @@ export const ProductsGrid = () => {
             </Link>
 
             {/* Card 5: Custom Development */}
-            <Link href="/contact-us" className="bg-[#111112] rounded-[32px] p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[400px] hover:bg-[#1a1a1c] transition-colors block">
+            <Link href="/contact-us" className="bg-[#111112] rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[350px] sm:h-[400px] hover:bg-[#1a1a1c] transition-colors block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-transparent transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[17px] text-gray-400 max-w-[250px] leading-[1.3] relative z-10">
+              <h3 className="text-[17px] text-gray-300 max-w-[250px] leading-[1.3] relative z-10">
                 <span className="font-bold text-white">Custom development & API integrations</span> empowering your automotive business
               </h3>
 

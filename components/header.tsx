@@ -26,6 +26,17 @@ export const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
+
     const navLinks: any[] = [
         { 
             label: 'Products', 
@@ -186,9 +197,9 @@ export const Navbar = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-20 left-4 right-4 bg-[#0f172a] border border-white/10 rounded-2xl overflow-y-auto max-h-[85vh] shadow-2xl lg:hidden"
+                        className="absolute top-[76px] left-4 right-4 bg-[#0f172a] border border-white/10 rounded-2xl overflow-y-auto max-h-[calc(100vh-100px)] overscroll-contain shadow-2xl lg:hidden"
                     >
-                        <div className="px-6 py-6 space-y-1 flex flex-col">
+                        <div className="px-5 py-5 space-y-1 flex flex-col">
                             {navLinks.map((link) => (
                                 <div key={link.href} className="border-b border-white/5 last:border-0 py-2">
                                     <div className="flex justify-between items-center transition-colors rounded-md py-1">
@@ -204,7 +215,7 @@ export const Navbar = () => {
                                         </Link>
                                     </div>
                                     {link.sub && (
-                                        <div className="pl-4 pb-2 pt-1 flex flex-col gap-3">
+                                        <div className="pl-3 pb-2 pt-1 flex flex-col gap-2">
                                             {link.sub.map((subLink: any) => (
                                                 <Link
                                                     key={subLink.href}
@@ -218,7 +229,7 @@ export const Navbar = () => {
                                                             {subLink.label}
                                                         </span>
                                                         {subLink.description && (
-                                                            <span className="text-[13px] text-gray-400 mt-0.5">
+                                                            <span className="text-[13px] text-gray-300 mt-0.5 leading-snug">
                                                                 {subLink.description}
                                                             </span>
                                                         )}
@@ -229,7 +240,7 @@ export const Navbar = () => {
                                     )}
                                 </div>
                             ))}
-                            <div className="pt-6 flex flex-col gap-3">
+                            <div className="pt-4 flex flex-col gap-3">
                                 <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-transparent text-white font-bold py-3 rounded-xl">
                                     Contact Us
                                 </Link>

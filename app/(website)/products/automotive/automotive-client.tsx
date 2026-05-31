@@ -42,15 +42,15 @@ export default function AutomotiveClient() {
             </div>
 
             {/* 2. Main Content Grid */}
-            <section className="py-24 px-6">
-                <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+            <section className="py-12 lg:py-24 px-6">
+                <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24">
                     
                     {/* Left: Info Sidebar */}
                     <div className="lg:col-span-4 space-y-16">
                         {/* The Challenge */}
                         <div className="space-y-6">
                             <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#F2147A] pb-4 inline-block text-[#c2fce3]">The Challenge</h2>
-                            <p className="text-gray-400 leading-relaxed font-medium">
+                            <p className="text-lg text-gray-300 leading-relaxed font-medium">
                                 Automotive Dataset is an enterprise-grade vehicle data platform built to be the cutting-edge for mobility web services worldwide. To achieve this, we needed to directly engineer new interactive dashboards, deep technical documentation, and robust infrastructure to market their vast array of API services, engaging our developer audience to drive business growth.
                             </p>
                         </div>
@@ -58,7 +58,7 @@ export default function AutomotiveClient() {
                         {/* Product Scope */}
                         <div className="space-y-6">
                             <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#489EE6] pb-4 inline-block text-[#c2fce3]">Product Scope</h2>
-                            <p className="text-gray-400 leading-relaxed font-medium">
+                            <p className="text-lg text-gray-300 leading-relaxed font-medium">
                                 We built Automotive Dataset from the ground up, architecting a low-latency infrastructure for a massive vehicle data ecosystem. We developed comprehensive API endpoints and databases for every facet of vehicle intelligence, handling everything from VIN decoding to market valuations.
                             </p>
                         </div>
@@ -123,7 +123,7 @@ export default function AutomotiveClient() {
                                 </div>
                                 <ul className="space-y-3">
                                     {['Research & Technical Discovery', 'Building architecture of the web platform', 'Interface design for data tables', 'Usability testing with developers'].map((item, i) => (
-                                        <li key={i} className="flex items-center gap-3 text-gray-400 font-medium">
+                                        <li key={i} className="flex items-center gap-3 text-gray-300 font-medium">
                                             <div className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
                                             {item}
                                         </li>
@@ -134,12 +134,12 @@ export default function AutomotiveClient() {
                             {/* LoFi Design */}
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-10 h-10 rounded-lg bg-transparent/5 flex items-center justify-center text-gray-700">
+                                    <div className="w-10 h-10 rounded-lg bg-transparent/10 flex items-center justify-center text-gray-300">
                                         <PenTool size={20} />
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">LoFi Design</h3>
                                 </div>
-                                <p className="text-gray-400 leading-relaxed font-medium">
+                                <p className="text-lg text-gray-300 leading-relaxed font-medium">
                                     We built a structural prototype that was easy to translate to high-level design concepts, forming tangible and testable artifacts for layout and data hierarchy.
                                 </p>
                             </div>
@@ -152,7 +152,7 @@ export default function AutomotiveClient() {
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">HiFi Design</h3>
                                 </div>
-                                <p className="text-gray-400 leading-relaxed font-medium">
+                                <p className="text-lg text-gray-300 leading-relaxed font-medium">
                                     Based on the prototype, we built an interactive and pleasing-to-the-eye design, taking into consideration the extreme usability required for reading complex JSON data.
                                 </p>
                             </div>
@@ -165,7 +165,7 @@ export default function AutomotiveClient() {
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">Front End & App</h3>
                                 </div>
-                                <p className="text-gray-400 leading-relaxed font-medium">
+                                <p className="text-lg text-gray-300 leading-relaxed font-medium">
                                     We brought everything together and the application was built, developing the graphical user interface of the platform using modern React/Next.js frameworks.
                                 </p>
                             </div>
@@ -178,7 +178,7 @@ export default function AutomotiveClient() {
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">QA Process</h3>
                                 </div>
-                                <p className="text-gray-400 leading-relaxed font-medium max-w-2xl">
+                                <p className="text-gray-300 leading-relaxed font-medium max-w-2xl">
                                     Before going live, we did rigorous quality assurance testing and review to give our customers the best final product, ensuring API response times stayed under 500ms across thousands of queries.
                                 </p>
                             </div>
@@ -191,7 +191,7 @@ export default function AutomotiveClient() {
                             <div className="space-y-6">
                                 <div>
                                     <h3 className="text-2xl font-bold tracking-tight text-[#c2fce3] mb-2">Comprehensive Databases</h3>
-                                    <p className="text-sm text-gray-400 font-medium">A complete suite of vehicle data products built for enterprise scale.</p>
+                                    <p className="text-sm text-gray-300 font-medium">A complete suite of vehicle data products built for enterprise scale.</p>
                                 </div>
                                 <div className="grid grid-cols-1 gap-3">
                                     {[
@@ -218,7 +218,7 @@ export default function AutomotiveClient() {
                             <div className="space-y-6">
                                 <div>
                                     <h3 className="text-2xl font-bold tracking-tight text-[#c2fce3] mb-2">Developer APIs</h3>
-                                    <p className="text-sm text-gray-400 font-medium">High-performance, RESTful endpoints engineered for real-time applications.</p>
+                                    <p className="text-sm text-gray-300 font-medium">High-performance, RESTful endpoints engineered for real-time applications.</p>
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                     {[
@@ -246,7 +246,7 @@ export default function AutomotiveClient() {
                                         { name: 'Report Check', link: 'https://automotivedataset.com/developers/vin-report-check' },
                                     ].map((api, i) => (
                                         <a key={i} href={api.link} target="_blank" rel="noreferrer" className="flex items-center justify-between px-3 py-2 rounded-lg border border-white/10 hover:border-[#F2147A] hover:bg-[#F2147A]/5 transition-colors group">
-                                            <span className="font-semibold text-xs text-gray-700 group-hover:text-[#F2147A]">{api.name}</span>
+                                            <span className="font-semibold text-xs text-gray-200 group-hover:text-[#F2147A]">{api.name}</span>
                                             <ArrowRight size={12} className="text-gray-300 group-hover:text-[#F2147A]" />
                                         </a>
                                     ))}
