@@ -66,38 +66,38 @@ export default function Sidebar({ editor }: SidebarProps) {
 
 
     return (
-        <div className="w-80 bg-transparent rounded-3xl border border-white/10 shadow-[0_2px_10px_rgba(0,0,0,0.02)] flex flex-col overflow-hidden h-full">
+        <div className="w-80 bg-transparent rounded-3xl border border-slate-200 shadow-[0_2px_10px_rgba(0,0,0,0.02)] flex flex-col overflow-hidden h-full">
             <div className="p-5 border-b border-gray-50 flex items-center justify-between">
                 <h3 className="font-bold text-gray-900 font-sans">Edit Block</h3>
-                <HelpCircle size={16} className="text-gray-300" />
+                <HelpCircle size={16} className="text-slate-600" />
             </div>
 
             <div className="flex-1 overflow-y-auto p-5 space-y-6">
                 {/* Block Type */}
                 <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase tracking-wider font-montserrat">Block Type</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider font-montserrat">Block Type</label>
                     <div className="relative">
                         <select
                             value={currentBlockType}
                             onChange={(e) => setBlockType(e.target.value)}
-                            className="w-full appearance-none bg-transparent border border-white/10 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-sans"
+                            className="w-full appearance-none bg-transparent border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-sans"
                         >
                             <option value="Text">Text</option>
                             <option value="Heading">Heading</option>
                             <option value="Quote">Quote</option>
                         </select>
-                        <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                        <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
                     </div>
                 </div>
 
                 {/* Block Style */}
                 <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase tracking-wider font-montserrat">Block Style</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider font-montserrat">Block Style</label>
                     <div className="relative">
                         <select
                             value={currentStyle}
                             onChange={(e) => setBlockStyle(e.target.value)}
-                            className="w-full appearance-none bg-transparent border border-white/10 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-sans"
+                            className="w-full appearance-none bg-transparent border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-sans"
                         >
                             <option value="Paragraph">Paragraph</option>
                             <option value="Heading 1">Heading 1</option>
@@ -105,35 +105,35 @@ export default function Sidebar({ editor }: SidebarProps) {
                             <option value="Heading 3">Heading 3</option>
                             <option value="Quote">Quote</option>
                         </select>
-                        <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                        <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
                     </div>
                 </div>
 
                 {/* Block Positioning */}
                 <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase tracking-wider font-montserrat">Block Positioning</label>
-                    <div className="flex bg-transparent p-1 rounded-xl border border-white/10">
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider font-montserrat">Block Positioning</label>
+                    <div className="flex bg-transparent p-1 rounded-xl border border-slate-200">
                         <button
                             onClick={() => setAlignment('left')}
-                            className={`flex-1 py-1.5 flex justify-center rounded-lg transition-all shadow-sm ${editor.isActive({ textAlign: 'left' }) ? 'bg-transparent text-gray-700' : 'text-gray-400 hover:text-gray-700 hover:bg-transparent'}`}
+                            className={`flex-1 py-1.5 flex justify-center rounded-lg transition-all shadow-sm ${editor.isActive({ textAlign: 'left' }) ? 'bg-transparent text-gray-700' : 'text-slate-500 hover:text-gray-700 hover:bg-transparent'}`}
                         >
                             <AlignLeft size={16} />
                         </button>
                         <button
                             onClick={() => setAlignment('center')}
-                            className={`flex-1 py-1.5 flex justify-center rounded-lg transition-all shadow-sm ${editor.isActive({ textAlign: 'center' }) ? 'bg-transparent text-gray-700' : 'text-gray-400 hover:text-gray-700 hover:bg-transparent'}`}
+                            className={`flex-1 py-1.5 flex justify-center rounded-lg transition-all shadow-sm ${editor.isActive({ textAlign: 'center' }) ? 'bg-transparent text-gray-700' : 'text-slate-500 hover:text-gray-700 hover:bg-transparent'}`}
                         >
                             <AlignCenter size={16} />
                         </button>
                         <button
                             onClick={() => setAlignment('right')}
-                            className={`flex-1 py-1.5 flex justify-center rounded-lg transition-all shadow-sm ${editor.isActive({ textAlign: 'right' }) ? 'bg-transparent text-gray-700' : 'text-gray-400 hover:text-gray-700 hover:bg-transparent'}`}
+                            className={`flex-1 py-1.5 flex justify-center rounded-lg transition-all shadow-sm ${editor.isActive({ textAlign: 'right' }) ? 'bg-transparent text-gray-700' : 'text-slate-500 hover:text-gray-700 hover:bg-transparent'}`}
                         >
                             <AlignRight size={16} />
                         </button>
                         <button
                             onClick={() => setAlignment('justify')}
-                            className={`flex-1 py-1.5 flex justify-center rounded-lg transition-all shadow-sm ${editor.isActive({ textAlign: 'justify' }) ? 'bg-transparent text-gray-700' : 'text-gray-400 hover:text-gray-700 hover:bg-transparent'}`}
+                            className={`flex-1 py-1.5 flex justify-center rounded-lg transition-all shadow-sm ${editor.isActive({ textAlign: 'justify' }) ? 'bg-transparent text-gray-700' : 'text-slate-500 hover:text-gray-700 hover:bg-transparent'}`}
                         >
                             <AlignJustify size={16} />
                         </button>
@@ -142,7 +142,7 @@ export default function Sidebar({ editor }: SidebarProps) {
 
                 {/* Block Color */}
                 <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase tracking-wider font-montserrat">Block Color</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider font-montserrat">Block Color</label>
                     <div className="flex gap-3 flex-wrap">
                         <button onClick={() => setColor('inherit')} className="w-8 h-8 rounded-full bg-gray-200 hover:ring-2 ring-offset-2 ring-gray-200 transition-all" title="Default"></button>
                         <button onClick={() => setColor('#9333ea')} className="w-8 h-8 rounded-full bg-purple-600 hover:ring-2 ring-offset-2 ring-purple-600 transition-all" title="Purple"></button>
@@ -153,34 +153,34 @@ export default function Sidebar({ editor }: SidebarProps) {
                     </div>
                 </div>
 
-                <hr className="border-white/10" />
+                <hr className="border-slate-200" />
 
                 {/* Block Details */}
                 <div>
                     <h4 className="font-bold text-gray-900 font-sans mb-1">Block Details</h4>
-                    <p className="text-xs text-gray-500 font-montserrat leading-relaxed">Here you can edit your block details seamlessly.</p>
+                    <p className="text-xs text-slate-400 font-montserrat leading-relaxed">Here you can edit your block details seamlessly.</p>
                 </div>
 
                 {/* Custom Attribute (Mockup for now, could be ID or Class) */}
                 <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase tracking-wider font-montserrat">Custom Attribute</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider font-montserrat">Custom Attribute</label>
                     <div className="relative">
                         <input
                             type="text"
                             placeholder="e.g. custom-class"
-                            className="w-full bg-transparent border border-white/10 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-sans"
+                            className="w-full bg-transparent border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-sans"
                         />
-                        <Edit3 size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <Edit3 size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500" />
                     </div>
                 </div>
             </div>
 
             <div className="p-5 border-t border-gray-50 space-y-3 bg-transparent">
-                <button className="w-full py-3 rounded-xl bg-[#1E1E1E] text-white text-sm font-bold hover:bg-black transition-colors font-sans flex items-center justify-center gap-2 shadow-lg shadow-gray-200">
+                <button className="w-full py-3 rounded-xl bg-[#1E1E1E] text-slate-900 text-sm font-bold hover:bg-black transition-colors font-sans flex items-center justify-center gap-2 shadow-lg shadow-gray-200">
                     <span>Save Changes</span>
                     <Check size={16} />
                 </button>
-                <button className="w-full py-3 rounded-xl border border-white/10 text-gray-400 text-sm font-bold hover:bg-transparent transition-colors font-sans flex items-center justify-center gap-2">
+                <button className="w-full py-3 rounded-xl border border-slate-200 text-slate-500 text-sm font-bold hover:bg-transparent transition-colors font-sans flex items-center justify-center gap-2">
                     <span>Discard Changes</span>
                     <X size={16} />
                 </button>

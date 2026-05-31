@@ -97,12 +97,12 @@ export default function BlogEditor() {
     return (
         <div className="flex h-[calc(100vh-140px)] gap-6">
             {/* Main Editor Canvas */}
-            <div className="flex-1 flex flex-col bg-transparent rounded-3xl overflow-hidden border border-white/10/50 shadow-sm">
+            <div className="flex-1 flex flex-col bg-transparent rounded-3xl overflow-hidden border border-slate-200/50 shadow-sm">
                 {/* Editor Top Bar */}
-                <div className="bg-transparent border-b border-white/10 p-4 flex items-center justify-between">
+                <div className="bg-transparent border-b border-slate-200 p-4 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         <div className="flex flex-col">
-                            <div className="flex items-center gap-2 text-xs text-gray-400 font-montserrat mb-1">
+                            <div className="flex items-center gap-2 text-xs text-slate-500 font-montserrat mb-1">
                                 <LinkNext href="/admin/blogs" className="hover:text-primary transition-colors">Blogs</LinkNext>
                                 <span>/</span>
                                 <span>New Post</span>
@@ -111,13 +111,13 @@ export default function BlogEditor() {
                                 <input
                                     type="text"
                                     placeholder="Enter post title..."
-                                    className="text-xl font-bold text-gray-900 placeholder:text-gray-300 outline-none bg-transparent font-sans w-96"
+                                    className="text-xl font-bold text-gray-900 placeholder:text-slate-600 outline-none bg-transparent font-sans w-96"
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
                                 />
                                 <span className="bg-purple-50 text-purple-600 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Article</span>
                             </div>
-                            <div className="text-xs text-gray-400 mt-1 font-montserrat">
+                            <div className="text-xs text-slate-500 mt-1 font-montserrat">
                                 Last Updated {new Date().toLocaleDateString()} • By Timon Wyse
                             </div>
                         </div>
@@ -125,19 +125,19 @@ export default function BlogEditor() {
                     <div className="flex items-center gap-3">
                         <button
                             onClick={handlePreview}
-                            className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 text-gray-400 text-sm font-bold hover:bg-transparent transition-colors font-sans"
+                            className="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 text-slate-500 text-sm font-bold hover:bg-transparent transition-colors font-sans"
                         >
                             <Eye size={16} />
                             <span>Preview</span>
                         </button>
                         <button
                             onClick={handleSave}
-                            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1E1E1E] text-white text-sm font-bold hover:bg-black transition-colors font-sans shadow-lg shadow-gray-200"
+                            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1E1E1E] text-slate-900 text-sm font-bold hover:bg-black transition-colors font-sans shadow-lg shadow-gray-200"
                         >
                             <Check size={16} />
                             <span>Save & Close</span>
                         </button>
-                        <button className="p-2 text-gray-400 hover:text-gray-400 transition-colors">
+                        <button className="p-2 text-slate-500 hover:text-slate-500 transition-colors">
                             <MoreVertical size={20} />
                         </button>
                     </div>
@@ -154,7 +154,7 @@ export default function BlogEditor() {
                                 type="text"
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
-                                className="font-sans font-bold text-4xl mb-6 w-full border-none outline-none bg-transparent placeholder:text-gray-300"
+                                className="font-sans font-bold text-4xl mb-6 w-full border-none outline-none bg-transparent placeholder:text-slate-600"
                                 placeholder="Post Title"
                             />
                             <EditorContent editor={editor} />

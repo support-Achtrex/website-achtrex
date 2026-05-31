@@ -44,7 +44,7 @@ export function CoreValues() {
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 font-display text-white">Our Core Values</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 font-display text-slate-900">Our Core Values</h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
                         The principles that guide our decisions and shape our culture.
                     </p>
@@ -58,12 +58,12 @@ export function CoreValues() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="p-8 rounded-2xl bg-transparent/5 border border-white/10 hover:bg-transparent/10 transition-all duration-300 group hover:-translate-y-1"
+                            className="p-8 rounded-2xl bg-transparent/5 border border-slate-200 hover:bg-transparent/10 transition-all duration-300 group hover:-translate-y-1"
                         >
                             <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
                                 <value.icon className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-bold mb-3 font-display text-white group-hover:text-primary transition-colors">{value.title}</h3>
+                            <h3 className="text-xl font-bold mb-3 font-display text-slate-900 group-hover:text-primary transition-colors">{value.title}</h3>
                             <p className="text-muted-foreground leading-relaxed">
                                 {value.description}
                             </p>

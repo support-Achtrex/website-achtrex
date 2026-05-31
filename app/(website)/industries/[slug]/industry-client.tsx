@@ -192,20 +192,20 @@ export default function IndustryClient({ slug }: { slug: string }) {
     const displayTitle = industryData[slug] ? data.title : slug.split('-').map((w:string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
     return (
-        <main className="min-h-screen bg-[#070b14] text-white selection:bg-[#861F80] selection:text-white pt-24 pb-20">
+        <main className="min-h-screen bg-[#F8F9FA] text-slate-900 selection:bg-[#861F80] selection:text-slate-900 pt-24 pb-20">
             {/* Header */}
-            <div className={`bg-gradient-to-br ${data.color} opacity-90 border-b border-white/10 py-10 px-6`}>
-                <div className="max-w-[1200px] mx-auto text-white">
-                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 mb-4 flex items-center gap-2">
+            <div className={`bg-gradient-to-br ${data.color} opacity-90 border-b border-slate-200 py-10 px-6`}>
+                <div className="max-w-[1200px] mx-auto text-slate-900">
+                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-900/60 mb-4 flex items-center gap-2">
                         <span>Industries</span>
-                        <span className="text-white/30">/</span>
-                        <span className="text-white">{displayTitle}</span>
+                        <span className="text-slate-900/30">/</span>
+                        <span className="text-slate-900">{displayTitle}</span>
                     </nav>
                     <div>
                         <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-2">
                             {displayTitle}
                         </h1>
-                        <p className="text-lg text-white/90 font-medium max-w-2xl">{data.subtitle}</p>
+                        <p className="text-lg text-slate-900/90 font-medium max-w-2xl">{data.subtitle}</p>
                     </div>
                 </div>
             </div>
@@ -217,18 +217,18 @@ export default function IndustryClient({ slug }: { slug: string }) {
                     {/* Left Col */}
                     <div className="lg:col-span-8 space-y-16">
                         <div className="prose prose-lg max-w-none">
-                            <h2 className="text-3xl font-bold tracking-tight text-white mb-6">Overview</h2>
-                            <p className="text-gray-400 leading-relaxed font-medium text-lg">
+                            <h2 className="text-3xl font-bold tracking-tight text-slate-900 mb-6">Overview</h2>
+                            <p className="text-slate-500 leading-relaxed font-medium text-lg">
                                 {data.description}
                             </p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                             <div className="space-y-6">
-                                <h3 className="text-2xl font-bold tracking-tight text-[#c2fce3]">The Challenge</h3>
+                                <h3 className="text-2xl font-bold tracking-tight text-[#174395]">The Challenge</h3>
                                 <ul className="space-y-4">
                                     {data.challenges.map((challenge: string, i: number) => (
-                                        <li key={i} className="flex items-start gap-3 text-gray-400 font-medium">
+                                        <li key={i} className="flex items-start gap-3 text-slate-500 font-medium">
                                             <div className="w-2 h-2 rounded-full bg-[#861F80] shrink-0 mt-2" />
                                             <span className="leading-relaxed">{challenge}</span>
                                         </li>
@@ -236,11 +236,11 @@ export default function IndustryClient({ slug }: { slug: string }) {
                                 </ul>
                             </div>
                             <div className="space-y-6">
-                                <h3 className="text-2xl font-bold tracking-tight text-[#c2fce3]">Our Solution</h3>
+                                <h3 className="text-2xl font-bold tracking-tight text-[#174395]">Our Solution</h3>
                                 <ul className="space-y-4">
                                     {data.solutions.map((solution: string, i: number) => (
-                                        <li key={i} className="flex items-start gap-3 text-gray-400 font-medium">
-                                            <ShieldCheck className="w-5 h-5 text-[#c2fce3] shrink-0 mt-0.5" />
+                                        <li key={i} className="flex items-start gap-3 text-slate-500 font-medium">
+                                            <ShieldCheck className="w-5 h-5 text-[#174395] shrink-0 mt-0.5" />
                                             <span className="leading-relaxed">{solution}</span>
                                         </li>
                                     ))}
@@ -251,18 +251,18 @@ export default function IndustryClient({ slug }: { slug: string }) {
 
                     {/* Right Col */}
                     <div className="lg:col-span-4">
-                        <div className="bg-[#111112] border border-white/10 rounded-3xl p-8 sticky top-32">
-                            <h3 className="text-xl font-bold mb-6 text-white">Recommended APIs</h3>
+                        <div className="bg-white border border-slate-200 rounded-3xl p-8 sticky top-32">
+                            <h3 className="text-xl font-bold mb-6 text-slate-900">Recommended APIs</h3>
                             <div className="space-y-3">
                                 {data.apis.map((api: string, i: number) => (
-                                    <div key={i} className="flex items-center gap-3 p-3 bg-[#070b14] rounded-xl border border-white/10 shadow-sm">
+                                    <div key={i} className="flex items-center gap-3 p-3 bg-[#F8F9FA] rounded-xl border border-slate-200 shadow-sm">
                                         <Database className="w-4 h-4 text-[#489EE6]" />
-                                        <span className="font-bold text-sm text-gray-200">{api}</span>
+                                        <span className="font-bold text-sm text-slate-700">{api}</span>
                                     </div>
                                 ))}
                             </div>
-                            <div className="mt-8 pt-8 border-t border-white/10">
-                                <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 w-full bg-[#111112] text-white font-bold py-3.5 rounded-lg hover:bg-gray-900 transition-all">
+                            <div className="mt-8 pt-8 border-t border-slate-200">
+                                <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 w-full bg-white text-slate-900 font-bold py-3.5 rounded-lg hover:bg-gray-900 transition-all">
                                     Talk to an Expert <ArrowRight size={16} />
                                 </Link>
                             </div>

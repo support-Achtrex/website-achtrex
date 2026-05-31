@@ -45,7 +45,7 @@ export function PerksBenefits() {
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 font-display text-white">Perks & Benefits</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 font-display text-slate-900">Perks & Benefits</h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                         We take care of our team so they can take care of the products.
                     </p>
@@ -59,13 +59,13 @@ export function PerksBenefits() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="p-8 rounded-2xl bg-transparent/5 border border-white/10 backdrop-blur-sm hover:bg-transparent/10 hover:border-secondary/50 transition-all duration-300 group"
+                            className="p-8 rounded-2xl bg-transparent/5 border border-slate-200 backdrop-blur-sm hover:bg-transparent/10 hover:border-secondary/50 transition-all duration-300 group"
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="p-3 rounded-lg bg-secondary/20 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                                <div className="p-3 rounded-lg bg-secondary/20 text-secondary group-hover:bg-secondary group-hover:text-slate-900 transition-colors">
                                     <perk.icon className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-xl font-bold font-display text-white">{perk.title}</h3>
+                                <h3 className="text-xl font-bold font-display text-slate-900">{perk.title}</h3>
                             </div>
                             <p className="text-muted-foreground leading-relaxed pl-14">
                                 {perk.description}

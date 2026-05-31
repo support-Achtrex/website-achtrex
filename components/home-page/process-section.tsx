@@ -32,7 +32,7 @@ export const ProcessSection = () => {
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-16 space-y-3">
                     <span className="text-gradient text-sm font-bold tracking-widest uppercase block">SaaS Go-To-Market</span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Our Product Architecture</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our Product Architecture</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -43,15 +43,15 @@ export const ProcessSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="bg-slate-900 border border-white/10 p-8 rounded-2xl relative group hover:bg-slate-800 transition-all hover:border-logo-gradient border-b-2"
+                            className="bg-slate-900 border border-slate-200 p-8 rounded-2xl relative group hover:bg-slate-800 transition-all hover:border-logo-gradient border-b-2"
                         >
-                            <div className="absolute top-0 right-0 p-6 opacity-5 text-6xl font-bold text-white group-hover:opacity-10 transition-opacity">
+                            <div className="absolute top-0 right-0 p-6 opacity-5 text-6xl font-bold text-slate-900 group-hover:opacity-10 transition-opacity">
                                 0{index + 1}
                             </div>
-                            <div className="w-12 h-12 bg-logo-gradient rounded-xl flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform duration-300">
+                            <div className="w-12 h-12 bg-logo-gradient rounded-xl flex items-center justify-center text-slate-900 mb-5 group-hover:scale-110 transition-transform duration-300">
                                 <process.icon size={24} />
                             </div>
-                            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-white transition-colors">{process.title}</h3>
+                            <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-slate-900 transition-colors">{process.title}</h3>
                             <p className="text-muted-foreground text-sm leading-relaxed">
                                 {process.description}
                             </p>

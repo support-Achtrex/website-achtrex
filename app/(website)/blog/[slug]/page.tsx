@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     };
 
     return (
-        <main className="pt-32 pb-20 min-h-screen bg-[#070b14]">
+        <main className="pt-32 pb-20 min-h-screen bg-[#F8F9FA]">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -89,13 +89,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <article className="max-w-4xl mx-auto px-4 md:px-8">
                 {/* Header */}
                 <div className="mb-8">
-                    <span className="bg-[#005AB0] text-white px-3 py-1 rounded-md text-sm font-medium mb-4 inline-block">
+                    <span className="bg-[#005AB0] text-slate-900 px-3 py-1 rounded-md text-sm font-medium mb-4 inline-block">
                         {post.category}
                     </span>
-                    <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    <h1 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
                         {post.title}
                     </h1>
-                    <div className="flex items-center gap-4 text-gray-500">
+                    <div className="flex items-center gap-4 text-slate-400">
                         <span className="font-bold text-sm bg-transparent/5 px-3 py-1 rounded-sm">{post.date}</span>
                     </div>
                 </div>
@@ -112,7 +112,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
 
                 <div
-                    className="prose prose-lg prose-invert max-w-none prose-h3:text-3xl prose-h3:font-black prose-h3:text-white prose-h3:mt-12 prose-h3:mb-6 prose-p:text-gray-200 prose-p:leading-loose prose-p:mb-8 prose-a:text-[#005AB0] prose-a:font-bold prose-strong:text-white prose-strong:font-black prose-li:text-gray-200 prose-ul:text-gray-200 prose-img:rounded-xl font-sans"
+                    className="prose prose-lg prose-invert max-w-none prose-h3:text-3xl prose-h3:font-black prose-h3:text-slate-900 prose-h3:mt-12 prose-h3:mb-6 prose-p:text-slate-700 prose-p:leading-loose prose-p:mb-8 prose-a:text-[#005AB0] prose-a:font-bold prose-strong:text-slate-900 prose-strong:font-black prose-li:text-slate-700 prose-ul:text-slate-700 prose-img:rounded-xl font-sans"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
             </article>

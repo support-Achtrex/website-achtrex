@@ -20,7 +20,7 @@ export default async function MarketingPage() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Marketing Center</h1>
-                    <p className="text-gray-500 text-sm">Design campaigns and manage your audience.</p>
+                    <p className="text-slate-400 text-sm">Design campaigns and manage your audience.</p>
                 </div>
                 <div className="bg-white border border-gray-100 shadow-sm text-gray-700 px-5 py-2.5 rounded-2xl text-sm font-bold flex items-center gap-2">
                     <Users size={16} className="text-primary" />
@@ -47,19 +47,19 @@ export default async function MarketingPage() {
                                     <div key={sub.id} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-xl transition-all group border border-transparent hover:border-gray-50">
                                         <div className="min-w-0">
                                             <p className="text-xs font-bold text-gray-900 truncate">{sub.email}</p>
-                                            <p className="text-[9px] text-gray-400 font-medium">
+                                            <p className="text-[9px] text-slate-500 font-medium">
                                                 {new Date(sub.subscribed_at).toLocaleDateString()}
                                             </p>
                                         </div>
                                         <form action={deleteSubscriber.bind(null, sub.id)}>
-                                            <button className="text-gray-300 hover:text-red-500 p-2 rounded-lg hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-sm">
+                                            <button className="text-slate-600 hover:text-red-500 p-2 rounded-lg hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-sm">
                                                 <Trash2 size={12} />
                                             </button>
                                         </form>
                                     </div>
                                 ))
                             ) : (
-                                <div className="text-center py-20 text-gray-400 text-xs">
+                                <div className="text-center py-20 text-slate-500 text-xs">
                                     Your list is empty.
                                 </div>
                             )}

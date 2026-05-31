@@ -12,27 +12,27 @@ const DeviceStats = () => {
     ];
 
     return (
-        <div className="bg-transparent p-8 rounded-[32px] shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-white/10/50 h-full flex flex-col hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300">
+        <div className="bg-transparent p-8 rounded-[32px] shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-200/50 h-full flex flex-col hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300">
             <div className="flex items-center justify-between mb-8">
-                <h3 className="font-bold text-gray-200 font-display text-lg">Device users</h3>
+                <h3 className="font-bold text-slate-700 font-display text-lg">Device users</h3>
                 <div className="flex items-center gap-3">
                     <div className="relative">
-                        <select className="appearance-none bg-transparent border-none text-xs font-semibold text-gray-500 rounded-xl px-4 py-2 pr-8 outline-none cursor-pointer hover:bg-[#1a1a1c]/5 transition-colors font-montserrat">
+                        <select className="appearance-none bg-transparent border-none text-xs font-semibold text-slate-400 rounded-xl px-4 py-2 pr-8 outline-none cursor-pointer hover:bg-slate-50/5 transition-colors font-montserrat">
                             <option>This month</option>
                             <option>Last month</option>
                         </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
                             <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                         </div>
                     </div>
-                    <button className="p-2 text-gray-400 hover:bg-transparent rounded-xl transition-colors">
+                    <button className="p-2 text-slate-500 hover:bg-transparent rounded-xl transition-colors">
                         <MoreHorizontal size={20} />
                     </button>
                 </div>
             </div>
 
             <div className="mb-8">
-                <p className="text-xs text-gray-500 mb-2 font-montserrat font-medium uppercase tracking-wide">Total visitors</p>
+                <p className="text-xs text-slate-400 mb-2 font-montserrat font-medium uppercase tracking-wide">Total visitors</p>
                 <div className="flex items-center gap-3">
                     <span className="text-4xl font-bold text-gray-900 font-sans tracking-tight">2147</span>
                     <span className="bg-emerald-50 text-emerald-500 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-100 font-sans">+8.21%</span>
@@ -42,7 +42,7 @@ const DeviceStats = () => {
             <div className="flex-1 flex flex-col justify-center space-y-6 mb-8">
                 {devices.map((device, index) => (
                     <div key={index} className="flex items-center gap-4 group">
-                        <span className="w-20 text-xs font-semibold text-gray-500 shrink-0 font-montserrat">{device.name}</span>
+                        <span className="w-20 text-xs font-semibold text-slate-400 shrink-0 font-montserrat">{device.name}</span>
                         <div className="flex-1 relative h-8">
                             {/* Grid lines */}
                             <div className="absolute inset-0 flex justify-between px-0 pointer-events-none opacity-50">
@@ -72,7 +72,7 @@ const DeviceStats = () => {
             </div>
 
             {/* X Axis Labels */}
-            <div className="flex justify-between text-[10px] font-medium text-gray-400 pl-20 pr-4 mb-8 font-sans">
+            <div className="flex justify-between text-[10px] font-medium text-slate-500 pl-20 pr-4 mb-8 font-sans">
                 <span>0%</span>
                 <span>25%</span>
                 <span>50%</span>
@@ -81,7 +81,7 @@ const DeviceStats = () => {
             </div>
 
             <div className="mt-auto flex items-center justify-between pt-6 border-t border-gray-50">
-                <p className="text-xs font-semibold text-gray-400 font-montserrat">You almost maintain very good statistics</p>
+                <p className="text-xs font-semibold text-slate-500 font-montserrat">You almost maintain very good statistics</p>
                 <button className="flex items-center gap-1.5 text-xs font-bold text-gray-900 hover:text-primary transition-colors group font-montserrat uppercase tracking-wide">
                     View report
                     <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

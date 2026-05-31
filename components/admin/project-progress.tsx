@@ -4,7 +4,7 @@ const BlogStats = () => {
     return (
         <div className="rounded-3xl p-px bg-linear-to-br from-gray-200 to-gray-50 h-full">
             <div className="bg-transparent rounded-[23px] p-4 h-full flex flex-col items-center justify-center relative min-h-[300px]">
-                <h3 className="absolute top-6 left-6 text-lg font-bold text-gray-200 font-display">Blog Stats</h3>
+                <h3 className="absolute top-6 left-6 text-lg font-bold text-slate-700 font-display">Blog Stats</h3>
 
                 <div className="relative w-40 h-40 mt-8">
                     {/* Circular Progress using SVG */}
@@ -33,8 +33,8 @@ const BlogStats = () => {
 
                     {/* Inner Text */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-3xl font-bold text-gray-200 font-display">120</span>
-                        <span className="text-[10px] text-gray-400 font-medium font-sans">Total Posts</span>
+                        <span className="text-3xl font-bold text-slate-700 font-display">120</span>
+                        <span className="text-[10px] text-slate-500 font-medium font-sans">Total Posts</span>
                     </div>
                 </div>
 
@@ -42,15 +42,15 @@ const BlogStats = () => {
                 <div className="flex flex-wrap justify-center gap-3 mt-6 px-2">
                     <div className="flex items-center gap-1.5">
                         <div className="w-2 h-2 rounded-full bg-primary"></div>
-                        <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap font-sans">Published</span>
+                        <span className="text-[10px] text-slate-400 font-medium whitespace-nowrap font-sans">Published</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                         <div className="w-2 h-2 rounded-full bg-secondary"></div>
-                        <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap font-sans">Drafts</span>
+                        <span className="text-[10px] text-slate-400 font-medium whitespace-nowrap font-sans">Drafts</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                         <div className="w-2 h-2 rounded-full bg-gray-200"></div>
-                        <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap font-sans">Scheduled</span>
+                        <span className="text-[10px] text-slate-400 font-medium whitespace-nowrap font-sans">Scheduled</span>
                     </div>
                 </div>
             </div>

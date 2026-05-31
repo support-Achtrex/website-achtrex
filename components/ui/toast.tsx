@@ -116,7 +116,7 @@ const ToastItem = ({ toast, onRemove }: { toast: Toast; onRemove: () => void }) 
             {toast.type !== 'loading' && (
                 <button
                     onClick={onRemove}
-                    className="text-gray-400 hover:text-gray-400 transition-colors p-1 hover:bg-black/5 rounded-full"
+                    className="text-slate-500 hover:text-slate-500 transition-colors p-1 hover:bg-black/5 rounded-full"
                 >
                     <XCircle size={16} />
                 </button>

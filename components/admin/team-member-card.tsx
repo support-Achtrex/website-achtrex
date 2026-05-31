@@ -46,7 +46,7 @@ const TeamMemberCard = ({ member, onEdit, onDelete }: TeamMemberCardProps) => {
                 <div className="absolute top-4 left-4">
                     <button 
                         onClick={() => onDelete(member.id)}
-                        className="text-gray-300 hover:text-red-500 transition-colors"
+                        className="text-slate-600 hover:text-red-500 transition-colors"
                     >
                         <Trash2 size={18} />
                     </button>
@@ -54,20 +54,20 @@ const TeamMemberCard = ({ member, onEdit, onDelete }: TeamMemberCardProps) => {
                 <div className="absolute top-4 right-4" ref={menuRef}>
                     <button
                         onClick={() => setShowMenu(!showMenu)}
-                        className="text-gray-300 hover:text-gray-400 transition-colors relative z-10"
+                        className="text-slate-600 hover:text-slate-500 transition-colors relative z-10"
                     >
                         <MoreHorizontal size={18} />
                     </button>
 
                     {/* Dropdown Menu */}
                     {showMenu && (
-                        <div className="absolute right-0 top-8 bg-transparent rounded-xl shadow-xl border border-white/10 p-1.5 w-32 z-20 animate-in fade-in zoom-in-95 duration-200">
+                        <div className="absolute right-0 top-8 bg-transparent rounded-xl shadow-xl border border-slate-200 p-1.5 w-32 z-20 animate-in fade-in zoom-in-95 duration-200">
                             <button 
                                 onClick={() => {
                                     onEdit(member);
                                     setShowMenu(false);
                                 }}
-                                className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-400 hover:bg-transparent hover:text-gray-900 rounded-lg transition-colors text-left"
+                                className="w-full flex items-center gap-2 px-3 py-2 text-sm text-slate-500 hover:bg-transparent hover:text-gray-900 rounded-lg transition-colors text-left"
                             >
                                 <Edit size={14} />
                                 <span>Edit</span>
@@ -97,7 +97,7 @@ const TeamMemberCard = ({ member, onEdit, onDelete }: TeamMemberCardProps) => {
                                 className="object-cover"
                             />
                         ) : (
-                            <div className="w-full h-full bg-linear-to-br from-primary/80 to-primary/40 flex items-center justify-center text-white font-bold text-xl">
+                            <div className="w-full h-full bg-linear-to-br from-primary/80 to-primary/40 flex items-center justify-center text-slate-900 font-bold text-xl">
                                 {member.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
                             </div>
                         )}
@@ -105,19 +105,19 @@ const TeamMemberCard = ({ member, onEdit, onDelete }: TeamMemberCardProps) => {
                 </div>
 
                 {/* Info */}
-                <h3 className="text-lg font-bold text-gray-200 font-display mb-1">{member.name}</h3>
-                <p className="text-xs text-gray-400 font-sans mb-6">{member.email}</p>
-                <span className="px-3 py-1 bg-transparent text-gray-400 text-xs rounded-full font-medium mb-6 font-sans">{member.role}</span>
+                <h3 className="text-lg font-bold text-slate-700 font-display mb-1">{member.name}</h3>
+                <p className="text-xs text-slate-500 font-sans mb-6">{member.email}</p>
+                <span className="px-3 py-1 bg-transparent text-slate-500 text-xs rounded-full font-medium mb-6 font-sans">{member.role}</span>
 
                 {/* Social Actions */}
                 <div className="flex items-center gap-3 mt-auto">
-                    <button className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300">
+                    <button className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center text-slate-500 hover:bg-primary hover:text-slate-900 transition-all duration-300">
                         <Mail size={14} />
                     </button>
-                    <button className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center text-gray-400 hover:bg-[#0077b5] hover:text-white transition-all duration-300">
+                    <button className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center text-slate-500 hover:bg-[#0077b5] hover:text-slate-900 transition-all duration-300">
                         <Linkedin size={14} />
                     </button>
-                    <button className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center text-gray-400 hover:bg-[#1DA1F2] hover:text-white transition-all duration-300">
+                    <button className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center text-slate-500 hover:bg-[#1DA1F2] hover:text-slate-900 transition-all duration-300">
                         <Twitter size={14} />
                     </button>
                 </div>

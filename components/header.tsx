@@ -95,7 +95,7 @@ export const Navbar = () => {
     return (
         <div className={cn(
             "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-            scrolled || !isHome ? "bg-[#070b14]/90 backdrop-blur-md border-b border-white/10 py-4 shadow-sm" : "bg-transparent py-6"
+            scrolled || !isHome ? "bg-[#F8F9FA]/90 backdrop-blur-md border-b border-slate-200 py-4 shadow-sm" : "bg-transparent py-6"
         )}>
             <nav className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex justify-between items-center">
                 {/* Logo */}
@@ -108,7 +108,7 @@ export const Navbar = () => {
                             className="object-contain"
                         />
                     </div>
-                    <span className={cn("text-[20px] lg:text-[22px] font-bold text-white tracking-wide", montserrat.className)}>Achtrex</span>
+                    <span className={cn("text-[20px] lg:text-[22px] font-bold text-slate-900 tracking-wide", montserrat.className)}>Achtrex</span>
                 </Link>
 
                 <div className="flex items-center gap-10">
@@ -119,7 +119,7 @@ export const Navbar = () => {
                                 <Link
                                     href={link.sub ? "#" : link.href}
                                     onClick={(e) => link.sub ? e.preventDefault() : null}
-                                    className="text-[14px] font-semibold text-white/90 hover:text-white transition-colors flex items-center gap-1.5"
+                                    className="text-[14px] font-semibold text-slate-900/90 hover:text-slate-900 transition-colors flex items-center gap-1.5"
                                 >
                                     {link.label}
                                     {link.sub && (
@@ -134,7 +134,7 @@ export const Navbar = () => {
                                         link.sub.length > 4 ? "w-[700px] left-[-150px]" : (link.sub[0]?.description ? "w-[400px]" : "w-[240px]")
                                     )}>
                                         <div className={cn(
-                                            "bg-[#0f172a] border border-white/10 rounded-xl shadow-2xl p-3",
+                                            "bg-white border border-slate-200 rounded-xl shadow-2xl p-3",
                                             link.sub.length > 4 ? "grid grid-cols-2 gap-x-2 gap-y-1" : "flex flex-col gap-1",
                                             link.sub[0]?.description && link.sub.length <= 4 && "gap-2"
                                         )}>
@@ -151,12 +151,12 @@ export const Navbar = () => {
                                                     <div className="flex flex-col">
                                                         <span className={cn(
                                                             "font-semibold",
-                                                            subLink.description ? "text-[15px] text-white" : "text-[14px] text-gray-300 hover:text-white"
+                                                            subLink.description ? "text-[15px] text-slate-900" : "text-[14px] text-slate-600 hover:text-slate-900"
                                                         )}>
                                                             {subLink.label}
                                                         </span>
                                                         {subLink.description && (
-                                                            <span className="text-[13px] text-gray-400 mt-0.5 leading-snug">
+                                                            <span className="text-[13px] text-slate-500 mt-0.5 leading-snug">
                                                                 {subLink.description}
                                                             </span>
                                                         )}
@@ -174,7 +174,7 @@ export const Navbar = () => {
                     <div className="hidden lg:flex items-center gap-3">
                         <Link href="/contact-us" className="relative group rounded-md overflow-hidden p-[1px]">
                             <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-500 rounded-md opacity-70 group-hover:opacity-100 transition-opacity" />
-                            <div className="relative bg-[#070b14]/90 backdrop-blur-md text-white text-[14px] font-bold px-6 py-2 rounded-md transition-colors">
+                            <div className="relative bg-[#F8F9FA]/90 backdrop-blur-md text-slate-900 text-[14px] font-bold px-6 py-2 rounded-md transition-colors">
                                 Contact Us
                             </div>
                         </Link>
@@ -183,7 +183,7 @@ export const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="lg:hidden p-2 text-white hover:text-gray-300 transition-colors"
+                    className="lg:hidden p-2 text-slate-900 hover:text-slate-600 transition-colors"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -197,11 +197,11 @@ export const Navbar = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="fixed top-[76px] left-4 right-4 bottom-4 bg-[#0f172a] border border-white/10 rounded-2xl overflow-y-auto overscroll-contain shadow-2xl lg:hidden"
+                        className="fixed top-[76px] left-4 right-4 bottom-4 bg-white border border-slate-200 rounded-2xl overflow-y-auto overscroll-contain shadow-2xl lg:hidden"
                     >
                         <div className="px-5 py-5 space-y-1 flex flex-col">
                             {navLinks.map((link) => (
-                                <div key={link.href} className="border-b border-white/5 last:border-0 py-2">
+                                <div key={link.href} className="border-b border-slate-100 last:border-0 py-2">
                                     <div className="flex justify-between items-center transition-colors rounded-md py-1">
                                         <Link
                                             href={link.sub ? "#" : link.href}
@@ -209,7 +209,7 @@ export const Navbar = () => {
                                                 if (link.sub) e.preventDefault();
                                                 else setIsOpen(false);
                                             }}
-                                            className="text-[16px] font-bold py-2 w-full text-white"
+                                            className="text-[16px] font-bold py-2 w-full text-slate-900"
                                         >
                                             {link.label}
                                         </Link>
@@ -221,15 +221,15 @@ export const Navbar = () => {
                                                     key={subLink.href}
                                                     href={subLink.href}
                                                     onClick={() => setIsOpen(false)}
-                                                    className="flex items-start gap-3 p-2 rounded-md hover:bg-transparent/5 transition-colors"
+                                                    className="flex items-start gap-3 p-2 rounded-md hover:bg-slate-50 transition-colors"
                                                 >
 
                                                     <div className="flex flex-col">
-                                                        <span className={cn("font-semibold", subLink.description ? "text-white text-[15px]" : "text-[14px] text-gray-300 hover:text-white")}>
+                                                        <span className={cn("font-semibold", subLink.description ? "text-slate-900 text-[15px]" : "text-[14px] text-slate-600 hover:text-slate-900")}>
                                                             {subLink.label}
                                                         </span>
                                                         {subLink.description && (
-                                                            <span className="text-[13px] text-gray-300 mt-0.5 leading-snug">
+                                                            <span className="text-[13px] text-slate-600 mt-0.5 leading-snug">
                                                                 {subLink.description}
                                                             </span>
                                                         )}
@@ -241,7 +241,7 @@ export const Navbar = () => {
                                 </div>
                             ))}
                             <div className="pt-4 flex flex-col gap-3">
-                                <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-transparent text-white font-bold py-3 rounded-xl">
+                                <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-transparent text-slate-900 font-bold py-3 rounded-xl">
                                     Contact Us
                                 </Link>
                             </div>

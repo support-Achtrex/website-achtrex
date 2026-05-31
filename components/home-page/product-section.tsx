@@ -24,7 +24,7 @@ export const ProductSection = () => {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-5xl font-bold text-white mb-6"
+                        className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
                     >
                         Market-Ready Solutions
                     </motion.h2>
@@ -32,7 +32,7 @@ export const ProductSection = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-gray-400 text-lg max-w-2xl"
+                        className="text-slate-500 text-lg max-w-2xl"
                     >
                         Achtrex builds and operates specialized digital platforms designed for high-performance API access, unified communications, and global data scale.
                     </motion.p>
@@ -44,18 +44,18 @@ export const ProductSection = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="group flex flex-col h-full bg-[#0a0f1c] border border-white/10 rounded-2xl overflow-hidden hover:border-r-logo-gradient transition-all duration-300 shadow-xl relative"
+                        className="group flex flex-col h-full bg-[#0a0f1c] border border-slate-200 rounded-2xl overflow-hidden hover:border-r-logo-gradient transition-all duration-300 shadow-xl relative"
                     >
                         {/* Status Badge */}
                         <div className="absolute top-6 right-6 z-20">
-                            <span className="flex items-center gap-2 bg-green-500/90 text-white shadow-lg border border-white/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-md">
+                            <span className="flex items-center gap-2 bg-green-500/90 text-slate-900 shadow-lg border border-slate-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-md">
                                 <span className="w-2 h-2 rounded-full bg-transparent animate-pulse" />
                                 Live Product
                             </span>
                         </div>
 
                         {/* Card Hero Image */}
-                        <div className="relative h-72 w-full bg-slate-900 border-b border-white/10 overflow-hidden">
+                        <div className="relative h-72 w-full bg-slate-900 border-b border-slate-200 overflow-hidden">
                             <Image
                                 src="/projects/automotive_ui_v2.jpg"
                                 alt="Automotive Data Engine"
@@ -66,10 +66,10 @@ export const ProductSection = () => {
                         </div>
 
                         <div className="p-8 md:p-10 flex-grow relative z-10 pt-4">
-                            <h3 className="text-3xl font-display font-bold text-white mb-3">Automotive Dataset</h3>
+                            <h3 className="text-3xl font-display font-bold text-slate-900 mb-3">Automotive Dataset</h3>
                             <p className="text-gradient text-sm font-bold uppercase tracking-widest mb-6">Deep Vehicle Intelligence</p>
                             
-                            <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                            <p className="text-slate-500 text-lg leading-relaxed mb-8">
                                 Power your business with the industry’s most extensive data catalog. Access over 50 specialized APIs and full database downloads, including Premium VIN, Window Stickers, Valuation, Auction Data, Plate OCR, vehicle media, YMM specs, Repair Estimates, Parts Catalogs, and detailed Technical Specs.
                             </p>
                         </div>
@@ -79,7 +79,7 @@ export const ProductSection = () => {
                                 href="https://automotivedataset.com" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="w-full flex items-center justify-center gap-2 bg-logo-gradient text-white py-4 rounded-xl font-bold transition-all hover:scale-[1.02] shadow-lg"
+                                className="w-full flex items-center justify-center gap-2 bg-logo-gradient text-slate-900 py-4 rounded-xl font-bold transition-all hover:scale-[1.02] shadow-lg"
                             >
                                 Visit Automotivedataset.com
                                 <ExternalLink size={18} />
@@ -93,17 +93,17 @@ export const ProductSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="group flex flex-col h-full bg-[#0a0f1c] border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 relative"
+                        className="group flex flex-col h-full bg-[#0a0f1c] border border-slate-200 rounded-2xl overflow-hidden transition-all duration-500 relative"
                     >
                         {/* Status Badge */}
                         <div className="absolute top-6 right-6 z-20">
-                            <span className="flex items-center gap-2 bg-[#111827]/90 text-secondary border border-white/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-md">
+                            <span className="flex items-center gap-2 bg-[#111827]/90 text-secondary border border-slate-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-md">
                                 Architecture Phase
                             </span>
                         </div>
 
                         {/* Card Hero Image */}
-                        <div className="relative h-72 w-full bg-slate-900 border-b border-white/10 overflow-hidden">
+                        <div className="relative h-72 w-full bg-slate-900 border-b border-slate-200 overflow-hidden">
                             <Image
                                 src="/projects/lumi_ui_v2.jpg"
                                 alt="LUMI Logic Framework"
@@ -114,10 +114,10 @@ export const ProductSection = () => {
                         </div>
 
                         <div className="p-8 md:p-10 flex-grow relative z-10 pt-4">
-                            <h3 className="text-3xl font-display font-bold text-white mb-3">LUMI</h3>
+                            <h3 className="text-3xl font-display font-bold text-slate-900 mb-3">LUMI</h3>
                             <p className="text-gradient text-sm font-bold uppercase tracking-widest mb-6">Intelligent AI Platform</p>
                             
-                            <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                            <p className="text-slate-500 text-lg leading-relaxed mb-8">
                                 LUMI is an intelligent AI platform that allows businesses and developers to create smart agents that can understand, respond, automate tasks, and interact with data in real time.
                             </p>
                         </div>

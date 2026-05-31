@@ -9,10 +9,10 @@ import { Button } from '@/components/buttons';
 
 export default function LifeAtAchtrexPage() {
     return (
-        <main className="min-h-screen bg-[#070b14] text-white pt-24">
+        <main className="min-h-screen bg-[#F8F9FA] text-slate-900 pt-24">
             {/* Hero Section */}
             <section className="relative py-16 px-6 overflow-hidden bg-transparent">
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-[#111112]/50 -skew-x-12 translate-x-24" />
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-white/50 -skew-x-12 translate-x-24" />
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
@@ -22,20 +22,20 @@ export default function LifeAtAchtrexPage() {
                                 transition={{ duration: 0.6 }}
                             >
                                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-4 block">Careers @ Achtrex</span>
-                                <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
+                                <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
                                     Architecting the <br /> 
                                     <span className="text-primary">Next Era</span> of Data.
                                 </h1>
-                                <p className="text-lg text-gray-500 font-medium mb-8 leading-relaxed max-w-lg">
+                                <p className="text-lg text-slate-400 font-medium mb-8 leading-relaxed max-w-lg">
                                     We engineer real infrastructure for the global automotive industry. Join a remote-first, pioneering team building AutomotiveDataset.com, LUMI AI, and the Achtrex Core.
                                 </p>
                                 <div className="flex flex-wrap gap-4">
-                                    <Button size="lg" className="bg-black text-white hover:bg-gray-800 px-8 rounded-full font-bold">
+                                    <Button size="lg" className="bg-black text-slate-900 hover:bg-gray-800 px-8 rounded-full font-bold">
                                         View Openings
                                     </Button>
-                                    <a href="mailto:support@achtrex.com" className="flex items-center gap-3 px-6 py-3 border border-white/10 rounded-full bg-[#070b14] shadow-sm hover:border-gray-400 transition-colors">
-                                        <svg className="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                                        <span className="text-xs font-bold text-gray-400">Reach Out Directly</span>
+                                    <a href="mailto:support@achtrex.com" className="flex items-center gap-3 px-6 py-3 border border-slate-200 rounded-full bg-[#F8F9FA] shadow-sm hover:border-gray-400 transition-colors">
+                                        <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                        <span className="text-xs font-bold text-slate-500">Reach Out Directly</span>
                                     </a>
                                 </div>
                             </motion.div>
@@ -53,7 +53,7 @@ export default function LifeAtAchtrexPage() {
                                 className="object-cover"
                                 priority
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#F8F9FA]/40 via-transparent to-transparent" />
                         </motion.div>
                     </div>
                 </div>
@@ -63,9 +63,9 @@ export default function LifeAtAchtrexPage() {
             <section className="py-20 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        <h2 className="text-sm font-black uppercase tracking-[0.4em] text-gray-400 mb-4">Our DNA</h2>
-                        <h3 className="text-3xl font-bold text-white mb-6">Built on Engineering Excellence.</h3>
-                        <p className="text-lg text-gray-500 font-medium leading-relaxed">
+                        <h2 className="text-sm font-black uppercase tracking-[0.4em] text-slate-500 mb-4">Our DNA</h2>
+                        <h3 className="text-3xl font-bold text-slate-900 mb-6">Built on Engineering Excellence.</h3>
+                        <p className="text-lg text-slate-400 font-medium leading-relaxed">
                             At Achtrex, we value infrastructure-first thinking, AI-driven innovation, and the pursuit of data integrity across every layer of the automotive intelligence stack.
                         </p>
                     </div>
@@ -99,11 +99,11 @@ export default function LifeAtAchtrexPage() {
                                 transition={{ delay: i * 0.1 }}
                                 className={`p-10 rounded-3xl ${value.bg} border border-transparent hover:border-white/50/5 transition-all group`}
                             >
-                                <div className="mb-8 p-4 bg-[#070b14] rounded-2xl w-fit shadow-sm group-hover:scale-110 transition-transform">
+                                <div className="mb-8 p-4 bg-[#F8F9FA] rounded-2xl w-fit shadow-sm group-hover:scale-110 transition-transform">
                                     {value.icon}
                                 </div>
                                 <h4 className="text-xl font-bold mb-4">{value.title}</h4>
-                                <p className="text-gray-400 leading-relaxed font-medium">
+                                <p className="text-slate-500 leading-relaxed font-medium">
                                     {value.desc}
                                 </p>
                             </motion.div>
@@ -113,7 +113,7 @@ export default function LifeAtAchtrexPage() {
             </section>
 
             {/* Culture Grid */}
-            <section className="py-20 px-6 bg-black text-white overflow-hidden relative">
+            <section className="py-20 px-6 bg-black text-slate-900 overflow-hidden relative">
                 <div className="absolute top-0 right-0 w-[500px] h-full bg-primary/10 blur-[150px] pointer-events-none" />
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -137,7 +137,7 @@ export default function LifeAtAchtrexPage() {
                                         </div>
                                         <div>
                                             <h4 className="text-xl font-bold mb-2">{item.title}</h4>
-                                            <p className="text-gray-400 leading-relaxed">{item.desc}</p>
+                                            <p className="text-slate-500 leading-relaxed">{item.desc}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -171,15 +171,15 @@ export default function LifeAtAchtrexPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                         <div className="max-w-xl">
-                            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-gray-400 mb-4">The Benefits</h2>
-                            <h3 className="text-3xl font-bold text-white">Engineered for your well-being.</h3>
+                            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-slate-500 mb-4">The Benefits</h2>
+                            <h3 className="text-3xl font-bold text-slate-900">Engineered for your well-being.</h3>
                         </div>
-                        <Button className="bg-primary text-white hover:bg-primary/90 px-8 rounded-full font-bold">
+                        <Button className="bg-primary text-slate-900 hover:bg-primary/90 px-8 rounded-full font-bold">
                             See All Perks
                         </Button>
                     </div>
 
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 border border-white/10 rounded-3xl overflow-hidden">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 border border-slate-200 rounded-3xl overflow-hidden">
                         {[
                             { label: "Global Mobility", icon: <Globe size={24} /> },
                             { label: "Equity Options", icon: <Target size={24} /> },
@@ -190,9 +190,9 @@ export default function LifeAtAchtrexPage() {
                             { label: "Retirement Plans", icon: <Shield size={24} /> },
                             { label: "Annual Offsites", icon: <Users size={24} /> },
                         ].map((perk, i) => (
-                            <div key={i} className="bg-[#070b14] p-8 hover:bg-transparent transition-colors flex flex-col items-center justify-center text-center gap-4">
+                            <div key={i} className="bg-[#F8F9FA] p-8 hover:bg-transparent transition-colors flex flex-col items-center justify-center text-center gap-4">
                                 <div className="text-primary">{perk.icon}</div>
-                                <span className="text-sm font-bold text-gray-200">{perk.label}</span>
+                                <span className="text-sm font-bold text-slate-700">{perk.label}</span>
                             </div>
                         ))}
                     </div>

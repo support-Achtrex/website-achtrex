@@ -120,10 +120,10 @@ export const TeamSection = async () => {
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-24">
-                    <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-transparent/5 backdrop-blur-sm">
+                    <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-slate-200 bg-transparent/5 backdrop-blur-sm">
                         <span className="text-sm font-semibold text-primary tracking-widest uppercase">Our Leadership</span>
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8">
+                    <h1 className="text-5xl md:text-7xl font-display font-bold text-slate-900 mb-8">
                         The minds behind the <br /> <span className="text-gradient">innovation</span>.
                     </h1>
                     <p className="text-muted-foreground text-xl max-w-2xl mx-auto leading-relaxed">

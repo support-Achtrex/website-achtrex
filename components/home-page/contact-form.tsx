@@ -70,8 +70,8 @@ const ContactForm = () => {
   const budgets = ["<$5k", "$5k - $10k", "$10k - $25k", "$25k - $50k", ">$50k"];
   const sources = ["Reference/Documentation", "Search Engine", "Referral", "Other"];
 
-  const inputClasses = "w-full py-4 px-4 border border-white/10 rounded-sm text-white focus:border-primary outline-none transition-colors bg-[#0a0f1c] text-base appearance-none";
-  const labelClasses = "text-gray-400 text-xs font-bold uppercase tracking-wider mb-2 block group-focus-within:text-primary transition-colors";
+  const inputClasses = "w-full py-4 px-4 border border-slate-200 rounded-sm text-slate-900 focus:border-primary outline-none transition-colors bg-[#0a0f1c] text-base appearance-none";
+  const labelClasses = "text-slate-500 text-xs font-bold uppercase tracking-wider mb-2 block group-focus-within:text-primary transition-colors";
 
   return (
     <section id="contact" className="py-24 px-6 bg-background border-t border-b border-white/5 relative overflow-hidden">
@@ -86,10 +86,10 @@ const ContactForm = () => {
             className="max-w-3xl"
           >
             <span className="text-secondary text-sm font-bold tracking-widest uppercase mb-4 block">Enterprise Partnerships</span>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-slate-900 mb-6">
               Discuss infrastructure <br /> and API limits.
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-xl text-slate-500">
               Connect with our deployment team to gain technical access, discuss pipeline integration, or explore custom enterprise architecture deployments.
             </p>
           </motion.div>
@@ -124,10 +124,10 @@ const ContactForm = () => {
               <label htmlFor="contact-service" className={labelClasses}>Inquiry Type</label>
               <div className="relative">
                 <select id="contact-service" name="service" autoComplete="off" value={formData.service} onChange={handleChange} className={inputClasses}>
-                  <option value="" disabled className="text-gray-500">Select inquiry type</option>
+                  <option value="" disabled className="text-slate-400">Select inquiry type</option>
                   {services.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-900/50 pointer-events-none" />
               </div>
             </motion.div>
 
@@ -135,10 +135,10 @@ const ContactForm = () => {
               <label htmlFor="contact-budget" className={labelClasses}>Expected Volume/Budget</label>
               <div className="relative">
                 <select id="contact-budget" name="budget" autoComplete="off" value={formData.budget} onChange={handleChange} className={inputClasses}>
-                  <option value="" disabled className="text-gray-500">Select parameter</option>
+                  <option value="" disabled className="text-slate-400">Select parameter</option>
                   {budgets.map(b => <option key={b} value={b}>{b}</option>)}
                 </select>
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-900/50 pointer-events-none" />
               </div>
             </motion.div>
 
@@ -146,10 +146,10 @@ const ContactForm = () => {
               <label htmlFor="contact-source" className={labelClasses}>Lead Source</label>
               <div className="relative">
                 <select id="contact-source" name="source" autoComplete="off" value={formData.source} onChange={handleChange} className={inputClasses}>
-                  <option value="" disabled className="text-gray-500">Select source</option>
+                  <option value="" disabled className="text-slate-400">Select source</option>
                   {sources.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-900/50 pointer-events-none" />
               </div>
             </motion.div>
           </div>
@@ -185,7 +185,7 @@ const ContactForm = () => {
               type="submit"
               disabled={status === 'loading'}
               size="lg"
-              className="w-full md:w-auto bg-primary text-white hover:bg-primary/90 rounded-sm px-10 py-4 font-bold tracking-wide"
+              className="w-full md:w-auto bg-primary text-slate-900 hover:bg-primary/90 rounded-sm px-10 py-4 font-bold tracking-wide"
             >
               {status === 'loading' ? 'Submitting...' : 'Submit Request'}
               <ArrowRight className="ml-2 w-4 h-4 inline-block" />

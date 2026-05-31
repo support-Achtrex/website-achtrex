@@ -64,11 +64,11 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 backdrop-blur-sm animate-in fade-in duration-200">
             <div className="bg-transparent rounded-2xl w-full max-w-md shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
-                <div className="p-6 border-b border-white/10 flex justify-between items-center bg-transparent/50">
-                    <h2 className="text-xl font-bold text-gray-200 font-display">{title}</h2>
+                <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-transparent/50">
+                    <h2 className="text-xl font-bold text-slate-700 font-display">{title}</h2>
                     <button 
                         onClick={onCancel}
-                        className="text-gray-400 hover:text-gray-400 transition-colors p-1 hover:bg-[#1a1a1c]/5 rounded-full"
+                        className="text-slate-500 hover:text-slate-500 transition-colors p-1 hover:bg-slate-50/5 rounded-full"
                     >
                         <X size={20} />
                     </button>
@@ -95,12 +95,12 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
                                     className="object-cover"
                                 />
                             ) : (
-                                <div className="w-full h-full flex items-center justify-center text-gray-400">
+                                <div className="w-full h-full flex items-center justify-center text-slate-500">
                                     <Upload size={24} />
                                 </div>
                             )}
                             <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span className="text-white text-xs font-medium">Change</span>
+                                <span className="text-slate-900 text-xs font-medium">Change</span>
                             </div>
                         </div>
                         <input 
@@ -129,7 +129,7 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
                             name="name" 
                             required
                             defaultValue={initialData?.name}
-                            className="w-full px-4 py-2.5 rounded-xl border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
+                            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-500"
                             placeholder="e.g. John Doe"
                         />
                     </div>
@@ -143,7 +143,7 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
                             name="email" 
                             required
                             defaultValue={initialData?.email}
-                            className="w-full px-4 py-2.5 rounded-xl border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
+                            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-500"
                             placeholder="e.g. john@company.com"
                         />
                     </div>
@@ -157,7 +157,7 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
                             name="role" 
                             required
                             defaultValue={initialData?.role}
-                            className="w-full px-4 py-2.5 rounded-xl border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
+                            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-500"
                             placeholder="e.g. Senior Developer"
                         />
                     </div>
@@ -167,14 +167,14 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
                             type="button" 
                             onClick={onCancel}
                             disabled={isLoading}
-                            className="flex-1 px-4 py-2.5 rounded-xl border border-white/10 text-gray-700 font-medium hover:bg-transparent transition-colors disabled:opacity-50"
+                            className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 text-gray-700 font-medium hover:bg-transparent transition-colors disabled:opacity-50"
                         >
                             Cancel
                         </button>
                         <button 
                             type="submit" 
                             disabled={isLoading}
-                            className="flex-1 px-4 py-2.5 rounded-xl bg-primary text-white font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25 disabled:opacity-70 flex items-center justify-center gap-2"
+                            className="flex-1 px-4 py-2.5 rounded-xl bg-primary text-slate-900 font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25 disabled:opacity-70 flex items-center justify-center gap-2"
                         >
                             {isLoading ? (
                                 <>

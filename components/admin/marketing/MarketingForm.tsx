@@ -45,7 +45,7 @@ export const MarketingForm: React.FC<MarketingFormProps> = ({ subscriberCount })
 
     return (
         <div className="space-y-6">
-            <div className="bg-transparent p-6 rounded-2xl border border-white/10 shadow-sm relative overflow-hidden">
+            <div className="bg-transparent p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
                     <Sparkles size={120} />
                 </div>
@@ -55,8 +55,8 @@ export const MarketingForm: React.FC<MarketingFormProps> = ({ subscriberCount })
                         <Mail size={24} />
                     </div>
                     <div>
-                        <h3 className="text-xl font-bold text-gray-200">Campaign Designer</h3>
-                        <p className="text-sm text-gray-500">Pick a rich template or craft a custom message.</p>
+                        <h3 className="text-xl font-bold text-slate-700">Campaign Designer</h3>
+                        <p className="text-sm text-slate-400">Pick a rich template or craft a custom message.</p>
                     </div>
                 </div>
 
@@ -78,15 +78,15 @@ export const MarketingForm: React.FC<MarketingFormProps> = ({ subscriberCount })
                             required
                             value={subject}
                             onChange={(e) => setSubject(e.target.value)}
-                            className="w-full p-4 bg-transparent border border-white/10 rounded-2xl focus:border-primary focus:bg-transparent focus:ring-4 focus:ring-primary/5 outline-none transition-all font-medium"
+                            className="w-full p-4 bg-transparent border border-slate-200 rounded-2xl focus:border-primary focus:bg-transparent focus:ring-4 focus:ring-primary/5 outline-none transition-all font-medium"
                             placeholder="e.g. A special gift for you..."
                         />
                     </div>
 
-                    <div className="bg-transparent/50 p-6 rounded-2xl border border-white/10">
+                    <div className="bg-transparent/50 p-6 rounded-2xl border border-slate-200">
                         <label className="block text-sm font-bold text-gray-700 mb-4">Recipients</label>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <label className="flex items-center gap-3 p-3 bg-transparent border border-white/10 rounded-xl cursor-pointer hover:border-primary/30 transition-all">
+                            <label className="flex items-center gap-3 p-3 bg-transparent border border-slate-200 rounded-xl cursor-pointer hover:border-primary/30 transition-all">
                                 <input
                                     type="checkbox"
                                     name="send_to_all"
@@ -94,14 +94,14 @@ export const MarketingForm: React.FC<MarketingFormProps> = ({ subscriberCount })
                                     className="w-5 h-5 text-primary rounded-lg border-gray-300 focus:ring-primary"
                                 />
                                 <div className="text-sm">
-                                    <p className="font-bold text-gray-200">All Subscribers</p>
-                                    <p className="text-[10px] text-gray-500">{subscriberCount} people</p>
+                                    <p className="font-bold text-slate-700">All Subscribers</p>
+                                    <p className="text-[10px] text-slate-400">{subscriberCount} people</p>
                                 </div>
                             </label>
                             <div>
                                 <input
                                     name="manual_recipients"
-                                    className="w-full p-4 text-sm bg-transparent border border-white/10 rounded-xl focus:border-primary outline-none transition-all h-full"
+                                    className="w-full p-4 text-sm bg-transparent border border-slate-200 rounded-xl focus:border-primary outline-none transition-all h-full"
                                     placeholder="Add emails (comma separated)..."
                                 />
                             </div>
@@ -111,14 +111,14 @@ export const MarketingForm: React.FC<MarketingFormProps> = ({ subscriberCount })
                     <div>
                         <div className="flex justify-between items-center mb-2">
                             <label className="text-sm font-bold text-gray-700">Message Content</label>
-                            <span className="text-[10px] text-gray-400 font-mono uppercase">Full HTML & Rich Text Supported</span>
+                            <span className="text-[10px] text-slate-500 font-mono uppercase">Full HTML & Rich Text Supported</span>
                         </div>
                         <textarea
                             name="body"
                             required
                             value={body}
                             onChange={(e) => setBody(e.target.value)}
-                            className="w-full p-4 bg-transparent border border-white/10 rounded-2xl h-80 focus:border-primary focus:bg-transparent focus:ring-4 focus:ring-primary/5 outline-none transition-all font-mono text-sm resize-none"
+                            className="w-full p-4 bg-transparent border border-slate-200 rounded-2xl h-80 focus:border-primary focus:bg-transparent focus:ring-4 focus:ring-primary/5 outline-none transition-all font-mono text-sm resize-none"
                             placeholder="Type your message or select a template above..."
                         />
                     </div>
@@ -132,7 +132,7 @@ export const MarketingForm: React.FC<MarketingFormProps> = ({ subscriberCount })
                     <div className="flex justify-end pt-4">
                         <Button
                             disabled={isSending}
-                            className={`px-8 py-4 rounded-2xl flex items-center gap-3 font-black text-white shadow-xl shadow-primary/20 transition-all active:scale-95 ${isSending ? 'bg-gray-400' : 'bg-primary hover:bg-primary/90'}`}
+                            className={`px-8 py-4 rounded-2xl flex items-center gap-3 font-black text-slate-900 shadow-xl shadow-primary/20 transition-all active:scale-95 ${isSending ? 'bg-gray-400' : 'bg-primary hover:bg-primary/90'}`}
                         >
                             {isSending ? (
                                 <>Processing...</>

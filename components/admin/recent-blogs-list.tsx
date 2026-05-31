@@ -11,11 +11,11 @@ const RecentBlogsList = () => {
                 <div className="flex justify-between items-center mb-6">
                     <div>
                         <h3 className="text-lg font-bold text-gray-900 font-sans">Recent Blogs</h3>
-                        <p className="text-xs text-gray-500 font-montserrat mt-1">Latest updates from your team</p>
+                        <p className="text-xs text-slate-400 font-montserrat mt-1">Latest updates from your team</p>
                     </div>
                     <Link 
                         href="/admin/blogs/new"
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-900 text-white text-xs font-bold hover:bg-gray-800 transition-all shadow-lg shadow-gray-200 font-sans"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-900 text-slate-900 text-xs font-bold hover:bg-gray-800 transition-all shadow-lg shadow-gray-200 font-sans"
                     >
                         <Plus size={14} />
                         <span>New Post</span>
@@ -24,7 +24,7 @@ const RecentBlogsList = () => {
 
                 <div className="space-y-3 overflow-y-auto pr-2 custom-scrollbar flex-1">
                     {blogPosts.slice(0, 5).map((blog, index) => (
-                        <div key={index} className="group flex items-center gap-4 p-3 rounded-2xl hover:bg-transparent transition-all border border-transparent hover:border-white/10 cursor-pointer">
+                        <div key={index} className="group flex items-center gap-4 p-3 rounded-2xl hover:bg-transparent transition-all border border-transparent hover:border-slate-200 cursor-pointer">
                             {/* Thumbnail */}
                             <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-gray-100 group-hover:ring-primary/20 transition-all">
                                 <Image 
@@ -51,7 +51,7 @@ const RecentBlogsList = () => {
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-gray-50 text-center">
-                    <Link href="/admin/blogs" className="text-xs font-bold text-gray-500 hover:text-primary transition-colors font-sans">
+                    <Link href="/admin/blogs" className="text-xs font-bold text-slate-400 hover:text-primary transition-colors font-sans">
                         View All Posts
                     </Link>
                 </div>

@@ -13,9 +13,9 @@ const StatsCards = () => {
             change: 'Increased from last month',
             trend: 'up',
             bg: 'bg-primary',
-            text: 'text-white',
+            text: 'text-slate-900',
             iconBg: 'bg-transparent/20',
-            iconColor: 'text-white',
+            iconColor: 'text-slate-900',
             subtext: 'text-blue-100',
             href: '/admin/blogs'
         },
@@ -25,10 +25,10 @@ const StatsCards = () => {
             change: 'Active',
             trend: 'neutral',
             bg: 'bg-transparent',
-            text: 'text-gray-200',
+            text: 'text-slate-700',
             iconBg: 'bg-transparent',
-            iconColor: 'text-gray-200',
-            subtext: 'text-gray-400',
+            iconColor: 'text-slate-700',
+            subtext: 'text-slate-500',
             href: '/admin/team'
         },
         {
@@ -37,10 +37,10 @@ const StatsCards = () => {
             change: 'Increased from last month',
             trend: 'up',
             bg: 'bg-transparent',
-            text: 'text-gray-200',
+            text: 'text-slate-700',
             iconBg: 'bg-transparent',
-            iconColor: 'text-gray-200',
-            subtext: 'text-gray-400',
+            iconColor: 'text-slate-700',
+            subtext: 'text-slate-500',
             href: '/admin/analytics'
         },
         {
@@ -49,10 +49,10 @@ const StatsCards = () => {
             change: 'Increased from last month',
             trend: 'up',
             bg: 'bg-transparent',
-            text: 'text-gray-200',
+            text: 'text-slate-700',
             iconBg: 'bg-transparent',
-            iconColor: 'text-gray-200',
-            subtext: 'text-gray-400',
+            iconColor: 'text-slate-700',
+            subtext: 'text-slate-500',
             href: '/admin/analytics'
         }
     ];
@@ -60,10 +60,10 @@ const StatsCards = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {stats.map((stat, index) => (
-                <div key={index} className={`rounded-3xl p-px ${stat.bg === 'bg-primary' ? 'bg-primary' : 'bg-linear-to-br from-gray-200 to-gray-50'} border border-white/10 relative overflow-hidden group hover:shadow-sm transition-shadow`}>
+                <div key={index} className={`rounded-3xl p-px ${stat.bg === 'bg-primary' ? 'bg-primary' : 'bg-linear-to-br from-gray-200 to-gray-50'} border border-slate-200 relative overflow-hidden group hover:shadow-sm transition-shadow`}>
                     <div className={`${stat.bg} rounded-[23px] p-6 h-full`}>
                         <div className="flex justify-between items-start mb-4">
-                            <h3 className={`text-sm font-medium font-sans ${stat.bg === 'bg-primary' ? 'text-blue-100' : 'text-gray-500'}`}>
+                            <h3 className={`text-sm font-medium font-sans ${stat.bg === 'bg-primary' ? 'text-blue-100' : 'text-slate-400'}`}>
                                 {stat.title}
                             </h3>
                             <Link href={stat.href}>
@@ -78,7 +78,7 @@ const StatsCards = () => {
                         </div>
 
                         <div className="flex items-center gap-2 whitespace-nowrap">
-                            <div className={`px-1.5 py-0.5 rounded text-[10px] font-bold font-sans ${stat.bg === 'bg-primary' ? 'bg-transparent/20 text-white' : 'bg-green-100 text-green-700'}`}>
+                            <div className={`px-1.5 py-0.5 rounded text-[10px] font-bold font-sans ${stat.bg === 'bg-primary' ? 'bg-transparent/20 text-slate-900' : 'bg-green-100 text-green-700'}`}>
                                 {stat.trend === 'up' ? '-' : '+'}
                             </div>
                             <span className={`text-xs font-sans ${stat.subtext}`}>

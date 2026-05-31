@@ -67,14 +67,14 @@ export default function InvoiceView({ payment, client, paymentDetails }: Invoice
             <button
               onClick={() => handleStatusChange('pending')}
               disabled={isPending}
-              className={`px-3 py-1 text-sm font-medium rounded transition-colors flex items-center gap-1 ${payment.status === 'pending' ? 'bg-orange-100 text-orange-700' : 'text-gray-500 hover:bg-gray-50'}`}
+              className={`px-3 py-1 text-sm font-medium rounded transition-colors flex items-center gap-1 ${payment.status === 'pending' ? 'bg-orange-100 text-orange-700' : 'text-slate-400 hover:bg-gray-50'}`}
             >
               <Clock size={14} /> Pending
             </button>
             <button
               onClick={() => handleStatusChange('paid')}
               disabled={isPending}
-              className={`px-3 py-1 text-sm font-medium rounded transition-colors flex items-center gap-1 ${payment.status === 'paid' ? 'bg-green-100 text-green-700' : 'text-gray-500 hover:bg-gray-50'}`}
+              className={`px-3 py-1 text-sm font-medium rounded transition-colors flex items-center gap-1 ${payment.status === 'paid' ? 'bg-green-100 text-green-700' : 'text-slate-400 hover:bg-gray-50'}`}
             >
               <CheckCircle size={14} /> Paid
             </button>
@@ -93,7 +93,7 @@ export default function InvoiceView({ payment, client, paymentDetails }: Invoice
 
         <button
           onClick={handleDownloadPDF}
-          className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm"
+          className="bg-[#D97706] hover:bg-[#B45309] text-slate-900 px-6 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm"
         >
           <Download size={18} />
           Download PDF

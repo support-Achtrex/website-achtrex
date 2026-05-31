@@ -15,13 +15,13 @@ export const ProductsGrid = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mb-12">
-          <h2 className="text-[32px] md:text-[40px] font-bold text-white leading-[1.1] tracking-tight mb-6">
+          <h2 className="text-[32px] md:text-[40px] font-bold text-slate-900 leading-[1.1] tracking-tight mb-6">
             Powered by the largest automotive network.<br />
             Built for every mobility need.
           </h2>
           <Link href="/products" className="inline-block relative group rounded-full overflow-hidden p-[2px]">
             <div className="absolute inset-0 bg-gradient-to-r from-red-400 via-purple-400 to-blue-400 rounded-full opacity-70 group-hover:opacity-100 transition-opacity" />
-            <div className="relative bg-[#111112] text-white text-[14px] font-bold px-6 py-2.5 rounded-full hover:bg-gray-900 transition-colors">
+            <div className="relative bg-white text-slate-900 text-[14px] font-bold px-6 py-2.5 rounded-full hover:bg-gray-900 transition-colors">
               See all products
             </div>
           </Link>
@@ -39,15 +39,15 @@ export const ProductsGrid = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Card 1: APIs */}
-            <Link href="/products/automotive" className="bg-[#111112] rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[400px] sm:h-[450px] hover:bg-[#1a1a1c] transition-colors block">
+            <Link href="/products/automotive" className="bg-white rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-slate-200 h-[400px] sm:h-[450px] hover:bg-slate-50 transition-colors block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-transparent transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
               
-              <h3 className="text-[20px] text-gray-300 max-w-[320px] leading-[1.3] relative z-10">
-                <span className="font-bold text-white">Automotive data infrastructure</span> powering the future of mobility
+              <h3 className="text-[20px] text-slate-600 max-w-[320px] leading-[1.3] relative z-10">
+                <span className="font-bold text-slate-900">Automotive data infrastructure</span> powering the future of mobility
               </h3>
 
               {/* Mockup UI */}
@@ -84,7 +84,7 @@ export const ProductsGrid = () => {
                   </div>
 
                   {/* Text */}
-                  <div className="flex flex-col text-white font-bold leading-[1.05] tracking-tight">
+                  <div className="flex flex-col text-slate-900 font-bold leading-[1.05] tracking-tight">
                      <span className="text-[30px]">Automotive</span>
                      <span className="text-[30px] text-[#38bdf8]">Dataset</span>
                   </div>
@@ -94,15 +94,15 @@ export const ProductsGrid = () => {
             </Link>
 
             {/* Card 2: AI Scoring */}
-            <Link href="/products/lumi" className="bg-[#111112] rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[400px] sm:h-[450px] hover:bg-[#1a1a1c] transition-colors block">
+            <Link href="/products/lumi" className="bg-white rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-slate-200 h-[400px] sm:h-[450px] hover:bg-slate-50 transition-colors block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-transparent transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[20px] text-gray-300 max-w-[320px] leading-[1.3] relative z-10">
-                <span className="font-bold text-white">AI-powered vehicle intelligence</span> and predictive analytics system
+              <h3 className="text-[20px] text-slate-600 max-w-[320px] leading-[1.3] relative z-10">
+                <span className="font-bold text-slate-900">AI-powered vehicle intelligence</span> and predictive analytics system
               </h3>
 
               {/* Mockup UI */}
@@ -132,21 +132,21 @@ export const ProductsGrid = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Card 3: Enterprise Dataset */}
-            <Link href="/products/automotive" className="bg-[#111112] rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[350px] sm:h-[400px] hover:bg-[#1a1a1c] transition-colors block">
+            <Link href="/products/automotive" className="bg-white rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-slate-200 h-[350px] sm:h-[400px] hover:bg-slate-50 transition-colors block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-transparent transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[18px] text-gray-300 max-w-[220px] leading-[1.3] relative z-10">
-                <span className="font-bold text-white">Enterprise automotive dataset</span> provider for seamless integration
+              <h3 className="text-[18px] text-slate-600 max-w-[220px] leading-[1.3] relative z-10">
+                <span className="font-bold text-slate-900">Enterprise automotive dataset</span> provider for seamless integration
               </h3>
 
               {/* Mockup UI - Enhanced Enterprise Dataset */}
-              <div className="absolute bottom-[20px] left-1/2 -translate-x-1/2 w-[85%] max-w-[280px] bg-[#111112] rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-white/10 p-5 transition-transform duration-500 group-hover:-translate-y-2">
-                 <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                    <div className="text-[12px] font-bold text-white flex items-center gap-1.5">
+              <div className="absolute bottom-[20px] left-1/2 -translate-x-1/2 w-[85%] max-w-[280px] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-slate-200 p-5 transition-transform duration-500 group-hover:-translate-y-2">
+                 <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+                    <div className="text-[12px] font-bold text-slate-900 flex items-center gap-1.5">
                        <svg className="w-3.5 h-3.5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
                        </svg>
@@ -157,45 +157,45 @@ export const ProductsGrid = () => {
                  
                  <div className="space-y-3">
                     <div className="flex justify-between items-center group/item">
-                       <div className="text-[11px] font-semibold text-gray-400 group-hover/item:text-blue-400 transition-colors flex items-center gap-2">
+                       <div className="text-[11px] font-semibold text-slate-500 group-hover/item:text-blue-400 transition-colors flex items-center gap-2">
                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div> VIN Decoding
                        </div>
-                       <div className="text-[10px] font-mono text-gray-400">250M+ Records</div>
+                       <div className="text-[10px] font-mono text-slate-500">250M+ Records</div>
                     </div>
                     <div className="flex justify-between items-center group/item">
-                       <div className="text-[11px] font-semibold text-gray-400 group-hover/item:text-blue-400 transition-colors flex items-center gap-2">
+                       <div className="text-[11px] font-semibold text-slate-500 group-hover/item:text-blue-400 transition-colors flex items-center gap-2">
                            <div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Market Values
                        </div>
-                       <div className="text-[10px] font-mono text-gray-400">Real-time</div>
+                       <div className="text-[10px] font-mono text-slate-500">Real-time</div>
                     </div>
                     <div className="flex justify-between items-center group/item">
-                       <div className="text-[11px] font-semibold text-gray-400 group-hover/item:text-blue-400 transition-colors flex items-center gap-2">
+                       <div className="text-[11px] font-semibold text-slate-500 group-hover/item:text-blue-400 transition-colors flex items-center gap-2">
                            <div className="w-1.5 h-1.5 rounded-full bg-pink-500"></div> Tech Specs & Recalls
                        </div>
-                       <div className="text-[10px] font-mono text-gray-400">Updated Daily</div>
+                       <div className="text-[10px] font-mono text-slate-500">Updated Daily</div>
                     </div>
                  </div>
               </div>
             </Link>
 
             {/* Card 4: Developer API */}
-            <Link href="/products" className="bg-[#111112] rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[350px] sm:h-[400px] hover:bg-[#1a1a1c] transition-colors block">
+            <Link href="/products" className="bg-white rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-slate-200 h-[350px] sm:h-[400px] hover:bg-slate-50 transition-colors block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-transparent transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[18px] text-gray-300 max-w-[220px] leading-[1.3] relative z-10">
-                <span className="font-bold text-white">Developer API ecosystem</span> built for modern mobility applications
+              <h3 className="text-[18px] text-slate-600 max-w-[220px] leading-[1.3] relative z-10">
+                <span className="font-bold text-slate-900">Developer API ecosystem</span> built for modern mobility applications
               </h3>
 
               {/* Mockup UI - Enhanced API Ecosystem */}
-              <div className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-[85%] max-w-[280px] bg-[#111112] rounded-t-[24px] shadow-[0_-15px_40px_rgba(0,0,0,0.5)] border border-white/10 border-b-0 p-6 transition-transform duration-500 group-hover:-translate-y-2">
+              <div className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-[85%] max-w-[280px] bg-white rounded-t-[24px] shadow-[0_-15px_40px_rgba(0,0,0,0.5)] border border-slate-200 border-b-0 p-6 transition-transform duration-500 group-hover:-translate-y-2">
                  
                  <div className="flex justify-between items-center mb-6">
-                    <div className="flex items-center gap-2 font-bold text-[13px] text-white">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="flex items-center gap-2 font-bold text-[13px] text-slate-900">
+                        <svg className="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                         </svg>
                         API Gateway
@@ -203,58 +203,58 @@ export const ProductsGrid = () => {
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                  </div>
                  
-                 <div className="bg-[#1a1a1c] border border-white/5 rounded-xl p-4 mb-4">
-                     <div className="text-[11px] font-semibold text-gray-500 mb-3 uppercase tracking-wider">Route Request To:</div>
+                 <div className="bg-slate-50 border border-white/5 rounded-xl p-4 mb-4">
+                     <div className="text-[11px] font-semibold text-slate-400 mb-3 uppercase tracking-wider">Route Request To:</div>
                      
                      <div className="flex flex-col gap-2">
-                        <div className="bg-[#111112] border border-white/10 rounded-lg p-2.5 flex items-center justify-between shadow-sm group/route cursor-pointer">
+                        <div className="bg-white border border-slate-200 rounded-lg p-2.5 flex items-center justify-between shadow-sm group/route cursor-pointer">
                            <div className="flex items-center gap-2">
                               <div className="w-5 h-5 rounded-md bg-blue-500/20 text-blue-400 flex items-center justify-center">
                                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
                               </div>
-                              <span className="text-[11px] font-bold text-white">Automotive Dataset</span>
+                              <span className="text-[11px] font-bold text-slate-900">Automotive Dataset</span>
                            </div>
-                           <span className="text-[9px] font-mono text-gray-400 bg-transparent/5 px-1.5 rounded">Data</span>
+                           <span className="text-[9px] font-mono text-slate-500 bg-transparent/5 px-1.5 rounded">Data</span>
                         </div>
 
-                        <div className="bg-[#111112] border border-white/10 rounded-lg p-2.5 flex items-center justify-between shadow-sm group/route cursor-pointer">
+                        <div className="bg-white border border-slate-200 rounded-lg p-2.5 flex items-center justify-between shadow-sm group/route cursor-pointer">
                            <div className="flex items-center gap-2">
                               <div className="w-5 h-5 rounded-md bg-purple-500/20 flex items-center justify-center">
                                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-[#38bdf8] to-[#a855f7]"></div>
                               </div>
-                              <span className="text-[11px] font-bold text-white">LUMI AI</span>
+                              <span className="text-[11px] font-bold text-slate-900">LUMI AI</span>
                            </div>
-                           <span className="text-[9px] font-mono text-gray-400 bg-transparent/5 px-1.5 rounded">Intelligence</span>
+                           <span className="text-[9px] font-mono text-slate-500 bg-transparent/5 px-1.5 rounded">Intelligence</span>
                         </div>
                      </div>
                  </div>
 
-                 <div className="bg-transparent text-white text-[13px] font-bold rounded-xl py-3 text-center shadow-lg cursor-pointer hover:bg-gray-200 transition-colors">
+                 <div className="bg-transparent text-slate-900 text-[13px] font-bold rounded-xl py-3 text-center shadow-lg cursor-pointer hover:bg-gray-200 transition-colors">
                     Generate API Keys
                  </div>
               </div>
             </Link>
 
             {/* Card 5: Custom Development */}
-            <Link href="/contact-us" className="bg-[#111112] rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-white/10 h-[350px] sm:h-[400px] hover:bg-[#1a1a1c] transition-colors block">
+            <Link href="/contact-us" className="bg-white rounded-[32px] p-6 md:p-8 relative overflow-hidden group cursor-pointer border border-slate-200 h-[350px] sm:h-[400px] hover:bg-slate-50 transition-colors block">
               <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-[#0055ff]/30 flex items-center justify-center text-[#0055ff] bg-transparent transition-transform group-hover:scale-110">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
 
-              <h3 className="text-[17px] text-gray-300 max-w-[250px] leading-[1.3] relative z-10">
-                <span className="font-bold text-white">Custom development & API integrations</span> empowering your automotive business
+              <h3 className="text-[17px] text-slate-600 max-w-[250px] leading-[1.3] relative z-10">
+                <span className="font-bold text-slate-900">Custom development & API integrations</span> empowering your automotive business
               </h3>
 
               {/* Mockup UI */}
-              <div className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-[85%] max-w-[300px] bg-[#111112] rounded-t-[20px] shadow-[0_-15px_40px_rgba(0,0,0,0.15)] border border-[#333] border-b-0 overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+              <div className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-[85%] max-w-[300px] bg-white rounded-t-[20px] shadow-[0_-15px_40px_rgba(0,0,0,0.15)] border border-[#333] border-b-0 overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
                  {/* Mac Window Header */}
                  <div className="bg-[#1a1b1e] px-4 py-3 flex items-center gap-1.5 border-b border-white/5">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-500/90"></div>
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/90"></div>
                     <div className="w-2.5 h-2.5 rounded-full bg-green-500/90"></div>
-                    <span className="ml-3 text-[10px] text-gray-500 font-mono tracking-wider">integration.ts</span>
+                    <span className="ml-3 text-[10px] text-slate-400 font-mono tracking-wider">integration.ts</span>
                  </div>
                  
                  {/* Code Content */}

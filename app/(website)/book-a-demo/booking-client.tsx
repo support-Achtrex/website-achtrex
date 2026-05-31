@@ -137,7 +137,7 @@ export const BookingClient = () => {
                                     className="!m-0 text-gray-800 calendar-custom"
                                     disabled={{ before: new Date(), dayOfWeek: [0, 6] }}
                                     classNames={{
-                                        day_selected: "!bg-blue-600 !text-white hover:!bg-blue-700",
+                                        day_selected: "!bg-blue-600 !text-slate-900 hover:!bg-blue-700",
                                         day_today: "text-blue-600 font-bold",
                                     }}
                                 />
@@ -197,7 +197,7 @@ export const BookingClient = () => {
                                 <button 
                                     type="submit" 
                                     disabled={status === 'loading'}
-                                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-colors disabled:opacity-70 mt-2"
+                                    className="bg-blue-600 hover:bg-blue-700 text-slate-900 font-bold py-3 px-6 rounded-full transition-colors disabled:opacity-70 mt-2"
                                 >
                                     {status === 'loading' ? 'Scheduling...' : 'Schedule Event'}
                                 </button>

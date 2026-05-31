@@ -82,10 +82,10 @@ export const PortfolioGrid = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-transparent/5 backdrop-blur-sm mb-6"
+                        className="inline-flex items-center px-3 py-1 rounded-full border border-slate-200 bg-transparent/5 backdrop-blur-sm mb-6"
                     >
                         <span className="w-2 h-2 rounded-full bg-secondary mr-2 animate-pulse"></span>
-                        <span className="text-xs font-semibold tracking-wide text-white/80 uppercase">
+                        <span className="text-xs font-semibold tracking-wide text-slate-900/80 uppercase">
                             Platform & Use Cases
                         </span>
                     </motion.div>
@@ -94,7 +94,7 @@ export const PortfolioGrid = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6"
+                        className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-slate-900 mb-6"
                     >
                         Achtrex in <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Action</span>
                     </motion.h1>
@@ -120,7 +120,7 @@ export const PortfolioGrid = () => {
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            className="group relative rounded-3xl overflow-hidden bg-transparent/5 border border-white/10 hover:border-primary/50 transition-colors duration-500"
+                            className="group relative rounded-3xl overflow-hidden bg-transparent/5 border border-slate-200 hover:border-primary/50 transition-colors duration-500"
                         >
                             {/* Image Container */}
                             <div className="relative h-[300px] lg:h-[400px] w-full overflow-hidden">
@@ -133,7 +133,7 @@ export const PortfolioGrid = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/40 to-transparent opacity-80" />
 
                                 {/* Top Right Arrow */}
-                                <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-transparent/10 backdrop-blur-md flex items-center justify-center text-white opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-transparent/10 backdrop-blur-md flex items-center justify-center text-slate-900 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                                     <ArrowUpRight size={20} />
                                 </div>
                             </div>
@@ -145,23 +145,23 @@ export const PortfolioGrid = () => {
                                         {project.category}
                                     </span>
                                     {project.tags.map(tag => (
-                                        <span key={tag} className="px-3 py-1 rounded-full bg-transparent/5 text-white/70 text-xs border border-white/5">
+                                        <span key={tag} className="px-3 py-1 rounded-full bg-transparent/5 text-slate-900/70 text-xs border border-white/5">
                                             {tag}
                                         </span>
                                     ))}
                                 </div>
 
-                                <h3 className="text-3xl font-display font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                                <h3 className="text-3xl font-display font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">
                                     {project.title}
                                 </h3>
-                                <p className="text-white/60 mb-6 text-sm lg:text-base line-clamp-2 group-hover:line-clamp-none transition-all">
+                                <p className="text-slate-900/60 mb-6 text-sm lg:text-base line-clamp-2 group-hover:line-clamp-none transition-all">
                                     {project.challenge}
                                 </p>
 
-                                <div className="space-y-4 pt-4 border-t border-white/10">
+                                <div className="space-y-4 pt-4 border-t border-slate-200">
                                     <div>
                                         <p className="text-xs text-secondary font-semibold uppercase tracking-wider mb-1">Impact</p>
-                                        <p className="text-white/90 text-sm">{project.outcome}</p>
+                                        <p className="text-slate-900/90 text-sm">{project.outcome}</p>
                                     </div>
                                 </div>
                             </div>
@@ -172,8 +172,8 @@ export const PortfolioGrid = () => {
                 {/* How Our Technology Is Applied Section */}
                 <div className="mt-32 pt-20 border-t border-white/5">
                     <div className="text-center max-w-4xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-8">How Our Technology Is Applied</h2>
-                        <p className="text-gray-400 text-lg leading-relaxed mb-12">
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-8">How Our Technology Is Applied</h2>
+                        <p className="text-slate-500 text-lg leading-relaxed mb-12">
                             Achtrex platforms are designed to be flexible and scalable, enabling application across multiple industries 
                             including automotive, data services, and AI-driven solutions. Our architecture prioritizes modularity and 
                             performance, ensuring that the same core engines can power diverse digital ecosystems.

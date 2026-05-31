@@ -20,7 +20,7 @@ export default async function TeamPage() {
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="text-3xl font-bold text-gray-900">Team Management</h1>
-                    <p className="text-gray-500 text-sm">Add or remove team members from the About page.</p>
+                    <p className="text-slate-400 text-sm">Add or remove team members from the About page.</p>
                 </div>
             </div>
 
@@ -34,7 +34,7 @@ export default async function TeamPage() {
                     <input name="image" placeholder="Image Path (e.g. /team/name.jpg)" className="p-3 border rounded-xl" />
                     <textarea name="bio" placeholder="Short Bio" className="p-3 border rounded-xl md:col-span-2 h-24 resize-none" />
                     <div className="md:col-span-2">
-                        <button type="submit" className="bg-primary text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors">
+                        <button type="submit" className="bg-primary text-slate-900 px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors">
                             <Plus size={18} /> Add Member
                         </button>
                     </div>
@@ -56,11 +56,11 @@ export default async function TeamPage() {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-gray-900">{member.name}</h4>
-                                    <p className="text-xs text-gray-500">{member.role}</p>
+                                    <p className="text-xs text-slate-400">{member.role}</p>
                                 </div>
                             </div>
                             <form action={async () => { await deleteTeamMember(member.id); }}>
-                                <button className="text-gray-400 hover:text-red-500 transition-colors">
+                                <button className="text-slate-500 hover:text-red-500 transition-colors">
                                     <Trash2 size={18} />
                                 </button>
                             </form>
@@ -75,7 +75,7 @@ export default async function TeamPage() {
                     </div>
                 ))}
                 {teamMembers.length === 0 && (
-                    <div className="col-span-full text-center py-12 text-gray-400 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                    <div className="col-span-full text-center py-12 text-slate-500 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
                         No team members found. Add one above.
                     </div>
                 )}

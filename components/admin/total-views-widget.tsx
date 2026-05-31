@@ -3,7 +3,7 @@ import { TrendingUp, Eye } from 'lucide-react';
 
 const TotalViewsWidget = () => {
     return (
-        <div className="bg-transparent rounded-3xl p-6 shadow-sm border border-white/10 h-full flex flex-col justify-between relative overflow-hidden group">
+        <div className="bg-transparent rounded-3xl p-6 shadow-sm border border-slate-200 h-full flex flex-col justify-between relative overflow-hidden group">
             <div className="relative z-10">
                 <div className="flex items-center justify-between mb-4">
                     <div className="p-2 bg-blue-50 text-blue-600 rounded-xl">
@@ -16,7 +16,7 @@ const TotalViewsWidget = () => {
                 </div>
                 
                 <div>
-                    <h3 className="text-sm font-medium text-gray-500 font-montserrat mb-1">Total Views</h3>
+                    <h3 className="text-sm font-medium text-slate-400 font-montserrat mb-1">Total Views</h3>
                     <div className="text-3xl font-bold text-gray-900 font-sans">
                         45.2k
                     </div>

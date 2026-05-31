@@ -18,7 +18,7 @@ export const ServicesHero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-transparent/5 backdrop-blur-sm"
+                    className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-slate-200 bg-transparent/5 backdrop-blur-sm"
                 >
                     <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Products & Platforms</span>
                 </motion.div>

@@ -138,7 +138,7 @@ export const InvoiceTemplate: React.FC<InvoiceTemplateProps> = ({ payment, clien
                 </h2>
 
                 {!isPaid && (
-                    <div className="mt-8 p-6 bg-transparent rounded-lg border border-white/10" style={{ backgroundColor: '#F9FAFB', borderColor: '#E5E7EB' }}>
+                    <div className="mt-8 p-6 bg-transparent rounded-lg border border-slate-200" style={{ backgroundColor: '#F9FAFB', borderColor: '#E5E7EB' }}>
                         <h3 className="font-bold text-lg mb-4" style={{ color: '#111827' }}>Payment Details</h3>
                         <div className="space-y-2 text-sm" style={{ color: '#374151' }}>
                             <div className="grid grid-cols-[140px_1fr]">
@@ -158,7 +158,7 @@ export const InvoiceTemplate: React.FC<InvoiceTemplateProps> = ({ payment, clien
                                 <span>{paymentDetails?.swift_bic || 'FBLIGHAC'}</span>
                             </div>
                         </div>
-                        <p className="mt-4 text-xs text-gray-500 italic">Please use Invoice #{payment.invoice_number} as payment reference.</p>
+                        <p className="mt-4 text-xs text-slate-400 italic">Please use Invoice #{payment.invoice_number} as payment reference.</p>
                     </div>
                 )}
             </div>

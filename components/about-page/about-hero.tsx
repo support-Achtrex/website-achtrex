@@ -19,7 +19,7 @@ export const AboutHero = () => {
                     transition={{ duration: 0.6 }}
                     className="max-w-4xl mx-auto"
                 >
-                    <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 leading-tight">
+                    <h1 className="text-5xl md:text-7xl font-display font-bold text-slate-900 mb-8 leading-tight">
                         We build the <span className="text-gradient">future</span> <br className="hidden md:block" />
                         of digital experiences.
                     </h1>

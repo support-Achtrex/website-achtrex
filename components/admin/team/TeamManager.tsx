@@ -53,7 +53,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar Profile Card */}
             <div className="lg:col-span-1 space-y-6">
-                <div className="bg-transparent p-6 rounded-2xl border border-white/10 shadow-sm text-center">
+                <div className="bg-transparent p-6 rounded-2xl border border-slate-200 shadow-sm text-center">
                     <div className="w-24 h-24 rounded-full bg-white/5 mx-auto mb-4 relative overflow-hidden">
                         <Image
                             src={member.image || '/team/placeholder-user.jpg'}
@@ -63,18 +63,18 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                         />
                     </div>
                     <h2 className="text-xl font-bold text-gray-900">{member.name}</h2>
-                    <p className="text-sm text-gray-500">{member.role}</p>
+                    <p className="text-sm text-slate-400">{member.role}</p>
 
                     <div className="mt-6 flex flex-col gap-2">
                         <button
                             onClick={() => setActiveTab('profile')}
-                            className={`p-3 rounded-xl text-sm font-bold flex items-center gap-3 transition-colors ${activeTab === 'profile' ? 'bg-primary text-white' : 'bg-transparent text-gray-400 hover:bg-[#1a1a1c]/5'}`}
+                            className={`p-3 rounded-xl text-sm font-bold flex items-center gap-3 transition-colors ${activeTab === 'profile' ? 'bg-primary text-slate-900' : 'bg-transparent text-slate-500 hover:bg-slate-50/5'}`}
                         >
                             <User size={18} /> Profile & Settings
                         </button>
                         <button
                             onClick={() => setActiveTab('payroll')}
-                            className={`p-3 rounded-xl text-sm font-bold flex items-center gap-3 transition-colors ${activeTab === 'payroll' ? 'bg-primary text-white' : 'bg-transparent text-gray-400 hover:bg-[#1a1a1c]/5'}`}
+                            className={`p-3 rounded-xl text-sm font-bold flex items-center gap-3 transition-colors ${activeTab === 'payroll' ? 'bg-primary text-slate-900' : 'bg-transparent text-slate-500 hover:bg-slate-50/5'}`}
                         >
                             <DollarSign size={18} /> Payroll & Payslips
                         </button>
@@ -82,20 +82,20 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                 </div>
 
                 {/* Quick Stats */}
-                <div className="bg-transparent p-6 rounded-2xl border border-white/10 shadow-sm space-y-4">
-                    <h3 className="font-bold text-gray-200 text-sm uppercase tracking-wider">Employment Details</h3>
+                <div className="bg-transparent p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                    <h3 className="font-bold text-slate-700 text-sm uppercase tracking-wider">Employment Details</h3>
                     <div className="space-y-3">
                         <div className="flex items-center gap-3 text-sm">
-                            <Calendar size={16} className="text-gray-400" />
+                            <Calendar size={16} className="text-slate-500" />
                             <div>
-                                <p className="text-xs text-gray-500">Start Date</p>
+                                <p className="text-xs text-slate-400">Start Date</p>
                                 <p className="font-medium text-gray-900">{member.start_date ? new Date(member.start_date).toLocaleDateString() : 'Not set'}</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-3 text-sm">
-                            <DollarSign size={16} className="text-gray-400" />
+                            <DollarSign size={16} className="text-slate-500" />
                             <div>
-                                <p className="text-xs text-gray-500">Base Salary</p>
+                                <p className="text-xs text-slate-400">Base Salary</p>
                                 <p className="font-medium text-gray-900">{member.salary ? `$${Number(member.salary).toLocaleString()}/mo` : 'Not set'}</p>
                             </div>
                         </div>
@@ -106,10 +106,10 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
             {/* Main Content Area */}
             <div className="lg:col-span-3">
                 {activeTab === 'profile' && (
-                    <div className="bg-transparent p-8 rounded-2xl border border-white/10 shadow-sm animate-in fade-in duration-300">
+                    <div className="bg-transparent p-8 rounded-2xl border border-slate-200 shadow-sm animate-in fade-in duration-300">
                         <div className="flex justify-between items-center mb-6">
                             <h3 className="text-xl font-bold text-gray-900">Edit Profile</h3>
-                            <span className="text-sm text-gray-400">Update personal and role details</span>
+                            <span className="text-sm text-slate-500">Update personal and role details</span>
                         </div>
 
                         <form action={handleProfileUpdate} className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -118,7 +118,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                 <input
                                     name="name"
                                     defaultValue={profileData.name}
-                                    className="w-full p-3 bg-transparent border border-white/10 rounded-xl focus:border-primary outline-none transition-all"
+                                    className="w-full p-3 bg-transparent border border-slate-200 rounded-xl focus:border-primary outline-none transition-all"
                                 />
                             </div>
                             <div>
@@ -126,7 +126,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                 <input
                                     name="role"
                                     defaultValue={profileData.role}
-                                    className="w-full p-3 bg-transparent border border-white/10 rounded-xl focus:border-primary outline-none transition-all"
+                                    className="w-full p-3 bg-transparent border border-slate-200 rounded-xl focus:border-primary outline-none transition-all"
                                 />
                             </div>
                             <div>
@@ -134,7 +134,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                 <input
                                     name="email"
                                     defaultValue={profileData.email}
-                                    className="w-full p-3 bg-transparent border border-white/10 rounded-xl focus:border-primary outline-none transition-all"
+                                    className="w-full p-3 bg-transparent border border-slate-200 rounded-xl focus:border-primary outline-none transition-all"
                                 />
                             </div>
                             <div>
@@ -142,11 +142,11 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                 <input
                                     name="image"
                                     defaultValue={profileData.image}
-                                    className="w-full p-3 bg-transparent border border-white/10 rounded-xl focus:border-primary outline-none transition-all"
+                                    className="w-full p-3 bg-transparent border border-slate-200 rounded-xl focus:border-primary outline-none transition-all"
                                 />
                             </div>
 
-                            <div className="md:col-span-2 border-t border-white/10 my-2"></div>
+                            <div className="md:col-span-2 border-t border-slate-200 my-2"></div>
 
                             <div>
                                 <label className="block text-sm font-bold text-gray-700 mb-2">Monthly Salary ($)</label>
@@ -154,7 +154,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                     name="salary"
                                     type="number"
                                     defaultValue={profileData.salary}
-                                    className="w-full p-3 bg-transparent border border-white/10 rounded-xl focus:border-primary outline-none transition-all"
+                                    className="w-full p-3 bg-transparent border border-slate-200 rounded-xl focus:border-primary outline-none transition-all"
                                 />
                             </div>
                             <div>
@@ -163,7 +163,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                     name="start_date"
                                     type="date"
                                     defaultValue={profileData.start_date}
-                                    className="w-full p-3 bg-transparent border border-white/10 rounded-xl focus:border-primary outline-none transition-all"
+                                    className="w-full p-3 bg-transparent border border-slate-200 rounded-xl focus:border-primary outline-none transition-all"
                                 />
                             </div>
                             <div className="md:col-span-2">
@@ -171,7 +171,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                 <textarea
                                     name="bank_details"
                                     defaultValue={profileData.bank_details}
-                                    className="w-full p-3 bg-transparent border border-white/10 rounded-xl focus:border-primary outline-none transition-all h-24 resize-none"
+                                    className="w-full p-3 bg-transparent border border-slate-200 rounded-xl focus:border-primary outline-none transition-all h-24 resize-none"
                                     placeholder="Bank Name, Account Number, SWIFT, IBAN..."
                                 />
                             </div>
@@ -181,7 +181,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                 <textarea
                                     name="bio"
                                     defaultValue={profileData.bio}
-                                    className="w-full p-3 bg-transparent border border-white/10 rounded-xl focus:border-primary outline-none transition-all h-32 resize-none"
+                                    className="w-full p-3 bg-transparent border border-slate-200 rounded-xl focus:border-primary outline-none transition-all h-32 resize-none"
                                 />
                             </div>
 
@@ -189,7 +189,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                 <button
                                     disabled={isSubmitting}
                                     type="submit"
-                                    className="bg-primary text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors ml-auto disabled:opacity-50"
+                                    className="bg-primary text-slate-900 px-8 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors ml-auto disabled:opacity-50"
                                 >
                                     <Save size={18} /> {isSubmitting ? 'Saving...' : 'Save Changes'}
                                 </button>
@@ -201,32 +201,32 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                 {activeTab === 'payroll' && (
                     <div className="space-y-8 animate-in fade-in duration-300">
                         {/* New Payment Form */}
-                        <div className="bg-transparent p-8 rounded-2xl border border-white/10 shadow-sm">
+                        <div className="bg-transparent p-8 rounded-2xl border border-slate-200 shadow-sm">
                             <h3 className="text-xl font-bold text-gray-900 mb-6">Record New Payment</h3>
                             <form action={handlePayrollRecord} className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
                                 <div className="md:col-span-1">
-                                    <label className="block text-xs font-bold text-gray-500 mb-1">Amount ($)</label>
+                                    <label className="block text-xs font-bold text-slate-400 mb-1">Amount ($)</label>
                                     <input
                                         name="amount"
                                         type="number"
                                         required
                                         defaultValue={member.salary}
-                                        className="w-full p-3 bg-transparent border border-white/10 rounded-xl"
+                                        className="w-full p-3 bg-transparent border border-slate-200 rounded-xl"
                                     />
                                 </div>
                                 <div className="md:col-span-1">
-                                    <label className="block text-xs font-bold text-gray-500 mb-1">Date</label>
+                                    <label className="block text-xs font-bold text-slate-400 mb-1">Date</label>
                                     <input
                                         name="payment_date"
                                         type="date"
                                         required
                                         defaultValue={new Date().toISOString().split('T')[0]}
-                                        className="w-full p-3 bg-transparent border border-white/10 rounded-xl"
+                                        className="w-full p-3 bg-transparent border border-slate-200 rounded-xl"
                                     />
                                 </div>
                                 <div className="md:col-span-1">
-                                    <label className="block text-xs font-bold text-gray-500 mb-1">Action</label>
-                                    <label className="flex items-center gap-2 p-3 border border-white/10 rounded-xl bg-transparent cursor-pointer">
+                                    <label className="block text-xs font-bold text-slate-400 mb-1">Action</label>
+                                    <label className="flex items-center gap-2 p-3 border border-slate-200 rounded-xl bg-transparent cursor-pointer">
                                         <input type="checkbox" name="send_email" defaultChecked className="w-4 h-4 text-primary" />
                                         <span className="text-xs font-medium">Send Payslip Email</span>
                                     </label>
@@ -235,7 +235,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                     <button
                                         disabled={isSubmitting}
                                         type="submit"
-                                        className="w-full bg-green-500 text-white p-3 rounded-xl font-bold hover:bg-green-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                                        className="w-full bg-green-500 text-slate-900 p-3 rounded-xl font-bold hover:bg-green-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
                                     >
                                         <CreditCard size={18} /> Pay & Send
                                     </button>
@@ -244,13 +244,13 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                         </div>
 
                         {/* History Table */}
-                        <div className="bg-transparent rounded-2xl border border-white/10 shadow-sm overflow-hidden">
+                        <div className="bg-transparent rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                             <div className="p-6 border-b border-gray-50">
                                 <h3 className="text-lg font-bold text-gray-900">Payment History</h3>
                             </div>
                             <div className="overflow-x-auto">
                                 <table className="w-full text-sm text-left">
-                                    <thead className="bg-transparent text-gray-500 font-bold">
+                                    <thead className="bg-transparent text-slate-400 font-bold">
                                         <tr>
                                             <th className="p-4">Date</th>
                                             <th className="p-4">Amount</th>
@@ -273,13 +273,13 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                                         href={`/api/payroll/${record.id}/pdf`}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="p-2 text-gray-400 hover:text-primary transition-colors"
+                                                        className="p-2 text-slate-500 hover:text-primary transition-colors"
                                                         title="Download Payslip"
                                                     >
                                                         <Download size={16} />
                                                     </a>
                                                     <form action={async () => { await deletePayroll(record.id, member.id); }}>
-                                                        <button className="p-2 text-gray-400 hover:text-red-500 transition-colors" title="Delete Record">
+                                                        <button className="p-2 text-slate-500 hover:text-red-500 transition-colors" title="Delete Record">
                                                             <Trash2 size={16} />
                                                         </button>
                                                     </form>
@@ -288,7 +288,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                                         ))}
                                         {payrollHistory.length === 0 && (
                                             <tr>
-                                                <td colSpan={4} className="p-8 text-center text-gray-400 italic">
+                                                <td colSpan={4} className="p-8 text-center text-slate-500 italic">
                                                     No payments recorded yet.
                                                 </td>
                                             </tr>
