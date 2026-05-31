@@ -9,7 +9,7 @@ export default function CustomClient() {
     return (
         <main className="min-h-screen bg-[#070b14] text-white selection:bg-[#489EE6] selection:text-white pt-24 pb-20">
             {/* 1. Header */}
-            <div className="bg-gradient-to-br from-[#f8f9fa] to-[#e6f3ff]/30 border-b border-[#489EE6]/10 py-16 px-6">
+            <div className="bg-gradient-to-br from-[#0c1222] to-[#489EE6]/20 border-b border-[#489EE6]/10 py-16 px-6">
                 <div className="max-w-[1200px] mx-auto">
                     <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#489EE6]/60 mb-6 flex items-center gap-2">
                         <span>Portfolio</span>
