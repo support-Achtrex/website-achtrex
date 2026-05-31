@@ -61,21 +61,21 @@ export const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) =>
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        className="relative w-full max-w-2xl bg-[#0A0A0A] border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+                        className="relative w-full max-w-2xl bg-[#0A0A0A] border border-slate-200 rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Header Image/Gradient */}
                         <div className="h-32 bg-gradient-to-r from-primary/20 via-background to-secondary/10 relative overflow-hidden shrink-0">
                             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20" />
                             <div className="absolute top-1/2 left-8 -translate-y-1/2 flex items-center gap-4">
-                                <div className="p-4 bg-black/50 backdrop-blur-md rounded-2xl border border-white/10 text-primary">
+                                <div className="p-4 bg-black/50 backdrop-blur-md rounded-2xl border border-slate-200 text-primary">
                                     <Icon className="w-8 h-8" />
                                 </div>
-                                <h2 className="text-3xl font-bold font-display text-white">{service.title}</h2>
+                                <h2 className="text-3xl font-bold font-display text-slate-900">{service.title}</h2>
                             </div>
                             <button
                                 onClick={onClose}
-                                className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white/70 hover:text-white hover:bg-transparent/10 transition-all"
+                                className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-slate-900/70 hover:text-slate-900 hover:bg-transparent/10 transition-all"
                             >
                                 <X className="w-5 h-5" />
                             </button>
@@ -84,7 +84,7 @@ export const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) =>
                         {/* Scrollable Body */}
                         <div className="p-8 overflow-y-auto custom-scrollbar">
                             <div className="mb-8">
-                                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <h3 className="text-lg font-semibold text-slate-900 mb-3 flex items-center gap-2">
                                     <span className="w-1 h-6 bg-primary rounded-full" /> Overview
                                 </h3>
                                 <p className="text-muted-foreground leading-relaxed text-lg">
@@ -94,7 +94,7 @@ export const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) =>
 
                             <div className="grid md:grid-cols-2 gap-8 mb-8">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white mb-4">Key Features</h3>
+                                    <h3 className="text-lg font-semibold text-slate-900 mb-4">Key Features</h3>
                                     <ul className="space-y-3">
                                         {service.details?.features?.map((feature: string, idx: number) => (
                                             <li key={idx} className="flex items-start gap-3 text-muted-foreground">
@@ -108,14 +108,14 @@ export const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) =>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                                    <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-2">
                                         <Code2 className="w-4 h-4 text-secondary" /> Technologies
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
                                         {service.details?.technologies?.map((tech: string, idx: number) => (
                                             <span
                                                 key={idx}
-                                                className="px-3 py-1 rounded-full bg-transparent/5 border border-white/10 text-xs font-medium text-white/80"
+                                                className="px-3 py-1 rounded-full bg-transparent/5 border border-slate-200 text-xs font-medium text-slate-900/80"
                                             >
                                                 {tech}
                                             </span>
@@ -126,10 +126,10 @@ export const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) =>
                         </div>
 
                         {/* Footer */}
-                        <div className="p-6 border-t border-white/10 bg-transparent/5 flex justify-end shrink-0">
+                        <div className="p-6 border-t border-slate-200 bg-transparent/5 flex justify-end shrink-0">
                             <button
                                 onClick={onClose}
-                                className="px-6 py-2.5 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition-colors"
+                                className="px-6 py-2.5 rounded-xl bg-primary text-slate-900 font-semibold hover:bg-primary/90 transition-colors"
                             >
                                 Close Details
                             </button>

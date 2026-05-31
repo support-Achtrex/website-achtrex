@@ -17,7 +17,7 @@ const AnalyticsWidget = () => {
     return (
         <div className="rounded-3xl p-px bg-linear-to-br from-gray-200 to-gray-50 h-full">
             <div className="bg-transparent rounded-[23px] p-6 h-full flex flex-col">
-                <h3 className="text-lg font-bold text-gray-200 mb-6 font-display">Blog Analytics</h3>
+                <h3 className="text-lg font-bold text-slate-700 mb-6 font-display">Blog Analytics</h3>
 
                 <div className="flex-1 w-full h-full min-h-[200px]">
                     <ResponsiveContainer width="100%" height="100%">

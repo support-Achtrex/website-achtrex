@@ -25,19 +25,19 @@ export default async function AITrainingPage() {
                                 <span>Next-Gen Infrastructure</span>
                             </div>
                             
-                            <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
                                 Enterprise <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">AI Training</span> & Optimization
                             </h1>
                             
-                            <p className="text-xl text-gray-400 max-w-xl">
+                            <p className="text-xl text-slate-500 max-w-xl">
                                 Architecting, training, and deploying large-scale AI models tailored to your business. From data annotation to autonomous agent deployment.
                             </p>
                             
                             <div className="flex flex-wrap gap-4">
-                                <Link href="#inquiry-form" className="px-6 py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-xl font-bold hover:from-blue-700 hover:to-blue-600 transition-all shadow-lg shadow-blue-500/20 flex items-center gap-2">
+                                <Link href="#inquiry-form" className="px-6 py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 text-slate-900 rounded-xl font-bold hover:from-blue-700 hover:to-blue-600 transition-all shadow-lg shadow-blue-500/20 flex items-center gap-2">
                                     Get Started <ArrowRight size={16} />
                                 </Link>
-                                <Link href="#resources" className="px-6 py-3.5 bg-gray-800/50 text-white rounded-xl font-bold hover:bg-gray-800 transition-all border border-gray-700 flex items-center gap-2">
+                                <Link href="#resources" className="px-6 py-3.5 bg-gray-800/50 text-slate-900 rounded-xl font-bold hover:bg-gray-800 transition-all border border-gray-700 flex items-center gap-2">
                                     View Resources <FileText size={16} />
                                 </Link>
                             </div>
@@ -55,12 +55,12 @@ export default async function AITrainingPage() {
                                 />
                                 {/* Glassmorphism overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-80" />
-                                <div className="absolute bottom-6 left-6 right-6 p-6 bg-[#070b14]/5 backdrop-blur-md rounded-xl border border-white/10">
+                                <div className="absolute bottom-6 left-6 right-6 p-6 bg-[#F8F9FA]/5 backdrop-blur-md rounded-xl border border-slate-200">
                                     <div className="flex items-center justify-between mb-2">
-                                        <span className="text-sm font-bold text-white">Model Accuracy</span>
+                                        <span className="text-sm font-bold text-slate-900">Model Accuracy</span>
                                         <span className="text-sm font-bold text-emerald-400">99.4%</span>
                                     </div>
-                                    <div className="w-full h-1.5 bg-[#070b14]/10 rounded-full">
+                                    <div className="w-full h-1.5 bg-[#F8F9FA]/10 rounded-full">
                                         <div className="h-full bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full" style={{ width: '94%' }} />
                                     </div>
                                 </div>
@@ -75,8 +75,8 @@ export default async function AITrainingPage() {
                 <div className="container mx-auto px-6">
                     <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
                         <span className="text-blue-500 font-bold uppercase tracking-wider text-sm">Capabilities</span>
-                        <h2 className="text-4xl font-bold text-white">End-to-End AI Lifecycle</h2>
-                        <p className="text-gray-400 text-lg">We handle the heavy lifting of AI development, from raw data to production-grade deployments.</p>
+                        <h2 className="text-4xl font-bold text-slate-900">End-to-End AI Lifecycle</h2>
+                        <p className="text-slate-500 text-lg">We handle the heavy lifting of AI development, from raw data to production-grade deployments.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -85,9 +85,9 @@ export default async function AITrainingPage() {
                             <div className="p-3 bg-blue-500/10 rounded-xl w-fit mb-6 group-hover:bg-blue-500/20 transition-all">
                                 <Database className="text-blue-500" size={24} />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Data Engineering</h3>
-                            <p className="text-gray-400 text-sm mb-4">High-quality data annotation, cleaning, and synthetic data generation for training.</p>
-                            <ul className="text-xs text-gray-500 space-y-2">
+                            <h3 className="text-xl font-bold text-slate-900 mb-3">Data Engineering</h3>
+                            <p className="text-slate-500 text-sm mb-4">High-quality data annotation, cleaning, and synthetic data generation for training.</p>
+                            <ul className="text-xs text-slate-400 space-y-2">
                                 <li className="flex items-center gap-2"><CheckCircle2 size={12} className="text-emerald-500" /> RLHF Datasets</li>
                                 <li className="flex items-center gap-2"><CheckCircle2 size={12} className="text-emerald-500" /> Multi-modal Labeling</li>
                             </ul>
@@ -98,9 +98,9 @@ export default async function AITrainingPage() {
                             <div className="p-3 bg-emerald-500/10 rounded-xl w-fit mb-6 group-hover:bg-emerald-500/20 transition-all">
                                 <Brain className="text-emerald-500" size={24} />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Custom LLMs</h3>
-                            <p className="text-gray-400 text-sm mb-4">Pre-training and fine-tuning large language models on your proprietary data.</p>
-                            <ul className="text-xs text-gray-500 space-y-2">
+                            <h3 className="text-xl font-bold text-slate-900 mb-3">Custom LLMs</h3>
+                            <p className="text-slate-500 text-sm mb-4">Pre-training and fine-tuning large language models on your proprietary data.</p>
+                            <ul className="text-xs text-slate-400 space-y-2">
                                 <li className="flex items-center gap-2"><CheckCircle2 size={12} className="text-emerald-500" /> Domain Adaptation</li>
                                 <li className="flex items-center gap-2"><CheckCircle2 size={12} className="text-emerald-500" /> LoRA / QLoRA Tuning</li>
                             </ul>
@@ -111,9 +111,9 @@ export default async function AITrainingPage() {
                             <div className="p-3 bg-purple-500/10 rounded-xl w-fit mb-6 group-hover:bg-purple-500/20 transition-all">
                                 <Network className="text-purple-500" size={24} />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">AI Agent Swarms</h3>
-                            <p className="text-gray-400 text-sm mb-4">Deploying autonomous agents that collaborate to solve complex enterprise workflows.</p>
-                            <ul className="text-xs text-gray-500 space-y-2">
+                            <h3 className="text-xl font-bold text-slate-900 mb-3">AI Agent Swarms</h3>
+                            <p className="text-slate-500 text-sm mb-4">Deploying autonomous agents that collaborate to solve complex enterprise workflows.</p>
+                            <ul className="text-xs text-slate-400 space-y-2">
                                 <li className="flex items-center gap-2"><CheckCircle2 size={12} className="text-emerald-500" /> Multi-agent Orchestration</li>
                                 <li className="flex items-center gap-2"><CheckCircle2 size={12} className="text-emerald-500" /> Tool Use & RAG</li>
                             </ul>
@@ -124,9 +124,9 @@ export default async function AITrainingPage() {
                             <div className="p-3 bg-orange-500/10 rounded-xl w-fit mb-6 group-hover:bg-orange-500/20 transition-all">
                                 <Cpu className="text-orange-500" size={24} />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Edge Inference</h3>
-                            <p className="text-gray-400 text-sm mb-4">Optimizing models for low-latency, secure deployment on edge devices and private servers.</p>
-                            <ul className="text-xs text-gray-500 space-y-2">
+                            <h3 className="text-xl font-bold text-slate-900 mb-3">Edge Inference</h3>
+                            <p className="text-slate-500 text-sm mb-4">Optimizing models for low-latency, secure deployment on edge devices and private servers.</p>
+                            <ul className="text-xs text-slate-400 space-y-2">
                                 <li className="flex items-center gap-2"><CheckCircle2 size={12} className="text-emerald-500" /> Quantization (INT4/INT8)</li>
                                 <li className="flex items-center gap-2"><CheckCircle2 size={12} className="text-emerald-500" /> ONNX Runtime</li>
                             </ul>
@@ -140,8 +140,8 @@ export default async function AITrainingPage() {
                 <div className="container mx-auto px-6">
                     <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
                         <span className="text-emerald-500 font-bold uppercase tracking-wider text-sm">Knowledge Base</span>
-                        <h2 className="text-4xl font-bold text-white">Technical Resources</h2>
-                        <p className="text-gray-400 text-lg">Deep dives into our methodology and architectural standards.</p>
+                        <h2 className="text-4xl font-bold text-slate-900">Technical Resources</h2>
+                        <p className="text-slate-500 text-lg">Deep dives into our methodology and architectural standards.</p>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -149,11 +149,11 @@ export default async function AITrainingPage() {
                         <div className="bg-[#080f21] rounded-xl border border-gray-800 overflow-hidden hover:border-gray-700 transition-all">
                             <div className="p-6 border-b border-gray-800">
                                 <span className="px-2 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded-md uppercase">Whitepaper</span>
-                                <h3 className="text-lg font-bold text-white mt-3 mb-2">Scaling RLHF for Enterprise Data</h3>
-                                <p className="text-gray-400 text-sm">Learn how we scale Reinforcement Learning from Human Feedback for domain-specific LLMs.</p>
+                                <h3 className="text-lg font-bold text-slate-900 mt-3 mb-2">Scaling RLHF for Enterprise Data</h3>
+                                <p className="text-slate-500 text-sm">Learn how we scale Reinforcement Learning from Human Feedback for domain-specific LLMs.</p>
                             </div>
                             <div className="p-4 bg-[#0b1329] flex justify-between items-center text-sm">
-                                <span className="text-gray-500 flex items-center gap-2"><Users size={14} /> 12 Min Read</span>
+                                <span className="text-slate-400 flex items-center gap-2"><Users size={14} /> 12 Min Read</span>
                                 <Link href="/docs" className="text-emerald-500 font-bold flex items-center gap-1 hover:text-emerald-400">
                                     Download PDF <ArrowRight size={14} />
                                 </Link>
@@ -164,11 +164,11 @@ export default async function AITrainingPage() {
                         <div className="bg-[#080f21] rounded-xl border border-gray-800 overflow-hidden hover:border-gray-700 transition-all">
                             <div className="p-6 border-b border-gray-800">
                                 <span className="px-2 py-1 bg-purple-500/10 text-purple-400 text-xs font-bold rounded-md uppercase">Case Study</span>
-                                <h3 className="text-lg font-bold text-white mt-3 mb-2">Autonomous Agent Swarms in FinTech</h3>
-                                <p className="text-gray-400 text-sm">How we deployed a swarm of 50 collaborative agents to automate fraud detection workflows.</p>
+                                <h3 className="text-lg font-bold text-slate-900 mt-3 mb-2">Autonomous Agent Swarms in FinTech</h3>
+                                <p className="text-slate-500 text-sm">How we deployed a swarm of 50 collaborative agents to automate fraud detection workflows.</p>
                             </div>
                             <div className="p-4 bg-[#0b1329] flex justify-between items-center text-sm">
-                                <span className="text-gray-500 flex items-center gap-2"><Users size={14} /> 8 Min Read</span>
+                                <span className="text-slate-400 flex items-center gap-2"><Users size={14} /> 8 Min Read</span>
                                 <Link href="/case-studies" className="text-emerald-500 font-bold flex items-center gap-1 hover:text-emerald-400">
                                     Read Case Study <ArrowRight size={14} />
                                 </Link>
@@ -179,11 +179,11 @@ export default async function AITrainingPage() {
                         <div className="bg-[#080f21] rounded-xl border border-gray-800 overflow-hidden hover:border-gray-700 transition-all">
                             <div className="p-6 border-b border-gray-800">
                                 <span className="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-bold rounded-md uppercase">Documentation</span>
-                                <h3 className="text-lg font-bold text-white mt-3 mb-2">Edge Optimization Guidelines</h3>
-                                <p className="text-gray-400 text-sm">A comprehensive guide to model quantization, pruning, and low-latency serving.</p>
+                                <h3 className="text-lg font-bold text-slate-900 mt-3 mb-2">Edge Optimization Guidelines</h3>
+                                <p className="text-slate-500 text-sm">A comprehensive guide to model quantization, pruning, and low-latency serving.</p>
                             </div>
                             <div className="p-4 bg-[#0b1329] flex justify-between items-center text-sm">
-                                <span className="text-gray-500 flex items-center gap-2"><Users size={14} /> 15 Min Read</span>
+                                <span className="text-slate-400 flex items-center gap-2"><Users size={14} /> 15 Min Read</span>
                                 <Link href="/docs" className="text-emerald-500 font-bold flex items-center gap-1 hover:text-emerald-400">
                                     View Docs <ArrowRight size={14} />
                                 </Link>
@@ -199,8 +199,8 @@ export default async function AITrainingPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div className="space-y-8">
                             <span className="text-blue-500 font-bold uppercase tracking-wider text-sm">Contact</span>
-                            <h2 className="text-4xl font-bold text-white">Request a Consultation</h2>
-                            <p className="text-gray-400 text-lg max-w-xl">
+                            <h2 className="text-4xl font-bold text-slate-900">Request a Consultation</h2>
+                            <p className="text-slate-500 text-lg max-w-xl">
                                 Let's discuss your specific AI requirements. Our engineers will help you architect a solution tailored to your infrastructure.
                             </p>
                             
@@ -208,15 +208,15 @@ export default async function AITrainingPage() {
                                 <div className="flex items-center gap-4 p-4 bg-[#080f21] rounded-xl border border-gray-800">
                                     <Shield className="text-blue-500" size={24} />
                                     <div>
-                                        <h4 className="text-white font-bold text-sm">Strict NDA Compliance</h4>
-                                        <p className="text-gray-500 text-xs">Your data and IP are protected by enterprise-grade security.</p>
+                                        <h4 className="text-slate-900 font-bold text-sm">Strict NDA Compliance</h4>
+                                        <p className="text-slate-400 text-xs">Your data and IP are protected by enterprise-grade security.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4 p-4 bg-[#080f21] rounded-xl border border-gray-800">
                                     <Globe className="text-emerald-500" size={24} />
                                     <div>
-                                        <h4 className="text-white font-bold text-sm">Global Deployment</h4>
-                                        <p className="text-gray-500 text-xs">We support hybrid, on-prem, and multi-cloud architectures.</p>
+                                        <h4 className="text-slate-900 font-bold text-sm">Global Deployment</h4>
+                                        <p className="text-slate-400 text-xs">We support hybrid, on-prem, and multi-cloud architectures.</p>
                                     </div>
                                 </div>
                             </div>
@@ -227,23 +227,23 @@ export default async function AITrainingPage() {
                             <form className="space-y-6">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="text-xs font-bold text-gray-400 uppercase mb-2 block">First Name</label>
-                                        <input type="text" className="w-full bg-[#0b1329] border border-gray-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="John" required />
+                                        <label className="text-xs font-bold text-slate-500 uppercase mb-2 block">First Name</label>
+                                        <input type="text" className="w-full bg-[#0b1329] border border-gray-800 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-500 transition-colors" placeholder="John" required />
                                     </div>
                                     <div>
-                                        <label className="text-xs font-bold text-gray-400 uppercase mb-2 block">Last Name</label>
-                                        <input type="text" className="w-full bg-[#0b1329] border border-gray-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Doe" required />
+                                        <label className="text-xs font-bold text-slate-500 uppercase mb-2 block">Last Name</label>
+                                        <input type="text" className="w-full bg-[#0b1329] border border-gray-800 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Doe" required />
                                     </div>
                                 </div>
                                 
                                 <div>
-                                    <label className="text-xs font-bold text-gray-400 uppercase mb-2 block">Corporate Email</label>
-                                    <input type="email" className="w-full bg-[#0b1329] border border-gray-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="john@company.com" required />
+                                    <label className="text-xs font-bold text-slate-500 uppercase mb-2 block">Corporate Email</label>
+                                    <input type="email" className="w-full bg-[#0b1329] border border-gray-800 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-500 transition-colors" placeholder="john@company.com" required />
                                 </div>
                                 
                                 <div>
-                                    <label className="text-xs font-bold text-gray-400 uppercase mb-2 block">Project Type</label>
-                                    <select className="w-full bg-[#0b1329] border border-gray-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors">
+                                    <label className="text-xs font-bold text-slate-500 uppercase mb-2 block">Project Type</label>
+                                    <select className="w-full bg-[#0b1329] border border-gray-800 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-500 transition-colors">
                                         <option>Select an option...</option>
                                         <option>Custom LLM Pre-training</option>
                                         <option>Fine-Tuning / Adaptation</option>
@@ -253,15 +253,15 @@ export default async function AITrainingPage() {
                                 </div>
 
                                 <div>
-                                    <label className="text-xs font-bold text-gray-400 uppercase mb-2 block">Message / Requirements</label>
-                                    <textarea rows={4} className="w-full bg-[#0b1329] border border-gray-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Describe your project, timeline, and data availability..." required></textarea>
+                                    <label className="text-xs font-bold text-slate-500 uppercase mb-2 block">Message / Requirements</label>
+                                    <textarea rows={4} className="w-full bg-[#0b1329] border border-gray-800 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Describe your project, timeline, and data availability..." required></textarea>
                                 </div>
                                 
-                                <button type="submit" className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg font-bold hover:from-blue-700 hover:to-blue-600 transition-all shadow-lg shadow-blue-500/20">
+                                <button type="submit" className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 text-slate-900 rounded-lg font-bold hover:from-blue-700 hover:to-blue-600 transition-all shadow-lg shadow-blue-500/20">
                                     Submit Request
                                 </button>
                                 
-                                <p className="text-xs text-gray-500 text-center">
+                                <p className="text-xs text-slate-400 text-center">
                                     By submitting, you agree to our privacy policy and terms of service.
                                 </p>
                             </form>

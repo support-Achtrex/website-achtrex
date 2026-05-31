@@ -37,19 +37,19 @@ export default function WhyAchtrexPage() {
     ];
 
     return (
-        <main className="min-h-screen bg-background text-white">
+        <main className="min-h-screen bg-background text-slate-900">
             <section className="relative pt-32 pb-16 px-6 border-b border-white/5 overflow-hidden">
                 <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div className="text-left">
-                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                        <h1 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
                             We are an architectural <br /> technology laboratory.
                         </h1>
-                        <p className="text-xl text-gray-400 leading-relaxed">
+                        <p className="text-xl text-slate-500 leading-relaxed">
                             We do not simply iterate, we originate. Achtrex builds, strictly owns, and aggressively scales high-leverage algorithmic engines. Interfacing with our technology means plugging directly into a state-of-the-art, enterprise-grade cognitive infrastructure.
                         </p>
                     </div>
                     
-                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 bg-[#0a0f1c]">
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 bg-[#0a0f1c]">
                         <img 
                             src="/server_infrastructure.png" 
                             alt="Server Infrastructure" 
@@ -64,10 +64,10 @@ export default function WhyAchtrexPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {advantages.map((adv, idx) => (
-                            <div key={idx} className="bg-background border border-white/10 p-10 rounded-sm hover:border-primary/50 transition-colors">
+                            <div key={idx} className="bg-background border border-slate-200 p-10 rounded-sm hover:border-primary/50 transition-colors">
                                 <span className="text-primary font-black text-sm uppercase tracking-widest mb-4 block opacity-50">Core Advantage 0{idx + 1}</span>
                                 <h3 className="text-2xl font-bold mb-4">{adv.title}</h3>
-                                <p className="text-gray-400 leading-relaxed text-lg">{adv.desc}</p>
+                                <p className="text-slate-500 leading-relaxed text-lg">{adv.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -77,7 +77,7 @@ export default function WhyAchtrexPage() {
             <section className="py-16 px-6">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-2xl md:text-4xl font-bold mb-8">Velocity via vertical integration.</h2>
-                    <p className="text-xl text-gray-400 leading-relaxed italic">
+                    <p className="text-xl text-slate-500 leading-relaxed italic">
                         "The most sophisticated systems integrate seamlessly into the background. By providing frictionless API access to our architectural core, we completely abstract the friction of massive data orchestration, enabling our partners to structurally outpace their competition."
                     </p>
                 </div>

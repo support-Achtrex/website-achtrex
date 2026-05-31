@@ -24,9 +24,9 @@ export default async function InvoicesIndexPage() {
             <div className="flex justify-between items-center mb-8">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900">Invoices</h1>
-                    <p className="text-gray-500 text-sm">Manage and view all client invoices.</p>
+                    <p className="text-slate-400 text-sm">Manage and view all client invoices.</p>
                 </div>
-                <Link href="/admin/invoices/create" className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
+                <Link href="/admin/invoices/create" className="flex items-center gap-2 px-4 py-2 bg-primary text-slate-900 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
                     <Plus size={16} />
                     <span>Create Invoice</span>
                 </Link>
@@ -36,18 +36,18 @@ export default async function InvoicesIndexPage() {
                 <table className="w-full text-left">
                     <thead className="bg-gray-50 border-b border-gray-100">
                         <tr>
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Invoice #</th>
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Client</th>
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Date</th>
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Amount</th>
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Status</th>
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider text-right">Actions</th>
+                            <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Invoice #</th>
+                            <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Client</th>
+                            <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Date</th>
+                            <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Amount</th>
+                            <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</th>
+                            <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-right">Actions</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-50">
                         {payments.length === 0 ? (
                             <tr>
-                                <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
+                                <td colSpan={6} className="px-6 py-8 text-center text-slate-400">
                                     No invoices found.
                                 </td>
                             </tr>
@@ -76,7 +76,7 @@ export default async function InvoicesIndexPage() {
                                     <td className="px-6 py-4 text-right">
                                         <Link
                                             href={`/admin/invoices/${payment.invoice_number || payment.id}`}
-                                            className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-gray-500 hover:bg-primary hover:text-white transition-colors"
+                                            className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-slate-400 hover:bg-primary hover:text-slate-900 transition-colors"
                                             title="View Invoice"
                                         >
                                             <Eye size={16} />

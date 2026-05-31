@@ -17,12 +17,12 @@ export default async function CreateInvoicePage() {
     return (
         <div className="p-6 max-w-2xl mx-auto">
             <div className="mb-8">
-                <Link href="/admin/invoices" className="flex items-center gap-2 text-gray-500 hover:text-gray-900 mb-4 transition-colors">
+                <Link href="/admin/invoices" className="flex items-center gap-2 text-slate-400 hover:text-gray-900 mb-4 transition-colors">
                     <ArrowLeft size={16} />
                     <span>Back to Invoices</span>
                 </Link>
                 <h1 className="text-2xl font-bold text-gray-900">Create New Invoice</h1>
-                <p className="text-gray-500 text-sm">Generate manually an invoice for a client.</p>
+                <p className="text-slate-400 text-sm">Generate manually an invoice for a client.</p>
             </div>
 
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
@@ -42,7 +42,7 @@ export default async function CreateInvoicePage() {
                                 <option key={sub.id} value={sub.id}>{sub.email}</option>
                             ))}
                         </select>
-                        <p className="mt-1 text-xs text-gray-400">Can't find the client? Make sure they are subscribed first.</p>
+                        <p className="mt-1 text-xs text-slate-500">Can't find the client? Make sure they are subscribed first.</p>
                     </div>
 
                     {/* Client Details Override */}
@@ -142,7 +142,7 @@ export default async function CreateInvoicePage() {
 
                     {/* Submit Button */}
                     <div className="pt-4">
-                        <button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-lg shadow-primary/20">
+                        <button type="submit" className="w-full bg-primary hover:bg-primary/90 text-slate-900 font-bold py-3 px-6 rounded-lg transition-colors shadow-lg shadow-primary/20">
                             Create Invoice
                         </button>
                     </div>

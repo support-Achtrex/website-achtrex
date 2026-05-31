@@ -19,10 +19,10 @@ export default async function LeadsPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-3xl font-bold text-gray-900 mb-1">Leads Inbox</h1>
-                    <p className="text-gray-500 text-sm">Manage inquiries and potential client messages.</p>
+                    <p className="text-slate-400 text-sm">Manage inquiries and potential client messages.</p>
                 </div>
                 <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
                     <input
                         type="text"
                         placeholder="Search leads..."
@@ -36,12 +36,12 @@ export default async function LeadsPage() {
                     <table className="w-full text-left border-collapse">
                         <thead>
                             <tr className="bg-gray-50 border-b border-gray-100">
-                                <th className="p-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
-                                <th className="p-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Name</th>
-                                <th className="p-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Service</th>
-                                <th className="p-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Budget</th>
-                                <th className="p-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
-                                <th className="p-4 text-xs font-semibold text-gray-500 uppercase tracking-wider text-right">Action</th>
+                                <th className="p-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Date</th>
+                                <th className="p-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Name</th>
+                                <th className="p-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Service</th>
+                                <th className="p-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Budget</th>
+                                <th className="p-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Status</th>
+                                <th className="p-4 text-xs font-semibold text-slate-400 uppercase tracking-wider text-right">Action</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-50">
@@ -49,7 +49,7 @@ export default async function LeadsPage() {
                                 leads.map((lead) => (
                                     <tr key={lead.id} className="hover:bg-gray-50/50 transition-colors group">
                                         <td className="p-4 whitespace-nowrap">
-                                            <div className="flex items-center gap-2 text-gray-500">
+                                            <div className="flex items-center gap-2 text-slate-400">
                                                 <Clock size={14} />
                                                 <span className="text-sm font-medium">
                                                     {new Date(lead.created_at).toLocaleDateString()}
@@ -59,7 +59,7 @@ export default async function LeadsPage() {
                                         <td className="p-4">
                                             <div className="flex flex-col">
                                                 <span className="text-sm font-bold text-gray-900">{lead.name}</span>
-                                                <span className="text-xs text-gray-400">{lead.email}</span>
+                                                <span className="text-xs text-slate-500">{lead.email}</span>
                                             </div>
                                         </td>
                                         <td className="p-4">
@@ -80,7 +80,7 @@ export default async function LeadsPage() {
                                                     await subscribeToNewsletter(formData);
                                                 }}>
                                                     <input type="hidden" name="email" value={lead.email} />
-                                                    <button className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors" title="Add as Client/Subscriber">
+                                                    <button className="p-2 text-slate-500 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors" title="Add as Client/Subscriber">
                                                         <UserPlus size={16} />
                                                     </button>
                                                 </form>
@@ -90,9 +90,9 @@ export default async function LeadsPage() {
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan={6} className="p-12 text-center text-gray-400">
+                                    <td colSpan={6} className="p-12 text-center text-slate-500">
                                         <div className="flex flex-col items-center gap-3">
-                                            <Mail size={48} className="text-gray-200" />
+                                            <Mail size={48} className="text-slate-700" />
                                             <p>No leads found yet.</p>
                                         </div>
                                     </td>

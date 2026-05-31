@@ -46,7 +46,7 @@ export const StorySection = () => {
                             </span>
                             <span className="text-sm font-semibold text-primary tracking-widest uppercase">Our DNA</span>
                         </div>
-                        <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-8 leading-tight">
+                        <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 mb-8 leading-tight">
                             Forged in <span className="text-gradient">code</span>. <br /> Driven by design.
                         </h2>
                         <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
@@ -68,11 +68,11 @@ export const StorySection = () => {
                         className="grid grid-cols-1 sm:grid-cols-2 gap-4"
                     >
                         {techSolutions.map((item, idx) => (
-                            <div key={idx} className="p-6 rounded-2xl bg-transparent/5 border border-white/10 backdrop-blur-sm hover:border-primary/50 hover:bg-transparent/10 transition-all duration-300 group">
+                            <div key={idx} className="p-6 rounded-2xl bg-transparent/5 border border-slate-200 backdrop-blur-sm hover:border-primary/50 hover:bg-transparent/10 transition-all duration-300 group">
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                     <item.icon className="w-6 h-6 text-primary" />
                                 </div>
-                                <h3 className="text-white font-bold mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+                                <h3 className="text-slate-900 font-bold mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
                                 <p className="text-sm text-muted-foreground">{item.desc}</p>
                             </div>
                         ))}
@@ -87,7 +87,7 @@ export const StorySection = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-4xl md:text-6xl font-display font-bold text-white">
+                        <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900">
                             We go the <motion.span
                                 animate={{ opacity: [0.6, 1, 0.6], textShadow: ["0px 0px 10px rgba(0,194,203,0.3)", "0px 0px 30px rgba(0,194,203,0.9)", "0px 0px 10px rgba(0,194,203,0.3)"] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -106,7 +106,7 @@ export const StorySection = () => {
                         >
                             {[...techStack, ...techStack].map((tech, idx) => (
                                 <div key={idx} className="inline-flex items-center justify-center mx-8">
-                                    <span className="text-xl md:text-3xl font-bold text-white tracking-tight cursor-default">
+                                    <span className="text-xl md:text-3xl font-bold text-slate-900 tracking-tight cursor-default">
                                         {tech}
                                     </span>
                                 </div>
@@ -121,7 +121,7 @@ export const StorySection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative rounded-[2rem] overflow-hidden border border-white/10 bg-black/40 backdrop-blur-xl"
+                    className="relative rounded-[2rem] overflow-hidden border border-slate-200 bg-black/40 backdrop-blur-xl"
                 >
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10 opacity-30" />
                     <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
@@ -131,8 +131,8 @@ export const StorySection = () => {
                             <span className="text-secondary text-sm font-bold tracking-widest uppercase mb-6 flex items-center gap-2">
                                 <Rocket className="w-4 h-4" /> The Mission
                             </span>
-                            <h3 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
-                                To engineer the <span className="italic text-white/80">operating system</span> for the future of business.
+                            <h3 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
+                                To engineer the <span className="italic text-slate-900/80">operating system</span> for the future of business.
                             </h3>
                             <p className="text-xl text-muted-foreground">
                                 We're not just building apps; we're constructing the digital infrastructure that will power the next decade of industry leaders.
@@ -140,15 +140,15 @@ export const StorySection = () => {
                         </div>
                         <div className="p-12 md:p-16 flex flex-col justify-center space-y-8 bg-transparent/5">
                             <div>
-                                <h4 className="text-5xl font-bold text-white mb-1">50+</h4>
+                                <h4 className="text-5xl font-bold text-slate-900 mb-1">50+</h4>
                                 <p className="text-sm text-muted-foreground uppercase tracking-wider">Systems Deployed</p>
                             </div>
                             <div>
-                                <h4 className="text-5xl font-bold text-white mb-1">99%</h4>
+                                <h4 className="text-5xl font-bold text-slate-900 mb-1">99%</h4>
                                 <p className="text-sm text-muted-foreground uppercase tracking-wider">Uptime Reliability</p>
                             </div>
                             <div>
-                                <h4 className="text-5xl font-bold text-white mb-1">4yr</h4>
+                                <h4 className="text-5xl font-bold text-slate-900 mb-1">4yr</h4>
                                 <p className="text-sm text-muted-foreground uppercase tracking-wider">Tech Mastery</p>
                             </div>
                         </div>

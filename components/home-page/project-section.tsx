@@ -71,7 +71,7 @@ export const ProjectsSection = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="mb-20 text-center lg:text-left">
                     <span className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block">Market-Ready Solutions</span>
-                    <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">Our Internal Products</h2>
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 mb-6">Our Internal Products</h2>
                 </div>
 
                 <div className="relative">
@@ -89,17 +89,17 @@ export const ProjectsSection = () => {
                                 <div className="order-2 lg:order-1 flex flex-col justify-center">
                                     <div className="flex flex-wrap gap-2 mb-8">
                                         {products[currentIndex].tags.map((tag, i) => (
-                                            <span key={i} className="px-3 py-1 rounded-full text-[10px] font-mono border border-white/10 bg-transparent/5 text-gray-400 uppercase tracking-wider">
+                                            <span key={i} className="px-3 py-1 rounded-full text-[10px] font-mono border border-slate-200 bg-transparent/5 text-slate-500 uppercase tracking-wider">
                                                 {tag}
                                             </span>
                                         ))}
                                     </div>
 
-                                    <h3 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ color: products[currentIndex].color }}>
+                                    <h3 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4" style={{ color: products[currentIndex].color }}>
                                         {products[currentIndex].title}
                                     </h3>
 
-                                    <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl">
+                                    <p className="text-slate-500 text-lg leading-relaxed mb-10 max-w-xl">
                                         {products[currentIndex].description}
                                     </p>
 
@@ -107,7 +107,7 @@ export const ProjectsSection = () => {
                                         <Link 
                                             href={products[currentIndex].link}
                                             target="_blank"
-                                            className="inline-flex items-center justify-center gap-2 bg-[#1e40af] hover:bg-[#1e3a8a] text-white px-10 py-4 rounded-sm font-bold text-lg transition-all w-full sm:w-fit"
+                                            className="inline-flex items-center justify-center gap-2 bg-[#1e40af] hover:bg-[#1e3a8a] text-slate-900 px-10 py-4 rounded-sm font-bold text-lg transition-all w-full sm:w-fit"
                                         >
                                             Explore Product
                                         </Link>
@@ -129,7 +129,7 @@ export const ProjectsSection = () => {
                                     {products[currentIndex].isRawImage ? (
                                         <motion.div 
                                             whileHover={{ scale: 1.02 }}
-                                            className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl shadow-primary/20 aspect-[4/3] w-full"
+                                            className="relative rounded-lg overflow-hidden border border-slate-200 shadow-2xl shadow-primary/20 aspect-[4/3] w-full"
                                         >
                                             <Image 
                                                 src={products[currentIndex].image} 
@@ -151,10 +151,10 @@ export const ProjectsSection = () => {
 
                     {/* Navigation Buttons */}
                     <div className="flex justify-center lg:justify-start gap-4 mt-12">
-                        <button onClick={prevSlide} className="p-4 rounded-full border border-white/10 bg-transparent/5 hover:bg-transparent/10 text-white transition-all">
+                        <button onClick={prevSlide} className="p-4 rounded-full border border-slate-200 bg-transparent/5 hover:bg-transparent/10 text-slate-900 transition-all">
                             <ChevronLeft className="w-6 h-6" />
                         </button>
-                        <button onClick={nextSlide} className="p-4 rounded-full border border-white/10 bg-transparent/5 hover:bg-transparent/10 text-white transition-all">
+                        <button onClick={nextSlide} className="p-4 rounded-full border border-slate-200 bg-transparent/5 hover:bg-transparent/10 text-slate-900 transition-all">
                             <ChevronRight className="w-6 h-6" />
                         </button>
                     </div>

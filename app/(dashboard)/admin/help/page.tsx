@@ -6,27 +6,27 @@ export default function HelpPage() {
     return (
         <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
             {/* Hero Section */}
-            <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-gray-900 via-gray-800 to-primary/20 p-12 text-center text-white shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-gray-900 via-gray-800 to-primary/20 p-12 text-center text-slate-900 shadow-2xl">
                 <div className="absolute top-0 left-0 w-full h-full opacity-10">
                     <div className="absolute top-10 left-10 w-32 h-32 bg-primary rounded-full blur-3xl animate-pulse"></div>
                     <div className="absolute bottom-10 right-10 w-48 h-48 bg-blue-500 rounded-full blur-3xl animate-pulse delay-700"></div>
                 </div>
 
                 <div className="relative z-10 space-y-4">
-                    <div className="inline-flex items-center justify-center p-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 mb-4">
+                    <div className="inline-flex items-center justify-center p-3 bg-white/10 backdrop-blur-md rounded-2xl border border-slate-300 mb-4">
                         <HelpCircle size={32} className="text-primary-light" />
                     </div>
                     <h1 className="text-4xl md:text-5xl font-black tracking-tight">How can we help you today?</h1>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                    <p className="text-slate-500 max-w-2xl mx-auto text-lg">
                         Welcome to the Achtrex Admin Help Center. Find answers to common questions, explore tutorials, or reach out to our elite support team.
                     </p>
 
-                    <div className="max-w-xl mx-auto mt-8 h-14 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-2 flex items-center">
-                        <Search className="ml-4 text-gray-400" size={20} />
+                    <div className="max-w-xl mx-auto mt-8 h-14 bg-white/10 backdrop-blur-md rounded-2xl border border-slate-300 p-2 flex items-center">
+                        <Search className="ml-4 text-slate-500" size={20} />
                         <input
                             type="text"
                             placeholder="Search help articles..."
-                            className="flex-1 bg-transparent border-none outline-none px-4 text-white placeholder:text-gray-500 font-medium"
+                            className="flex-1 bg-transparent border-none outline-none px-4 text-slate-900 placeholder:text-slate-400 font-medium"
                         />
                         <button className="bg-primary hover:bg-primary-dark h-full px-6 rounded-xl font-bold transition-all active:scale-95 shadow-lg">
                             Search
@@ -47,7 +47,7 @@ export default function HelpPage() {
                             {item.icon}
                         </div>
                         <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                        <p className="text-gray-500 text-sm">{item.desc}</p>
+                        <p className="text-slate-400 text-sm">{item.desc}</p>
                         <div className="mt-6 flex items-center text-primary font-bold text-sm">
                             Learn more <ExternalLink size={14} className="ml-2" />
                         </div>
@@ -73,7 +73,7 @@ export default function HelpPage() {
                             ].map((faq, idx) => (
                                 <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-primary/20 transition-all cursor-pointer">
                                     <h4 className="font-bold text-gray-900 mb-2">{faq.q}</h4>
-                                    <p className="text-gray-500 text-sm leading-relaxed">{faq.a}</p>
+                                    <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
                                 </div>
                             ))}
                         </div>
@@ -82,7 +82,7 @@ export default function HelpPage() {
 
                 {/* Contact Support */}
                 <div className="space-y-8">
-                    <div className="bg-gray-900 p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
+                    <div className="bg-gray-900 p-8 rounded-3xl text-slate-900 shadow-xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full -mr-16 -mt-16 blur-3xl"></div>
                         <h3 className="text-xl font-bold mb-6 relative z-10">Direct Support</h3>
                         <div className="space-y-6 relative z-10">
@@ -91,7 +91,7 @@ export default function HelpPage() {
                                     <Mail size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-gray-400 font-medium">Email us 24/7</p>
+                                    <p className="text-xs text-slate-500 font-medium">Email us 24/7</p>
                                     <p className="font-bold text-sm">support@achtrex.com</p>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@ export default function HelpPage() {
                                     <MessageSquare size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-gray-400 font-medium">Live Chat</p>
+                                    <p className="text-xs text-slate-500 font-medium">Live Chat</p>
                                     <p className="font-bold text-sm">Average response: 5m</p>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@ export default function HelpPage() {
                                     <Phone size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-gray-400 font-medium">Priority Line</p>
+                                    <p className="text-xs text-slate-500 font-medium">Priority Line</p>
                                     <p className="font-bold text-sm">+1 (555) ACHTREX</p>
                                 </div>
                             </div>

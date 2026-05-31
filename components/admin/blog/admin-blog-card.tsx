@@ -28,7 +28,7 @@ export function AdminBlogCard({ slug, category, title, date, image, views, readT
     };
 
     return (
-        <div className="group flex flex-col bg-transparent border border-white/10 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-all duration-300 h-full relative">
+        <div className="group flex flex-col bg-transparent border border-slate-200 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-all duration-300 h-full relative">
             <div className="absolute top-4 right-4 z-20">
                 <div className="relative">
                     <button
@@ -37,7 +37,7 @@ export function AdminBlogCard({ slug, category, title, date, image, views, readT
                             e.stopPropagation();
                             setShowActions(!showActions);
                         }}
-                        className="p-2 bg-transparent/90 backdrop-blur-sm rounded-lg text-gray-400 hover:text-primary transition-colors shadow-sm opacity-0 group-hover:opacity-100"
+                        className="p-2 bg-transparent/90 backdrop-blur-sm rounded-lg text-slate-500 hover:text-primary transition-colors shadow-sm opacity-0 group-hover:opacity-100"
                     >
                         <MoreVertical size={18} />
                     </button>
@@ -52,7 +52,7 @@ export function AdminBlogCard({ slug, category, title, date, image, views, readT
                                     setShowActions(false);
                                 }}
                             ></div>
-                            <div className="absolute right-0 top-full mt-2 w-32 bg-transparent rounded-xl shadow-xl border border-white/10 py-1 z-30 animate-in fade-in zoom-in-95 duration-100">
+                            <div className="absolute right-0 top-full mt-2 w-32 bg-transparent rounded-xl shadow-xl border border-slate-200 py-1 z-30 animate-in fade-in zoom-in-95 duration-100">
                                 <Link
                                     href={`/admin/blogs/new`} // Linking to new for demo as requested
                                     className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-transparent hover:text-primary transition-colors font-sans"
@@ -88,7 +88,7 @@ export function AdminBlogCard({ slug, category, title, date, image, views, readT
             </div>
 
             <div className="p-5 flex flex-col flex-1">
-                <div className="flex items-center gap-2 text-xs text-gray-400 font-medium font-montserrat mb-3">
+                <div className="flex items-center gap-2 text-xs text-slate-500 font-medium font-montserrat mb-3">
                     <span className="flex items-center gap-1">
                         <Clock size={14} />
                         {readTime}
@@ -102,7 +102,7 @@ export function AdminBlogCard({ slug, category, title, date, image, views, readT
                 </h3>
 
                 <div className="mt-auto pt-4 border-t border-gray-50 flex items-center justify-end">
-                    <div className="flex items-center gap-4 text-gray-400">
+                    <div className="flex items-center gap-4 text-slate-500">
                         <div className="flex items-center gap-1.5 text-xs font-medium" title="Views">
                             <Eye size={14} />
                             <span>{views}</span>

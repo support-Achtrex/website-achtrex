@@ -49,20 +49,20 @@ const PartnerForm = () => {
 
   const types = ["Solution Integrator", "Reseller", "Referral Partner", "Technology Partner"];
 
-  const inputClasses = "w-full py-4 px-4 border border-white/10 rounded-xl text-white focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all bg-[#070b14] text-base appearance-none";
-  const labelClasses = "text-gray-300 text-sm font-bold mb-2 block group-focus-within:text-primary transition-colors";
+  const inputClasses = "w-full py-4 px-4 border border-slate-200 rounded-xl text-slate-900 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all bg-[#F8F9FA] text-base appearance-none";
+  const labelClasses = "text-slate-600 text-sm font-bold mb-2 block group-focus-within:text-primary transition-colors";
 
   return (
-    <section className="py-24 px-6 bg-[#0a0a0b] border-t border-white/10">
+    <section className="py-24 px-6 bg-[#0a0a0b] border-t border-slate-200">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Apply for Partnership</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Apply for Partnership</h2>
+          <p className="text-slate-500 max-w-2xl mx-auto">
             Fill out the form below and our partner relations team will get back to you within 2 business days.
           </p>
         </div>
 
-        <form className="space-y-6 bg-[#111112] p-8 md:p-10 rounded-3xl border border-white/10 shadow-xl" onSubmit={handleSubmit}>
+        <form className="space-y-6 bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="group">
               <label htmlFor="name" className={labelClasses}>Full Name *</label>
@@ -85,10 +85,10 @@ const PartnerForm = () => {
               <label htmlFor="type" className={labelClasses}>Partnership Type *</label>
               <div className="relative">
                 <select id="type" name="type" value={formData.type} onChange={handleChange} required className={inputClasses}>
-                  <option value="" disabled className="text-gray-500">Select type</option>
+                  <option value="" disabled className="text-slate-400">Select type</option>
                   {types.map(t => <option key={t} value={t}>{t}</option>)}
                 </select>
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@ const PartnerForm = () => {
               type="submit"
               disabled={status === 'loading'}
               size="lg"
-              className="w-full md:w-auto bg-primary text-white hover:bg-primary/90 rounded-xl px-10 py-4 font-bold tracking-wide transition-all shadow-lg shadow-primary/20"
+              className="w-full md:w-auto bg-primary text-slate-900 hover:bg-primary/90 rounded-xl px-10 py-4 font-bold tracking-wide transition-all shadow-lg shadow-primary/20"
             >
               {status === 'loading' ? 'Submitting...' : 'Submit Application'}
               <ArrowRight className="ml-2 w-4 h-4 inline-block" />

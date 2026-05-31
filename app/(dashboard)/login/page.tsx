@@ -68,7 +68,7 @@ export default function LoginPage() {
                         />
                     </div>
                     <h1 className="text-2xl font-bold text-gray-900 text-center">Sign in to Dashboard</h1>
-                    <p className="text-gray-500 text-sm mt-2 text-center font-montserrat">Welcome back! Please enter your details.</p>
+                    <p className="text-slate-400 text-sm mt-2 text-center font-montserrat">Welcome back! Please enter your details.</p>
                 </div>
 
                 {/* Login Form */}
@@ -85,7 +85,7 @@ export default function LoginPage() {
                     <div className="space-y-2">
                         <label className="text-xs font-bold text-gray-700 uppercase tracking-wider font-montserrat ml-1">Email or Username</label>
                         <div className="relative group">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">
                                 <Mail size={20} />
                             </div>
                             <input
@@ -93,7 +93,7 @@ export default function LoginPage() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email"
-                                className="w-full bg-gray-50/50 border border-gray-200 rounded-xl py-3.5 pl-12 pr-4 text-gray-900 placeholder:text-gray-400 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium"
+                                className="w-full bg-gray-50/50 border border-gray-200 rounded-xl py-3.5 pl-12 pr-4 text-gray-900 placeholder:text-slate-500 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium"
                             />
                         </div>
                     </div>
@@ -102,7 +102,7 @@ export default function LoginPage() {
                     <div className="space-y-2">
                         <label className="text-xs font-bold text-gray-700 uppercase tracking-wider font-montserrat ml-1">Password</label>
                         <div className="relative group">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">
                                 <Lock size={20} />
                             </div>
                             <input
@@ -110,12 +110,12 @@ export default function LoginPage() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Enter your password"
-                                className="w-full bg-gray-50/50 border border-gray-200 rounded-xl py-3.5 pl-12 pr-12 text-gray-900 placeholder:text-gray-400 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium"
+                                className="w-full bg-gray-50/50 border border-gray-200 rounded-xl py-3.5 pl-12 pr-12 text-gray-900 placeholder:text-slate-500 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium"
                             />
                             <button
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-gray-600 transition-colors"
                             >
                                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                             </button>
@@ -136,7 +136,7 @@ export default function LoginPage() {
                     <button
                         type="submit"
                         disabled={!isFormValid || isLoading}
-                        className={`w-full py-4 rounded-xl text-white font-bold text-sm tracking-wide transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2
+                        className={`w-full py-4 rounded-xl text-slate-900 font-bold text-sm tracking-wide transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2
                             ${!isFormValid || isLoading
                                 ? 'bg-gray-300 cursor-not-allowed shadow-none'
                                 : 'bg-primary hover:bg-blue-700 hover:shadow-blue-500/30 active:scale-[0.98]'
@@ -151,7 +151,7 @@ export default function LoginPage() {
                 </form>
 
                 <div className="mt-8 text-center">
-                    <p className="text-xs text-gray-400 font-montserrat">
+                    <p className="text-xs text-slate-500 font-montserrat">
                         &copy; {new Date().getFullYear()} Achtrex. Internal System.
                     </p>
                 </div>

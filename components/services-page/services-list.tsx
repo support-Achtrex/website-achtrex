@@ -23,19 +23,19 @@ export function ServiceCard({ icon: Icon, title, description, highlighted = fals
             onClick={onClick}
             className={`
                 group relative overflow-hidden rounded-3xl p-8 h-full transition-all duration-300
-                border border-white/10 bg-transparent/5 backdrop-blur-md
+                border border-slate-200 bg-transparent/5 backdrop-blur-md
                 hover:bg-transparent/10 hover:border-primary/50 hover:-translate-y-1
                 flex flex-col cursor-pointer
             `}
         >
             <div className={`
                 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300
-                ${highlighted ? 'bg-primary text-white' : 'bg-transparent/10 text-primary group-hover:bg-primary group-hover:text-white'}
+                ${highlighted ? 'bg-primary text-slate-900' : 'bg-transparent/10 text-primary group-hover:bg-primary group-hover:text-slate-900'}
             `}>
                 <Icon className="w-7 h-7" />
             </div>
 
-            <h3 className="text-2xl font-bold text-white mb-4 font-display group-hover:text-primary transition-colors">
+            <h3 className="text-2xl font-bold text-slate-900 mb-4 font-display group-hover:text-primary transition-colors">
                 {title}
             </h3>
 
@@ -43,7 +43,7 @@ export function ServiceCard({ icon: Icon, title, description, highlighted = fals
                 {description}
             </p>
 
-            <div className="flex items-center text-sm font-semibold text-white/50 group-hover:text-primary transition-colors mt-auto">
+            <div className="flex items-center text-sm font-semibold text-slate-900/50 group-hover:text-primary transition-colors mt-auto">
                 <span>Learn more</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -63,7 +63,7 @@ export const ServicesList = () => {
                 {/* Flagship Products Section */}
                 <div className="mb-20">
                     <div className="flex items-center gap-4 mb-10">
-                        <h2 className="text-3xl font-display font-bold text-white">Flagship Products</h2>
+                        <h2 className="text-3xl font-display font-bold text-slate-900">Flagship Products</h2>
                         <div className="h-px flex-grow bg-transparent/10" />
                     </div>
                     <motion.div
@@ -86,7 +86,7 @@ export const ServicesList = () => {
                 {/* Platform Capabilities Section */}
                 <div>
                     <div className="flex items-center gap-4 mb-10">
-                        <h2 className="text-3xl font-display font-bold text-white">Platform Capabilities</h2>
+                        <h2 className="text-3xl font-display font-bold text-slate-900">Platform Capabilities</h2>
                         <div className="h-px flex-grow bg-transparent/10" />
                     </div>
                     <motion.div

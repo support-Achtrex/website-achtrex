@@ -21,7 +21,7 @@ const TeamOverview = async () => {
         <div className="rounded-3xl p-px bg-linear-to-br from-gray-200 to-gray-50">
             <div className="bg-transparent rounded-[23px] p-6 h-full">
                 <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-lg font-bold text-gray-200 font-display">Team Members</h3>
+                    <h3 className="text-lg font-bold text-slate-700 font-display">Team Members</h3>
                     <Link href="/admin/team" className="text-xs font-medium text-primary hover:underline font-sans">
                         View All
                     </Link>
@@ -30,18 +30,18 @@ const TeamOverview = async () => {
                 <div className="space-y-4">
                     {teamMembers?.map((member: TeamMember) => (
                         <div key={member.id} className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden shrink-0 border border-white/10">
+                            <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden shrink-0 border border-slate-200">
                                 {member.image ? (
                                     <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                                 ) : (
-                                    <div className="w-full h-full bg-linear-to-br from-primary/80 to-primary/40 flex items-center justify-center text-white font-bold text-xs">
+                                    <div className="w-full h-full bg-linear-to-br from-primary/80 to-primary/40 flex items-center justify-center text-slate-900 font-bold text-xs">
                                         {member.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
                                     </div>
                                 )}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h4 className="text-sm font-bold text-gray-200 truncate font-sans">{member.name}</h4>
-                                <p className="text-xs text-gray-500 truncate font-sans">{member.role}</p>
+                                <h4 className="text-sm font-bold text-slate-700 truncate font-sans">{member.name}</h4>
+                                <p className="text-xs text-slate-400 truncate font-sans">{member.role}</p>
                             </div>
                         </div>
                     ))}

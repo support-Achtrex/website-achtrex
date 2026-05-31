@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const ContactDetails = () => {
     return (
-        <section className="bg-background py-20 px-4 text-white border-t border-white/5">
+        <section className="bg-background py-20 px-4 text-slate-900 border-t border-white/5">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                 {/* Left Side - Headings */}
@@ -33,7 +33,7 @@ const ContactDetails = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="space-y-3 p-6 glass-card rounded-2xl border-l-4 border-l-primary"
                     >
-                        <h3 className="text-lg font-semibold text-white/90">Email Address</h3>
+                        <h3 className="text-lg font-semibold text-slate-900/90">Email Address</h3>
                         <a
                             href="mailto:support@achtrex.com"
                             className="block text-base hover:text-primary transition-colors text-muted-foreground"
@@ -50,10 +50,10 @@ const ContactDetails = () => {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="space-y-3 p-6 glass-card rounded-2xl border-l-4 border-l-secondary"
                     >
-                        <h3 className="text-lg font-semibold text-white/90">Phone Numbers</h3>
+                        <h3 className="text-lg font-semibold text-slate-900/90">Phone Numbers</h3>
                         <div className="space-y-1 text-base text-muted-foreground">
-                            <p className="hover:text-white transition-colors">GH +233 500 496700</p>
-                            <p className="hover:text-white transition-colors">US +1 973 385 1305</p>
+                            <p className="hover:text-slate-900 transition-colors">GH +233 500 496700</p>
+                            <p className="hover:text-slate-900 transition-colors">US +1 973 385 1305</p>
                         </div>
                     </motion.div>
                 </div>

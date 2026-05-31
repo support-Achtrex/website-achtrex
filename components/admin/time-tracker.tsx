@@ -3,7 +3,7 @@ import { Pause, StopCircle } from 'lucide-react';
 
 const TimeTracker = () => {
     return (
-        <div className="bg-primary rounded-3xl p-6 shadow-sm border border-primary/20 h-full relative overflow-hidden text-white flex flex-col justify-between">
+        <div className="bg-primary rounded-3xl p-6 shadow-sm border border-primary/20 h-full relative overflow-hidden text-slate-900 flex flex-col justify-between">
             <div className="relative z-10">
                 <h3 className="text-lg font-medium text-blue-100 mb-6">Time Tracker</h3>
 
@@ -15,7 +15,7 @@ const TimeTracker = () => {
                     <button className="w-10 h-10 bg-transparent rounded-full flex items-center justify-center text-primary hover:bg-gray-200 transition-colors">
                         <Pause size={20} fill="currentColor" />
                     </button>
-                    <button className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white hover:bg-red-600 transition-colors">
+                    <button className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-slate-900 hover:bg-red-600 transition-colors">
                         <StopCircle size={20} fill="currentColor" />
                     </button>
                 </div>

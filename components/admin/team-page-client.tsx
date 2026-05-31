@@ -87,12 +87,12 @@ const TeamPageClient = ({ initialMembers }: TeamPageClientProps) => {
             {/* Header / Toolbar */}
             <div className="flex justify-between items-center mb-8">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-200 font-display">Team Members</h1>
-                    <p className="text-gray-500 text-sm">Manage your team and their roles.</p>
+                    <h1 className="text-2xl font-bold text-slate-700 font-display">Team Members</h1>
+                    <p className="text-slate-400 text-sm">Manage your team and their roles.</p>
                 </div>
                 <button 
                     onClick={handleAddClick}
-                    className="flex items-center gap-2 px-4 py-2.5 bg-primary text-white rounded-xl font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
+                    className="flex items-center gap-2 px-4 py-2.5 bg-primary text-slate-900 rounded-xl font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
                 >
                     <Plus size={18} />
                     <span>Add Member</span>

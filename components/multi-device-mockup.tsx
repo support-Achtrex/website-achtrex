@@ -34,9 +34,9 @@ export const MultiDeviceMockup: React.FC<MultiDeviceMockupProps> = ({
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="relative z-10 w-[80%] pr-12"
                 >
-                    <div className="rounded-xl overflow-hidden border border-white/20 bg-[#0f172a] shadow-2xl">
+                    <div className="rounded-xl overflow-hidden border border-slate-300 bg-white shadow-2xl">
                         {/* Browser Top Bar */}
-                        <div className="bg-[#1e293b] border-b border-white/10 px-4 py-2.5 flex items-center gap-2">
+                        <div className="bg-[#1e293b] border-b border-slate-200 px-4 py-2.5 flex items-center gap-2">
                             <div className="flex gap-1.5">
                                 <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
                                 <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />

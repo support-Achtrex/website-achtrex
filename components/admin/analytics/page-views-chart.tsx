@@ -16,16 +16,16 @@ const data = [
 
 const PageViewsChart = () => {
     return (
-        <div className="bg-transparent p-8 rounded-[32px] shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-white/10/50 h-full hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300">
+        <div className="bg-transparent p-8 rounded-[32px] shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-200/50 h-full hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300">
             <div className="flex items-center justify-between mb-8">
-                <h3 className="font-bold text-gray-200 font-display text-lg">Page Views</h3>
+                <h3 className="font-bold text-slate-700 font-display text-lg">Page Views</h3>
                 <div className="relative">
-                    <select className="appearance-none bg-transparent border-none text-xs font-semibold text-gray-500 rounded-xl px-4 py-2 pr-8 outline-none cursor-pointer hover:bg-[#1a1a1c]/5 transition-colors font-montserrat">
+                    <select className="appearance-none bg-transparent border-none text-xs font-semibold text-slate-400 rounded-xl px-4 py-2 pr-8 outline-none cursor-pointer hover:bg-slate-50/5 transition-colors font-montserrat">
                         <option>Last 3 month</option>
                         <option>Last 6 month</option>
                         <option>Last year</option>
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                     </div>
                 </div>

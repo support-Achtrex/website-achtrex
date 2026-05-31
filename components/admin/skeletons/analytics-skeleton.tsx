@@ -10,7 +10,7 @@ export default function AnalyticsSkeleton() {
                     {/* Stats Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {[...Array(3)].map((_, i) => (
-                            <div key={i} className="bg-transparent p-6 rounded-2xl border border-white/10 shadow-sm">
+                            <div key={i} className="bg-transparent p-6 rounded-2xl border border-slate-200 shadow-sm">
                                 <Skeleton className="h-4 w-24 mb-2" />
                                 <Skeleton className="h-8 w-32" />
                             </div>
@@ -20,7 +20,7 @@ export default function AnalyticsSkeleton() {
                     {/* Charts */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {[...Array(2)].map((_, i) => (
-                            <div key={i} className="bg-transparent p-6 rounded-3xl border border-white/10 h-80">
+                            <div key={i} className="bg-transparent p-6 rounded-3xl border border-slate-200 h-80">
                                 <Skeleton className="h-6 w-32 mb-6" />
                                 <div className="flex items-end gap-2 h-56">
                                     {[...Array(8)].map((_, j) => (
@@ -32,7 +32,7 @@ export default function AnalyticsSkeleton() {
                     </div>
 
                     {/* Pages Table */}
-                    <div className="bg-transparent rounded-3xl border border-white/10 p-6">
+                    <div className="bg-transparent rounded-3xl border border-slate-200 p-6">
                         <div className="flex justify-between items-center mb-6">
                             <Skeleton className="h-6 w-32" />
                             <Skeleton className="h-8 w-24 rounded-lg" />
@@ -51,7 +51,7 @@ export default function AnalyticsSkeleton() {
 
                 {/* Right Column (Insights & Devices) */}
                 <div className="lg:col-span-1 space-y-8">
-                    <div className="h-[420px] bg-transparent rounded-3xl border border-white/10 p-6">
+                    <div className="h-[420px] bg-transparent rounded-3xl border border-slate-200 p-6">
                         <Skeleton className="h-6 w-32 mb-6" />
                         <div className="space-y-4">
                             {[...Array(6)].map((_, i) => (
@@ -65,7 +65,7 @@ export default function AnalyticsSkeleton() {
                             ))}
                         </div>
                     </div>
-                    <div className="h-[480px] bg-transparent rounded-3xl border border-white/10 p-6">
+                    <div className="h-[480px] bg-transparent rounded-3xl border border-slate-200 p-6">
                         <Skeleton className="h-6 w-32 mb-6" />
                         <div className="flex justify-center mb-8">
                             <Skeleton className="h-48 w-48 rounded-full" />

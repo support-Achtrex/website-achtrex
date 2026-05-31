@@ -115,7 +115,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-white`}
+        className={`${inter.variable} font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-slate-900`}
       >
         <script
           type="application/ld+json"

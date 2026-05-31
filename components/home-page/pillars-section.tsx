@@ -33,14 +33,14 @@ export const PillarsSection = () => {
                             transition={{ delay: idx * 0.1, duration: 0.6 }}
                             className="flex flex-col group cursor-pointer"
                         >
-                            <div className="relative aspect-[16/10] w-full mb-8 overflow-hidden rounded-xl border border-white/10 shadow-sm transition-transform duration-500 group-hover:scale-[1.02] group-hover:shadow-xl">
+                            <div className="relative aspect-[16/10] w-full mb-8 overflow-hidden rounded-xl border border-slate-200 shadow-sm transition-transform duration-500 group-hover:scale-[1.02] group-hover:shadow-xl">
                                 <Image
                                     src={pillar.image}
                                     alt={pillar.title}
                                     fill
                                     className="object-cover"
                                 />
-                                <div className={`absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                                <div className={`absolute inset-0 bg-gradient-to-t from-[#F8F9FA]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                             </div>
                             
                             <h3 className="text-2xl font-bold text-[#005a9e] mb-4 tracking-tight group-hover:text-blue-700 transition-colors">

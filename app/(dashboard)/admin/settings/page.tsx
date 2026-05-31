@@ -10,7 +10,7 @@ export default function SettingsPage() {
         <div className="max-w-4xl">
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-1">Settings</h1>
-                <p className="text-gray-500 text-sm">Manage global website configuration.</p>
+                <p className="text-slate-400 text-sm">Manage global website configuration.</p>
             </div>
 
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
@@ -24,7 +24,7 @@ export default function SettingsPage() {
                             defaultValue={settings.siteName}
                             className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all"
                         />
-                        <p className="text-xs text-gray-400">Used in title tags and footer.</p>
+                        <p className="text-xs text-slate-500">Used in title tags and footer.</p>
                     </div>
 
                     {/* Contact Email */}
@@ -36,14 +36,14 @@ export default function SettingsPage() {
                             defaultValue={settings.contactEmail}
                             className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all"
                         />
-                        <p className="text-xs text-gray-400">Where contact form submissions are sent.</p>
+                        <p className="text-xs text-slate-500">Where contact form submissions are sent.</p>
                     </div>
 
                     {/* Maintenance Mode */}
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
                         <div>
                             <span className="text-sm font-semibold text-gray-900 block">Maintenance Mode</span>
-                            <span className="text-xs text-gray-500">Enable to show a "Coming Soon" page to visitors.</span>
+                            <span className="text-xs text-slate-400">Enable to show a "Coming Soon" page to visitors.</span>
                         </div>
                         <label className="relative inline-flex items-center cursor-pointer">
                             <input type="checkbox" defaultChecked={settings.maintenanceMode} className="sr-only peer" />
@@ -52,7 +52,7 @@ export default function SettingsPage() {
                     </div>
 
                     <div className="pt-4 flex justify-end">
-                        <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-6 py-3 flex items-center gap-2">
+                        <Button className="bg-primary hover:bg-primary/90 text-slate-900 rounded-xl px-6 py-3 flex items-center gap-2">
                             <Save size={18} />
                             Save Changes
                         </Button>

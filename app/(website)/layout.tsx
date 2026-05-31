@@ -9,7 +9,7 @@ export default function WebsiteLayout({
 }>) {
     return (
         <div className="bg-transparent">
-        <div className="max-w-[1920px] mx-auto w-full min-w-[320px] relative shadow-none bg-[#070b14]">
+        <div className="max-w-[1920px] mx-auto w-full min-w-[320px] relative shadow-none bg-[#F8F9FA]">
             <Navbar />
             {children}
             <FloatingWhatsApp />

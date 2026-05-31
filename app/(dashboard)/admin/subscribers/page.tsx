@@ -20,7 +20,7 @@ export default async function SubscribersPage() {
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="text-3xl font-bold text-gray-900">Client & Subscriber Management</h1>
-                    <p className="text-gray-500 text-sm">Track client updates, payments, and notes.</p>
+                    <p className="text-slate-400 text-sm">Track client updates, payments, and notes.</p>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@ export default async function SubscribersPage() {
                         className="flex-1 p-2 border border-gray-200 rounded-lg text-sm focus:border-primary outline-none"
                         placeholder="client@example.com"
                     />
-                    <Button className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90">
+                    <Button className="bg-primary text-slate-900 px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90">
                         Add Client
                     </Button>
                 </form>
@@ -51,10 +51,10 @@ export default async function SubscribersPage() {
                 <table className="w-full text-left border-collapse">
                     <thead>
                         <tr className="bg-gray-50 border-b border-gray-100">
-                            <th className="p-4 text-xs font-semibold text-gray-500 uppercase">Client / Email</th>
-                            <th className="p-4 text-xs font-semibold text-gray-500 uppercase">Joined</th>
-                            <th className="p-4 text-xs font-semibold text-gray-500 uppercase">Status</th>
-                            <th className="p-4 text-xs font-semibold text-gray-500 uppercase text-right">Actions</th>
+                            <th className="p-4 text-xs font-semibold text-slate-400 uppercase">Client / Email</th>
+                            <th className="p-4 text-xs font-semibold text-slate-400 uppercase">Joined</th>
+                            <th className="p-4 text-xs font-semibold text-slate-400 uppercase">Status</th>
+                            <th className="p-4 text-xs font-semibold text-slate-400 uppercase text-right">Actions</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-50">
@@ -69,7 +69,7 @@ export default async function SubscribersPage() {
                                             <span className="text-sm font-medium text-gray-900">{sub.email}</span>
                                         </div>
                                     </td>
-                                    <td className="p-4 text-gray-500 text-sm">
+                                    <td className="p-4 text-slate-400 text-sm">
                                         <div className="flex items-center gap-2">
                                             <Clock size={14} />
                                             {new Date(sub.subscribed_at).toLocaleDateString()}
@@ -82,7 +82,7 @@ export default async function SubscribersPage() {
                                     </td>
                                     <td className="p-4 text-right">
                                         <div className="flex items-center justify-end gap-2">
-                                            <Link href={`/admin/subscribers/${sub.id}`} className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Manage Client">
+                                            <Link href={`/admin/subscribers/${sub.id}`} className="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Manage Client">
                                                 <FileText size={16} />
                                             </Link>
                                         </div>
@@ -91,7 +91,7 @@ export default async function SubscribersPage() {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan={4} className="p-12 text-center text-gray-400">
+                                <td colSpan={4} className="p-12 text-center text-slate-500">
                                     No subscribers found.
                                 </td>
                             </tr>

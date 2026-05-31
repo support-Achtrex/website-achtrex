@@ -26,7 +26,7 @@ export function DayInLife() {
     <section className="py-20 px-4 md:px-8 bg-[image:var(--bg-dark-purple)] border-t border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 bg-dot-white opacity-10 pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10">
-        <h2 className="text-3xl md:text-5xl font-bold mb-12 font-display text-white">A Day in the Life</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-12 font-display text-slate-900">A Day in the Life</h2>
 
         <div className="grid md:grid-cols-3 gap-8">
           {activities.map((activity, index) => (
@@ -38,7 +38,7 @@ export function DayInLife() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <div className="relative h-64 mb-6 overflow-hidden rounded-2xl border border-white/10 shadow-lg">
+              <div className="relative h-64 mb-6 overflow-hidden rounded-2xl border border-slate-200 shadow-lg">
                 <Image
                   src={activity.image}
                   alt={activity.title}
@@ -46,7 +46,7 @@ export function DayInLife() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white font-display group-hover:text-primary transition-colors">{activity.title}</h3>
+              <h3 className="text-xl font-bold mb-3 text-slate-900 font-display group-hover:text-primary transition-colors">{activity.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed font-sans">
                 {activity.description}
               </p>

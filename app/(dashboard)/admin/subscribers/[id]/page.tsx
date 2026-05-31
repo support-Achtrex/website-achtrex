@@ -67,11 +67,11 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
         <div className="space-y-8 animate-in fade-in duration-500">
             <div className="flex flex-col md:flex-row md:items-center gap-4">
                 <Link href="/admin/subscribers" className="p-2 hover:bg-gray-100 rounded-full transition-colors w-fit">
-                    <ArrowLeft size={20} className="text-gray-500" />
+                    <ArrowLeft size={20} className="text-slate-400" />
                 </Link>
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900">{subscriber.email}</h1>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-slate-400">
                         Client since {new Date(subscriber.subscribed_at).toLocaleDateString()}
                     </p>
                     <form action={updateAddress} className="mt-2 flex gap-2">
@@ -82,7 +82,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                             placeholder="Add or edit address..."
                             className="border border-gray-200 rounded-lg px-3 py-1 text-sm w-full max-w-[300px]"
                         />
-                        <button type="submit" className="text-xs bg-gray-900 text-white px-3 py-1 rounded-lg hover:bg-gray-800 transition-colors">
+                        <button type="submit" className="text-xs bg-gray-900 text-slate-900 px-3 py-1 rounded-lg hover:bg-gray-800 transition-colors">
                             Save
                         </button>
                     </form>
@@ -105,7 +105,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                             'use server';
                             await sendWeeklyReport(id);
                         }}>
-                            <Button className="bg-purple-600 text-white px-4 py-2 rounded-xl font-bold shadow-lg shadow-purple-100 flex items-center gap-2 text-sm">
+                            <Button className="bg-purple-600 text-slate-900 px-4 py-2 rounded-xl font-bold shadow-lg shadow-purple-100 flex items-center gap-2 text-sm">
                                 <Mail size={16} />
                                 Send Weekly Update
                             </Button>
@@ -149,7 +149,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                 className="flex-1 p-2 border border-blue-100 bg-blue-50/30 rounded-lg text-sm focus:border-purple-500 focus:bg-white outline-none transition-all"
                                 placeholder="Add project milestone (e.g. Design Approved)..."
                             />
-                            <Button className="bg-purple-600 text-white p-2 rounded-lg hover:bg-purple-700 shadow-lg shadow-purple-200">
+                            <Button className="bg-purple-600 text-slate-900 p-2 rounded-lg hover:bg-purple-700 shadow-lg shadow-purple-200">
                                 <Plus size={20} />
                             </Button>
                         </form>
@@ -168,11 +168,11 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                                     {ms.status === 'completed' ? (
                                                         <CheckCircle2 size={20} className="text-green-500 fill-green-50" />
                                                     ) : (
-                                                        <Circle size={20} className="text-gray-300 group-hover:text-purple-300" />
+                                                        <Circle size={20} className="text-slate-600 group-hover:text-purple-300" />
                                                     )}
                                                 </button>
                                             </form>
-                                            <span className={`text-sm ${ms.status === 'completed' ? 'text-gray-400 line-through' : 'text-gray-700 font-medium'}`}>
+                                            <span className={`text-sm ${ms.status === 'completed' ? 'text-slate-500 line-through' : 'text-gray-700 font-medium'}`}>
                                                 {ms.milestone}
                                             </span>
                                         </div>
@@ -180,14 +180,14 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                             'use server';
                                             await deleteMilestone(id, ms.id);
                                         }}>
-                                            <button className="text-gray-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity p-1">
+                                            <button className="text-slate-600 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity p-1">
                                                 <Trash2 size={14} />
                                             </button>
                                         </form>
                                     </div>
                                 ))
                             ) : (
-                                <div className="text-center py-8 text-gray-400 border border-dashed border-gray-200 rounded-xl">
+                                <div className="text-center py-8 text-slate-500 border border-dashed border-gray-200 rounded-xl">
                                     <p className="text-sm">No milestones added yet.</p>
                                 </div>
                             )}
@@ -239,7 +239,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                     placeholder="Description"
                                 />
                             </div>
-                            <div className="flex items-center gap-4 text-xs font-medium text-gray-500 px-1">
+                            <div className="flex items-center gap-4 text-xs font-medium text-slate-400 px-1">
                                 <label className="flex items-center gap-1 cursor-pointer">
                                     <input type="radio" name="status" value="pending" defaultChecked className="text-green-600" /> Pending
                                 </label>
@@ -247,7 +247,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                     <input type="radio" name="status" value="paid" className="text-green-600" /> Paid
                                 </label>
                             </div>
-                            <Button className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 text-sm font-bold shadow-md shadow-green-100 transition-all active:scale-95">
+                            <Button className="w-full bg-green-600 text-slate-900 py-2 rounded-lg hover:bg-green-700 text-sm font-bold shadow-md shadow-green-100 transition-all active:scale-95">
                                 Generate Invoice
                             </Button>
                         </form>
@@ -257,7 +257,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                 payments.map((pay) => (
                                     <div key={pay.id} className="flex flex-col p-3 rounded-xl border border-gray-50 hover:bg-gray-50 transition-colors group">
                                         <div className="flex justify-between items-start mb-1">
-                                            <span className="text-xs font-mono text-gray-400">#{pay.invoice_number}</span>
+                                            <span className="text-xs font-mono text-slate-500">#{pay.invoice_number}</span>
                                             <span className={`text-[10px] uppercase font-black px-1.5 py-0.5 rounded ${pay.status === 'paid' ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
                                                 {pay.status}
                                             </span>
@@ -274,7 +274,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                     </div>
                                 ))
                             ) : (
-                                <p className="text-center text-gray-400 text-sm py-4">No invoices yet.</p>
+                                <p className="text-center text-slate-500 text-sm py-4">No invoices yet.</p>
                             )}
                         </div>
                     </div>
@@ -308,11 +308,11 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                     className="flex-1 p-2 border border-gray-100 bg-gray-50 rounded-lg text-sm outline-none focus:border-orange-500 focus:bg-white"
                                     placeholder="File URL (Vercel, GDrive, etc.)"
                                 />
-                                <Button className="bg-orange-500 text-white p-2 rounded-lg hover:bg-orange-600 transition-all">
+                                <Button className="bg-orange-500 text-slate-900 p-2 rounded-lg hover:bg-orange-600 transition-all">
                                     <Plus size={20} />
                                 </Button>
                             </div>
-                            <p className="text-[10px] text-gray-400 mt-1 italic">Note: Files are currently hosted externally. Provide a download link.</p>
+                            <p className="text-[10px] text-slate-500 mt-1 italic">Note: Files are currently hosted externally. Provide a download link.</p>
                         </form>
 
                         <div className="space-y-3">
@@ -325,14 +325,14 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                             </div>
                                             <div className="overflow-hidden">
                                                 <p className="text-sm font-bold text-gray-800 truncate">{file.file_name}</p>
-                                                <p className="text-[10px] text-gray-400">{new Date(file.created_at).toLocaleDateString()}</p>
+                                                <p className="text-[10px] text-slate-500">{new Date(file.created_at).toLocaleDateString()}</p>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-1">
                                             <a
                                                 href={file.file_url}
                                                 target="_blank"
-                                                className="p-1.5 text-gray-400 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
+                                                className="p-1.5 text-slate-500 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
                                             >
                                                 <ExternalLink size={14} />
                                             </a>
@@ -340,7 +340,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                                 'use server';
                                                 await deleteFile(id, file.id);
                                             }}>
-                                                <button className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
+                                                <button className="p-1.5 text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
                                                     <Trash2 size={14} />
                                                 </button>
                                             </form>
@@ -348,7 +348,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                                     </div>
                                 ))
                             ) : (
-                                <div className="text-center py-6 text-gray-400 text-sm">
+                                <div className="text-center py-6 text-slate-500 text-sm">
                                     No files shared yet.
                                 </div>
                             )}

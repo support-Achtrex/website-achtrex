@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FAQItem = ({ question, answer, isOpen, onClick }: { question: string; answer: string; isOpen: boolean; onClick: () => void }) => {
   return (
-    <div className={`mb-4 border-b border-white/10 overflow-hidden`}>
+    <div className={`mb-4 border-b border-slate-200 overflow-hidden`}>
       <button
         className="w-full flex justify-between items-center text-left py-4 group"
         onClick={onClick}
       >
-        <span className={`text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-primary' : 'text-white group-hover:text-primary/80'}`}>
+        <span className={`text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-primary' : 'text-slate-900 group-hover:text-primary/80'}`}>
           {question}
         </span>
         <div className={`p-1.5 rounded-full border border-white/5 bg-transparent/5 transition-colors duration-300 group-hover:bg-primary/20 group-hover:border-primary/20 group-hover:text-primary`}>
@@ -75,7 +75,7 @@ export const FAQSection = () => {
             className="md:col-span-4 space-y-4"
           >
             <span className="text-primary text-sm font-semibold tracking-wider uppercase">Support</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight font-display">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight font-display">
               Common <br /> Questions
             </h2>
             <p className="text-muted-foreground text-base leading-relaxed">
