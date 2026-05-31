@@ -197,7 +197,7 @@ export const Navbar = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-[76px] left-4 right-4 bg-[#0f172a] border border-white/10 rounded-2xl overflow-y-auto max-h-[calc(100vh-100px)] overscroll-contain shadow-2xl lg:hidden"
+                        className="fixed top-[76px] left-4 right-4 bottom-4 bg-[#0f172a] border border-white/10 rounded-2xl overflow-y-auto overscroll-contain shadow-2xl lg:hidden"
                     >
                         <div className="px-5 py-5 space-y-1 flex flex-col">
                             {navLinks.map((link) => (
