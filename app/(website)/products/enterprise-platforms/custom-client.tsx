@@ -9,22 +9,24 @@ export default function CustomClient() {
     return (
         <main className="min-h-screen bg-[#F8F9FA] text-slate-900 selection:bg-[#489EE6] selection:text-slate-900 pt-24 pb-20">
             {/* 1. Header */}
-            <div className="bg-gradient-to-br from-[#0c1222] to-[#489EE6]/20 border-b border-[#489EE6]/10 py-16 px-6">
+            <div className="bg-gradient-to-br from-blue-50 via-white to-slate-50 border-b border-slate-200 py-16 px-6">
                 <div className="max-w-[1200px] mx-auto">
-                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#489EE6]/60 mb-6 flex items-center gap-2">
+                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-6 flex items-center gap-2">
                         <span>Portfolio</span>
-                        <span className="text-[#489EE6]/30">/</span>
-                        <span className="text-[#489EE6]">Enterprise Automotive Platforms</span>
+                        <span className="text-slate-300">/</span>
+                        <span className="text-slate-700">Enterprise Automotive Platforms</span>
                     </nav>
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-8">
-                        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#489EE6] to-[#174395] flex items-center justify-center shadow-lg shadow-blue-500/20 shrink-0">
-                            <Code2 size={40} className="text-slate-900" />
+                        <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#109dd7] to-[#117460] flex items-center justify-center shadow-lg shadow-blue-500/20 shrink-0">
+                            <Code2 size={40} className="text-white" />
                         </div>
                         <div>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#489EE6] via-[#174395] to-[#861F80] mb-2">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-gradient mb-4 drop-shadow-sm">
                                 Enterprise Automotive Platforms
                             </h1>
-                            <p className="text-xl text-slate-400 font-bold max-w-3xl">Delivering cutting-edge custom architecture and API integrations to empower your automotive business.</p>
+                            <p className="text-xl text-slate-600 font-medium max-w-3xl mb-4">
+                                Delivering cutting-edge custom architecture and API integrations to empower your automotive business with scalable enterprise infrastructure.
+                            </p>
                         </div>
                     </div>
                 </div>

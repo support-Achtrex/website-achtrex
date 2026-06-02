@@ -7,7 +7,6 @@ import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
 import { InvoicePDF } from '@/components/invoice/InvoicePDF';
 import { ProjectReport } from '@/components/invoice/ProjectReport';
 import { renderToBuffer } from '@react-pdf/renderer';
-import { jsPDF } from 'jspdf';
 import { sql } from '@/lib/db';
 
 const getTransporter = () => {
@@ -193,168 +192,24 @@ function generateEmailHtml(data: InvoiceData) {
 
 export async function generateInvoicePDF(data: InvoiceData, title: string = 'Invoice'): Promise<Buffer> {
     try {
-        console.log("PDF Generation: Starting browserless generation for", title, data.invoice_number);
+        console.log("PDF Generation: Starting react-pdf generation for", title, data.invoice_number);
 
-        // Read Logo
-        const logoPath = path.join(process.cwd(), 'public', 'images', 'achtrex-logo.png');
-        let logoBase64 = '';
-        try {
-            const logoBuffer = fs.readFileSync(logoPath);
-            logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`;
-        } catch (e) {
-            console.error("Error reading logo for PDF:", e);
-        }
-
-        const doc = new jsPDF();
-        
-        const settingsRes = await sql`SELECT value FROM settings WHERE key = 'payment_details'`;
-        const paymentDetails = settingsRes.rows.length > 0 ? JSON.parse(settingsRes.rows[0].value) : {
-            bank_name: "Fidelity Bank",
-            account_name: "Achtrex Services",
-            account_number: "2400931904813",
-            swift_bic: "FBLIGHAC"
+        const payment = {
+            status: data.status,
+            amount: data.amount,
+            currency: data.currency || 'USD',
+            created_at: new Date(data.date).toISOString(),
+            invoice_number: data.invoice_number,
+            description: data.description,
+        };
+        const client = {
+            name: data.client_name,
+            email: data.client_email,
+            company: '',
         };
 
-        // Header
-        doc.setFontSize(24);
-        doc.setTextColor(17, 24, 39); // #111827
-        doc.text('INVOICE', 10, 20);
-        
-        doc.setFontSize(10);
-        doc.setTextColor(107, 114, 128); // #6B7280
-        doc.text(`# ${data.invoice_number || 'N/A'}`, 10, 26);
-        
-        // Add Logo on the right
-        if (logoBase64) {
-            try {
-                doc.addImage(logoBase64, 'PNG', 160, 10, 40, 15);
-            } catch (e) {
-                console.error("Error adding logo to PDF:", e);
-            }
-        }
-        
-        // Divider line
-        doc.setDrawColor(229, 231, 235); // #E5E7EB
-        doc.line(10, 32, 200, 32);
-        
-        // Two Columns: From and Billed To
-        doc.setFontSize(12);
-        doc.setTextColor(107, 114, 128);
-        doc.text('FROM:', 10, 42);
-        doc.text('BILLED TO:', 120, 42);
-        
-        doc.setFontSize(10);
-        doc.setTextColor(17, 24, 39);
-        // From Address
-        doc.setFont("Helvetica", "bold");
-        doc.text('Achtrex Services', 10, 48);
-        doc.setFont("Helvetica", "normal");
-        doc.text('support@achtrex.com', 10, 53);
-        doc.text('www.achtrex.com', 10, 58);
-        
-        // Billed To Address
-        doc.setFont("Helvetica", "bold");
-        doc.text(`${data.client_name || 'Valued Client'}`, 120, 48);
-        doc.setFont("Helvetica", "normal");
-        doc.text(`${data.client_email || ''}`, 120, 53);
-        if (data.client_address) {
-            const lines = data.client_address.split('\n');
-            let y = 58;
-            lines.forEach(line => {
-                doc.text(line, 120, y);
-                y += 5;
-            });
-        } else {
-            doc.text('123 Business Road, Suite 100', 120, 58);
-            doc.text('City, Country', 120, 63);
-        }
-        
-        // Invoice Details
-        doc.setDrawColor(229, 231, 235);
-        doc.line(10, 70, 200, 70);
-        
-        doc.setFontSize(10);
-        doc.setTextColor(107, 114, 128);
-        doc.text('Invoice Details:', 10, 78);
-        
-        doc.setTextColor(17, 24, 39);
-        doc.setFont("Helvetica", "bold");
-        doc.text('Date of Issue:', 10, 84);
-        doc.setFont("Helvetica", "normal");
-        doc.text(`${data.date || 'N/A'}`, 40, 84);
-        
-        doc.setFont("Helvetica", "bold");
-        doc.text('Status:', 10, 89);
-        doc.setFont("Helvetica", "normal");
-        const isPaid = (data.status || '').toLowerCase() === 'paid';
-        doc.setTextColor(isPaid ? 16 : 245, isPaid ? 185 : 158, isPaid ? 129 : 11); // Green or Orange
-        doc.text(`${(data.status || 'N/A').toUpperCase()}`, 40, 89);
-        
-        // Table Header
-        doc.setFillColor(17, 24, 39); // #111827
-        doc.rect(10, 100, 190, 10, 'F');
-        doc.setFontSize(10);
-        doc.setTextColor(255, 255, 255);
-        doc.setFont("Helvetica", "bold");
-        doc.text('Description', 15, 106);
-        doc.text('Amount', 170, 106);
-        
-        // Table Content
-        doc.setTextColor(17, 24, 39);
-        doc.setFont("Helvetica", "normal");
-        doc.text(`${data.description || 'No description'}`, 15, 120);
-        doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 170, 120);
-        
-        // Divider
-        doc.setDrawColor(229, 231, 235);
-        doc.line(10, 130, 200, 130);
-        
-        // Totals
-        doc.setFontSize(10);
-        doc.setTextColor(107, 114, 128);
-        doc.text('Subtotal:', 120, 140);
-        doc.setTextColor(17, 24, 39);
-        doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 170, 140);
-        
-        doc.setFontSize(12);
-        doc.setFont("Helvetica", "bold");
-        doc.text('Total:', 120, 150);
-        doc.text(`${Number(data.amount).toLocaleString('en-US', { style: 'currency', currency: data.currency || 'USD' })}`, 170, 150);
-        
-        // Payment Details Block
-        doc.setFillColor(249, 250, 251); // #F9FAFB
-        doc.setDrawColor(229, 231, 235); // #E5E7EB
-        doc.rect(10, 165, 100, 32, 'FD');
-        
-        doc.setFontSize(10);
-        doc.setTextColor(17, 24, 39);
-        doc.setFont("Helvetica", "bold");
-        doc.text('Payment Details', 15, 171);
-        
-        doc.setFontSize(8);
-        doc.setTextColor(107, 114, 128);
-        doc.setFont("Helvetica", "bold");
-        doc.text('Bank Name:', 15, 177);
-        doc.text('Account Name:', 15, 182);
-        doc.text('Account Number:', 15, 187);
-        doc.text('SWIFT/BIC:', 15, 192);
-        
-        doc.setTextColor(17, 24, 39);
-        doc.setFont("Helvetica", "normal");
-        doc.text(`${paymentDetails.bank_name}`, 45, 177);
-        doc.text(`${paymentDetails.account_name}`, 45, 182);
-        doc.text(`${paymentDetails.account_number}`, 45, 187);
-        doc.text(`${paymentDetails.swift_bic}`, 45, 192);
-        
-        // Footer
-        doc.setFontSize(10);
-        doc.setTextColor(107, 114, 128);
-        doc.setFont("Helvetica", "normal");
-        doc.text('Thank you for your business!', 105, 210, { align: 'center' });
-        doc.text(`© ${new Date().getFullYear()} Copyright Achtrex. All rights reserved.`, 105, 215, { align: 'center' });
-        
-        const pdfOutput = doc.output('arraybuffer');
-        return Buffer.from(pdfOutput);
+        const pdfBuffer = await renderToBuffer(<InvoicePDF payment={payment} client={client} documentTitle={title} />);
+        return pdfBuffer;
 
     } catch (error: any) {
         console.error("PDF generation failed:", error);
@@ -364,40 +219,8 @@ export async function generateInvoicePDF(data: InvoiceData, title: string = 'Inv
 
 export async function generateProjectReportPDF(subscriber: any, notes: any[], milestones: any[], reportType: string = "Weekly Progress Report"): Promise<Buffer> {
     try {
-        const logoPath = path.join(process.cwd(), 'public', 'images', 'achtrex-logo.png');
-        let logoBase64 = '';
-        try {
-            const logoBuffer = fs.readFileSync(logoPath);
-            logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`;
-        } catch (e) {
-            console.error("Error reading logo for Report:", e);
-        }
-
-        const doc = new jsPDF();
-        doc.setFontSize(20);
-        doc.text(reportType || 'Project Report', 10, 20);
-        
-        doc.setFontSize(12);
-        doc.text(`Client: ${subscriber.name || subscriber.email || 'N/A'}`, 10, 40);
-        doc.text(`Company: ${subscriber.company || 'N/A'}`, 10, 50);
-        
-        doc.text(`Milestones:`, 10, 70);
-        let y = 80;
-        milestones.forEach((m: any) => {
-            doc.text(`- ${m.milestone || 'Untitled'} (${m.status || 'pending'})`, 10, y);
-            y += 10;
-        });
-        
-        doc.text(`Notes:`, 10, y + 10);
-        y += 20;
-        notes.forEach((n: any) => {
-            const text = n.content ? n.content.replace(/<[^>]+>/g, '').trim() : 'No content';
-            doc.text(`- ${text.substring(0, 80)}`, 10, y); // Limit length to avoid wrapping issues in simple generator
-            y += 10;
-        });
-        
-        const pdfOutput = doc.output('arraybuffer');
-        return Buffer.from(pdfOutput);
+        const pdfBuffer = await renderToBuffer(<ProjectReport subscriber={subscriber} notes={notes} milestones={milestones} reportType={reportType} />);
+        return pdfBuffer;
     } catch (error: any) {
         console.error("Report PDF generation failed:", error);
         throw new Error(`Report PDF generation failed: ${error.message}`);

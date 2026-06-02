@@ -19,7 +19,7 @@ export const LatestNews = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                     <div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Latest News</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gradient">Latest News</h2>
                     </div>
                     <Link href="/blog" className="flex items-center text-sm font-bold text-slate-900 hover:text-[#174395] uppercase tracking-widest hover:underline transition-colors">
                         View All News <ArrowRight className="ml-2 w-4 h-4" />

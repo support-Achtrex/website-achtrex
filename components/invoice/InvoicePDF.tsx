@@ -236,7 +236,7 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({ payment, client, logoSrc
                     <Text style={styles.thankYou}>
                         {isPaid ? 'Thank you for your payment!' : 'Thank you for your business!'}
                     </Text>
-                    <Text>© {new Date().getFullYear()} Copyright Achtrex. All rights reserved.</Text>
+                    <Text>{`© ${new Date().getFullYear()} Copyright Achtrex. All rights reserved.`}</Text>
                     <Text>Contact Us | Privacy | Terms & Conditions</Text>
                 </View>
             </Page>

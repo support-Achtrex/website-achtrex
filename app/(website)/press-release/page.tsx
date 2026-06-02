@@ -78,7 +78,7 @@ export default function PressReleasePage() {
                             <div className="flex flex-col gap-10">
                                 {latestPress.map((press) => (
                                     <Link key={press.id} href={`/press-release/${press.slug}`} className="group grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
-                                        <div className="md:col-span-1 relative h-[140px] rounded-lg overflow-hidden bg-transparent/5">
+                                        <div className="md:col-span-1 relative aspect-video md:aspect-auto md:h-[140px] rounded-lg overflow-hidden bg-transparent/5">
                                             <Image
                                                 src={press.image}
                                                 alt={press.title}

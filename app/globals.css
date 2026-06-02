@@ -1,5 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@source "../app";
+@source "../components";
+@source "../lib";
+@source "../utilities";
 
 :root {
   --background: #070b14; /* deep space black */
@@ -23,7 +27,7 @@
   --logo-gradient: linear-gradient(to right, #109dd7, #117460);
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);

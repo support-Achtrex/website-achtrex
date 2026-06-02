@@ -137,8 +137,8 @@ export const BookingClient = () => {
                                     className="!m-0 text-gray-800 calendar-custom"
                                     disabled={{ before: new Date(), dayOfWeek: [0, 6] }}
                                     classNames={{
-                                        day_selected: "!bg-blue-600 !text-slate-900 hover:!bg-blue-700",
-                                        day_today: "text-blue-600 font-bold",
+                                        selected: "!bg-blue-600 !text-white hover:!bg-blue-700",
+                                        today: "text-blue-600 font-bold",
                                     }}
                                 />
                             </div>

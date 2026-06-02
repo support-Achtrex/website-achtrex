@@ -70,8 +70,8 @@ export const AboutContent = () => {
             {/* ─── HERO ─────────────────────────────────────────────────────── */}
             <div className="relative overflow-hidden pt-28 pb-10 px-6 border-b border-slate-200 bg-transparent">
                 <div className="relative z-10 max-w-[1200px] mx-auto text-center flex flex-col items-center">
-                    <h1 className="text-[40px] md:text-[56px] font-black tracking-[-0.03em] leading-[1] text-slate-900 mb-4">
-                        About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-500 to-emerald-600">Achtrex</span>
+                    <h1 className="text-[40px] md:text-[56px] font-black tracking-[-0.03em] leading-[1] text-gradient mb-4">
+                        About Achtrex
                     </h1>
 
                     <div className="text-[14px] md:text-[15px] text-slate-500 max-w-4xl leading-relaxed font-medium mb-8 text-center space-y-4">
@@ -112,7 +112,7 @@ export const AboutContent = () => {
                     {/* Leadership */}
                     <div className="lg:col-span-7 flex flex-col gap-4">
                         <div className="px-2">
-                            <h2 className="text-[20px] font-bold text-slate-900">Leadership</h2>
+                            <h2 className="text-[20px] font-bold text-gradient">Leadership</h2>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-6 bg-transparent border border-slate-200 rounded-3xl p-6 shadow-sm h-full">
                             <div className="relative w-full sm:w-40 aspect-square sm:aspect-[4/5] shrink-0 rounded-2xl overflow-hidden bg-white">
@@ -143,7 +143,7 @@ export const AboutContent = () => {
                     {/* Core Values */}
                     <div className="lg:col-span-5 flex flex-col gap-4">
                         <div className="px-2">
-                            <h2 className="text-[20px] font-bold text-slate-900">Core Values</h2>
+                            <h2 className="text-[20px] font-bold text-gradient">Core Values</h2>
                         </div>
                         <div className="grid grid-cols-2 gap-3 h-full">
                             {values.map((v, i) => (
@@ -162,7 +162,7 @@ export const AboutContent = () => {
                     {/* Mission */}
                     <div className="rounded-3xl bg-transparent border border-slate-200 p-8 shadow-sm flex flex-col hover:border-blue-300 transition-colors">
 
-                        <h2 className="text-xl font-bold text-slate-900 mb-3">Our Mission</h2>
+                        <h2 className="text-xl font-bold text-gradient mb-3">Our Mission</h2>
                         <p className="text-[14px] text-slate-500 leading-relaxed font-medium">
                             To provide scalable enterprise infrastructure that enables businesses to access intelligent automotive data, cognitive AI systems, and real-time mobility intelligence through secure, modern digital architectures.
                         </p>
@@ -171,7 +171,7 @@ export const AboutContent = () => {
                     {/* Vision */}
                     <div className="rounded-3xl bg-transparent border border-slate-200 p-8 shadow-sm flex flex-col hover:border-teal-300 transition-colors">
 
-                        <h2 className="text-xl font-bold text-slate-900 mb-3">Our Vision</h2>
+                        <h2 className="text-xl font-bold text-gradient mb-3">Our Vision</h2>
                         <p className="text-[14px] text-slate-500 leading-relaxed font-medium">
                             To build one of the world&apos;s leading automotive intelligence and cognitive infrastructure ecosystems — powering the future of connected mobility and AI-driven vehicle intelligence.
                         </p>
@@ -181,7 +181,7 @@ export const AboutContent = () => {
                     <div className="rounded-3xl border border-rose-500/30 p-8 bg-rose-900/10 hover:border-rose-500/50 transition-colors">
                         <div className="flex items-center gap-3 mb-4">
 
-                            <h3 className="text-xl font-bold text-slate-900">Industry Fragmentation</h3>
+                            <h3 className="text-xl font-bold text-gradient">Industry Fragmentation</h3>
                         </div>
                         <ul className="space-y-3">
                             {[
@@ -201,7 +201,7 @@ export const AboutContent = () => {
                     <div className="rounded-3xl border border-emerald-500/30 p-8 bg-emerald-900/10 hover:border-emerald-500/50 transition-colors">
                         <div className="flex items-center gap-3 mb-4">
 
-                            <h3 className="text-xl font-bold text-slate-900">The Achtrex Solution</h3>
+                            <h3 className="text-xl font-bold text-gradient">The Achtrex Solution</h3>
                         </div>
                         <ul className="space-y-3">
                             {[
@@ -221,7 +221,7 @@ export const AboutContent = () => {
                 {/* ROW 3: Platform Ecosystem */}
                 <div className="flex flex-col gap-4">
                     <div className="px-2">
-                        <h2 className="text-[20px] font-bold text-slate-900">Platform Ecosystem</h2>
+                        <h2 className="text-[20px] font-bold text-gradient">Platform Ecosystem</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         {platforms.map((p, i) => (
@@ -252,7 +252,7 @@ export const AboutContent = () => {
                 <div className="relative rounded-3xl bg-gradient-to-r from-[#111112] via-[#0a0a0b] to-[#111112] border border-slate-200 overflow-hidden shadow-sm mt-2">
                     <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 p-8 md:p-10 text-center sm:text-left">
                         <div>
-                            <h2 className="text-[24px] font-black text-slate-900 mb-2 tracking-tight">Ready to build on Achtrex?</h2>
+                            <h2 className="text-[24px] font-black text-gradient mb-2 tracking-tight">Ready to build on Achtrex?</h2>
                             <p className="text-[14px] text-slate-500 font-medium">
                                 Contact our team to discuss integration at <a href="mailto:support@achtrex.com" className="text-teal-600 hover:text-teal-700 font-bold">support@achtrex.com</a>
                             </p>

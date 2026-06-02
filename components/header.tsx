@@ -108,7 +108,7 @@ export const Navbar = () => {
                             className="object-contain"
                         />
                     </div>
-                    <span className={cn("text-[20px] lg:text-[22px] font-bold text-slate-900 tracking-wide", montserrat.className)}>Achtrex</span>
+                    <span className={cn("text-[20px] lg:text-[22px] font-bold tracking-wide", montserrat.className, scrolled || !isHome ? "text-slate-900" : "text-white")}>Achtrex</span>
                 </Link>
 
                 <div className="flex items-center gap-10">
@@ -119,11 +119,14 @@ export const Navbar = () => {
                                 <Link
                                     href={link.sub ? "#" : link.href}
                                     onClick={(e) => link.sub ? e.preventDefault() : null}
-                                    className="text-[14px] font-semibold text-slate-900/90 hover:text-slate-900 transition-colors flex items-center gap-1.5"
+                                    className={cn(
+                                        "text-[14px] font-semibold transition-colors flex items-center gap-1.5",
+                                        scrolled || !isHome ? "text-slate-900/90 hover:text-slate-900" : "text-white/90 hover:text-white"
+                                    )}
                                 >
                                     {link.label}
                                     {link.sub && (
-                                        <svg className="w-3.5 h-3.5 opacity-60 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg className={cn("w-3.5 h-3.5 opacity-60 transition-transform group-hover:rotate-180", scrolled || !isHome ? "text-slate-900" : "text-white")} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                                         </svg>
                                     )}
@@ -183,7 +186,7 @@ export const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="lg:hidden p-2 text-slate-900 hover:text-slate-600 transition-colors"
+                    className={cn("lg:hidden p-2 transition-colors", scrolled || !isHome ? "text-slate-900 hover:text-slate-600" : "text-white hover:text-gray-200")}
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
