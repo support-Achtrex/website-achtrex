@@ -1,30 +1,11 @@
 import 'server-only';
-import path from 'path';
-import fs from 'fs';
-import nodemailer from 'nodemailer';
 import React from 'react';
-import { InvoiceTemplate } from '@/components/invoice/InvoiceTemplate';
 import { InvoicePDF } from '@/components/invoice/InvoicePDF';
 import { ProjectReport } from '@/components/invoice/ProjectReport';
 import { renderToBuffer } from '@react-pdf/renderer';
-import { sql } from '@/lib/db';
+import { Resend } from 'resend';
 
-const getTransporter = () => {
-    const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
-    const smtpPassword = (process.env.SMTP_PASS || '').replace(/['"]/g, '');
-    return nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-            user: smtpEmail,
-            pass: smtpPassword
-        },
-        connectionTimeout: 10000, // 10 seconds
-        socketTimeout: 15000, // 15 seconds
-        pool: true, // Use pooled connections
-    });
-};
+const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder');
 
 interface InvoiceData {
     invoice_number: string;
@@ -44,10 +25,10 @@ export async function sendInvoiceEmail(data: InvoiceData) {
         const htmlContent = generateEmailHtml(data);
         const textContent = generatePlainText(data);
 
-        const transporter = getTransporter();
-        const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
-        await transporter.sendMail({
-            from: `"Achtrex Billing" <${smtpEmail}>`,
+        const fromEmail = process.env.SMTP_USER || 'support@achtrex.com';
+        
+        await resend.emails.send({
+            from: `Achtrex Billing <${fromEmail}>`,
             to: data.client_email,
             subject: `Invoice #${data.invoice_number} from Achtrex`,
             text: textContent,
@@ -278,10 +259,9 @@ export async function sendWeeklyReportEmail(subscriber: any, notes: any[], miles
             </html>
         `;
 
-        const transporter = getTransporter();
-        const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
-        await transporter.sendMail({
-            from: `"Achtrex Project Updates" <${smtpEmail}>`,
+        const fromEmail = process.env.SMTP_USER || 'support@achtrex.com';
+        await resend.emails.send({
+            from: `Achtrex Project Updates <${fromEmail}>`,
             to: subscriber.email,
             subject: `Weekly Progress Report - ${new Date().toLocaleDateString()}`,
             html: html,
@@ -381,10 +361,9 @@ export async function sendPayslipEmail(member: any, payroll: any) {
             </html>
         `;
 
-        const transporter = getTransporter();
-        const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
-        await transporter.sendMail({
-            from: `"Achtrex HR" <${smtpEmail}>`,
+        const fromEmail = process.env.SMTP_USER || 'support@achtrex.com';
+        await resend.emails.send({
+            from: `Achtrex HR <${fromEmail}>`,
             to: member.email,
             subject: `Payslip Available: ${formattedDate}`,
             html: html,
