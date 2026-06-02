@@ -13,11 +13,16 @@ const getTransporter = () => {
     const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
     const smtpPassword = (process.env.SMTP_PASS || '').replace(/['"]/g, '');
     return nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         auth: {
             user: smtpEmail,
             pass: smtpPassword
-        }
+        },
+        connectionTimeout: 10000, // 10 seconds
+        socketTimeout: 15000, // 15 seconds
+        pool: true, // Use pooled connections
     });
 };
 
