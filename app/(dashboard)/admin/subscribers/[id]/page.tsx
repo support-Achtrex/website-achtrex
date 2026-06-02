@@ -15,6 +15,7 @@ import {
 } from '@/app/actions/client-management';
 import { Button } from '@/components/buttons';
 import NotesManager from '@/components/NotesManager';
+import { SendReportButton, GenerateInvoiceForm } from './client-actions';
 
 export const dynamic = 'force-dynamic';
 
@@ -101,15 +102,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                             <Download size={16} />
                             Download Report
                         </a>
-                        <form action={async () => {
-                            'use server';
-                            await sendWeeklyReport(id);
-                        }}>
-                            <Button className="bg-purple-600 text-slate-900 px-4 py-2 rounded-xl font-bold shadow-lg shadow-purple-100 flex items-center gap-2 text-sm">
-                                <Mail size={16} />
-                                Send Weekly Update
-                            </Button>
-                        </form>
+                        <SendReportButton subscriberId={id} />
                     </div>
                 </div>
             </div>
@@ -214,43 +207,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                             Invoices
                         </h2>
 
-                        <form action={async (formData) => {
-                            'use server';
-                            await recordPayment(
-                                id,
-                                parseFloat(formData.get('amount') as string),
-                                formData.get('description') as string,
-                                formData.get('status') as string || 'pending'
-                            );
-                        }} className="mb-6 bg-gray-50/50 p-4 rounded-xl space-y-3 border border-gray-100">
-                            <div className="flex gap-2">
-                                <input
-                                    name="amount"
-                                    type="number"
-                                    step="0.01"
-                                    required
-                                    className="w-1/3 p-2 border border-gray-200 rounded-lg text-sm outline-none focus:border-green-500 focus:bg-white"
-                                    placeholder="Amount ($)"
-                                />
-                                <input
-                                    name="description"
-                                    required
-                                    className="flex-1 p-2 border border-gray-200 rounded-lg text-sm outline-none focus:border-green-500 focus:bg-white"
-                                    placeholder="Description"
-                                />
-                            </div>
-                            <div className="flex items-center gap-4 text-xs font-medium text-slate-400 px-1">
-                                <label className="flex items-center gap-1 cursor-pointer">
-                                    <input type="radio" name="status" value="pending" defaultChecked className="text-green-600" /> Pending
-                                </label>
-                                <label className="flex items-center gap-1 cursor-pointer">
-                                    <input type="radio" name="status" value="paid" className="text-green-600" /> Paid
-                                </label>
-                            </div>
-                            <Button className="w-full bg-green-600 text-slate-900 py-2 rounded-lg hover:bg-green-700 text-sm font-bold shadow-md shadow-green-100 transition-all active:scale-95">
-                                Generate Invoice
-                            </Button>
-                        </form>
+                        <GenerateInvoiceForm subscriberId={id} />
 
                         <div className="space-y-3">
                             {payments.length > 0 ? (

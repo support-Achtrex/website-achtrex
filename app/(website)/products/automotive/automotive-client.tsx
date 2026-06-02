@@ -9,34 +9,37 @@ export default function AutomotiveClient() {
     return (
         <main className="min-h-screen bg-[#F8F9FA] text-slate-900 selection:bg-[#174395] selection:text-white pt-24 pb-20">
             {/* 1. Header */}
-            <div className="bg-gradient-to-br from-[#0c1222] to-[#174395]/20 border-b border-[#174395]/10 py-16 px-6">
+            <div className="bg-gradient-to-br from-blue-50 via-white to-slate-50 border-b border-slate-200 py-16 px-6">
                 <div className="max-w-[1200px] mx-auto">
-                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#174395]/60 mb-6 flex items-center gap-2">
+                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-6 flex items-center gap-2">
                         <span>Portfolio</span>
-                        <span className="text-[#174395]/30">/</span>
-                        <span className="text-[#174395]">Automotive Dataset</span>
+                        <span className="text-slate-300">/</span>
+                        <span className="text-slate-700">Automotive Dataset</span>
                     </nav>
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-8">
-                        <div className="relative w-48 md:w-64 aspect-[3/2]">
+                        <div className="relative w-48 md:w-64 aspect-[3/2] bg-white rounded-2xl shadow-sm p-4 border border-slate-100 flex items-center justify-center">
                             <Image 
                                 src="/projects/ad-logo.png" 
                                 alt="Automotive Dataset Logo" 
                                 fill 
-                                className="object-contain" 
+                                className="object-contain p-2" 
                             />
                         </div>
                         <div>
-                            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#174395] via-[#861F80] to-[#F2147A] mb-2">
+                            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-gradient mb-4 drop-shadow-sm">
                                 Automotive Dataset
                             </h1>
-                            <a href="https://automotivedataset.com" target="_blank" rel="noreferrer" className="text-[#489EE6] font-bold hover:underline flex items-center gap-1">
+                            <p className="text-xl text-slate-600 font-medium max-w-2xl mb-4">
+                                The backbone of mobility intelligence. Access 2.5M+ vehicle records, VIN-to-Build-Sheet mapping, real-time specs, auctions, vehicle images, history reports, repair & maintenance data, and more through our high-availability API engine.
+                            </p>
+                            <a href="https://automotivedataset.com" target="_blank" rel="noreferrer" className="text-[#109dd7] font-bold hover:underline flex items-center gap-1">
                                 automotivedataset.com <ArrowRight size={14} />
                             </a>
                         </div>
                     </div>
                     <div className="flex gap-4">
-                        <span className="px-4 py-1.5 rounded-full bg-[#F8F9FA] border border-[#c2fce3]/20 text-[#174395] text-sm font-semibold shadow-sm">Global Vehicle Data</span>
-                        <span className="px-4 py-1.5 rounded-full bg-[#174395] text-white text-sm font-semibold shadow-sm">Real-time APIs</span>
+                        <span className="px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-semibold shadow-sm">Global Vehicle Data</span>
+                        <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#109dd7] to-[#117460] text-white text-sm font-semibold shadow-sm">Real-time APIs</span>
                     </div>
                 </div>
             </div>

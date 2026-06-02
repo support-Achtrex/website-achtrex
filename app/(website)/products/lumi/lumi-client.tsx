@@ -9,35 +9,37 @@ export default function LumiClient() {
     return (
         <main className="min-h-screen bg-[#F8F9FA] text-slate-900 selection:bg-[#861F80] selection:text-slate-900 pt-24 pb-20">
             {/* 1. Header */}
-            <div className="bg-gradient-to-br from-[#0c1222] to-[#861F80]/20 border-b border-[#861F80]/10 py-12 px-6">
+            <div className="bg-gradient-to-br from-blue-50 via-white to-slate-50 border-b border-slate-200 py-16 px-6">
                 <div className="max-w-[1200px] mx-auto">
-                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#174395]/60 mb-6 flex items-center gap-2">
+                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-6 flex items-center gap-2">
                         <span>Portfolio</span>
-                        <span className="text-[#174395]/30">/</span>
-                        <span className="text-[#174395]">LUMI AI Platform</span>
+                        <span className="text-slate-300">/</span>
+                        <span className="text-slate-700">LUMI AI Platform</span>
                     </nav>
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-8">
-                        <div className="relative w-48 md:w-64 aspect-[3/2]">
+                        <div className="relative w-48 md:w-64 aspect-[3/2] bg-white rounded-2xl shadow-sm p-4 border border-slate-100 flex items-center justify-center">
                             <Image 
                                 src="/projects/lumi-logo.png" 
                                 alt="LUMI Platform Logo" 
                                 fill 
-                                className="object-contain" 
+                                className="object-contain p-2" 
                             />
                         </div>
                         <div>
-                            <h1 className="text-3xl md:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#174395] via-[#861F80] to-[#F2147A] mb-1">
+                            <h1 className="text-3xl md:text-5xl font-black tracking-tight text-gradient mb-4 drop-shadow-sm">
                                 LUMI AI Platform
                             </h1>
-                            <a href="https://lumi.achtrex.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#489EE6] hover:text-[#174395] font-bold text-lg mb-4 transition-colors">
+                            <p className="text-xl text-slate-600 font-medium max-w-2xl mb-4">
+                                The cognitive automotive platform delivering AI-driven vehicle intelligence, predictive analytics, and conversational diagnostics.
+                            </p>
+                            <a href="https://lumi.achtrex.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#109dd7] hover:text-[#117460] font-bold text-lg transition-colors">
                                 lumi.achtrex.com <ArrowRight size={16} className="ml-1.5" />
                             </a>
-                            <p className="text-xl text-slate-600 font-bold max-w-2xl">The cognitive automotive platform delivering AI-driven vehicle intelligence, predictive analytics, and conversational diagnostics.</p>
                         </div>
                     </div>
                     <div className="flex gap-4">
-                        <span className="px-4 py-1.5 rounded-full bg-[#F8F9FA] border border-[#c2fce3]/20 text-[#174395] text-sm font-semibold shadow-sm">Cognitive Platform</span>
-                        <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#1A8B8C] to-[#157172] text-white text-sm font-semibold shadow-sm">● Live</span>
+                        <span className="px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-semibold shadow-sm">Cognitive Platform</span>
+                        <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#109dd7] to-[#117460] text-white text-sm font-semibold shadow-sm">● Live</span>
                     </div>
                 </div>
             </div>

@@ -113,9 +113,9 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <body
-        className={`${inter.variable} font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-slate-900`}
+        className={`${inter.variable} font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-slate-900 overflow-x-hidden`}
       >
         <script
           type="application/ld+json"

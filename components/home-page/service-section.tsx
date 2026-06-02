@@ -15,7 +15,7 @@ export const ServicesGrid = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
-                            className="text-3xl md:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.05] mb-6">
+                            className="text-3xl md:text-4xl lg:text-[44px] font-bold text-gradient tracking-tight leading-[1.05] mb-6">
                             Want access to millions of vehicles?<br />
                             We've got the API keys.
                         </motion.h2>

@@ -26,7 +26,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-[32px] sm:text-[42px] lg:text-[52px] font-black leading-[1.1] tracking-tighter mb-6 text-slate-900 max-w-[1000px]"
+          className="text-[32px] sm:text-[42px] lg:text-[52px] font-black leading-[1.1] tracking-tighter mb-6 text-gradient max-w-[1000px]"
         >
           Engineering the Intelligence Layer <br className="hidden lg:block" />
           Behind Modern Automotive Platforms
@@ -36,7 +36,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-[16px] sm:text-[18px] text-slate-600 font-medium leading-relaxed max-w-[650px] mb-10"
+          className="text-[16px] sm:text-[18px] text-slate-200 font-medium leading-relaxed max-w-[650px] mb-10"
         >
           Achtrex builds scalable automotive intelligence infrastructure <br className="hidden md:block" />
           powering vehicle data systems, enterprise APIs, AI-driven automation, <br className="hidden md:block" />
@@ -72,32 +72,32 @@ export const Hero = () => {
 
       {/* Bottom Logos Banner */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[95%] max-w-[1200px] z-20 hidden md:block">
-          <div className="bg-transparent/5 backdrop-blur-md border border-slate-200 rounded-2xl flex justify-between items-center px-10 py-3.5">
+          <div className="bg-transparent/5 backdrop-blur-md border border-white/20 rounded-2xl flex justify-between items-center px-10 py-3.5">
               
               <div className="flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity cursor-default whitespace-nowrap">
-                  <span className="text-slate-900 font-black text-base tracking-tighter">Automotive</span>
+                  <span className="text-white font-black text-base tracking-tighter">Automotive</span>
                   <span className="text-[#38bdf8] font-bold text-base">Dataset</span>
               </div>
 
               <div className="w-px h-5 bg-transparent/10"></div>
 
               <div className="flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity cursor-default whitespace-nowrap">
-                  <span className="text-slate-900 font-bold text-base tracking-widest">LUMI</span>
+                  <span className="text-white font-bold text-base tracking-widest">LUMI</span>
                   <span className="text-[#a855f7] font-medium text-base">AI</span>
               </div>
 
               <div className="w-px h-5 bg-transparent/10"></div>
 
               <div className="flex items-center opacity-70 hover:opacity-100 transition-opacity cursor-default whitespace-nowrap">
-                  <span className="text-slate-900 font-bold text-base tracking-tight">Achtrex</span>
+                  <span className="text-white font-bold text-base tracking-tight">Achtrex</span>
                   <span className="text-[#34d399] font-light text-base ml-1">Core</span>
               </div>
 
               <div className="w-px h-5 bg-transparent/10"></div>
 
               <div className="flex items-center opacity-70 hover:opacity-100 transition-opacity cursor-default whitespace-nowrap">
-                  <span className="text-slate-900 font-bold text-base tracking-tight">Enterprise</span>
-                  <span className="text-slate-500 font-light text-base ml-1">Gateway</span>
+                  <span className="text-white font-bold text-base tracking-tight">Enterprise</span>
+                  <span className="text-slate-300 font-light text-base ml-1">Gateway</span>
               </div>
 
           </div>

@@ -100,7 +100,7 @@ export default async function AdminDashboard() {
                         <input type="text" name="swift_bic" defaultValue={paymentDetails.swift_bic} className="border border-gray-200 rounded-lg px-3 py-2 w-full text-sm" />
                     </div>
                     <div className="md:col-span-2 text-right">
-                        <button type="submit" className="bg-gray-900 text-slate-900 px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
+                        <button type="submit" className="bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
                             Save Payment Details
                         </button>
                     </div>

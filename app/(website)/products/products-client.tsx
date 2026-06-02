@@ -34,17 +34,43 @@ export default function ProductsClient() {
     ];
 
     return (
-        <div className="bg-transparent text-slate-900 font-sans antialiased min-h-screen pt-32 pb-24">
-            <div className="max-w-[1200px] mx-auto px-6 text-center mb-16">
-                <h1 className="text-[40px] md:text-[56px] font-black tracking-tight leading-[1.05] text-slate-900 mb-4">
-                    Product Ecosystem
-                </h1>
-                <p className="text-[16px] md:text-[18px] text-slate-500 max-w-2xl mx-auto font-medium">
-                    Explore our proprietary platforms powering modern automotive businesses.
-                </p>
+        <div className="bg-white text-slate-900 font-sans antialiased pb-24">
+            <div className="relative w-full bg-gradient-to-r from-blue-100 via-teal-50 to-emerald-100 pt-20 pb-12 mb-16 shadow-sm border-b border-slate-200">
+                <div className="max-w-[1200px] mx-auto px-6 text-center">
+                    <h1 className="text-[40px] md:text-[56px] font-black tracking-tight leading-[1.05] text-gradient mb-4 drop-shadow-sm">
+                        Product Ecosystem
+                    </h1>
+                    <p className="text-[16px] md:text-[18px] text-slate-600 max-w-2xl mx-auto font-medium">
+                        Explore our proprietary platforms powering modern automotive businesses.
+                    </p>
+                </div>
             </div>
 
             <div className="max-w-[1200px] mx-auto px-6 flex flex-col gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-4">
+                    <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-md transition-shadow">
+                        <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-[#109dd7] mb-6">
+                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 className="text-xl font-bold text-slate-900 mb-3">High-Performance APIs</h3>
+                        <p className="text-slate-600 font-medium leading-relaxed">Built for scale with sub-50ms latency, our infrastructure supports millions of daily queries with 99.99% guaranteed uptime.</p>
+                    </div>
+                    <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-md transition-shadow">
+                        <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-[#117460] mb-6">
+                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                        </div>
+                        <h3 className="text-xl font-bold text-slate-900 mb-3">Enterprise Security</h3>
+                        <p className="text-slate-600 font-medium leading-relaxed">SOC2 compliant data centers and end-to-end encryption ensure your proprietary intelligence remains secure at all times.</p>
+                    </div>
+                    <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-md transition-shadow">
+                        <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 mb-6">
+                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                        </div>
+                        <h3 className="text-xl font-bold text-slate-900 mb-3">AI-Ready Data</h3>
+                        <p className="text-slate-600 font-medium leading-relaxed">Clean, normalized, and perfectly structured datasets designed specifically to train and power modern cognitive reasoning models.</p>
+                    </div>
+                </div>
+
                 {products.map((product) => {
                     const CardContent = (
                         <div className="group relative rounded-[32px] overflow-hidden bg-[#F8F9FA] shadow-md border border-slate-200 hover:shadow-2xl transition-all duration-500 cursor-pointer block">

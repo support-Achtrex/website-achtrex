@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Automotive Dataset | Global Vehicle Intelligence API",
-    description: "The backbone of mobility intelligence. Access 2.5M+ vehicle records, VIN-to-Build-Sheet mapping, and real-time specs through our high-availability API engine.",
+    description: "The backbone of mobility intelligence. Access 2.5M+ vehicle records, VIN-to-Build-Sheet mapping, real-time specs, auctions, vehicle images, history reports, repair & maintenance data, and more through our high-availability API engine.",
     keywords: ["Automotive Dataset", "Vehicle Data API", "VIN Decoding", "Recall Database API", "Mobility Intelligence", "Automotive Specs API", "Real-time Vehicle Data"],
     openGraph: {
         title: "Automotive Dataset | Enterprise Vehicle Data Solutions",

@@ -15,7 +15,7 @@ export const ProductsGrid = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mb-12">
-          <h2 className="text-[32px] md:text-[40px] font-bold text-slate-900 leading-[1.1] tracking-tight mb-6">
+          <h2 className="text-[32px] md:text-[40px] font-bold text-gradient leading-[1.1] tracking-tight mb-6">
             Powered by the largest automotive network.<br />
             Built for every mobility need.
           </h2>

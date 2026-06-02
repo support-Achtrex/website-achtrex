@@ -20,7 +20,7 @@ export const AboutSection = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="flex flex-col items-center text-center max-w-4xl mx-auto mb-12 space-y-4">
 
-                    <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.1]">
+                    <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-gradient tracking-tight leading-[1.1]">
                         Powering the future of<br />automotive intelligence
                     </h2>
                     <p className="text-[16px] text-slate-500 leading-[1.6] max-w-3xl font-medium">

@@ -203,13 +203,11 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
     return (
         <Document>
             <Page size="A4" style={styles.page}>
-                {/* Header */}
                 <View style={styles.header}>
                     <View>
                         <Text style={styles.reportTitle}>{reportType || 'Report'}</Text>
-                        <Text style={styles.dateRange}>Generated on {today || ''}</Text>
+                        <Text style={styles.dateRange}>{`Generated on ${today || ''}`}</Text>
                     </View>
-                    
                 </View>
 
                 {/* Client Info */}
@@ -224,7 +222,7 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                     </View>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Project Status</Text>
-                        <Text style={styles.infoValue}>{progressPercent || 0}% Complete</Text>
+                        <Text style={styles.infoValue}>{`${progressPercent || 0}% Complete`}</Text>
                     </View>
                 </View>
 
@@ -235,13 +233,13 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                         <View style={styles.progressTrack}>
                             <View style={{ ...styles.progressValue, width: `${progressPercent || 0}%` }} />
                         </View>
-                        <Text>{progressPercent || 0}%</Text>
+                        <Text>{`${progressPercent || 0}%`}</Text>
                     </View>
                     <View style={{ marginTop: 15 }}>
                         {milestones.map((m, i) => (
                             <View key={i} style={styles.milestoneRow}>
-                                <View style={[styles.milestoneDot, m.status === 'completed' ? styles.completedDot : styles.pendingDot]} />
-                                <Text style={[styles.milestoneText, m.status === 'completed' ? styles.completedText : {}]}>
+                                <View style={m.status === 'completed' ? [styles.milestoneDot, styles.completedDot] : [styles.milestoneDot, styles.pendingDot]} />
+                                <Text style={m.status === 'completed' ? [styles.milestoneText, styles.completedText] : styles.milestoneText}>
                                     {m.milestone || 'Untitled Milestone'}
                                 </Text>
                             </View>
@@ -266,9 +264,8 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                     )}
                 </View>
 
-                {/* Footer */}
                 <View style={styles.footer}>
-                    <Text>© {new Date().getFullYear()} Achtrex. All rights reserved.</Text>
+                    <Text>{`© ${new Date().getFullYear()} Achtrex. All rights reserved.`}</Text>
                     <Text>Transforming Ideas into Digital Reality</Text>
                 </View>
             </Page>
