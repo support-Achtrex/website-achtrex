@@ -179,13 +179,13 @@ export const UseCasesContent = () => {
     ];
 
     return (
-        <div className="bg-transparent text-slate-900 font-sans antialiased min-h-screen">
+        <div className="bg-white text-slate-900 font-sans antialiased min-h-screen">
             
             {/* ─── HERO ─────────────────────────────────────────────────────── */}
             <div className="relative overflow-hidden pt-32 pb-24 px-6 border-b border-slate-200 bg-transparent">
                 <div className="relative z-10 max-w-[1080px] mx-auto text-center flex flex-col items-center">
                     <h1 className="text-[48px] md:text-[64px] font-black tracking-[-0.03em] leading-[0.95] text-slate-900 mb-6">
-                        Client &amp; Industry <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-500 to-emerald-600">Use Cases</span>
+                        Client &amp; Industry <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B4B4C] to-[#1A8B8C]">Use Cases</span>
                     </h1>
                     <p className="text-[17px] md:text-[19px] text-slate-500 max-w-2xl leading-relaxed font-medium mb-12">
                         Enterprise Automotive Infrastructure, APIs &amp; AI Systems Delivered by Achtrex
@@ -232,7 +232,7 @@ export const UseCasesContent = () => {
                                                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                                             </a>
                                         </div>
-                                        <p className="text-[15px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-600">
+                                        <p className="text-[15px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1B4B4C] to-[#1A8B8C]">
                                             {useCase.tagline}
                                         </p>
                                     </div>
@@ -249,13 +249,13 @@ export const UseCasesContent = () => {
                                     {/* Scope of Work */}
                                     <div>
                                         <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-slate-500 mb-5 flex items-center gap-2">
-                                            <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+                                            <svg className="w-4 h-4 text-[#1A8B8C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
                                             Scope of Work
                                         </h3>
                                         <ul className="space-y-3">
                                             {useCase.scope.map((item, i) => (
                                                 <li key={i} className="flex items-start gap-3 text-[14px] text-slate-500 font-medium">
-                                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
+                                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1A8B8C] shrink-0" />
                                                     {item}
                                                 </li>
                                             ))}
@@ -265,13 +265,13 @@ export const UseCasesContent = () => {
                                     {/* Delivered Capabilities */}
                                     <div>
                                         <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-slate-500 mb-5 flex items-center gap-2">
-                                            <svg className="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                            <svg className="w-4 h-4 text-[#1A8B8C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                                             Delivered Capabilities
                                         </h3>
                                         <ul className="space-y-3">
                                             {useCase.capabilities.map((item, i) => (
                                                 <li key={i} className="flex items-start gap-3 text-[14px] text-slate-500 font-medium">
-                                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0" />
+                                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1A8B8C] shrink-0" />
                                                     {item}
                                                 </li>
                                             ))}
@@ -319,8 +319,8 @@ export const UseCasesContent = () => {
             {/* ─── CTA ──────────────────────────────────────────────────────── */}
             <div className="max-w-[1080px] mx-auto px-6 py-20">
                 <div className="relative rounded-3xl bg-gradient-to-r from-blue-50 via-teal-50 to-emerald-50 border border-slate-200 overflow-hidden shadow-sm">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-100 rounded-full blur-[80px]" />
+                    <div className="absolute inset-0 z-0 opacity-50">
+                        <div className="absolute -top-24 -right-24 w-96 h-96 bg-teal-100 rounded-full blur-[80px]" />
                         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-100 rounded-full blur-[80px]" />
                     </div>
 
@@ -335,7 +335,7 @@ export const UseCasesContent = () => {
                             </p>
                         </div>
                         <Link href="/contact-us"
-                            className="inline-flex items-center gap-3 bg-white text-slate-900 font-bold text-[15px] px-8 py-4 rounded-full hover:bg-gray-800 transition-all shadow-md hover:scale-105 whitespace-nowrap shrink-0">
+                            className="inline-flex items-center gap-3 bg-white text-slate-900 border border-slate-200 font-bold text-[15px] px-8 py-4 rounded-full hover:bg-gray-50 transition-all shadow-md hover:scale-105 whitespace-nowrap shrink-0">
                             Get in touch
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </Link>
