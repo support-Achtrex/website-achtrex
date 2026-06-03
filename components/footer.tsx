@@ -31,14 +31,14 @@ export const Footer = () => {
                     <path d="M-50 100 H100 M50 50 L100 100 L50 150" stroke="currentColor" strokeWidth="20" strokeLinecap="square" strokeLinejoin="miter" />
                 </svg>
 
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-28 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 lg:py-14 relative z-10">
                     <div className="max-w-2xl">
                         <motion.h2 
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
-                            className="text-3xl md:text-5xl lg:text-[56px] font-bold text-slate-900 leading-tight mb-8">
+                            className="text-3xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight mb-8">
                             Not sure <br className="hidden sm:block" /> where to start?
                         </motion.h2>
                         <motion.div 
@@ -46,7 +46,7 @@ export const Footer = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                            className="space-y-6 text-[17px] text-slate-900/80 font-medium mb-10 max-w-xl">
+                            className="space-y-6 text-[17px] text-slate-300 font-medium mb-10 max-w-xl">
                             <p>Tell us your goals. We'll guide you to the right solution for your data, your challenges, and your growth.</p>
                             <p>Get an assessment of your data quality.</p>
                         </motion.div>
@@ -54,7 +54,7 @@ export const Footer = () => {
                             onClick={() => router.push('/contact-us')}
                             className="group relative inline-flex items-center justify-center bg-[#1A8B8C] hover:bg-[#157172] transition-colors duration-300 transform -skew-x-12 px-10 py-4 shadow-lg shadow-teal-900/20"
                         >
-                            <span className="transform skew-x-12 text-slate-900 font-bold tracking-wide text-sm">
+                            <span className="transform skew-x-12 text-white font-bold tracking-wide text-sm">
                                 Let's Talk
                             </span>
                         </button>
