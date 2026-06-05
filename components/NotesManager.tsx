@@ -9,8 +9,12 @@ import Placeholder from '@tiptap/extension-placeholder';
 import {
     Bold, Italic, List, ListOrdered, Image as ImageIcon,
     Send, Trash2, Clock, MoreVertical, FileText, Loader2,
-    AlignLeft, AlignCenter, AlignRight, Upload
+    AlignLeft, AlignCenter, AlignRight, Upload, Table as TableIcon, Columns, Rows
 } from 'lucide-react';
+import { Table } from '@tiptap/extension-table';
+import { TableRow } from '@tiptap/extension-table-row';
+import { TableCell } from '@tiptap/extension-table-cell';
+import { TableHeader } from '@tiptap/extension-table-header';
 import { addNote, deleteNote } from '@/app/actions/client-management';
 import { useRouter } from 'next/navigation';
 
@@ -124,6 +128,38 @@ const MenuBar = ({ editor }: { editor: any }) => {
             >
                 <ImageIcon size={16} />
             </button>
+            <div className="w-px h-4 bg-gray-300 mx-1" />
+            <button
+                onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
+                className={`p-1.5 rounded hover:bg-transparent hover:shadow-sm transition-all text-slate-400 hover:text-blue-600`}
+                title="Insert Table"
+            >
+                <TableIcon size={16} />
+            </button>
+            <button
+                onClick={() => editor.chain().focus().addColumnAfter().run()}
+                disabled={!editor.can().addColumnAfter()}
+                className={`p-1.5 rounded hover:bg-transparent hover:shadow-sm transition-all ${!editor.can().addColumnAfter() ? 'opacity-50 cursor-not-allowed text-slate-300' : 'text-slate-400 hover:text-blue-600'}`}
+                title="Add Column"
+            >
+                <Columns size={16} />
+            </button>
+            <button
+                onClick={() => editor.chain().focus().addRowAfter().run()}
+                disabled={!editor.can().addRowAfter()}
+                className={`p-1.5 rounded hover:bg-transparent hover:shadow-sm transition-all ${!editor.can().addRowAfter() ? 'opacity-50 cursor-not-allowed text-slate-300' : 'text-slate-400 hover:text-blue-600'}`}
+                title="Add Row"
+            >
+                <Rows size={16} />
+            </button>
+            <button
+                onClick={() => editor.chain().focus().deleteTable().run()}
+                disabled={!editor.can().deleteTable()}
+                className={`p-1.5 rounded hover:bg-transparent hover:shadow-sm transition-all ${!editor.can().deleteTable() ? 'opacity-50 cursor-not-allowed text-slate-300' : 'text-slate-400 hover:text-red-500'}`}
+                title="Delete Table"
+            >
+                <Trash2 size={16} />
+            </button>
         </div>
     );
 };
@@ -139,6 +175,23 @@ const extensions = [
     }),
     Placeholder.configure({
         placeholder: 'Write a note, update, or paste an image...',
+    }),
+    Table.configure({
+        resizable: true,
+        HTMLAttributes: {
+            class: 'w-full border-collapse border border-slate-300 my-4',
+        },
+    }),
+    TableRow,
+    TableHeader.configure({
+        HTMLAttributes: {
+            class: 'border border-slate-300 bg-slate-100 font-bold p-2 text-left',
+        },
+    }),
+    TableCell.configure({
+        HTMLAttributes: {
+            class: 'border border-slate-300 p-2',
+        },
     }),
 ];
 

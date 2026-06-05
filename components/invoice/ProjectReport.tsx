@@ -1,4 +1,5 @@
 import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
+import Html from 'react-pdf-html';
 import React from 'react';
 
 const styles = StyleSheet.create({
@@ -145,49 +146,40 @@ interface ProjectReportProps {
     reportType?: string;
 }
 
-const HtmlContent = ({ html }: { html: string }) => {
-    if (!html) return null;
-    
-    // Basic parser to split text and images
-    const parts = html.split(/(<img[^>]+src="([^">]+)"[^>]*>)/g);
-
-    return (
-        <View>
-            {parts.map((part, index) => {
-                if (!part) return null;
-                
-                // If it starts with <img, we ignore this as we use the captured src group
-                if (part.startsWith('<img')) return null;
-
-                // If it looks like a data URL or http url, it's the image source
-                if (part.startsWith('data:image') || part.startsWith('http')) {
-                    return (
-                        <Image
-                            key={index}
-                            src={part}
-                            style={{
-                                marginVertical: 5,
-                                borderRadius: 4,
-                                maxHeight: 200,
-                                
-                            }}
-                        />
-                    );
-                }
-
-                // Otherwise it's text (html tags stripped)
-                const text = part.replace(/<[^>]+>/g, '').trim();
-                if (!text) return null;
-
-                return (
-                    <Text key={index} style={styles.noteContent}>
-                        {text || ''}
-                    </Text>
-                );
-            })}
-        </View>
-    );
-};
+const htmlStyles = StyleSheet.create({
+    body: {
+        fontSize: 10,
+        color: '#4B5563',
+        lineHeight: 1.5,
+    },
+    table: {
+        width: '100%',
+        borderWidth: 1,
+        borderColor: '#E5E7EB',
+        marginBottom: 10,
+    },
+    tr: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#E5E7EB',
+    },
+    th: {
+        backgroundColor: '#F3F4F6',
+        padding: 4,
+        fontWeight: 'bold',
+        borderRightWidth: 1,
+        borderRightColor: '#E5E7EB',
+    },
+    td: {
+        padding: 4,
+        borderRightWidth: 1,
+        borderRightColor: '#E5E7EB',
+    },
+    img: {
+        marginVertical: 5,
+        borderRadius: 4,
+        maxHeight: 200,
+    }
+});
 
 export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes, milestones, logoSrc, reportType = "Project Status Report" }) => {
     const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -253,7 +245,7 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                     {weeklyUpdates.length > 0 ? (
                         weeklyUpdates.map((note, i) => (
                             <View key={i} style={styles.noteItem}>
-                                <HtmlContent html={note.content || ''} />
+                                <Html stylesheet={htmlStyles}>{note.content || ''}</Html>
                                 <Text style={styles.noteDate}>
                                     {note.created_at ? new Date(note.created_at).toLocaleDateString() : ''}
                                 </Text>

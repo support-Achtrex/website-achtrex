@@ -2,6 +2,7 @@ import { sql } from '@/lib/db';
 import { createInvoice } from '@/app/actions/create-invoice';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import SimpleRichTextEditor from '@/components/SimpleRichTextEditor';
 
 export const dynamic = 'force-dynamic';
 
@@ -130,14 +131,10 @@ export default async function CreateInvoicePage() {
                     {/* Description */}
                     <div>
                         <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">Description</label>
-                        <textarea
+                        <SimpleRichTextEditor
                             name="description"
-                            id="description"
-                            rows={4}
-                            required
                             placeholder="e.g. Website Development Services - Milestone 1"
-                            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
-                        ></textarea>
+                        />
                     </div>
 
                     {/* Submit Button */}
