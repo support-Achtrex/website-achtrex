@@ -159,6 +159,7 @@ const htmlStyles = StyleSheet.create({
         marginBottom: 10,
     },
     tr: {
+        flexDirection: 'row',
         borderBottomWidth: 1,
         borderBottomColor: '#E5E7EB',
     },
@@ -184,10 +185,7 @@ const htmlStyles = StyleSheet.create({
 export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes, milestones, logoSrc, reportType = "Project Status Report" }) => {
     const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
-    // Filter notes for the last 7 days for "weekly updates"
-    const oneWeekAgo = new Date();
-    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-    const weeklyUpdates = notes.filter(n => n.created_at && new Date(n.created_at) >= oneWeekAgo);
+    const weeklyUpdates = notes;
 
     const completedCount = milestones.filter(m => m.status === 'completed').length;
     const progressPercent = milestones.length > 0 ? Math.round((completedCount / milestones.length) * 100) : 0;

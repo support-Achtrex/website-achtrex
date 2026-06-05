@@ -285,7 +285,7 @@ export async function deleteFile(subscriberId: number, fileId: number) {
     }
 }
 
-export async function sendWeeklyReport(subscriberId: number) {
+export async function sendWeeklyReport(subscriberId: number, selectedNoteIds?: number[]) {
     try {
         const subRes = await sql`SELECT * FROM subscribers WHERE id = ${subscriberId}`;
         const subscriber = subRes.rows[0];
@@ -294,7 +294,15 @@ export async function sendWeeklyReport(subscriberId: number) {
         let notes: any[] = [];
         try {
             const notesRes = await sql`SELECT * FROM client_notes WHERE subscriber_id = ${subscriberId} ORDER BY created_at DESC`;
-            notes = notesRes.rows;
+            let fetchedNotes = notesRes.rows;
+            
+            if (selectedNoteIds && selectedNoteIds.length > 0) {
+                notes = fetchedNotes.filter(n => selectedNoteIds.includes(n.id));
+            } else {
+                const oneWeekAgo = new Date();
+                oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+                notes = fetchedNotes.filter(n => new Date(n.created_at) >= oneWeekAgo);
+            }
         } catch (e: any) {
             if (e.message && e.message.includes('relation "client_notes" does not exist')) {
                 console.log('client_notes table does not exist, returning empty array');

@@ -217,9 +217,7 @@ export async function sendWeeklyReportEmail(subscriber: any, notes: any[], miles
     try {
         const pdfBuffer = await generateProjectReportPDF(subscriber, notes, milestones, "Weekly Progress Report");
 
-        const oneWeekAgo = new Date();
-        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-        const weeklyNotes = notes.filter(n => new Date(n.created_at) >= oneWeekAgo);
+        const weeklyNotes = notes;
 
         const completedCount = milestones.filter(m => m.status === 'completed').length;
         const progressPercent = milestones.length > 0 ? Math.round((completedCount / milestones.length) * 100) : 0;

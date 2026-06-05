@@ -5,14 +5,18 @@ import { useToast } from '@/components/ui/toast';
 import { Button } from '@/components/buttons';
 import { Mail } from 'lucide-react';
 import { sendWeeklyReport, recordPayment } from '@/app/actions/client-management';
+import { useSearchParams } from 'next/navigation';
 
 export function SendReportButton({ subscriberId }: { subscriberId: number }) {
     const { loading, updateToast } = useToast();
+    const searchParams = useSearchParams();
 
     const handleSend = async () => {
         const id = loading('Sending weekly update...');
         try {
-            const result = await sendWeeklyReport(subscriberId);
+            const notesParam = searchParams.get('notes');
+            const selectedNoteIds = notesParam ? notesParam.split(',').map(Number) : undefined;
+            const result = await sendWeeklyReport(subscriberId, selectedNoteIds);
             if (result.success) {
                 updateToast(id, 'Weekly update sent successfully!', 'success');
             } else {
