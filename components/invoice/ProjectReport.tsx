@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
     reportTitle: {
         fontSize: 24,
         color: '#111827',
+        fontFamily: 'Helvetica-Bold',
+        marginBottom: 5,
     },
     dateRange: {
         fontSize: 12,
@@ -103,8 +105,10 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     completedText: {
+        color: '#111827',
+    },
+    pendingText: {
         color: '#9CA3AF',
-        textDecoration: 'line-through',
     },
     statusBar: {
         flexDirection: 'row',
@@ -151,29 +155,65 @@ const htmlStyles = StyleSheet.create({
         fontSize: 10,
         color: '#4B5563',
         lineHeight: 1.5,
+        fontFamily: 'Helvetica',
+    },
+    p: {
+        marginBottom: 8,
+    },
+    h1: { fontSize: 18, fontFamily: 'Helvetica-Bold', marginBottom: 10, color: '#111827' },
+    h2: { fontSize: 16, fontFamily: 'Helvetica-Bold', marginBottom: 8, color: '#111827' },
+    h3: { fontSize: 14, fontFamily: 'Helvetica-Bold', marginBottom: 6, color: '#111827' },
+    ul: {
+        marginBottom: 8,
+        marginLeft: 15,
+    },
+    ol: {
+        marginBottom: 8,
+        marginLeft: 15,
+    },
+    li: {
+        marginBottom: 4,
+    },
+    strong: {
+        fontFamily: 'Helvetica-Bold',
+    },
+    em: {
+        fontStyle: 'italic',
     },
     table: {
         width: '100%',
         borderWidth: 1,
         borderColor: '#E5E7EB',
+        borderStyle: 'solid',
         marginBottom: 10,
     },
     tr: {
         flexDirection: 'row',
         borderBottomWidth: 1,
         borderBottomColor: '#E5E7EB',
+        borderBottomStyle: 'solid',
     },
     th: {
+        flex: 1,
         backgroundColor: '#F3F4F6',
         padding: 4,
-        fontWeight: 'bold',
+        fontFamily: 'Helvetica-Bold',
         borderRightWidth: 1,
         borderRightColor: '#E5E7EB',
+        borderRightStyle: 'solid',
     },
     td: {
+        flex: 1,
         padding: 4,
         borderRightWidth: 1,
         borderRightColor: '#E5E7EB',
+        borderRightStyle: 'solid',
+    },
+    hr: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#E5E7EB',
+        borderBottomStyle: 'solid',
+        marginVertical: 10,
     },
     img: {
         marginVertical: 5,
@@ -229,7 +269,7 @@ export const ProjectReport: React.FC<ProjectReportProps> = ({ subscriber, notes,
                         {milestones.map((m, i) => (
                             <View key={i} style={styles.milestoneRow}>
                                 <View style={m.status === 'completed' ? [styles.milestoneDot, styles.completedDot] : [styles.milestoneDot, styles.pendingDot]} />
-                                <Text style={m.status === 'completed' ? [styles.milestoneText, styles.completedText] : styles.milestoneText}>
+                                <Text style={m.status === 'completed' ? [styles.milestoneText, styles.completedText] : [styles.milestoneText, styles.pendingText]}>
                                     {m.milestone || 'Untitled Milestone'}
                                 </Text>
                             </View>
