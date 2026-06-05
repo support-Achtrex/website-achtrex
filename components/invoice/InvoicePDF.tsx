@@ -1,4 +1,5 @@
 import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
+import Html from 'react-pdf-html';
 import React from 'react';
 
 const styles = StyleSheet.create({
@@ -131,6 +132,41 @@ const styles = StyleSheet.create({
     }
 });
 
+const htmlStyles = StyleSheet.create({
+    body: {
+        fontSize: 10,
+        color: '#4B5563',
+        lineHeight: 1.5,
+    },
+    table: {
+        width: '100%',
+        borderWidth: 1,
+        borderColor: '#E5E7EB',
+        marginBottom: 10,
+    },
+    tr: {
+        flexDirection: 'row',
+        borderBottomWidth: 1,
+        borderBottomColor: '#E5E7EB',
+    },
+    th: {
+        backgroundColor: '#F3F4F6',
+        padding: 4,
+        fontWeight: 'bold',
+        borderRightWidth: 1,
+        borderRightColor: '#E5E7EB',
+    },
+    td: {
+        padding: 4,
+        borderRightWidth: 1,
+        borderRightColor: '#E5E7EB',
+    },
+    p: {
+        margin: 0,
+        padding: 0,
+    }
+});
+
 interface InvoicePDFProps {
     payment: any;
     client: any;
@@ -193,7 +229,9 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({ payment, client, logoSrc
                         <Text style={styles.colAmount}>Amount</Text>
                     </View>
                     <View style={styles.tableRow}>
-                        <Text style={styles.colDescription}>{(payment && payment.description) || 'No description'}</Text>
+                        <View style={styles.colDescription}>
+                            <Html stylesheet={htmlStyles}>{(payment && payment.description) || 'No description'}</Html>
+                        </View>
                         <Text style={styles.colAmount}>{amountFormatted || '$0.00'}</Text>
                     </View>
                 </View>
