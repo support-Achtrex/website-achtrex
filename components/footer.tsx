@@ -63,7 +63,7 @@ export const Footer = () => {
             </section>
 
             {/* Main Footer */}
-            <footer className="bg-[#0a0f1c] text-slate-900 pt-16 pb-8 font-sans border-t border-white/5">
+            <footer className="bg-[#0a0f1c] text-slate-200 pt-16 pb-8 font-sans border-t border-white/5">
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
 
                     {/* Main Footer Grid */}
@@ -80,9 +80,9 @@ export const Footer = () => {
                                         className="object-contain"
                                     />
                                 </div>
-                                <span className={cn("text-[22px] font-bold text-slate-900 tracking-wide", montserrat.className)}>Achtrex</span>
+                                <span className={cn("text-[22px] font-bold text-white tracking-wide", montserrat.className)}>Achtrex</span>
                             </div>
-                            <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                            <p className="text-slate-400 text-sm leading-relaxed mb-6">
                                 Automotive intelligence &amp; cognitive infrastructure for the connected mobility era.
                             </p>
                             <div className="flex gap-3">
@@ -107,7 +107,7 @@ export const Footer = () => {
                             <ul className="space-y-3">
                                 <li>
                                     <a href="https://automotivedataset.com" target="_blank" rel="noopener noreferrer"
-                                        className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors flex items-center gap-2 group">
+                                        className="text-slate-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-2 group">
                                         <span className="w-1.5 h-1.5 rounded-full bg-[#1A8B8C] shrink-0"></span>
                                         AutomotiveDataset.com
                                         <ExternalLink size={11} className="text-slate-500 group-hover:text-slate-500" />
@@ -115,21 +115,21 @@ export const Footer = () => {
                                 </li>
                                 <li>
                                     <Link href="/products/lumi"
-                                        className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors flex items-center gap-2">
+                                        className="text-slate-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0"></span>
                                         LUMI AI Platform
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/products"
-                                        className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors flex items-center gap-2">
+                                        className="text-slate-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
                                         Achtrex Core APIs
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/products/enterprise-platforms"
-                                        className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors flex items-center gap-2">
+                                        className="text-slate-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-pink-400 shrink-0"></span>
                                         Enterprise Platforms
                                     </Link>
@@ -141,11 +141,11 @@ export const Footer = () => {
                         <div>
                             <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-5">Company</h4>
                             <ul className="space-y-3">
-                                <li><Link href="/about-us" className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors">About Achtrex</Link></li>
-                                <li><Link href="/why-achtrex" className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors">Why Achtrex</Link></li>
-                                <li><Link href="/products" className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors">Products</Link></li>
-                                <li><Link href="/partners" className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors">Partners</Link></li>
-                                <li><Link href="/use-cases" className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors">Client &amp; Industry Use Cases</Link></li>
+                                <li><Link href="/about-us" className="text-slate-400 hover:text-white text-sm font-medium transition-colors">About Achtrex</Link></li>
+                                <li><Link href="/why-achtrex" className="text-slate-400 hover:text-white text-sm font-medium transition-colors">Why Achtrex</Link></li>
+                                <li><Link href="/products" className="text-slate-400 hover:text-white text-sm font-medium transition-colors">Products</Link></li>
+                                <li><Link href="/partners" className="text-slate-400 hover:text-white text-sm font-medium transition-colors">Partners</Link></li>
+                                <li><Link href="/use-cases" className="text-slate-400 hover:text-white text-sm font-medium transition-colors">Client &amp; Industry Use Cases</Link></li>
                             </ul>
                         </div>
 
@@ -155,14 +155,14 @@ export const Footer = () => {
                             <ul className="space-y-4">
                                 <li>
                                     <a href="mailto:support@achtrex.com"
-                                        className="flex items-start gap-3 text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors">
+                                        className="flex items-start gap-3 text-slate-400 hover:text-white text-sm font-medium transition-colors">
                                         <Mail size={15} className="mt-0.5 text-[#1A8B8C] shrink-0" />
                                         <span>support@achtrex.com</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="tel:+16133664271"
-                                        className="flex items-start gap-3 text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors">
+                                        className="flex items-start gap-3 text-slate-400 hover:text-white text-sm font-medium transition-colors">
                                         <Phone size={15} className="mt-0.5 text-[#1A8B8C] shrink-0" />
                                         <span>+1 613 366-4271</span>
                                     </a>
@@ -179,9 +179,9 @@ export const Footer = () => {
                             &copy;{new Date().getFullYear()} Achtrex. All rights reserved.
                         </p>
                         <div className="flex gap-6 text-[12px] text-slate-400">
-                            <Link href="/privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</Link>
-                            <Link href="/contact-us" className="hover:text-slate-600 transition-colors">Terms of Service</Link>
-                            <Link href="/contact-us" className="hover:text-slate-600 transition-colors">Contact</Link>
+                            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                            <Link href="/contact-us" className="hover:text-white transition-colors">Terms of Service</Link>
+                            <Link href="/contact-us" className="hover:text-white transition-colors">Contact</Link>
                         </div>
                     </div>
                 </div>

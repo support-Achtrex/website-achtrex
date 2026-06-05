@@ -84,7 +84,7 @@ export const ProductsGrid = () => {
                   </div>
 
                   {/* Text */}
-                  <div className="flex flex-col text-slate-900 font-bold leading-[1.05] tracking-tight">
+                  <div className="flex flex-col text-white font-bold leading-[1.05] tracking-tight">
                      <span className="text-[30px]">Automotive</span>
                      <span className="text-[30px] text-[#38bdf8]">Dataset</span>
                   </div>

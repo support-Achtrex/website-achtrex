@@ -54,7 +54,7 @@ export const Hero = () => {
             className="relative group overflow-hidden rounded-lg p-[2px] transition-transform hover:scale-[1.02] shadow-[0_0_20px_rgba(59,130,246,0.15)] w-full sm:w-auto"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-teal-400 opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative w-full h-full flex items-center justify-center bg-[#F8F9FA] hover:bg-[#0c1222] text-slate-900 font-bold text-[16px] px-8 py-3.5 rounded-[6px] transition-colors duration-500">
+            <div className="relative w-full h-full flex items-center justify-center bg-[#F8F9FA] hover:bg-[#0c1222] text-slate-900 hover:text-white font-bold text-[16px] px-8 py-3.5 rounded-[6px] transition-colors duration-500">
               Talk with our team
             </div>
           </button>
