@@ -283,7 +283,7 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
     };
 
     return (
-        <div className="bg-transparent p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col h-full">
+        <div className="bg-transparent p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-bold text-slate-700 flex items-center gap-2">
                     <FileText size={18} className="text-blue-500" />
@@ -325,7 +325,7 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
             </div>
 
             {/* Notes List */}
-            <div className="space-y-4 flex-1 overflow-y-auto custom-scrollbar pr-2 max-h-[600px]">
+            <div className="space-y-4 flex-1">
                 {initialNotes.length > 0 ? (
                     initialNotes.map((note) => (
                         <div key={note.id} className="group bg-transparent p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all relative">
@@ -358,7 +358,7 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
                             </div>
 
                             {/* Note Content */}
-                            <div className="overflow-x-auto pb-2">
+                            <div className="pt-2">
                                 <div
                                     className="tiptap-view prose prose-sm max-w-none text-gray-700 [&>img]:rounded-lg [&>img]:my-2 [&>img]:bg-transparent [&>img]:border [&>img]:border-slate-200"
                                     dangerouslySetInnerHTML={{ __html: note.content }}
