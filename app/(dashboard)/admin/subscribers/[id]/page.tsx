@@ -19,8 +19,16 @@ import { SendReportButton, GenerateInvoiceForm } from './client-actions';
 
 export const dynamic = 'force-dynamic';
 
-export default async function SubscriberDetailPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function SubscriberDetailPage({ 
+    params,
+    searchParams 
+}: { 
+    params: Promise<{ id: string }>,
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
     const { id: idStr } = await params;
+    const { notes: notesParam } = await searchParams;
+    const selectedNotes = typeof notesParam === 'string' ? notesParam : '';
     const id = parseInt(idStr);
     if (isNaN(id)) notFound();
 
@@ -95,7 +103,7 @@ export default async function SubscriberDetailPage({ params }: { params: Promise
                     </div>
                     <div className="flex gap-2">
                         <a
-                            href={`/api/subscribers/${id}/report`}
+                            href={`/api/subscribers/${id}/report${selectedNotes ? `?notes=${selectedNotes}` : ''}`}
                             target="_blank"
                             className="flex items-center gap-2 px-4 py-2 bg-white text-gray-700 rounded-xl font-bold border border-gray-100 shadow-sm hover:bg-gray-50 transition-all text-sm"
                         >

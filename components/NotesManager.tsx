@@ -16,7 +16,7 @@ import { TableRow } from '@tiptap/extension-table-row';
 import { TableCell } from '@tiptap/extension-table-cell';
 import { TableHeader } from '@tiptap/extension-table-header';
 import { addNote, deleteNote } from '@/app/actions/client-management';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 
 interface Note {
     id: number;
@@ -197,8 +197,34 @@ const extensions = [
 
 export default function NotesManager({ subscriberId, initialNotes }: NotesManagerProps) {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
     const [isPending, startTransition] = useTransition();
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Initialize selected notes from URL
+    const urlNotes = searchParams.get('notes');
+    const defaultSelected = urlNotes ? new Set(urlNotes.split(',').map(Number)) : new Set<number>();
+    const [selectedNotes, setSelectedNotes] = useState<Set<number>>(defaultSelected);
+
+    const toggleNoteSelection = (noteId: number) => {
+        const newSet = new Set(selectedNotes);
+        if (newSet.has(noteId)) {
+            newSet.delete(noteId);
+        } else {
+            newSet.add(noteId);
+        }
+        setSelectedNotes(newSet);
+        
+        // Update URL to share state with parent action buttons
+        const params = new URLSearchParams(searchParams.toString());
+        if (newSet.size > 0) {
+            params.set('notes', Array.from(newSet).join(','));
+        } else {
+            params.delete('notes');
+        }
+        router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    };
 
     const editor = useEditor({
         extensions,
@@ -214,12 +240,12 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
     const handleAddNote = async () => {
         if (!editor) return;
 
-        if (editor.isEmpty) {
-            alert('Please add some text or an image before saving.');
+        const content = editor.getHTML();
+
+        if (editor.isEmpty && !content.includes('<table')) {
+            alert('Please add some text, an image, or a table before saving.');
             return;
         }
-
-        const content = editor.getHTML();
 
         // Basic check for extreme size
         if (content.length > 9 * 1024 * 1024) {
@@ -258,10 +284,17 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
 
     return (
         <div className="bg-transparent p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col h-full">
-            <h2 className="text-lg font-bold text-slate-700 mb-4 flex items-center gap-2">
-                <FileText size={18} className="text-blue-500" />
-                Project Notes
-            </h2>
+            <div className="flex justify-between items-center mb-4">
+                <h2 className="text-lg font-bold text-slate-700 flex items-center gap-2">
+                    <FileText size={18} className="text-blue-500" />
+                    Project Notes
+                </h2>
+                {selectedNotes.size > 0 && (
+                    <span className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-md font-medium border border-blue-100">
+                        {selectedNotes.size} selected for report
+                    </span>
+                )}
+            </div>
 
             {/* Editor Area */}
             <div className="mb-8 border border-slate-200 rounded-xl overflow-hidden focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition-all shadow-sm bg-transparent">
@@ -298,12 +331,21 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
                         <div key={note.id} className="group bg-transparent p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all relative">
                             {/* Note Header */}
                             <div className="flex justify-between items-start mb-3 border-b border-gray-50 pb-2">
-                                <div className="flex items-center gap-2 text-xs text-slate-500 font-medium bg-transparent px-2 py-1 rounded-md">
-                                    <Clock size={12} />
-                                    {new Date(note.created_at).toLocaleString(undefined, {
-                                        dateStyle: 'medium',
-                                        timeStyle: 'short'
-                                    })}
+                                <div className="flex items-center gap-3">
+                                    <input 
+                                        type="checkbox" 
+                                        checked={selectedNotes.has(note.id)}
+                                        onChange={() => toggleNoteSelection(note.id)}
+                                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
+                                        title="Include in Report"
+                                    />
+                                    <div className="flex items-center gap-2 text-xs text-slate-500 font-medium bg-transparent px-2 py-1 rounded-md">
+                                        <Clock size={12} />
+                                        {new Date(note.created_at).toLocaleString(undefined, {
+                                            dateStyle: 'medium',
+                                            timeStyle: 'short'
+                                        })}
+                                    </div>
                                 </div>
                                 <button
                                     onClick={() => handleDeleteNote(note.id)}
@@ -316,10 +358,12 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
                             </div>
 
                             {/* Note Content */}
-                            <div
-                                className="prose prose-sm max-w-none text-gray-700 [&>img]:rounded-lg [&>img]:my-2 [&>img]:bg-transparent [&>img]:border [&>img]:border-slate-200"
-                                dangerouslySetInnerHTML={{ __html: note.content }}
-                            />
+                            <div className="overflow-x-auto pb-2">
+                                <div
+                                    className="tiptap-view prose prose-sm max-w-none text-gray-700 [&>img]:rounded-lg [&>img]:my-2 [&>img]:bg-transparent [&>img]:border [&>img]:border-slate-200"
+                                    dangerouslySetInnerHTML={{ __html: note.content }}
+                                />
+                            </div>
                         </div>
                     ))
                 ) : (
