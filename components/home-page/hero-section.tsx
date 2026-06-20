@@ -9,7 +9,7 @@ export const Hero = () => {
     const router = useRouter();
 
     return (
-        <section className="relative w-full h-[85vh] min-h-[600px] bg-[#001a22] overflow-hidden z-20 flex flex-col font-sans">
+        <section className="relative w-full min-h-[100vh] bg-[#001a22] overflow-hidden z-20 flex flex-col font-sans">
             
             {/* Background Image Layer */}
             <motion.div
@@ -50,14 +50,14 @@ export const Hero = () => {
                         Automotive Technology Partner
                     </motion.span>
 
-                    {/* Massive Title */}
+                    {/* Refined Title */}
                     <motion.h1 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] md:leading-[1.15] mb-8 drop-shadow-2xl"
+                        className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.2] mb-8 drop-shadow-2xl"
                     >
-                        We build the <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600 font-extrabold">data</span>,<br/> the <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-600 font-extrabold">intelligence</span>, and the <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-600 font-extrabold">platforms</span> behind automotive businesses.
+                        We build the data,<br/> the intelligence, and the platforms behind automotive businesses.
                     </motion.h1>
                     
                     {/* Description */}
