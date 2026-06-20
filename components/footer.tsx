@@ -28,24 +28,24 @@ export const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="relative bg-[#081622] rounded-xl shadow-2xl overflow-hidden pt-16 pb-12 px-6 text-center border border-white/10">
+                    <div className="relative bg-gradient-to-br from-[#081622] via-[#041118] to-[#001a22] rounded-2xl shadow-[0_0_40px_rgba(0,169,206,0.15)] overflow-hidden pt-20 pb-16 px-6 text-center border-[3px] border-[#00a9ce]/30">
                         
                         {/* Premium Subtle Floating Shapes */}
                         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
                             {/* Top Left Circle */}
-                            <div className="absolute -top-4 -left-4 w-16 h-16 bg-white/5 rounded-full blur-sm"></div>
+                            <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#00a9ce]/10 rounded-full blur-sm"></div>
                             {/* Accent Diamonds */}
-                            <div className="absolute top-10 left-[20%] md:left-[25%] w-4 h-4 bg-[#00a9ce]/20 rotate-45"></div>
-                            <div className="absolute top-12 left-[23%] md:left-[28%] w-8 h-8 border border-white/10 rotate-45"></div>
+                            <div className="absolute top-10 left-[20%] md:left-[25%] w-4 h-4 bg-[#00a9ce]/30 rotate-45"></div>
+                            <div className="absolute top-12 left-[23%] md:left-[28%] w-8 h-8 border-[1.5px] border-[#00a9ce]/20 rotate-45"></div>
                             {/* Top Right Circles */}
                             <div className="absolute top-8 right-[22%] md:right-[32%] w-6 h-6 bg-white/5 rounded-full"></div>
-                            <div className="absolute top-10 right-[20%] md:right-[30%] w-10 h-10 border border-[#00a9ce]/30 rounded-full"></div>
+                            <div className="absolute top-10 right-[20%] md:right-[30%] w-10 h-10 border-[1.5px] border-[#00a9ce]/30 rounded-full"></div>
                             {/* Bottom Left Diamond */}
-                            <div className="absolute bottom-8 left-[10%] w-12 h-12 border border-white/10 rotate-45"></div>
+                            <div className="absolute bottom-8 left-[10%] w-12 h-12 border-[1.5px] border-[#00a9ce]/20 rotate-45"></div>
                             {/* Bottom Center Accent */}
-                            <div className="absolute -bottom-4 left-[45%] w-24 h-24 bg-logo-gradient opacity-10 blur-3xl rounded-full"></div>
+                            <div className="absolute -bottom-4 left-[45%] w-32 h-32 bg-[#00a9ce]/20 blur-3xl rounded-full"></div>
                             {/* Right Square */}
-                            <div className="absolute top-1/2 right-[10%] md:right-[15%] w-6 h-6 border border-white/5 rotate-12"></div>
+                            <div className="absolute top-1/2 right-[10%] md:right-[15%] w-6 h-6 border-[1.5px] border-[#00a9ce]/10 rotate-12"></div>
                         </div>
 
                         {/* Content */}
@@ -54,7 +54,7 @@ export const Footer = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+                                className="text-4xl md:text-5xl lg:text-[56px] font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#00a9ce] mb-6 tracking-tight drop-shadow-sm">
                                 Work with Us
                             </motion.h2>
                             <motion.p 
@@ -62,7 +62,7 @@ export const Footer = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 }}
-                                className="text-slate-300 text-lg md:text-[19px] font-medium mb-8">
+                                className="text-[#00a9ce] text-lg md:text-xl font-bold tracking-wide mb-10">
                                 Need robust vehicle APIs, intelligent automation, or bespoke automotive software? We can help.
                             </motion.p>
 
