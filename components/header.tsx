@@ -178,11 +178,8 @@ export const Navbar = () => {
 
                     {/* Actions */}
                     <div className="hidden lg:flex items-center gap-3">
-                        <Link href="/contact-us" className="relative group rounded-none overflow-hidden p-[1px]">
-                            <div className="absolute inset-0 bg-[#76bc1d] rounded-none opacity-100 transition-opacity" />
-                            <div className="relative bg-[#76bc1d] text-white text-[14px] font-bold px-8 py-3 rounded-none transition-colors group-hover:bg-transparent group-hover:text-[#76bc1d] border border-[#76bc1d]">
-                                Contact Us
-                            </div>
+                        <Link href="/contact-us" className="bg-logo-gradient text-white text-[14px] font-bold px-8 py-3 rounded-none transition-transform hover:scale-105 border-0">
+                            Contact Us
                         </Link>
                     </div>
                 </div>
@@ -247,7 +244,7 @@ export const Navbar = () => {
                                 </div>
                             ))}
                             <div className="pt-4 flex flex-col gap-3">
-                                <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-[#76bc1d] text-white font-bold py-3 rounded-none">
+                                <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-logo-gradient text-white font-bold py-3 rounded-none">
                                     Contact Us
                                 </Link>
                             </div>

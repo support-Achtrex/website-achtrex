@@ -52,10 +52,10 @@ export const Footer = () => {
                         </motion.div>
                         <button
                             onClick={() => router.push('/contact-us')}
-                            className="group relative inline-flex items-center justify-center bg-[#76bc1d] hover:bg-transparent border border-[#76bc1d] transition-colors duration-300 transform -skew-x-12 px-10 py-4 shadow-none"
+                            className="group relative inline-flex items-center justify-center bg-logo-gradient transition-all duration-300 transform -skew-x-12 px-10 py-4 shadow-none border-0 hover:scale-105"
                         >
-                            <span className="transform skew-x-12 text-white group-hover:text-[#76bc1d] font-bold tracking-wide text-sm">
-                                Let's Talk
+                            <span className="transform skew-x-12 text-white font-bold tracking-wide text-sm">
+                                START A PROJECT
                             </span>
                         </button>
                     </div>

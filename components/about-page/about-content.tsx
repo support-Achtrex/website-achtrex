@@ -254,8 +254,8 @@ export const AboutContent = () => {
                                 Contact our team to discuss integration at <a href="mailto:support@achtrex.com" className="text-[#00a9ce] hover:text-white font-bold">support@achtrex.com</a>
                             </p>
                         </div>
-                        <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#76bc1d] text-white font-bold text-[14px] px-8 py-4 rounded-none hover:bg-transparent border border-[#76bc1d] hover:text-[#76bc1d] transition-all shadow-none shrink-0 group">
-                            Get in touch
+                        <Link href="/contact-us" className="inline-flex items-center gap-2 bg-logo-gradient text-white font-bold text-[14px] px-8 py-4 rounded-none transition-transform hover:scale-105 shadow-none shrink-0 border-0 group">
+                            Contact Us
                             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </Link>
                     </div>
