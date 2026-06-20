@@ -67,6 +67,54 @@ export const OfferingsTabs = () => {
         <section className="w-full py-24 bg-white font-sans overflow-hidden">
             <div className="max-w-[1200px] mx-auto px-6">
                 
+                {/* Header Section */}
+                <div className="text-center max-w-4xl mx-auto mb-16">
+                    <motion.p 
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-4">
+                        THE TECHNOLOGY PARTNER FOR AUTOMOTIVE BUSINESSES
+                    </motion.p>
+                    
+                    <motion.h2 
+                        variants={{
+                            hidden: { opacity: 1 },
+                            visible: {
+                                opacity: 1,
+                                transition: { staggerChildren: 0.04 }
+                            }
+                        }}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="text-4xl md:text-5xl font-bold text-gradient mb-6 tracking-tight py-2 leading-tight md:leading-[1.2]">
+                        <span className="block">
+                            {"World-class Automotive Software &".split("").map((char, index) => (
+                                <motion.span key={`l1-${index}`} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+                                    {char}
+                                </motion.span>
+                            ))}
+                        </span>
+                        <span className="block">
+                            {"Data Intelligence Company".split("").map((char, index) => (
+                                <motion.span key={`l2-${index}`} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+                                    {char}
+                                </motion.span>
+                            ))}
+                        </span>
+                    </motion.h2>
+
+                    <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 2.5, duration: 0.8 }} // delays until typing is mostly done
+                        className="text-lg text-slate-600 leading-relaxed px-4">
+                        As a top-rated automotive technology partner, our team continues to assist companies to boost their businesses by providing customized software, powerful data APIs, and AI solutions tailored to meet client objectives effectively and increase revenue.
+                    </motion.p>
+                </div>
+
                 {/* Tabs Navigation */}
                 <div className="relative mb-16">
                     <div className="grid grid-cols-3 relative z-10 w-full mb-6">
@@ -127,19 +175,6 @@ export const OfferingsTabs = () => {
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         />
                     </div>
-                </div>
-
-                {/* Header Section */}
-                <div className="text-center max-w-4xl mx-auto mb-16">
-                    <p className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-4">
-                        THE TECHNOLOGY PARTNER FOR AUTOMOTIVE BUSINESSES
-                    </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6 tracking-tight">
-                        World-class Automotive Software &<br/> Data Intelligence Company
-                    </h2>
-                    <p className="text-lg text-slate-600 leading-relaxed">
-                        As a top-rated automotive technology partner, our team continues to assist companies to boost their businesses by providing customized software, powerful data APIs, and AI solutions tailored to meet client objectives effectively and increase revenue.
-                    </p>
                 </div>
 
                 {/* Tab Content */}
