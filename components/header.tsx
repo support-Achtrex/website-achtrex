@@ -40,57 +40,22 @@ export const Navbar = () => {
     const navLinks: any[] = [
         { 
             label: 'Products', 
-            href: '/products',
-            sub: [
-                { 
-                    label: 'AutomotiveDataset.com', 
-                    description: 'High-frequency vehicle datasets and API endpoints.',
-                    href: '/products/automotive',
-                    icon: Database
-                },
-                { 
-                    label: 'LUMI AI Engine', 
-                    description: 'Predictive intelligence and workflow automation.',
-                    href: '/products/lumi',
-                    icon: Bot
-                },
-                { 
-                    label: 'Achtrex Core', 
-                    description: 'Automotive API integrations and custom architecture.',
-                    href: '/products/enterprise-platforms',
-                    icon: Code2
-                }
-            ]
+            href: '/products'
         },
         { 
             label: 'Industries', 
-            href: '/industries',
-            sub: [
-                { label: 'Car Insurance', description: 'Precise VIN decoding, ADAS specs, and historical data for risk modeling.', href: '/industries/auto-insurance', icon: ShieldCheck },
-                { label: 'Car Dealership', description: 'Real-time market insights, valuation data, and inventory management APIs.', href: '/industries/car-dealerships', icon: Store },
-                { label: 'Auto Repair Service', description: 'Detailed OEM specifications, maintenance schedules, and cross-reference parts data.', href: '/industries/auto-repair', icon: Wrench },
-                { label: 'Car Website', description: 'Rich vehicle databases and high-resolution imagery for digital automotive platforms.', href: '/industries/car-website', icon: Globe },
-                { label: 'Classified Website', description: 'Automated listing enrichment, accurate valuations, and VIN-to-specs integration.', href: '/industries/classifieds-websites', icon: Search },
-                { label: 'Manufacturers', description: 'Competitive intelligence, production insights, and global market trends.', href: '/industries/manufacturers', icon: Factory },
-                { label: 'Car Rental', description: 'Fleet optimization data, lifecycle tracking, and depreciation intelligence.', href: '/industries/car-rental', icon: Key },
-                { label: 'Auto Parts Company', description: 'Comprehensive fitment data, OEM cross-referencing, and supply chain insights.', href: '/industries/auto-parts', icon: Package },
-                { label: 'Car Finance', description: 'Accurate residual values, depreciation curves, and loan origination data.', href: '/industries/car-finance', icon: CircleDollarSign }
-            ]
+            href: '/industries'
         },
         { 
             label: 'Resources', 
-            href: '/resources', 
-            sub: [
-                { label: 'Blog', description: 'Latest news & tech insights.', href: '/blog', icon: FileText },
-                { label: 'Press Release', description: 'Company announcements.', href: '/press-release', icon: Newspaper },
-                { label: 'Client & Industry Use Cases', description: 'Real-world data applications.', href: '/use-cases', icon: Target }
-            ] 
+            href: '/resources'
         },
         {
             label: 'About Us',
             href: '/about-us'
         }
     ];
+
 
     return (
         <div className={cn(
@@ -132,48 +97,37 @@ export const Navbar = () => {
                                 </Link>
                                 {link.sub && (
                                     <div className={cn(
-                                        "absolute top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50",
-                                        link.label === 'Products' ? "w-[900px] left-[-300px]" :
-                                        link.sub.length > 4 ? "w-[700px] left-[-150px]" : (link.sub[0]?.description ? "w-[400px] left-[-20px]" : "w-[240px] left-[-20px]")
+                                        "absolute top-full left-[-20px] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50",
+                                        link.sub.length > 4 ? "w-[700px] left-[-150px]" : (link.sub[0]?.description ? "w-[400px]" : "w-[240px]")
                                     )}>
                                         <div className={cn(
                                             "bg-[#081622] border border-white/10 rounded-none shadow-2xl p-3",
-                                            link.label === 'Products' ? "grid grid-cols-3 gap-4 p-6" :
                                             link.sub.length > 4 ? "grid grid-cols-2 gap-x-2 gap-y-1" : "flex flex-col gap-1",
-                                            link.sub[0]?.description && link.sub.length <= 4 && link.label !== 'Products' && "gap-2"
+                                            link.sub[0]?.description && link.sub.length <= 4 && "gap-2"
                                         )}>
                                             {link.sub.map((subLink: any) => (
                                                 <Link
                                                     key={subLink.href}
                                                     href={subLink.href}
                                                     className={cn(
-                                                        "transition-all duration-300 flex items-start",
-                                                        link.label === 'Products' 
-                                                            ? "p-5 bg-white/5 border border-white/5 hover:border-[#00a9ce]/50 hover:bg-white/10 flex-col items-center text-center gap-3" 
-                                                            : (subLink.description ? "p-3 gap-4 hover:bg-white/5 rounded-none" : "px-4 py-2 hover:bg-white/5 rounded-none")
+                                                        "rounded-none transition-colors hover:bg-white/5 flex items-start",
+                                                        subLink.description ? "p-3 gap-4" : "px-4 py-2"
                                                     )}
                                                 >
                                                     {subLink.icon && (
-                                                        <div className={cn(
-                                                            "text-[#00a9ce] flex-shrink-0 transition-transform duration-300 group-hover/link:scale-110",
-                                                            link.label === 'Products' ? "mb-2 bg-[#001a22] p-4 rounded-full border border-white/10" : "mt-0.5"
-                                                        )}>
-                                                            <subLink.icon className={cn(link.label === 'Products' ? "w-8 h-8" : "w-5 h-5")} />
+                                                        <div className="mt-0.5 text-[#00a9ce] flex-shrink-0">
+                                                            <subLink.icon className="w-5 h-5" />
                                                         </div>
                                                     )}
-                                                    <div className={cn("flex flex-col", link.label === 'Products' ? "items-center" : "")}>
+                                                    <div className="flex flex-col">
                                                         <span className={cn(
                                                             "font-semibold",
-                                                            link.label === 'Products' ? "text-[16px] text-white mb-2" :
                                                             subLink.description ? "text-[15px] text-white" : "text-[14px] text-white/70 hover:text-[#00a9ce]"
                                                         )}>
                                                             {subLink.label}
                                                         </span>
                                                         {subLink.description && (
-                                                            <span className={cn(
-                                                                "text-[13px] text-white/60 leading-snug",
-                                                                link.label === 'Products' ? "line-clamp-3 text-white/50" : "mt-0.5"
-                                                            )}>
+                                                            <span className="text-[13px] text-white/60 mt-0.5 leading-snug">
                                                                 {subLink.description}
                                                             </span>
                                                         )}
