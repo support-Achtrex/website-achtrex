@@ -81,7 +81,7 @@ export const PortfolioGrid = () => {
                         viewport={{ once: true }}
                         className="text-xs md:text-sm font-bold tracking-widest text-[#f97316] uppercase mb-4"
                     >
-                        We love what we do
+                        Success Stories & Products
                     </motion.p>
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
@@ -89,7 +89,7 @@ export const PortfolioGrid = () => {
                         viewport={{ once: true }}
                         className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6"
                     >
-                        Websites & Design Works
+                        Transforming Automotive Ideas
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -98,7 +98,7 @@ export const PortfolioGrid = () => {
                         transition={{ delay: 0.1 }}
                         className="text-lg md:text-xl text-slate-200 max-w-2xl leading-relaxed"
                     >
-                        Ghana's top brands chose our website design company for their websites.
+                        Discover how leading automotive brands leverage our custom software, AI engines, and robust data APIs to drive their businesses forward.
                     </motion.p>
                 </div>
             </div>
