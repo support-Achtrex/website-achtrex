@@ -79,18 +79,18 @@ export const PortfolioGrid = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6"
+                        className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4"
                     >
-                        Transforming Automotive Ideas
+                        Our Platforms & Real-World Use Cases
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-lg md:text-xl text-slate-200 max-w-2xl leading-relaxed"
+                        className="text-base md:text-lg text-slate-300 font-medium max-w-3xl leading-relaxed"
                     >
-                        Discover how leading automotive brands leverage our custom software, AI engines, and robust data APIs to drive their businesses forward.
+                        Explore our core enterprise products and the consumer applications they power—from global vehicle history reports to intelligent API integrations.
                     </motion.p>
                 </div>
             </div>
