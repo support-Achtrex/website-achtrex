@@ -16,51 +16,73 @@ export const Footer = () => {
     return (
         <>
             {/* Pre-Footer CTA Section */}
-            <section className="relative overflow-hidden bg-[#081622] border-b border-[#00a9ce]/20">
-                <div className="absolute inset-0 z-0 mix-blend-overlay opacity-30">
-                    <Image
-                        src="/hero-bg-team.png"
-                        alt="Team collaborating"
-                        fill
-                        className="object-cover object-center grayscale"
-                    />
-                </div>
+            <div className="relative bg-transparent pt-20">
+                {/* Dark background for the bottom half to create overlap effect */}
+                <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#001a22]"></div>
+                
+                <div className="relative max-w-[1200px] mx-auto px-4 lg:px-8 z-10">
+                    <div className="relative bg-[#00a9ce] rounded-xl shadow-2xl overflow-hidden pt-16 pb-12 px-6 text-center border-b-[6px] border-[#76bc1d]">
+                        
+                        {/* Floating Shapes */}
+                        <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+                            {/* Top Left Circle */}
+                            <div className="absolute -top-4 -left-4 w-12 h-12 bg-white/80 rounded-full"></div>
+                            {/* Purple/Orange Diamonds */}
+                            <div className="absolute top-6 left-[20%] md:left-[30%] w-3 h-3 bg-purple-700 rotate-45"></div>
+                            <div className="absolute top-8 left-[22%] md:left-[32%] w-6 h-6 border-2 border-orange-500 rotate-45"></div>
+                            {/* Top Right Circles */}
+                            <div className="absolute top-6 right-[22%] md:right-[32%] w-6 h-6 bg-white/80 rounded-full"></div>
+                            <div className="absolute top-8 right-[20%] md:right-[30%] w-8 h-8 border-[3px] border-[#76bc1d] rounded-full"></div>
+                            {/* Bottom Left Diamond */}
+                            <div className="absolute bottom-6 left-[10%] w-10 h-10 border-[4px] border-[#007b99] rotate-45"></div>
+                            {/* Bottom Center Triangle */}
+                            <div className="absolute -bottom-2 left-[45%] w-0 h-0 border-l-[8px] border-r-[8px] border-b-[12px] border-transparent border-b-orange-500"></div>
+                            {/* Right Square */}
+                            <div className="absolute top-1/2 right-[10%] md:right-[15%] w-5 h-5 bg-white/80"></div>
+                        </div>
 
-                <svg className="absolute -right-20 top-1/2 -translate-y-1/2 h-[150%] w-auto text-[#00a9ce] z-0 pointer-events-none opacity-20" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 100 H150 M100 50 L150 100 L100 150" stroke="currentColor" strokeWidth="20" strokeLinecap="square" strokeLinejoin="miter" />
-                    <path d="M-50 100 H100 M50 50 L100 100 L50 150" stroke="currentColor" strokeWidth="20" strokeLinecap="square" strokeLinejoin="miter" />
-                </svg>
+                        {/* Top Center Diamond Logo */}
+                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-white rotate-45 flex items-center justify-center shadow-sm">
+                            <div className="-rotate-45 flex items-center justify-center w-full h-full">
+                                <Image src="/logo.png" alt="Achtrex Logo" width={32} height={32} className="object-contain" />
+                            </div>
+                        </div>
 
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 lg:py-14 relative z-10">
-                    <div className="max-w-2xl">
-                        <motion.h2 
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                            className="text-3xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight mb-8">
-                            Not sure <br className="hidden sm:block" /> where to start?
-                        </motion.h2>
-                        <motion.div 
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                            className="space-y-6 text-[17px] text-slate-300 font-medium mb-10 max-w-xl">
-                            <p>Tell us your goals. We'll guide you to the right solution for your data, your challenges, and your growth.</p>
-                            <p>Get an assessment of your data quality.</p>
-                        </motion.div>
-                        <button
-                            onClick={() => router.push('/contact-us')}
-                            className="group relative inline-flex items-center justify-center bg-logo-gradient transition-all duration-300 transform -skew-x-12 px-10 py-4 shadow-none border-0 hover:scale-105"
-                        >
-                            <span className="transform skew-x-12 text-white font-bold tracking-wide text-sm">
-                                START A PROJECT
-                            </span>
-                        </button>
+                        {/* Content */}
+                        <div className="relative z-10 max-w-3xl mx-auto">
+                            <motion.h2 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="text-4xl md:text-5xl font-extrabold text-[#001a22] mb-4 tracking-tight">
+                                Work with Us
+                            </motion.h2>
+                            <motion.p 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 }}
+                                className="text-white text-lg md:text-[19px] font-medium mb-8">
+                                Responsive web design, branding and digital marketing that get results? We can help.
+                            </motion.p>
+
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 }}
+                                className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                                <a href="tel:+233242167632" className="w-full sm:w-auto px-8 py-3 rounded-md border border-white text-white font-bold hover:bg-white hover:text-[#00a9ce] transition-colors text-center text-[15px]">
+                                    Call Us: +233 242 167 632
+                                </a>
+                                <button onClick={() => router.push('/contact-us')} className="w-full sm:w-auto px-8 py-3 rounded-md bg-logo-gradient text-white font-bold transition-transform hover:scale-105 text-center shadow-md border-0 text-[15px]">
+                                    Work with Us
+                                </button>
+                            </motion.div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
             {/* Main Footer */}
             <footer className="bg-[#001a22] text-slate-200 pt-16 pb-8 font-sans border-t border-white/5">
