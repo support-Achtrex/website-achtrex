@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Image from 'next/image';
-import { CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { CaretLeft, CaretRight, PencilSimple } from '@phosphor-icons/react';
 import { cn } from '@/lib/utils';
 
 const offerings = [
@@ -42,8 +42,76 @@ const offerings = [
     }
 ];
 
+const TypewriterWithPencil = ({ text, className, speed = 40, delay = 0, onComplete, pencilSize = 32, asBlock = false, active = false }: any) => {
+    const [displayedText, setDisplayedText] = useState('');
+    const [isTyping, setIsTyping] = useState(false);
+    const [hasStarted, setHasStarted] = useState(false);
+
+    useEffect(() => {
+        if (active) {
+            setDisplayedText('');
+            setIsTyping(true);
+            setHasStarted(false);
+            
+            const delayTimeout = setTimeout(() => {
+                setHasStarted(true);
+                let i = 0;
+                const interval = setInterval(() => {
+                    setDisplayedText(text.slice(0, i + 1));
+                    i++;
+                    if (i >= text.length) {
+                        clearInterval(interval);
+                        setIsTyping(false);
+                        if (onComplete) onComplete();
+                    }
+                }, speed);
+
+                return () => clearInterval(interval);
+            }, delay);
+
+            return () => clearTimeout(delayTimeout);
+        } else {
+            setDisplayedText('');
+            setIsTyping(false);
+            setHasStarted(false);
+        }
+    }, [active, text, speed, delay]);
+
+    if (asBlock) {
+        const lines = displayedText.split('\n');
+        return (
+            <span className={className}>
+                {lines.map((line, idx) => (
+                    <span key={idx} className="block whitespace-pre-wrap">
+                        {line}
+                        {idx === lines.length - 1 && isTyping && hasStarted && (
+                            <span className="inline-block text-[#00a9ce] ml-2 align-middle -mt-2">
+                                <PencilSimple size={pencilSize} weight="duotone" className="animate-pulse drop-shadow-md" style={{ transform: 'scaleX(-1) rotate(45deg)' }} />
+                            </span>
+                        )}
+                    </span>
+                ))}
+            </span>
+        );
+    }
+
+    return (
+        <span className={className}>
+            {displayedText}
+            {isTyping && hasStarted && (
+                <span className="inline-block text-[#00a9ce] ml-2 align-middle -mt-2">
+                    <PencilSimple size={pencilSize} weight="duotone" className="animate-pulse drop-shadow-md" style={{ transform: 'scaleX(-1) rotate(45deg)' }} />
+                </span>
+            )}
+        </span>
+    );
+};
+
 export const OfferingsTabs = () => {
     const [activeTab, setActiveTab] = useState(0);
+    const headerRef = useRef(null);
+    const isHeaderInView = useInView(headerRef, { amount: 0.5 });
+    const [isH2Done, setIsH2Done] = useState(false);
 
     const handleNext = () => {
         setActiveTab((prev) => (prev + 1) % offerings.length);
@@ -52,6 +120,12 @@ export const OfferingsTabs = () => {
     const handlePrev = () => {
         setActiveTab((prev) => (prev - 1 + offerings.length) % offerings.length);
     };
+
+    useEffect(() => {
+        if (!isHeaderInView) {
+            setIsH2Done(false);
+        }
+    }, [isHeaderInView]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -68,7 +142,7 @@ export const OfferingsTabs = () => {
             <div className="max-w-[1200px] mx-auto px-6">
                 
                 {/* Header Section */}
-                <div className="text-center max-w-4xl mx-auto mb-16">
+                <div ref={headerRef} className="text-center max-w-4xl mx-auto mb-16 min-h-[300px]">
                     <motion.p 
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -77,42 +151,26 @@ export const OfferingsTabs = () => {
                         THE TECHNOLOGY PARTNER FOR AUTOMOTIVE BUSINESSES
                     </motion.p>
                     
-                    <motion.h2 
-                        variants={{
-                            hidden: { opacity: 1 },
-                            visible: {
-                                opacity: 1,
-                                transition: { staggerChildren: 0.04 }
-                            }
-                        }}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-bold text-gradient mb-6 tracking-tight py-2 leading-tight md:leading-[1.2]">
-                        <span className="block">
-                            {"World-class Automotive Software &".split("").map((char, index) => (
-                                <motion.span key={`l1-${index}`} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
-                                    {char}
-                                </motion.span>
-                            ))}
-                        </span>
-                        <span className="block">
-                            {"Data Intelligence Company".split("").map((char, index) => (
-                                <motion.span key={`l2-${index}`} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
-                                    {char}
-                                </motion.span>
-                            ))}
-                        </span>
-                    </motion.h2>
+                    <TypewriterWithPencil 
+                        text="World-class Automotive Software &
+Data Intelligence Company"
+                        className="text-4xl md:text-5xl font-bold text-gradient mb-6 tracking-tight py-2 leading-tight md:leading-[1.2] inline-block"
+                        asBlock={true}
+                        speed={35}
+                        pencilSize={40}
+                        active={isHeaderInView}
+                        onComplete={() => setIsH2Done(true)}
+                    />
 
-                    <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 2.5, duration: 0.8 }} // delays until typing is mostly done
-                        className="text-lg text-slate-600 leading-relaxed px-4">
-                        As a top-rated automotive technology partner, our team continues to assist companies to boost their businesses by providing customized software, powerful data APIs, and AI solutions tailored to meet client objectives effectively and increase revenue.
-                    </motion.p>
+                    <div className="mt-6 min-h-[100px]">
+                        <TypewriterWithPencil 
+                            text="As a top-rated automotive technology partner, our team continues to assist companies to boost their businesses by providing customized software, powerful data APIs, and AI solutions tailored to meet client objectives effectively and increase revenue."
+                            className="text-lg text-slate-600 leading-relaxed px-4 inline-block"
+                            speed={20}
+                            pencilSize={24}
+                            active={isH2Done}
+                        />
+                    </div>
                 </div>
 
                 {/* Tabs Navigation */}
