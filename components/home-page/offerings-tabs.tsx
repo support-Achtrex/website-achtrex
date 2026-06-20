@@ -67,19 +67,6 @@ export const OfferingsTabs = () => {
         <section className="w-full py-24 bg-white font-sans overflow-hidden">
             <div className="max-w-[1200px] mx-auto px-6">
                 
-                {/* Header Section */}
-                <div className="text-center max-w-4xl mx-auto mb-16">
-                    <p className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-4">
-                        THE TECHNOLOGY PARTNER FOR AUTOMOTIVE BUSINESSES
-                    </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6 tracking-tight">
-                        World-class Automotive Software &<br/> Data Intelligence Company
-                    </h2>
-                    <p className="text-lg text-slate-600 leading-relaxed">
-                        As a top-rated automotive technology partner, our team continues to assist companies to boost their businesses by providing customized software, powerful data APIs, and AI solutions tailored to meet client objectives effectively and increase revenue.
-                    </p>
-                </div>
-
                 {/* Tabs Navigation */}
                 <div className="relative mb-16">
                     <div className="grid grid-cols-3 relative z-10 w-full mb-6">
@@ -140,6 +127,19 @@ export const OfferingsTabs = () => {
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         />
                     </div>
+                </div>
+
+                {/* Header Section */}
+                <div className="text-center max-w-4xl mx-auto mb-16">
+                    <p className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-4">
+                        THE TECHNOLOGY PARTNER FOR AUTOMOTIVE BUSINESSES
+                    </p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6 tracking-tight">
+                        World-class Automotive Software &<br/> Data Intelligence Company
+                    </h2>
+                    <p className="text-lg text-slate-600 leading-relaxed">
+                        As a top-rated automotive technology partner, our team continues to assist companies to boost their businesses by providing customized software, powerful data APIs, and AI solutions tailored to meet client objectives effectively and increase revenue.
+                    </p>
                 </div>
 
                 {/* Tab Content */}
