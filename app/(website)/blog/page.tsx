@@ -22,6 +22,7 @@ export default function BlogListingPage() {
     const otherPosts = blogPosts.slice(1);
     const categories = ["All", "Data Engineering", "AI Architecture", "Venture Building", "API Design", "Infrastructure"];
 
+    return (
         <main className="min-h-screen bg-[#f4f4f4] pb-20 font-sans">
             <InnerPageHeader title="Insights & Engineering" subtitle="Explore technical deep dives, architectural decisions, and our approach to building high-velocity platforms." />
             
