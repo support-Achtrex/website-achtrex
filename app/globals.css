@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
 
 @plugin "@tailwindcss/typography";
 @source "../app";
@@ -22,8 +21,8 @@
   --input: #e5e5e5;
   --ring: #00a9ce;
 
-  --font-sans: 'Proxima Nova', sans-serif;
-  --font-display: 'Proxima Nova', sans-serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
   
   /* Brand Logo Gradient Context */
   --logo-gradient: linear-gradient(to right, #007bff, #00ff88);
@@ -39,6 +38,19 @@
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
   --background-image-logo-gradient: var(--logo-gradient);
+
+  /* Global typography scaling to reduce "too big" text */
+  --text-xs: 0.7rem;
+  --text-sm: 0.8rem;
+  --text-base: 0.9rem;
+  --text-lg: 1rem;
+  --text-xl: 1.125rem;
+  --text-2xl: 1.25rem;
+  --text-3xl: 1.5rem;
+  --text-4xl: 1.75rem;
+  --text-5xl: 2.125rem;
+  --text-6xl: 2.75rem;
+  --text-7xl: 3.5rem;
 }
 
 body {
