@@ -28,22 +28,22 @@ export const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="relative bg-logo-gradient rounded-2xl shadow-xl overflow-hidden pt-20 pb-16 px-6 text-center border border-white/20">
+                    <div className="relative bg-gradient-to-br from-[#061420] to-[#0A2235] rounded-2xl shadow-2xl overflow-hidden pt-20 pb-16 px-6 text-center border border-white/10">
                         
                         {/* Light, Frosted Floating Shapes */}
                         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
                             {/* Top Left Circle */}
-                            <div className="absolute -top-4 -left-4 w-20 h-20 bg-white/10 rounded-full blur-md"></div>
+                            <div className="absolute -top-4 -left-4 w-20 h-20 bg-white/5 rounded-full blur-md"></div>
                             {/* Accent Diamonds */}
-                            <div className="absolute top-10 left-[20%] md:left-[25%] w-4 h-4 bg-white/30 rotate-45"></div>
-                            <div className="absolute top-12 left-[23%] md:left-[28%] w-8 h-8 border-[1.5px] border-white/20 rotate-45"></div>
+                            <div className="absolute top-10 left-[20%] md:left-[25%] w-4 h-4 bg-white/10 rotate-45"></div>
+                            <div className="absolute top-12 left-[23%] md:left-[28%] w-8 h-8 border-[1.5px] border-white/10 rotate-45"></div>
                             {/* Top Right Circles */}
-                            <div className="absolute top-8 right-[22%] md:right-[32%] w-8 h-8 bg-white/10 rounded-full"></div>
-                            <div className="absolute top-10 right-[20%] md:right-[30%] w-12 h-12 border-[1.5px] border-white/30 rounded-full"></div>
+                            <div className="absolute top-8 right-[22%] md:right-[32%] w-8 h-8 bg-white/5 rounded-full"></div>
+                            <div className="absolute top-10 right-[20%] md:right-[30%] w-12 h-12 border-[1.5px] border-white/10 rounded-full"></div>
                             {/* Bottom Left Diamond */}
-                            <div className="absolute bottom-8 left-[10%] w-14 h-14 border-[1.5px] border-white/20 rotate-45"></div>
+                            <div className="absolute bottom-8 left-[10%] w-14 h-14 border-[1.5px] border-white/10 rotate-45"></div>
                             {/* Right Square */}
-                            <div className="absolute top-1/2 right-[10%] md:right-[15%] w-6 h-6 border-[1.5px] border-white/20 rotate-12"></div>
+                            <div className="absolute top-1/2 right-[10%] md:right-[15%] w-6 h-6 border-[1.5px] border-white/10 rotate-12"></div>
                         </div>
 
                         {/* Content */}
@@ -60,7 +60,7 @@ export const Footer = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 }}
-                                className="text-white text-lg md:text-xl font-bold tracking-wide mb-10 drop-shadow-sm">
+                                className="text-slate-300 text-lg md:text-xl font-medium tracking-wide mb-10">
                                 Need robust vehicle APIs, intelligent automation, or bespoke automotive software? We can help.
                             </motion.p>
 
@@ -70,10 +70,10 @@ export const Footer = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
                                 className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <a href="tel:+19733851305" className="w-full sm:w-auto px-8 py-3 rounded-md border-2 border-white text-white font-bold hover:bg-white hover:text-[#007bff] transition-colors text-center text-[15px] shadow-sm">
+                                <a href="tel:+19733851305" className="w-full sm:w-auto px-8 py-3 rounded-md border border-white/20 text-white font-bold hover:bg-white/5 transition-colors text-center text-[15px]">
                                     Call Us: +1 973 385 1305
                                 </a>
-                                <button onClick={() => router.push('/contact-us')} className="w-full sm:w-auto px-8 py-3 rounded-md bg-white text-[#007bff] font-bold transition-transform hover:scale-105 text-center shadow-lg border-0 text-[15px]">
+                                <button onClick={() => router.push('/contact-us')} className="w-full sm:w-auto px-8 py-3 rounded-md bg-logo-gradient text-white font-bold transition-transform hover:scale-105 text-center shadow-lg border-0 text-[15px]">
                                     Work with Us
                                 </button>
                             </motion.div>
