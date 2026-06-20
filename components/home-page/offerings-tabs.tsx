@@ -111,7 +111,7 @@ Data Intelligence Company"
 
                 {/* Tabs Navigation */}
                 <div className="relative mb-16">
-                    <div className="grid grid-cols-3 relative z-10 w-full mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-0 relative z-10 w-full mb-6">
                         {offerings.map((offering, index) => {
                             const isActive = activeTab === index;
                             return (
