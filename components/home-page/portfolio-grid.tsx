@@ -75,14 +75,6 @@ export const PortfolioGrid = () => {
                 <div className="absolute inset-0 opacity-10 bg-[url('/hero-bg.jpg')] bg-cover bg-center mix-blend-luminosity z-0"></div>
                 
                 <div className="max-w-[1200px] mx-auto relative z-10 flex flex-col items-start text-left">
-                    <motion.p 
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        className="text-xs md:text-sm font-bold tracking-widest text-[#f97316] uppercase mb-4"
-                    >
-                        Success Stories & Products
-                    </motion.p>
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
