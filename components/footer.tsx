@@ -28,24 +28,24 @@ export const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="relative bg-[#00a9ce] rounded-xl shadow-2xl overflow-hidden pt-16 pb-12 px-6 text-center border-b-[6px] border-[#76bc1d]">
+                    <div className="relative bg-[#081622] rounded-xl shadow-2xl overflow-hidden pt-16 pb-12 px-6 text-center border border-white/10">
                         
-                        {/* Floating Shapes */}
+                        {/* Premium Subtle Floating Shapes */}
                         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
                             {/* Top Left Circle */}
-                            <div className="absolute -top-4 -left-4 w-12 h-12 bg-white/80 rounded-full"></div>
-                            {/* Purple/Orange Diamonds */}
-                            <div className="absolute top-6 left-[20%] md:left-[30%] w-3 h-3 bg-purple-700 rotate-45"></div>
-                            <div className="absolute top-8 left-[22%] md:left-[32%] w-6 h-6 border-2 border-orange-500 rotate-45"></div>
+                            <div className="absolute -top-4 -left-4 w-16 h-16 bg-white/5 rounded-full blur-sm"></div>
+                            {/* Accent Diamonds */}
+                            <div className="absolute top-10 left-[20%] md:left-[25%] w-4 h-4 bg-[#00a9ce]/20 rotate-45"></div>
+                            <div className="absolute top-12 left-[23%] md:left-[28%] w-8 h-8 border border-white/10 rotate-45"></div>
                             {/* Top Right Circles */}
-                            <div className="absolute top-6 right-[22%] md:right-[32%] w-6 h-6 bg-white/80 rounded-full"></div>
-                            <div className="absolute top-8 right-[20%] md:right-[30%] w-8 h-8 border-[3px] border-[#76bc1d] rounded-full"></div>
+                            <div className="absolute top-8 right-[22%] md:right-[32%] w-6 h-6 bg-white/5 rounded-full"></div>
+                            <div className="absolute top-10 right-[20%] md:right-[30%] w-10 h-10 border border-[#00a9ce]/30 rounded-full"></div>
                             {/* Bottom Left Diamond */}
-                            <div className="absolute bottom-6 left-[10%] w-10 h-10 border-[4px] border-[#007b99] rotate-45"></div>
-                            {/* Bottom Center Triangle */}
-                            <div className="absolute -bottom-2 left-[45%] w-0 h-0 border-l-[8px] border-r-[8px] border-b-[12px] border-transparent border-b-orange-500"></div>
+                            <div className="absolute bottom-8 left-[10%] w-12 h-12 border border-white/10 rotate-45"></div>
+                            {/* Bottom Center Accent */}
+                            <div className="absolute -bottom-4 left-[45%] w-24 h-24 bg-logo-gradient opacity-10 blur-3xl rounded-full"></div>
                             {/* Right Square */}
-                            <div className="absolute top-1/2 right-[10%] md:right-[15%] w-5 h-5 bg-white/80"></div>
+                            <div className="absolute top-1/2 right-[10%] md:right-[15%] w-6 h-6 border border-white/5 rotate-12"></div>
                         </div>
 
                         {/* Content */}
@@ -54,7 +54,7 @@ export const Footer = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                className="text-4xl md:text-5xl font-extrabold text-[#001a22] mb-4 tracking-tight">
+                                className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
                                 Work with Us
                             </motion.h2>
                             <motion.p 
@@ -62,7 +62,7 @@ export const Footer = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 }}
-                                className="text-white text-lg md:text-[19px] font-medium mb-8">
+                                className="text-slate-300 text-lg md:text-[19px] font-medium mb-8">
                                 Need robust vehicle APIs, intelligent automation, or bespoke automotive software? We can help.
                             </motion.p>
 
@@ -72,10 +72,10 @@ export const Footer = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
                                 className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <a href="tel:+19733851305" className="w-full sm:w-auto px-8 py-3 rounded-md border border-white text-white font-bold hover:bg-white hover:text-[#00a9ce] transition-colors text-center text-[15px]">
+                                <a href="tel:+19733851305" className="w-full sm:w-auto px-8 py-3 rounded-md border border-white/20 text-white font-bold hover:bg-white/5 transition-colors text-center text-[15px]">
                                     Call Us: +1 973 385 1305
                                 </a>
-                                <button onClick={() => router.push('/contact-us')} className="w-full sm:w-auto px-8 py-3 rounded-md bg-logo-gradient text-white font-bold transition-transform hover:scale-105 text-center shadow-md border-0 text-[15px]">
+                                <button onClick={() => router.push('/contact-us')} className="w-full sm:w-auto px-8 py-3 rounded-md bg-logo-gradient text-white font-bold transition-transform hover:scale-105 text-center shadow-lg border-0 text-[15px]">
                                     Work with Us
                                 </button>
                             </motion.div>
