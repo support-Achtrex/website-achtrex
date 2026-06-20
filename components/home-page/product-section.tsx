@@ -66,7 +66,7 @@ export const ProductSection = () => {
                         </div>
 
                         <div className="p-8 md:p-10 flex-grow relative z-10 pt-4">
-                            <h3 className="text-3xl font-display font-bold text-slate-900 mb-3">Automotive Dataset</h3>
+                            <h3 className="text-3xl font-display font-bold text-gradient mb-3">Automotive Dataset</h3>
                             <p className="text-gradient text-sm font-bold uppercase tracking-widest mb-6">Deep Vehicle Intelligence</p>
                             
                             <p className="text-slate-500 text-lg leading-relaxed mb-8">
@@ -114,7 +114,7 @@ export const ProductSection = () => {
                         </div>
 
                         <div className="p-8 md:p-10 flex-grow relative z-10 pt-4">
-                            <h3 className="text-3xl font-display font-bold text-slate-900 mb-3">LUMI</h3>
+                            <h3 className="text-3xl font-display font-bold text-gradient mb-3">LUMI</h3>
                             <p className="text-gradient text-sm font-bold uppercase tracking-widest mb-6">Intelligent AI Platform</p>
                             
                             <p className="text-slate-500 text-lg leading-relaxed mb-8">

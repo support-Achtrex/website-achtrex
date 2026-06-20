@@ -75,7 +75,7 @@ export const FAQSection = () => {
             className="md:col-span-4 space-y-4"
           >
             <span className="text-primary text-sm font-semibold tracking-wider uppercase">Support</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight font-display">
+            <h2 className="text-3xl md:text-4xl font-bold text-gradient leading-tight font-display">
               Common <br /> Questions
             </h2>
             <p className="text-muted-foreground text-base leading-relaxed">

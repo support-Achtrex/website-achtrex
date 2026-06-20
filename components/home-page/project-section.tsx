@@ -71,7 +71,7 @@ export const ProjectsSection = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="mb-20 text-center lg:text-left">
                     <span className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block">Market-Ready Solutions</span>
-                    <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 mb-6">Our Internal Products</h2>
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-gradient mb-6">Our Internal Products</h2>
                 </div>
 
                 <div className="relative">
@@ -95,7 +95,7 @@ export const ProjectsSection = () => {
                                         ))}
                                     </div>
 
-                                    <h3 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4" style={{ color: products[currentIndex].color }}>
+                                    <h3 className="text-4xl md:text-5xl font-bold text-gradient mb-4" style={{ color: products[currentIndex].color }}>
                                         {products[currentIndex].title}
                                     </h3>
 

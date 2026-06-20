@@ -33,7 +33,7 @@ const ContactDetails = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="space-y-3 p-6 glass-card rounded-2xl border-l-4 border-l-primary"
                     >
-                        <h3 className="text-lg font-semibold text-slate-900/90">Email Address</h3>
+                        <h3 className="text-lg font-semibold text-gradient/90">Email Address</h3>
                         <a
                             href="mailto:support@achtrex.com"
                             className="block text-base hover:text-primary transition-colors text-muted-foreground"
@@ -50,7 +50,7 @@ const ContactDetails = () => {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="space-y-3 p-6 glass-card rounded-2xl border-l-4 border-l-secondary"
                     >
-                        <h3 className="text-lg font-semibold text-slate-900/90">Phone Numbers</h3>
+                        <h3 className="text-lg font-semibold text-gradient/90">Phone Numbers</h3>
                         <div className="space-y-1 text-base text-muted-foreground">
                             <p className="hover:text-slate-900 transition-colors">GH +233 500 496700</p>
                             <p className="hover:text-slate-900 transition-colors">US +1 973 385 1305</p>

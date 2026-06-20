@@ -44,9 +44,9 @@ export const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="text-[#0ea5e9] font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-6 flex items-center gap-3"
+                        className="text-gradient font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-6 flex items-center gap-3"
                     >
-                        <span className="w-12 h-px bg-[#0ea5e9]"></span>
+                        <span className="w-12 h-px bg-logo-gradient border-0"></span>
                         Automotive Technology Partner
                     </motion.span>
 
@@ -80,7 +80,7 @@ export const Hero = () => {
                         {/* Primary CTA */}
                         <button
                             onClick={() => router.push('/products/automotive')}
-                            className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-semibold tracking-wide px-10 py-4 transition-all hover:scale-105 rounded-sm overflow-hidden bg-[#0ea5e9]"
+                            className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-semibold tracking-wide px-10 py-4 transition-all hover:scale-105 rounded-sm overflow-hidden bg-logo-gradient border-0"
                         >
                             <span className="relative z-10">Explore what we build</span>
                             <ArrowRight className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1" />

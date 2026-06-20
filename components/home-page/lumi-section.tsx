@@ -7,7 +7,7 @@ export const LumiSection = () => {
         <section className="py-24 bg-transparent relative overflow-hidden">
             <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
                 <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-16">
-                    <h2 className="text-4xl sm:text-[56px] font-semibold text-slate-900 tracking-tight leading-[1.1] mb-6">
+                    <h2 className="text-4xl sm:text-[56px] font-semibold text-gradient tracking-tight leading-[1.1] mb-6">
                         The AI infrastructure behind smarter automotive products
                     </h2>
                     <Link href="/products/lumi" className="text-[20px] font-medium text-[#0055FF] hover:text-[#0044CC] transition-colors flex items-center gap-1">

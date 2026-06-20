@@ -86,7 +86,7 @@ const ContactForm = () => {
             className="max-w-3xl"
           >
             <span className="text-[#00a9ce] text-sm font-bold tracking-widest uppercase mb-4 block">Enterprise Partnerships</span>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-slate-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gradient mb-6">
               Discuss infrastructure <br /> and API limits.
             </h2>
             <p className="text-xl text-slate-500">

@@ -64,7 +64,7 @@ export const OfferingsTabs = () => {
                     <p className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-4">
                         THE TECHNOLOGY PARTNER FOR AUTOMOTIVE BUSINESSES
                     </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6 tracking-tight">
                         World-class Automotive Software &<br/> Data Intelligence Company
                     </h2>
                     <p className="text-lg text-slate-600 leading-relaxed">
@@ -164,7 +164,7 @@ export const OfferingsTabs = () => {
                         >
                             {/* Text Content */}
                             <div className="flex-1 pr-0 lg:pr-8">
-                                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                                <h3 className="text-3xl md:text-4xl font-bold text-gradient mb-3">
                                     {activeData.title}
                                 </h3>
                                 <h4 

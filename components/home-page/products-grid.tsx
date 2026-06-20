@@ -16,7 +16,7 @@ export const ProductsGrid = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mb-16 text-center max-w-3xl mx-auto">
-          <h2 className="text-[32px] md:text-[40px] font-bold text-slate-900 leading-[1.1] tracking-tight mb-6">
+          <h2 className="text-[32px] md:text-[40px] font-bold text-gradient leading-[1.1] tracking-tight mb-6">
             Comprehensive Solutions for <br />
             Modern Mobility
           </h2>
@@ -38,7 +38,7 @@ export const ProductsGrid = () => {
             <div className="w-14 h-14 rounded-none bg-[#00a9ce]/10 flex items-center justify-center mb-8">
                <Database weight="duotone" className="w-8 h-8 text-[#00a9ce]" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">Data & APIs</h3>
+            <h3 className="text-2xl font-bold text-gradient mb-4">Data & APIs</h3>
             <p className="text-slate-600 mb-8 flex-grow">
               Access the industry's most comprehensive automotive dataset. Power your applications with real-time vehicle intelligence.
             </p>
@@ -73,7 +73,7 @@ export const ProductsGrid = () => {
              <div className="w-14 h-14 rounded-none bg-[#76bc1d]/10 flex items-center justify-center mb-8 relative z-10">
                <Lightning weight="duotone" className="w-8 h-8 text-[#76bc1d]" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 relative z-10">AI Solutions</h3>
+            <h3 className="text-2xl font-bold text-gradient mb-4 relative z-10">AI Solutions</h3>
             <p className="text-slate-600 mb-8 flex-grow relative z-10">
               Integrate LUMI AI to automate workflows, assist customers, and unlock predictive insights from your data.
             </p>
@@ -108,7 +108,7 @@ export const ProductsGrid = () => {
              <div className="w-14 h-14 rounded-none bg-[#00a9ce]/10 flex items-center justify-center mb-8">
                <Code weight="duotone" className="w-8 h-8 text-[#00a9ce]" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">Custom Software</h3>
+            <h3 className="text-2xl font-bold text-gradient mb-4">Custom Software</h3>
             <p className="text-slate-600 mb-8 flex-grow">
               Need a bespoke platform? We design and build enterprise-grade software tailored to your specific automotive use-case.
             </p>

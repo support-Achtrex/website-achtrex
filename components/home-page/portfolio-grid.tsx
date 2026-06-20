@@ -94,7 +94,7 @@ export const PortfolioGrid = () => {
                                 transition={{ duration: 0.6 }}
                                 className={`flex flex-col justify-center p-12 md:p-20 lg:p-32 ${isEven ? 'bg-[#f4f6f8] md:order-1' : 'bg-white md:order-2'} order-2`}
                             >
-                                <h3 className="text-2xl md:text-[28px] font-bold text-slate-900 mb-6 leading-tight">
+                                <h3 className="text-2xl md:text-[28px] font-bold text-gradient mb-6 leading-tight">
                                     {item.title}
                                 </h3>
                                 <p className="text-[17px] text-slate-600 mb-8 leading-relaxed">

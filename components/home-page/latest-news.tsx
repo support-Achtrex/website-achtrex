@@ -48,7 +48,7 @@ export const LatestNews = () => {
                                         <Calendar className="w-3.5 h-3.5 mr-2" />
                                         {news.date}
                                     </div>
-                                    <h3 className="text-lg font-bold text-slate-900 leading-snug group-hover:text-[#174395] transition-colors mb-6 line-clamp-3">
+                                    <h3 className="text-lg font-bold text-gradient leading-snug group-hover:text-[#174395] transition-colors mb-6 line-clamp-3">
                                         {news.title}
                                     </h3>
                                     <div className="mt-auto flex items-center text-slate-900 group-hover:text-[#174395] font-bold text-[13px] tracking-widest uppercase transition-colors">
