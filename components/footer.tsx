@@ -21,6 +21,13 @@ export const Footer = () => {
                 <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#001a22]"></div>
                 
                 <div className="relative max-w-[1200px] mx-auto px-4 lg:px-8 z-10">
+                    {/* Top Center Diamond Logo (Placed outside so it isn't clipped by overflow-hidden) */}
+                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-white rotate-45 flex items-center justify-center shadow-md z-20">
+                        <div className="-rotate-45 flex items-center justify-center w-full h-full">
+                            <Image src="/logo.png" alt="Achtrex Logo" width={32} height={32} className="object-contain" />
+                        </div>
+                    </div>
+
                     <div className="relative bg-[#00a9ce] rounded-xl shadow-2xl overflow-hidden pt-16 pb-12 px-6 text-center border-b-[6px] border-[#76bc1d]">
                         
                         {/* Floating Shapes */}
@@ -41,13 +48,6 @@ export const Footer = () => {
                             <div className="absolute top-1/2 right-[10%] md:right-[15%] w-5 h-5 bg-white/80"></div>
                         </div>
 
-                        {/* Top Center Diamond Logo */}
-                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-white rotate-45 flex items-center justify-center shadow-sm">
-                            <div className="-rotate-45 flex items-center justify-center w-full h-full">
-                                <Image src="/logo.png" alt="Achtrex Logo" width={32} height={32} className="object-contain" />
-                            </div>
-                        </div>
-
                         {/* Content */}
                         <div className="relative z-10 max-w-3xl mx-auto">
                             <motion.h2 
@@ -63,7 +63,7 @@ export const Footer = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 }}
                                 className="text-white text-lg md:text-[19px] font-medium mb-8">
-                                Responsive web design, branding and digital marketing that get results? We can help.
+                                Need robust vehicle APIs, intelligent automation, or bespoke automotive software? We can help.
                             </motion.p>
 
                             <motion.div 
@@ -72,8 +72,8 @@ export const Footer = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
                                 className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <a href="tel:+233242167632" className="w-full sm:w-auto px-8 py-3 rounded-md border border-white text-white font-bold hover:bg-white hover:text-[#00a9ce] transition-colors text-center text-[15px]">
-                                    Call Us: +233 242 167 632
+                                <a href="tel:+19733851305" className="w-full sm:w-auto px-8 py-3 rounded-md border border-white text-white font-bold hover:bg-white hover:text-[#00a9ce] transition-colors text-center text-[15px]">
+                                    Call Us: +1 973 385 1305
                                 </a>
                                 <button onClick={() => router.push('/contact-us')} className="w-full sm:w-auto px-8 py-3 rounded-md bg-logo-gradient text-white font-bold transition-transform hover:scale-105 text-center shadow-md border-0 text-[15px]">
                                     Work with Us
