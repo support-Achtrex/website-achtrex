@@ -64,69 +64,76 @@ const portfolioItems = [
 
 export const PortfolioGrid = () => {
     return (
-        <section className="w-full bg-white pt-24">
+        <section className="w-full bg-[#f8fafc] pt-24">
             
             {/* Header Area */}
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-12 mb-16 text-center">
+            <div className="max-w-[1200px] mx-auto px-6 mb-16 text-center flex flex-col items-center">
+                <motion.p 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="text-xs font-bold tracking-widest text-[#00a9ce] uppercase mb-4"
+                >
+                    Success Stories & Products
+                </motion.p>
                 <motion.h2 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl lg:text-5xl font-black text-[#003049] tracking-tight mb-4"
+                    className="text-3xl md:text-4xl lg:text-5xl font-black text-[#001a22] tracking-tight max-w-3xl leading-tight"
                 >
-                    Transforming Automotive Ideas Into Enterprise Platforms
+                    Transforming <span className="text-gradient">Automotive Ideas</span> Into Enterprise Platforms
                 </motion.h2>
             </div>
 
-            {/* Alternating Split Layout */}
-            <div className="w-full flex flex-col">
-                {portfolioItems.map((item, index) => {
-                    const isEven = index % 2 === 0;
-                    
-                    return (
-                        <div key={item.id} className="grid grid-cols-1 md:grid-cols-2 w-full min-h-[500px]">
-                            
-                            {/* Text Block */}
+            {/* Grid Area */}
+            <div className="max-w-[1200px] mx-auto px-6 pb-24">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {portfolioItems.map((item, index) => {
+                        return (
                             <motion.div 
-                                initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.6 }}
-                                className={`flex flex-col justify-center p-12 md:p-20 lg:p-32 ${isEven ? 'bg-[#f4f6f8] md:order-1' : 'bg-white md:order-2'} order-2`}
+                                key={item.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className="group bg-white rounded-2xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-[#00a9ce]/30 transition-all duration-500 overflow-hidden flex flex-col"
                             >
-                                <h3 className="text-2xl md:text-[28px] font-bold text-gradient mb-6 leading-tight">
-                                    {item.title}
-                                </h3>
-                                <p className="text-[17px] text-slate-600 mb-8 leading-relaxed">
-                                    {item.desc}
-                                </p>
-                                <div>
-                                    <Link href={item.link} className="inline-flex items-center text-[#00a9ce] font-semibold text-[16px] hover:text-[#008db0] transition-colors">
-                                        View Project <ArrowRight weight="bold" className="w-5 h-5 ml-1" />
-                                    </Link>
+                                {/* Image Container */}
+                                <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-8 overflow-hidden border-b border-slate-50">
+                                    <Image 
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        className={`transition-transform duration-700 ease-out group-hover:scale-110 ${item.isLogo ? 'object-contain p-10' : 'object-cover'}`}
+                                        unoptimized
+                                    />
+                                    {/* Category Badge */}
+                                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-slate-100/50">
+                                        <span className="text-[10px] font-bold tracking-widest uppercase text-slate-600">
+                                            {item.category}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Content Container */}
+                                <div className="p-8 flex flex-col flex-1">
+                                    <h3 className="text-xl font-bold text-[#001a22] mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-logo-gradient transition-all duration-300">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-slate-500 text-[15px] leading-relaxed mb-8 flex-1">
+                                        {item.desc}
+                                    </p>
+                                    <div className="mt-auto pt-4 border-t border-slate-50">
+                                        <Link href={item.link} className="inline-flex items-center text-[#00a9ce] font-bold tracking-wide text-[13px] uppercase hover:text-[#001a22] transition-colors">
+                                            View Details <ArrowRight weight="bold" className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                                        </Link>
+                                    </div>
                                 </div>
                             </motion.div>
-
-                            {/* Image Block */}
-                            <motion.div 
-                                initial={{ opacity: 0, x: isEven ? 50 : -50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.6 }}
-                                className={`relative w-full aspect-[4/3] md:aspect-auto flex items-center justify-center p-12 lg:p-24 ${isEven ? 'bg-white md:order-2' : 'bg-[#f4f6f8] md:order-1'} order-1 overflow-hidden group`}
-                            >
-                                <Image 
-                                    src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${item.isLogo ? 'object-contain p-16 lg:p-32' : 'object-cover'}`}
-                                    unoptimized
-                                />
-                            </motion.div>
-
-                        </div>
-                    );
-                })}
+                        );
+                    })}
+                </div>
             </div>
 
         </section>
