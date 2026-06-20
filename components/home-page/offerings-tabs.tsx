@@ -134,7 +134,7 @@ Data Intelligence Company"
                                     </div>
                                     <span 
                                         className={cn(
-                                            "text-xs md:text-sm font-bold tracking-wider uppercase transition-colors duration-300",
+                                            "text-sm md:text-base font-black tracking-wider uppercase transition-colors duration-300",
                                             isActive ? "" : "text-slate-400 group-hover:text-slate-600"
                                         )}
                                         style={{ color: isActive ? offering.color : undefined }}
@@ -147,7 +147,7 @@ Data Intelligence Company"
                     </div>
 
                     {/* Tab Track & Progress Line */}
-                    <div className="absolute bottom-[-16px] left-0 w-full h-[3px] bg-slate-100 rounded-full">
+                    <div className="absolute bottom-[-16px] left-0 w-full h-[6px] bg-slate-200 rounded-full">
                         <motion.div
                             className="absolute top-0 h-full rounded-full"
                             style={{ backgroundColor: activeData.color }}
@@ -160,11 +160,11 @@ Data Intelligence Company"
                         />
                         {/* Little triangle pointer (like Kava Ghana) */}
                         <motion.div 
-                            className="absolute top-[3px] w-0 h-0 border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent"
+                            className="absolute top-[6px] w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent"
                             style={{ borderTopColor: activeData.color }}
                             initial={false}
                             animate={{
-                                left: `calc(${(activeTab / offerings.length) * 100 + (100 / offerings.length) / 2}% - 8px)`
+                                left: `calc(${(activeTab / offerings.length) * 100 + (100 / offerings.length) / 2}% - 10px)`
                             }}
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         />
