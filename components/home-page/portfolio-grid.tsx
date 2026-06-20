@@ -11,7 +11,7 @@ const portfolioItems = [
         title: "AutomotiveDataset.com",
         category: "Product",
         image: "/projects/ad-logo.png",
-        link: "/products/automotive-dataset",
+        link: "/products/automotive",
         desc: "We partnered with AutomotiveDataset.com to architect their enterprise VIN intelligence infrastructure. Our team optimized their backend systems to deliver sub-50ms latency for vehicle specifications, enabling them to scale to millions of daily queries.",
         isLogo: true
     },
@@ -20,7 +20,7 @@ const portfolioItems = [
         title: "LUMI AI Engine",
         category: "Product",
         image: "/projects/lumi-logo.png",
-        link: "/products/lumi-ai",
+        link: "/products/lumi",
         desc: "We engineered LUMI AI, a proprietary cognitive reasoning model designed specifically for vehicle diagnostics and automotive data processing. This engine powers automated customer support and internal knowledge assistants.",
         isLogo: true
     },
@@ -29,7 +29,7 @@ const portfolioItems = [
         title: "Achtrex Core",
         category: "Product",
         image: "/achtrex-logo-email.png",
-        link: "/products/achtrex-core",
+        link: "/products/enterprise-platforms",
         desc: "Achtrex Core serves as the foundational enterprise integration hub. We designed this API gateway to provide seamless, secure, and rapid access to our entire suite of automotive intelligence tools for our B2B partners.",
         isLogo: true
     },

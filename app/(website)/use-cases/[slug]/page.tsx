@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation';
 import { portfolioDetails } from '@/data/portfolio-details';
 import { PortfolioDetailTemplate } from '@/components/portfolio/portfolio-detail-template';
 
-export default function UseCaseDetailPage({ params }: { params: { slug: string } }) {
-    const data = portfolioDetails[params.slug as keyof typeof portfolioDetails];
+export default async function UseCaseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+    const resolvedParams = await params;
+    const data = portfolioDetails[resolvedParams.slug as keyof typeof portfolioDetails];
     
     if (!data) {
         notFound();
