@@ -35,9 +35,7 @@ export const ProductsGrid = () => {
           
           {/* Pillar 1: Data & APIs */}
           <div className="bg-white rounded-none p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col h-full group">
-            <div className="w-14 h-14 rounded-none bg-[#00a9ce]/10 flex items-center justify-center mb-8">
-               <Database weight="duotone" className="w-8 h-8 text-[#00a9ce]" />
-            </div>
+
             <h3 className="text-2xl font-bold text-gradient mb-4">Data & APIs</h3>
             <p className="text-slate-600 mb-8 flex-grow">
               Access the industry's most comprehensive automotive dataset. Power your applications with real-time vehicle intelligence.
@@ -70,9 +68,7 @@ export const ProductsGrid = () => {
 
           {/* Pillar 2: AI Solutions */}
           <div className="bg-white rounded-none p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col h-full group">
-             <div className="w-14 h-14 rounded-none bg-[#76bc1d]/10 flex items-center justify-center mb-8 relative z-10">
-               <Lightning weight="duotone" className="w-8 h-8 text-[#76bc1d]" />
-            </div>
+
             <h3 className="text-2xl font-bold text-gradient mb-4 relative z-10">AI Solutions</h3>
             <p className="text-slate-600 mb-8 flex-grow relative z-10">
               Integrate LUMI AI to automate workflows, assist customers, and unlock predictive insights from your data.
@@ -105,9 +101,7 @@ export const ProductsGrid = () => {
 
           {/* Pillar 3: Custom Software Development */}
           <div className="bg-white rounded-none p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col h-full group">
-             <div className="w-14 h-14 rounded-none bg-[#00a9ce]/10 flex items-center justify-center mb-8">
-               <Code weight="duotone" className="w-8 h-8 text-[#00a9ce]" />
-            </div>
+
             <h3 className="text-2xl font-bold text-gradient mb-4">Custom Software</h3>
             <p className="text-slate-600 mb-8 flex-grow">
               Need a bespoke platform? We design and build enterprise-grade software tailored to your specific automotive use-case.
