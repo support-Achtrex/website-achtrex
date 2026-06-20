@@ -48,7 +48,7 @@ const portfolioItems = [
         category: "Use Case",
         image: "/logos/use-cases/vehiclehistory.png",
         link: "/use-cases",
-        desc: "We collaborated with Carkasa to build a bespoke automotive commerce platform that increases customer engagement. We developed scalable digital operations and vehicle experience systems to drive their B2C revenue.",
+        desc: "We built Carkasa's global infrastructure for delivering comprehensive vehicle history reports. Similar to Carfax, this platform aggregates massive datasets to provide instant, reliable vehicle backgrounds to consumers and dealers worldwide.",
         isLogo: true
     },
     {
