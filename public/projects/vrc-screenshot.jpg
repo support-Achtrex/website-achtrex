@@ -1,0 +1,83 @@
+<!doctype html>
+<!-- Cache Buster: 2026-01-20-TIMESTAMP -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0047ab" />
+
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- SEO & Social Meta Tags -->
+  <title>Free VIN Check & Vehicle History Report | Vehicle Report Check</title>
+  <meta name="description"
+    content="Perform a free VIN check and get instant vehicle history reports globally. The ultimate Carfax and AutoCheck alternative for free vehicle look up, accident history, and mileage check." />
+  <meta name="keywords"
+    content="vehicle report search, VIN check, free vin check, free vehicle look up, carfax alternative, autocheck alternative, car history check, check vin number, vehicle report global, mileage check, accident history" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://vehiclereportcheck.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vehiclereportcheck.com/" />
+  <meta property="og:title" content="Free VIN Check & Vehicle History Report | Vehicle Report Check" />
+  <meta property="og:description"
+    content="The best AutoCheck and Carfax alternative. Do a free vehicle lookup and check any VIN instantly for accidents, damage, pictures and more." />
+  <meta property="og:image" content="https://vehiclereportcheck.com/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://vehiclereportcheck.com/" />
+  <meta property="twitter:title" content="Free VIN Check & Vehicle History Report | Vehicle Report Check" />
+  <meta property="twitter:description"
+    content="The best AutoCheck and Carfax alternative. Do a free vehicle lookup and check any VIN instantly for accidents, damage, pictures and more." />
+  <meta property="twitter:image" content="https://vehiclereportcheck.com/og-image.jpg" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Vehicle Report Check",
+      "url": "https://vehiclereportcheck.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vehiclereportcheck.com/?vin={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Vehicle Report Check Vehicle History API",
+      "applicationCategory": "ReferenceApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "14.00",
+        "priceCurrency": "USD"
+      },
+      "description": "Vehicle Report Check provides detailed vehicle history reports, free VIN checks, and a secure car marketplace as a top Carfax alternative.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250"
+      }
+    }
+  </script>
+  <script type="module" crossorigin src="/assets/index-CdARl7RQ.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Comd0e04.css">
+</head>
+
+<body>
+  <div id="root"></div>
+
+
+</body>
+
+</html>

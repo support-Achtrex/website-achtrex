@@ -9,16 +9,16 @@ export const portfolioDetails = {
             { value: "99.9", suffix: "%", label: "Uptime" },
             { value: "150", suffix: "+", label: "Data Points" }
         ],
-        challenge: "AutomotiveDataset needed an enterprise-grade infrastructure capable of delivering comprehensive VIN decoding and vehicle specifications at massive scale without compromising on latency.",
+        challenge: "The #1 Global Automotive Data Platform & Vehicle API. Access comprehensive enterprise-grade intelligence: VIN Decoding, Technical Specs, Market Values, Carfax Alternatives, Auction History, Maintenance Schedules, EV Battery Health, and more.",
         scope: [
-            "High-performance API Gateway",
-            "Global CDN Distribution",
-            "Real-time Data Aggregation",
-            "Developer Documentation Portal",
-            "Scalable Microservices Architecture"
+            "VIN Decoding APIs",
+            "Technical Specifications",
+            "Market Values & Auction History",
+            "EV Battery Health Intelligence",
+            "B2B Automotive Data Platform"
         ],
         outcomes: [
-            { title: "Developer Dashboard", image: "/hero-analytics-dashboard.png" },
+            { title: "Developer Dashboard", image: "/projects/automotive_hero_new.png" },
             { title: "API Infrastructure", image: "/server_infrastructure.png" }
         ]
     },
@@ -98,15 +98,15 @@ export const portfolioDetails = {
             { value: "1", suffix: "s", label: "Report Generation" },
             { value: "Global", suffix: "", label: "Coverage" }
         ],
-        challenge: "To build a robust infrastructure capable of instantly aggregating massive datasets worldwide to deliver comprehensive vehicle history reports.",
+        challenge: "Perform a free VIN check and get instant vehicle history reports globally. The ultimate Carfax and AutoCheck alternative for free vehicle look up, accident history, and mileage check.",
         scope: [
-            "Global Data Aggregation Engine",
-            "PDF Report Generator",
-            "B2B & B2C Web Portals",
-            "Payment Gateway Integration"
+            "Free VIN Check Engine",
+            "Accident & Damage History",
+            "Mileage Verification",
+            "Carfax & AutoCheck Alternative"
         ],
         outcomes: [
-            { title: "Consumer Website", image: "/laptop_dashboard_hero.png" },
+            { title: "Carkasa Web Application", image: "/projects/carkasa-screenshot.jpg" },
             { title: "Dealer Portal", image: "/enterprise_command_center.png" }
         ]
     },
@@ -120,15 +120,15 @@ export const portfolioDetails = {
             { value: "Instant", suffix: "", label: "Delivery" },
             { value: "Secure", suffix: "", label: "Platform" }
         ],
-        challenge: "Developing and managing a trusted ecosystem focused on extreme VIN intelligence, vehicle transparency, and comprehensive reporting workflows.",
+        challenge: "The best AutoCheck and Carfax alternative. Do a free vehicle lookup and check any VIN instantly for accidents, damage, pictures and more. Built to provide extreme VIN intelligence and secure car marketplaces.",
         scope: [
-            "VIN Decoding Algorithms",
-            "Automated Reporting Workflows",
-            "User Dashboard",
+            "Instant Vehicle Lookup",
+            "Damage & Picture History",
+            "Secure Car Marketplace",
             "Subscription Management"
         ],
         outcomes: [
-            { title: "Web Application", image: "/hero-bg-2.png" },
+            { title: "Web Application", image: "/projects/vrc-screenshot.jpg" },
             { title: "Reporting Engine", image: "/hero-analytics-dashboard.png" }
         ]
     }
