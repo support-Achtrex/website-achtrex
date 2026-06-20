@@ -1,15 +1,25 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { ArrowRight, MessageSquare } from 'lucide-react';
+import { TypewriterWithPencil } from '../ui/typewriter-with-pencil';
 
 export const Hero = () => {
     const router = useRouter();
+    const heroRef = useRef(null);
+    const isHeroInView = useInView(heroRef, { amount: 0.3 });
+    const [isH1Done, setIsH1Done] = useState(false);
+
+    useEffect(() => {
+        if (!isHeroInView) {
+            setIsH1Done(false);
+        }
+    }, [isHeroInView]);
 
     return (
-        <section className="relative w-full min-h-[100vh] bg-[#001a22] overflow-hidden z-20 flex flex-col font-sans">
+        <section ref={heroRef} className="relative w-full min-h-[100vh] bg-[#001a22] overflow-hidden z-20 flex flex-col font-sans">
             
             {/* Background Image Layer */}
             <motion.div
@@ -51,24 +61,29 @@ export const Hero = () => {
                     </motion.span>
 
                     {/* Refined Title */}
-                    <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.2] mb-8 drop-shadow-2xl"
-                    >
-                        We build the data,<br/> the intelligence, and the platforms behind automotive businesses.
-                    </motion.h1>
+                    <div className="min-h-[140px] md:min-h-[180px] mb-8 w-full">
+                        <TypewriterWithPencil 
+                            text="We build the data,
+the intelligence, and the platforms behind automotive businesses."
+                            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.2] drop-shadow-2xl inline-block"
+                            asBlock={true}
+                            speed={40}
+                            pencilSize={36}
+                            active={isHeroInView}
+                            onComplete={() => setIsH1Done(true)}
+                        />
+                    </div>
                     
                     {/* Description */}
-                    <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                        className="text-base md:text-xl text-slate-300 font-medium leading-relaxed max-w-2xl mb-12 drop-shadow-lg"
-                    >
-                        Achtrex provides the foundation for the next generation of connected mobility. Scalable APIs, conversational AI, and enterprise-grade custom software built for performance.
-                    </motion.p>
+                    <div className="min-h-[80px] mb-12 w-full">
+                        <TypewriterWithPencil 
+                            text="Achtrex provides the foundation for the next generation of connected mobility. Scalable APIs, conversational AI, and enterprise-grade custom software built for performance."
+                            className="text-base md:text-xl text-slate-300 font-medium leading-relaxed max-w-2xl drop-shadow-lg inline-block"
+                            speed={25}
+                            pencilSize={20}
+                            active={isH1Done}
+                        />
+                    </div>
                     
                     {/* Dual CTAs */}
                     <motion.div
