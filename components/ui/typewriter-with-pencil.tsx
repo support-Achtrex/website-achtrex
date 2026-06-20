@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { CarProfile } from '@phosphor-icons/react';
 
 export const TypewriterWithPencil = ({ text, className, speed = 40, delay = 0, onComplete, pencilSize = 32, asBlock = false, active = false }: any) => {
     const [displayedText, setDisplayedText] = useState('');
@@ -46,8 +45,8 @@ export const TypewriterWithPencil = ({ text, className, speed = 40, delay = 0, o
                     <span key={idx} className="block whitespace-pre-wrap">
                         {line}
                         {idx === lines.length - 1 && isTyping && hasStarted && (
-                            <span className="inline-block text-[#00a9ce] ml-2 align-baseline relative top-1">
-                                <CarProfile size={pencilSize} weight="duotone" className="animate-pulse drop-shadow-md" style={{ transform: 'scaleX(-1)' }} />
+                            <span className="inline-block ml-2 align-baseline relative top-1">
+                                <img src="/images/nice-car.svg" alt="Typing Car" style={{ width: pencilSize * 1.5, height: 'auto', transform: 'translateY(-2px)' }} className="drop-shadow-lg" />
                             </span>
                         )}
                     </span>
@@ -60,8 +59,8 @@ export const TypewriterWithPencil = ({ text, className, speed = 40, delay = 0, o
         <span className={className}>
             {displayedText}
             {isTyping && hasStarted && (
-                <span className="inline-block text-[#00a9ce] ml-2 align-baseline relative top-1">
-                    <CarProfile size={pencilSize} weight="duotone" className="animate-pulse drop-shadow-md" style={{ transform: 'scaleX(-1)' }} />
+                <span className="inline-block ml-2 align-baseline relative top-1">
+                    <img src="/images/nice-car.svg" alt="Typing Car" style={{ width: pencilSize * 1.5, height: 'auto', transform: 'translateY(-2px)' }} className="drop-shadow-lg" />
                 </span>
             )}
         </span>
