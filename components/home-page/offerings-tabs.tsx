@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { CaretLeft, CaretRight } from '@phosphor-icons/react';
@@ -52,6 +52,14 @@ export const OfferingsTabs = () => {
     const handlePrev = () => {
         setActiveTab((prev) => (prev - 1 + offerings.length) % offerings.length);
     };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveTab((prev) => (prev + 1) % offerings.length);
+        }, 5000); // Auto-slide every 5 seconds
+
+        return () => clearInterval(interval);
+    }, []);
 
     const activeData = offerings[activeTab];
 
