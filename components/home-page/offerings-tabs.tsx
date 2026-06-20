@@ -68,7 +68,7 @@ export const OfferingsTabs = () => {
             <div className="max-w-[1200px] mx-auto px-6">
                 
                 {/* Tabs Navigation */}
-                <div className="relative mb-16 mt-8">
+                <div className="relative mb-16">
                     <div className="grid grid-cols-3 relative z-10 w-full mb-6">
                         {offerings.map((offering, index) => {
                             const isActive = activeTab === index;
