@@ -45,19 +45,19 @@ export const Navbar = () => {
                 { 
                     label: 'AutomotiveDataset.com', 
                     description: 'High-frequency vehicle datasets and API endpoints.',
-                    href: '/products/automotive',
+                    href: '/products/automotive-dataset',
                     icon: Database
                 },
                 { 
-                    label: 'LUMI AI', 
+                    label: 'LUMI AI Engine', 
                     description: 'Predictive intelligence and workflow automation.',
-                    href: '/products/lumi',
+                    href: '/products/lumi-ai',
                     icon: Bot
                 },
                 { 
-                    label: 'Enterprise Automotive Platforms', 
+                    label: 'Achtrex Core', 
                     description: 'Automotive API integrations and custom architecture.',
-                    href: '/products/enterprise-platforms',
+                    href: '/products/achtrex-core',
                     icon: Code2
                 }
             ]
