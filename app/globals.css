@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
 
 @plugin "@tailwindcss/typography";
 @source "../app";
@@ -22,8 +22,8 @@
   --input: #e5e5e5;
   --ring: #00a9ce;
 
-  --font-sans: 'Montserrat', sans-serif;
-  --font-display: 'Montserrat', sans-serif;
+  --font-sans: 'Proxima Nova', sans-serif;
+  --font-display: 'Proxima Nova', sans-serif;
   
   /* Brand Logo Gradient Context */
   --logo-gradient: linear-gradient(to right, #007bff, #00ff88);
@@ -39,42 +39,6 @@
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
   --background-image-logo-gradient: var(--logo-gradient);
-
-  /* Override basic slate/gray dark colors to absolute pitch black */
-  --color-slate-900: #000000;
-  --color-slate-800: #111111;
-  --color-gray-900: #000000;
-  --color-gray-800: #111111;
-  --color-zinc-900: #000000;
-  --color-neutral-900: #000000;
-}
-
-@layer base {
-  /* Upgrade Typography Globally */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    letter-spacing: -0.04em;
-  }
-  
-  h1 { 
-    font-weight: 900; 
-    line-height: 1.1;
-  }
-  
-  h2 { 
-    font-weight: 800; 
-    line-height: 1.2;
-  }
-  
-  h3 { 
-    font-weight: 800; 
-    line-height: 1.3;
-  }
-
-  p {
-    line-height: 1.7;
-    font-weight: 500;
-  }
 }
 
 body {
