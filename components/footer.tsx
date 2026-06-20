@@ -16,7 +16,7 @@ export const Footer = () => {
     return (
         <>
             {/* Pre-Footer CTA Section */}
-            <section className="relative overflow-hidden bg-[#0A1A1E] border-b border-gray-800">
+            <section className="relative overflow-hidden bg-[#081622] border-b border-[#00a9ce]/20">
                 <div className="absolute inset-0 z-0 mix-blend-overlay opacity-30">
                     <Image
                         src="/hero-bg-team.png"
@@ -26,7 +26,7 @@ export const Footer = () => {
                     />
                 </div>
 
-                <svg className="absolute -right-20 top-1/2 -translate-y-1/2 h-[150%] w-auto text-[#1B4B4C] z-0 pointer-events-none opacity-50" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg className="absolute -right-20 top-1/2 -translate-y-1/2 h-[150%] w-auto text-[#00a9ce] z-0 pointer-events-none opacity-20" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 100 H150 M100 50 L150 100 L100 150" stroke="currentColor" strokeWidth="20" strokeLinecap="square" strokeLinejoin="miter" />
                     <path d="M-50 100 H100 M50 50 L100 100 L50 150" stroke="currentColor" strokeWidth="20" strokeLinecap="square" strokeLinejoin="miter" />
                 </svg>
@@ -52,9 +52,9 @@ export const Footer = () => {
                         </motion.div>
                         <button
                             onClick={() => router.push('/contact-us')}
-                            className="group relative inline-flex items-center justify-center bg-[#1A8B8C] hover:bg-[#157172] transition-colors duration-300 transform -skew-x-12 px-10 py-4 shadow-lg shadow-teal-900/20"
+                            className="group relative inline-flex items-center justify-center bg-[#76bc1d] hover:bg-transparent border border-[#76bc1d] transition-colors duration-300 transform -skew-x-12 px-10 py-4 shadow-none"
                         >
-                            <span className="transform skew-x-12 text-white font-bold tracking-wide text-sm">
+                            <span className="transform skew-x-12 text-white group-hover:text-[#76bc1d] font-bold tracking-wide text-sm">
                                 Let's Talk
                             </span>
                         </button>
@@ -63,7 +63,7 @@ export const Footer = () => {
             </section>
 
             {/* Main Footer */}
-            <footer className="bg-[#0a0f1c] text-slate-200 pt-16 pb-8 font-sans border-t border-white/5">
+            <footer className="bg-[#001a22] text-slate-200 pt-16 pb-8 font-sans border-t border-white/5">
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
 
                     {/* Main Footer Grid */}
@@ -87,16 +87,16 @@ export const Footer = () => {
                             </p>
                             <div className="flex gap-3">
                                 <a href="https://www.linkedin.com/company/achtrexproducts" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                                    className="w-9 h-9 rounded-full bg-transparent/5 hover:bg-[#1A8B8C]/30 flex items-center justify-center transition-colors">
-                                    <Linkedin size={15} className="text-slate-500" />
+                                    className="w-9 h-9 rounded-none bg-transparent/5 hover:bg-[#00a9ce] flex items-center justify-center transition-colors">
+                                    <Linkedin size={15} className="text-white" />
                                 </a>
                                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
-                                    className="w-9 h-9 rounded-full bg-transparent/5 hover:bg-[#1A8B8C]/30 flex items-center justify-center transition-colors">
-                                    <Twitter size={15} className="text-slate-500" />
+                                    className="w-9 h-9 rounded-none bg-transparent/5 hover:bg-[#00a9ce] flex items-center justify-center transition-colors">
+                                    <Twitter size={15} className="text-white" />
                                 </a>
                                 <a href="mailto:support@achtrex.com" aria-label="Email"
-                                    className="w-9 h-9 rounded-full bg-transparent/5 hover:bg-[#1A8B8C]/30 flex items-center justify-center transition-colors">
-                                    <Mail size={15} className="text-slate-500" />
+                                    className="w-9 h-9 rounded-none bg-transparent/5 hover:bg-[#00a9ce] flex items-center justify-center transition-colors">
+                                    <Mail size={15} className="text-white" />
                                 </a>
                             </div>
                         </div>
@@ -108,7 +108,7 @@ export const Footer = () => {
                                 <li>
                                     <a href="https://automotivedataset.com" target="_blank" rel="noopener noreferrer"
                                         className="text-slate-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-2 group">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-[#1A8B8C] shrink-0"></span>
+                                        <span className="w-1.5 h-1.5 rounded-none bg-[#00a9ce] shrink-0"></span>
                                         AutomotiveDataset.com
                                         <ExternalLink size={11} className="text-slate-500 group-hover:text-slate-500" />
                                     </a>
@@ -116,21 +116,21 @@ export const Footer = () => {
                                 <li>
                                     <Link href="/products/lumi"
                                         className="text-slate-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0"></span>
+                                        <span className="w-1.5 h-1.5 rounded-none bg-[#76bc1d] shrink-0"></span>
                                         LUMI AI Platform
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/products"
                                         className="text-slate-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+                                        <span className="w-1.5 h-1.5 rounded-none bg-[#00a9ce] shrink-0"></span>
                                         Achtrex Core APIs
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/products/enterprise-platforms"
                                         className="text-slate-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-pink-400 shrink-0"></span>
+                                        <span className="w-1.5 h-1.5 rounded-none bg-[#76bc1d] shrink-0"></span>
                                         Enterprise Platforms
                                     </Link>
                                 </li>
@@ -156,14 +156,14 @@ export const Footer = () => {
                                 <li>
                                     <a href="mailto:support@achtrex.com"
                                         className="flex items-start gap-3 text-slate-400 hover:text-white text-sm font-medium transition-colors">
-                                        <Mail size={15} className="mt-0.5 text-[#1A8B8C] shrink-0" />
+                                        <Mail size={15} className="mt-0.5 text-[#00a9ce] shrink-0" />
                                         <span>support@achtrex.com</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="tel:+16133664271"
                                         className="flex items-start gap-3 text-slate-400 hover:text-white text-sm font-medium transition-colors">
-                                        <Phone size={15} className="mt-0.5 text-[#1A8B8C] shrink-0" />
+                                        <Phone size={15} className="mt-0.5 text-[#00a9ce] shrink-0" />
                                         <span>+1 613 366-4271</span>
                                     </a>
                                 </li>

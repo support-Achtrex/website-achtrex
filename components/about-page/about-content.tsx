@@ -8,10 +8,10 @@ export const AboutContent = () => {
 
     const platforms = [
         {
-            accent: '#0ea5e9',
-            bg: 'bg-transparent hover:bg-sky-900/20',
-            border: 'border-slate-200 hover:border-sky-500/50',
-            dot: 'bg-sky-500 shadow-[0_0_8px_rgba(14,165,233,0.4)]',
+            accent: '#00a9ce',
+            bg: 'bg-white hover:bg-[#00a9ce]/5',
+            border: 'border-slate-200 hover:border-[#00a9ce]/50',
+            dot: 'bg-[#00a9ce]',
             statusText: 'text-sky-400',
             statusBg: 'bg-sky-900/30 border-sky-500/30',
             name: 'AutomotiveDataset.com',
@@ -22,10 +22,10 @@ export const AboutContent = () => {
             external: true,
         },
         {
-            accent: '#8b5cf6',
-            bg: 'bg-transparent hover:bg-violet-900/20',
-            border: 'border-slate-200 hover:border-violet-500/50',
-            dot: 'bg-violet-500 shadow-[0_0_8px_rgba(139,92,246,0.4)]',
+            accent: '#76bc1d',
+            bg: 'bg-white hover:bg-[#76bc1d]/5',
+            border: 'border-slate-200 hover:border-[#76bc1d]/50',
+            dot: 'bg-[#76bc1d]',
             statusText: 'text-violet-400',
             statusBg: 'bg-violet-900/30 border-violet-500/30',
             name: 'LUMI AI',
@@ -36,10 +36,10 @@ export const AboutContent = () => {
             external: false,
         },
         {
-            accent: '#10b981',
-            bg: 'bg-transparent hover:bg-emerald-900/20',
-            border: 'border-slate-200 hover:border-emerald-500/50',
-            dot: 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]',
+            accent: '#001a22',
+            bg: 'bg-white hover:bg-[#001a22]/5',
+            border: 'border-slate-200 hover:border-[#001a22]/50',
+            dot: 'bg-[#001a22]',
             statusText: 'text-emerald-400',
             statusBg: 'bg-emerald-900/30 border-emerald-500/30',
             name: 'Achtrex Core',
@@ -68,11 +68,8 @@ export const AboutContent = () => {
         <div className="bg-transparent text-slate-900 font-sans antialiased min-h-screen pb-16">
             
             {/* ─── HERO ─────────────────────────────────────────────────────── */}
-            <div className="relative overflow-hidden pt-28 pb-10 px-6 border-b border-slate-200 bg-transparent">
+            <div className="relative overflow-hidden pt-10 pb-10 px-6 bg-transparent">
                 <div className="relative z-10 max-w-[1200px] mx-auto text-center flex flex-col items-center">
-                    <h1 className="text-[40px] md:text-[56px] font-black tracking-[-0.03em] leading-[1] text-gradient mb-4">
-                        About Achtrex
-                    </h1>
 
                     <div className="text-[14px] md:text-[15px] text-slate-500 max-w-4xl leading-relaxed font-medium mb-8 text-center space-y-4">
                         <p>
@@ -89,13 +86,13 @@ export const AboutContent = () => {
                     {/* Quick stats row */}
                     <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl">
                         {[
-                            { n: '3', label: 'Live Platforms', color: 'bg-blue-900/20', border: 'border-blue-500/20' },
-                            { n: '4+', label: 'Industries Served', color: 'bg-purple-900/20', border: 'border-purple-500/20' },
-                            { n: 'SaaS', label: 'Business Model', color: 'bg-emerald-900/20', border: 'border-emerald-500/20' },
-                            { n: 'Global', label: 'Remote Operations', color: 'bg-sky-900/20', border: 'border-sky-500/20' },
+                            { n: '3', label: 'Live Platforms', color: 'bg-white', border: 'border-slate-200' },
+                            { n: '4+', label: 'Industries Served', color: 'bg-white', border: 'border-slate-200' },
+                            { n: 'SaaS', label: 'Business Model', color: 'bg-white', border: 'border-slate-200' },
+                            { n: 'Global', label: 'Remote Operations', color: 'bg-white', border: 'border-slate-200' },
                         ].map((s, i) => (
-                            <div key={i} className={`border ${s.border} rounded-2xl px-4 py-5 flex flex-col items-center justify-center relative overflow-hidden ${s.color}`}>
-                                <p className="text-[28px] font-black text-slate-900 leading-none mb-1">{s.n}</p>
+                            <div key={i} className={`border ${s.border} rounded-none px-4 py-5 flex flex-col items-center justify-center relative overflow-hidden ${s.color}`}>
+                                <p className="text-[28px] font-black text-[#00a9ce] leading-none mb-1">{s.n}</p>
                                 <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">{s.label}</p>
                             </div>
                         ))}
@@ -112,15 +109,15 @@ export const AboutContent = () => {
                     {/* Leadership */}
                     <div className="lg:col-span-7 flex flex-col gap-4">
                         <div className="px-2">
-                            <h2 className="text-[20px] font-bold text-gradient">Leadership</h2>
+                            <h2 className="text-[20px] font-bold text-slate-900">Leadership</h2>
                         </div>
-                        <div className="flex flex-col sm:flex-row gap-6 bg-transparent border border-slate-200 rounded-3xl p-6 shadow-sm h-full">
-                            <div className="relative w-full sm:w-40 aspect-square sm:aspect-[4/5] shrink-0 rounded-2xl overflow-hidden bg-white">
+                        <div className="flex flex-col sm:flex-row gap-6 bg-white border border-slate-200 rounded-none p-6 shadow-sm h-full">
+                            <div className="relative w-full sm:w-40 aspect-square sm:aspect-[4/5] shrink-0 rounded-none overflow-hidden bg-slate-100">
                                 <Image src="/team/achim_real.jpg" alt="Godwin Achim Tetteh" fill className="object-cover" />
                             </div>
                             <div className="flex flex-col justify-center">
                                 <h3 className="text-lg font-bold text-slate-900">Godwin Achim Tetteh</h3>
-                                <p className="text-[11px] font-bold uppercase tracking-wider text-blue-600 mb-3">Founder & System Architect</p>
+                                <p className="text-[11px] font-bold uppercase tracking-wider text-[#00a9ce] mb-3">Founder & System Architect</p>
                                 <div className="text-[13px] text-slate-500 leading-relaxed font-medium mb-4 space-y-3">
                                     <p>
                                         Bringing a rare combination of deep hands-on automotive engineering expertise and advanced enterprise system architecture, Godwin founded Achtrex with a clear vision: to resolve the critical data fragmentation that has historically held back the global automotive ecosystem. Recognizing that legacy API providers and siloed databases fail under the stress of modern, AI-driven applications, he engineered Achtrex entirely from the ground up as a unified, developer-first infrastructure.
@@ -131,7 +128,7 @@ export const AboutContent = () => {
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                     {expertise.map((t, i) => (
-                                        <span key={i} className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-900/30 text-blue-400 border border-blue-500/30">
+                                        <span key={i} className="px-2.5 py-1 rounded-none text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200">
                                             {t}
                                         </span>
                                     ))}
@@ -143,12 +140,12 @@ export const AboutContent = () => {
                     {/* Core Values */}
                     <div className="lg:col-span-5 flex flex-col gap-4">
                         <div className="px-2">
-                            <h2 className="text-[20px] font-bold text-gradient">Core Values</h2>
+                            <h2 className="text-[20px] font-bold text-slate-900">Core Values</h2>
                         </div>
                         <div className="grid grid-cols-2 gap-3 h-full">
                             {values.map((v, i) => (
-                                <div key={i} className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border border-slate-200 bg-transparent hover:bg-blue-900/20 transition-colors shadow-sm text-center">
-                                    <span className="text-xl text-blue-500 leading-none font-mono drop-shadow-sm">{v.icon}</span>
+                                <div key={i} className="flex flex-col items-center justify-center gap-2 p-4 rounded-none border border-slate-200 bg-white hover:bg-slate-50 transition-colors shadow-sm text-center">
+                                    <span className="text-xl text-[#76bc1d] leading-none font-mono drop-shadow-sm">{v.icon}</span>
                                     <span className="text-[12px] font-bold text-slate-500">{v.label}</span>
                                 </div>
                             ))}
@@ -160,28 +157,28 @@ export const AboutContent = () => {
                 {/* ROW 2: Foundation (2x2 Grid) */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     {/* Mission */}
-                    <div className="rounded-3xl bg-transparent border border-slate-200 p-8 shadow-sm flex flex-col hover:border-blue-300 transition-colors">
+                    <div className="rounded-none bg-white border border-slate-200 p-8 shadow-sm flex flex-col hover:border-[#00a9ce]/50 transition-colors">
 
-                        <h2 className="text-xl font-bold text-gradient mb-3">Our Mission</h2>
+                        <h2 className="text-xl font-bold text-slate-900 mb-3">Our Mission</h2>
                         <p className="text-[14px] text-slate-500 leading-relaxed font-medium">
                             To provide scalable enterprise infrastructure that enables businesses to access intelligent automotive data, cognitive AI systems, and real-time mobility intelligence through secure, modern digital architectures.
                         </p>
                     </div>
 
                     {/* Vision */}
-                    <div className="rounded-3xl bg-transparent border border-slate-200 p-8 shadow-sm flex flex-col hover:border-teal-300 transition-colors">
+                    <div className="rounded-none bg-white border border-slate-200 p-8 shadow-sm flex flex-col hover:border-[#76bc1d]/50 transition-colors">
 
-                        <h2 className="text-xl font-bold text-gradient mb-3">Our Vision</h2>
+                        <h2 className="text-xl font-bold text-slate-900 mb-3">Our Vision</h2>
                         <p className="text-[14px] text-slate-500 leading-relaxed font-medium">
                             To build one of the world&apos;s leading automotive intelligence and cognitive infrastructure ecosystems — powering the future of connected mobility and AI-driven vehicle intelligence.
                         </p>
                     </div>
 
                     {/* Fragmentation Gap */}
-                    <div className="rounded-3xl border border-rose-500/30 p-8 bg-rose-900/10 hover:border-rose-500/50 transition-colors">
+                    <div className="rounded-none border border-slate-200 p-8 bg-slate-50 hover:border-slate-300 transition-colors">
                         <div className="flex items-center gap-3 mb-4">
 
-                            <h3 className="text-xl font-bold text-gradient">Industry Fragmentation</h3>
+                            <h3 className="text-xl font-bold text-slate-900">Industry Fragmentation</h3>
                         </div>
                         <ul className="space-y-3">
                             {[
@@ -190,7 +187,7 @@ export const AboutContent = () => {
                                 'Businesses need 5–10 vendors to get a complete data solution',
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-3 text-[14px] text-slate-500 font-medium">
-                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
+                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-none bg-slate-400 shrink-0" />
                                     {item}
                                 </li>
                             ))}
@@ -198,10 +195,10 @@ export const AboutContent = () => {
                     </div>
 
                     {/* The Achtrex Solution */}
-                    <div className="rounded-3xl border border-emerald-500/30 p-8 bg-emerald-900/10 hover:border-emerald-500/50 transition-colors">
+                    <div className="rounded-none border border-slate-200 p-8 bg-white hover:border-[#00a9ce]/50 transition-colors">
                         <div className="flex items-center gap-3 mb-4">
 
-                            <h3 className="text-xl font-bold text-gradient">The Achtrex Solution</h3>
+                            <h3 className="text-xl font-bold text-slate-900">The Achtrex Solution</h3>
                         </div>
                         <ul className="space-y-3">
                             {[
@@ -210,7 +207,7 @@ export const AboutContent = () => {
                                 'Achtrex Core — one integration layer for data, AI & enterprise workflows',
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-3 text-[14px] text-slate-500 font-medium">
-                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-none bg-[#00a9ce] shrink-0" />
                                     {item}
                                 </li>
                             ))}
@@ -221,11 +218,11 @@ export const AboutContent = () => {
                 {/* ROW 3: Platform Ecosystem */}
                 <div className="flex flex-col gap-4">
                     <div className="px-2">
-                        <h2 className="text-[20px] font-bold text-gradient">Platform Ecosystem</h2>
+                        <h2 className="text-[20px] font-bold text-slate-900">Platform Ecosystem</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         {platforms.map((p, i) => (
-                            <div key={i} className={`group flex flex-col rounded-3xl border ${p.bg} ${p.border} p-6 transition-all shadow-sm`}>
+                            <div key={i} className={`group flex flex-col rounded-none border ${p.bg} ${p.border} p-6 transition-all shadow-sm`}>
 
                                 <h3 className="text-[16px] font-bold text-slate-900 mb-2">{p.name}</h3>
                                 <p className="text-[13px] text-slate-500 leading-relaxed font-medium flex-1 mb-5">{p.desc}</p>
@@ -249,17 +246,17 @@ export const AboutContent = () => {
                 </div>
 
                 {/* CTA */}
-                <div className="relative rounded-3xl bg-gradient-to-r from-[#111112] via-[#0a0a0b] to-[#111112] border border-slate-200 overflow-hidden shadow-sm mt-2">
+                <div className="relative rounded-none bg-[#081622] border border-[#00a9ce]/20 overflow-hidden shadow-sm mt-2">
                     <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 p-8 md:p-10 text-center sm:text-left">
                         <div>
-                            <h2 className="text-[24px] font-black text-gradient mb-2 tracking-tight">Ready to build on Achtrex?</h2>
-                            <p className="text-[14px] text-slate-500 font-medium">
-                                Contact our team to discuss integration at <a href="mailto:support@achtrex.com" className="text-teal-600 hover:text-teal-700 font-bold">support@achtrex.com</a>
+                            <h2 className="text-[24px] font-black text-white mb-2 tracking-tight">Ready to build on Achtrex?</h2>
+                            <p className="text-[14px] text-slate-300 font-medium">
+                                Contact our team to discuss integration at <a href="mailto:support@achtrex.com" className="text-[#00a9ce] hover:text-white font-bold">support@achtrex.com</a>
                             </p>
                         </div>
-                        <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#c2fce3] text-[#070b14] font-bold text-[14px] px-6 py-3 rounded-full hover:bg-white transition-all shadow-md shrink-0">
+                        <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#76bc1d] text-white font-bold text-[14px] px-8 py-4 rounded-none hover:bg-transparent border border-[#76bc1d] hover:text-[#76bc1d] transition-all shadow-none shrink-0 group">
                             Get in touch
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </Link>
                     </div>
                 </div>

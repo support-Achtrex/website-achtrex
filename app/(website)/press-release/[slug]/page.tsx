@@ -22,18 +22,18 @@ export default function PressReleaseSingle({ params }: { params: { slug: string 
     }
 
     return (
-        <main className="pt-24 min-h-screen bg-[#F8F9FA] pb-20 font-sans text-slate-900">
+        <main className="pt-24 min-h-screen bg-[#f4f4f4] pb-20 font-sans text-slate-900">
             {/* Header */}
             <div className="max-w-[800px] mx-auto px-6 pt-12 pb-8">
                 <nav className="flex flex-wrap items-center gap-2 text-sm text-slate-500 font-medium mb-8">
-                    <Link href="/" className="hover:text-[#109dd7]">Home</Link>
+                    <Link href="/" className="hover:text-[#00a9ce]">Home</Link>
                     <ChevronRight className="w-4 h-4" />
-                    <Link href="/press-release" className="hover:text-[#109dd7]">Newsroom</Link>
+                    <Link href="/press-release" className="hover:text-[#00a9ce]">Newsroom</Link>
                     <ChevronRight className="w-4 h-4" />
                     <span className="text-slate-900 truncate max-w-[200px] sm:max-w-none">{press.title}</span>
                 </nav>
 
-                <div className="flex items-center gap-3 text-sm font-bold text-[#109dd7] uppercase tracking-wide mb-4">
+                <div className="flex items-center gap-3 text-sm font-bold text-[#00a9ce] uppercase tracking-wide mb-4">
                     <span>{press.category}</span>
                     <span className="text-slate-300">|</span>
                     <span className="text-slate-500">{press.date}</span>
@@ -46,7 +46,7 @@ export default function PressReleaseSingle({ params }: { params: { slug: string 
 
             {/* Featured Image */}
             <div className="max-w-[1000px] mx-auto px-6 mb-12">
-                <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-100 shadow-lg">
+                <div className="relative aspect-video w-full rounded-none overflow-hidden bg-slate-100 shadow-sm border border-slate-200">
                     <Image
                         src={press.image}
                         alt={press.title}
@@ -72,7 +72,7 @@ export default function PressReleaseSingle({ params }: { params: { slug: string 
                         As the automotive industry continues to evolve at a breakneck pace, the demand for scalable and reliable data architecture has never been higher. Achtrex's proprietary systems process over one billion queries per month, ensuring that OEM partners, insurers, and dealerships have real-time access to mission-critical intelligence.
                     </p>
 
-                    <blockquote className="border-l-4 border-[#109dd7] pl-6 my-10 italic text-xl text-slate-800 font-medium">
+                    <blockquote className="border-l-4 border-[#00a9ce] pl-6 my-10 italic text-xl text-slate-800 font-medium">
                         "We are building the foundational infrastructure that will power the next decade of autonomous mobility and intelligent enterprise applications," said the CEO of Achtrex. "Our team is relentlessly focused on pushing the boundaries of what is possible with scalable cloud architecture."
                     </blockquote>
 
@@ -87,7 +87,7 @@ export default function PressReleaseSingle({ params }: { params: { slug: string 
                 </div>
 
                 <div className="mt-16 pt-8 border-t border-slate-200">
-                    <Link href="/press-release" className="inline-flex items-center gap-2 text-[#109dd7] font-bold hover:gap-3 transition-all">
+                    <Link href="/press-release" className="inline-flex items-center gap-2 text-[#00a9ce] font-bold hover:gap-3 transition-all">
                         <ArrowLeft className="w-5 h-5" /> Back to Newsroom
                     </Link>
                 </div>

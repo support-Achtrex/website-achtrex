@@ -4,45 +4,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Layout, Smartphone, PenTool, Database, Search, Target, TestTube2, Globe } from 'lucide-react';
 import Image from "next/image";
+import { InnerPageHeader } from "@/components/inner-page-header";
 
 export default function AutomotiveClient() {
     return (
-        <main className="min-h-screen bg-[#F8F9FA] text-slate-900 selection:bg-[#174395] selection:text-white pt-24 pb-20">
+        <main className="min-h-screen bg-[#f4f4f4] text-slate-900 selection:bg-[#00a9ce]/20 selection:text-slate-900 pb-20">
             {/* 1. Header */}
-            <div className="bg-gradient-to-br from-blue-50 via-white to-slate-50 border-b border-slate-200 py-16 px-6">
-                <div className="max-w-[1200px] mx-auto">
-                    <nav className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-6 flex items-center gap-2">
-                        <span>Portfolio</span>
-                        <span className="text-slate-300">/</span>
-                        <span className="text-slate-700">Automotive Dataset</span>
-                    </nav>
-                    <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-8">
-                        <div className="relative w-48 md:w-64 aspect-[3/2] bg-white rounded-2xl shadow-sm p-4 border border-slate-100 flex items-center justify-center">
-                            <Image 
-                                src="/projects/ad-logo.png" 
-                                alt="Automotive Dataset Logo" 
-                                fill 
-                                className="object-contain p-2" 
-                            />
-                        </div>
-                        <div>
-                            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-gradient mb-4 drop-shadow-sm">
-                                Automotive Dataset
-                            </h1>
-                            <p className="text-xl text-slate-600 font-medium max-w-2xl mb-4">
-                                The backbone of mobility intelligence. Access 2.5M+ vehicle records, VIN-to-Build-Sheet mapping, real-time specs, auctions, vehicle images, history reports, repair & maintenance data, and more through our high-availability API engine.
-                            </p>
-                            <a href="https://automotivedataset.com" target="_blank" rel="noreferrer" className="text-[#109dd7] font-bold hover:underline flex items-center gap-1">
-                                automotivedataset.com <ArrowRight size={14} />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="flex gap-4">
-                        <span className="px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-semibold shadow-sm">Global Vehicle Data</span>
-                        <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#109dd7] to-[#117460] text-white text-sm font-semibold shadow-sm">Real-time APIs</span>
-                    </div>
-                </div>
-            </div>
+            <InnerPageHeader title="Automotive Dataset" subtitle="The backbone of mobility intelligence. Access 2.5M+ vehicle records, VIN-to-Build-Sheet mapping, real-time specs, auctions, vehicle images, history reports, repair & maintenance data, and more through our high-availability API engine." />
 
             {/* 2. Main Content Grid */}
             <section className="py-12 lg:py-24 px-6">
@@ -52,7 +20,7 @@ export default function AutomotiveClient() {
                     <div className="lg:col-span-4 space-y-16">
                         {/* The Challenge */}
                         <div className="space-y-6">
-                            <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#F2147A] pb-4 inline-block text-[#174395]">The Challenge</h2>
+                            <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#00a9ce] pb-4 inline-block text-slate-900">The Challenge</h2>
                             <p className="text-lg text-slate-600 leading-relaxed font-medium">
                                 Automotive Dataset is an enterprise-grade vehicle data platform built to be the cutting-edge for mobility web services worldwide. To achieve this, we needed to directly engineer new interactive dashboards, deep technical documentation, and robust infrastructure to market their vast array of API services, engaging our developer audience to drive business growth.
                             </p>
@@ -60,7 +28,7 @@ export default function AutomotiveClient() {
 
                         {/* Product Scope */}
                         <div className="space-y-6">
-                            <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#489EE6] pb-4 inline-block text-[#174395]">Product Scope</h2>
+                            <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#76bc1d] pb-4 inline-block text-slate-900">Product Scope</h2>
                             <p className="text-lg text-slate-600 leading-relaxed font-medium">
                                 We built Automotive Dataset from the ground up, architecting a low-latency infrastructure for a massive vehicle data ecosystem. We developed comprehensive API endpoints and databases for every facet of vehicle intelligence, handling everything from VIN decoding to market valuations.
                             </p>
@@ -72,21 +40,21 @@ export default function AutomotiveClient() {
                                 href="https://automotivedataset.com" 
                                 target="_blank" 
                                 rel="noreferrer"
-                                className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#174395] to-[#861F80] text-white font-bold py-4 rounded-lg hover:opacity-90 transition-all shadow-lg shadow-[#174395]/20"
+                                className="inline-flex items-center justify-center gap-2 w-full bg-[#00a9ce] text-white font-bold py-4 rounded-none hover:opacity-90 transition-all shadow-none"
                             >
                                 Visit AutomotiveDataset.com <ArrowRight size={18} />
                             </a>
                             <div className="grid grid-cols-2 gap-3 pt-2">
-                                <a href="https://automotivedataset.com/pricing" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-full bg-white text-[#174395] border border-slate-200 font-semibold py-3 rounded-lg hover:bg-[#F8F9FA] hover:border-[#c2fce3] hover:shadow-sm transition-all text-sm">
+                                <a href="https://automotivedataset.com/pricing" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-none hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
                                     View Pricing
                                 </a>
-                                <a href="https://automotivedataset.com/documentation" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-full bg-white text-[#174395] border border-slate-200 font-semibold py-3 rounded-lg hover:bg-[#F8F9FA] hover:border-[#c2fce3] hover:shadow-sm transition-all text-sm">
+                                <a href="https://automotivedataset.com/documentation" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-none hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
                                     Read Docs
                                 </a>
-                                <a href="https://automotivedataset.com/developers" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-full bg-white text-[#F2147A] border border-slate-200 font-semibold py-3 rounded-lg hover:bg-[#F8F9FA] hover:border-[#F2147A] hover:shadow-sm transition-all text-sm">
+                                <a href="https://automotivedataset.com/developers" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-full bg-white text-[#76bc1d] border border-slate-200 font-semibold py-3 rounded-none hover:bg-slate-50 hover:border-[#76bc1d] transition-all text-sm">
                                     Developer Portal
                                 </a>
-                                <a href="https://automotivedataset.com/demo" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-full bg-white text-[#489EE6] border border-slate-200 font-semibold py-3 rounded-lg hover:bg-[#F8F9FA] hover:border-[#489EE6] hover:shadow-sm transition-all text-sm">
+                                <a href="https://automotivedataset.com/demo" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-full bg-white text-[#00a9ce] border border-slate-200 font-semibold py-3 rounded-none hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
                                     Request Demo
                                 </a>
                             </div>
@@ -101,9 +69,9 @@ export default function AutomotiveClient() {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="bg-gradient-to-br from-[#174395] via-[#861F80] to-[#F2147A] p-1 md:p-2 rounded-3xl shadow-2xl"
+                            className="bg-[#081622] p-1 md:p-2 rounded-none border border-[#00a9ce]/20 shadow-none"
                         >
-                            <div className="relative aspect-[16/10] w-full rounded-[1.3rem] overflow-hidden bg-[#F8F9FA]">
+                            <div className="relative aspect-[16/10] w-full rounded-none overflow-hidden bg-[#001a22]">
                                 <Image 
                                     src="/projects/automotive_hero_new.png" 
                                     alt="Automotive API Interface"
@@ -119,7 +87,7 @@ export default function AutomotiveClient() {
                             {/* UX Flow */}
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+                                    <div className="w-10 h-10 rounded-none bg-[#00a9ce]/10 flex items-center justify-center text-[#00a9ce]">
                                         <Search size={20} />
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">UX Flow</h3>
@@ -127,7 +95,7 @@ export default function AutomotiveClient() {
                                 <ul className="space-y-3">
                                     {['Research & Technical Discovery', 'Building architecture of the web platform', 'Interface design for data tables', 'Usability testing with developers'].map((item, i) => (
                                         <li key={i} className="flex items-center gap-3 text-slate-600 font-medium">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
+                                            <div className="w-1.5 h-1.5 rounded-none bg-[#00a9ce] shrink-0" />
                                             {item}
                                         </li>
                                     ))}
@@ -137,7 +105,7 @@ export default function AutomotiveClient() {
                             {/* LoFi Design */}
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-10 h-10 rounded-lg bg-transparent/10 flex items-center justify-center text-slate-600">
+                                    <div className="w-10 h-10 rounded-none bg-[#76bc1d]/10 flex items-center justify-center text-[#76bc1d]">
                                         <PenTool size={20} />
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">LoFi Design</h3>
@@ -150,7 +118,7 @@ export default function AutomotiveClient() {
                             {/* HiFi Design */}
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600">
+                                    <div className="w-10 h-10 rounded-none bg-[#001a22]/10 flex items-center justify-center text-[#001a22]">
                                         <Layout size={20} />
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">HiFi Design</h3>
@@ -163,7 +131,7 @@ export default function AutomotiveClient() {
                             {/* Front End */}
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center text-orange-600">
+                                    <div className="w-10 h-10 rounded-none bg-[#00a9ce]/10 flex items-center justify-center text-[#00a9ce]">
                                         <Smartphone size={20} />
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">Front End & App</h3>
@@ -176,7 +144,7 @@ export default function AutomotiveClient() {
                             {/* QA Process */}
                             <div className="space-y-6 md:col-span-2">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center text-green-600">
+                                    <div className="w-10 h-10 rounded-none bg-[#76bc1d]/10 flex items-center justify-center text-[#76bc1d]">
                                         <TestTube2 size={20} />
                                     </div>
                                     <h3 className="text-2xl font-bold tracking-tight">QA Process</h3>
@@ -193,26 +161,26 @@ export default function AutomotiveClient() {
                             
                             <div className="space-y-6">
                                 <div>
-                                    <h3 className="text-2xl font-bold tracking-tight text-[#174395] mb-2">Comprehensive Databases</h3>
+                                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Comprehensive Databases</h3>
                                     <p className="text-sm text-slate-600 font-medium">A complete suite of vehicle data products built for enterprise scale.</p>
                                 </div>
                                 <div className="grid grid-cols-1 gap-3">
                                     {[
-                                        { name: 'Vehicle Imagery', link: 'https://automotivedataset.com/databases', color: 'text-[#174395]' },
-                                        { name: 'Basic YMM Specs', link: 'https://automotivedataset.com/databases', color: 'text-[#174395]' },
-                                        { name: 'Standard YMM Specs', link: 'https://automotivedataset.com/databases', color: 'text-[#174395]' },
-                                        { name: 'Advanced YMM Specs', link: 'https://automotivedataset.com/databases', color: 'text-[#174395]' },
-                                        { name: 'Market Valuations', link: 'https://automotivedataset.com/databases', color: 'text-[#174395]' },
-                                        { name: 'EV Specifications', link: 'https://automotivedataset.com/databases', color: 'text-[#174395]' },
-                                        { name: 'Maintenance Schedules', link: 'https://automotivedataset.com/databases', color: 'text-[#F2147A]' },
-                                        { name: 'Repair Estimates', link: 'https://automotivedataset.com/databases', color: 'text-[#F2147A]' },
-                                        { name: 'Motorcycle Specs', link: 'https://automotivedataset.com/databases', color: 'text-[#489EE6]' },
-                                        { name: 'Parts Catalog', link: 'https://automotivedataset.com/databases', color: 'text-[#489EE6]' },
+                                        { name: 'Vehicle Imagery', link: 'https://automotivedataset.com/databases', color: 'text-[#00a9ce]' },
+                                        { name: 'Basic YMM Specs', link: 'https://automotivedataset.com/databases', color: 'text-[#00a9ce]' },
+                                        { name: 'Standard YMM Specs', link: 'https://automotivedataset.com/databases', color: 'text-[#00a9ce]' },
+                                        { name: 'Advanced YMM Specs', link: 'https://automotivedataset.com/databases', color: 'text-[#00a9ce]' },
+                                        { name: 'Market Valuations', link: 'https://automotivedataset.com/databases', color: 'text-[#00a9ce]' },
+                                        { name: 'EV Specifications', link: 'https://automotivedataset.com/databases', color: 'text-[#00a9ce]' },
+                                        { name: 'Maintenance Schedules', link: 'https://automotivedataset.com/databases', color: 'text-[#76bc1d]' },
+                                        { name: 'Repair Estimates', link: 'https://automotivedataset.com/databases', color: 'text-[#76bc1d]' },
+                                        { name: 'Motorcycle Specs', link: 'https://automotivedataset.com/databases', color: 'text-[#001a22]' },
+                                        { name: 'Parts Catalog', link: 'https://automotivedataset.com/databases', color: 'text-[#001a22]' },
                                     ].map((item, i) => (
-                                        <a key={i} href={item.link} target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 bg-white hover:bg-[#F8F9FA] hover:border-[#489EE6] hover:shadow-lg transition-all group">
+                                        <a key={i} href={item.link} target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 rounded-none border border-slate-200 bg-white hover:bg-slate-50 hover:border-[#00a9ce] hover:shadow-none transition-all group">
                                             <Database className={`w-4 h-4 shrink-0 ${item.color}`} />
-                                            <span className={`font-bold text-sm text-slate-700 group-hover:${item.color}`}>{item.name}</span>
-                                            <ArrowRight size={14} className="ml-auto text-slate-600 group-hover:text-[#489EE6] -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                            <span className={`font-bold text-sm text-slate-700`}>{item.name}</span>
+                                            <ArrowRight size={14} className="ml-auto text-slate-600 group-hover:text-[#00a9ce] -translate-x-2 group-hover:translate-x-0 transition-all" />
                                         </a>
                                     ))}
                                 </div>
@@ -220,7 +188,7 @@ export default function AutomotiveClient() {
 
                             <div className="space-y-6">
                                 <div>
-                                    <h3 className="text-2xl font-bold tracking-tight text-[#174395] mb-2">Developer APIs</h3>
+                                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Developer APIs</h3>
                                     <p className="text-sm text-slate-600 font-medium">High-performance, RESTful endpoints engineered for real-time applications.</p>
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -248,9 +216,9 @@ export default function AutomotiveClient() {
                                         { name: 'History Report', link: 'https://automotivedataset.com/developers/vin-full-report' },
                                         { name: 'Report Check', link: 'https://automotivedataset.com/developers/vin-report-check' },
                                     ].map((api, i) => (
-                                        <a key={i} href={api.link} target="_blank" rel="noreferrer" className="flex items-center justify-between px-3 py-2 rounded-lg border border-slate-200 hover:border-[#F2147A] hover:bg-[#F2147A]/5 transition-colors group">
-                                            <span className="font-semibold text-xs text-slate-700 group-hover:text-[#F2147A]">{api.name}</span>
-                                            <ArrowRight size={12} className="text-slate-600 group-hover:text-[#F2147A]" />
+                                        <a key={i} href={api.link} target="_blank" rel="noreferrer" className="flex items-center justify-between px-3 py-2 rounded-none border border-slate-200 hover:border-[#00a9ce] hover:bg-slate-50 transition-colors group">
+                                            <span className="font-semibold text-xs text-slate-700 group-hover:text-[#00a9ce]">{api.name}</span>
+                                            <ArrowRight size={12} className="text-slate-600 group-hover:text-[#00a9ce]" />
                                         </a>
                                     ))}
                                 </div>

@@ -2,6 +2,7 @@ import { pressReleases } from "@/lib/press-data";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronRight, Download } from 'lucide-react';
+import { InnerPageHeader } from "@/components/inner-page-header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,22 +17,12 @@ export default function PressReleasePage() {
     const categories = ["All News", "Product Launch", "Infrastructure", "Partnerships", "Corporate", "Milestones"];
 
     return (
-        <main className="pt-24 min-h-screen bg-[#F8F9FA] pb-20 font-sans text-slate-900">
+        <main className="min-h-screen bg-[#f4f4f4] pb-20 font-sans text-slate-900">
             
             {/* Header */}
-            <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-12 border-b border-slate-200">
-                <nav className="flex items-center gap-2 text-sm text-slate-400 font-medium mb-6">
-                    <Link href="/" className="hover:text-[#005AB0]">Home</Link>
-                    <ChevronRight className="w-4 h-4" />
-                    <span className="text-slate-900">Newsroom</span>
-                </nav>
-                <h1 className="text-[40px] md:text-[56px] font-bold mb-4">Newsroom</h1>
-                <p className="text-xl text-slate-500 max-w-3xl">
-                    Discover the latest press releases, corporate announcements, and product innovations from Achtrex.
-                </p>
-            </div>
+            <InnerPageHeader title="Newsroom" subtitle="Discover the latest press releases, corporate announcements, and product innovations from Achtrex." />
 
-            <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-12">
+            <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-12 pt-16">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     
                     {/* Main Content Column */}
@@ -39,11 +30,11 @@ export default function PressReleasePage() {
                         {/* Featured News */}
                         <div className="mb-16">
                             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                                <div className="w-4 h-4 bg-[#005AB0]" />
+                                <div className="w-4 h-4 bg-[#00a9ce]" />
                                 Featured Press Release
                             </h2>
                             <Link href={`/press-release/${featuredPress.slug}`} className="group block">
-                                <div className="relative h-[350px] md:h-[450px] w-full rounded-xl overflow-hidden mb-6 bg-transparent/5">
+                                <div className="relative h-[350px] md:h-[450px] w-full rounded-none overflow-hidden mb-6 bg-transparent/5">
                                     <Image
                                         src={featuredPress.image}
                                         alt={featuredPress.title}
@@ -52,18 +43,18 @@ export default function PressReleasePage() {
                                         priority
                                     />
                                 </div>
-                                <div className="flex items-center gap-3 text-sm font-bold text-[#005AB0] uppercase tracking-wide mb-3">
+                                <div className="flex items-center gap-3 text-sm font-bold text-[#00a9ce] uppercase tracking-wide mb-3">
                                     <span>{featuredPress.category}</span>
                                     <span className="text-slate-600">|</span>
                                     <span className="text-slate-400">{featuredPress.date}</span>
                                 </div>
-                                <h3 className="text-3xl md:text-[32px] font-bold leading-tight mb-4 group-hover:text-[#005AB0] transition-colors">
+                                <h3 className="text-3xl md:text-[32px] font-bold leading-tight mb-4 group-hover:text-[#00a9ce] transition-colors">
                                     {featuredPress.title}
                                 </h3>
                                 <p className="text-lg text-slate-500 mb-6 line-clamp-3">
                                     {featuredPress.excerpt}
                                 </p>
-                                <div className="inline-flex items-center gap-2 text-[#005AB0] font-bold group-hover:gap-3 transition-all">
+                                <div className="inline-flex items-center gap-2 text-[#00a9ce] font-bold group-hover:gap-3 transition-all">
                                     Read Full Release <ArrowRight className="w-5 h-5" />
                                 </div>
                             </Link>
@@ -72,13 +63,13 @@ export default function PressReleasePage() {
                         {/* Latest News List */}
                         <div>
                             <h2 className="text-2xl font-bold mb-8 flex items-center gap-2 border-b border-slate-200 pb-4">
-                                <div className="w-4 h-4 bg-[#10b981]" />
+                                <div className="w-4 h-4 bg-[#76bc1d]" />
                                 Latest Announcements
                             </h2>
                             <div className="flex flex-col gap-10">
                                 {latestPress.map((press) => (
                                     <Link key={press.id} href={`/press-release/${press.slug}`} className="group grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
-                                        <div className="md:col-span-1 relative aspect-video md:aspect-auto md:h-[140px] rounded-lg overflow-hidden bg-transparent/5">
+                                        <div className="md:col-span-1 relative aspect-video md:aspect-auto md:h-[140px] rounded-none overflow-hidden bg-transparent/5">
                                             <Image
                                                 src={press.image}
                                                 alt={press.title}
@@ -88,11 +79,11 @@ export default function PressReleasePage() {
                                         </div>
                                         <div className="md:col-span-3 flex flex-col justify-center h-full">
                                             <div className="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-wide mb-2">
-                                                <span className="text-[#005AB0]">{press.category}</span>
+                                                <span className="text-[#00a9ce]">{press.category}</span>
                                                 <span className="text-slate-600">|</span>
                                                 <span>{press.date}</span>
                                             </div>
-                                            <h4 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-[#005AB0] transition-colors leading-snug">
+                                            <h4 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-[#00a9ce] transition-colors leading-snug">
                                                 {press.title}
                                             </h4>
                                             <p className="text-slate-500 line-clamp-2">
@@ -105,7 +96,7 @@ export default function PressReleasePage() {
                             
                             {/* Pagination / Load More */}
                             <div className="mt-12 flex justify-center border-t border-slate-200 pt-12">
-                                <button className="bg-transparent border-2 border-[#005AB0] text-[#005AB0] font-bold text-[15px] px-8 py-3 rounded-full hover:bg-[#005AB0] hover:text-slate-900 transition-colors">
+                                <button className="bg-transparent border-2 border-[#00a9ce] text-[#00a9ce] font-bold text-[15px] px-8 py-3 rounded-none hover:bg-[#00a9ce] hover:text-white transition-colors">
                                     View Older Releases
                                 </button>
                             </div>
@@ -116,13 +107,13 @@ export default function PressReleasePage() {
                     <div className="lg:col-span-4 space-y-12">
                         
                         {/* Filter by Topic */}
-                        <div className="bg-transparent p-8 rounded-xl border border-slate-200">
+                        <div className="bg-transparent p-8 rounded-none border border-slate-200">
                             <h3 className="text-xl font-bold mb-6">Filter by Topic</h3>
                             <div className="flex flex-col gap-3">
                                 {categories.map((cat, idx) => (
                                     <label key={idx} className="flex items-center gap-3 cursor-pointer group">
-                                        <div className={`w-5 h-5 rounded border ${idx === 0 ? 'bg-[#005AB0] border-[#005AB0]' : 'border-gray-300 group-hover:border-[#005AB0]'} flex items-center justify-center transition-colors`}>
-                                            {idx === 0 && <svg className="w-3.5 h-3.5 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>}
+                                        <div className={`w-5 h-5 rounded-none border ${idx === 0 ? 'bg-[#00a9ce] border-[#00a9ce]' : 'border-gray-300 group-hover:border-[#00a9ce]'} flex items-center justify-center transition-colors`}>
+                                            {idx === 0 && <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>}
                                         </div>
                                         <span className={`text-[15px] ${idx === 0 ? 'font-bold text-slate-900' : 'text-slate-500 group-hover:text-slate-900'}`}>
                                             {cat}
@@ -133,26 +124,26 @@ export default function PressReleasePage() {
                         </div>
 
                         {/* Media Contacts */}
-                        <div className="bg-[#F8F9FA] p-8 rounded-xl border border-slate-200 shadow-sm">
+                        <div className="bg-white p-8 rounded-none border border-slate-200 shadow-sm">
                             <h3 className="text-xl font-bold mb-6">Media Contacts</h3>
                             <div className="space-y-6">
                                 <div>
                                     <p className="font-bold text-slate-900">Achtrex Global Media Relations</p>
-                                    <a href="mailto:press@achtrex.com" className="text-[#005AB0] hover:underline block mt-1">press@achtrex.com</a>
+                                    <a href="mailto:press@achtrex.com" className="text-[#00a9ce] hover:underline block mt-1">press@achtrex.com</a>
                                     <p className="text-slate-400 mt-1">+1 (800) 555-0199</p>
                                 </div>
                                 <div className="pt-6 border-t border-slate-200">
                                     <p className="font-bold text-slate-900">Investor Relations</p>
-                                    <a href="mailto:investors@achtrex.com" className="text-[#005AB0] hover:underline block mt-1">investors@achtrex.com</a>
+                                    <a href="mailto:investors@achtrex.com" className="text-[#00a9ce] hover:underline block mt-1">investors@achtrex.com</a>
                                 </div>
                             </div>
                         </div>
 
                         {/* Download Assets */}
-                        <div className="bg-[#005AB0] p-8 rounded-xl text-slate-900">
+                        <div className="bg-[#001a22] p-8 rounded-none text-white">
                             <h3 className="text-xl font-bold mb-4">Brand Assets</h3>
-                            <p className="text-slate-900/80 mb-6 text-sm">Download official Achtrex logos, executive headshots, and product screenshots for media use.</p>
-                            <button className="flex items-center gap-2 bg-[#F8F9FA] text-[#005AB0] px-6 py-3 rounded-full font-bold hover:bg-slate-50/5 transition-colors w-full justify-center">
+                            <p className="text-slate-300 mb-6 text-sm">Download official Achtrex logos, executive headshots, and product screenshots for media use.</p>
+                            <button className="flex items-center gap-2 bg-[#00a9ce] text-white px-6 py-3 rounded-none font-bold hover:bg-[#00a9ce]/90 transition-colors w-full justify-center">
                                 <Download className="w-4 h-4" /> Download Media Kit
                             </button>
                         </div>

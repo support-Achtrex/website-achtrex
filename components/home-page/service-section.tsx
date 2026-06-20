@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { CaretRight } from '@phosphor-icons/react';
 
 export const ServicesGrid = () => {
     return (
@@ -15,8 +16,8 @@ export const ServicesGrid = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
-                            className="text-3xl md:text-4xl lg:text-[44px] font-bold text-gradient tracking-tight leading-[1.05] mb-6">
-                            Want access to millions of vehicles?<br />
+                            className="text-3xl md:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.05] mb-6">
+                            Start building today.<br />
                             We've got the API keys.
                         </motion.h2>
                         <motion.p 
@@ -25,7 +26,7 @@ export const ServicesGrid = () => {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                             className="text-[16px] text-slate-500 mb-8 font-medium leading-[1.4]">
-                            You build the experience. We'll handle the data. Connect seamlessly to global automotive datasets with our enterprise-grade API infrastructure.
+                            You build the experience. We'll handle the data. Connect seamlessly to our live automotive datasets with our enterprise-grade API infrastructure. Available today for testing and integration.
                         </motion.p>
                         
                         <motion.div 
@@ -34,11 +35,13 @@ export const ServicesGrid = () => {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                             className="flex flex-col sm:flex-row gap-6 mb-12">
-                            <Link href="/contact-us" className="text-slate-900 font-semibold hover:text-[#174395] flex items-center gap-1 transition-all">
-                                Get the API keys
-                                <svg className="w-4 h-4 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                                </svg>
+                            <Link href="/contact-us" className="text-[#00a9ce] font-semibold hover:text-[#008db0] flex items-center gap-1 transition-all">
+                                Request Trial API Key
+                                <CaretRight weight="bold" className="w-4 h-4 mt-0.5" />
+                            </Link>
+                            <Link href="/contact-us" className="text-[#76bc1d] font-semibold hover:text-[#65a317] flex items-center gap-1 transition-all">
+                                See Sample Responses
+                                <CaretRight weight="bold" className="w-4 h-4 mt-0.5" />
                             </Link>
                         </motion.div>
                     </div>
@@ -49,7 +52,7 @@ export const ServicesGrid = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="w-full lg:w-1/2">
-                        <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-2xl overflow-hidden font-mono text-[13px] md:text-[15px] leading-relaxed relative">
+                        <div className="bg-[#081622] border border-[#00a9ce]/20 rounded-none p-6 md:p-8 shadow-xl overflow-hidden font-mono text-[13px] md:text-[15px] leading-relaxed relative">
                             {/* Window controls */}
                             <div className="flex gap-2 mb-6">
                                 <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />

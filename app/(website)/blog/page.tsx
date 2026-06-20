@@ -2,6 +2,7 @@ import { blogPosts } from "@/lib/blog-data";
 import { BlogCard } from "@/components/blog/blog-card";
 import Image from "next/image";
 import Link from "next/link";
+import { InnerPageHeader } from "@/components/inner-page-header";
 
 import { Metadata } from "next";
 
@@ -21,19 +22,15 @@ export default function BlogListingPage() {
     const otherPosts = blogPosts.slice(1);
     const categories = ["All", "Data Engineering", "AI Architecture", "Venture Building", "API Design", "Infrastructure"];
 
-    return (
-        <main className="pt-24 min-h-screen bg-[#F8F9FA] pb-20 font-sans">
-            <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-                {/* Clean Header */}
-                <div className="mb-12 pt-8">
-                    <h1 className="text-[40px] md:text-[48px] font-bold text-slate-900 mb-4">Insights & Engineering</h1>
-                    <p className="text-xl text-slate-500 max-w-3xl">Explore technical deep dives, architectural decisions, and our approach to building high-velocity platforms.</p>
-                </div>
+        <main className="min-h-screen bg-[#f4f4f4] pb-20 font-sans">
+            <InnerPageHeader title="Insights & Engineering" subtitle="Explore technical deep dives, architectural decisions, and our approach to building high-velocity platforms." />
+            
+            <div className="max-w-[1200px] mx-auto px-4 md:px-8 pt-12">
 
                 {/* Categories Navigation */}
                 <div className="flex flex-wrap items-center gap-4 border-b border-slate-200 pb-4 mb-12">
                     {categories.map((cat, idx) => (
-                        <button key={idx} className={`text-[15px] font-semibold px-5 py-2 rounded-full transition-colors ${idx === 0 ? 'bg-[#005AB0] text-slate-900' : 'text-slate-500 hover:bg-slate-50/5 hover:text-[#005AB0]'}`}>
+                        <button key={idx} className={`text-[15px] font-semibold px-5 py-2 rounded-none transition-colors ${idx === 0 ? 'bg-[#00a9ce] text-white' : 'text-slate-600 hover:bg-slate-200/50 hover:text-[#00a9ce]'}`}>
                             {cat}
                         </button>
                     ))}
@@ -41,7 +38,7 @@ export default function BlogListingPage() {
 
                 {/* Featured Post (Experian Style - Side by Side) */}
                 <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center mb-20 group">
-                    <Link href={`/blog/${featuredPost.slug}`} className="relative h-[300px] md:h-[400px] w-full rounded-xl overflow-hidden block">
+                    <Link href={`/blog/${featuredPost.slug}`} className="relative h-[300px] md:h-[400px] w-full rounded-none overflow-hidden block">
                         <Image
                             src={featuredPost.image}
                             alt={featuredPost.title}
@@ -51,11 +48,11 @@ export default function BlogListingPage() {
                         />
                     </Link>
                     <div className="flex flex-col justify-center">
-                        <span className="text-[#005AB0] font-bold tracking-wide uppercase text-sm mb-4">
+                        <span className="text-[#00a9ce] font-bold tracking-wide uppercase text-sm mb-4">
                             {featuredPost.category}
                         </span>
                         <Link href={`/blog/${featuredPost.slug}`}>
-                            <h2 className="text-3xl md:text-[36px] font-bold text-slate-900 mb-4 leading-tight group-hover:text-[#005AB0] transition-colors">
+                            <h2 className="text-3xl md:text-[36px] font-bold text-slate-900 mb-4 leading-tight group-hover:text-[#00a9ce] transition-colors">
                                 {featuredPost.title}
                             </h2>
                         </Link>
@@ -79,7 +76,7 @@ export default function BlogListingPage() {
 
                 {/* Load More Button */}
                 <div className="flex justify-center">
-                    <button className="bg-transparent border-2 border-[#005AB0] text-[#005AB0] font-bold text-[15px] px-8 py-3 rounded-full hover:bg-[#005AB0] hover:text-slate-900 transition-colors">
+                    <button className="bg-transparent border-2 border-[#00a9ce] text-[#00a9ce] font-bold text-[15px] px-8 py-3 rounded-none hover:bg-[#00a9ce] hover:text-white transition-colors">
                         Load More Articles
                     </button>
                 </div>

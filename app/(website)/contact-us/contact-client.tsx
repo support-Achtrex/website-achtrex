@@ -57,10 +57,10 @@ export const ContactClient = () => {
         }
     };
 
-    const inputClasses = "w-full py-2.5 px-3 border border-gray-300 rounded-lg text-slate-700 placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors text-[14px] bg-[#F8F9FA]";
+    const inputClasses = "w-full py-3 px-4 border border-slate-300 rounded-none text-slate-700 placeholder-slate-400 focus:border-[#00a9ce] focus:ring-1 focus:ring-[#00a9ce] outline-none transition-colors text-[14px] bg-white";
 
     return (
-        <main className="min-h-[90vh] bg-[#F8F9FA] relative flex flex-col justify-center pt-24 pb-16 overflow-hidden">
+        <main className="min-h-[90vh] bg-[#f4f4f4] relative flex flex-col justify-center pt-24 pb-16 overflow-hidden">
             {/* Topographical background overlay */}
             <div 
                 className="absolute inset-0 opacity-10 pointer-events-none z-0"
@@ -76,23 +76,23 @@ export const ContactClient = () => {
                     {/* Left side text */}
                     <div className="lg:w-1/2 lg:pt-8">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight">
-                            <span className="text-[#a6f7d4]">Start</span> <span className="text-slate-900">building</span><br />
-                            <span className="text-[#a6f7d4]">better</span> <span className="text-slate-900">automotive</span><br />
-                            <span className="text-[#a6f7d4]">products</span>
+                            <span className="text-[#00a9ce]">Start</span> <span className="text-slate-900">building</span><br />
+                            <span className="text-[#00a9ce]">better</span> <span className="text-slate-900">automotive</span><br />
+                            <span className="text-[#00a9ce]">products</span>
                         </h1>
                         <div className="mt-12 text-slate-900/90">
                             <h3 className="text-xl font-bold mb-4 font-display text-slate-900">Direct Contact</h3>
                             <div className="flex flex-col gap-4">
-                                <a href="mailto:support@achtrex.com" className="flex items-center gap-3 hover:text-slate-900 transition-colors text-[#a6f7d4]">
+                                <a href="mailto:support@achtrex.com" className="flex items-center gap-3 hover:text-slate-900 transition-colors text-[#00a9ce]">
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                                     <span className="font-semibold text-lg text-slate-900">support@achtrex.com</span>
                                 </a>
-                                <a href="tel:+16133664271" className="flex items-center gap-3 hover:text-slate-900 transition-colors text-[#a6f7d4]">
+                                <a href="tel:+16133664271" className="flex items-center gap-3 hover:text-slate-900 transition-colors text-[#00a9ce]">
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                                     <span className="font-semibold text-lg text-slate-900">+1 613 366-4271</span>
                                 </a>
 
-                                <div className="flex items-center gap-3 text-[#a6f7d4]">
+                                <div className="flex items-center gap-3 text-[#00a9ce]">
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                     <span className="font-semibold text-lg text-slate-900">Global Remote Operations</span>
                                 </div>
@@ -104,9 +104,8 @@ export const ContactClient = () => {
                     <div className="lg:w-1/2 w-full max-w-lg">
                         {/* The glowing border effect behind the card */}
                         <div className="relative">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 rounded-[32px] blur-xl opacity-40"></div>
                             
-                            <div className="relative bg-[#F8F9FA] rounded-[24px] p-6 md:p-8 shadow-2xl">
+                            <div className="relative bg-white border border-[#00a9ce]/20 rounded-none p-6 md:p-8 shadow-md">
                                 <h3 className="text-xl font-bold text-slate-900 mb-6 font-display">Let's get started</h3>
                                 
                                 {status === 'success' ? (
@@ -177,10 +176,9 @@ export const ContactClient = () => {
                                         <button 
                                             type="submit" 
                                             disabled={status === 'loading'}
-                                            className="w-full relative group overflow-hidden rounded-full p-[2px] disabled:opacity-70 transition-transform hover:scale-[1.02] shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                                            className="w-full relative group overflow-hidden rounded-none disabled:opacity-70 transition-all bg-[#76bc1d] hover:bg-transparent border border-[#76bc1d]"
                                         >
-                                            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-teal-400 opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                                            <div className="relative w-full bg-[#F8F9FA] hover:bg-[#0c1222] text-slate-900 font-bold text-[15px] px-8 py-3 rounded-full transition-colors duration-500">
+                                            <div className="relative w-full text-white group-hover:text-[#76bc1d] font-bold text-[15px] px-8 py-4 rounded-none transition-colors duration-300">
                                                 {status === 'loading' ? 'Submitting...' : 'Talk with our team'}
                                             </div>
                                         </button>
@@ -191,11 +189,11 @@ export const ContactClient = () => {
                     </div>
                 </div>
 
-                <div className="bg-white border border-slate-200 rounded-full px-6 py-5 flex flex-col md:flex-row items-center justify-between text-slate-900 w-full shadow-lg mt-8">
+                <div className="bg-[#081622] border border-[#00a9ce]/20 rounded-none px-6 py-5 flex flex-col md:flex-row items-center justify-between text-white w-full shadow-md mt-8">
                     <p className="font-semibold text-[15px] text-center md:text-left mb-2 md:mb-0">
                         When you connect to an app with Achtrex, you're in control of who has access to your data.
                     </p>
-                    <a href="/products" className="font-bold text-[15px] text-[#174395] hover:text-slate-900 transition-colors whitespace-nowrap">
+                    <a href="/products" className="font-bold text-[15px] text-[#00a9ce] hover:text-white transition-colors whitespace-nowrap">
                         Manage your connections with Achtrex Portal »
                     </a>
                 </div>

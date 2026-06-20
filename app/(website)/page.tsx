@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home-page/hero-section";
+import { OfferingsTabs } from "@/components/home-page/offerings-tabs";
 import { ServicesGrid } from "@/components/home-page/service-section";
 import { ProductsGrid } from "@/components/home-page/products-grid";
 
@@ -6,6 +7,7 @@ import { ProductsGrid } from "@/components/home-page/products-grid";
 import { PopularLinks } from "@/components/home-page/popular-links";
 import { LatestNews } from "@/components/home-page/latest-news";
 import { AboutSection } from "@/components/home-page/about-section";
+import { PortfolioGrid } from "@/components/home-page/portfolio-grid";
 
 import { Metadata } from 'next';
 
@@ -28,6 +30,8 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F8F9FA] text-slate-900 overflow-x-hidden">
       <Hero />
+      <OfferingsTabs />
+      <PortfolioGrid />
       <ProductsGrid />
       <AboutSection />
       <ServicesGrid />

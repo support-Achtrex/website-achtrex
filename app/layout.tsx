@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/ui/toast";
 import { SmoothScrollProvider } from "@/components/smooth-scroll";
 import { GoogleTagManager } from "@next/third-parties/google";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ['latin']
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://achtrex.com'),
@@ -113,10 +107,8 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
-      <body
-        className={`${inter.variable} font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-slate-900 overflow-x-hidden`}
-      >
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <body className="antialiased min-h-screen flex flex-col font-sans bg-background text-foreground selection:bg-primary selection:text-slate-900 overflow-x-hidden">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

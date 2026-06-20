@@ -75,16 +75,16 @@ export const BookingClient = () => {
         }
     };
 
-    const inputClasses = "w-full py-3 px-4 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none transition-colors text-[15px] bg-white";
+    const inputClasses = "w-full py-3 px-4 border border-gray-300 rounded-none text-gray-900 placeholder-gray-500 focus:border-[#00a9ce] focus:ring-1 focus:ring-[#00a9ce] outline-none transition-colors text-[15px] bg-white";
 
     return (
-        <main className="min-h-screen bg-gray-50 flex items-center justify-center py-20 px-4">
-            <div className="bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] max-w-4xl w-full overflow-hidden border border-gray-100 flex flex-col md:flex-row min-h-[600px]">
+        <main className="min-h-screen bg-[#f4f4f4] flex items-center justify-center py-20 px-4">
+            <div className="bg-white rounded-none shadow-none max-w-4xl w-full overflow-hidden border border-slate-200 flex flex-col md:flex-row min-h-[600px]">
                 
                 {/* Left Sidebar - Meeting Info */}
-                <div className="w-full md:w-1/3 bg-white p-8 md:border-r border-gray-100">
+                <div className="w-full md:w-1/3 bg-white p-8 md:border-r border-slate-200">
                     {step === 2 && (
-                        <button onClick={handleBack} className="text-blue-600 hover:text-blue-800 p-2 -ml-2 mb-4 rounded-full hover:bg-blue-50 transition-colors">
+                        <button onClick={handleBack} className="text-[#00a9ce] hover:text-[#001a22] p-2 -ml-2 mb-4 rounded-none hover:bg-slate-50 transition-colors">
                             <ChevronLeft className="w-6 h-6" />
                         </button>
                     )}
@@ -104,7 +104,7 @@ export const BookingClient = () => {
                             <div className="flex items-start gap-3 mt-2 text-gray-800">
                                 <Clock className="w-5 h-5 mt-0.5 text-gray-600" />
                                 <div>
-                                    <p className="font-semibold text-blue-600">{selectedTime}</p>
+                                    <p className="font-semibold text-[#00a9ce]">{selectedTime}</p>
                                     <p>{format(selectedDate, "EEEE, MMMM d, yyyy")}</p>
                                 </div>
                             </div>
@@ -137,8 +137,8 @@ export const BookingClient = () => {
                                     className="!m-0 text-gray-800 calendar-custom"
                                     disabled={{ before: new Date(), dayOfWeek: [0, 6] }}
                                     classNames={{
-                                        selected: "!bg-blue-600 !text-white hover:!bg-blue-700",
-                                        today: "text-blue-600 font-bold",
+                                        selected: "!bg-[#00a9ce] !text-white hover:!bg-[#001a22]",
+                                        today: "text-[#00a9ce] font-bold",
                                     }}
                                 />
                             </div>
@@ -151,7 +151,7 @@ export const BookingClient = () => {
                                             <button
                                                 key={time}
                                                 onClick={() => handleTimeSelect(time)}
-                                                className="py-3 px-4 rounded-md border border-blue-200 text-blue-600 font-semibold hover:border-blue-600 transition-colors w-full text-center"
+                                                className="py-3 px-4 rounded-none border border-slate-200 text-[#00a9ce] font-semibold hover:border-[#00a9ce] transition-colors w-full text-center"
                                             >
                                                 {time}
                                             </button>
@@ -173,7 +173,7 @@ export const BookingClient = () => {
                                     <input required type="email" name="email" value={formData.email} onChange={handleChange} className={inputClasses} />
                                 </div>
                                 <div>
-                                    <button type="button" className="text-blue-600 font-semibold text-sm border border-blue-600 rounded-full px-4 py-1.5 hover:bg-blue-50 transition-colors">
+                                    <button type="button" className="text-[#00a9ce] font-semibold text-sm border border-[#00a9ce] rounded-none px-4 py-1.5 hover:bg-slate-50 transition-colors">
                                         Add Guests
                                     </button>
                                 </div>
@@ -187,7 +187,7 @@ export const BookingClient = () => {
                                 </div>
 
                                 <div className="pt-4 text-sm text-gray-600 leading-relaxed">
-                                    By proceeding, you confirm that you have read and agree to <span className="text-blue-600 font-semibold cursor-pointer">Achtrex's Invitee Terms</span> and <span className="text-blue-600 font-semibold cursor-pointer">Privacy Notice</span>.
+                                    By proceeding, you confirm that you have read and agree to <span className="text-[#00a9ce] font-semibold cursor-pointer">Achtrex's Invitee Terms</span> and <span className="text-[#00a9ce] font-semibold cursor-pointer">Privacy Notice</span>.
                                 </div>
 
                                 {status === 'error' && (
@@ -197,7 +197,7 @@ export const BookingClient = () => {
                                 <button 
                                     type="submit" 
                                     disabled={status === 'loading'}
-                                    className="bg-blue-600 hover:bg-blue-700 text-slate-900 font-bold py-3 px-6 rounded-full transition-colors disabled:opacity-70 mt-2"
+                                    className="bg-[#00a9ce] hover:bg-[#001a22] text-white font-bold py-3 px-6 rounded-none transition-colors disabled:opacity-70 mt-2"
                                 >
                                     {status === 'loading' ? 'Scheduling...' : 'Schedule Event'}
                                 </button>
@@ -210,15 +210,15 @@ export const BookingClient = () => {
                 .calendar-custom .rdp-day {
                     width: 46px;
                     height: 46px;
-                    border-radius: 50%;
-                    background: #f0f7ff;
-                    color: #2563eb;
+                    border-radius: 0;
+                    background: #f4f4f4;
+                    color: #00a9ce;
                     font-weight: 500;
                     margin: 4px;
                     transition: all 0.2s;
                 }
                 .calendar-custom .rdp-day:hover:not([disabled]) {
-                    background: #2563eb;
+                    background: #00a9ce;
                     color: white;
                 }
                 .calendar-custom .rdp-button[disabled]:not(.rdp-day_selected) {
@@ -235,7 +235,7 @@ export const BookingClient = () => {
                     color: #111827;
                 }
                 .calendar-custom .rdp-nav_button {
-                    color: #2563eb;
+                    color: #00a9ce;
                 }
                 .custom-scrollbar::-webkit-scrollbar {
                     width: 6px;

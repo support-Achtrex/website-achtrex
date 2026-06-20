@@ -1,5 +1,6 @@
 import React from 'react';
 import { AboutContent } from "@/components/about-page/about-content";
+import { InnerPageHeader } from "@/components/inner-page-header";
 
 
 import { Metadata } from "next";
@@ -17,9 +18,9 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
     return (
-        <main className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+        <main className="min-h-screen bg-[#f4f4f4] text-slate-900 overflow-x-hidden">
+            <InnerPageHeader title="About Achtrex" subtitle="Architecting the Future of Data and Cognitive Mobility Infrastructure" />
             <AboutContent />
-            
         </main>
     );
 }

@@ -5,59 +5,14 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Users, Rocket, Target, Heart, Globe, Cpu, Zap, Shield, Sparkles, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/buttons';
+import { InnerPageHeader } from "@/components/inner-page-header";
 
 
 export default function LifeAtAchtrexPage() {
     return (
-        <main className="min-h-screen bg-[#F8F9FA] text-slate-900 pt-24">
-            {/* Hero Section */}
-            <section className="relative py-16 px-6 overflow-hidden bg-transparent">
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-white/50 -skew-x-12 translate-x-24" />
-                <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6 }}
-                            >
-                                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-4 block">Careers @ Achtrex</span>
-                                <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
-                                    Architecting the <br /> 
-                                    <span className="text-primary">Next Era</span> of Data.
-                                </h1>
-                                <p className="text-lg text-slate-400 font-medium mb-8 leading-relaxed max-w-lg">
-                                    We engineer real infrastructure for the global automotive industry. Join a remote-first, pioneering team building AutomotiveDataset.com, LUMI AI, and the Achtrex Core.
-                                </p>
-                                <div className="flex flex-wrap gap-4">
-                                    <Button size="lg" className="bg-black text-slate-900 hover:bg-gray-800 px-8 rounded-full font-bold">
-                                        View Openings
-                                    </Button>
-                                    <a href="mailto:support@achtrex.com" className="flex items-center gap-3 px-6 py-3 border border-slate-200 rounded-full bg-[#F8F9FA] shadow-sm hover:border-gray-400 transition-colors">
-                                        <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                                        <span className="text-xs font-bold text-slate-500">Reach Out Directly</span>
-                                    </a>
-                                </div>
-                            </motion.div>
-                        </div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="relative aspect-square lg:aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/50"
-                        >
-                            <Image 
-                                src="/life-at-achtrex/Rectangle 789.png" 
-                                alt="Achtrex Collaborative Environment" 
-                                fill 
-                                className="object-cover"
-                                priority
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#F8F9FA]/40 via-transparent to-transparent" />
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
+        <main className="min-h-screen bg-[#f4f4f4] text-slate-900 pb-20">
+            {/* Header */}
+            <InnerPageHeader title="Architecting the Next Era of Data" subtitle="We engineer real infrastructure for the global automotive industry. Join a remote-first, pioneering team building AutomotiveDataset.com, LUMI AI, and the Achtrex Core." />
 
             {/* Core Values */}
             <section className="py-20 px-6">
@@ -73,22 +28,22 @@ export default function LifeAtAchtrexPage() {
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                icon: <Cpu className="w-8 h-8 text-primary" />,
+                                icon: <Cpu className="w-8 h-8 text-[#00a9ce]" />,
                                 title: "Infrastructure First",
                                 desc: "We focus on the underlying protocols and data engines that power the world, not just the surface-level UI.",
-                                bg: "bg-blue-50"
+                                bg: "bg-slate-200/50"
                             },
                             {
-                                icon: <Zap className="w-8 h-8 text-secondary" />,
+                                icon: <Zap className="w-8 h-8 text-[#00a9ce]" />,
                                 title: "High Velocity",
                                 desc: "We ship fast and iterate often. Our CI/CD pipelines are the heartbeat of our distributed laboratory.",
-                                bg: "bg-purple-50"
+                                bg: "bg-slate-200/50"
                             },
                             {
-                                icon: <Globe className="w-8 h-8 text-green-500" />,
+                                icon: <Globe className="w-8 h-8 text-[#00a9ce]" />,
                                 title: "Global by Default",
                                 desc: "Our team spans continents. We operate in a follow-the-sun model to ensure continuous delivery.",
-                                bg: "bg-green-50"
+                                bg: "bg-slate-200/50"
                             }
                         ].map((value, i) => (
                             <motion.div
@@ -97,9 +52,9 @@ export default function LifeAtAchtrexPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className={`p-10 rounded-3xl ${value.bg} border border-transparent hover:border-white/50/5 transition-all group`}
+                                className={`p-10 rounded-none ${value.bg} border border-transparent hover:border-slate-300 transition-all group`}
                             >
-                                <div className="mb-8 p-4 bg-[#F8F9FA] rounded-2xl w-fit shadow-sm group-hover:scale-110 transition-transform">
+                                <div className="mb-8 p-4 bg-white rounded-none w-fit shadow-sm group-hover:scale-110 transition-transform">
                                     {value.icon}
                                 </div>
                                 <h4 className="text-xl font-bold mb-4">{value.title}</h4>
@@ -113,13 +68,13 @@ export default function LifeAtAchtrexPage() {
             </section>
 
             {/* Culture Grid */}
-            <section className="py-20 px-6 bg-black text-slate-900 overflow-hidden relative">
-                <div className="absolute top-0 right-0 w-[500px] h-full bg-primary/10 blur-[150px] pointer-events-none" />
+            <section className="py-20 px-6 bg-[#001a22] text-white overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-[500px] h-full bg-[#00a9ce]/10 blur-[150px] pointer-events-none" />
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <div className="space-y-12">
                             <header>
-                                <h2 className="text-primary text-sm font-black uppercase tracking-[0.4em] mb-4">Culture of Ownership</h2>
+                                <h2 className="text-[#00a9ce] text-sm font-black uppercase tracking-[0.4em] mb-4">Culture of Ownership</h2>
                                 <h3 className="text-3xl md:text-4xl font-bold leading-tight">Every architect is a <br /> stakeholder.</h3>
                             </header>
                             
@@ -131,13 +86,13 @@ export default function LifeAtAchtrexPage() {
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-6 items-start">
                                         <div className="mt-1">
-                                            <div className="w-6 h-6 rounded-full border border-primary/50 flex items-center justify-center">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                            <div className="w-6 h-6 rounded-none border border-[#00a9ce]/50 flex items-center justify-center">
+                                                <div className="w-2 h-2 rounded-none bg-[#00a9ce]" />
                                             </div>
                                         </div>
                                         <div>
-                                            <h4 className="text-xl font-bold mb-2">{item.title}</h4>
-                                            <p className="text-slate-500 leading-relaxed">{item.desc}</p>
+                                            <h4 className="text-xl font-bold mb-2 text-white">{item.title}</h4>
+                                            <p className="text-slate-300 leading-relaxed">{item.desc}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -146,18 +101,18 @@ export default function LifeAtAchtrexPage() {
 
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-4">
-                                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+                                <div className="relative aspect-[3/4] rounded-none overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
                                     <Image src="/life-at-achtrex/collaborative.png" alt="Collab" fill className="object-cover" />
                                 </div>
-                                <div className="relative aspect-square rounded-2xl overflow-hidden bg-primary/20 flex items-center justify-center p-8 text-center">
-                                    <p className="text-xs font-black uppercase tracking-widest text-primary leading-loose">"The architect represents the intelligence of the system."</p>
+                                <div className="relative aspect-square rounded-none overflow-hidden bg-[#00a9ce]/20 flex items-center justify-center p-8 text-center">
+                                    <p className="text-xs font-black uppercase tracking-widest text-[#00a9ce] leading-loose">"The architect represents the intelligence of the system."</p>
                                 </div>
                             </div>
                             <div className="space-y-4 pt-12">
-                                <div className="relative aspect-square rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+                                <div className="relative aspect-square rounded-none overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
                                     <Image src="/life-at-achtrex/focused.png" alt="Focus" fill className="object-cover" />
                                 </div>
-                                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+                                <div className="relative aspect-[3/4] rounded-none overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
                                     <Image src="/life-at-achtrex/Depth 7, Frame 0.png" alt="Work" fill className="object-cover" />
                                 </div>
                             </div>
@@ -174,12 +129,12 @@ export default function LifeAtAchtrexPage() {
                             <h2 className="text-sm font-black uppercase tracking-[0.4em] text-slate-500 mb-4">The Benefits</h2>
                             <h3 className="text-3xl font-bold text-slate-900">Engineered for your well-being.</h3>
                         </div>
-                        <Button className="bg-primary text-slate-900 hover:bg-primary/90 px-8 rounded-full font-bold">
+                        <Button className="bg-[#00a9ce] text-white hover:bg-[#001a22] px-8 rounded-none font-bold">
                             See All Perks
                         </Button>
                     </div>
 
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 border border-slate-200 rounded-3xl overflow-hidden">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 border border-slate-200 rounded-none overflow-hidden">
                         {[
                             { label: "Global Mobility", icon: <Globe size={24} /> },
                             { label: "Equity Options", icon: <Target size={24} /> },
@@ -190,8 +145,8 @@ export default function LifeAtAchtrexPage() {
                             { label: "Retirement Plans", icon: <Shield size={24} /> },
                             { label: "Annual Offsites", icon: <Users size={24} /> },
                         ].map((perk, i) => (
-                            <div key={i} className="bg-[#F8F9FA] p-8 hover:bg-transparent transition-colors flex flex-col items-center justify-center text-center gap-4">
-                                <div className="text-primary">{perk.icon}</div>
+                            <div key={i} className="bg-white p-8 hover:bg-slate-50 transition-colors flex flex-col items-center justify-center text-center gap-4">
+                                <div className="text-[#00a9ce]">{perk.icon}</div>
                                 <span className="text-sm font-bold text-slate-700">{perk.label}</span>
                             </div>
                         ))}
