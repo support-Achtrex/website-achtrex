@@ -25,7 +25,7 @@
   --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
   
   /* Brand Logo Gradient Context */
-  --logo-gradient: linear-gradient(to right, #007bff, #00ff88);
+  --logo-gradient: linear-gradient(to right, #0263C6, #0CBDAF);
 }
 
 @theme {

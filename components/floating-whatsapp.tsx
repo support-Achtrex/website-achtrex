@@ -1,48 +1,57 @@
 import React from 'react';
+import { Phone, Mail } from 'lucide-react';
 
-const FloatingWhatsApp = () => {
-    return (
+const FloatingWidgets = () => {
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+      {/* Phone Button */}
+      <div className="relative group">
+        <div className="absolute -inset-2 rounded-full bg-[#053787] opacity-60 animate-ping [animation-duration:2s]"></div>
+        <div className="absolute -inset-1 rounded-full bg-[#053787] opacity-40 animate-pulse"></div>
         <a
-            href="https://wa.me/16133664271?text=Hi%20there!%20I'd%20like%20to%20learn%20more%20about%20Achtrex's%20automotive%20intelligence%20solutions."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 z-50 flex h-[70px] w-[70px] items-center justify-center transition-all duration-300 ease-in-out hover:scale-110 active:scale-90"
-            aria-label="Connect via LUMI"
+          href="tel:+1234567890"
+          className="relative flex h-11 w-11 items-center justify-center rounded-full bg-[#053787] text-white shadow-xl transition-transform duration-300 ease-in-out hover:scale-125 hover:rotate-12 active:scale-90"
+          aria-label="Call us"
         >
-            <svg 
-                width="100%" 
-                height="100%" 
-                viewBox="0 0 100 100" 
-                xmlns="http://www.w3.org/2000/svg"
-                className="drop-shadow-xl"
-            >
-                <defs>
-                    <linearGradient id="lumiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#00c6ff" />
-                        <stop offset="100%" stopColor="#8a2be2" />
-                    </linearGradient>
-                    <mask id="bubbleMask">
-                        <path 
-                            d="M50 23 
-                               C70 23 83 35 83 49 
-                               C83 63 70 75 50 75 
-                               C45 75 40 74 36 72 
-                               L23 79 
-                               L27 67 
-                               C21 62 17 56 17 49 
-                               C17 35 30 23 50 23 Z" 
-                            fill="white" 
-                        />
-                        <circle cx="34" cy="49" r="4.5" fill="black" />
-                        <circle cx="50" cy="49" r="4.5" fill="black" />
-                        <circle cx="66" cy="49" r="4.5" fill="black" />
-                    </mask>
-                </defs>
-                <circle cx="50" cy="50" r="50" fill="url(#lumiGrad)" />
-                <rect x="0" y="0" width="100" height="100" fill="white" mask="url(#bubbleMask)" />
-            </svg>
+          <Phone className="w-5 h-5 animate-[wiggle_1s_ease-in-out_infinite]" />
         </a>
-    );
+      </div>
+
+      {/* WhatsApp / Chat Button */}
+      <div className="relative group">
+        <div className="absolute -inset-2 rounded-full bg-[#25D366] opacity-60 animate-ping [animation-duration:2s] [animation-delay:400ms]"></div>
+        <div className="absolute -inset-1 rounded-full bg-[#25D366] opacity-40 animate-pulse [animation-delay:400ms]"></div>
+        <a
+          href="https://wa.me/16133664271?text=Hi%20there!%20I'd%20like%20to%20learn%20more%20about%20Achtrex's%20solutions."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-transform duration-300 ease-in-out hover:scale-125 hover:-rotate-12 active:scale-90"
+          aria-label="Message on WhatsApp"
+        >
+          {/* Official WhatsApp Logo SVG */}
+          <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="animate-[wiggle_1s_ease-in-out_infinite] [animation-delay:400ms]">
+            <path 
+              fill="currentColor" 
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+            />
+          </svg>
+        </a>
+      </div>
+
+      {/* Email Button */}
+      <div className="relative group">
+        <div className="absolute -inset-2 rounded-full bg-[#018861] opacity-60 animate-ping [animation-duration:2s] [animation-delay:800ms]"></div>
+        <div className="absolute -inset-1 rounded-full bg-[#018861] opacity-40 animate-pulse [animation-delay:800ms]"></div>
+        <a
+          href="mailto:contact@achtrex.com"
+          className="relative flex h-11 w-11 items-center justify-center rounded-full bg-[#018861] text-white shadow-xl transition-transform duration-300 ease-in-out hover:scale-125 hover:rotate-12 active:scale-90"
+          aria-label="Email us"
+        >
+          <Mail className="w-5 h-5 animate-[wiggle_1s_ease-in-out_infinite] [animation-delay:800ms]" />
+        </a>
+      </div>
+    </div>
+  );
 };
 
-export default FloatingWhatsApp;
+export default FloatingWidgets;
