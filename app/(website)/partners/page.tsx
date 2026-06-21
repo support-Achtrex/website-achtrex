@@ -1,10 +1,7 @@
-
 import PartnerForm from "./PartnerForm";
 import { InnerPageHeader } from "@/components/inner-page-header";
 import { Metadata } from "next";
 import * as motion from 'framer-motion/client';
-import { InnerPageHeader } from "@/components/inner-page-header";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Partner Program | Achtrex",
