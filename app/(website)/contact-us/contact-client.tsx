@@ -1,10 +1,14 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from 'next/navigation';
 import { submitContactForm } from "@/app/actions/contact";
-import { ChevronDown } from "lucide-react";
+import { CaretDown } from "@phosphor-icons/react";
 
 export const ContactClient = () => {
+  const searchParams = useSearchParams();
+  const subject = searchParams.get('subject');
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -17,7 +21,31 @@ export const ContactClient = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  useEffect(() => {
+    if (!subject) return;
+    
+    let noteText = "";
+    switch (subject) {
+      case 'software':
+        noteText = "I am interested in Custom Software Development. I would like to discuss building custom responsive platforms, mobile apps, or enterprise systems to scale our automotive operations.";
+        break;
+      case 'data':
+        noteText = "I am interested in Data & APIs. I would like to explore integrating accurate automotive datasets, VIN decoding, and real-time market values into our applications.";
+        break;
+      case 'ai':
+        noteText = "I am interested in AI Solutions. I would like to learn more about implementing LUMI AI, conversational support agents, and complex workflow automation.";
+        break;
+      case 'infrastructure':
+        noteText = "I am interested in Enterprise Infrastructure. I would like to discuss scalable cloud architecture, high-volume data streaming, and managing cloud operations.";
+        break;
+    }
+    
+    if (noteText) {
+      setFormData(prev => ({ ...prev, note: noteText }));
+    }
+  }, [subject]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -34,9 +62,8 @@ export const ContactClient = () => {
     form.append('email', formData.email);
     form.append('company', formData.company);
     form.append('phone', formData.phone);
-    // Map country to source to keep the existing action working
     form.append('source', `Country: ${formData.country}`);
-    form.append('message', formData.note || "Plaid-style Lead Form Submission");
+    form.append('message', formData.note || "Enterprise Lead Form Submission");
 
     try {
       const result = await submitContactForm(form);
@@ -57,147 +84,150 @@ export const ContactClient = () => {
     }
   };
 
-  const inputClasses = "w-full py-3 px-4 border border-slate-300 rounded-none text-slate-700 placeholder-slate-400 focus:border-[#00a9ce] focus:ring-1 focus:ring-[#00a9ce] outline-none transition-colors text-[14px] bg-white";
+  const inputClasses = "w-full py-4 px-5 border border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:border-[#00a9ce] focus:ring-4 focus:ring-[#00a9ce]/10 outline-none transition-all text-sm bg-slate-50/50 hover:bg-slate-50";
 
   return (
-    <main className="min-h-[90vh] bg-[#f4f4f4] relative flex flex-col justify-center pt-24 pb-16 overflow-hidden">
-      {/* Topographical background overlay */}
-      <div 
-        className="absolute inset-0 opacity-10 pointer-events-none z-0"
-        style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='topo' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 30c15 0 15-30 30-30s15 30 30 30 15-30 30-30v60c-15 0-15-30-30-30s-15 30-30 30-15-30-30-30V30z' fill='none' stroke='%23ffffff' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23topo)'/%3E%3C/svg%3E")`,
-        backgroundSize: '120px 120px'
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
-        <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24 mb-16">
-          
-          {/* Left side text */}
-          <div className="lg:w-1/2 lg:pt-8">
-            <h1 className="text-4xl md:text-4xl lg:text-4xl font-medium leading-[1.1] tracking-tight">
-              <span className="text-[#00a9ce]">Start</span> <span className="text-slate-900">building</span><br />
-              <span className="text-[#00a9ce]">better</span> <span className="text-slate-900">automotive</span><br />
-              <span className="text-[#00a9ce]">products</span>
-            </h1>
-            <div className="mt-12 text-slate-900/90">
-              <h3 className="text-xl font-bold mb-4 text-slate-900">Direct Contact</h3>
-              <div className="flex flex-col gap-4">
-                <a href="mailto:support@achtrex.com" className="flex items-center gap-3 hover:text-slate-900 transition-colors text-[#00a9ce]">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                  <span className="font-semibold text-lg text-slate-900">support@achtrex.com</span>
-                </a>
-                <a href="tel:+16133664271" className="flex items-center gap-3 hover:text-slate-900 transition-colors text-[#00a9ce]">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                  <span className="font-semibold text-lg text-slate-900">+1 613 366-4271</span>
-                </a>
-
-                <div className="flex items-center gap-3 text-[#00a9ce]">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                  <span className="font-semibold text-lg text-slate-900">Global Remote Operations</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right side form card */}
-          <div className="lg:w-1/2 w-full max-w-lg">
-            {/* The glowing border effect behind the card */}
-            <div className="relative">
-              
-              <div className="relative bg-white border border-[#00a9ce]/20 rounded-none p-6 md:p-8 shadow-md">
-                <h3 className="text-xl font-bold text-slate-900 mb-6 ">Let's get started</h3>
-                
-                {status === 'success' ? (
-                  <div className="py-12 text-center">
-                    <div className="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                    </div>
-                    <h4 className="text-xl font-bold text-slate-900 mb-2">Request Received</h4>
-                    <p className="text-slate-400">Our team will be in touch shortly to help you start building.</p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <input required type="text" name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First name" className={inputClasses} />
-                      </div>
-                      <div>
-                        <input required type="text" name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last name" className={inputClasses} />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <input required type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Company email" className={inputClasses} />
-                      </div>
-                      <div>
-                        <input required type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company name" className={inputClasses} />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="relative">
-                        <select required name="country" value={formData.country} onChange={handleChange} className={`${inputClasses} appearance-none pr-10`}>
-                          <option value="United States">United States</option>
-                          <option value="Canada">Canada</option>
-                          <option value="United Kingdom">United Kingdom</option>
-                          <option value="Germany">Germany</option>
-                          <option value="France">France</option>
-                          <option value="Australia">Australia</option>
-                          <option value="Other">Other</option>
-                        </select>
-                        <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
-                      </div>
-                      <div>
-                        <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone number (optional)" className={inputClasses} />
-                      </div>
-                    </div>
-
-                    <div>
-                      <textarea 
-                        name="note" 
-                        value={formData.note} 
-                        onChange={handleChange as any} 
-                        placeholder="How can we help? (optional)" 
-                        rows={3}
-                        className={`${inputClasses} resize-none`} 
-                      />
-                    </div>
-
-                    <p className="text-[12px] text-slate-400 pt-2 pb-4">
-                      By submitting this form, I confirm that I have read and understood <a href="/privacy" className="underline hover:text-slate-700">Achtrex's Privacy Statement</a>.
-                    </p>
-
-                    {status === 'error' && (
-                      <p className="text-red-500 text-sm mb-4">{errorMessage}</p>
-                    )}
-
-                    <button 
-                      type="submit" 
-                      disabled={status === 'loading'}
-                      className="w-full relative group overflow-hidden rounded-none disabled:opacity-70 transition-all bg-[#76bc1d] hover:bg-transparent border border-[#76bc1d]"
-                    >
-                      <div className="relative w-full text-white group-hover:text-[#76bc1d] font-bold text-[15px] px-8 py-4 rounded-none transition-colors duration-300">
-                        {status === 'loading' ? 'Submitting...' : 'Talk with our team'}
-                      </div>
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-[#081622] border border-[#00a9ce]/20 rounded-none px-6 py-5 flex flex-col md:flex-row items-center justify-between text-white w-full shadow-md mt-8">
-          <p className="font-semibold text-[15px] text-center md:text-left mb-2 md:mb-0">
-            When you connect to an app with Achtrex, you're in control of who has access to your data.
+    <main className="min-h-screen bg-[#f8fafc] text-slate-900 pb-24">
+      {/* Dynamic Themed Header */}
+      <div className="w-full relative overflow-hidden bg-gradient-to-r from-[#001a22] to-[#004b66] pt-40 pb-32 px-6 shadow-inner">
+        <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply pointer-events-none" />
+        <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none" />
+        <div className="max-w-[1200px] mx-auto relative z-10 text-center">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6 drop-shadow-md">
+            Start Building
+          </h1>
+          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-sm">
+            Partner with Achtrex to scale your automotive data infrastructure.
           </p>
-          <a href="/products" className="font-bold text-[15px] text-[#00a9ce] hover:text-white transition-colors whitespace-nowrap">
-            Manage your connections with Achtrex Portal »
-          </a>
         </div>
       </div>
+
+      {/* Content */}
+      <section className="px-6 -mt-16 relative z-20">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          {/* Left Col */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 md:p-10 sticky top-32">
+              <h2 className="text-2xl font-extrabold tracking-tight text-[#001a22] mb-4">
+                Let's talk
+              </h2>
+              <p className="text-slate-600 mb-8 leading-relaxed font-medium">
+                If you have business inquiries or other questions, please fill out the form to contact us. Thank you.
+              </p>
+              
+              <div className="space-y-4">
+                <a href="mailto:support@achtrex.com" className="block p-5 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-md hover:border-[#00a9ce] transition-all group">
+                  <div>
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Email Support</p>
+                    <span className="font-semibold text-slate-700">support@achtrex.com</span>
+                  </div>
+                </a>
+
+                <a href="tel:+16133664271" className="block p-5 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-md hover:border-[#00a9ce] transition-all group">
+                  <div>
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Global Phone</p>
+                    <span className="font-semibold text-slate-700">+1 613 366-4271</span>
+                  </div>
+                </a>
+              </div>
+
+              <div className="mt-8 bg-[#f2fdf5] rounded-xl p-6 border border-green-100/60 text-center md:text-left">
+                <p className="text-sm font-medium text-[#46860f] leading-relaxed">
+                  When you connect to an app with Achtrex, you're in complete control of your enterprise data perimeter.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Col (Form) */}
+          <div className="lg:col-span-7">
+            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 md:p-12">
+              <h3 className="text-3xl font-extrabold text-[#001a22] mb-8">Let's build something.</h3>
+              
+              {status === 'success' ? (
+                <div className="py-20 text-center">
+                  <h4 className="text-3xl font-bold text-[#76bc1d] mb-4">Request Received</h4>
+                  <p className="text-slate-600 font-medium max-w-sm mx-auto text-lg">
+                    Our enterprise architecture team will be in touch shortly to assist you.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <input required type="text" name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First name" className={inputClasses} />
+                    </div>
+                    <div>
+                      <input required type="text" name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last name" className={inputClasses} />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <input required type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Company email" className={inputClasses} />
+                    </div>
+                    <div>
+                      <input required type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company name" className={inputClasses} />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="relative">
+                      <select required name="country" value={formData.country} onChange={handleChange} className={`${inputClasses} appearance-none pr-10`}>
+                        <option value="United States">United States</option>
+                        <option value="Canada">Canada</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="Germany">Germany</option>
+                        <option value="France">France</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <CaretDown weight="bold" className="absolute right-5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                    </div>
+                    <div>
+                      <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone number (optional)" className={inputClasses} />
+                    </div>
+                  </div>
+
+                  <div>
+                    <textarea 
+                      name="note" 
+                      value={formData.note} 
+                      onChange={handleChange} 
+                      placeholder="How can we help? Tell us about your infrastructure needs." 
+                      rows={4}
+                      className={`${inputClasses} resize-none`} 
+                    />
+                  </div>
+
+                  <p className="text-xs text-slate-400 font-medium py-2">
+                    By submitting this form, I confirm that I have read and understood <a href="/privacy" className="underline hover:text-slate-700">Achtrex's Privacy Statement</a>.
+                  </p>
+
+                  {status === 'error' && (
+                    <div className="p-4 rounded-xl bg-rose-50 border border-rose-100 text-rose-600 text-sm font-medium">
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  <button 
+                    type="submit" 
+                    disabled={status === 'loading'}
+                    className="group relative flex items-center justify-center w-full bg-[#001a22] text-white font-bold py-5 px-6 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                    <span className="relative z-10 text-sm tracking-widest uppercase">
+                      {status === 'loading' ? 'Submitting...' : 'Talk with our team'}
+                    </span>
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+
+        </div>
+      </section>
     </main>
   );
 };

@@ -94,7 +94,9 @@ the intelligence, and the platforms behind automotive businesses."
           >
             {/* Primary CTA */}
             <button
-              onClick={() => router.push('/products/automotive')}
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent('open-services-dropdown'));
+              }}
               className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-semibold tracking-wide px-10 py-4 transition-all hover:scale-105 rounded-sm overflow-hidden bg-logo-gradient border-0"
             >
               <span className="relative z-10">Explore what we build</span>
@@ -105,7 +107,7 @@ the intelligence, and the platforms behind automotive businesses."
 
             {/* Secondary CTA */}
             <button
-              onClick={() => router.push('/contact-us')}
+              onClick={() => router.push('/book-a-demo')}
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-semibold tracking-wide px-10 py-4 transition-all hover:bg-white/10 rounded-sm border-2 border-white/30 backdrop-blur-sm"
             >
               <span>Talk to us</span>

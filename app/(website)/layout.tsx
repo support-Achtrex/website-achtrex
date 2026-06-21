@@ -1,6 +1,9 @@
 import { Navbar } from "@/components/header";
-import { Footer } from "@/components/footer";
-import FloatingWidgets from "@/components/floating-whatsapp";
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('@/components/footer').then(mod => mod.Footer));
+const FloatingWidgets = dynamic(() => import('@/components/floating-whatsapp'));
+const ScrollController = dynamic(() => import('@/components/scroll-controller').then(mod => mod.ScrollController));
 
 export default function WebsiteLayout({
   children,
@@ -15,6 +18,7 @@ export default function WebsiteLayout({
           {children}
         </main>
         <FloatingWidgets />
+        <ScrollController />
         <Footer />
       </div>
     </div>

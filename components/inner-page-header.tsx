@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import Image from 'next/image';
+
 interface InnerPageHeaderProps {
   title: string;
   subtitle?: string;
@@ -12,10 +14,15 @@ export const InnerPageHeader = ({ title, subtitle }: InnerPageHeaderProps) => {
   return (
     <div className="relative bg-slate-900 pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
       {/* Background Image with Dark Overlay */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-40"
-        style={{ backgroundImage: `url('/images/real_enterprise_header.png')` }}
-      />
+      <div className="absolute inset-0 z-0 opacity-40">
+        <Image
+          src="/images/real_enterprise_header.png"
+          alt="Enterprise Header Background"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+      </div>
       <div className="absolute inset-0 z-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent opacity-90" />
 
       {/* Decorative Brand Accent */}

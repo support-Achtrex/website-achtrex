@@ -12,8 +12,12 @@ export const metadata: Metadata = {
   }
 };
 
+import { Suspense } from "react";
+
 export default function ContactUsPage() {
   return (
-    <ContactClient />
+    <Suspense>
+      <ContactClient />
+    </Suspense>
   );
 }

@@ -12,7 +12,7 @@ const portfolioItems = [
     category: "Product",
     image: "/projects/ad-logo.png",
     link: "/products/automotive",
-    desc: "We partnered with AutomotiveDataset.com to architect their enterprise VIN intelligence infrastructure. Our team optimized their backend systems to deliver sub-50ms latency for vehicle specifications, enabling them to scale to millions of daily queries.",
+    desc: "We built and launched AutomotiveDataset.com as our proprietary enterprise VIN intelligence infrastructure. We engineered the entire backend system to deliver sub-50ms latency for vehicle specifications, allowing the platform to scale to millions of daily queries.",
     isLogo: true
   },
   {
@@ -21,7 +21,7 @@ const portfolioItems = [
     category: "Product",
     image: "/projects/lumi-logo.png",
     link: "/products/lumi",
-    desc: "We engineered LUMI AI, a proprietary cognitive reasoning model designed specifically for vehicle diagnostics and automotive data processing. This engine powers automated customer support and internal knowledge assistants.",
+    desc: "We engineered LUMI AI, our proprietary cognitive reasoning model designed specifically for vehicle diagnostics and automotive data processing. This engine powers automated customer support and internal knowledge assistants.",
     isLogo: true
   },
   {
@@ -30,7 +30,7 @@ const portfolioItems = [
     category: "Product",
     image: "/achtrex-logo-email.png",
     link: "/products/enterprise-platforms",
-    desc: "Achtrex Core serves as the foundational enterprise integration hub. We designed this API gateway to provide seamless, secure, and rapid access to our entire suite of automotive intelligence tools for our B2B partners.",
+    desc: "Achtrex Core serves as our foundational enterprise integration hub. We designed this API gateway entirely in-house to provide seamless, secure, and rapid access to our full suite of automotive intelligence tools.",
     isLogo: true
   },
   {
@@ -39,7 +39,7 @@ const portfolioItems = [
     category: "Use Case",
     image: "/logos/use-cases/arkauto.png",
     link: "/use-cases/ark-auto-shop",
-    desc: "We fully designed, engineered, and deployed the complete digital infrastructure powering Ark Auto Shop's automotive parts distribution. We integrated AI-powered workflows and intelligent fitment technologies to streamline their service ecosystem.",
+    desc: "We created Ark Auto Shop from the ground up, engineering its complete digital infrastructure for automotive parts distribution. We embedded our AI-powered workflows and intelligent fitment technologies to drive the entire service ecosystem.",
     isLogo: true
   },
   {
@@ -48,7 +48,7 @@ const portfolioItems = [
     category: "Use Case",
     image: "/logos/use-cases/vehiclehistory.png",
     link: "/use-cases/carkasa",
-    desc: "We built Carkasa's global infrastructure for delivering comprehensive vehicle history reports. Similar to Carfax, this platform aggregates massive datasets to provide instant, reliable vehicle backgrounds to consumers and dealers worldwide.",
+    desc: "We founded and built Carkasa as a global platform for comprehensive vehicle history reports. Utilizing the Achtrex data engine, we aggregate massive datasets to provide instant, reliable vehicle backgrounds to consumers and dealers worldwide.",
     isLogo: true
   },
   {
@@ -57,7 +57,7 @@ const portfolioItems = [
     category: "Use Case",
     image: "/logos/use-cases/vehiclereportcheck.png",
     link: "/use-cases/vehicle-report-check",
-    desc: "We developed and continue to manage the VehicleReportCheck platform. We focused on VIN intelligence, vehicle transparency, and comprehensive reporting workflows to create a trusted vehicle verification ecosystem.",
+    desc: "We built and scaled the VehicleReportCheck platform entirely in-house. Powered by our core automotive intelligence, this platform focuses on advanced VIN decoding, vehicle transparency, and comprehensive reporting workflows.",
     isLogo: true
   }
 ];

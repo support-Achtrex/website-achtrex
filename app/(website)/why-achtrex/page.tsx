@@ -1,6 +1,8 @@
 import { Server, ShieldAlert, Cpu, Globe2, Activity } from 'lucide-react';
 import { InnerPageHeader } from "@/components/inner-page-header";
 import { ComparisonSection } from "@/components/home-page/comparison-section";
+import Image from 'next/image';
+import * as motion from 'framer-motion/client';
 
 export const metadata = {
   title: 'Why Achtrex | The Structural Intelligence Advantage',
@@ -40,37 +42,63 @@ export default function WhyAchtrexPage() {
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-slate-900">
       <InnerPageHeader title="Why Achtrex" subtitle="The Structural Intelligence Advantage" />
-      <section className="relative py-16 px-6 bg-white overflow-hidden">
+      <section className="relative py-20 px-6 bg-transparent overflow-hidden">
+        <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[#00a9ce]/5 rounded-full blur-[100px] -z-10 mix-blend-multiply"></div>
+        <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-[#76bc1d]/5 rounded-full blur-[100px] -z-10 mix-blend-multiply"></div>
+        
         <div className="max-w-[1440px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="text-left">
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-              We are an architectural <br /> technology laboratory.
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="text-left">
+            <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight tracking-tight">
+              We are an architectural <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00a9ce] to-[#053787]">technology laboratory.</span>
             </h1>
-            <p className="text-xl text-slate-500 leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
               We do not simply iterate, we originate. Achtrex builds, strictly owns, and aggressively scales high-leverage algorithmic engines. Interfacing with our technology means plugging directly into a state-of-the-art, enterprise-grade cognitive infrastructure.
             </p>
-          </div>
+          </motion.div>
           
-          <div className="relative aspect-[4/3] rounded-none overflow-hidden border border-slate-200 bg-[#081622]">
-            <img 
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-[#081622] group">
+            <Image 
               src="/server_infrastructure.png" 
               alt="Server Infrastructure" 
-              className="object-cover w-full h-full hover:scale-105 transition-transform duration-1000 mix-blend-luminosity opacity-80"
+              fill
+              priority
+              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-1000 mix-blend-luminosity opacity-80"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#081622] via-transparent to-transparent" />
-          </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#081622] via-[#081622]/30 to-transparent opacity-90" />
+            <div className="absolute bottom-8 left-8 border-l-4 border-[#00a9ce] pl-4">
+               <p className="text-white font-black text-2xl tracking-tight">Data Resiliency</p>
+               <p className="text-[#00a9ce] text-sm font-bold tracking-widest uppercase mt-1">Tier 1 Infrastructure</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-[#081622] relative border-y border-[#00a9ce]/20">
-        <div className="max-w-[1440px] mx-auto">
+      <section className="py-24 px-6 relative bg-gradient-to-b from-[#040e16] to-[#081622] border-y border-[#00a9ce]/10 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay"></div>
+        <div className="max-w-[1440px] mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {advantages.map((adv, idx) => (
-              <div key={idx} className="bg-[#001a22] border border-[#00a9ce]/20 p-10 rounded-none hover:border-[#00a9ce]/50 transition-colors">
-                <span className="text-[#00a9ce] font-black text-sm uppercase tracking-widest mb-4 block opacity-50">Core Advantage 0{idx + 1}</span>
-                <h3 className="text-2xl font-bold mb-4 text-white">{adv.title}</h3>
-                <p className="text-slate-300 leading-relaxed text-lg">{adv.desc}</p>
-              </div>
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                key={idx} 
+                className="group bg-[#02101a]/50 backdrop-blur-md border border-white/5 p-10 rounded-3xl hover:border-[#00a9ce]/30 hover:bg-[#00a9ce]/5 transition-all shadow-xl hover:shadow-[0_0_30px_rgba(0,169,206,0.1)] relative overflow-hidden">
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#00a9ce]/10 rounded-full blur-2xl group-hover:bg-[#00a9ce]/20 transition-all"></div>
+                <adv.icon className="w-10 h-10 text-[#00a9ce] mb-6 group-hover:scale-110 transition-transform" />
+                <span className="text-[#00a9ce] font-black text-[11px] uppercase tracking-widest mb-3 block opacity-60">Core Advantage 0{idx + 1}</span>
+                <h3 className="text-2xl font-black mb-4 text-white tracking-tight">{adv.title}</h3>
+                <p className="text-slate-400 leading-relaxed text-[15px] font-medium">{adv.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -78,13 +106,18 @@ export default function WhyAchtrexPage() {
 
       <ComparisonSection />
       
-      <section className="py-16 px-6 bg-white border-b border-slate-200">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-4xl font-bold mb-8 text-slate-900">Velocity via vertical integration.</h2>
-          <p className="text-xl text-slate-500 leading-relaxed italic">
+      <section className="py-24 px-6 bg-transparent">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center bg-white p-12 md:p-16 rounded-3xl border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.05)] relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#00a9ce] to-[#76bc1d]"></div>
+          <h2 className="text-3xl md:text-5xl font-black mb-8 text-slate-900 tracking-tight">Velocity via vertical integration.</h2>
+          <p className="text-lg md:text-xl text-slate-500 leading-relaxed italic font-medium">
             "The most sophisticated systems integrate seamlessly into the background. By providing frictionless API access to our architectural core, we completely abstract the friction of massive data orchestration, enabling our partners to structurally outpace their competition."
           </p>
-        </div>
+        </motion.div>
       </section>
 
       

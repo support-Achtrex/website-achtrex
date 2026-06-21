@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export const UseCasesContent = () => {
 
@@ -182,38 +183,45 @@ export const UseCasesContent = () => {
     <div className="bg-transparent text-slate-900 font-sans antialiased">
 
       {/* ─── USE CASES LIST ────────────────────────────────────────────── */}
-      <div className="max-w-[1080px] mx-auto px-6 py-12 pt-16">
-        <div className="flex flex-col gap-16">
+      <div className="max-w-[1080px] mx-auto px-6 py-12 pt-16 relative">
+        <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-[#00a9ce]/5 rounded-full blur-[100px] -z-10 mix-blend-multiply"></div>
+        <div className="flex flex-col gap-16 relative z-10">
           {useCases.map((useCase, index) => (
-            <div key={index} className="relative rounded-none bg-white border border-slate-200 p-10 overflow-hidden group hover:border-[#00a9ce] transition-colors">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.1 }}
+              key={index} 
+              className="relative rounded-3xl bg-white border border-slate-200 p-10 overflow-hidden group hover:border-[#00a9ce]/40 transition-all hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
               
               <div className="relative z-10">
                 {/* Header with Logo */}
-                <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8 border-b border-slate-200 pb-8">
-                  <div className="w-20 h-20 rounded-none bg-white border border-slate-200 flex items-center justify-center p-3 shrink-0 overflow-hidden">
+                <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8 border-b border-slate-100 pb-8">
+                  <div className="w-20 h-20 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center p-3 shrink-0 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
                       src={useCase.logoPath || `https://logo.clearbit.com/${useCase.domain}`} 
                       alt={`${useCase.name} logo`}
-                      className="max-w-full max-h-full object-contain"
+                      className="max-w-full max-h-full object-contain mix-blend-multiply"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
                         target.parentElement?.classList.add('fallback-icon');
                         if (target.parentElement) {
-                          target.parentElement.innerHTML = `<span class="text-2xl font-bold text-slate-500">${useCase.name.charAt(0)}</span>`;
+                          target.parentElement.innerHTML = `<span class="text-2xl font-black text-slate-400">${useCase.name.charAt(0)}</span>`;
                         }
                       }}
                     />
                   </div>
                   <div className="flex-1 w-full">
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-2">
-                      <h2 className="text-3xl font-black text-slate-900">{useCase.name}</h2>
+                      <h2 className="text-3xl font-black text-slate-900 tracking-tight">{useCase.name}</h2>
                       <a 
                         href={`https://${useCase.domain}`} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[13px] font-bold text-slate-500 hover:text-white transition-colors border border-slate-200 hover:border-[#00a9ce] bg-transparent hover:bg-[#00a9ce] rounded-none px-4 py-1.5 shrink-0"
+                        className="inline-flex items-center gap-2 text-[13px] font-bold text-slate-600 hover:text-[#00a9ce] transition-colors border border-slate-200 hover:border-[#00a9ce]/50 bg-white hover:bg-[#00a9ce]/5 rounded-xl px-4 py-2 shrink-0 shadow-sm"
                       >
                         Visit website
                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
@@ -268,61 +276,69 @@ export const UseCasesContent = () => {
 
                 {/* LUMI AI Section (if exists) */}
                 {useCase.lumi && (
-                  <div className="mb-10 rounded-none border border-[#76bc1d]/30 bg-[#76bc1d]/5 p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 rounded-none bg-transparent border border-[#76bc1d]/30 flex items-center justify-center">
+                  <div className="mb-10 rounded-2xl border border-[#76bc1d]/20 bg-gradient-to-r from-[#76bc1d]/5 to-transparent p-8 relative overflow-hidden">
+                    <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-[#76bc1d]/10 rounded-full blur-2xl"></div>
+                    <div className="flex items-center gap-3 mb-4 relative z-10">
+                      <div className="w-8 h-8 rounded-full bg-[#76bc1d]/10 border border-[#76bc1d]/30 flex items-center justify-center shadow-sm">
                         <span className="text-[#76bc1d] text-sm">✦</span>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900">{useCase.lumi.title}</h3>
+                      <h3 className="text-lg font-black text-slate-900 tracking-tight">{useCase.lumi.title}</h3>
                     </div>
-                    <p className="text-[14px] text-slate-500 mb-4 font-medium">{useCase.lumi.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <p className="text-[15px] text-slate-600 mb-6 font-medium relative z-10">{useCase.lumi.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4 relative z-10">
                       {useCase.lumi.capabilities.map((cap, i) => (
-                        <span key={i} className="px-2.5 py-1 rounded-none text-[11px] font-bold bg-transparent border border-[#76bc1d]/30 text-[#76bc1d]">
+                        <span key={i} className="px-3 py-1.5 rounded-full text-[11px] font-bold bg-white border border-[#76bc1d]/20 text-[#76bc1d] shadow-sm">
                           {cap}
                         </span>
                       ))}
                     </div>
-                    <p className="text-[13px] text-[#76bc1d]/80 italic border-t border-[#76bc1d]/30 pt-4 font-medium">
+                    <p className="text-[13px] text-slate-500 italic border-t border-[#76bc1d]/20 pt-4 mt-4 font-medium relative z-10">
                       {useCase.lumi.note}
                     </p>
                   </div>
                 )}
 
                 {/* Strategic Value */}
-                <div className="rounded-none bg-transparent border border-slate-200 p-6">
-                  <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-slate-500 mb-3">Strategic Value</h3>
-                  <p className="text-[14px] text-slate-500 leading-relaxed font-medium">
+                <div className="rounded-2xl bg-slate-50 border border-slate-100 p-8">
+                  <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-[#00a9ce] mb-3">Strategic Value</h3>
+                  <p className="text-[15px] text-slate-600 leading-relaxed font-medium">
                     {useCase.strategicValue}
                   </p>
                 </div>
 
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
       {/* ─── CTA ──────────────────────────────────────────────────────── */}
       <div className="max-w-[1080px] mx-auto px-6 py-12 pb-20">
-        <div className="relative rounded-none bg-[#001a22] border border-[#001a22] overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-3xl bg-gradient-to-r from-[#061420] to-[#0A2235] border border-white/10 overflow-hidden shadow-2xl">
+          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#00a9ce]/20 rounded-full blur-3xl"></div>
+          
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10 p-12 lg:p-16 text-center md:text-left">
             <div>
-              <h2 className="text-[32px] font-black text-white mb-4 tracking-tight">Ready to build your solution?</h2>
-              <p className="text-[16px] text-slate-300 font-medium">
+              <h2 className="text-[32px] md:text-[36px] font-black text-white mb-4 tracking-tight drop-shadow-md">Ready to build your solution?</h2>
+              <p className="text-[16px] md:text-[18px] text-slate-300 font-medium">
                 Contact our team to discuss integration at{' '}
-                <a href="mailto:support@achtrex.com" className="text-[#00a9ce] hover:underline font-bold transition-colors">
+                <a href="mailto:support@achtrex.com" className="text-[#00a9ce] hover:text-white font-bold transition-colors">
                   support@achtrex.com
                 </a>
               </p>
             </div>
             <Link href="/contact-us"
-              className="inline-flex items-center gap-3 bg-[#00a9ce] text-white border border-[#00a9ce] font-bold text-[15px] px-8 py-4 rounded-none hover:bg-[#00a9ce]/90 transition-all whitespace-nowrap shrink-0">
+              className="inline-flex items-center gap-3 bg-logo-gradient text-white font-bold text-[15px] px-8 py-4 rounded-xl hover:scale-105 hover:shadow-[0_0_20px_rgba(0,169,206,0.4)] transition-all whitespace-nowrap shrink-0 group border-0">
               Get in touch
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
 
     </div>

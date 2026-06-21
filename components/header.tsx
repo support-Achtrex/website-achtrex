@@ -27,6 +27,8 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const [forcedOpenDropdown, setForcedOpenDropdown] = useState<string | null>(null);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -37,6 +39,24 @@ export const Navbar = () => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    const handleOpenServices = () => {
+      setForcedOpenDropdown('Our Services');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Close automatically after 5 seconds
+      clearTimeout(timeout);
+      timeout = setTimeout(() => setForcedOpenDropdown(null), 5000);
+    };
+    
+    window.addEventListener('open-services-dropdown', handleOpenServices);
+    
+    return () => {
+      window.removeEventListener('open-services-dropdown', handleOpenServices);
+      clearTimeout(timeout);
+    };
+  }, []);
 
   const navLinks: any[] = [
     { label: 'Home', href: '/' },
@@ -69,7 +89,10 @@ export const Navbar = () => {
         { label: 'Manufacturers', href: '/industries/manufacturers' },
         { label: 'Car Rental', href: '/industries/car-rental' },
         { label: 'Auto Parts Company', href: '/industries/auto-parts' },
-        { label: 'Car Finance', href: '/industries/car-finance' }
+        { label: 'Car Finance', href: '/industries/car-finance' },
+        { label: 'Fleet Management', href: '/industries/fleet-management' },
+        { label: 'Ride-Sharing', href: '/industries/ride-sharing' },
+        { label: 'Government Agencies', href: '/industries/government-agencies' }
       ]
     },
     { 
@@ -130,7 +153,10 @@ export const Navbar = () => {
                 </Link>
                 {link.sub && (
                   <div className={cn(
-                    "absolute top-[calc(100%+10px)] left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50",
+                    "absolute top-[calc(100%+10px)] left-0 pt-2 transition-all duration-200 z-50",
+                    forcedOpenDropdown === link.label 
+                      ? "opacity-100 visible" 
+                      : "opacity-0 invisible group-hover:opacity-100 group-hover:visible",
                     link.sub.length > 4 ? "w-[600px] left-[-150px]" : "w-[240px]"
                   )}>
                     <div className={cn(

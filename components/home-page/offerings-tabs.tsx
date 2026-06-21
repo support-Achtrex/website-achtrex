@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { CaretLeft, CaretRight, Code, Database, Robot, HardDrives } from '@phosphor-icons/react';
 import { cn } from '@/lib/utils';
 import { TypewriterWithPencil } from '../ui/typewriter-with-pencil';
@@ -55,6 +57,7 @@ const offerings = [
 ];
 
 export const OfferingsTabs = () => {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState(0);
   const headerRef = useRef(null);
   const isHeaderInView = useInView(headerRef, { amount: 0.5 });
@@ -213,15 +216,16 @@ Data Intelligence Company"
                 <p className="text-slate-600 leading-relaxed mb-8 text-lg">
                   {activeData.description}
                 </p>
-                <button 
-                  className="px-8 py-3 bg-white text-sm font-semibold tracking-wide transition-all hover:shadow-lg rounded-sm border"
+                <Link 
+                  href={`/contact-us?subject=${activeData.id}`}
+                  className="inline-block relative z-50 px-8 py-3 bg-white text-sm font-semibold tracking-wide transition-all hover:shadow-lg rounded-sm border"
                   style={{ 
                     color: activeData.color,
                     borderColor: activeData.color 
                   }}
                 >
                   {activeData.buttonText}
-                </button>
+                </Link>
               </div>
 
               {/* Image Content */}

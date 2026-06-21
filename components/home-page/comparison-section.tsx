@@ -79,12 +79,12 @@ export const ComparisonSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="w-full overflow-x-auto pb-4"
+          className="w-full pb-4"
         >
-          <div className="min-w-[900px] bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
+          <div className="w-full bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
             
-            {/* Table Header */}
-            <div className="grid grid-cols-[1.2fr_1.5fr_1.2fr]">
+            {/* Table Header (Hidden on Mobile) */}
+            <div className="hidden lg:grid grid-cols-[1.2fr_1.5fr_1.2fr]">
               <div className="bg-[#f4f7f9] p-5 md:p-6 font-bold text-slate-900 text-lg flex items-center">
                 Key Factors
               </div>
@@ -101,12 +101,12 @@ export const ComparisonSection = () => {
               {comparisonData.map((row, idx) => {
                 const isEven = idx % 2 === 0;
                 return (
-                  <div key={idx} className="grid grid-cols-[1.2fr_1.5fr_1.2fr] border-b border-slate-100 last:border-0">
-                    <div className="p-6 md:p-8 text-slate-800 font-medium text-[15px] flex items-center">
+                  <div key={idx} className="flex flex-col lg:grid lg:grid-cols-[1.2fr_1.5fr_1.2fr] border-b border-slate-100 last:border-0">
+                    <div className="p-6 text-slate-900 font-bold text-lg lg:text-[15px] flex items-center bg-[#f4f7f9] lg:bg-transparent border-b border-slate-200 lg:border-none">
                       {row.factor}
                     </div>
                     <div className={cn(
-                      "p-6 md:p-8 text-white flex items-center gap-4",
+                      "p-6 text-white flex items-center gap-4",
                       isEven ? "bg-[#009bc2]" : "bg-[#00a9ce]"
                     )}>
                       <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-white/20">
@@ -116,7 +116,7 @@ export const ComparisonSection = () => {
                         {row.achtrex}
                       </span>
                     </div>
-                    <div className="p-6 md:p-8 text-slate-500 text-[15px] flex items-center">
+                    <div className="p-6 text-slate-500 text-[15px] flex items-center border-t border-slate-100 lg:border-none bg-slate-50 lg:bg-transparent">
                       {row.others}
                     </div>
                   </div>
