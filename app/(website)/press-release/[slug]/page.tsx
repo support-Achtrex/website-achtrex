@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, ArrowLeft } from "lucide-react";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const press = pressReleases.find(p => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const press = pressReleases.find(p => p.slug === slug);
   if (!press) return { title: "Not Found" };
   
   return {
@@ -14,8 +15,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function PressReleaseSingle({ params }: { params: { slug: string } }) {
-  const press = pressReleases.find(p => p.slug === params.slug);
+export default async function PressReleaseSingle({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const press = pressReleases.find(p => p.slug === slug);
 
   if (!press) {
     notFound();
