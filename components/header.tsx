@@ -109,7 +109,7 @@ export const Navbar = () => {
 
   return (
     <div className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform translate-y-0",
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
       scrolled ? "pt-4" : "pt-6"
     )}>
       <nav className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex justify-between items-center">
@@ -209,49 +209,71 @@ export const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-[76px] left-4 right-4 bottom-4 bg-[#081622] border border-white/10 rounded-none overflow-y-auto overscroll-contain shadow-2xl lg:hidden"
+            className="fixed top-[76px] left-4 right-4 bottom-4 bg-[#081622] border border-white/10 rounded-none overflow-y-auto overscroll-contain shadow-2xl lg:hidden z-[60]"
           >
             <div className="px-5 py-5 space-y-1 flex flex-col">
-              {navLinks.map((link) => (
-                <div key={link.href} className="border-b border-white/5 last:border-0 py-2">
-                  <div className="flex justify-between items-center transition-colors rounded-none py-1">
-                    <Link
-                      href={link.sub ? "#" : link.href}
-                      onClick={(e) => {
-                        if (link.sub) e.preventDefault();
-                        else setIsOpen(false);
-                      }}
-                      className="text-[16px] font-bold py-2 w-full text-white"
-                    >
-                      {link.label}
-                    </Link>
-                  </div>
-                  {link.sub && (
-                    <div className="pl-3 pb-2 pt-1 flex flex-col gap-2">
-                      {link.sub.map((subLink: any) => (
-                        <Link
-                          key={subLink.href}
-                          href={subLink.href}
-                          onClick={() => setIsOpen(false)}
-                          className="flex items-start gap-3 p-2 rounded-none hover:bg-transparent/5 transition-colors"
-                        >
-
-                          <div className="flex flex-col">
-                            <span className={cn("font-semibold", subLink.description ? "text-white text-[15px]" : "text-[14px] text-white/70 hover:text-[#00a9ce]")}>
-                              {subLink.label}
-                            </span>
-                            {subLink.description && (
-                              <span className="text-[13px] text-white/60 mt-0.5 leading-snug">
-                                {subLink.description}
-                              </span>
-                            )}
-                          </div>
-                        </Link>
-                      ))}
+              {navLinks.map((link) => {
+                const hasSub = !!link.sub;
+                const isSubOpen = forcedOpenDropdown === link.label;
+                
+                return (
+                  <div key={link.href} className="border-b border-white/5 last:border-0 py-2">
+                    <div className="flex justify-between items-center transition-colors rounded-none py-1">
+                      <Link
+                        href={hasSub ? "#" : link.href}
+                        onClick={(e) => {
+                          if (hasSub) {
+                            e.preventDefault();
+                            setForcedOpenDropdown(isSubOpen ? null : link.label);
+                          } else {
+                            setIsOpen(false);
+                          }
+                        }}
+                        className="text-[16px] font-bold py-2 w-full text-white block flex-1 flex items-center justify-between"
+                      >
+                        {link.label}
+                        {hasSub && (
+                          <svg 
+                            className={cn("w-4 h-4 transition-transform duration-200", isSubOpen ? "rotate-180" : "")} 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        )}
+                      </Link>
                     </div>
-                  )}
-                </div>
-              ))}
+                    {hasSub && isSubOpen && (
+                      <motion.div 
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        className="pl-3 pb-2 pt-1 flex flex-col gap-2 overflow-hidden"
+                      >
+                        {link.sub.map((subLink: any) => (
+                          <Link
+                            key={subLink.href}
+                            href={subLink.href}
+                            onClick={() => setIsOpen(false)}
+                            className="flex items-start gap-3 p-2 rounded-none hover:bg-transparent/5 transition-colors block"
+                          >
+                            <div className="flex flex-col">
+                              <span className={cn("font-semibold", subLink.description ? "text-white text-[15px]" : "text-[14px] text-white/70 hover:text-[#00a9ce]")}>
+                                {subLink.label}
+                              </span>
+                              {subLink.description && (
+                                <span className="text-[13px] text-white/60 mt-0.5 leading-snug">
+                                  {subLink.description}
+                                </span>
+                              )}
+                            </div>
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </div>
+                );
+              })}
               <div className="pt-4 flex flex-col gap-3">
                 <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-logo-gradient text-white font-bold py-3 rounded-none">
                   Contact Us
