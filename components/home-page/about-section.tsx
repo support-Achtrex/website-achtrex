@@ -25,7 +25,7 @@ export const AboutSection = () => {
             Powering the future of<br />automotive intelligence
           </h2>
           <p className="text-[16px] text-slate-500 leading-[1.6] max-w-3xl font-medium">
-            Achtrex is a global automotive technology company delivering scalable data APIs, enterprise VIN intelligence, and LUMI AI — a cognitive automotive reasoning engine. We operate live platforms, active integrations, and growing client engagements worldwide.
+            Achtrex is a global automotive technology company delivering scalable data APIs, enterprise VIN intelligence, and LUMI AI, a cognitive automotive reasoning engine. We operate live platforms, active integrations, and growing client engagements worldwide.
           </p>
         </motion.div>
 

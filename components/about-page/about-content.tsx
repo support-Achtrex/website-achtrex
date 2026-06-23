@@ -212,15 +212,15 @@ export const AboutContent = () => {
                     His deep mechanical expertise naturally evolved into systemic problem-solving. Serving as a Data Validation Officer and in Technical Sales, Godwin rigorously mastered the complex requirements of automotive data. He began architecting bespoke software systems designed to solve the exact operational bottlenecks he had witnessed firsthand in repair shops and industrial environments.
                   </p>
                   <p>
-                    This foundation propelled him into high-level Account Management and Consulting, where he advised developers, startups, and large-scale enterprises seeking robust automotive databases and APIs. Through extensive independent research and contracting, he realized the industry's greatest barrier was data fragmentation—leading directly to the founding of Achtrex to architect the definitive data and software infrastructure for the connected mobility era.
+                    This foundation propelled him into high-level Account Management and Consulting, where he advised developers, startups, and large-scale enterprises seeking robust automotive databases and APIs. Through extensive independent research and contracting, he realized the industry's greatest barrier was data fragmentation, leading directly to the founding of Achtrex to architect the definitive data and software infrastructure for the connected mobility era.
                   </p>
                   <div className="bg-[#00a9ce]/5 border border-[#00a9ce]/10 p-5 rounded-xl mt-6 italic text-slate-700 shadow-sm relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-1 h-full bg-[#00a9ce]"></div>
                     <span className="font-black text-[#00a9ce] not-italic block mb-2 text-[15px]">My Word to the Industry:</span>
-                    "For decades, the automotive world has been defined by physical engineering—but tomorrow will be defined by systemic intelligence. We are moving past the era where data was merely a byproduct of operations; today, data is the engine itself. My architectural philosophy is simple: software should not dictate how a business runs; it should invisibly empower how a business dominates. At Achtrex, we go beyond delivering consulting and providing Data. By unifying granular automotive intelligence, autonomous sales and inventory ecosystems, bespoke enterprise software, and cognitive AI workflows, we are engineering the complete central nervous system of the modern business. We eliminate structural friction entirely, so you can engineer the future."
+                    "For decades, the automotive world has been defined by physical engineering, but tomorrow will be defined by systemic intelligence. We are moving past the era where data was merely a byproduct of operations; today, data is the engine itself. My architectural philosophy is simple: software should not dictate how a business runs; it should invisibly empower how a business dominates. At Achtrex, we go beyond delivering consulting and providing Data. By unifying granular automotive intelligence, autonomous sales and inventory ecosystems, bespoke enterprise software, and cognitive AI workflows, we are engineering the complete central nervous system of the modern business. We eliminate structural friction entirely, so you can engineer the future."
                   </div>
                   <p className="mt-5">
-                    Godwin’s leadership is defined by this relentless pursuit of architectural perfection. He believes that true innovation happens exclusively at the intersection of raw mechanical understanding and elite software engineering. As Founder and System Architect, he remains deeply involved in the systemic design of Achtrex’s infrastructure, ensuring that every product—from the deepest VIN database query to the most complex cognitive AI workflow—meets his uncompromising standard of absolute operational superiority.
+                    Godwin’s leadership is defined by this relentless pursuit of architectural perfection. He believes that true innovation happens exclusively at the intersection of raw mechanical understanding and elite software engineering. As Founder and System Architect, he remains deeply involved in the systemic design of Achtrex’s infrastructure, ensuring that every product, from the deepest VIN database query to the most complex cognitive AI workflow, meets his uncompromising standard of absolute operational superiority.
                   </p>
                 </div>
               </div>
@@ -275,7 +275,7 @@ export const AboutContent = () => {
             <div className="absolute -right-4 -top-4 w-24 h-24 bg-[#76bc1d]/10 rounded-full blur-xl group-hover:bg-[#76bc1d]/20 transition-all"></div>
             <h2 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">Our Vision</h2>
             <p className="text-[15px] text-slate-600 leading-relaxed font-medium">
-              To build one of the world's leading technology ecosystems — powering the future of connected intelligence, zero-compromise software, and autonomous enterprise workflows.
+              To build one of the world's leading technology ecosystems, powering the future of connected intelligence, zero-compromise software, and autonomous enterprise workflows.
             </p>
           </motion.div>
 
@@ -315,10 +315,10 @@ export const AboutContent = () => {
             </div>
             <ul className="space-y-4">
               {[
-                'Automotive Data & APIs — massive intelligence via one enterprise endpoint',
-                'Sales & Inventory — automated tracking replacing manual entry',
-                'Custom Software — bespoke, scalable, zero vendor lock-in platforms',
-                'LUMI AI — cognitive workflow automation powered by advanced LLMs'
+                'Automotive Data & APIs, massive intelligence via one enterprise endpoint',
+                'Sales & Inventory, automated tracking replacing manual entry',
+                'Custom Software, bespoke, scalable, zero vendor lock-in platforms',
+                'LUMI AI, cognitive workflow automation powered by advanced LLMs'
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-[15px] text-slate-600 font-medium bg-[#00a9ce]/5 p-3 rounded-lg border border-[#00a9ce]/10">
                   <span className="mt-1 w-2 h-2 rounded-full bg-[#00a9ce] shrink-0 shadow-sm" />

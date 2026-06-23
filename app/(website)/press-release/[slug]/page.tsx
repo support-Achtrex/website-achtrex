@@ -67,7 +67,7 @@ export default async function PressReleaseSingle({ params }: { params: Promise<{
  </p>
  
  <p className="mb-6 text-slate-700 leading-relaxed">
- <strong>NEW YORK, NY — {press.date} —</strong> Achtrex, the global leader in enterprise automotive data infrastructure and cognitive AI platforms, today announced a major step forward with its latest initiative. This announcement underscores the company's commitment to delivering high-availability, low-latency solutions for the modern mobility ecosystem.
+ <strong>NEW YORK, NY, {press.date}, </strong> Achtrex, the global leader in enterprise automotive data infrastructure and cognitive AI platforms, today announced a major step forward with its latest initiative. This announcement underscores the company's commitment to delivering high-availability, low-latency solutions for the modern mobility ecosystem.
  </p>
  
  <p className="mb-6 text-slate-700 leading-relaxed">

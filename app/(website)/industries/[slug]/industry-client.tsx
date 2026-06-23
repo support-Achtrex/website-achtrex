@@ -41,7 +41,7 @@ const industryData: Record<string, any> = {
  'High operational overhead and friction caused by manual data entry in claims and onboarding, leading to misquoted policies.'
  ],
  solutions: [
- 'Sub-second VIN Decoding: Instantly retrieve exhaustive vehicle specifications—including standard and optional safety equipment.',
+ 'Sub-second VIN Decoding: Instantly retrieve exhaustive vehicle specifications, including standard and optional safety equipment.',
  'Automated Intelligence: Stream comprehensive vehicle history, title branding, and real-time market value data directly into models.',
  'Scalable Claim Pipelines: Drastically reduce manual processing time by automating the identification of exact replacement parts and ACV.'
  ],
@@ -109,7 +109,7 @@ const industryData: Record<string, any> = {
  description: "Supercharge your automotive blog, editorial review site, or consumer portal with enterprise-grade vehicle specifications, high-resolution imagery, and dynamic performance metrics. In the highly competitive digital publishing space, authoritative content is the ultimate differentiator. Achtrex allows digital publishers to construct massive, highly-accurate vehicle databases without the crippling overhead of manual data curation.\n\nEnsure your audience always has access to the most authoritative, interactive automotive content on the web. From granular internal combustion engine displacement metrics to deep EV battery architectures, our APIs stream perfectly formatted data directly into your CMS.",
  challenges: [
  'Sourcing exhaustive, reliable, and continuously updated vehicle specifications across global markets and distinct trims.',
- 'Maintaining high-quality databases of specific metrics—like exact vehicle dimensions and EV battery ranges—without immense labor.',
+ 'Maintaining high-quality databases of specific metrics, like exact vehicle dimensions and EV battery ranges, without immense labor.',
  'Keeping discerning users engaged and increasing platform dwell time with dynamic, interactive, and visually rich data.'
  ],
  solutions: [
