@@ -25,6 +25,30 @@ export default async function PressReleaseSingle({ params }: { params: Promise<{
 
  return (
  <main className="pt-24 min-h-screen bg-[#f4f4f4] pb-20 font-sans text-slate-900">
+ <script
+   type="application/ld+json"
+   dangerouslySetInnerHTML={{
+     __html: JSON.stringify({
+       "@context": "https://schema.org",
+       "@type": "NewsArticle",
+       headline: press.title,
+       image: press.image,
+       datePublished: new Date(press.date).toISOString() || new Date().toISOString(),
+       author: {
+         "@type": "Organization",
+         name: "Achtrex"
+       },
+       publisher: {
+         "@type": "Organization",
+         name: "Achtrex",
+         logo: {
+           "@type": "ImageObject",
+           url: "https://achtrex.com/logo.png"
+         }
+       }
+     })
+   }}
+ />
  {/* Header */}
  <div className="max-w-[800px] mx-auto px-6 pt-12 pb-8">
  <nav className="flex flex-wrap items-center gap-2 text-sm text-slate-500 font-medium mb-8">

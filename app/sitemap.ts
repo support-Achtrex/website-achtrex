@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-data';
+import { pressReleases } from '@/lib/press-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://achtrex.com';
@@ -38,6 +39,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }));
 
+    // Dynamic Press Release Routes
+    const pressRoutes: MetadataRoute.Sitemap = pressReleases.map((press) => ({
+        url: `${baseUrl}/press-release/${press.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    }));
+
     // Dynamic Industry Routes
     const industrySlugs = [
         'auto-insurance',
@@ -58,5 +67,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
     }));
 
-    return [...routes, ...blogRoutes, ...industryRoutes];
+    return [...routes, ...blogRoutes, ...pressRoutes, ...industryRoutes];
 }
