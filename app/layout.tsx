@@ -10,8 +10,8 @@ export const metadata: Metadata = {
  default: "Achtrex | Global Automotive Data Infrastructure & AI Platforms",
  template: "%s | Achtrex - Enterprise Automotive Data"
  },
- description: "Achtrex is a leading enterprise SaaS venture builder. We architect high-velocity data platforms, autonomous AI agents (LUMI), and resilient API infrastructure for automotive and global digital economies.",
- keywords: [
+  description: "Achtrex is a leading enterprise SaaS venture builder. We architect high-velocity data platforms, autonomous AI agents, and resilient API infrastructure for automotive and global digital economies.",
+  keywords: [
  "Achtrex", "Enterprise SaaS Venture Builder", "Automotive Data Infrastructure", 
  "Cognitive AI Platforms", "Global Automotive API", "Vehicle Intelligence Data", 
  "Vehicle History API", "VIN Decoding Service", "Scalable SaaS Architecture", 

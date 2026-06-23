@@ -2,21 +2,21 @@ import ProductsClient from "./products-client";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
- title: "Enterprise Product Ecosystem | High-Velocity Platforms",
- description: "Explore the Achtrex product ecosystem: from AutomotiveDataset.com's high-frequency vehicle data to LUMI's autonomous AI frameworks. Our proprietary utility layers power the next generation of digital infrastructure.",
- keywords: ["Achtrex Products", "Automotive Data API", "LUMI AI Framework", "Vehicle History Solutions", "SaaS Infrastructure", "Enterprise API Solutions"],
- openGraph: {
- title: "Achtrex Product Ecosystem | Scaling Global Infrastructure",
- description: "Proprietary utility layers and autonomous logic frameworks for modern enterprises.",
- images: ["/projects/lumi_hero_new.png"],
- }
+  title: "Products & Enterprise Solutions | Achtrex",
+  description: "Explore the Achtrex solutions ecosystem: from high-frequency vehicle data APIs to autonomous AI frameworks. Our proprietary utility layers power the next generation of digital infrastructure.",
+  keywords: ["Achtrex Solutions", "Automotive Data API", "AI Frameworks", "Vehicle History Solutions", "SaaS Infrastructure", "Enterprise API Solutions"],
+  openGraph: {
+    title: "Products & Enterprise Solutions | Achtrex",
+    description: "Explore the Achtrex solutions ecosystem: from high-frequency vehicle data APIs to autonomous AI frameworks.",
+    images: ["/projects/lumi_ui_v2.jpg"],
+  }
 };
 
-const jsonLd = {
+const collectionJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Achtrex Product Ecosystem",
-  "description": "Explore the Achtrex product ecosystem: from AutomotiveDataset.com's high-frequency vehicle data to LUMI's autonomous AI frameworks.",
+  "name": "Products & Enterprise Solutions | Achtrex",
+  "description": "Explore the Achtrex solutions ecosystem: from high-frequency vehicle data APIs to autonomous AI frameworks.",
   "url": "https://achtrex.com/products",
   "isPartOf": {
     "@type": "WebSite",
@@ -30,7 +30,7 @@ export default function ProductsPage() {
    <>
      <script
        type="application/ld+json"
-       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+       dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
      />
      <ProductsClient />
    </>
