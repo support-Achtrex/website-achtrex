@@ -86,30 +86,36 @@ export default async function PressReleaseSingle({ params }: { params: Promise<{
  {/* Content */}
  <div className="max-w-[800px] mx-auto px-6">
  <div className="prose prose-lg prose-slate max-w-none">
- <p className="text-xl text-slate-600 font-medium leading-relaxed mb-8">
- {press.excerpt}
- </p>
- 
- <p className="mb-6 text-slate-700 leading-relaxed">
- <strong>NEW YORK, NY, {press.date}, </strong> Achtrex, the global leader in enterprise automotive data infrastructure and cognitive AI platforms, today announced a major step forward with its latest initiative. This announcement underscores the company's commitment to delivering high-availability, low-latency solutions for the modern mobility ecosystem.
- </p>
- 
- <p className="mb-6 text-slate-700 leading-relaxed">
- As the automotive industry continues to evolve at a breakneck pace, the demand for scalable and reliable data architecture has never been higher. Achtrex's proprietary systems process over one billion queries per month, ensuring that OEM partners, insurers, and dealerships have real-time access to mission-critical intelligence.
- </p>
+   {press.content ? (
+     <div dangerouslySetInnerHTML={{ __html: press.content }} />
+   ) : (
+     <>
+       <p className="text-xl text-slate-600 font-medium leading-relaxed mb-8">
+       {press.excerpt}
+       </p>
+       
+       <p className="mb-6 text-slate-700 leading-relaxed">
+       <strong>NEW YORK, NY, {press.date}, </strong> Achtrex, the global leader in enterprise automotive data infrastructure and cognitive AI platforms, today announced a major step forward with its latest initiative. This announcement underscores the company's commitment to delivering high-availability, low-latency solutions for the modern mobility ecosystem.
+       </p>
+       
+       <p className="mb-6 text-slate-700 leading-relaxed">
+       As the automotive industry continues to evolve at a breakneck pace, the demand for scalable and reliable data architecture has never been higher. Achtrex's proprietary systems process over one billion queries per month, ensuring that OEM partners, insurers, and dealerships have real-time access to mission-critical intelligence.
+       </p>
 
- <blockquote className="border-l-4 border-[#00a9ce] pl-6 my-10 italic text-xl text-slate-800 font-medium">
- "We are building the foundational infrastructure that will power the next decade of autonomous mobility and intelligent enterprise applications," said the CEO of Achtrex. "Our team is relentlessly focused on pushing the boundaries of what is possible with scalable cloud architecture."
- </blockquote>
+       <blockquote className="border-l-4 border-[#00a9ce] pl-6 my-10 italic text-xl text-slate-800 font-medium">
+       "We are building the foundational infrastructure that will power the next decade of autonomous mobility and intelligent enterprise applications," said the CEO of Achtrex. "Our team is relentlessly focused on pushing the boundaries of what is possible with scalable cloud architecture."
+       </blockquote>
 
- <p className="mb-6 text-slate-700 leading-relaxed">
- The company's advanced AI models, including the LUMI cognitive framework, are uniquely positioned to interpret complex telematics streams and synthesize actionable insights. By leveraging edge computing and advanced machine learning techniques, Achtrex continues to redefine the standards of enterprise software in the automotive sector.
- </p>
+       <p className="mb-6 text-slate-700 leading-relaxed">
+       The company's advanced AI models, including the LUMI cognitive framework, are uniquely positioned to interpret complex telematics streams and synthesize actionable insights. By leveraging edge computing and advanced machine learning techniques, Achtrex continues to redefine the standards of enterprise software in the automotive sector.
+       </p>
 
- <h3 className="text-2xl font-bold mt-12 mb-4">About Achtrex</h3>
- <p className="mb-8 text-slate-700 leading-relaxed">
- Achtrex is an enterprise SaaS venture builder specializing in robust data infrastructure and AI solutions for the global automotive market. With a focus on scale, security, and extreme reliability, Achtrex empowers businesses to navigate the complexities of digital transformation with confidence.
- </p>
+       <h3 className="text-2xl font-bold mt-12 mb-4">About Achtrex</h3>
+       <p className="mb-8 text-slate-700 leading-relaxed">
+       Achtrex is an enterprise SaaS venture builder specializing in robust data infrastructure and AI solutions for the global automotive market. With a focus on scale, security, and extreme reliability, Achtrex empowers businesses to navigate the complexities of digital transformation with confidence.
+       </p>
+     </>
+   )}
  </div>
 
  <div className="mt-16 pt-8 border-t border-slate-200">

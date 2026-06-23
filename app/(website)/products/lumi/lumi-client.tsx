@@ -59,20 +59,42 @@ export default function LumiClient() {
  {/* Right: Process & Execution */}
  <div className="lg:col-span-8 space-y-24">
  
- {/* Big Hero Visual */}
+ {/* Big Hero Visual / Interactive Demo */}
  <motion.div 
  initial={{ opacity: 0, y: 30 }}
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true }}
- className="bg-[#f4f4f4] rounded-none border border-slate-200 shadow-none overflow-hidden"
+ className="group relative bg-[#000] rounded-xl border border-slate-800 shadow-2xl overflow-hidden cursor-pointer"
  >
- <div className="relative aspect-[16/10] w-full bg-white">
+ <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
+ <div className="relative aspect-[16/10] w-full">
  <Image 
- src="/images/lumi_laptop_hero.png" 
- alt="LUMI AI Vehicle Intelligence Platform"
+ src="/projects/lumi_ui_v2.jpg" 
+ alt="LUMI AI Vehicle Intelligence Platform Demo"
  fill
- className="object-cover object-center"
+ className="object-cover object-center opacity-80 group-hover:scale-105 transition-transform duration-700"
  />
+ </div>
+ 
+ {/* Play Button Overlay */}
+ <div className="absolute inset-0 z-20 flex items-center justify-center">
+   <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center rounded-full bg-[#00a9ce]/90 text-white shadow-[0_0_40px_rgba(0,169,206,0.5)] group-hover:bg-[#00a9ce] group-hover:scale-110 transition-all duration-300">
+     <div className="absolute inset-0 rounded-full border-2 border-white/20 animate-ping" />
+     <svg className="w-8 h-8 md:w-10 md:h-10 ml-2" fill="currentColor" viewBox="0 0 24 24">
+       <path d="M8 5v14l11-7z" />
+     </svg>
+   </div>
+ </div>
+
+ {/* Lower third metadata */}
+ <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-8 flex items-end justify-between">
+   <div>
+     <div className="flex items-center gap-2 mb-2">
+       <span className="bg-[#00a9ce] text-white text-xs font-bold px-2 py-1 uppercase tracking-wider rounded-sm">Demo</span>
+       <span className="text-white/80 text-sm font-medium">3:42</span>
+     </div>
+     <h3 className="text-white text-xl md:text-2xl font-bold">LUMI Engine: Autonomous Diagnostic Workflow</h3>
+   </div>
  </div>
  </motion.div>
 
