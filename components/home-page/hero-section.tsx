@@ -3,7 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, MessageSquare } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Chat } from '@nobertdev/react-3d-icons/fc';
 import { TypewriterWithPencil } from '../ui/typewriter-with-pencil';
 
 export const Hero = () => {
@@ -77,7 +78,7 @@ the intelligence, and the platforms behind automotive businesses."
           {/* Description */}
           <div className="min-h-[80px] mb-12 w-full">
             <TypewriterWithPencil 
-              text="Achtrex provides the foundation for the next generation of connected mobility. Scalable APIs, conversational AI, and enterprise-grade custom software built for performance."
+              text="Achtrex delivers custom software, automotive data APIs, AI-powered intelligence, and sales & inventory management solutions for the modern automotive industry."
               className="text-base md:text-xl text-slate-300 font-medium leading-relaxed max-w-2xl drop-shadow-lg inline-block"
               speed={25}
               pencilSize={20}
@@ -111,7 +112,7 @@ the intelligence, and the platforms behind automotive businesses."
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-semibold tracking-wide px-10 py-4 transition-all hover:bg-white/10 rounded-sm border-2 border-white/30 backdrop-blur-sm"
             >
               <span>Talk to us</span>
-              <MessageSquare className="w-5 h-5 transition-colors text-slate-300 group-hover:text-white" />
+              <Chat className="w-5 h-5" />
             </button>
           </motion.div>
         </motion.div>

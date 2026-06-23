@@ -1,23 +1,23 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { Database, SearchCode, Cloud, Rocket } from "lucide-react";
+import { Folder, Zoom, Computer, Rocket } from "@nobertdev/react-3d-icons/fc";
 
 const processes = [
   {
     title: "Proprietary Data Core",
     description: "We aggregate, structure, and refine massive datasets to serve as the foundation of our specific products.",
-    icon: Database
+    icon: Folder
   },
   {
     title: "Intelligent Processing",
     description: "Utilizing AI and machine learning to extract insights, decode complex variables, and ensure absolute enterprise accuracy.",
-    icon: SearchCode
+    icon: Zoom
   },
   {
     title: "API Provisioning",
     description: "Exposing our deep architectures through robust, developer-friendly REST and GraphQL endpoints.",
-    icon: Cloud
+    icon: Computer
   },
   {
     title: "Subscription Scaling",

@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { Linkedin, Twitter, Mail } from '@nobertdev/react-3d-icons/fc';
 
 export const TeamGrid = ({ members }: { members: any[] }) => {
   return (

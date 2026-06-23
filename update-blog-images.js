@@ -21,9 +21,9 @@ const realImages = [
   "/projects/team_collaboration_wide.png"
 ];
 
-let imgIndex = 0;
+let imgIndex = 100;
 content = content.replace(/"image":\s*"[^"]+"/g, () => {
-    const replacement = '"image": "' + realImages[imgIndex % realImages.length] + '"';
+    const replacement = '"image": "https://loremflickr.com/800/600/tech,office,business?lock=' + imgIndex + '"';
     imgIndex++;
     return replacement;
 });

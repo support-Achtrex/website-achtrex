@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Linkedin, Twitter, Mail, Phone, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { Linkedin, Twitter, Mail, CallOut } from '@nobertdev/react-3d-icons/fc';
 import { Montserrat } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
@@ -176,14 +177,14 @@ export const Footer = () => {
                 <li>
                   <a href="mailto:support@achtrex.com"
                     className="flex items-start gap-3 text-slate-400 hover:text-white text-sm font-medium transition-colors">
-                    <Mail size={15} className="mt-0.5 text-[#00a9ce] shrink-0" />
+                    <Mail className="w-5 h-5 text-[#00a9ce] mt-1" />
                     <span>support@achtrex.com</span>
                   </a>
                 </li>
                 <li>
                   <a href="tel:+16133664271"
                     className="flex items-start gap-3 text-slate-400 hover:text-white text-sm font-medium transition-colors">
-                    <Phone size={15} className="mt-0.5 text-[#00a9ce] shrink-0" />
+                    <CallOut className="w-5 h-5 text-[#00a9ce] mt-1" />
                     <span>+1 613 366-4271</span>
                   </a>
                 </li>

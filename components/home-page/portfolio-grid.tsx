@@ -38,7 +38,7 @@ const portfolioItems = [
     title: "Ark Auto Shop",
     category: "Use Case",
     image: "/logos/use-cases/arkauto.png",
-    link: "/use-cases/ark-auto-shop",
+    link: "/use-cases",
     desc: "We created Ark Auto Shop from the ground up, engineering its complete digital infrastructure for automotive parts distribution. We embedded our AI-powered workflows and intelligent fitment technologies to drive the entire service ecosystem.",
     isLogo: true
   },
@@ -47,7 +47,7 @@ const portfolioItems = [
     title: "Carkasa",
     category: "Use Case",
     image: "/logos/use-cases/vehiclehistory.png",
-    link: "/use-cases/carkasa",
+    link: "/use-cases",
     desc: "We founded and built Carkasa as a global platform for comprehensive vehicle history reports. Utilizing the Achtrex data engine, we aggregate massive datasets to provide instant, reliable vehicle backgrounds to consumers and dealers worldwide.",
     isLogo: true
   },
@@ -56,7 +56,7 @@ const portfolioItems = [
     title: "VehicleReportCheck",
     category: "Use Case",
     image: "/logos/use-cases/vehiclereportcheck.png",
-    link: "/use-cases/vehicle-report-check",
+    link: "/use-cases",
     desc: "We built and scaled the VehicleReportCheck platform entirely in-house. Powered by our core automotive intelligence, this platform focuses on advanced VIN decoding, vehicle transparency, and comprehensive reporting workflows.",
     isLogo: true
   }

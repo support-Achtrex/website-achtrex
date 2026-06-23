@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { Database, ScanSearch, CarFront, Bot, Code2, ShieldCheck, Car, Store, Wrench, Globe, Search, Key, Package, CircleDollarSign, FileText, Newspaper, Target, Factory } from 'lucide-react';
 import { Outfit } from 'next/font/google';
 
 const outfit = Outfit({ subsets: ['latin'], weight: ['700', '800', '900'] });
@@ -43,7 +42,7 @@ export const Navbar = () => {
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     const handleOpenServices = () => {
-      setForcedOpenDropdown('Our Services');
+      setForcedOpenDropdown('Industries');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       // Close automatically after 5 seconds
       clearTimeout(timeout);
@@ -69,16 +68,17 @@ export const Navbar = () => {
       ]
     },
     { 
-      label: 'Products', 
+      label: 'Our Solutions', 
       href: '/products',
       sub: [
-        { label: 'Automotive Dataset', href: '/products/automotive' },
-        { label: 'Achtrex Core', href: '/products/enterprise-platforms' },
-        { label: 'Lumi', href: '/products/lumi' }
+        { label: 'Automotive Data & APIs', href: '/products/automotive' },
+        { label: 'Sales & Inventory Management', href: '/products/sales-inventory' },
+        { label: 'Custom Software Development', href: '/products/enterprise-platforms' },
+        { label: 'AI Solutions', href: '/products/lumi' }
       ]
     },
     { 
-      label: 'Our Services', 
+      label: 'Industries', 
       href: '/services',
       sub: [
         { label: 'Car Insurance', href: '/industries/auto-insurance' },
@@ -110,7 +110,7 @@ export const Navbar = () => {
   return (
     <div className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      scrolled ? "pt-4" : "pt-6"
+      scrolled ? "py-4 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/50" : "pt-6 pb-2 bg-transparent"
     )}>
       <nav className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex justify-between items-center">
         {/* Logo */}

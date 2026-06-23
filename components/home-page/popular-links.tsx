@@ -1,13 +1,14 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Box, Phone, Users, Shield } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Cube, Mobile, Boy, Shield } from '@nobertdev/react-3d-icons/fc';
 import Link from 'next/link';
 
 const links = [
-  { name: 'Products & Platforms', href: '/products', icon: <Box className="w-6 h-6 text-primary" />, desc: 'Explore our data engines and AI tools.' },
-  { name: 'About Achtrex', href: '/about-us', icon: <Users className="w-6 h-6 text-secondary" />, desc: 'Learn about our mission and engineering culture.' },
-  { name: 'Contact Engineering', href: '/contact-us', icon: <Phone className="w-6 h-6 text-green-400" />, desc: 'Direct access to our infrastructure architects.' },
+  { name: 'Products & Platforms', href: '/products', icon: <Cube className="w-6 h-6 text-primary" />, desc: 'Explore our data engines and AI tools.' },
+  { name: 'About Achtrex', href: '/about-us', icon: <Boy className="w-6 h-6 text-secondary" />, desc: 'Learn about our mission and engineering culture.' },
+  { name: 'Contact Engineering', href: '/contact-us', icon: <Mobile className="w-6 h-6 text-green-400" />, desc: 'Direct access to our infrastructure architects.' },
 ];
 
 export const PopularLinks = () => {

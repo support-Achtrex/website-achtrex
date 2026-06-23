@@ -1,7 +1,8 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Calendar } from '@nobertdev/react-3d-icons/fc';
 import Link from 'next/link';
 
 import { blogPosts } from "@/lib/blog-data";

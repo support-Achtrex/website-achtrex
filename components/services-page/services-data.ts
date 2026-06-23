@@ -1,9 +1,9 @@
-import { Smartphone, Globe, LayoutTemplate, TrendingUp, MessageSquareCode, Video, Printer, Car, Bot } from 'lucide-react';
+import { Travel, Chat, ColorPalette, Rocket, Sphere } from '@nobertdev/react-3d-icons/fc';
 
 export const productsData = [
     {
         id: 'automotive-data',
-        icon: Car,
+        icon: Travel,
         title: 'AutomotiveDataset.com',
         description: 'A massive vehicle intelligence API providing 2.5M+ records, VIN-to-Build-Sheet data, and recall databases for the global mobility market.',
         details: {
@@ -20,7 +20,7 @@ export const productsData = [
     },
     {
         id: 'ai-platform',
-        icon: Bot,
+        icon: Chat,
         title: 'LUMI // Communications Platform',
         description: 'LUMI is a unified communications platform designed to power intelligent interactions and automate complex enterprise workflows.',
         details: {
@@ -39,7 +39,7 @@ export const productsData = [
 export const capabilitiesData = [
     {
         id: 'product-engineering',
-        icon: Smartphone,
+        icon: Sphere,
         title: 'Product Engineering',
         description: 'Our platforms are built using modern product engineering practices to ensure scalability, reliability, and performance.',
         details: {
@@ -55,7 +55,7 @@ export const capabilitiesData = [
     },
     {
         id: 'ui-ux-design',
-        icon: LayoutTemplate,
+        icon: ColorPalette,
         title: 'Intuitive Design',
         description: 'We design intuitive and user-friendly interfaces that enhance interaction with data-driven platforms.',
         details: {
@@ -71,7 +71,7 @@ export const capabilitiesData = [
     },
     {
         id: 'strategic-growth',
-        icon: TrendingUp,
+        icon: Rocket,
         title: 'Strategic Growth',
         description: 'Our solutions enable businesses to leverage data and AI to build smarter digital products.',
         details: {

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Car, Bot, ArrowRight, ExternalLink, Code2 } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/buttons';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";

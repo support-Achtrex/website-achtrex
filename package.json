@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^16.2.6",
+    "@nobertdev/react-3d-icons": "^1.5.2",
     "@phosphor-icons/react": "^2.1.10",
     "@react-pdf/renderer": "^4.5.1",
     "@supabase/ssr": "^0.8.0",

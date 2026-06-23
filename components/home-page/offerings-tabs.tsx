@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { CaretLeft, CaretRight, Code, Database, Robot, HardDrives } from '@phosphor-icons/react';
+import { CaretLeft, CaretRight, Code, Database, Robot, Storefront } from '@phosphor-icons/react';
 import { cn } from '@/lib/utils';
 import { TypewriterWithPencil } from '../ui/typewriter-with-pencil';
 
@@ -44,14 +44,14 @@ const offerings = [
     color: '#8b5cf6' // violet-500
   },
   {
-    id: 'infrastructure',
-    title: 'Enterprise Infrastructure',
-    tabTitle: 'INFRASTRUCTURE',
-    icon: HardDrives,
-    subtitle: 'Scalable cloud architecture for massive data',
-    description: 'Build your automotive systems on a rock-solid foundation. We design, deploy, and manage enterprise-grade cloud infrastructure optimized for high-volume data streaming, complex vehicle queries, and seamless integrations. Ensure 99.99% uptime for your critical automotive operations.',
-    buttonText: 'View Infrastructure Services',
-    image: '/images/server_isolated.png',
+    id: 'sales-inventory',
+    title: 'Sales & Inventory Management',
+    tabTitle: 'SALES & INVENTORY',
+    icon: Storefront,
+    subtitle: 'Unified platforms for modern dealerships',
+    description: 'Empower your dealership with our unified platforms for real-time inventory synchronization, dynamic vehicle listings, and comprehensive CRM integration. We help you manage multi-location inventory effortlessly, providing powerful dealer analytics and lead management tools to drive conversions and capture market opportunities.',
+    buttonText: 'View Sales & Inventory Solutions',
+    image: '/images/sim_phone_isolated.png',
     color: '#10b981' // emerald-500
   }
 ];
@@ -102,8 +102,8 @@ export const OfferingsTabs = () => {
           </motion.p>
           
           <TypewriterWithPencil 
-            text="World-class Automotive Software &
-Data Intelligence Company"
+            text="Enterprise Automotive Solutions &
+Data Intelligence Platforms"
             className="text-3xl md:text-4xl font-bold text-gradient mb-6 tracking-tight py-2 leading-[1.2] inline-block"
             asBlock={true}
             speed={35}
@@ -114,7 +114,7 @@ Data Intelligence Company"
 
           <div className="mt-6 min-h-[100px]">
             <TypewriterWithPencil 
-              text="As a top-rated automotive technology partner, our team continues to assist companies to boost their businesses by providing customized software, powerful data APIs, and AI solutions tailored to meet client objectives effectively and increase revenue."
+              text="As a premier automotive technology partner, we empower dealerships and mobility enterprises to scale operations. We deliver custom software development, highly accurate data APIs, advanced AI solutions, and comprehensive sales & inventory management systems designed to accelerate growth."
               className="text-lg text-slate-600 leading-relaxed px-4 inline-block"
               speed={20}
               pencilSize={24}

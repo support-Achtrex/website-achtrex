@@ -2,15 +2,15 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Cloud, Globe, Smartphone, Rocket, BrainCircuit, ShieldCheck } from 'lucide-react';
+import { FileText, Computer, Sphere, Mobile, Rocket, Bulb, Shield } from '@nobertdev/react-3d-icons/fc';
 
 const techSolutions = [
-  { icon: Globe, title: "Web Solutions", desc: "High-performance web applications built for scale." },
-  { icon: Cloud, title: "Cloud Native", desc: "Serverless architectures ensuring 99.9% uptime." },
-  { icon: Code2, title: "Custom Software", desc: "Tailored algorithms solving complex business needs." },
-  { icon: Smartphone, title: "Mobile Apps", desc: "Native-quality experiences across all devices." },
-  { icon: BrainCircuit, title: "AI & Machine Learning", desc: "Intelligent systems that learn and adapt." },
-  { icon: ShieldCheck, title: "DevOps & Security", desc: "Fortified infrastructure with automated pipelines." }
+  { icon: Sphere, title: "Web Solutions", desc: "High-performance web applications built for scale." },
+  { icon: Computer, title: "Cloud Native", desc: "Serverless architectures ensuring 99.9% uptime." },
+  { icon: FileText, title: "Custom Software", desc: "Tailored algorithms solving complex business needs." },
+  { icon: Mobile, title: "Mobile Apps", desc: "Native-quality experiences across all devices." },
+  { icon: Bulb, title: "AI & Machine Learning", desc: "Intelligent systems that learn and adapt." },
+  { icon: Shield, title: "DevOps & Security", desc: "Fortified infrastructure with automated pipelines." }
 ];
 
 const techStack = [

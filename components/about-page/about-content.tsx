@@ -15,10 +15,10 @@ export const AboutContent = () => {
       dot: 'bg-[#00a9ce]',
       statusText: 'text-sky-400',
       statusBg: 'bg-sky-900/30 border-sky-500/30',
-      name: 'AutomotiveDataset.com',
-      tagline: 'Automotive Data Infrastructure',
-      desc: 'Enterprise VIN intelligence, vehicle specifications, trim data, fitment APIs, and market values — all through a single developer-first REST API layer.',
-      tags: ['VIN Decoding', 'Specs API', 'Fitment Data', 'Market Values', 'Fleet'],
+      name: 'Automotive Data & APIs',
+      tagline: 'AutomotiveDataset.com',
+      desc: 'Enterprise VIN intelligence, vehicle specifications, and fitment APIs querying over 2.5 million live records for absolute data superiority.',
+      tags: ['VIN Decoding', 'Specs API', 'Fitment Data', 'Market Values'],
       href: 'https://automotivedataset.com',
       external: true,
     },
@@ -29,11 +29,11 @@ export const AboutContent = () => {
       dot: 'bg-[#76bc1d]',
       statusText: 'text-violet-400',
       statusBg: 'bg-violet-900/30 border-violet-500/30',
-      name: 'LUMI AI',
-      tagline: 'Cognitive Automotive Platform',
-      desc: 'Domain-specific AI reasoning engine for vehicle diagnostics, predictive analytics, and automotive decision intelligence — trained on proprietary data.',
-      tags: ['AI Reasoning', 'Diagnostics', 'Predictive', 'Conversational', 'NLP'],
-      href: '/products/lumi',
+      name: 'Sales & Inventory Management',
+      tagline: 'Frictionless Operations',
+      desc: 'Structural sales ecosystems that streamline dealership operations, eliminating manual data entry and replacing it with real-time, automated tracking.',
+      tags: ['Dealership Ops', 'Inventory Sync', 'Automated Tracking', 'Retail'],
+      href: '/products/automotive',
       external: false,
     },
     {
@@ -43,11 +43,25 @@ export const AboutContent = () => {
       dot: 'bg-[#001a22]',
       statusText: 'text-emerald-400',
       statusBg: 'bg-emerald-900/30 border-emerald-500/30',
-      name: 'Achtrex Core',
-      tagline: 'Enterprise Integration Hub',
-      desc: 'Central API gateway, client onboarding, integration orchestration, enterprise dashboards, and licensing infrastructure powering the full Achtrex ecosystem.',
-      tags: ['API Gateway', 'Onboarding', 'Licensing', 'Enterprise', 'SaaS'],
-      href: '/products',
+      name: 'Custom Software Development',
+      tagline: 'Enterprise Platforms',
+      desc: 'Bespoke, resilient, and highly-scalable enterprise platforms engineered from the ground up to ensure absolute technical autonomy and zero vendor lock-in.',
+      tags: ['Bespoke Systems', 'No Lock-In', 'Enterprise Cloud', 'SaaS'],
+      href: '/services',
+      external: false,
+    },
+    {
+      accent: '#053787',
+      bg: 'bg-white hover:bg-[#053787]/5',
+      border: 'border-slate-200 hover:border-[#053787]/50',
+      dot: 'bg-[#053787]',
+      statusText: 'text-blue-400',
+      statusBg: 'bg-blue-900/30 border-blue-500/30',
+      name: 'AI Solutions (LUMI)',
+      tagline: 'Cognitive Workflows',
+      desc: 'A powerful communications platform leveraging advanced LLMs and neural processing to execute complex autonomous business logic across your enterprise.',
+      tags: ['LLMs', 'Cognitive Processing', 'Workflow Automation', 'NLP'],
+      href: '/products/lumi',
       external: false,
     },
   ];
@@ -60,10 +74,31 @@ export const AboutContent = () => {
     { label: 'AI-Driven Innovation', icon: '◆' },
     { label: 'Scalability by Design', icon: '⬢' },
     { label: 'Customer-Centric', icon: '◎' },
-    { label: 'Continuous Growth', icon: '⟳' },
+    { label: 'Sales & Inventory', icon: '⟳' },
   ];
 
-  const expertise = ['Automotive Data Systems', 'VIN Intelligence', 'API Architecture', 'AI Infrastructure'];
+  const expertise = [
+    'Automotive Engineering', 
+    'System Architecture',
+    'Vehicle Diagnostics',
+    'Technical Training',
+    'Data Validation',
+    'Database Engineering',
+    'Data Orchestration',
+    'Technical Sales',
+    'Account Management',
+    'Managerial Leadership',
+    'Cross-Functional Leadership',
+    'Enterprise Integration',
+    'API Architecture', 
+    'Microservices Architecture',
+    'Cloud Infrastructure',
+    'AI Infrastructure',
+    'Predictive Analytics',
+    'Dealership Operations',
+    'SaaS Development',
+    'Automotive Research & Consulting'
+  ];
 
   return (
     <div className="bg-transparent text-slate-900 font-sans antialiased min-h-screen pb-16">
@@ -78,13 +113,13 @@ export const AboutContent = () => {
 
           <div className="text-[14px] md:text-[15px] text-slate-500 max-w-4xl leading-relaxed font-medium mb-8 text-center space-y-4">
             <p>
-              Achtrex is fundamentally re-architecting how businesses interact with automotive data by delivering enterprise-grade intelligence and cognitive AI infrastructure for the connected mobility era. Founded on the principle that modern automotive workflows require more than just disconnected silos of information, we build unified platforms that transform fragmented vehicle specifications, market data, and diagnostic inputs into actionable, real-time intelligence.
+              Achtrex is fundamentally re-architecting how businesses interact with data, inventory, software, and artificial intelligence. Founded on the principle that modern enterprises require more than just disconnected silos of information, we build vertically integrated platforms that transform fragmented operations into unified, actionable, real-time intelligence.
             </p>
             <p>
-              Our ecosystem bridges the critical architecture gap between legacy data providers and the demands of next-generation digital applications. Through AutomotiveDataset.com, we provide developers and enterprise systems with instant, robust access to comprehensive VIN intelligence, exact fitment mappings, and hyper-accurate market valuations via a single streamlined API. Complementing this, our LUMI AI engine introduces true cognitive reasoning to automotive diagnostics and predictive analytics, trained extensively on proprietary, domain-specific mobility data to support complex decision-making in real time.
+              Our ecosystem provides businesses with an absolute structural advantage through four core pillars. First, our <strong>Automotive Data & APIs</strong> grant instantaneous, robust access to comprehensive VIN intelligence and market valuations via a single streamlined interface. Second, our <strong>Sales & Inventory Management</strong> tools streamline dealership and retail operations, drastically reducing manual overhead through autonomous tracking.
             </p>
             <p>
-              Orchestrating this entire ecosystem is Achtrex Core—our enterprise integration hub that ensures seamless scalability, rapid client onboarding, and uncompromising security. From powering dynamic parts distribution networks and cutting-edge valuation engines to supporting intelligent fleet management and connected automotive commerce, Achtrex provides the mission-critical foundation required to build, scale, and innovate the intelligent automotive solutions of tomorrow.
+              Third, our <strong>Custom Software Development</strong> division engineers bespoke, zero-compromise enterprise platforms that scale infinitely without third-party vendor lock-in. Finally, our <strong>LUMI AI Solutions</strong> transition enterprises from static tools to truly autonomous cognitive workflows, leveraging advanced LLMs to process complex business logic. Together, these pillars form the mission-critical foundation required to build, scale, and dominate in the intelligent digital economy.
             </p>
           </div>
 
@@ -129,10 +164,7 @@ export const AboutContent = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-[#001a22] via-[#001a22]/30 to-transparent opacity-90" />
           <div className="absolute bottom-8 left-8 md:left-12">
             <p className="text-white font-black text-2xl md:text-3xl tracking-tight mb-1">Engineering the Future</p>
-            <p className="text-[#00a9ce] text-sm md:text-base font-bold tracking-widest uppercase flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#00a9ce] animate-pulse"></span>
-              Achtrex HQ
-            </p>
+
           </div>
         </div>
       </motion.div>
@@ -140,41 +172,56 @@ export const AboutContent = () => {
       {/* ─── DENSE BENTO LAYOUT ────────────────────────────────────────── */}
       <div className="max-w-[1200px] mx-auto px-6 pt-10 flex flex-col gap-10">
         
-        {/* ROW 1: Leadership & Core Values */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        {/* ROW 1 & 2: Leadership then Core Values */}
+        <div className="flex flex-col gap-8">
           
           {/* Leadership */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-7 flex flex-col gap-4">
+            className="flex flex-col gap-4">
             <div className="px-2 flex items-center gap-2">
               <div className="w-1.5 h-6 bg-[#00a9ce] rounded-full"></div>
               <h2 className="text-[22px] font-black text-slate-900 tracking-tight">Leadership</h2>
             </div>
-            <div className="flex flex-col sm:flex-row gap-6 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow h-full relative overflow-hidden">
+            <div className="flex flex-col md:flex-row gap-6 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#00a9ce]/5 rounded-bl-full -z-0"></div>
-              <div className="relative z-10 w-full sm:w-48 aspect-square shrink-0 rounded-xl overflow-hidden bg-slate-100 shadow-inner">
-                <Image src="/team/achim_real.jpg" alt="Godwin Achim Tetteh" fill className="object-cover" />
-              </div>
-              <div className="flex flex-col justify-center relative z-10">
-                <h3 className="text-xl font-black text-slate-900">Godwin Achim Tetteh</h3>
-                <p className="text-[12px] font-bold uppercase tracking-widest text-[#00a9ce] mb-3">Founder & System Architect</p>
-                <div className="text-[13px] text-slate-600 leading-relaxed font-medium mb-4 space-y-3">
-                  <p>
-                    Bringing a rare combination of deep hands-on automotive engineering expertise and advanced enterprise system architecture, Godwin founded Achtrex with a clear vision: to resolve the critical data fragmentation that has historically held back the global automotive ecosystem.
-                  </p>
-                  <p>
-                    His technical leadership drives the core architectural decisions behind Achtrex’s proprietary data ingestion pipelines, highly scalable API gateways, and the cognitive reasoning models powering LUMI AI. 
-                  </p>
+              
+              {/* Left Column: Image & Tags */}
+              <div className="relative z-10 w-full md:w-72 shrink-0 flex flex-col gap-5">
+                <div className="rounded-xl overflow-hidden bg-slate-100 shadow-inner w-full">
+                  <Image src="/team/achim_real.jpg" alt="Godwin Achim Tetteh" width={400} height={600} className="w-full h-auto object-cover" priority />
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {expertise.map((t, i) => (
-                    <span key={i} className="px-3 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-700 border border-slate-200 shadow-sm">
-                      {t}
-                    </span>
+                    <span key={i} className="px-2.5 py-1 bg-slate-50 border border-slate-200 rounded-full text-[12px] font-bold text-slate-700 shadow-sm leading-tight">{t}</span>
                   ))}
+                </div>
+              </div>
+
+              {/* Right Column: Bio */}
+              <div className="flex flex-col relative z-10 flex-1">
+                <h3 className="text-xl font-black text-slate-900">Godwin Achim Tetteh</h3>
+                <p className="text-[12px] font-bold uppercase tracking-widest text-[#00a9ce] mb-3">Founder & System Architect</p>
+                <div className="text-[14px] text-slate-600 leading-relaxed font-medium mb-4 space-y-4">
+                  <p>
+                    Godwin’s architectural vision is rooted in a rare, end-to-end mastery of the automotive ecosystem. He began his career as a hands-on Automotive Engineer, directly diagnosing and engineering complex vehicle mechanical and electrical systems. Recognizing a critical knowledge gap in the sector, he transitioned into an Automotive Trainer, educating over 800 technicians and students on advanced vehicle systems and modern diagnostics.
+                  </p>
+                  <p>
+                    His deep mechanical expertise naturally evolved into systemic problem-solving. Serving as a Data Validation Officer and in Technical Sales, Godwin rigorously mastered the complex requirements of automotive data. He began architecting bespoke software systems designed to solve the exact operational bottlenecks he had witnessed firsthand in repair shops and industrial environments.
+                  </p>
+                  <p>
+                    This foundation propelled him into high-level Account Management and Consulting, where he advised developers, startups, and large-scale enterprises seeking robust automotive databases and APIs. Through extensive independent research and contracting, he realized the industry's greatest barrier was data fragmentation—leading directly to the founding of Achtrex to architect the definitive data and software infrastructure for the connected mobility era.
+                  </p>
+                  <div className="bg-[#00a9ce]/5 border border-[#00a9ce]/10 p-5 rounded-xl mt-6 italic text-slate-700 shadow-sm relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-1 h-full bg-[#00a9ce]"></div>
+                    <span className="font-black text-[#00a9ce] not-italic block mb-2 text-[15px]">My Word to the Industry:</span>
+                    "For decades, the automotive world has been defined by physical engineering—but tomorrow will be defined by systemic intelligence. We are moving past the era where data was merely a byproduct of operations; today, data is the engine itself. My architectural philosophy is simple: software should not dictate how a business runs; it should invisibly empower how a business dominates. At Achtrex, we go beyond delivering consulting and providing Data. By unifying granular automotive intelligence, autonomous sales and inventory ecosystems, bespoke enterprise software, and cognitive AI workflows, we are engineering the complete central nervous system of the modern business. We eliminate structural friction entirely, so you can engineer the future."
+                  </div>
+                  <p className="mt-5">
+                    Godwin’s leadership is defined by this relentless pursuit of architectural perfection. He believes that true innovation happens exclusively at the intersection of raw mechanical understanding and elite software engineering. As Founder and System Architect, he remains deeply involved in the systemic design of Achtrex’s infrastructure, ensuring that every product—from the deepest VIN database query to the most complex cognitive AI workflow—meets his uncompromising standard of absolute operational superiority.
+                  </p>
                 </div>
               </div>
             </div>
@@ -182,19 +229,20 @@ export const AboutContent = () => {
 
           {/* Core Values */}
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-5 flex flex-col gap-4">
+            transition={{ delay: 0.1 }}
+            className="flex flex-col gap-4">
             <div className="px-2 flex items-center gap-2">
               <div className="w-1.5 h-6 bg-[#76bc1d] rounded-full"></div>
               <h2 className="text-[22px] font-black text-slate-900 tracking-tight">Core Values</h2>
             </div>
-            <div className="grid grid-cols-2 gap-3 h-full">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {values.map((v, i) => (
-                <div key={i} className="group flex flex-col items-center justify-center gap-3 p-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition-all shadow-sm hover:shadow-md hover:border-[#76bc1d]/30 text-center">
-                  <span className="text-2xl text-[#76bc1d] leading-none font-mono group-hover:scale-110 transition-transform">{v.icon}</span>
-                  <span className="text-[13px] font-bold text-slate-700">{v.label}</span>
+                <div key={i} className="group flex flex-col items-center justify-center gap-3 p-5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition-all shadow-sm hover:shadow-md hover:border-[#76bc1d]/30 text-center">
+                  <span className="text-3xl text-[#76bc1d] leading-none font-mono group-hover:scale-110 transition-transform">{v.icon}</span>
+                  <span className="text-[14px] font-bold text-slate-700">{v.label}</span>
                 </div>
               ))}
             </div>
@@ -213,7 +261,7 @@ export const AboutContent = () => {
             <div className="absolute -right-4 -top-4 w-24 h-24 bg-[#00a9ce]/10 rounded-full blur-xl group-hover:bg-[#00a9ce]/20 transition-all"></div>
             <h2 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">Our Mission</h2>
             <p className="text-[15px] text-slate-600 leading-relaxed font-medium">
-              To provide scalable enterprise infrastructure that enables businesses to access intelligent automotive data, cognitive AI systems, and real-time mobility intelligence through secure, modern digital architectures.
+              To provide scalable enterprise infrastructure that enables businesses to access intelligent data, custom software platforms, and real-time AI solutions through secure, modern digital architectures.
             </p>
           </motion.div>
 
@@ -227,7 +275,7 @@ export const AboutContent = () => {
             <div className="absolute -right-4 -top-4 w-24 h-24 bg-[#76bc1d]/10 rounded-full blur-xl group-hover:bg-[#76bc1d]/20 transition-all"></div>
             <h2 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">Our Vision</h2>
             <p className="text-[15px] text-slate-600 leading-relaxed font-medium">
-              To build one of the world&apos;s leading automotive intelligence and cognitive infrastructure ecosystems — powering the future of connected mobility and AI-driven vehicle intelligence.
+              To build one of the world's leading technology ecosystems — powering the future of connected intelligence, zero-compromise software, and autonomous enterprise workflows.
             </p>
           </motion.div>
 
@@ -243,9 +291,9 @@ export const AboutContent = () => {
             </div>
             <ul className="space-y-4">
               {[
-                'VIN databases, specs & fitment data live in disconnected silos',
-                'Legacy automotive APIs fail under modern enterprise load',
-                'Businesses need 5–10 vendors to get a complete data solution',
+                'Data, inventory, and operations live in disconnected, legacy silos',
+                'Off-the-shelf software fails under modern enterprise scalability demands',
+                'Businesses need 5–10 vendors to get a complete data & software solution',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-[15px] text-slate-600 font-medium bg-slate-50 p-3 rounded-lg border border-slate-100">
                   <span className="mt-1 w-2 h-2 rounded-full bg-slate-400 shrink-0 shadow-sm" />
@@ -267,9 +315,10 @@ export const AboutContent = () => {
             </div>
             <ul className="space-y-4">
               {[
-                'AutomotiveDataset.com — unified VIN intelligence via one enterprise API',
-                'LUMI AI — cognitive reasoning trained on proprietary automotive data',
-                'Achtrex Core — one integration layer for data, AI & enterprise workflows',
+                'Automotive Data & APIs — massive intelligence via one enterprise endpoint',
+                'Sales & Inventory — automated tracking replacing manual entry',
+                'Custom Software — bespoke, scalable, zero vendor lock-in platforms',
+                'LUMI AI — cognitive workflow automation powered by advanced LLMs'
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-[15px] text-slate-600 font-medium bg-[#00a9ce]/5 p-3 rounded-lg border border-[#00a9ce]/10">
                   <span className="mt-1 w-2 h-2 rounded-full bg-[#00a9ce] shrink-0 shadow-sm" />
@@ -286,7 +335,7 @@ export const AboutContent = () => {
              <div className="w-1.5 h-6 bg-slate-900 rounded-full"></div>
             <h2 className="text-[22px] font-black text-slate-900 tracking-tight">Platform Ecosystem</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {platforms.map((p, i) => (
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }}
