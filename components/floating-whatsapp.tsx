@@ -43,7 +43,7 @@ const FloatingWidgets = () => {
         <div className="absolute -inset-2 rounded-full bg-[#018861] opacity-60 animate-ping [animation-duration:2s] [animation-delay:800ms]"></div>
         <div className="absolute -inset-1 rounded-full bg-[#018861] opacity-40 animate-pulse [animation-delay:800ms]"></div>
         <a
-          href="mailto:contact@achtrex.com"
+          href="mailto:support@achtrex.com"
           className="relative flex h-11 w-11 items-center justify-center rounded-full bg-[#018861] text-white shadow-xl transition-transform duration-300 ease-in-out hover:scale-125 hover:rotate-12 active:scale-90"
           aria-label="Email us"
         >
