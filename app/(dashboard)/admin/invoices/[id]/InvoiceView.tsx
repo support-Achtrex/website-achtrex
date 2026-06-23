@@ -84,7 +84,7 @@ export default function InvoiceView({ payment, client, paymentDetails }: Invoice
  <button
  onClick={handleResendEmail}
  disabled={emailStatus === 'sending'}
- className="bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm text-sm border border-gray-200"
+ className="bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 transition-colors shadow-sm text-sm border border-gray-200"
  >
  <RefreshCcw size={14} className={emailStatus === 'sending' ? 'animate-spin' : ''} />
  {emailStatus === 'sending' ? 'Sending...' : emailStatus === 'sent' ? 'Sent!' : 'Resend Email'}
@@ -93,7 +93,7 @@ export default function InvoiceView({ payment, client, paymentDetails }: Invoice
 
  <button
  onClick={handleDownloadPDF}
- className="bg-[#D97706] hover:bg-[#B45309] text-slate-900 px-6 py-2 rounded font-medium flex items-center gap-2 transition-colors shadow-sm"
+ className="bg-[#D97706] hover:bg-[#B45309] text-slate-900 px-6 py-2 rounded-full font-medium flex items-center gap-2 transition-colors shadow-sm"
  >
  <Download size={18} />
  Download PDF

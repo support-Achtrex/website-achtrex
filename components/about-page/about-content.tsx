@@ -356,7 +356,7 @@ export const AboutContent = () => {
                   </a>
                 ) : (
                   <Link href={p.href}
-                    className="inline-flex items-center gap-2 text-[14px] font-bold transition-all group-hover:gap-3 bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm self-start"
+                    className="inline-flex items-center gap-2 text-[14px] font-bold transition-all group-hover:gap-3 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm self-start"
                     style={{ color: p.accent }}>
                     Learn more <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" /></svg>
                   </Link>
@@ -381,7 +381,7 @@ export const AboutContent = () => {
                 Contact our team to discuss integration at <a href="mailto:support@achtrex.com" className="text-[#00a9ce] hover:text-white font-bold transition-colors">support@achtrex.com</a>
               </p>
             </div>
-            <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 bg-logo-gradient text-white font-bold text-[15px] px-8 py-4 rounded-xl transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,169,206,0.4)] shrink-0 border-0 group">
+            <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 bg-logo-gradient text-white font-bold text-[15px] px-8 py-4 rounded-full transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,169,206,0.4)] shrink-0 border-0 group">
               Contact Us
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
             </Link>

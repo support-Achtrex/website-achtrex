@@ -202,7 +202,7 @@ export default async function AITrainingPage() {
  <textarea rows={4} className="w-full bg-white border border-slate-300 rounded-none px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-[#00a9ce] transition-colors" placeholder="Describe your project, timeline, and data availability..." required></textarea>
  </div>
  
- <button type="submit" className="w-full py-3.5 bg-[#00a9ce] text-white rounded-none font-bold hover:bg-[#001a22] transition-all shadow-none">
+ <button type="submit" className="w-full py-3.5 bg-[#00a9ce] text-white rounded-full font-bold hover:bg-[#001a22] transition-all shadow-none">
  Submit Request
  </button>
  

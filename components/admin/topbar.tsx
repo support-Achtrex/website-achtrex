@@ -48,10 +48,10 @@ const AdminTopbar = () => {
       {/* Actions & Profile */}
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-4">
-          <button className="w-10 h-10 bg-transparent rounded-full flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors shadow-sm">
+          <button className="w-10 h-10 bg-transparent rounded-full-full flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors shadow-sm">
             <Mail size={20} />
           </button>
-          <button className="w-10 h-10 bg-transparent rounded-full flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors shadow-sm relative">
+          <button className="w-10 h-10 bg-transparent rounded-full-full flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors shadow-sm relative">
             <Bell size={20} />
             <span className="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
           </button>

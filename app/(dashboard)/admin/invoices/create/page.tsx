@@ -139,7 +139,7 @@ export default async function CreateInvoicePage() {
 
  {/* Submit Button */}
  <div className="pt-4">
- <button type="submit" className="w-full bg-primary hover:bg-primary/90 text-slate-900 font-bold py-3 px-6 rounded-lg transition-colors shadow-lg shadow-primary/20">
+ <button type="submit" className="w-full bg-primary hover:bg-primary/90 text-slate-900 font-bold py-3 px-6 rounded-full transition-colors shadow-lg shadow-primary/20">
  Create Invoice
  </button>
  </div>

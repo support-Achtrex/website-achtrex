@@ -75,7 +75,7 @@ export const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) =>
               </div>
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-slate-900/70 hover:text-slate-900 hover:bg-transparent/10 transition-all"
+                className="absolute top-4 right-4 p-2 rounded-full-full bg-black/50 text-slate-900/70 hover:text-slate-900 hover:bg-transparent/10 transition-all"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -129,7 +129,7 @@ export const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) =>
             <div className="p-6 border-t border-slate-200 bg-transparent/5 flex justify-end shrink-0">
               <button
                 onClick={onClose}
-                className="px-6 py-2.5 rounded-xl bg-primary text-slate-900 font-semibold hover:bg-primary/90 transition-colors"
+                className="px-6 py-2.5 rounded-full bg-primary text-slate-900 font-semibold hover:bg-primary/90 transition-colors"
               >
                 Close Details
               </button>

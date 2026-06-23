@@ -168,7 +168,7 @@ export const Navbar = () => {
                           key={subLink.href}
                           href={subLink.href}
                           className={cn(
-                            "rounded-lg transition-colors hover:bg-slate-50 flex items-start px-4 py-3"
+                            "rounded-full transition-colors hover:bg-slate-50 flex items-start px-4 py-3"
                           )}
                         >
                           <div className="flex flex-col">
@@ -186,7 +186,7 @@ export const Navbar = () => {
             
             {/* Call Now Button inside the pill */}
             <div className="ml-4">
-              <Link href="tel:+1234567890" className="bg-logo-gradient text-white text-[14px] font-bold px-6 py-2.5 rounded-full transition-transform hover:scale-105 border-0 shadow-md flex items-center justify-center">
+              <Link href="tel:+16133664271" className="bg-logo-gradient text-white text-[14px] font-bold px-6 py-2.5 rounded-full transition-transform hover:scale-105 border-0 shadow-md flex items-center justify-center">
                 Call Now
               </Link>
             </div>

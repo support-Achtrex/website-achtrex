@@ -307,7 +307,7 @@ export default function NotesManager({ subscriberId, initialNotes }: NotesManage
           <button
             onClick={handleAddNote}
             disabled={isSubmitting}
-            className="bg-blue-600 text-slate-900 px-4 py-1.5 rounded-lg text-sm font-bold shadow-md shadow-blue-100 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-all"
+            className="bg-blue-600 text-slate-900 px-4 py-1.5 rounded-full text-sm font-bold shadow-md shadow-blue-100 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-all"
           >
             {isSubmitting ? (
               <>

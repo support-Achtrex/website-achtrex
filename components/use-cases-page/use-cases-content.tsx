@@ -333,7 +333,7 @@ export const UseCasesContent = () => {
               </p>
             </div>
             <Link href="/contact-us"
-              className="inline-flex items-center gap-3 bg-logo-gradient text-white font-bold text-[15px] px-8 py-4 rounded-xl hover:scale-105 hover:shadow-[0_0_20px_rgba(0,169,206,0.4)] transition-all whitespace-nowrap shrink-0 group border-0">
+              className="inline-flex items-center gap-3 bg-logo-gradient text-white font-bold text-[15px] px-8 py-4 rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(0,169,206,0.4)] transition-all whitespace-nowrap shrink-0 group border-0">
               Get in touch
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
             </Link>

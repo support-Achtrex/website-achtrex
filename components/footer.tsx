@@ -71,10 +71,10 @@ export const Footer = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="tel:+19733851305" className="w-full sm:w-auto px-8 py-3 rounded-md border border-white/20 text-white font-bold hover:bg-white/5 transition-colors text-center text-[15px]">
-                  Call Us: +1 973 385 1305
+                <a href="tel:+16133664271" className="w-full sm:w-auto px-8 py-3 rounded-full border border-white/20 text-white font-bold hover:bg-white/5 transition-colors text-center text-[15px]">
+                  Call Us: +1 613 366 4271
                 </a>
-                <button onClick={() => router.push('/contact-us')} className="w-full sm:w-auto px-8 py-3 rounded-md bg-logo-gradient text-white font-bold transition-transform hover:scale-105 text-center shadow-lg border-0 text-[15px]">
+                <button onClick={() => router.push('/contact-us')} className="w-full sm:w-auto px-8 py-3 rounded-full bg-logo-gradient text-white font-bold transition-transform hover:scale-105 text-center shadow-lg border-0 text-[15px]">
                   Work with Us
                 </button>
               </motion.div>

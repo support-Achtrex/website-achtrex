@@ -152,7 +152,7 @@ export const PortfolioDetailTemplate: React.FC<PortfolioDetailProps> = ({ data, 
           </div>
 
           <div className="mt-20">
-            <Link href="/" className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-black uppercase tracking-wider rounded-full hover:bg-[#11243b] hover:-translate-y-1 transition-all shadow-[0_8px_20px_rgba(249,115,22,0.3)]">
+            <Link href="/" className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-black uppercase tracking-wider rounded-full-full hover:bg-[#11243b] hover:-translate-y-1 transition-all shadow-[0_8px_20px_rgba(249,115,22,0.3)]">
               See Live Project
             </Link>
           </div>

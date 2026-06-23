@@ -42,7 +42,7 @@ export default function ProductsClient() {
  {products.map((prod, idx) => {
  const Icon = prod.icon;
  return (
- <Link key={idx} href={prod.href} className="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:border-orange-500/30 transition-all duration-300">
+ <Link key={idx} href={prod.href} className="group bg-white p-8 rounded-full shadow-sm border border-slate-100 hover:shadow-xl hover:border-orange-500/30 transition-all duration-300">
  <div className="w-14 h-14 bg-slate-50 group-hover:bg-orange-50 rounded-xl flex items-center justify-center mb-6 transition-colors">
  <Icon className="w-7 h-7 text-[#11243b] group-hover:text-orange-500 transition-colors" />
  </div>

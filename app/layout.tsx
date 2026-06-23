@@ -69,9 +69,6 @@ export const metadata: Metadata = {
  images: ["/projects/lumi_ui_v2.jpg"],
  creator: "@achtrex",
  },
- verification: {
- google: "google-site-verification-placeholder",
- },
 };
 
 const jsonLd = {
@@ -83,10 +80,10 @@ const jsonLd = {
  "description": "Enterprise SaaS venture builder specializing in high-velocity data architectures and cognitive AI platforms.",
  "contactPoint": {
  "@type": "ContactPoint",
- "telephone": "+1-973-385-1305",
+ "telephone": "+1-613-366-4271",
  "contactType": "customer service",
- "areaServed": ["GH", "US", "GB", "NL"],
- "availableLanguage": "en"
+ "areaServed": ["GH", "US", "GB", "NL", "CA"],
+ "availableLanguage": ["en", "fr"]
  },
  "sameAs": [
  "https://twitter.com/achtrex",

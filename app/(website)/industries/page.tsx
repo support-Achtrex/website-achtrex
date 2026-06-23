@@ -35,7 +35,7 @@ export default function IndustriesPage() {
  {industries.map((ind, idx) => {
  const Icon = ind.icon;
  return (
- <Link key={idx} href={ind.href} className="group bg-white p-8 rounded-none shadow-sm border border-slate-200 hover:shadow-md hover:border-[#00a9ce] transition-all duration-300 flex flex-col justify-between h-full">
+ <Link key={idx} href={ind.href} className="group bg-white p-8 rounded-full shadow-sm border border-slate-200 hover:shadow-md hover:border-[#00a9ce] transition-all duration-300 flex flex-col justify-between h-full">
  <div>
  <div className="w-14 h-14 bg-slate-50 border border-slate-100 group-hover:bg-[#00a9ce]/10 rounded-none flex items-center justify-center mb-6 transition-colors">
  <Icon weight="duotone" className="w-7 h-7 text-slate-700 group-hover:text-[#00a9ce] transition-colors" />

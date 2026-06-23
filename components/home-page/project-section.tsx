@@ -107,7 +107,7 @@ export const ProjectsSection = () => {
                     <Link 
                       href={products[currentIndex].link}
                       target="_blank"
-                      className="inline-flex items-center justify-center gap-2 bg-[#1e40af] hover:bg-[#1e3a8a] text-slate-900 px-10 py-4 rounded-sm font-bold text-lg transition-all w-full sm:w-fit"
+                      className="inline-flex items-center justify-center gap-2 bg-[#1e40af] hover:bg-[#1e3a8a] text-slate-900 px-10 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-fit"
                     >
                       Explore Product
                     </Link>
@@ -151,10 +151,10 @@ export const ProjectsSection = () => {
 
           {/* Navigation Buttons */}
           <div className="flex justify-center lg:justify-start gap-4 mt-12">
-            <button onClick={prevSlide} className="p-4 rounded-full border border-slate-200 bg-transparent/5 hover:bg-transparent/10 text-slate-900 transition-all">
+            <button onClick={prevSlide} className="p-4 rounded-full-full border border-slate-200 bg-transparent/5 hover:bg-transparent/10 text-slate-900 transition-all">
               <ChevronLeft className="w-6 h-6" />
             </button>
-            <button onClick={nextSlide} className="p-4 rounded-full border border-slate-200 bg-transparent/5 hover:bg-transparent/10 text-slate-900 transition-all">
+            <button onClick={nextSlide} className="p-4 rounded-full-full border border-slate-200 bg-transparent/5 hover:bg-transparent/10 text-slate-900 transition-all">
               <ChevronRight className="w-6 h-6" />
             </button>
           </div>

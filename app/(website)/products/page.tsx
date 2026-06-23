@@ -12,6 +12,27 @@ export const metadata: Metadata = {
  }
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Achtrex Product Ecosystem",
+  "description": "Explore the Achtrex product ecosystem: from AutomotiveDataset.com's high-frequency vehicle data to LUMI's autonomous AI frameworks.",
+  "url": "https://achtrex.com/products",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Achtrex",
+    "url": "https://achtrex.com"
+  }
+};
+
 export default function ProductsPage() {
- return <ProductsClient />;
+ return (
+   <>
+     <script
+       type="application/ld+json"
+       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+     />
+     <ProductsClient />
+   </>
+ );
 }

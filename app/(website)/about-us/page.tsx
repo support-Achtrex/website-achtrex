@@ -16,9 +16,25 @@ export const metadata: Metadata = {
  }
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Achtrex",
+  "description": "Discover how Achtrex is redefining enterprise data and AI infrastructure.",
+  "url": "https://achtrex.com/about-us",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Achtrex"
+  }
+};
+
 export default function AboutPage() {
  return (
  <main className="min-h-screen bg-[#f4f4f4] text-slate-900 overflow-x-hidden">
+ <script
+   type="application/ld+json"
+   dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+ />
  <InnerPageHeader title="About Achtrex" subtitle="Architecting the Future of Data and Cognitive Mobility Infrastructure" />
  <AboutContent />
  </main>

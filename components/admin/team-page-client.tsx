@@ -92,7 +92,7 @@ const TeamPageClient = ({ initialMembers }: TeamPageClientProps) => {
         </div>
         <button 
           onClick={handleAddClick}
-          className="flex items-center gap-2 px-4 py-2.5 bg-primary text-slate-900 rounded-xl font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
+          className="flex items-center gap-2 px-4 py-2.5 bg-primary text-slate-900 rounded-full font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
         >
           <Plus size={18} />
           <span>Add Member</span>

@@ -75,7 +75,7 @@ export default async function SubscriberDetailPage({
  return (
  <div className="space-y-8 animate-in fade-in duration-500">
  <div className="flex flex-col md:flex-row md:items-center gap-4">
- <Link href="/admin/subscribers" className="p-2 hover:bg-gray-100 rounded-full transition-colors w-fit">
+ <Link href="/admin/subscribers" className="p-2 hover:bg-gray-100 rounded-full-full transition-colors w-fit">
  <ArrowLeft size={20} className="text-slate-400" />
  </Link>
  <div>
@@ -91,7 +91,7 @@ export default async function SubscriberDetailPage({
  placeholder="Add or edit address..."
  className="border border-gray-200 rounded-lg px-3 py-1 text-sm w-full max-w-[300px]"
  />
- <button type="submit" className="text-xs bg-gray-900 text-slate-900 px-3 py-1 rounded-lg hover:bg-gray-800 transition-colors">
+ <button type="submit" className="text-xs bg-gray-900 text-slate-900 px-3 py-1 rounded-full hover:bg-gray-800 transition-colors">
  Save
  </button>
  </form>
@@ -305,7 +305,7 @@ export default async function SubscriberDetailPage({
  'use server';
  await deleteFile(id, file.id);
  }}>
- <button className="p-1.5 text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
+ <button className="p-1.5 text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors">
  <Trash2 size={14} />
  </button>
  </form>

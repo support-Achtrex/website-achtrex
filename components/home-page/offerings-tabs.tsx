@@ -180,14 +180,14 @@ Data Intelligence Platforms"
           {/* Left/Right Arrows for Mobile/Desktop cycling */}
           <button 
             onClick={handlePrev}
-            className="absolute left-[-40px] top-1/2 -translate-y-1/2 p-3 md:p-4 rounded-full border border-slate-200 text-slate-400 hover:text-slate-900 hover:border-slate-400 transition-colors bg-white/50 backdrop-blur-sm hidden lg:block"
+            className="absolute left-[-40px] top-1/2 -translate-y-1/2 p-3 md:p-4 rounded-full-full border border-slate-200 text-slate-400 hover:text-slate-900 hover:border-slate-400 transition-colors bg-white/50 backdrop-blur-sm hidden lg:block"
             aria-label="Previous offering"
           >
             <CaretLeft weight="bold" className="w-5 h-5 md:w-6 md:h-6" />
           </button>
           <button 
             onClick={handleNext}
-            className="absolute right-[-40px] top-1/2 -translate-y-1/2 p-3 md:p-4 rounded-full border border-slate-200 text-slate-400 hover:text-slate-900 hover:border-slate-400 transition-colors bg-white/50 backdrop-blur-sm hidden lg:block"
+            className="absolute right-[-40px] top-1/2 -translate-y-1/2 p-3 md:p-4 rounded-full-full border border-slate-200 text-slate-400 hover:text-slate-900 hover:border-slate-400 transition-colors bg-white/50 backdrop-blur-sm hidden lg:block"
             aria-label="Next offering"
           >
             <CaretRight weight="bold" className="w-5 h-5 md:w-6 md:h-6" />
@@ -218,7 +218,7 @@ Data Intelligence Platforms"
                 </p>
                 <Link 
                   href={`/contact-us?subject=${activeData.id}`}
-                  className="inline-block relative z-50 px-8 py-3 bg-white text-sm font-semibold tracking-wide transition-all hover:shadow-lg rounded-sm border"
+                  className="inline-block relative z-50 px-8 py-3 bg-white text-sm font-semibold tracking-wide transition-all hover:shadow-lg rounded-full border"
                   style={{ 
                     color: activeData.color,
                     borderColor: activeData.color 

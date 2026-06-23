@@ -98,7 +98,7 @@ the intelligence, and the platforms behind automotive businesses."
               onClick={() => {
                 window.dispatchEvent(new CustomEvent('open-services-dropdown'));
               }}
-              className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-semibold tracking-wide px-10 py-4 transition-all hover:scale-105 rounded-sm overflow-hidden bg-logo-gradient border-0"
+              className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-semibold tracking-wide px-10 py-4 transition-all hover:scale-105 rounded-full overflow-hidden bg-logo-gradient border-0 shadow-[0_0_20px_rgba(0,169,206,0.3)] hover:shadow-[0_0_30px_rgba(0,169,206,0.6)]"
             >
               <span className="relative z-10">Explore what we build</span>
               <ArrowRight className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -109,10 +109,10 @@ the intelligence, and the platforms behind automotive businesses."
             {/* Secondary CTA */}
             <button
               onClick={() => router.push('/book-a-demo')}
-              className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-semibold tracking-wide px-10 py-4 transition-all hover:bg-white/10 rounded-sm border-2 border-white/30 backdrop-blur-sm"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-semibold tracking-wide px-10 py-4 transition-all hover:bg-white/20 hover:scale-105 rounded-full border border-white/40 shadow-lg hover:shadow-white/20 backdrop-blur-md"
             >
               <span>Talk to us</span>
-              <Chat className="w-5 h-5" />
+              <Chat className="w-5 h-5 transition-transform group-hover:scale-110" />
             </button>
           </motion.div>
         </motion.div>

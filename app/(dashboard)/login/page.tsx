@@ -136,7 +136,7 @@ export default function LoginPage() {
  <button
  type="submit"
  disabled={!isFormValid || isLoading}
- className={`w-full py-4 rounded-xl text-slate-900 font-bold text-sm tracking-wide transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2
+ className={`w-full py-4 rounded-full text-slate-900 font-bold text-sm tracking-wide transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2
  ${!isFormValid || isLoading
  ? 'bg-gray-300 cursor-not-allowed shadow-none'
  : 'bg-primary hover:bg-blue-700 hover:shadow-blue-500/30 active:scale-[0.98]'

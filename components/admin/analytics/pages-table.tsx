@@ -14,9 +14,9 @@ const PagesTable = () => {
     <div className="bg-transparent p-8 rounded-[32px] shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-200/50 hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300">
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-1.5 bg-transparent/80 p-1.5 rounded-2xl border border-slate-200">
-          <button className="px-5 py-2 bg-transparent text-gray-900 text-xs font-bold rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] font-montserrat tracking-wide">Pages</button>
-          <button className="px-5 py-2 text-slate-400 text-xs font-medium hover:bg-gray-200/50 rounded-xl transition-colors font-montserrat tracking-wide">Entry Pages</button>
-          <button className="px-5 py-2 text-slate-400 text-xs font-medium hover:bg-gray-200/50 rounded-xl transition-colors font-montserrat tracking-wide">Exit Pages</button>
+          <button className="px-5 py-2 bg-transparent text-gray-900 text-xs font-bold rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.04)] font-montserrat tracking-wide">Pages</button>
+          <button className="px-5 py-2 text-slate-400 text-xs font-medium hover:bg-gray-200/50 rounded-full transition-colors font-montserrat tracking-wide">Entry Pages</button>
+          <button className="px-5 py-2 text-slate-400 text-xs font-medium hover:bg-gray-200/50 rounded-full transition-colors font-montserrat tracking-wide">Exit Pages</button>
         </div>
         <div className="flex items-center gap-3">
           <div className="relative">
@@ -28,7 +28,7 @@ const PagesTable = () => {
               <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
             </div>
           </div>
-          <button className="p-2 text-slate-500 hover:bg-transparent rounded-xl transition-colors">
+          <button className="p-2 text-slate-500 hover:bg-transparent rounded-full transition-colors">
             <MoreHorizontal size={20} />
           </button>
         </div>

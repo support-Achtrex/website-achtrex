@@ -84,7 +84,7 @@ export const BookingClient = () => {
  {/* Left Sidebar - Meeting Info */}
  <div className="w-full md:w-1/3 bg-white p-8 md:border-r border-slate-200">
  {step === 2 && (
- <button onClick={handleBack} className="text-[#00a9ce] hover:text-[#001a22] p-2 -ml-2 mb-4 rounded-none hover:bg-slate-50 transition-colors">
+ <button onClick={handleBack} className="text-[#00a9ce] hover:text-[#001a22] p-2 -ml-2 mb-4 rounded-full hover:bg-slate-50 transition-colors">
  <ChevronLeft className="w-6 h-6" />
  </button>
  )}
@@ -173,7 +173,7 @@ export const BookingClient = () => {
  <input required type="email" name="email" value={formData.email} onChange={handleChange} className={inputClasses} />
  </div>
  <div>
- <button type="button" className="text-[#00a9ce] font-semibold text-sm border border-[#00a9ce] rounded-none px-4 py-1.5 hover:bg-slate-50 transition-colors">
+ <button type="button" className="text-[#00a9ce] font-semibold text-sm border border-[#00a9ce] rounded-full px-4 py-1.5 hover:bg-slate-50 transition-colors">
  Add Guests
  </button>
  </div>
@@ -197,7 +197,7 @@ export const BookingClient = () => {
  <button 
  type="submit" 
  disabled={status === 'loading'}
- className="bg-[#00a9ce] hover:bg-[#001a22] text-white font-bold py-3 px-6 rounded-none transition-colors disabled:opacity-70 mt-2"
+ className="bg-[#00a9ce] hover:bg-[#001a22] text-white font-bold py-3 px-6 rounded-full transition-colors disabled:opacity-70 mt-2"
  >
  {status === 'loading' ? 'Scheduling...' : 'Schedule Event'}
  </button>

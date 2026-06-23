@@ -40,10 +40,10 @@ export default function CustomClient() {
  Contact Today <ArrowRight size={18} />
  </a>
  <div className="grid grid-cols-2 gap-3 pt-2">
- <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-none hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
+ <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
  Our Methodology
  </button>
- <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-none hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
+ <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
  Case Studies
  </button>
  </div>

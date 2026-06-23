@@ -214,7 +214,7 @@ export const ContactClient = () => {
  <button 
  type="submit" 
  disabled={status === 'loading'}
- className="group relative flex items-center justify-center w-full bg-[#001a22] text-white font-bold py-5 px-6 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+ className="group relative flex items-center justify-center w-full bg-[#001a22] text-white font-bold py-5 px-6 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed"
  >
  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
  <span className="relative z-10 text-sm tracking-widest uppercase">

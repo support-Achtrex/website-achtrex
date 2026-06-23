@@ -28,7 +28,7 @@ export default function HelpPage() {
  placeholder="Search help articles..."
  className="flex-1 bg-transparent border-none outline-none px-4 text-slate-900 placeholder:text-slate-400 font-medium"
  />
- <button className="bg-primary hover:bg-primary-dark h-full px-6 rounded-xl font-bold transition-all active:scale-95 shadow-lg">
+ <button className="bg-primary hover:bg-primary-dark h-full px-6 rounded-full font-bold transition-all active:scale-95 shadow-lg">
  Search
  </button>
  </div>
@@ -115,7 +115,7 @@ export default function HelpPage() {
  </div>
  </div>
 
- <button className="w-full mt-10 bg-white text-gray-900 py-4 rounded-2xl font-black text-sm hover:bg-gray-100 transition-all active:scale-95 shadow-lg">
+ <button className="w-full mt-10 bg-white text-gray-900 py-4 rounded-full font-black text-sm hover:bg-gray-100 transition-all active:scale-95 shadow-lg">
  Open Support Ticket
  </button>
  </div>

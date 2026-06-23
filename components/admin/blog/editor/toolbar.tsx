@@ -178,14 +178,14 @@ export default function Toolbar({ editor }: ToolbarProps) {
         </button>
         <button
           onClick={setLink}
-          className={`p-1.5 rounded-lg transition-colors ${editor.isActive('link') ? 'bg-transparent text-primary shadow-sm' : 'text-slate-500 hover:bg-transparent'}`}
+          className={`p-1.5 rounded-full transition-colors ${editor.isActive('link') ? 'bg-transparent text-primary shadow-sm' : 'text-slate-500 hover:bg-transparent'}`}
           title="Link"
         >
           <LinkIcon size={16} />
         </button>
         <button
           onClick={addImage}
-          className="p-1.5 hover:bg-transparent rounded-lg text-slate-500 transition-colors"
+          className="p-1.5 hover:bg-transparent rounded-full text-slate-500 transition-colors"
           title="Image"
         >
           <ImageIcon size={16} />

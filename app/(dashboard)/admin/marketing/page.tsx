@@ -52,7 +52,7 @@ export default async function MarketingPage() {
  </p>
  </div>
  <form action={deleteSubscriber.bind(null, sub.id)}>
- <button className="text-slate-600 hover:text-red-500 p-2 rounded-lg hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-sm">
+ <button className="text-slate-600 hover:text-red-500 p-2 rounded-full hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-sm">
  <Trash2 size={12} />
  </button>
  </form>

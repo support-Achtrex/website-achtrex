@@ -80,7 +80,7 @@ export default async function LeadsPage() {
  await subscribeToNewsletter(formData);
  }}>
  <input type="hidden" name="email" value={lead.email} />
- <button className="p-2 text-slate-500 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors" title="Add as Client/Subscriber">
+ <button className="p-2 text-slate-500 hover:text-green-600 hover:bg-green-50 rounded-full transition-colors" title="Add as Client/Subscriber">
  <UserPlus size={16} />
  </button>
  </form>

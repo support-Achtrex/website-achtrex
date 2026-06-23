@@ -111,13 +111,13 @@ const TeamMemberCard = ({ member, onEdit, onDelete }: TeamMemberCardProps) => {
 
         {/* Social Actions */}
         <div className="flex items-center gap-3 mt-auto">
-          <button className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center text-slate-500 hover:bg-primary hover:text-slate-900 transition-all duration-300">
+          <button className="w-8 h-8 rounded-full-full bg-transparent flex items-center justify-center text-slate-500 hover:bg-primary hover:text-slate-900 transition-all duration-300">
             <Mail size={14} />
           </button>
-          <button className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center text-slate-500 hover:bg-[#0077b5] hover:text-slate-900 transition-all duration-300">
+          <button className="w-8 h-8 rounded-full-full bg-transparent flex items-center justify-center text-slate-500 hover:bg-[#0077b5] hover:text-slate-900 transition-all duration-300">
             <Linkedin size={14} />
           </button>
-          <button className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center text-slate-500 hover:bg-[#1DA1F2] hover:text-slate-900 transition-all duration-300">
+          <button className="w-8 h-8 rounded-full-full bg-transparent flex items-center justify-center text-slate-500 hover:bg-[#1DA1F2] hover:text-slate-900 transition-all duration-300">
             <Twitter size={14} />
           </button>
         </div>

@@ -12,10 +12,10 @@ const TimeTracker = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="w-10 h-10 bg-transparent rounded-full flex items-center justify-center text-primary hover:bg-gray-200 transition-colors">
+          <button className="w-10 h-10 bg-transparent rounded-full-full flex items-center justify-center text-primary hover:bg-gray-200 transition-colors">
             <Pause size={20} fill="currentColor" />
           </button>
-          <button className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-slate-900 hover:bg-red-600 transition-colors">
+          <button className="w-10 h-10 bg-red-500 rounded-full-full flex items-center justify-center text-slate-900 hover:bg-red-600 transition-colors">
             <StopCircle size={20} fill="currentColor" />
           </button>
         </div>

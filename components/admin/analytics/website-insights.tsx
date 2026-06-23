@@ -25,7 +25,7 @@ const WebsiteInsights = () => {
               <p className="text-orange-50 text-xs font-montserrat font-medium tracking-wide opacity-90">Website insights</p>
             </div>
           </div>
-          <button className="p-2 hover:bg-transparent/10 rounded-full transition-colors">
+          <button className="p-2 hover:bg-transparent/10 rounded-full-full transition-colors">
             <MoreHorizontal size={24} />
           </button>
         </div>

@@ -40,7 +40,7 @@ export const ScrollController = () => {
             {showUp && (
                 <button
                     onClick={scrollToTop}
-                    className="w-12 h-12 bg-white/80 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-center text-slate-700 hover:text-[#00a9ce] hover:bg-white transition-all rounded-full hover:scale-110"
+                    className="w-12 h-12 bg-white/80 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-center text-slate-700 hover:text-[#00a9ce] hover:bg-white transition-all rounded-full-full hover:scale-110"
                     aria-label="Scroll to top"
                 >
                     <ArrowUp size={24} />
@@ -50,7 +50,7 @@ export const ScrollController = () => {
             {showDown && (
                 <button
                     onClick={scrollToBottom}
-                    className="w-12 h-12 bg-white/80 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-center text-slate-700 hover:text-[#00a9ce] hover:bg-white transition-all rounded-full hover:scale-110"
+                    className="w-12 h-12 bg-white/80 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-center text-slate-700 hover:text-[#00a9ce] hover:bg-white transition-all rounded-full-full hover:scale-110"
                     aria-label="Scroll to bottom"
                 >
                     <ArrowDown size={24} />

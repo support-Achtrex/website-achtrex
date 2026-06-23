@@ -68,7 +68,7 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
           <h2 className="text-xl font-bold text-slate-700 ">{title}</h2>
           <button 
             onClick={onCancel}
-            className="text-slate-500 hover:text-slate-500 transition-colors p-1 hover:bg-slate-50/5 rounded-full"
+            className="text-slate-500 hover:text-slate-500 transition-colors p-1 hover:bg-slate-50/5 rounded-full-full"
           >
             <X size={20} />
           </button>
@@ -167,14 +167,14 @@ const TeamMemberForm = ({ initialData, onSubmit, onCancel, title, submitLabel }:
               type="button" 
               onClick={onCancel}
               disabled={isLoading}
-              className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 text-gray-700 font-medium hover:bg-transparent transition-colors disabled:opacity-50"
+              className="flex-1 px-4 py-2.5 rounded-full border border-slate-200 text-gray-700 font-medium hover:bg-transparent transition-colors disabled:opacity-50"
             >
               Cancel
             </button>
             <button 
               type="submit" 
               disabled={isLoading}
-              className="flex-1 px-4 py-2.5 rounded-xl bg-primary text-slate-900 font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25 disabled:opacity-70 flex items-center justify-center gap-2"
+              className="flex-1 px-4 py-2.5 rounded-full bg-primary text-slate-900 font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25 disabled:opacity-70 flex items-center justify-center gap-2"
             >
               {isLoading ? (
                 <>

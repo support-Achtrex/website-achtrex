@@ -17,6 +17,22 @@ export const metadata: Metadata = {
  }
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Achtrex Engineering Blog",
+  "description": "Deep dives into API scaling, data engineering, and SaaS venture building from the Achtrex architecture team.",
+  "url": "https://achtrex.com/blog",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Achtrex",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://achtrex.com/logo.png"
+    }
+  }
+};
+
 export default function BlogListingPage() {
  const featuredPost = blogPosts[0];
  const otherPosts = blogPosts.slice(1);
@@ -24,6 +40,10 @@ export default function BlogListingPage() {
 
  return (
  <main className="min-h-screen bg-[#f4f4f4] pb-20 font-sans">
+ <script
+   type="application/ld+json"
+   dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+ />
  <InnerPageHeader title="Insights & Engineering" subtitle="Explore technical deep dives, architectural decisions, and our approach to building high-velocity platforms." />
  
  <div className="max-w-[1200px] mx-auto px-4 md:px-8 pt-12">
@@ -31,7 +51,7 @@ export default function BlogListingPage() {
  {/* Categories Navigation */}
  <div className="flex flex-wrap items-center gap-4 border-b border-slate-200 pb-4 mb-12">
  {categories.map((cat, idx) => (
- <button key={idx} className={`text-[15px] font-semibold px-5 py-2 rounded-none transition-colors ${idx === 0 ? 'bg-[#00a9ce] text-white' : 'text-slate-600 hover:bg-slate-200/50 hover:text-[#00a9ce]'}`}>
+ <button key={idx} className={`text-[15px] font-semibold px-5 py-2 rounded-full transition-colors ${idx === 0 ? 'bg-[#00a9ce] text-white' : 'text-slate-600 hover:bg-slate-200/50 hover:text-[#00a9ce]'}`}>
  {cat}
  </button>
  ))}
@@ -77,7 +97,7 @@ export default function BlogListingPage() {
 
  {/* Load More Button */}
  <div className="flex justify-center">
- <button className="bg-transparent border-2 border-[#00a9ce] text-[#00a9ce] font-bold text-[15px] px-8 py-3 rounded-none hover:bg-[#00a9ce] hover:text-white transition-colors">
+ <button className="bg-transparent border-2 border-[#00a9ce] text-[#00a9ce] font-bold text-[15px] px-8 py-3 rounded-full hover:bg-[#00a9ce] hover:text-white transition-colors">
  Load More Articles
  </button>
  </div>

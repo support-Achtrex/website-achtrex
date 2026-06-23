@@ -25,7 +25,7 @@ export default function ResourcesPage() {
  {resources.map((res, idx) => {
  const Icon = res.icon;
  return (
- <Link key={idx} href={res.href} className="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:border-[#00a9ce]/30 transition-all duration-300">
+ <Link key={idx} href={res.href} className="group bg-white p-8 rounded-full shadow-sm border border-slate-100 hover:shadow-xl hover:border-[#00a9ce]/30 transition-all duration-300">
  <div className="w-14 h-14 bg-slate-50 group-hover:bg-[#00a9ce]/10 rounded-xl flex items-center justify-center mb-6 transition-colors">
  <Icon className="w-7 h-7 text-[#11243b] group-hover:text-[#00a9ce] transition-colors" />
  </div>

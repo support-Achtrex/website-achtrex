@@ -82,7 +82,7 @@ export default async function SubscribersPage() {
  </td>
  <td className="p-4 text-right">
  <div className="flex items-center justify-end gap-2">
- <Link href={`/admin/subscribers/${sub.id}`} className="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Manage Client">
+ <Link href={`/admin/subscribers/${sub.id}`} className="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors" title="Manage Client">
  <FileText size={16} />
  </Link>
  </div>

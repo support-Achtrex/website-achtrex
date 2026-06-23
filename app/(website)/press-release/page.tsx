@@ -40,7 +40,7 @@ export default function PressReleasePage() {
  </div>
  Featured Press Release
  </h2>
- <Link href={`/press-release/${featuredPress.slug}`} className="group block bg-white p-4 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:border-[#00a9ce]/30 transition-all">
+ <Link href={`/press-release/${featuredPress.slug}`} className="group block bg-white p-4 rounded-full-[2rem] border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:border-[#00a9ce]/30 transition-all">
  <div className="relative h-[350px] md:h-[450px] w-full rounded-3xl overflow-hidden mb-8 bg-slate-100 shadow-inner">
  <Image
  src={featuredPress.image}
@@ -86,7 +86,7 @@ export default function PressReleasePage() {
  viewport={{ once: true }}
  transition={{ delay: idx * 0.1 }}
  key={press.id}>
- <Link href={`/press-release/${press.slug}`} className="group grid grid-cols-1 md:grid-cols-4 gap-6 items-center bg-white p-4 rounded-3xl border border-slate-100 hover:shadow-[0_15px_30px_rgba(0,0,0,0.04)] hover:border-[#00a9ce]/20 transition-all">
+ <Link href={`/press-release/${press.slug}`} className="group grid grid-cols-1 md:grid-cols-4 gap-6 items-center bg-white p-4 rounded-full border border-slate-100 hover:shadow-[0_15px_30px_rgba(0,0,0,0.04)] hover:border-[#00a9ce]/20 transition-all">
  <div className="md:col-span-1 relative aspect-video md:aspect-square lg:aspect-video rounded-2xl overflow-hidden bg-slate-100">
  <Image
  src={press.image}
@@ -115,7 +115,7 @@ export default function PressReleasePage() {
  
  {/* Pagination / Load More */}
  <div className="mt-12 flex justify-center border-t border-slate-200 pt-12">
- <button className="bg-white border-2 border-[#00a9ce] text-[#00a9ce] font-bold text-[15px] px-8 py-3 rounded-xl hover:bg-[#00a9ce] hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-1">
+ <button className="bg-white border-2 border-[#00a9ce] text-[#00a9ce] font-bold text-[15px] px-8 py-3 rounded-full hover:bg-[#00a9ce] hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-1">
  View Older Releases
  </button>
  </div>
@@ -179,7 +179,7 @@ export default function PressReleasePage() {
  <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#00a9ce]/20 rounded-full blur-2xl"></div>
  <h3 className="text-xl font-black mb-4 tracking-tight relative z-10">Brand Assets</h3>
  <p className="text-slate-300 mb-8 text-[15px] font-medium leading-relaxed relative z-10">Download official Achtrex logos, executive headshots, and product screenshots for media use.</p>
- <button className="flex items-center gap-3 bg-logo-gradient text-white px-6 py-4 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(0,169,206,0.4)] hover:scale-[1.02] transition-all w-full justify-center relative z-10">
+ <button className="flex items-center gap-3 bg-logo-gradient text-white px-6 py-4 rounded-full font-bold hover:shadow-[0_0_20px_rgba(0,169,206,0.4)] hover:scale-[1.02] transition-all w-full justify-center relative z-10">
  <Download className="w-5 h-5" /> Download Media Kit
  </button>
  </motion.div>

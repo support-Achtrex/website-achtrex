@@ -40,16 +40,16 @@ export default function LumiClient() {
  Launch LUMI <ArrowRight size={18} />
  </a>
  <div className="grid grid-cols-2 gap-3 pt-2">
- <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-none hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
+ <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
  Platform Architecture
  </button>
- <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-none hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
+ <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
  AI Model Docs
  </button>
- <button className="inline-flex items-center justify-center w-full bg-white text-[#76bc1d] border border-slate-200 font-semibold py-3 rounded-none hover:bg-slate-50 hover:border-[#76bc1d] transition-all text-sm">
+ <button className="inline-flex items-center justify-center w-full bg-white text-[#76bc1d] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#76bc1d] transition-all text-sm">
  Developer Beta
  </button>
- <button className="inline-flex items-center justify-center w-full bg-white text-[#00a9ce] border border-slate-200 font-semibold py-3 rounded-none hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
+ <button className="inline-flex items-center justify-center w-full bg-white text-[#00a9ce] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
  Contact Sales
  </button>
  </div>

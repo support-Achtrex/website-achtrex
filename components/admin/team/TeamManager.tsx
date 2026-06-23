@@ -189,7 +189,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                 <button
                   disabled={isSubmitting}
                   type="submit"
-                  className="bg-primary text-slate-900 px-8 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors ml-auto disabled:opacity-50"
+                  className="bg-primary text-slate-900 px-8 py-3 rounded-full-full font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors ml-auto disabled:opacity-50"
                 >
                   <Save size={18} /> {isSubmitting ? 'Saving...' : 'Save Changes'}
                 </button>
@@ -235,7 +235,7 @@ export const TeamManager: React.FC<TeamManagerProps> = ({ member, payrollHistory
                   <button
                     disabled={isSubmitting}
                     type="submit"
-                    className="w-full bg-green-500 text-slate-900 p-3 rounded-xl font-bold hover:bg-green-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                    className="w-full bg-green-500 text-slate-900 p-3 rounded-full font-bold hover:bg-green-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
                   >
                     <CreditCard size={18} /> Pay & Send
                   </button>

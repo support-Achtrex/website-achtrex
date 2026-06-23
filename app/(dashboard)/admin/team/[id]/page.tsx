@@ -35,7 +35,7 @@ export default async function TeamMemberPage(props: { params: Promise<{ id: stri
  return (
  <div className="space-y-6">
  <div className="flex items-center gap-4">
- <Link href="/admin/team" className="p-2 rounded-full hover:bg-white transition-colors text-slate-500 hover:text-gray-900 border border-transparent hover:border-gray-200">
+ <Link href="/admin/team" className="p-2 rounded-full-full hover:bg-white transition-colors text-slate-500 hover:text-gray-900 border border-transparent hover:border-gray-200">
  <ArrowLeft size={20} />
  </Link>
  <h1 className="text-2xl font-bold text-gray-900">Manage Team Member</h1>

@@ -15,7 +15,7 @@ const RecentBlogsList = () => {
           </div>
           <Link 
             href="/admin/blogs/new"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-900 text-slate-900 text-xs font-bold hover:bg-gray-800 transition-all shadow-lg shadow-gray-200 font-sans"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full-full bg-gray-900 text-slate-900 text-xs font-bold hover:bg-gray-800 transition-all shadow-lg shadow-gray-200 font-sans"
           >
             <Plus size={14} />
             <span>New Post</span>

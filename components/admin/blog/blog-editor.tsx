@@ -125,14 +125,14 @@ export default function BlogEditor() {
           <div className="flex items-center gap-3">
             <button
               onClick={handlePreview}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 text-slate-500 text-sm font-bold hover:bg-transparent transition-colors font-sans"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 text-slate-500 text-sm font-bold hover:bg-transparent transition-colors font-sans"
             >
               <Eye size={16} />
               <span>Preview</span>
             </button>
             <button
               onClick={handleSave}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1E1E1E] text-slate-900 text-sm font-bold hover:bg-black transition-colors font-sans shadow-lg shadow-gray-200"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E1E1E] text-slate-900 text-sm font-bold hover:bg-black transition-colors font-sans shadow-lg shadow-gray-200"
             >
               <Check size={16} />
               <span>Save & Close</span>

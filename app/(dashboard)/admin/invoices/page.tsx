@@ -26,7 +26,7 @@ export default async function InvoicesIndexPage() {
  <h1 className="text-2xl font-bold text-gray-900">Invoices</h1>
  <p className="text-slate-400 text-sm">Manage and view all client invoices.</p>
  </div>
- <Link href="/admin/invoices/create" className="flex items-center gap-2 px-4 py-2 bg-primary text-slate-900 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
+ <Link href="/admin/invoices/create" className="flex items-center gap-2 px-4 py-2 bg-primary text-slate-900 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">
  <Plus size={16} />
  <span>Create Invoice</span>
  </Link>
@@ -76,7 +76,7 @@ export default async function InvoicesIndexPage() {
  <td className="px-6 py-4 text-right">
  <Link
  href={`/admin/invoices/${payment.invoice_number || payment.id}`}
- className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-slate-400 hover:bg-primary hover:text-slate-900 transition-colors"
+ className="inline-flex items-center justify-center w-8 h-8 rounded-full-full bg-gray-100 text-slate-400 hover:bg-primary hover:text-slate-900 transition-colors"
  title="View Invoice"
  >
  <Eye size={16} />

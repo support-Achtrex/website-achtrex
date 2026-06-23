@@ -176,11 +176,11 @@ export default function Sidebar({ editor }: SidebarProps) {
       </div>
 
       <div className="p-5 border-t border-gray-50 space-y-3 bg-transparent">
-        <button className="w-full py-3 rounded-xl bg-[#1E1E1E] text-slate-900 text-sm font-bold hover:bg-black transition-colors font-sans flex items-center justify-center gap-2 shadow-lg shadow-gray-200">
+        <button className="w-full py-3 rounded-full bg-[#1E1E1E] text-slate-900 text-sm font-bold hover:bg-black transition-colors font-sans flex items-center justify-center gap-2 shadow-lg shadow-gray-200">
           <span>Save Changes</span>
           <Check size={16} />
         </button>
-        <button className="w-full py-3 rounded-xl border border-slate-200 text-slate-500 text-sm font-bold hover:bg-transparent transition-colors font-sans flex items-center justify-center gap-2">
+        <button className="w-full py-3 rounded-full border border-slate-200 text-slate-500 text-sm font-bold hover:bg-transparent transition-colors font-sans flex items-center justify-center gap-2">
           <span>Discard Changes</span>
           <X size={16} />
         </button>
