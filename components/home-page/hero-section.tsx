@@ -50,16 +50,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           className="flex flex-col items-start max-w-3xl text-left"
         >
-          {/* Category Label */}
-          <motion.span 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-gradient font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-6 flex items-center gap-3"
-          >
-            <span className="w-12 h-px bg-logo-gradient border-0"></span>
-            Automotive Technology Partner
-          </motion.span>
+
 
           {/* Refined Title */}
           <div className="min-h-[140px] md:min-h-[180px] mb-8 w-full">

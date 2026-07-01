@@ -40,13 +40,26 @@ export const Navbar = () => {
   }, [isOpen]);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isOpen]);
+
+  useEffect(() => {
     let timeout: NodeJS.Timeout;
     const handleOpenServices = () => {
+      setIsOpen(true);
       setForcedOpenDropdown('Industries');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       // Close automatically after 5 seconds
       clearTimeout(timeout);
-      timeout = setTimeout(() => setForcedOpenDropdown(null), 5000);
+      timeout = setTimeout(() => {
+        setForcedOpenDropdown(null);
+      }, 5000);
     };
     
     window.addEventListener('open-services-dropdown', handleOpenServices);
@@ -108,10 +121,11 @@ export const Navbar = () => {
   ];
 
   return (
-    <div className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      scrolled ? "py-4 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/50" : "pt-6 pb-2 bg-transparent"
-    )}>
+    <>
+      <div className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled ? "py-4 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/50" : "pt-6 pb-2 bg-transparent"
+      )}>
       <nav className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
@@ -201,6 +215,7 @@ export const Navbar = () => {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
+      </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -283,6 +298,6 @@ export const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 };
