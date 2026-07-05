@@ -165,7 +165,7 @@ export default function AutomotiveClient() {
  <h3 className="text-2xl font-bold tracking-tight">Real-World Interfaces</h3>
  </div>
  <p className="text-lg text-slate-600 leading-relaxed font-medium mb-10 max-w-3xl">
- We designed intuitive data visualization panels and robust search interfaces so developers and enterprise users can navigate the 2.5 million+ vehicle records with zero friction.
+ We designed intuitive data visualization panels and robust search interfaces so developers and enterprise users can navigate the 20M++ vehicle records with zero friction.
  </p>
  
  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

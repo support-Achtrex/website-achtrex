@@ -25,8 +25,8 @@ export const UseCasesContent = () => {
         "Automotive intelligence integrations"
       ],
       lumi: {
-        title: "LUMI AI Integration",
-        description: "Ark Auto Shop actively utilizes LUMI AI within its operational automotive workflows.",
+        title: "AAIA Integration",
+        description: "Ark Auto Shop actively utilizes AAIA within its operational automotive workflows.",
         capabilities: [
           "Intelligent parts fitment assistance",
           "AI-powered technical automotive advice",
@@ -51,7 +51,7 @@ export const UseCasesContent = () => {
         "Technical automotive guidance",
         "Cognitive automotive workflows"
       ],
-      strategicValue: "Ark Auto Shop serves as a practical implementation of the Achtrex ecosystem, demonstrating enterprise automotive infrastructure, AI-powered automotive intelligence, cognitive automotive systems, intelligent workflow automation, and scalable automotive commerce technologies. The platform validates how LUMI AI supports practical automotive operations through intelligent reasoning, fitment analysis, and technical automotive advisory systems in production environments."
+      strategicValue: "Ark Auto Shop serves as a practical implementation of the Achtrex ecosystem, demonstrating enterprise automotive infrastructure, AI-powered automotive intelligence, cognitive automotive systems, intelligent workflow automation, and scalable automotive commerce technologies. The platform validates how AAIA supports practical automotive operations through intelligent reasoning, fitment analysis, and technical automotive advisory systems in production environments."
     },
     {
       name: "CarReport.com",
@@ -274,7 +274,7 @@ export const UseCasesContent = () => {
                   </div>
                 </div>
 
-                {/* LUMI AI Section (if exists) */}
+                {/* AAIA Section (if exists) */}
                 {useCase.lumi && (
                   <div className="mb-10 rounded-2xl border border-[#76bc1d]/20 bg-gradient-to-r from-[#76bc1d]/5 to-transparent p-8 relative overflow-hidden">
                     <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-[#76bc1d]/10 rounded-full blur-2xl"></div>

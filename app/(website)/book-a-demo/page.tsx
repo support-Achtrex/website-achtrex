@@ -8,7 +8,7 @@ export const metadata: Metadata = {
  openGraph: {
  title: "Book a Demo | Achtrex",
  description: "Book a demo with our team to see how Achtrex can power your automotive intelligence.",
- images: ["/projects/lumi_ui_v2.jpg"],
+ images: ["/projects/aaia_ui_v2.png"],
  }
 };
 

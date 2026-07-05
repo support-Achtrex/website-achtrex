@@ -56,7 +56,7 @@ export const metadata: Metadata = {
  locale: "en_US",
  type: "website",
  images: [{
- url: "/projects/lumi_ui_v2.jpg",
+ url: "/projects/aaia_ui_v2.png",
  width: 1200,
  height: 630,
  alt: "Achtrex Enterprise AI Platform",
@@ -66,12 +66,13 @@ export const metadata: Metadata = {
  card: "summary_large_image",
  title: "Achtrex | Global Automotive Data Infrastructure & AI Platforms",
  description: "Architecting high-velocity automotive data platforms and cognitive AI platforms for global mobility.",
- images: ["/projects/lumi_ui_v2.jpg"],
+ images: ["/projects/aaia_ui_v2.png"],
  creator: "@achtrex",
  },
 };
 
-const jsonLd = {
+const jsonLd = [
+ {
  "@context": "https://schema.org",
  "@type": "Organization",
  "name": "Achtrex",
@@ -95,7 +96,14 @@ const jsonLd = {
  "target": "https://achtrex.com/blog?q={search_term_string}",
  "query-input": "required name=search_term_string"
  }
-};
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Achtrex",
+ "url": "https://achtrex.com"
+ }
+];
 
 export default function RootLayout({
  children,

@@ -23,9 +23,9 @@ export const portfolioDetails = {
         ]
     },
     "lumi-ai": {
-        title: "LUMI AI Engine",
+        title: "AAIA",
         kicker: "Cognitive Automotive Reasoning",
-        heroImage: "/projects/lumi-logo.png",
+        heroImage: "/projects/aaia-logo.png",
         stats: [
             { value: "10", suffix: "x", label: "Faster Resolution" },
             { value: "95", suffix: "%", label: "Accuracy" },

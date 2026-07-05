@@ -21,8 +21,8 @@ export const productsData = [
     {
         id: 'ai-platform',
         icon: Chat,
-        title: 'LUMI // Communications Platform',
-        description: 'LUMI is a unified communications platform designed to power intelligent interactions and automate complex enterprise workflows.',
+        title: 'AAIA // Communications Platform',
+        description: 'AAIA is a unified communications platform designed to power intelligent interactions and automate complex enterprise workflows.',
         details: {
             overview: "A cross-platform cognitive ecosystem for messaging, voice, video, and autonomous business logic.",
             features: [

@@ -71,12 +71,12 @@ export const ProductsGrid = () => {
 
       <h3 className="text-2xl font-bold text-gradient mb-4 relative z-10">AI Solutions</h3>
       <p className="text-slate-600 mb-8 flex-grow relative z-10">
-       Integrate LUMI AI to automate workflows, assist customers, and unlock predictive insights from your data.
+       Integrate AAIA to automate workflows, assist customers, and unlock predictive insights from your data.
       </p>
       <ul className="space-y-4 mb-10 relative z-10">
         <li className="flex items-start gap-3">
          <div className="mt-1 w-1.5 h-1.5 rounded-none bg-[#76bc1d] shrink-0"></div>
-         <span className="text-sm font-medium text-slate-700">LUMI AI Conversational Engine</span>
+         <span className="text-sm font-medium text-slate-700">AAIA Conversational Engine</span>
         </li>
         <li className="flex items-start gap-3">
          <div className="mt-1 w-1.5 h-1.5 rounded-none bg-[#76bc1d] shrink-0"></div>
@@ -93,7 +93,7 @@ export const ProductsGrid = () => {
       </ul>
       <div className="mt-auto relative z-10">
         <Link href="/products/lumi" className="inline-flex items-center gap-2 text-[#76bc1d] font-bold hover:text-[#65a317] transition-colors">
-         Explore LUMI AI
+         Explore AAIA
          <ArrowRight weight="bold" className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>

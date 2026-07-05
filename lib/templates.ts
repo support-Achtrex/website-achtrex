@@ -114,7 +114,7 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
                 <div class="col-2" style="background: #f8fafc; border-radius: 8px; padding: 20px;">
                     <img src="https://cdn-icons-png.flaticon.com/512/2103/2103533.png" width="40" style="margin-bottom: 10px; opacity: 0.8;">
                     <h4 style="margin:0 0 5px 0; color:#0f172a;">Enterprise AI</h4>
-                    <p style="margin:0; font-size:13px; line-height:1.4;">Custom AI models and autonomous agents like LUMI.</p>
+                    <p style="margin:0; font-size:13px; line-height:1.4;">Custom AI models and autonomous agents like AAIA.</p>
                 </div>
             </div>
 
@@ -146,7 +146,7 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
             <h3>Key Achievements This Week:</h3>
             <ul style="padding-left: 20px; color: #334155;">
                 <li style="margin-bottom: 10px;"><strong>Data Pipeline:</strong> Completed the integration of real-time event streaming.</li>
-                <li style="margin-bottom: 10px;"><strong>LUMI Integration:</strong> Successfully trained the initial model on your domain data.</li>
+                <li style="margin-bottom: 10px;"><strong>AAIA Integration:</strong> Successfully trained the initial model on your domain data.</li>
                 <li style="margin-bottom: 10px;"><strong>Security:</strong> Implemented Zero-Trust authentication protocols.</li>
             </ul>
 
@@ -157,14 +157,14 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
     },
     {
         id: 'lumi_launch',
-        name: 'LUMI AI Platform Launch 🤖',
-        subject: 'Introducing LUMI: The Autonomous AI Agent Platform',
+        name: 'AAIA Launch 🤖',
+        subject: 'Introducing AAIA: The Autonomous AI Agent Platform',
         html: wrapTemplate(`
-            <h2>Automate with LUMI Intelligence</h2>
-            <p>We are excited to announce the launch of <strong>LUMI</strong>, our proprietary AI agent platform designed to automate complex enterprise workflows.</p>
+            <h2>Automate with AAIA Intelligence</h2>
+            <p>We are excited to announce the launch of <strong>AAIA</strong>, our proprietary AI agent platform designed to automate complex enterprise workflows.</p>
             
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 24px; border-radius: 8px; margin: 24px 0;">
-                <h4 style="color: #0f172a; margin: 0 0 10px 0; font-size: 18px;">What LUMI Can Do for You:</h4>
+                <h4 style="color: #0f172a; margin: 0 0 10px 0; font-size: 18px;">What AAIA Can Do for You:</h4>
                 <ul style="color: #334155; padding-left: 20px;">
                     <li style="margin-bottom: 5px;"><strong>Autonomous Operations:</strong> Handles data entry and processing without intervention.</li>
                     <li style="margin-bottom: 5px;"><strong>Predictive Analytics:</strong> Forecasts trends based on your historical data.</li>
@@ -172,10 +172,10 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
                 </ul>
             </div>
 
-            <p>As an existing partner, you get early access to integrate LUMI into your current platform with full support from our engineering team.</p>
+            <p>As an existing partner, you get early access to integrate AAIA into your current platform with full support from our engineering team.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/products/lumi" class="button">Explore LUMI Now</a>
+                <a href="https://achtrex.com/products/lumi" class="button">Explore AAIA Now</a>
             </div>
         `, "Product Launch")
     },
@@ -363,7 +363,7 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
             
             <h3>Upcoming Features:</h3>
             <ul style="color: #334155; padding-left: 20px;">
-                <li><strong>LUMI v2:</strong> Multi-modal agent capabilities.</li>
+                <li><strong>AAIA v2:</strong> Multi-modal agent capabilities.</li>
                 <li><strong>Self-Healing Pipelines:</strong> Automatic error recovery in data flows.</li>
             </ul>
             

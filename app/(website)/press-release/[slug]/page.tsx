@@ -107,7 +107,7 @@ export default async function PressReleaseSingle({ params }: { params: Promise<{
        </blockquote>
 
        <p className="mb-6 text-slate-700 leading-relaxed">
-       The company's advanced AI models, including the LUMI cognitive framework, are uniquely positioned to interpret complex telematics streams and synthesize actionable insights. By leveraging edge computing and advanced machine learning techniques, Achtrex continues to redefine the standards of enterprise software in the automotive sector.
+       The company's advanced AI models, including the AAIA cognitive framework, are uniquely positioned to interpret complex telematics streams and synthesize actionable insights. By leveraging edge computing and advanced machine learning techniques, Achtrex continues to redefine the standards of enterprise software in the automotive sector.
        </p>
 
        <h3 className="text-2xl font-bold mt-12 mb-4">About Achtrex</h3>

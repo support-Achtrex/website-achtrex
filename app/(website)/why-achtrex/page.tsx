@@ -11,7 +11,7 @@ export const metadata = {
  openGraph: {
  title: "Why Achtrex | Unmatched Technical Velocity",
  description: "Plug directly into a state-of-the-art enterprise-grade cognitive infrastructure.",
- images: ["/projects/lumi_ui_v2.jpg"],
+ images: ["/projects/aaia_ui_v2.png"],
  }
 };
 

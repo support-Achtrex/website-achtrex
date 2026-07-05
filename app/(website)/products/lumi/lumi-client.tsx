@@ -10,7 +10,7 @@ export default function LumiClient() {
  return (
  <main className="min-h-screen bg-[#f4f4f4] text-slate-900 selection:bg-[#00a9ce]/20 selection:text-slate-900 pb-20">
  {/* 1. Header */}
- <InnerPageHeader title="LUMI AI Platform" subtitle="The cognitive automotive platform delivering AI-driven vehicle intelligence, predictive analytics, and conversational diagnostics." />
+ <InnerPageHeader title="AAIA" subtitle="The cognitive automotive platform delivering AI-driven vehicle intelligence, predictive analytics, and conversational diagnostics." />
 
  {/* 2. Main Content Grid */}
  <section className="py-12 lg:py-16 px-6">
@@ -22,7 +22,7 @@ export default function LumiClient() {
  <div className="space-y-6">
  <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#00a9ce] pb-4 inline-block text-slate-900">The Challenge</h2>
  <p className="text-lg text-slate-600 leading-relaxed font-medium">
- LUMI is being engineered to bridge the gap between static vehicle data and actionable intelligence. Traditional automotive analytics lack true contextual understanding, leading to reactive maintenance and frustrating diagnostic workflows. The challenge is to architect an autonomous reasoning engine that understands the complex language of mobility.
+ AAIA is being engineered to bridge the gap between static vehicle data and actionable intelligence. Traditional automotive analytics lack true contextual understanding, leading to reactive maintenance and frustrating diagnostic workflows. The challenge is to architect an autonomous reasoning engine that understands the complex language of mobility.
  </p>
  </div>
 
@@ -36,8 +36,8 @@ export default function LumiClient() {
 
  {/* CTA Group */}
  <div className="space-y-3">
- <a href="https://lumi.achtrex.com" className="inline-flex items-center justify-center gap-2 w-full bg-[#00a9ce] text-white font-bold py-4 rounded-none hover:opacity-90 transition-all shadow-none">
- Launch LUMI <ArrowRight size={18} />
+ <a href="https://aaia.achtrex.com/login" className="inline-flex items-center justify-center gap-2 w-full bg-[#00a9ce] text-white font-bold py-4 rounded-none hover:opacity-90 transition-all shadow-none">
+ Launch AAIA <ArrowRight size={18} />
  </a>
  <div className="grid grid-cols-2 gap-3 pt-2">
  <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
@@ -69,8 +69,8 @@ export default function LumiClient() {
  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
  <div className="relative aspect-[16/10] w-full">
  <Image 
- src="/projects/lumi_ui_v2.jpg" 
- alt="LUMI AI Vehicle Intelligence Platform Demo"
+ src="/projects/aaia_ui_v2.png" 
+ alt="AAIA Vehicle Intelligence Platform Demo"
  fill
  className="object-cover object-center opacity-80 group-hover:scale-105 transition-transform duration-700"
  />
@@ -93,7 +93,7 @@ export default function LumiClient() {
        <span className="bg-[#00a9ce] text-white text-xs font-bold px-2 py-1 uppercase tracking-wider rounded-sm">Demo</span>
        <span className="text-white/80 text-sm font-medium">3:42</span>
      </div>
-     <h3 className="text-white text-xl md:text-2xl font-bold">LUMI Engine: Autonomous Diagnostic Workflow</h3>
+     <h3 className="text-white text-xl md:text-2xl font-bold">AAIA Engine: Autonomous Diagnostic Workflow</h3>
    </div>
  </div>
  </motion.div>
@@ -154,7 +154,7 @@ export default function LumiClient() {
  <h3 className="text-2xl font-bold tracking-tight">Phase 04: Alpha Testing</h3>
  </div>
  <p className="text-lg text-slate-600 leading-relaxed font-medium">
- Conducting fleet-wide audits and stress tests. LUMI is currently analyzing millions of historical service records to refine its automotive reasoning accuracy.
+ Conducting fleet-wide audits and stress tests. AAIA is currently analyzing millions of historical service records to refine its automotive reasoning accuracy.
  </p>
  </div>
 
@@ -169,18 +169,18 @@ export default function LumiClient() {
  <h3 className="text-2xl font-bold tracking-tight">Real-World Interfaces</h3>
  </div>
  <p className="text-lg text-slate-600 leading-relaxed font-medium mb-10 max-w-3xl">
- LUMI provides a highly visual, cognitive interface that translates complex vehicle telemetry and reasoning nodes into intuitive diagnostic views.
+ AAIA provides a highly visual, cognitive interface that translates complex vehicle telemetry and reasoning nodes into intuitive diagnostic views.
  </p>
  
  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
  <div className="relative aspect-[4/3] overflow-hidden border border-slate-200 bg-white">
- <Image src="/projects/lumi-real-screenshot-1.png" alt="LUMI Interface Concept" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+ <Image src="/projects/aaia-real-screenshot-1.png" alt="AAIA Interface Concept" fill className="object-cover hover:scale-105 transition-transform duration-700" />
  </div>
- <div className="relative aspect-[4/3] overflow-hidden border border-slate-200 bg-white">
- <Image src="/projects/lumi-real-screenshot-2.png" alt="LUMI Account Login" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+ <div className="relative aspect-video rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-[#001a22]">
+ <Image src="/projects/aaia-real-screenshot-2.png" alt="AAIA Account Login" fill className="object-cover hover:scale-105 transition-transform duration-700" />
  </div>
- <div className="relative aspect-[4/3] overflow-hidden border border-slate-200 bg-white md:col-span-2">
- <Image src="/projects/lumi-real-screenshot-3.png" alt="LUMI Diagnostic Wireframe" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+ <div className="relative aspect-video rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-[#001a22] md:col-span-2">
+ <Image src="/projects/aaia-real-screenshot-3.png" alt="AAIA Diagnostic Wireframe" fill className="object-cover hover:scale-105 transition-transform duration-700" />
  </div>
  </div>
  </div>
@@ -191,7 +191,7 @@ export default function LumiClient() {
  <div className="space-y-6">
  <div>
  <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Cognitive Capabilities</h3>
- <p className="text-sm text-slate-600 font-medium">Upcoming features within the LUMI core engine.</p>
+ <p className="text-sm text-slate-600 font-medium">Upcoming features within the AAIA core engine.</p>
  </div>
  <div className="grid grid-cols-1 gap-3">
  {[
@@ -215,7 +215,7 @@ export default function LumiClient() {
  <div className="space-y-6">
  <div>
  <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Target Integrations</h3>
- <p className="text-sm text-slate-600 font-medium">Platforms LUMI will natively orchestrate at launch.</p>
+ <p className="text-sm text-slate-600 font-medium">Platforms AAIA will natively orchestrate at launch.</p>
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
  {[

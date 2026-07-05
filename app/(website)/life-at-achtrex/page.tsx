@@ -12,7 +12,7 @@ export default function LifeAtAchtrexPage() {
  return (
  <main className="min-h-screen bg-[#f4f4f4] text-slate-900 pb-20">
  {/* Header */}
- <InnerPageHeader title="Architecting the Next Era of Data" subtitle="We engineer real infrastructure for the global automotive industry. Join a remote-first, pioneering team building AutomotiveDataset.com, LUMI AI, and the Achtrex Core." />
+ <InnerPageHeader title="Architecting the Next Era of Data" subtitle="We engineer real infrastructure for the global automotive industry. Join a remote-first, pioneering team building AutomotiveDataset.com, AAIA, and the Achtrex Core." />
 
  {/* Core Values */}
  <section className="py-20 px-6">

@@ -33,7 +33,7 @@ export const ContactClient = () => {
  noteText = "I am interested in Data & APIs. I would like to explore integrating accurate automotive datasets, VIN decoding, and real-time market values into our applications.";
  break;
  case 'ai':
- noteText = "I am interested in AI Solutions. I would like to learn more about implementing LUMI AI, conversational support agents, and complex workflow automation.";
+ noteText = "I am interested in AI Solutions. I would like to learn more about implementing AAIA, conversational support agents, and complex workflow automation.";
  break;
  case 'infrastructure':
  noteText = "I am interested in Enterprise Infrastructure. I would like to discuss scalable cloud architecture, high-volume data streaming, and managing cloud operations.";

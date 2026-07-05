@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Chat } from '@nobertdev/react-3d-icons/fc';
 import { TypewriterWithPencil } from '../ui/typewriter-with-pencil';
 
 export const Hero = () => {
@@ -103,7 +102,6 @@ the intelligence, and the platforms behind automotive businesses."
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-semibold tracking-wide px-10 py-4 transition-all hover:bg-white/20 hover:scale-105 rounded-full border border-white/40 shadow-lg hover:shadow-white/20 backdrop-blur-md"
             >
               <span>Talk to us</span>
-              <Chat className="w-5 h-5 transition-transform group-hover:scale-110" />
             </button>
           </motion.div>
         </motion.div>

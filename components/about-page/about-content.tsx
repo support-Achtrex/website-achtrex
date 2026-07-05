@@ -17,7 +17,7 @@ export const AboutContent = () => {
       statusBg: 'bg-sky-900/30 border-sky-500/30',
       name: 'Automotive Data & APIs',
       tagline: 'AutomotiveDataset.com',
-      desc: 'Enterprise VIN intelligence, vehicle specifications, and fitment APIs querying over 2.5 million live records for absolute data superiority.',
+      desc: 'Enterprise VIN intelligence, vehicle specifications, and fitment APIs querying over 20M+ live records for absolute data superiority.',
       tags: ['VIN Decoding', 'Specs API', 'Fitment Data', 'Market Values'],
       href: 'https://automotivedataset.com',
       external: true,
@@ -57,7 +57,7 @@ export const AboutContent = () => {
       dot: 'bg-[#053787]',
       statusText: 'text-blue-400',
       statusBg: 'bg-blue-900/30 border-blue-500/30',
-      name: 'AI Solutions (LUMI)',
+      name: 'AI Solutions (AAIA)',
       tagline: 'Cognitive Workflows',
       desc: 'A powerful communications platform leveraging advanced LLMs and neural processing to execute complex autonomous business logic across your enterprise.',
       tags: ['LLMs', 'Cognitive Processing', 'Workflow Automation', 'NLP'],
@@ -119,7 +119,7 @@ export const AboutContent = () => {
               Our ecosystem provides businesses with an absolute structural advantage through four core pillars. First, our <strong>Automotive Data & APIs</strong> grant instantaneous, robust access to comprehensive VIN intelligence and market valuations via a single streamlined interface. Second, our <strong>Sales & Inventory Management</strong> tools streamline dealership and retail operations, drastically reducing manual overhead through autonomous tracking.
             </p>
             <p>
-              Third, our <strong>Custom Software Development</strong> division engineers bespoke, zero-compromise enterprise platforms that scale infinitely without third-party vendor lock-in. Finally, our <strong>LUMI AI Solutions</strong> transition enterprises from static tools to truly autonomous cognitive workflows, leveraging advanced LLMs to process complex business logic. Together, these pillars form the mission-critical foundation required to build, scale, and dominate in the intelligent digital economy.
+              Third, our <strong>Custom Software Development</strong> division engineers bespoke, zero-compromise enterprise platforms that scale infinitely without third-party vendor lock-in. Finally, our <strong>AAIA</strong> transition enterprises from static tools to truly autonomous cognitive workflows, leveraging advanced LLMs to process complex business logic. Together, these pillars form the mission-critical foundation required to build, scale, and dominate in the intelligent digital economy.
             </p>
           </div>
 
@@ -191,7 +191,7 @@ export const AboutContent = () => {
               {/* Left Column: Image & Tags */}
               <div className="relative z-10 w-full md:w-72 shrink-0 flex flex-col gap-5">
                 <div className="rounded-xl overflow-hidden bg-slate-100 shadow-inner w-full">
-                  <Image src="/team/achim_real.jpg" alt="Godwin Achim Tetteh" width={400} height={600} className="w-full h-auto object-cover" priority />
+                  <Image src="/team/achim_real.jpg" alt="Achim Godwin Tetteh" width={400} height={600} className="w-full h-auto object-cover" priority />
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {expertise.map((t, i) => (
@@ -202,7 +202,7 @@ export const AboutContent = () => {
 
               {/* Right Column: Bio */}
               <div className="flex flex-col relative z-10 flex-1">
-                <h3 className="text-xl font-black text-slate-900">Godwin Achim Tetteh</h3>
+                <h3 className="text-xl font-black text-slate-900">Achim Godwin Tetteh</h3>
                 <p className="text-[12px] font-bold uppercase tracking-widest text-[#00a9ce] mb-3">Founder & System Architect</p>
                 <div className="text-[14px] text-slate-600 leading-relaxed font-medium mb-4 space-y-4">
                   <p>
@@ -318,7 +318,7 @@ export const AboutContent = () => {
                 'Automotive Data & APIs, massive intelligence via one enterprise endpoint',
                 'Sales & Inventory, automated tracking replacing manual entry',
                 'Custom Software, bespoke, scalable, zero vendor lock-in platforms',
-                'LUMI AI, cognitive workflow automation powered by advanced LLMs'
+                'AAIA, cognitive workflow automation powered by advanced LLMs'
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-[15px] text-slate-600 font-medium bg-[#00a9ce]/5 p-3 rounded-lg border border-[#00a9ce]/10">
                   <span className="mt-1 w-2 h-2 rounded-full bg-[#00a9ce] shrink-0 shadow-sm" />

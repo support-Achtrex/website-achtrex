@@ -109,11 +109,11 @@ export async function submitContactForm(formData: FormData) {
                     </div>
                     
                     <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
-                        <img src="https://achtrex.com/logos/lumi-logo.png" alt="LUMI AI Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
+                        <img src="https://achtrex.com/logos/aaia-logo.png" alt="AAIA Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
                         <div>
-                            <h3 style="color: #c084fc; margin: 0 0 5px 0;">✨ LUMI AI</h3>
+                            <h3 style="color: #c084fc; margin: 0 0 5px 0;">✨ AAIA</h3>
                             <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Leverage cognitive automotive reasoning to unlock predictive insights and automate vehicle appraisals.</p>
-                            <a href="https://achtrex.com/products/lumi" style="color: #c084fc; text-decoration: none; font-weight: bold; font-size: 14px;">Discover LUMI &rarr;</a>
+                            <a href="https://achtrex.com/products/lumi" style="color: #c084fc; text-decoration: none; font-weight: bold; font-size: 14px;">Discover AAIA &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -232,11 +232,11 @@ export async function submitPartnerForm(formData: FormData) {
                     </div>
                     
                     <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
-                        <img src="https://achtrex.com/logos/lumi-logo.png" alt="LUMI AI Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
+                        <img src="https://achtrex.com/logos/aaia-logo.png" alt="AAIA Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
                         <div>
-                            <h3 style="color: #c084fc; margin: 0 0 5px 0;">✨ LUMI AI</h3>
+                            <h3 style="color: #c084fc; margin: 0 0 5px 0;">✨ AAIA</h3>
                             <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Leverage cognitive automotive reasoning to unlock predictive insights and automate workflows.</p>
-                            <a href="https://achtrex.com/products/lumi" style="color: #c084fc; text-decoration: none; font-weight: bold; font-size: 14px;">Discover LUMI &rarr;</a>
+                            <a href="https://achtrex.com/products/lumi" style="color: #c084fc; text-decoration: none; font-weight: bold; font-size: 14px;">Discover AAIA &rarr;</a>
                         </div>
                     </div>
                 </div>

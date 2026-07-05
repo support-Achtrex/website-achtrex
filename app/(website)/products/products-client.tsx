@@ -12,7 +12,7 @@ const products = [
  icon: Database
  },
  {
- label: 'LUMI AI Engine',
+ label: 'AAIA',
  description: 'Proprietary cognitive reasoning model tailored for vehicle diagnostics, automated customer support, and predictive insights.',
  href: '/products/lumi',
  icon: Bot

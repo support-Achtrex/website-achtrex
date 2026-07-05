@@ -90,7 +90,7 @@ const industryData: Record<string, any> = {
  ],
  solutions: [
  'Direct OEM Data Access: Provide your technicians and service advisors with instant, normalized access to comprehensive maintenance schedules.',
- 'AI-Powered Diagnostic Routing: Deploy our LUMI engine to instantly map obscure error codes and symptoms to statistically probable fixes.',
+ 'AI-Powered Diagnostic Routing: Deploy our AAIA engine to instantly map obscure error codes and symptoms to statistically probable fixes.',
  'Intelligent Parts Cross-Reference: Seamlessly integrate our vast aftermarket and OEM parts database with your Shop Management System.'
  ],
  capabilities: [
@@ -100,7 +100,7 @@ const industryData: Record<string, any> = {
  { text: 'Real-time Technical Service Bulletin (TSB) & Recall Alerts', icon: AlertCircle }
  ],
  icon: Wrench,
- apis: ['Repair Pricing API', 'Vehicle Maintenance API', 'Technical Service Bulletins API', 'LUMI Engine']
+ apis: ['Repair Pricing API', 'Vehicle Maintenance API', 'Technical Service Bulletins API', 'AAIA Engine']
  },
  'car-website': {
  title: 'Car Website',
@@ -331,16 +331,16 @@ const industryData: Record<string, any> = {
  solutions: [
  'Unified Data Infrastructure: Access high-speed GraphQL and REST API endpoints that deliver normalized data in milliseconds.',
  'Extreme Enterprise Reliability: Rely on infrastructure explicitly built for massive scale, backed by absolute 99.99% uptime guarantees.',
- 'Cognitive Workflow Automation: Leverage our proprietary LUMI AI models for complex automotive reasoning and intelligent workflow automation.'
+ 'Cognitive Workflow Automation: Leverage our proprietary AAIA models for complex automotive reasoning and intelligent workflow automation.'
  ],
  capabilities: [
  { text: 'Unified, Highly Normalized Global Vehicle Data Lake', icon: Database },
  { text: 'High-Velocity, Low-Latency GraphQL & REST API Architecture', icon: Zap },
- { text: 'Proprietary Automotive AI (LUMI) & Cognitive Integration', icon: Cpu },
+ { text: 'Proprietary Automotive AI (AAIA) & Cognitive Integration', icon: Cpu },
  { text: 'Bank-Grade Encryption & Guaranteed 99.99% Uptime SLA', icon: ShieldCheck }
  ],
  icon: Database,
- apis: ['VIN Decoding API', 'Market Value API', 'License Plate API', 'LUMI Engine']
+ apis: ['VIN Decoding API', 'Market Value API', 'License Plate API', 'AAIA Engine']
  }
 };
 

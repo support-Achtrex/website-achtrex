@@ -13,7 +13,7 @@ export const metadata: Metadata = {
  openGraph: {
  title: "Achtrex Engineering Blog | Technical Deep Dives",
  description: "Scaling high-velocity data platforms and resilient architectures.",
- images: ["/projects/lumi_ui_v2.jpg"],
+ images: ["/projects/aaia_ui_v2.png"],
  }
 };
 

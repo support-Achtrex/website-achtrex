@@ -13,8 +13,8 @@ export const PillarsSection = () => {
       color: 'from-blue-600 to-indigo-700'
     },
     {
-      image: '/projects/lumi_ui_v2.jpg',
-      title: 'LUMI AI Platform',
+      image: '/projects/aaia_ui_v2.png',
+      title: 'AAIA',
       description: 'Intelligent AI agents and reasoning frameworks designed to automate workflows and deliver real-time insights.',
       color: 'from-purple-600 to-pink-700'
     }

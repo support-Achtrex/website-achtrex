@@ -138,7 +138,7 @@ export const Footer = () => {
                   <Link href="/products/lumi"
                     className="text-slate-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-none bg-[#76bc1d] shrink-0"></span>
-                    LUMI AI Platform
+                    AAIA
                   </Link>
                 </li>
                 <li>

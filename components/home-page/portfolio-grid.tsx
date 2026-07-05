@@ -17,16 +17,17 @@ const portfolioItems = [
   },
   {
     id: 2,
-    title: "LUMI AI Engine",
+    title: "AAIA",
     category: "Product",
-    image: "/projects/lumi-logo.png",
+    image: "/projects/aaia-logo.png",
     link: "/products/lumi",
-    desc: "We engineered LUMI AI, our proprietary cognitive reasoning model designed specifically for vehicle diagnostics and automotive data processing. This engine powers automated customer support and internal knowledge assistants.",
+    desc: "We engineered AAIA, our proprietary cognitive reasoning model designed specifically for vehicle diagnostics and automotive data processing. This engine powers automated customer support and internal knowledge assistants.",
     isLogo: true
   },
   {
     id: 3,
     title: "Achtrex Core",
+    subtitle: "Custom Software Builds & Dealer Platform",
     category: "Product",
     image: "/achtrex-logo-email.png",
     link: "/products/enterprise-platforms",
@@ -209,7 +210,7 @@ export const PortfolioGrid = () => {
               transition={{ delay: 0.2 }}
               className="flex flex-wrap gap-3"
             >
-              {['Vehicle Data APIs', 'LUMI AI Engine', 'Enterprise Infrastructure', 'Automotive Intelligence', 'Vehicle History Reports'].map((tag, i) => (
+              {['Vehicle Data APIs', 'AAIA', 'Enterprise Infrastructure', 'Automotive Intelligence', 'Vehicle History Reports'].map((tag, i) => (
                 <span key={i} className="px-5 py-2.5 rounded-full border border-slate-300 text-[13px] font-medium text-slate-600 hover:border-[#018861] hover:text-[#018861] transition-colors cursor-default whitespace-nowrap">
                   {tag}
                 </span>
@@ -254,6 +255,11 @@ export const PortfolioGrid = () => {
                   <h3 className="text-xl font-bold text-[#001a22] mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-logo-gradient transition-all duration-300">
                     {item.title}
                   </h3>
+                  {item.subtitle && (
+                    <p className="text-sm font-semibold text-[#00a9ce] mb-3 -mt-2">
+                      {item.subtitle}
+                    </p>
+                  )}
                   <p className="text-slate-500 text-[15px] leading-relaxed mb-8 flex-1">
                     {item.desc}
                   </p>

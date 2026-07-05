@@ -105,8 +105,8 @@ export const ProductSection = () => {
             {/* Card Hero Image */}
             <div className="relative h-72 w-full bg-slate-900 border-b border-slate-200 overflow-hidden">
               <Image
-                src="/projects/lumi_ui_v2.jpg"
-                alt="LUMI Logic Framework"
+                src="/projects/aaia_ui_v2.png"
+                alt="AAIA Logic Framework"
                 fill
                 className="object-cover object-top opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700"
               />
@@ -114,11 +114,11 @@ export const ProductSection = () => {
             </div>
 
             <div className="p-8 md:p-10 flex-grow relative z-10 pt-4">
-              <h3 className="text-3xl font-bold text-gradient mb-3">LUMI</h3>
+              <h3 className="text-3xl font-bold text-gradient mb-3">AAIA</h3>
               <p className="text-gradient text-sm font-bold uppercase tracking-widest mb-6">Intelligent AI Platform</p>
               
               <p className="text-slate-500 text-lg leading-relaxed mb-8">
-                LUMI is an intelligent AI platform that allows businesses and developers to create smart agents that can understand, respond, automate tasks, and interact with data in real time.
+                AAIA is an intelligent AI platform that allows businesses and developers to create smart agents that can understand, respond, automate tasks, and interact with data in real time.
               </p>
             </div>
           </motion.div>

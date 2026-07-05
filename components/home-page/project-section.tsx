@@ -11,9 +11,9 @@ import { MultiDeviceMockup } from '@/components/multi-device-mockup';
 
 const products = [
   {
-    title: 'LUMI',
+    title: 'AAIA',
     subtitle: 'Communications Ecosystem',
-    description: 'LUMI is a unified communications platform featuring instant messaging, voice calls, video conferencing, and file sharing. Engineered to integrate seamlessly into any business workflow with AI-powered logic.',
+    description: 'AAIA is a unified communications platform featuring instant messaging, voice calls, video conferencing, and file sharing. Engineered to integrate seamlessly into any business workflow with AI-powered logic.',
     image: '/projects/lumi_ui_new.jpg',
     link: '/products',
     color: '#818cf8',

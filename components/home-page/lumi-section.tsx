@@ -42,7 +42,7 @@ export const LumiSection = () => {
               </div>
               <div>
                 <div className="flex justify-between items-center w-full mb-1">
-                  <h4 className="font-semibold text-slate-900 text-lg">LUMI Platform</h4>
+                  <h4 className="font-semibold text-slate-900 text-lg">AAIA Platform</h4>
                   <span className="text-slate-500 text-sm font-medium">1hr ago</span>
                 </div>
                 <p className="text-slate-900 font-medium">Automated chat agent successfully resolved 45 support tickets.</p>
@@ -54,7 +54,7 @@ export const LumiSection = () => {
             <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden bg-transparent border border-slate-200 shadow-lg">
               <Image 
                 src="/projects/lumi_hero_new.png" 
-                alt="LUMI AI Interface" 
+                alt="AAIA Interface" 
                 fill
                 className="object-cover" 
               />

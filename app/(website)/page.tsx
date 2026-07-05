@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Achtrex | Automotive Technology Partner — Data, AI & Custom Platforms",
     description: "Enterprise automotive software solutions designed for the next generation of connected mobility.",
-    images: ["/projects/lumi_ui_v2.jpg"],
+    images: ["/projects/aaia_ui_v2.png"],
   }
 };
 

@@ -25,14 +25,14 @@ export const AboutSection = () => {
             Powering the future of<br />automotive intelligence
           </h2>
           <p className="text-[16px] text-slate-500 leading-[1.6] max-w-3xl font-medium">
-            Achtrex is a global automotive technology company delivering scalable data APIs, enterprise VIN intelligence, and LUMI AI, a cognitive automotive reasoning engine. We operate live platforms, active integrations, and growing client engagements worldwide.
+            Achtrex is a global automotive technology company delivering scalable data APIs, enterprise VIN intelligence, and AAIA, a cognitive automotive reasoning engine. We operate live platforms, active integrations, and growing client engagements worldwide.
           </p>
         </motion.div>
 
         {/* Stats Bar */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 max-w-5xl mx-auto">
           {[
-            { value: '3', label: 'Live Platforms', sub: 'AutomotiveDataset · LUMI · Core' },
+            { value: '3', label: 'Live Platforms', sub: 'AutomotiveDataset · AAIA · Core' },
             { value: '4+', label: 'Industries', sub: 'Auto · AI · SaaS · Enterprise' },
             { value: 'Global', label: 'Operations', sub: 'Remote-first worldwide' },
           ].map((stat, i) => (
@@ -66,7 +66,7 @@ export const AboutSection = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#F8F9FA]/30 via-transparent to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-3">
-            {['AutomotiveDataset.com', 'LUMI AI', 'Achtrex Core', 'Enterprise APIs'].map((tag, i) => (
+            {['AutomotiveDataset.com', 'AAIA', 'Achtrex Core', 'Enterprise APIs'].map((tag, i) => (
               <span key={i} className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-[12px] font-bold text-slate-900 border border-slate-300">
                 {tag}
               </span>

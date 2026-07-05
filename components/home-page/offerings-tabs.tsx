@@ -38,7 +38,7 @@ const offerings = [
     tabTitle: 'AI SOLUTIONS',
     icon: Robot,
     subtitle: 'Next-generation AI for automotive teams',
-    description: 'Leverage the power of artificial intelligence to automate and optimize your automotive business. We implement state-of-the-art AI solutions including LUMI AI, intelligent customer support agents, internal knowledge assistants, and complex workflow automation. Our AI systems are trained specifically on automotive domains to deliver unprecedented accuracy and efficiency.',
+    description: 'Leverage the power of artificial intelligence to automate and optimize your automotive business. We implement state-of-the-art AI solutions including AAIA, intelligent customer support agents, internal knowledge assistants, and complex workflow automation. Our AI systems are trained specifically on automotive domains to deliver unprecedented accuracy and efficiency.',
     buttonText: 'Discover AI Solutions',
     image: '/images/slide3_foreground.png',
     color: '#8b5cf6' // violet-500

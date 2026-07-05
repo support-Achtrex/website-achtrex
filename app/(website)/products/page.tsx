@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Products & Enterprise Solutions | Achtrex",
     description: "Explore the Achtrex solutions ecosystem: from high-frequency vehicle data APIs to autonomous AI frameworks.",
-    images: ["/projects/lumi_ui_v2.jpg"],
+    images: ["/projects/aaia_ui_v2.png"],
   }
 };
 
