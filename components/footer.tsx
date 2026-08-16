@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { ExternalLink } from 'lucide-react';
 import { Linkedin, Twitter, Mail, CallOut } from '@nobertdev/react-3d-icons/fc';
 import { Montserrat } from 'next/font/google';
@@ -13,10 +13,13 @@ const montserrat = Montserrat({ subsets: ['latin'], weight: ['700', '800', '900'
 
 export const Footer = () => {
   const router = useRouter();
+  const pathname = usePathname();
+  const isPortal = pathname?.startsWith('/portal');
 
   return (
     <>
       {/* Pre-Footer CTA Section */}
+      {!isPortal && (
       <div className="relative bg-transparent pt-20">
         {/* Dark background for the bottom half to create overlap effect */}
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#001a22]"></div>
@@ -82,8 +85,10 @@ export const Footer = () => {
           </div>
         </div>
       </div>
+      )}
 
-      {/* Main Footer */}
+      {/* Main Footer — hidden on portal pages */}
+      {!isPortal && (
       <footer className="bg-[#001a22] text-slate-200 pt-16 pb-8 font-sans border-t border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
 
@@ -207,6 +212,7 @@ export const Footer = () => {
           </div>
         </div>
       </footer>
+      )}
     </>
   );
 };

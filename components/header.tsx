@@ -198,9 +198,12 @@ export const Navbar = () => {
               </div>
             ))}
             
-            {/* Call Now Button inside the pill */}
-            <div className="ml-4">
-              <Link href="tel:+16133664271" className="bg-logo-gradient text-white text-[14px] font-bold px-6 py-2.5 rounded-full transition-transform hover:scale-105 border-0 shadow-md flex items-center justify-center">
+            {/* Action Buttons inside the pill */}
+            <div className="ml-4 flex items-center gap-2">
+              <Link href="/portal" className="text-[13px] font-bold px-4 py-2 text-slate-700 hover:text-primary transition-colors">
+                Portal
+              </Link>
+              <Link href="tel:+16133664271" className="bg-logo-gradient text-white text-[14px] font-bold px-5 py-2 rounded-full transition-transform hover:scale-105 border-0 shadow-md flex items-center justify-center">
                 Call Now
               </Link>
             </div>
@@ -290,6 +293,9 @@ export const Navbar = () => {
                 );
               })}
               <div className="pt-4 flex flex-col gap-3">
+                <Link href="/portal" onClick={() => setIsOpen(false)} className="w-full text-center bg-white text-black font-bold py-3 rounded-none uppercase text-xs tracking-wider">
+                  Access Platform / Portal
+                </Link>
                 <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-logo-gradient text-white font-bold py-3 rounded-none">
                   Contact Us
                 </Link>

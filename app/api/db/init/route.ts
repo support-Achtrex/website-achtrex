@@ -106,6 +106,52 @@ export async function GET() {
       )
     `;
 
+    // 9. Portal Members
+    await sql`
+      CREATE TABLE IF NOT EXISTS portal_members (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password_hash TEXT NOT NULL,
+        company VARCHAR(255),
+        phone VARCHAR(50),
+        role VARCHAR(50) DEFAULT 'member',
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      )
+    `;
+
+    // 10. Portal Projects
+    await sql`
+      CREATE TABLE IF NOT EXISTS portal_projects (
+        id SERIAL PRIMARY KEY,
+        member_id INTEGER REFERENCES portal_members(id) ON DELETE CASCADE,
+        title VARCHAR(255) NOT NULL,
+        service_type VARCHAR(100) NOT NULL,
+        description TEXT NOT NULL,
+        budget VARCHAR(100),
+        status VARCHAR(50) DEFAULT 'submitted',
+        progress_percent INTEGER DEFAULT 15,
+        architecture_data JSONB DEFAULT '{}',
+        cart_items JSONB DEFAULT '[]',
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      )
+    `;
+
+    // 11. Portal Project Updates
+    await sql`
+      CREATE TABLE IF NOT EXISTS portal_project_updates (
+        id SERIAL PRIMARY KEY,
+        project_id INTEGER REFERENCES portal_projects(id) ON DELETE CASCADE,
+        title VARCHAR(255) NOT NULL,
+        content TEXT NOT NULL,
+        stage VARCHAR(100),
+        author_name VARCHAR(100) DEFAULT 'Achtrex Engineering Team',
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      )
+    `;
+
     // 7. Initial Data (Team)
     await sql`
       DO $$

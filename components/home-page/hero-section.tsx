@@ -62,9 +62,9 @@ export const Hero = () => {
             {/* CTA */}
             <button
               onClick={() => {
-                window.dispatchEvent(new CustomEvent('open-services-dropdown'));
+                router.push('/portal');
               }}
-              className="bg-white text-black px-12 py-4 font-bold tracking-[0.15em] text-xs md:text-sm uppercase transition-all hover:bg-slate-200 hover:scale-105 rounded-sm shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+              className="bg-white text-black px-12 py-4 font-bold tracking-[0.15em] text-xs md:text-sm uppercase transition-all hover:bg-slate-200 hover:scale-105 rounded-sm shadow-[0_0_20px_rgba(255,255,255,0.15)] cursor-pointer"
             >
               Access Platform
             </button>
