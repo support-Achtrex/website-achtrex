@@ -24,14 +24,25 @@ export default async function PortalPage() {
     <main className="min-h-screen bg-[#001017] text-white relative overflow-x-hidden font-sans flex flex-col justify-between">
       {/* Background Video Layer — 100% sharp and unblurred */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <Image
+          src="/aaia-poster.jpg"
+          alt="Portal Background"
+          fill
+          priority
+          quality={80}
+          className="object-cover -z-10"
+        />
         <video
-          src="/aaia-video.mp4"
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
+          poster="/aaia-poster.jpg"
           className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        />
+        >
+          <source src="/aaia-video.mp4" type="video/mp4" />
+        </video>
         {/* Transparent Cyber Grid Pattern Overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,169,206,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,169,206,0.08)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
         

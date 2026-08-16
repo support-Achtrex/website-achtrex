@@ -130,6 +130,9 @@ export default function RootLayout({
 
  return (
  <html lang="en" suppressHydrationWarning className="scroll-smooth">
+ <head>
+    <link rel="preload" as="image" href="/aaia-poster.jpg" fetchPriority="high" />
+ </head>
  <body className={`${inter.variable} antialiased min-h-screen flex flex-col bg-[#F8F9FA] text-slate-900 font-sans leading-relaxed selection:bg-[#00a9ce]/20 selection:text-slate-900 overflow-x-hidden`}>
  <script
  type="application/ld+json"
