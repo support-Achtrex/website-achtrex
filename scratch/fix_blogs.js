@@ -34,7 +34,7 @@ const originalPosts = [
         image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
         excerpt: 'Direct LLM integrations are brittle. This is why our upcoming AI cognitive layer relies on a hardened proxy architecture.',
         content: `
-            <p>Connecting a Large Language Model (LLM) directly to enterprise customer systems often leads to a triad of failures: massive security flaws, runaway token costs, and prompt-injection vulnerabilities. In the rush to adopt AI, many enterprises build thin wrappers around OpenAI or Anthropic endpoints. At Achtrex, we recognized early on that this approach is unsustainable for mission-critical operations. We are architecting our Cognitive AI platform, LUMI, to act as an impenetrable proxy layer between base LLMs and corporate workflows.</p>
+            <p>Connecting a Large Language Model (LLM) directly to enterprise customer systems often leads to a triad of failures: massive security flaws, runaway token costs, and prompt-injection vulnerabilities. In the rush to adopt AI, many enterprises build thin wrappers around OpenAI or Anthropic endpoints. At Achtrex, we recognized early on that this approach is unsustainable for mission-critical operations. We are architecting our Cognitive AI platform, AAIA, to act as an impenetrable proxy layer between base LLMs and corporate workflows.</p>
             
             <h3>The Danger of Direct Integration</h3>
             <p>When a client interface speaks directly to an LLM provider, you lose control over the context window, cost, and security. A malicious user can execute prompt injections to extract system prompts or bypass intended constraints. Furthermore, unstructured outputs from the LLM can crash downstream systems that expect strict JSON formats. To mitigate this, a robust middleware layer is an absolute necessity.</p>
@@ -67,7 +67,7 @@ const originalPosts = [
             <p>By owning our technology stack globally, we eliminate legacy bottlenecks. We no longer have to compromise on database infrastructure or caching layers because of client budget constraints. We engineer for maximum velocity and high availability. Our teams can spend three weeks optimizing a single database index because we know that optimization will pay dividends across millions of API calls, rather than struggling to justify the billable hours to a client.</p>
 
             <h3>The Compounding Value of Data Moats</h3>
-            <p>In a Venture Builder model, every line of code compounds in value. The data pipelines we built for AutomotiveDataset now directly feed the reasoning engines of LUMI AI. This interconnected ecosystem creates a massive data moat that would be impossible to build under an agency model. We are no longer building houses for others; we are building a city we own.</p>
+            <p>In a Venture Builder model, every line of code compounds in value. The data pipelines we built for AutomotiveDataset now directly feed the reasoning engines of AAIA. This interconnected ecosystem creates a massive data moat that would be impossible to build under an agency model. We are no longer building houses for others; we are building a city we own.</p>
 
             <h3>Conclusion</h3>
             <p>The pivot was painful but necessary. Walking away from guaranteed service revenue to build speculative SaaS products requires immense conviction. However, the resulting alignment of our engineering talent with long-term enterprise value has proven to be the most critical decision in Achtrex's history.</p>
@@ -492,14 +492,14 @@ const originalPosts = [
         id: '29',
         slug: 'ai-fine-tuning-automotive-context',
         category: 'AI Architecture',
-        title: 'Training LUMI: Fine-Tuning LLMs for Automotive Specificity',
+        title: 'Training AAIA: Fine-Tuning LLMs for Automotive Specificity',
         date: 'February 15, 2024',
         image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800',
         excerpt: 'Why base AI models fail at vehicle technical specs, and how we solved it with domain-specific fine-tuning.',
         content: `
-            <p>General-purpose LLMs are often hallucinatory when it comes to specific technical automotive specifications or localized salvage titles. We addressed this by fine-tuning our LUMI models on our proprietary dataset.</p>
+            <p>General-purpose LLMs are often hallucinatory when it comes to specific technical automotive specifications or localized salvage titles. We addressed this by fine-tuning our AAIA models on our proprietary dataset.</p>
             <h3>Domain-Specific Reasoning</h3>
-            <p>By providing our agents with direct access to our verified history databases via RAG (Retrieval-Augmented Generation), LUMI can now provide highly accurate responses to complex mechanical queries that would stump generic AI models.</p>
+            <p>By providing our agents with direct access to our verified history databases via RAG (Retrieval-Augmented Generation), AAIA can now provide highly accurate responses to complex mechanical queries that would stump generic AI models.</p>
         `
     },
     {
@@ -520,12 +520,12 @@ const originalPosts = [
         id: '31',
         slug: 'unified-communication-protocols-lumi',
         category: 'AI Architecture',
-        title: 'Unified Communication Protocols: The Backbone of LUMI',
+        title: 'Unified Communication Protocols: The Backbone of AAIA',
         date: 'December 28, 2023',
         image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
         excerpt: 'Ensuring seamless interaction between human operators and AI agents across diverse digital channels.',
         content: `
-            <p>LUMI is designed to exist everywhere - from WhatsApp to enterprise dashboards. This required a unified communication protocol to handle state across disjointed sessions.</p>
+            <p>AAIA is designed to exist everywhere - from WhatsApp to enterprise dashboards. This required a unified communication protocol to handle state across disjointed sessions.</p>
             <h3>Stateless Agent Orchestration</h3>
             <p>Our orchestration layer manages the user intent and history independently of the communication channel, ensuring that if a user starts an interaction on mobile and finishes on desktop, the AI maintains a perfect, unbroken context of the conversation.</p>
         `

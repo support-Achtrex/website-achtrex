@@ -27,8 +27,8 @@ export default function App() {
  return (
  <div className="min-h-screen bg-[#F8F9FA] text-slate-900 overflow-x-hidden">
  <Hero />
- <OfferingsTabs />
  <PortfolioGrid />
+ <OfferingsTabs />
  <ComparisonSection />
  <PopularLinks />
  <LatestNews />

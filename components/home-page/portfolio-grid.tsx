@@ -34,33 +34,7 @@ const portfolioItems = [
     desc: "Achtrex Core serves as our foundational enterprise integration hub. We designed this API gateway entirely in-house to provide seamless, secure, and rapid access to our full suite of automotive intelligence tools.",
     isLogo: true
   },
-  {
-    id: 4,
-    title: "Ark Auto Shop",
-    category: "Use Case",
-    image: "/logos/use-cases/arkauto.png",
-    link: "/use-cases",
-    desc: "We created Ark Auto Shop from the ground up, engineering its complete digital infrastructure for automotive parts distribution. We embedded our AI-powered workflows and intelligent fitment technologies to drive the entire service ecosystem.",
-    isLogo: true
-  },
-  {
-    id: 5,
-    title: "Carkasa",
-    category: "Use Case",
-    image: "/logos/use-cases/vehiclehistory.png",
-    link: "/use-cases",
-    desc: "We founded and built Carkasa as a global platform for comprehensive vehicle history reports. Utilizing the Achtrex data engine, we aggregate massive datasets to provide instant, reliable vehicle backgrounds to consumers and dealers worldwide.",
-    isLogo: true
-  },
-  {
-    id: 6,
-    title: "VehicleReportCheck",
-    category: "Use Case",
-    image: "/logos/use-cases/vehiclereportcheck.png",
-    link: "/use-cases",
-    desc: "We built and scaled the VehicleReportCheck platform entirely in-house. Powered by our core automotive intelligence, this platform focuses on advanced VIN decoding, vehicle transparency, and comprehensive reporting workflows.",
-    isLogo: true
-  }
+
 ];
 
 export const PortfolioGrid = () => {
@@ -234,14 +208,26 @@ export const PortfolioGrid = () => {
                 className="group bg-white rounded-2xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-[#00a9ce]/30 transition-all duration-500 overflow-hidden flex flex-col"
               >
                 {/* Image Container */}
-                <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-8 overflow-hidden border-b border-slate-50">
-                  <Image 
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className={`transition-transform duration-700 ease-out group-hover:scale-110 ${item.isLogo ? 'object-contain p-10' : 'object-cover'}`}
-                    unoptimized
-                  />
+                <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center overflow-hidden border-b border-slate-50">
+                  {item.isLogo ? (
+                    <div className="relative w-full h-full flex items-center justify-center p-10">
+                      <Image 
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-contain transition-transform duration-700 ease-out group-hover:scale-110"
+                        unoptimized
+                      />
+                    </div>
+                  ) : (
+                    <Image 
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                      unoptimized
+                    />
+                  )}
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-slate-100/50">
                     <span className="text-[10px] font-bold tracking-widest uppercase text-slate-600">
