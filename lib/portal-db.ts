@@ -13,7 +13,10 @@ import {
 
 export * from './portal-types';
 
+let tablesInitialized = false;
+
 export async function ensurePortalTablesExist() {
+  if (tablesInitialized) return;
   try {
     await sql`
       CREATE TABLE IF NOT EXISTS portal_members (
@@ -57,6 +60,7 @@ export async function ensurePortalTablesExist() {
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
       )
     `;
+    tablesInitialized = true;
   } catch (error) {
     console.error('ensurePortalTablesExist error:', error);
   }
