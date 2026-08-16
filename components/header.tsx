@@ -203,7 +203,7 @@ export const Navbar = () => {
               <Link href="/portal" className="text-[13px] font-bold px-4 py-2 text-slate-700 hover:text-primary transition-colors">
                 Portal
               </Link>
-              <Link href="tel:+16133664271" className="bg-logo-gradient text-white text-[14px] font-bold px-5 py-2 rounded-full transition-transform hover:scale-105 border-0 shadow-md flex items-center justify-center">
+              <Link href="tel:+971502229587" className="bg-logo-gradient text-white text-[14px] font-bold px-5 py-2 rounded-full transition-transform hover:scale-105 border-0 shadow-md flex items-center justify-center">
                 Call Now
               </Link>
             </div>
