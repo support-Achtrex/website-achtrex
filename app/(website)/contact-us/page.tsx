@@ -23,12 +23,12 @@ const jsonLd = {
   "mainEntity": {
     "@type": "LocalBusiness",
     "name": "Achtrex Support",
-    "telephone": "+1-613-366-4271",
+    "telephone": ["+971-50-222-9587", "+1-613-366-4271"],
     "email": "support@achtrex.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "US"
-    }
+    "address": [
+      { "@type": "PostalAddress", "addressCountry": "AE" },
+      { "@type": "PostalAddress", "addressCountry": "US" }
+    ]
   }
 };
 

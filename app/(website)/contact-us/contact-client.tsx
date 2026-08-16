@@ -124,12 +124,19 @@ export const ContactClient = () => {
  </div>
  </a>
 
- <a href="tel:+16133664271" className="block p-5 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-md hover:border-[#00a9ce] transition-all group">
- <div>
- <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Global Phone</p>
- <span className="font-semibold text-slate-700">+1 613 366-4271</span>
- </div>
- </a>
+  <a href="tel:+971502229587" className="block p-5 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-md hover:border-[#00a9ce] transition-all group">
+  <div>
+  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">🇦🇪 UAE Office</p>
+  <span className="font-semibold text-slate-700">+971 50 222 9587</span>
+  </div>
+  </a>
+
+  <a href="tel:+16133664271" className="block p-5 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-md hover:border-[#00a9ce] transition-all group">
+  <div>
+  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">🇺🇸 US Office</p>
+  <span className="font-semibold text-slate-700">+1 613 366-4271</span>
+  </div>
+  </a>
  </div>
 
  <div className="mt-8 bg-[#f2fdf5] rounded-xl p-6 border border-green-100/60 text-center md:text-left">

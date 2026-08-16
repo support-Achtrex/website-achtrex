@@ -187,10 +187,17 @@ export const Footer = () => {
                   </a>
                 </li>
                 <li>
+                  <a href="tel:+971502229587"
+                    className="flex items-start gap-3 text-slate-400 hover:text-white text-sm font-medium transition-colors">
+                    <CallOut className="w-5 h-5 text-[#00a9ce] mt-1" />
+                    <span>🇦🇪 +971 50 222 9587</span>
+                  </a>
+                </li>
+                <li>
                   <a href="tel:+16133664271"
                     className="flex items-start gap-3 text-slate-400 hover:text-white text-sm font-medium transition-colors">
                     <CallOut className="w-5 h-5 text-[#00a9ce] mt-1" />
-                    <span>+1 613 366-4271</span>
+                    <span>🇺🇸 +1 613 366-4271</span>
                   </a>
                 </li>
               </ul>

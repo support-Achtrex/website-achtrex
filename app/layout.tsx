@@ -87,13 +87,22 @@ const jsonLd = [
  "url": "https://achtrex.com",
  "logo": "https://achtrex.com/logo.png",
  "description": "Enterprise SaaS venture builder specializing in high-velocity data architectures and cognitive AI platforms.",
- "contactPoint": {
- "@type": "ContactPoint",
- "telephone": "+1-613-366-4271",
- "contactType": "customer service",
- "areaServed": ["GH", "US", "GB", "NL", "CA"],
- "availableLanguage": ["en", "fr"]
- },
+ "contactPoint": [
+  {
+   "@type": "ContactPoint",
+   "telephone": "+971-50-222-9587",
+   "contactType": "customer service",
+   "areaServed": ["AE", "SA", "QA", "KW", "BH", "OM"],
+   "availableLanguage": ["en", "ar"]
+  },
+  {
+   "@type": "ContactPoint",
+   "telephone": "+1-613-366-4271",
+   "contactType": "customer service",
+   "areaServed": ["US", "CA", "GB", "NL"],
+   "availableLanguage": ["en", "fr"]
+  }
+ ],
  "sameAs": [
  "https://twitter.com/achtrex",
  "https://linkedin.com/company/achtrex",
