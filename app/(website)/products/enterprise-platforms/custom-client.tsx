@@ -1,198 +1,224 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code2, Terminal, Workflow, Zap, Database, Blocks, Layers, Settings2 } from 'lucide-react';
+import { 
+  ArrowRight, Code2, Terminal, Workflow, Zap, Database, 
+  Blocks, Layers, Settings2, ShieldCheck, Server, Cpu, 
+  Lock, Globe, Smartphone, Cloud, CheckCircle2, GitBranch, Sparkles
+} from 'lucide-react';
 import Image from "next/image";
+import Link from 'next/link';
 import { InnerPageHeader } from "@/components/inner-page-header";
+import ProjectHandlingSection from '@/components/products/project-handling';
+
+const techStack = {
+  frontend: {
+    title: 'Frontend & Mobile',
+    items: ['Next.js 15 (React 19)', 'TypeScript', 'Tailwind CSS', 'React Native (iOS/Android)', 'WebSockets / SSE', 'Framer Motion']
+  },
+  backend: {
+    title: 'Backend & Microservices',
+    items: ['Node.js & Go Engines', 'Python (AI & Telematics)', 'GraphQL & REST Gateways', 'gRPC High-Speed Services', 'Apache Kafka / RabbitMQ', 'Event-Driven Pub/Sub']
+  },
+  databases: {
+    title: 'Data & Ingestion',
+    items: ['PostgreSQL & TimescaleDB', 'Redis Cluster (Caching)', 'ClickHouse (Analytics)', 'Elasticsearch / OpenSearch', 'S3 / Cloudflare R2', 'Supabase Realtime']
+  },
+  devops: {
+    title: 'Cloud & Infrastructure',
+    items: ['AWS & Google Cloud', 'Kubernetes (EKS / GKE)', 'Docker Containers', 'Terraform (IaC)', 'Datadog & Grafana Ops', 'Cloudflare Edge CDN']
+  }
+};
 
 export default function CustomClient() {
- return (
- <main className="min-h-screen bg-[#f4f4f4] text-slate-900 selection:bg-[#00a9ce]/20 selection:text-slate-900 pb-20">
- {/* 1. Header */}
- <InnerPageHeader title="Enterprise Automotive Platforms" subtitle="Delivering cutting-edge custom architecture and API integrations to empower your automotive business with scalable enterprise infrastructure." />
+  const [activeStack, setActiveStack] = useState<'frontend' | 'backend' | 'databases' | 'devops'>('backend');
 
- {/* 2. Main Content Grid */}
- <section className="py-24 px-6">
- <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
- 
- {/* Left: Info Sidebar */}
- <div className="lg:col-span-4 space-y-16">
- {/* The Challenge */}
- <div className="space-y-6">
- <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#00a9ce] pb-4 inline-block text-slate-900">The Challenge</h2>
- <p className="text-slate-500 leading-relaxed font-medium">
- Off-the-shelf software often fails to meet the highly specific demands of the automotive industry. Managing complex telemetry, huge vehicle databases, and legacy dealer management systems requires architecture built strictly for speed, reliability, and extreme scalability.
- </p>
- </div>
+  return (
+    <main className="min-h-screen bg-[#f4f4f4] text-slate-900 selection:bg-[#00a9ce]/20 selection:text-slate-900 pb-20 font-sans">
+      {/* 1. Header */}
+      <InnerPageHeader 
+        title="Custom Automotive Software & Cloud Platforms" 
+        subtitle="We design, engineer, and scale bespoke enterprise automotive platforms — from high-frequency telematics pipelines and legacy DMS modernization to digital automotive fintech rails." 
+      />
 
- {/* Product Scope */}
- <div className="space-y-6">
- <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#76bc1d] pb-4 inline-block text-slate-900">Our Solution</h2>
- <p className="text-slate-500 leading-relaxed font-medium">
- We specialize in delivering cutting-edge custom development services and API integration's that empower your automotive-focused business to thrive in the digital age. Your success in the automotive sector is our success, and we're excited to be your trusted technology partner on this automotive journey.
- </p>
- </div>
+      {/* 2. Main Content Grid */}
+      <section className="py-12 lg:py-24 px-6">
+        <div className="max-w-[1280px] mx-auto space-y-20">
+          
+          {/* Metrics Bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
+            <div className="p-4 border-r border-slate-100 last:border-0">
+              <div className="text-3xl lg:text-4xl font-black text-[#001a22]">99.99%</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Uptime Availability SLA</div>
+            </div>
+            <div className="p-4 border-r border-slate-100 last:border-0">
+              <div className="text-3xl lg:text-4xl font-black text-[#00a9ce]">Sub-50ms</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Telemetry Pipeline Speed</div>
+            </div>
+            <div className="p-4 border-r border-slate-100 last:border-0">
+              <div className="text-3xl lg:text-4xl font-black text-[#76bc1d]">Zero-Trust</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">SOC2 & ISO Compliant</div>
+            </div>
+            <div className="p-4">
+              <div className="text-3xl lg:text-4xl font-black text-[#001a22]">Full-Cycle</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">From Blueprint to 24/7 Ops</div>
+            </div>
+          </div>
 
- {/* CTA Group */}
- <div className="space-y-3">
- <a href="/contact-us" className="inline-flex items-center justify-center gap-2 w-full bg-[#00a9ce] text-white font-bold py-4 rounded-none hover:opacity-90 transition-all shadow-none">
- Contact Today <ArrowRight size={18} />
- </a>
- <div className="grid grid-cols-2 gap-3 pt-2">
- <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
- Our Methodology
- </button>
- <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
- Case Studies
- </button>
- </div>
- </div>
- </div>
+          {/* Architecture Hero Showcase */}
+          <div className="bg-[#001a22] rounded-3xl p-8 lg:p-12 border border-cyan-500/20 shadow-2xl text-white">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-6 space-y-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00a9ce]/20 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+                  <Cpu size={14} /> High-Velocity Engineering
+                </div>
+                <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
+                  Bespoke Architecture Built for Extreme Scale
+                </h2>
+                <p className="text-slate-300 text-sm md:text-base leading-relaxed font-normal">
+                  Off-the-shelf software collapses under the weight of automotive telemetry, multi-location inventory syncing, and legacy ERP constraints. We build dedicated microservices architectures capable of ingesting millions of sensor events per minute with cryptographic security.
+                </p>
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <Link
+                    href="/contact-us"
+                    className="bg-[#00a9ce] hover:bg-[#0092b3] text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm flex items-center gap-2"
+                  >
+                    <span>Request Technical Blueprint</span>
+                    <ArrowRight size={16} />
+                  </Link>
+                  <Link
+                    href="/portal"
+                    className="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-3.5 rounded-xl border border-white/20 transition-colors text-sm"
+                  >
+                    Explore Member Portal
+                  </Link>
+                </div>
+              </div>
 
- {/* Right: Process & Execution */}
- <div className="lg:col-span-8 space-y-24">
- 
- {/* Big Hero Visual */}
- <motion.div 
- initial={{ opacity: 0, y: 30 }}
- whileInView={{ opacity: 1, y: 0 }}
- viewport={{ once: true }}
- className="bg-[#081622] rounded-none border border-[#00a9ce]/20 shadow-none overflow-hidden"
- >
- <div className="relative aspect-[16/10] w-full bg-[#001a22]">
- <Image 
- src="/images/real_server_room_1775935470750.png" 
- alt="Enterprise Architecture"
- fill
- className="object-cover object-center"
- />
- </div>
- </motion.div>
+              <div className="lg:col-span-6 relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-black">
+                <Image
+                  src="/images/real_enterprise_header.png"
+                  alt="Enterprise Architecture Diagram"
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+            </div>
+          </div>
 
- {/* Process Grid */}
- <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
- 
- <div className="space-y-6">
- <div className="flex items-center gap-3 mb-6">
- <div className="w-10 h-10 rounded-none bg-[#00a9ce]/10 flex items-center justify-center text-[#00a9ce]">
- <Workflow size={20} />
- </div>
- <h3 className="text-2xl font-bold tracking-tight">API Integrations</h3>
- </div>
- <p className="text-slate-500 leading-relaxed font-medium">
- Seamlessly connect disparate automotive systems. We build robust middleware that unifies Dealer Management Systems, legacy databases, and modern SaaS endpoints.
- </p>
- </div>
+          {/* Interactive Tech Stack Explorer */}
+          <div className="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm space-y-8">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00a9ce]/10 text-[#00a9ce] text-xs font-bold uppercase tracking-wider mb-2">
+                <Layers size={14} /> Modern Technology Stack
+              </div>
+              <h2 className="text-3xl font-black text-slate-900">Battle-Tested Automotive Engineering Stack</h2>
+              <p className="text-slate-600 text-sm mt-2 font-medium">We choose resilient, modern technologies tailored for sub-second data streaming, high availability, and rapid feature iteration.</p>
+            </div>
 
- <div className="space-y-6">
- <div className="flex items-center gap-3 mb-6">
- <div className="w-10 h-10 rounded-none bg-[#76bc1d]/10 flex items-center justify-center text-[#76bc1d]">
- <Database size={20} />
- </div>
- <h3 className="text-2xl font-bold tracking-tight">Data Architecture</h3>
- </div>
- <p className="text-slate-500 leading-relaxed font-medium">
- Design highly available, lightning-fast data pipelines capable of handling high-frequency vehicle telemetry and massive historical datasets.
- </p>
- </div>
+            {/* Stack Category Tabs */}
+            <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-4">
+              {(Object.keys(techStack) as Array<keyof typeof techStack>).map((key) => (
+                <button
+                  key={key}
+                  onClick={() => setActiveStack(key)}
+                  className={`px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all ${
+                    activeStack === key
+                      ? 'bg-[#001a22] text-white shadow-md'
+                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  }`}
+                >
+                  {techStack[key].title}
+                </button>
+              ))}
+            </div>
 
- <div className="space-y-6">
- <div className="flex items-center gap-3 mb-6">
- <div className="w-10 h-10 rounded-none bg-[#001a22]/10 flex items-center justify-center text-[#001a22]">
- <Blocks size={20} />
- </div>
- <h3 className="text-2xl font-bold tracking-tight">Custom Portals</h3>
- </div>
- <p className="text-slate-500 leading-relaxed font-medium">
- Develop bespoke dashboards, B2B portals, and consumer-facing applications that turn complex automotive data into stunning, user-friendly experiences.
- </p>
- </div>
+            {/* Stack Items Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {techStack[activeStack].items.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#00a9ce] hover:shadow-sm transition-all"
+                >
+                  <CheckCircle2 size={18} className="text-[#00a9ce] shrink-0" />
+                  <span className="font-bold text-sm text-slate-800">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
- <div className="space-y-6">
- <div className="flex items-center gap-3 mb-6">
- <div className="w-10 h-10 rounded-none bg-[#00a9ce]/10 flex items-center justify-center text-[#00a9ce]">
- <Settings2 size={20} />
- </div>
- <h3 className="text-2xl font-bold tracking-tight">Endless Possibilities</h3>
- </div>
- <p className="text-slate-500 leading-relaxed font-medium">
- Contact us today to discuss your automotive project. Let's explore the endless possibilities together to ensure your success in the automotive sector.
- </p>
- </div>
+          {/* 6 Core Engineering Pillars */}
+          <div className="space-y-8">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl font-black text-slate-900">Enterprise Engineering Capabilities</h2>
+              <p className="text-slate-600 text-sm mt-2 font-medium">We handle every layer of complex automotive software from device hardware integration to front-end dealer apps.</p>
+            </div>
 
- </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: Server,
+                  title: 'Distributed Microservices',
+                  desc: 'High-concurrency microservices orchestrated with Kubernetes and Kafka for instantaneous processing of high-volume automotive events.',
+                  color: 'text-[#00a9ce]',
+                  bg: 'bg-[#00a9ce]/10'
+                },
+                {
+                  icon: Zap,
+                  title: 'IoT & CAN-Bus Telematics',
+                  desc: 'Ingest and parse OBD-II, GPS tracking, and ECU telemetry data in real-time with sub-50ms roundtrip ingestion pipelines.',
+                  color: 'text-[#76bc1d]',
+                  bg: 'bg-[#76bc1d]/10'
+                },
+                {
+                  icon: Workflow,
+                  title: 'Legacy DMS Modernization',
+                  desc: 'Bridge decades-old mainframe and on-premise dealer management systems to modern cloud APIs without disrupting daily store operations.',
+                  color: 'text-[#001a22]',
+                  bg: 'bg-[#001a22]/10'
+                },
+                {
+                  icon: Lock,
+                  title: 'Automotive FinTech & Billing',
+                  desc: 'Secure payment gateways, digital lease desking, automated ACH disbursement, and PCI-DSS compliant credit origination pipelines.',
+                  color: 'text-[#00a9ce]',
+                  bg: 'bg-[#00a9ce]/10'
+                },
+                {
+                  icon: Smartphone,
+                  title: 'Custom Mobile & Web Apps',
+                  desc: 'High-performance React Native iOS and Android apps for fleet drivers, dealership service advisors, and retail vehicle buyers.',
+                  color: 'text-[#76bc1d]',
+                  bg: 'bg-[#76bc1d]/10'
+                },
+                {
+                  icon: ShieldCheck,
+                  title: 'SOC2 & Zero-Trust Security',
+                  desc: 'End-to-end encryption at rest and in transit, multi-factor authentication, granular RBAC permissions, and automated security audit trails.',
+                  color: 'text-[#001a22]',
+                  bg: 'bg-[#001a22]/10'
+                }
+              ].map((pillar, i) => {
+                const Icon = pillar.icon;
+                return (
+                  <div key={i} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-4">
+                    <div className={`w-12 h-12 rounded-xl ${pillar.bg} flex items-center justify-center ${pillar.color}`}>
+                      <Icon size={24} />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900">{pillar.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed font-medium">{pillar.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
- {/* Infrastructure Showcase / Gallery */}
- <div className="mt-16 pt-16 border-t border-slate-200">
- <div className="flex items-center gap-3 mb-8">
- <div className="w-10 h-10 rounded-none bg-[#081622] flex items-center justify-center text-white">
- <Terminal size={20} />
- </div>
- <h3 className="text-2xl font-bold tracking-tight text-slate-900">Global Infrastructure</h3>
- </div>
- <p className="text-slate-600 mb-8 max-w-2xl font-medium">
- Our core systems are deployed across global data centers, providing the ultra-low latency and 99.999% uptime required by modern automotive platforms.
- </p>
- <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
- <div className="relative aspect-[4/3] overflow-hidden border border-slate-200 bg-white">
- <Image src="/images/bright_office_hero.jpg" alt="Our Team Environment" fill className="object-cover hover:scale-105 transition-transform duration-700" />
- </div>
- <div className="relative aspect-[4/3] overflow-hidden border border-slate-200 bg-white">
- <Image src="/images/real_dev_team.jpg" alt="Dedicated Development Teams" fill className="object-cover hover:scale-105 transition-transform duration-700" />
- </div>
- <div className="relative aspect-[4/3] overflow-hidden border border-slate-200 bg-white md:col-span-2">
- <Image src="/images/corporate_team_1.png" alt="Collaborative Innovation" fill className="object-cover object-top hover:scale-105 transition-transform duration-700" />
- </div>
- </div>
- </div>
+          {/* Project Handling Framework */}
+          <ProjectHandlingSection subject="enterprise-platforms" />
 
- {/* Ecosystem Preview */}
- <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 pt-16 mt-16 border-t border-slate-200">
- 
- <div className="space-y-6">
- <div>
- <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Technical Capabilities</h3>
- <p className="text-sm text-slate-500 font-medium">Technologies we utilize to build your infrastructure.</p>
- </div>
- <div className="grid grid-cols-1 gap-3">
- {[
- { name: 'GraphQL & REST API Design', color: 'text-[#00a9ce]' },
- { name: 'High-Frequency Data Pipelines', color: 'text-[#00a9ce]' },
- { name: 'Serverless Infrastructure', color: 'text-[#00a9ce]' },
- { name: 'PostgreSQL & Time-Series DBs', color: 'text-[#76bc1d]' },
- { name: 'React / Next.js Frontends', color: 'text-[#00a9ce]' },
- ].map((item, i) => (
- <div key={i} className="flex items-center gap-3 p-3 rounded-none border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all group cursor-default">
- <Zap className={`w-4 h-4 shrink-0 ${item.color}`} />
- <span className={`font-bold text-sm text-slate-700`}>{item.name}</span>
- </div>
- ))}
- </div>
- </div>
-
- <div className="space-y-6">
- <div>
- <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Automotive Expertise</h3>
- <p className="text-sm text-slate-500 font-medium">Domain-specific systems we seamlessly integrate.</p>
- </div>
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
- {[
- 'Dealer Management Systems', 'OEM Data Feeds', 'Telematics Providers', 'OBD2 Protocols', 'Insurance Quoting Engines', 'Parts Fitment Catalogs'
- ].map((api, i) => (
- <div key={i} className="flex items-center justify-between px-3 py-2 rounded-none border border-slate-200 bg-white">
- <span className="font-semibold text-xs text-gray-700">{api}</span>
- <Layers size={12} className="text-[#00a9ce]" />
- </div>
- ))}
- </div>
- </div>
- 
- </div>
-
- </div>
- </div>
- </section>
- </main>
- );
+        </div>
+      </section>
+    </main>
+  );
 }

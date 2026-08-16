@@ -49,7 +49,7 @@ export const ProcessSection = () => {
                 0{index + 1}
               </div>
               <div className="w-12 h-12 bg-logo-gradient rounded-xl flex items-center justify-center text-slate-900 mb-5 group-hover:scale-110 transition-transform duration-300">
-                <process.icon size={24} />
+                <process.icon className="w-6 h-6 object-contain" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-gradient transition-colors">{process.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">

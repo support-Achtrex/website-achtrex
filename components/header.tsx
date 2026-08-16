@@ -73,14 +73,6 @@ export const Navbar = () => {
   const navLinks: any[] = [
     { label: 'Home', href: '/' },
     { 
-      label: 'Company', 
-      href: '/company',
-      sub: [
-        { label: 'About Us', href: '/about-us' },
-        { label: 'What We Do', href: '/why-achtrex' }
-      ]
-    },
-    { 
       label: 'Our Solutions', 
       href: '/products',
       sub: [
@@ -112,6 +104,7 @@ export const Navbar = () => {
       label: 'Resources', 
       href: '/resources',
       sub: [
+        { label: 'About Us', href: '/about-us' },
         { label: 'Blogs', href: '/blog' },
         { label: 'Press Release', href: '/press-release' },
         { label: 'Use Cases', href: '/use-cases' }

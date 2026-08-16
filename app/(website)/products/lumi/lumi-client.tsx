@@ -1,241 +1,265 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Bot, Search, Layout, ShieldCheck, MessageSquare, Workflow, Zap, Car, BrainCircuit } from 'lucide-react';
+import { 
+  ArrowRight, Bot, Search, Layout, ShieldCheck, MessageSquare, 
+  Workflow, Zap, Car, BrainCircuit, Sparkles, Cpu, CheckCircle2, 
+  Terminal, Activity, Wrench, Shield, Gauge, Check, Copy
+} from 'lucide-react';
 import Image from "next/image";
+import Link from 'next/link';
 import { InnerPageHeader } from "@/components/inner-page-header";
+import ProjectHandlingSection from '@/components/products/project-handling';
+
+const aiSimulations = {
+  dtcDiagnostic: {
+    title: 'DTC Code Diagnostic (P0420)',
+    query: 'Vehicle: 2021 BMW M340i (3.0L Turbo B58). Active DTC: P0420 (Catalytic Converter System Efficiency Below Threshold). Sensor O2 downstream voltage fluctuating erratically between 0.1V - 0.9V.',
+    output: {
+      confidence: '98.6%',
+      rootCause: 'Downstream Post-Cat Oxygen Sensor (Bank 1) heater circuit degradation causing false catalyst efficiency flags.',
+      recommendedAction: '1. Perform smoke test on turbo downpipe flange to rule out exhaust leak.\n2. Verify upstream wideband AFR (reading steady 14.7:1).\n3. Replace downstream O2 sensor (BMW OEM Part #11788644365).\n4. Reset ECU fuel trims and execute standard 20-minute drive cycle.',
+      estimatedLaborHrs: '0.8 hrs',
+      oemParts: ['O2 Sensor Post-Cat (11-78-8-644-365)', 'Exhaust Downpipe V-Band Gasket (18-30-7-606-136)']
+    }
+  },
+  fleetBattery: {
+    title: 'Fleet EV Battery Telematics',
+    query: 'Fleet ID: Ford F-150 Lightning (VIN: 1FT6W1EV4NW102XXX). Telematics telemetry shows 4.2% cell voltage variance across Module 3 during 150kW DC fast charging.',
+    output: {
+      confidence: '99.1%',
+      rootCause: 'Cell balancing imbalance in Battery Pack Module 3 thermal control sub-circuit under high-draw DC charge profile.',
+      recommendedAction: '1. Flag vehicle for depot rebalancing cycle (Level 2 slow charging to 100% SoC).\n2. Update Battery Energy Control Module (BECM) firmware to v4.2.1.\n3. If delta remains > 35mV, replace Module 3 internal sensor wiring harness under factory warranty.',
+      estimatedLaborHrs: '1.5 hrs',
+      oemParts: ['BECM High-Voltage Wiring Harness (NL3Z-14A005-B)']
+    }
+  },
+  serviceAssistant: {
+    title: 'Conversational Service Booking',
+    query: 'Customer WhatsApp: "Hi, my 2020 Honda CR-V has a squealing noise when braking at low speeds, and the maintenance minder says B17."',
+    output: {
+      confidence: '99.4%',
+      rootCause: 'B17 Service Code: Engine Oil + Oil Filter, Tire Rotation, and Brake Fluid Flush needed. Squeal indicates front ceramic brake pad wear indicator contacting rotor.',
+      recommendedAction: 'Automated Quote Generated for Dealership CRM:\n- Synthetic Oil & Filter Service ($79.99)\n- Four-Wheel Tire Rotation ($29.99)\n- DOT3 Brake Fluid Exchange ($129.99)\n- Front Ceramic Brake Pads & Rotor Resurfacing ($289.00)\nTotal Estimated: $528.97 (Earliest appointment slot offered: Tomorrow at 9:30 AM).',
+      estimatedLaborHrs: '2.2 hrs',
+      oemParts: ['Front Brake Pad Set (45022-TLA-A01)', 'Genuine Honda DOT3 Fluid (08798-9008)']
+    }
+  }
+};
 
 export default function LumiClient() {
- return (
- <main className="min-h-screen bg-[#f4f4f4] text-slate-900 selection:bg-[#00a9ce]/20 selection:text-slate-900 pb-20">
- {/* 1. Header */}
- <InnerPageHeader title="AAIA" subtitle="The cognitive automotive platform delivering AI-driven vehicle intelligence, predictive analytics, and conversational diagnostics." />
+  const [activeSim, setActiveSim] = useState<'dtcDiagnostic' | 'fleetBattery' | 'serviceAssistant'>('dtcDiagnostic');
 
- {/* 2. Main Content Grid */}
- <section className="py-12 lg:py-16 px-6">
- <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24">
- 
- {/* Left: Info Sidebar */}
- <div className="lg:col-span-4 space-y-16">
- {/* The Challenge */}
- <div className="space-y-6">
- <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#00a9ce] pb-4 inline-block text-slate-900">The Challenge</h2>
- <p className="text-lg text-slate-600 leading-relaxed font-medium">
- AAIA is being engineered to bridge the gap between static vehicle data and actionable intelligence. Traditional automotive analytics lack true contextual understanding, leading to reactive maintenance and frustrating diagnostic workflows. The challenge is to architect an autonomous reasoning engine that understands the complex language of mobility.
- </p>
- </div>
+  return (
+    <main className="min-h-screen bg-[#f4f4f4] text-slate-900 selection:bg-[#00a9ce]/20 selection:text-slate-900 pb-20 font-sans">
+      {/* 1. Header */}
+      <InnerPageHeader 
+        title="AAIA — Autonomous Automotive AI Platform" 
+        subtitle="The cognitive automotive reasoning model engineered for multi-modal vehicle diagnostics, predictive fleet maintenance, and automated dealership service workflows." 
+      />
 
- {/* Product Scope */}
- <div className="space-y-6">
- <h2 className="text-2xl font-bold tracking-tight border-b-2 border-[#76bc1d] pb-4 inline-block text-slate-900">Product Scope</h2>
- <p className="text-lg text-slate-600 leading-relaxed font-medium">
- We are developing a unified intelligent layer utilizing state-of-the-art cognitive capabilities and proprietary LLM architectures. The platform features conversational vehicle analytics, predictive maintenance alerts, intelligent repair recommendations, and real-time automotive reasoning tailored for enterprise fleets.
- </p>
- </div>
+      {/* 2. Main Content Grid */}
+      <section className="py-12 lg:py-24 px-6">
+        <div className="max-w-[1280px] mx-auto space-y-20">
+          
+          {/* AI Metrics Bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
+            <div className="p-4 border-r border-slate-100 last:border-0">
+              <div className="text-3xl lg:text-4xl font-black text-[#00a9ce]">&lt; 120ms</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Inference Latency</div>
+            </div>
+            <div className="p-4 border-r border-slate-100 last:border-0">
+              <div className="text-3xl lg:text-4xl font-black text-[#76bc1d]">99.4%</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Diagnostic Accuracy</div>
+            </div>
+            <div className="p-4 border-r border-slate-100 last:border-0">
+              <div className="text-3xl lg:text-4xl font-black text-[#001a22]">15M+</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Trained Repair Cases</div>
+            </div>
+            <div className="p-4">
+              <div className="text-3xl lg:text-4xl font-black text-[#00a9ce]">128k</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Context Token Window</div>
+            </div>
+          </div>
 
- {/* CTA Group */}
- <div className="space-y-3">
- <a href="https://aaia.achtrex.com/login" className="inline-flex items-center justify-center gap-2 w-full bg-[#00a9ce] text-white font-bold py-4 rounded-none hover:opacity-90 transition-all shadow-none">
- Launch AAIA <ArrowRight size={18} />
- </a>
- <div className="grid grid-cols-2 gap-3 pt-2">
- <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
- Platform Architecture
- </button>
- <button className="inline-flex items-center justify-center w-full bg-white text-[#001a22] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
- AI Model Docs
- </button>
- <button className="inline-flex items-center justify-center w-full bg-white text-[#76bc1d] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#76bc1d] transition-all text-sm">
- Developer Beta
- </button>
- <button className="inline-flex items-center justify-center w-full bg-white text-[#00a9ce] border border-slate-200 font-semibold py-3 rounded-full hover:bg-slate-50 hover:border-[#00a9ce] transition-all text-sm">
- Contact Sales
- </button>
- </div>
- </div>
- </div>
+          {/* Interactive AI Live Simulator */}
+          <div className="bg-[#001017] rounded-3xl p-6 lg:p-10 border border-cyan-500/25 shadow-2xl text-white">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
+                  <BrainCircuit size={14} /> Cognitive Reasoning Simulator
+                </div>
+                <h2 className="text-2xl lg:text-3xl font-extrabold">Experience AAIA Autonomous Automotive Reasoning</h2>
+                <p className="text-slate-400 text-sm mt-1 font-medium">Select an automotive scenario to see how AAIA evaluates telemetry, diagnoses root causes, and generates actionable repair plans.</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
+                  Model Status: Online (v3.4-Flash)
+                </span>
+              </div>
+            </div>
 
- {/* Right: Process & Execution */}
- <div className="lg:col-span-8 space-y-24">
- 
- {/* Big Hero Visual / Interactive Demo */}
- <motion.div 
- initial={{ opacity: 0, y: 30 }}
- whileInView={{ opacity: 1, y: 0 }}
- viewport={{ once: true }}
- className="group relative bg-[#000] rounded-xl border border-slate-800 shadow-2xl overflow-hidden cursor-pointer"
- >
- <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
- <div className="relative aspect-[16/10] w-full">
- <Image 
- src="/projects/aaia_ui_v2.png" 
- alt="AAIA Vehicle Intelligence Platform Demo"
- fill
- className="object-cover object-center opacity-80 group-hover:scale-105 transition-transform duration-700"
- />
- </div>
- 
- {/* Play Button Overlay */}
- <div className="absolute inset-0 z-20 flex items-center justify-center">
-   <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center rounded-full bg-[#00a9ce]/90 text-white shadow-[0_0_40px_rgba(0,169,206,0.5)] group-hover:bg-[#00a9ce] group-hover:scale-110 transition-all duration-300">
-     <div className="absolute inset-0 rounded-full border-2 border-white/20 animate-ping" />
-     <svg className="w-8 h-8 md:w-10 md:h-10 ml-2" fill="currentColor" viewBox="0 0 24 24">
-       <path d="M8 5v14l11-7z" />
-     </svg>
-   </div>
- </div>
+            {/* Simulation Tabs */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {(Object.keys(aiSimulations) as Array<keyof typeof aiSimulations>).map((key) => (
+                <button
+                  key={key}
+                  onClick={() => setActiveSim(key)}
+                  className={`px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all ${
+                    activeSim === key
+                      ? 'bg-[#00a9ce] text-white shadow-lg shadow-cyan-500/30'
+                      : 'bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white'
+                  }`}
+                >
+                  {aiSimulations[key].title}
+                </button>
+              ))}
+            </div>
 
- {/* Lower third metadata */}
- <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-8 flex items-end justify-between">
-   <div>
-     <div className="flex items-center gap-2 mb-2">
-       <span className="bg-[#00a9ce] text-white text-xs font-bold px-2 py-1 uppercase tracking-wider rounded-sm">Demo</span>
-       <span className="text-white/80 text-sm font-medium">3:42</span>
-     </div>
-     <h3 className="text-white text-xl md:text-2xl font-bold">AAIA Engine: Autonomous Diagnostic Workflow</h3>
-   </div>
- </div>
- </motion.div>
+            {/* Interactive Simulation Window */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-[#001824] rounded-2xl p-6 border border-cyan-500/20">
+              
+              {/* Left: Input Prompt */}
+              <div className="lg:col-span-5 space-y-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-6 lg:pb-0 lg:pr-6">
+                <div className="flex items-center justify-between text-xs text-slate-400 font-bold uppercase tracking-wider">
+                  <span className="flex items-center gap-1.5 text-cyan-300"><Terminal size={14} /> Inbound Automotive Query</span>
+                </div>
+                <div className="bg-[#000d14] p-4 rounded-xl border border-white/5 text-xs font-mono text-slate-300 leading-relaxed">
+                  {aiSimulations[activeSim].query}
+                </div>
+                <div className="p-3.5 rounded-xl bg-cyan-950/40 border border-cyan-800/40 text-[11px] text-cyan-200 leading-relaxed font-medium">
+                  💡 AAIA cross-references live DTC sensor telemetry against 15M+ OEM technical service bulletins and repair manuals in real time.
+                </div>
+              </div>
 
- {/* Process Grid (Roadmap) */}
- <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
- 
- {/* Reasoning Core */}
- <div className="space-y-6">
- <div className="flex items-center gap-3 mb-6">
- <div className="w-10 h-10 rounded-none bg-[#00a9ce]/10 flex items-center justify-center text-[#00a9ce]">
- <BrainCircuit size={20} />
- </div>
- <h3 className="text-2xl font-bold tracking-tight">Phase 01: Engine Core</h3>
- </div>
- <ul className="space-y-3">
- {['Developing predictive vehicle logic models', 'Integrating state-of-the-art LLM endpoints', 'Building automotive natural language processors', 'Structuring high-speed diagnostic paths'].map((item, i) => (
- <li key={i} className="flex items-center gap-3 text-slate-600 font-medium">
- <div className="w-1.5 h-1.5 rounded-none bg-[#00a9ce] shrink-0" />
- {item}
- </li>
- ))}
- </ul>
- </div>
+              {/* Right: AI Diagnostic Output */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+                  <span className="flex items-center gap-1.5 text-emerald-400"><Sparkles size={14} /> AAIA Autonomous Reasoning Output</span>
+                  <span className="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[11px]">
+                    Confidence: {aiSimulations[activeSim].output.confidence}
+                  </span>
+                </div>
 
- {/* Integrations */}
- <div className="space-y-6">
- <div className="flex items-center gap-3 mb-6">
- <div className="w-10 h-10 rounded-none bg-[#76bc1d]/10 flex items-center justify-center text-[#76bc1d]">
- <MessageSquare size={20} />
- </div>
- <h3 className="text-2xl font-bold tracking-tight">Phase 02: Conversational Analytics</h3>
- </div>
- <p className="text-lg text-slate-600 leading-relaxed font-medium">
- Mapping complex OBD2 telemetry and historical repair data into intuitive, natural language dialogues, allowing users to literally "chat" with their vehicles.
- </p>
- </div>
+                <div className="space-y-3 text-xs bg-[#000d14] p-5 rounded-xl border border-white/5">
+                  <div>
+                    <span className="text-cyan-400 font-bold uppercase tracking-wider text-[10px] block mb-1">Root Cause Analysis</span>
+                    <p className="text-white font-medium">{aiSimulations[activeSim].output.rootCause}</p>
+                  </div>
 
- {/* UI Design */}
- <div className="space-y-6">
- <div className="flex items-center gap-3 mb-6">
- <div className="w-10 h-10 rounded-none bg-[#001a22]/10 flex items-center justify-center text-[#001a22]">
- <Car size={20} />
- </div>
- <h3 className="text-2xl font-bold tracking-tight">Phase 03: Intelligent Recommendations</h3>
- </div>
- <p className="text-lg text-slate-600 leading-relaxed font-medium">
- Designing the diagnostic reasoning node editor. Focused on translating mechanical symptoms into actionable, step-by-step repair guides and parts lists.
- </p>
- </div>
+                  <div className="pt-2 border-t border-white/5">
+                    <span className="text-emerald-400 font-bold uppercase tracking-wider text-[10px] block mb-1">Actionable Repair Steps</span>
+                    <pre className="font-mono text-slate-300 whitespace-pre-line text-xs">{aiSimulations[activeSim].output.recommendedAction}</pre>
+                  </div>
 
- {/* Testing */}
- <div className="space-y-6">
- <div className="flex items-center gap-3 mb-6">
- <div className="w-10 h-10 rounded-none bg-[#00a9ce]/10 flex items-center justify-center text-[#00a9ce]">
- <ShieldCheck size={20} />
- </div>
- <h3 className="text-2xl font-bold tracking-tight">Phase 04: Alpha Testing</h3>
- </div>
- <p className="text-lg text-slate-600 leading-relaxed font-medium">
- Conducting fleet-wide audits and stress tests. AAIA is currently analyzing millions of historical service records to refine its automotive reasoning accuracy.
- </p>
- </div>
+                  <div className="pt-2 border-t border-white/5 grid grid-cols-2 gap-2 text-slate-300">
+                    <div>
+                      <span className="text-slate-500 font-bold uppercase tracking-wider text-[10px] block">Est. Labor Time</span>
+                      <strong className="text-white">{aiSimulations[activeSim].output.estimatedLaborHrs}</strong>
+                    </div>
+                    <div>
+                      <span className="text-slate-500 font-bold uppercase tracking-wider text-[10px] block">OEM Verified Parts</span>
+                      <strong className="text-white">{aiSimulations[activeSim].output.oemParts.length} Parts Identified</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
- </div>
+            </div>
+          </div>
 
- {/* Gallery / UI Showcase */}
- <div className="mt-16 pt-16 border-t border-slate-200">
- <div className="flex items-center gap-3 mb-8">
- <div className="w-10 h-10 rounded-none bg-[#00a9ce]/10 flex items-center justify-center text-[#00a9ce]">
- <Layout size={20} />
- </div>
- <h3 className="text-2xl font-bold tracking-tight">Real-World Interfaces</h3>
- </div>
- <p className="text-lg text-slate-600 leading-relaxed font-medium mb-10 max-w-3xl">
- AAIA provides a highly visual, cognitive interface that translates complex vehicle telemetry and reasoning nodes into intuitive diagnostic views.
- </p>
- 
- <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
- <div className="relative aspect-[4/3] overflow-hidden border border-slate-200 bg-white">
- <Image src="/projects/aaia-real-screenshot-1.png" alt="AAIA Interface Concept" fill className="object-cover hover:scale-105 transition-transform duration-700" />
- </div>
- <div className="relative aspect-video rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-[#001a22]">
- <Image src="/projects/aaia-real-screenshot-2.png" alt="AAIA Account Login" fill className="object-cover hover:scale-105 transition-transform duration-700" />
- </div>
- <div className="relative aspect-video rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-[#001a22] md:col-span-2">
- <Image src="/projects/aaia-real-screenshot-3.png" alt="AAIA Diagnostic Wireframe" fill className="object-cover hover:scale-105 transition-transform duration-700" />
- </div>
- </div>
- </div>
+          {/* Big Interactive Demo / Video Showcase */}
+          <div className="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm space-y-8">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00a9ce]/10 text-[#00a9ce] text-xs font-bold uppercase tracking-wider mb-2">
+                <Layout size={14} /> Production UI & Workflows
+              </div>
+              <h2 className="text-3xl font-black text-slate-900">Engineered for Automotive Workspaces</h2>
+              <p className="text-slate-600 text-sm mt-2 font-medium">Explore the AAIA interface deployed across dealership service lanes, fleet telematics command centers, and consumer automotive mobile apps.</p>
+            </div>
 
- {/* Ecosystem Preview */}
- <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 pt-16 mt-16 border-t border-slate-200">
- 
- <div className="space-y-6">
- <div>
- <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Cognitive Capabilities</h3>
- <p className="text-sm text-slate-600 font-medium">Upcoming features within the AAIA core engine.</p>
- </div>
- <div className="grid grid-cols-1 gap-3">
- {[
- { name: 'Predictive Maintenance Alerts', color: 'text-[#00a9ce]' },
- { name: 'Conversational Diagnostics', color: 'text-[#00a9ce]' },
- { name: 'Component Failure Probability', color: 'text-[#00a9ce]' },
- { name: 'Smart Repair Recommendations', color: 'text-[#00a9ce]' },
- { name: 'Multi-Model Logic Routing', color: 'text-[#76bc1d]' },
- { name: 'Automated Service Scheduling', color: 'text-[#76bc1d]' },
- { name: 'Real-time Fleet Sentiment', color: 'text-[#001a22]' },
- { name: 'Voice-to-Diagnostic Translation', color: 'text-[#001a22]' },
- ].map((item, i) => (
- <div key={i} className="flex items-center gap-3 p-3 rounded-none border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all group cursor-default">
- <Zap className={`w-4 h-4 shrink-0 ${item.color}`} />
- <span className={`font-bold text-sm text-slate-700`}>{item.name}</span>
- </div>
- ))}
- </div>
- </div>
+            <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-slate-200 bg-[#001017] shadow-xl">
+              <Image 
+                src="/projects/aaia_ui_v2.png" 
+                alt="AAIA Vehicle Intelligence Platform" 
+                fill 
+                className="object-cover object-center" 
+              />
+            </div>
+          </div>
 
- <div className="space-y-6">
- <div>
- <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">Target Integrations</h3>
- <p className="text-sm text-slate-600 font-medium">Platforms AAIA will natively orchestrate at launch.</p>
- </div>
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
- {[
- 'AutomotiveDataset API', 'Geotab Telematics', 'Samsara Fleet Management', 'Salesforce Automotive', 
- 'Mitchell 1', 'ALLDATA', 'Tekmetric', 'Shopmonkey', 
- 'Dealer Management Systems (DMS)', 'OEM Connected Car APIs', 'ArkAuto E-Commerce', 'Fleetio'
- ].map((api, i) => (
- <div key={i} className="flex items-center justify-between px-3 py-2 rounded-none border border-slate-200 bg-white">
- <span className="font-semibold text-xs text-gray-700">{api}</span>
- <Workflow size={12} className="text-[#00a9ce]" />
- </div>
- ))}
- </div>
- </div>
- 
- </div>
+          {/* 6 Core AI Capabilities Grid */}
+          <div className="space-y-8">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl font-black text-slate-900">Core AAIA Capabilities</h2>
+              <p className="text-slate-600 text-sm mt-2 font-medium">From complex diagnostic triage to autonomous service appointment booking, AAIA automates end-to-end automotive intelligence.</p>
+            </div>
 
- </div>
- </div>
- </section>
- </main>
- );
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: Wrench,
+                  title: 'Multi-Modal DTC Diagnostics',
+                  desc: 'Combines OBD-II trouble codes, live sensor data, and repair history to pinpoint exact root causes without unnecessary trial-and-error part swapping.',
+                  color: 'text-[#00a9ce]',
+                  bg: 'bg-[#00a9ce]/10'
+                },
+                {
+                  icon: Activity,
+                  title: 'Predictive Fleet Maintenance',
+                  desc: 'Monitors real-time telemetry from connected vehicles to predict component failures 30–60 days in advance, eliminating unscheduled fleet downtime.',
+                  color: 'text-[#76bc1d]',
+                  bg: 'bg-[#76bc1d]/10'
+                },
+                {
+                  icon: MessageSquare,
+                  title: 'Conversational Service Assistant',
+                  desc: 'Empower dealership websites and WhatsApp channels with an AI assistant that understands automotive terminology, quotes repairs, and books appointments.',
+                  color: 'text-[#001a22]',
+                  bg: 'bg-[#001a22]/10'
+                },
+                {
+                  icon: ShieldCheck,
+                  title: 'Automated Warranty Claim Triage',
+                  desc: 'Instantly cross-references submitted warranty claim labor and parts against factory TSB guidelines, reducing claim rejection rates by over 75%.',
+                  color: 'text-[#00a9ce]',
+                  bg: 'bg-[#00a9ce]/10'
+                },
+                {
+                  icon: Gauge,
+                  title: 'EV Battery & Range Analytics',
+                  desc: 'Specialized machine learning models for electric vehicle battery health, degradation forecasting, charging curve optimization, and thermal diagnostics.',
+                  color: 'text-[#76bc1d]',
+                  bg: 'bg-[#76bc1d]/10'
+                },
+                {
+                  icon: BrainCircuit,
+                  title: 'OEM Manual Vector Embeddings',
+                  desc: 'High-dimensional vector search across 50,000+ factory workshop manuals, wiring schematics, and torque specifications accessible in milliseconds.',
+                  color: 'text-[#001a22]',
+                  bg: 'bg-[#001a22]/10'
+                }
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <div key={i} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-4">
+                    <div className={`w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center ${item.color}`}>
+                      <Icon size={24} />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed font-medium">{item.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Project Delivery Framework */}
+          <ProjectHandlingSection subject="ai-solutions" />
+
+        </div>
+      </section>
+    </main>
+  );
 }
