@@ -80,7 +80,7 @@ export const ComparisonSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-sm sm:text-base text-slate-400 leading-relaxed font-medium"
+            className="text-sm sm:text-base text-slate-200 leading-relaxed font-medium"
           >
             Every axis of our platform is purpose-built for automotive at enterprise scale. This is the operational and technical gap between an industry-specialist and a generalist agency.
           </motion.p>
@@ -96,15 +96,15 @@ export const ComparisonSection = () => {
         >
           {/* Column Header Row */}
           <div className="hidden lg:grid grid-cols-[1.4fr_1.8fr_1.4fr] mb-2 gap-3">
-            <div className="px-7 py-4 rounded-xl bg-white/5 border border-white/10">
-              <span className="text-xs font-black text-slate-500 uppercase tracking-widest">Key Factor</span>
+            <div className="px-7 py-4 rounded-xl bg-white/10 border border-white/15">
+              <span className="text-xs font-black text-slate-200 uppercase tracking-widest">Key Factor</span>
             </div>
             <div className="px-7 py-4 rounded-xl bg-gradient-to-r from-[#00a9ce] to-[#0080af] flex items-center justify-between shadow-lg shadow-[#00a9ce]/20">
               <span className="text-sm font-black text-white tracking-wide uppercase">Achtrex Technologies</span>
-              <span className="text-[10px] font-extrabold text-white/70 uppercase tracking-widest bg-white/15 px-3 py-1 rounded-full">Recommended</span>
+              <span className="text-[10px] font-extrabold text-white/90 uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full">Recommended</span>
             </div>
-            <div className="px-7 py-4 rounded-xl bg-white/5 border border-white/10">
-              <span className="text-xs font-black text-slate-500 uppercase tracking-widest">Other Companies</span>
+            <div className="px-7 py-4 rounded-xl bg-white/10 border border-white/15">
+              <span className="text-xs font-black text-slate-200 uppercase tracking-widest">Other Companies</span>
             </div>
           </div>
 
@@ -130,10 +130,10 @@ export const ComparisonSection = () => {
                   <div className={cn(
                     "px-7 py-5 rounded-2xl lg:rounded-xl flex items-center border transition-all duration-300",
                     isHovered
-                      ? "bg-white/8 border-white/15"
-                      : "bg-white/[0.03] border-white/[0.06]"
+                      ? "bg-white/10 border-white/20"
+                      : "bg-white/[0.05] border-white/[0.08]"
                   )}>
-                    <p className="text-[13px] sm:text-sm font-black text-slate-200 tracking-tight leading-snug">
+                    <p className="text-[13px] sm:text-sm font-black text-white tracking-tight leading-snug">
                       {row.factor}
                     </p>
                   </div>
@@ -143,9 +143,9 @@ export const ComparisonSection = () => {
                     "px-7 py-5 rounded-2xl lg:rounded-xl flex items-start gap-4 transition-all duration-300",
                     isHovered
                       ? "bg-gradient-to-r from-[#00a9ce] to-[#0090b8] shadow-xl shadow-[#00a9ce]/25"
-                      : "bg-gradient-to-r from-[#00a9ce]/90 to-[#007fa8]/90 shadow-md shadow-[#00a9ce]/10"
+                      : "bg-gradient-to-r from-[#00a9ce]/95 to-[#007fa8]/95 shadow-md shadow-[#00a9ce]/10"
                   )}>
-                    <div className="shrink-0 mt-0.5 w-1.5 h-full min-h-[20px] rounded-full bg-white/40" />
+                    <div className="shrink-0 mt-0.5 w-1.5 h-full min-h-[20px] rounded-full bg-white/60" />
                     <p className="text-[13px] sm:text-sm font-semibold text-white leading-relaxed">
                       {row.achtrex}
                     </p>
@@ -155,11 +155,11 @@ export const ComparisonSection = () => {
                   <div className={cn(
                     "px-7 py-5 rounded-2xl lg:rounded-xl flex items-start gap-4 border transition-all duration-300",
                     isHovered
-                      ? "bg-white/5 border-white/10"
-                      : "bg-white/[0.02] border-white/[0.05]"
+                      ? "bg-white/10 border-white/15"
+                      : "bg-white/[0.04] border-white/[0.08]"
                   )}>
-                    <div className="shrink-0 mt-0.5 w-1.5 h-full min-h-[20px] rounded-full bg-slate-700" />
-                    <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed font-medium">
+                    <div className="shrink-0 mt-0.5 w-1.5 h-full min-h-[20px] rounded-full bg-slate-500" />
+                    <p className="text-[13px] sm:text-sm text-slate-300 leading-relaxed font-medium">
                       {row.others}
                     </p>
                   </div>
@@ -177,20 +177,20 @@ export const ComparisonSection = () => {
             className="mt-6 grid grid-cols-1 lg:grid-cols-[1.4fr_1.8fr_1.4fr] gap-2 lg:gap-3"
           >
             <div />
-            <div className="px-7 py-5 rounded-xl bg-white/5 border border-[#00a9ce]/25 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="px-7 py-5 rounded-xl bg-white/10 border border-[#00a9ce]/35 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-black text-white uppercase tracking-widest">Achtrex Advantage</p>
-                <p className="text-[11px] text-slate-400 font-medium mt-0.5">8 of 8 critical dimensions. Zero compromise.</p>
+                <p className="text-[11px] text-slate-300 font-medium mt-0.5">8 of 8 critical dimensions. Zero compromise.</p>
               </div>
               <div className="flex items-center gap-3">
                 <div className="text-right">
                   <div className="text-2xl font-black text-[#00a9ce]">8/8</div>
-                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Factors Won</div>
+                  <div className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Factors Won</div>
                 </div>
               </div>
             </div>
-            <div className="px-7 py-5 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center">
-              <p className="text-[11px] text-slate-600 font-medium italic">Industry average falls short on 7 of 8 evaluated dimensions.</p>
+            <div className="px-7 py-5 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center">
+              <p className="text-[12px] text-slate-300 font-medium italic">Industry average falls short on 7 of 8 evaluated dimensions.</p>
             </div>
           </motion.div>
 

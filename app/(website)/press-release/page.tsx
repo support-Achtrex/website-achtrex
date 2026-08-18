@@ -21,7 +21,7 @@ export default function PressReleasePage() {
  <main className="min-h-screen bg-[#f4f4f4] pb-20 font-sans text-slate-900">
  
  {/* Header */}
- <InnerPageHeader title="Newsroom" subtitle="Discover the latest press releases, corporate announcements, and product innovations from Achtrex." />
+ <InnerPageHeader title="Newsroom" subtitle="Discover the latest press releases, corporate announcements, and product innovations from Achtrex." theme="cyan" />
 
  <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-12 pt-16">
  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

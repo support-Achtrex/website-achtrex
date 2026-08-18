@@ -53,7 +53,7 @@ const products = [
     icon: Code2,
     accentColor: '#001a22',
     accentBg: 'bg-[#001a22]/10',
-    image: '/images/real_enterprise_header.png',
+    image: '/images/cloud_infrastructure.png',
     metrics: [
       { value: '99.99%', label: 'Uptime SLA' },
       { value: 'Zero-Trust', label: 'SOC2 Compliant' },
@@ -88,10 +88,6 @@ export default function ProductsClient() {
         
         {/* Top Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00a9ce]/10 border border-[#00a9ce]/20 text-[#00a9ce] text-xs font-bold uppercase tracking-wider mb-5">
-            <Sparkles size={14} />
-            Enterprise Solutions Ecosystem
-          </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.1] mb-6">
             Architected for the Next Era of Mobility
           </h1>
@@ -188,10 +184,7 @@ export default function ProductsClient() {
         <div className="bg-gradient-to-br from-[#001a22] to-[#081622] rounded-3xl p-8 md:p-14 text-white relative overflow-hidden shadow-2xl">
           <div className="absolute -right-16 -top-16 w-80 h-80 bg-[#00a9ce]/20 blur-[100px] rounded-full pointer-events-none" />
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-4 border border-white/15">
-              <Zap size={14} /> Custom Deployments & Dedicated SLAs
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
               Need a bespoke integration or tailored data pipeline?
             </h2>
             <p className="text-slate-300 text-base md:text-lg mb-8 leading-relaxed font-normal">

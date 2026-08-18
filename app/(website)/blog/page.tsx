@@ -44,7 +44,7 @@ export default function BlogListingPage() {
    type="application/ld+json"
    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
  />
- <InnerPageHeader title="Insights & Engineering" subtitle="Explore technical deep dives, architectural decisions, and our approach to building high-velocity platforms." />
+ <InnerPageHeader title="Insights & Engineering" subtitle="Explore technical deep dives, architectural decisions, and our approach to building high-velocity platforms." theme="data" />
  
  <div className="max-w-[1200px] mx-auto px-4 md:px-8 pt-12">
 

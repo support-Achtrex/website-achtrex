@@ -33,9 +33,9 @@ export const PopularLinks = () => {
                 transition={{ delay: i * 0.1 }}
                 className="group p-8 bg-white hover:bg-slate-50 border border-slate-200 hover:border-white/50 transition-all rounded-xl h-full flex flex-col shadow-sm"
               >
-                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-6 transition-colors group-hover:text-[#174395]">Resource 0{i + 1}</div>
+                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-6 transition-colors group-hover:text-[#174395]">Resource 0{i + 1}</div>
                 <h3 className="text-xl font-bold text-gradient mb-3 transition-colors">{link.name}</h3>
-                <p className="text-sm text-slate-500 font-medium mb-8 flex-grow leading-relaxed">{link.desc}</p>
+                <p className="text-sm text-slate-700 font-normal mb-8 flex-grow leading-relaxed">{link.desc}</p>
                 <div className="mt-auto flex items-center text-slate-900 group-hover:text-[#174395] text-[11px] font-black tracking-[0.2em] uppercase transition-colors">
                   EXPLORE <ArrowRight className="ml-2 w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>

@@ -13,7 +13,7 @@ export default function PartnersPage() {
  return (
  <main className="min-h-screen bg-[#f4f4f4] text-slate-900 pb-20">
  {/* Header */}
- <InnerPageHeader title="Partner with Achtrex" subtitle="Join our ecosystem of innovators and deliver world-class Data & AI solutions to your clients." />
+ <InnerPageHeader title="Partner with Achtrex" subtitle="Join our ecosystem of innovators and deliver world-class Data & AI solutions to your clients." theme="purple" />
  
  {/* Benefits Section */}
  <section className="py-24 px-6 bg-white relative">

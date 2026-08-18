@@ -351,20 +351,20 @@ export default function IndustryClient({ slug }: { slug: string }) {
  return (
  <main className="min-h-screen bg-[#f8fafc] text-slate-900 pb-24">
  {/* Dynamic Themed Header */}
- <div className={`w-full relative overflow-hidden bg-gradient-to-r ${data.color} pt-40 pb-28 px-6 shadow-inner`}>
- <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply pointer-events-none" />
- <div className="absolute top-0 left-0 w-full h-full opacity-30 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none" />
+ <div className={`w-full relative overflow-hidden bg-gradient-to-r ${data.color} pt-36 pb-20 md:pt-44 md:pb-24 lg:pt-48 lg:pb-28 px-6 shadow-inner`}>
+ <div className="absolute inset-0 bg-slate-950/30 mix-blend-multiply pointer-events-none" />
+ <div className="absolute inset-0 bg-cube-mesh opacity-25 pointer-events-none" />
+ <div className="absolute -top-20 -left-20 w-96 h-96 bg-white/10 rounded-full blur-[100px] pointer-events-none" />
+ <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-cyan-500/15 rounded-full blur-[100px] pointer-events-none" />
  <div className="max-w-[1200px] mx-auto relative z-10 text-center">
- <div className="w-20 h-20 mx-auto bg-white/10 rounded-2xl border border-white/20 backdrop-blur-md flex items-center justify-center mb-8 shadow-xl">
- {data.icon && <data.icon weight="duotone" className="w-10 h-10 text-white" />}
- </div>
- <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6 drop-shadow-md">
+ <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 md:mb-6 drop-shadow-md leading-[1.15]">
  {displayTitle}
  </h1>
- <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-sm">
+ <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-xs">
  {data.subtitle}
  </p>
  </div>
+ <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent z-10" />
  </div>
 
  {/* Content */}

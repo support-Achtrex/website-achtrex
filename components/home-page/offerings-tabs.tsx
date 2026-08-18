@@ -164,20 +164,20 @@ export const OfferingsTabs = () => {
                   </p>
                 </div>
 
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
                   {activeData.description}
                 </p>
 
                 {/* Capabilities Matrix (Clean Text Tags, Symbol-Free) */}
                 <div className="space-y-2 pt-2">
-                  <div className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
+                  <div className="text-[11px] font-black text-slate-500 uppercase tracking-widest">
                     Core Capabilities
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {activeData.capabilities.map((cap, i) => (
                       <span 
                         key={i}
-                        className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold shadow-2xs"
+                        className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-xs font-bold shadow-2xs"
                       >
                         {cap}
                       </span>
@@ -191,7 +191,7 @@ export const OfferingsTabs = () => {
                     <div className="text-2xl font-black text-slate-900 tracking-tight">
                       {activeData.metric}
                     </div>
-                    <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                       {activeData.metricLabel}
                     </div>
                   </div>

@@ -57,6 +57,7 @@ export default function LumiClient() {
       <InnerPageHeader 
         title="AAIA — Autonomous Automotive AI Platform" 
         subtitle="The cognitive automotive reasoning model engineered for multi-modal vehicle diagnostics, predictive fleet maintenance, and automated dealership service workflows." 
+        theme="ai"
       />
 
       {/* 2. Main Content Grid */}
@@ -87,16 +88,8 @@ export default function LumiClient() {
           <div className="bg-[#001017] rounded-3xl p-6 lg:p-10 border border-cyan-500/25 shadow-2xl text-white">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
-                  <BrainCircuit size={14} /> Cognitive Reasoning Simulator
-                </div>
                 <h2 className="text-2xl lg:text-3xl font-extrabold">Experience AAIA Autonomous Automotive Reasoning</h2>
                 <p className="text-slate-400 text-sm mt-1 font-medium">Select an automotive scenario to see how AAIA evaluates telemetry, diagnoses root causes, and generates actionable repair plans.</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
-                  Model Status: Online (v3.4-Flash)
-                </span>
               </div>
             </div>
 
@@ -172,9 +165,6 @@ export default function LumiClient() {
           {/* Big Interactive Demo / Video Showcase */}
           <div className="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm space-y-8">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00a9ce]/10 text-[#00a9ce] text-xs font-bold uppercase tracking-wider mb-2">
-                <Layout size={14} /> Production UI & Workflows
-              </div>
               <h2 className="text-3xl font-black text-slate-900">Engineered for Automotive Workspaces</h2>
               <p className="text-slate-600 text-sm mt-2 font-medium">Explore the AAIA interface deployed across dealership service lanes, fleet telematics command centers, and consumer automotive mobile apps.</p>
             </div>

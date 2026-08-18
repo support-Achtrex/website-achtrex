@@ -116,6 +116,7 @@ export default function AutomotiveClient() {
       <InnerPageHeader 
         title="Automotive Data & High-Velocity APIs" 
         subtitle="The backbone of modern mobility platforms. Access 20M+ vehicle records, VIN-to-build-sheet mapping, real-time market valuations, maintenance schedules, and EV battery specs through our sub-50ms developer engine." 
+        theme="data"
       />
 
       {/* 2. Main Content Grid */}
@@ -146,9 +147,6 @@ export default function AutomotiveClient() {
           <div className="bg-[#0b132b] rounded-3xl p-6 lg:p-10 border border-cyan-500/20 shadow-2xl text-white">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00a9ce]/20 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
-                  <Terminal size={14} /> Live Endpoint Inspector
-                </div>
                 <h2 className="text-2xl lg:text-3xl font-extrabold">Instant Vehicle Intelligence In Action</h2>
                 <p className="text-slate-400 text-sm mt-1 font-medium">Select an endpoint below to inspect real JSON response schemas returned by our API engine.</p>
               </div>
@@ -371,9 +369,6 @@ export default function AutomotiveClient() {
           {/* Comprehensive 22+ API Endpoints Directory */}
           <div className="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm space-y-8">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00a9ce]/10 text-[#00a9ce] text-xs font-bold uppercase tracking-wider mb-3">
-                <Code2 size={14} /> Full API Directory
-              </div>
               <h3 className="text-3xl font-black text-slate-900">22+ Specialized REST Endpoints</h3>
               <p className="text-slate-600 text-sm mt-2 font-medium">Direct REST and GraphQL endpoints ready for integration into your iOS/Android apps, dealership CRMs, or analytics pipelines.</p>
             </div>

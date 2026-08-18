@@ -3,51 +3,61 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import Image from 'next/image';
-
-interface InnerPageHeaderProps {
+export interface InnerPageHeaderProps {
   title: string;
   subtitle?: string;
+  gradient?: string;
+  theme?: 'default' | 'data' | 'ai' | 'sales' | 'software' | 'purple' | 'cyan' | 'green' | 'blue';
 }
 
-export const InnerPageHeader = ({ title, subtitle }: InnerPageHeaderProps) => {
+const themeGradients: Record<string, string> = {
+  default: 'from-[#031525] via-[#053b5c] to-[#008cb0]',
+  data: 'from-[#02182b] via-[#014f86] to-[#00a9ce]',
+  ai: 'from-[#140b2e] via-[#311042] to-[#79155b]',
+  sales: 'from-[#1a0933] via-[#581c4e] to-[#9f1239]',
+  software: 'from-[#001f29] via-[#024959] to-[#00a9ce]',
+  purple: 'from-[#16003b] via-[#41006f] to-[#720455]',
+  cyan: 'from-[#00172e] via-[#024a70] to-[#00a9ce]',
+  green: 'from-[#002220] via-[#014841] to-[#76bc1d]',
+  blue: 'from-[#030d22] via-[#023e8a] to-[#0077b6]',
+};
+
+export const InnerPageHeader = ({ title, subtitle, gradient, theme = 'default' }: InnerPageHeaderProps) => {
+  const activeGradient = gradient || themeGradients[theme] || themeGradients.default;
+
   return (
-    <div className="relative bg-slate-900 pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
-      {/* Background Image with Dark Overlay */}
-      <div className="absolute inset-0 z-0 opacity-40">
-        <Image
-          src="/images/real_enterprise_header.png"
-          alt="Enterprise Header Background"
-          fill
-          priority
-          className="object-cover object-center"
-        />
-      </div>
-      <div className="absolute inset-0 z-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent opacity-90" />
+    <div className={`w-full relative overflow-hidden bg-gradient-to-r ${activeGradient} pt-36 pb-20 md:pt-44 md:pb-24 lg:pt-48 lg:pb-28 px-6 shadow-inner`}>
+      {/* Dark overlay blend for deep contrast */}
+      <div className="absolute inset-0 bg-slate-950/30 mix-blend-multiply pointer-events-none" />
 
-      {/* Decorative Brand Accent */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#00a9ce] opacity-[0.07] blur-[100px] rounded-full translate-x-1/3 -translate-y-1/2 z-0"></div>
+      {/* Isometric 3D Cube Mesh Grid Texture */}
+      <div className="absolute inset-0 bg-cube-mesh opacity-25 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      {/* Subtle ambient lighting glows */}
+      <div className="absolute -top-20 -left-20 w-96 h-96 bg-white/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-cyan-500/15 rounded-full blur-[100px] pointer-events-none" />
+
+      {/* Main Centered Content */}
+      <div className="max-w-[1200px] mx-auto relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="max-w-4xl mx-auto"
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 md:mb-6 drop-shadow-md leading-[1.15]">
             {title}
           </h1>
           {subtitle && (
-            <p className="text-lg md:text-xl text-slate-300 font-medium leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-xs">
               {subtitle}
             </p>
           )}
         </motion.div>
       </div>
-      
-      {/* Clean Bottom Border instead of skew */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#00a9ce]/30 to-transparent z-10"></div>
+
+      {/* Clean Bottom Gradient Border */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent z-10" />
     </div>
   );
 };

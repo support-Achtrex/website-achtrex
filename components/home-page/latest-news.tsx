@@ -45,7 +45,7 @@ export const LatestNews = () => {
                   </div>
                 </div>
                 <div className="p-8 flex flex-col flex-grow relative z-10">
-                  <div className="flex items-center text-xs text-slate-400 mb-4 font-bold uppercase tracking-widest">
+                  <div className="flex items-center text-xs text-slate-500 mb-4 font-bold uppercase tracking-widest">
                     <Calendar className="w-3.5 h-3.5 mr-2" />
                     {news.date}
                   </div>

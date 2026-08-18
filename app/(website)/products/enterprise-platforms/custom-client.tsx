@@ -40,6 +40,7 @@ export default function CustomClient() {
       <InnerPageHeader 
         title="Custom Automotive Software & Cloud Platforms" 
         subtitle="We design, engineer, and scale bespoke enterprise automotive platforms — from high-frequency telematics pipelines and legacy DMS modernization to digital automotive fintech rails." 
+        theme="software"
       />
 
       {/* 2. Main Content Grid */}
@@ -70,9 +71,6 @@ export default function CustomClient() {
           <div className="bg-[#001a22] rounded-3xl p-8 lg:p-12 border border-cyan-500/20 shadow-2xl text-white">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-6 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00a9ce]/20 text-cyan-400 text-xs font-bold uppercase tracking-wider">
-                  <Cpu size={14} /> High-Velocity Engineering
-                </div>
                 <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
                   Bespoke Architecture Built for Extreme Scale
                 </h2>
@@ -98,7 +96,7 @@ export default function CustomClient() {
 
               <div className="lg:col-span-6 relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-black">
                 <Image
-                  src="/images/real_enterprise_header.png"
+                  src="/images/cloud_infrastructure.png"
                   alt="Enterprise Architecture Diagram"
                   fill
                   className="object-cover object-center"
@@ -110,9 +108,6 @@ export default function CustomClient() {
           {/* Interactive Tech Stack Explorer */}
           <div className="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm space-y-8">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00a9ce]/10 text-[#00a9ce] text-xs font-bold uppercase tracking-wider mb-2">
-                <Layers size={14} /> Modern Technology Stack
-              </div>
               <h2 className="text-3xl font-black text-slate-900">Battle-Tested Automotive Engineering Stack</h2>
               <p className="text-slate-600 text-sm mt-2 font-medium">We choose resilient, modern technologies tailored for sub-second data streaming, high availability, and rapid feature iteration.</p>
             </div>

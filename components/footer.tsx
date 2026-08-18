@@ -134,7 +134,7 @@ export const Footer = () => {
                   </span>
                 </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed max-w-sm font-medium">
+                <p className="text-slate-300 text-sm leading-relaxed max-w-sm font-normal">
                   Automotive intelligence, real-time vehicle datasets, and cognitive infrastructure for modern dealerships, OEMs, and mobility enterprises.
                 </p>
 
@@ -145,7 +145,7 @@ export const Footer = () => {
                     target="_blank" 
                     rel="noopener noreferrer" 
                     aria-label="LinkedIn"
-                    className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400 hover:bg-cyan-500/10 hover:shadow-[0_0_15px_rgba(0,169,206,0.3)] flex items-center justify-center transition-all duration-300 text-slate-300 hover:text-white"
+                    className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 hover:border-cyan-400 hover:bg-cyan-500/10 hover:shadow-[0_0_15px_rgba(0,169,206,0.3)] flex items-center justify-center transition-all duration-300 text-slate-200 hover:text-white"
                   >
                     <Linkedin size={16} />
                   </a>
@@ -154,14 +154,14 @@ export const Footer = () => {
                     target="_blank" 
                     rel="noopener noreferrer" 
                     aria-label="Twitter"
-                    className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400 hover:bg-cyan-500/10 hover:shadow-[0_0_15px_rgba(0,169,206,0.3)] flex items-center justify-center transition-all duration-300 text-slate-300 hover:text-white"
+                    className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 hover:border-cyan-400 hover:bg-cyan-500/10 hover:shadow-[0_0_15px_rgba(0,169,206,0.3)] flex items-center justify-center transition-all duration-300 text-slate-200 hover:text-white"
                   >
                     <Twitter size={16} />
                   </a>
                   <a 
                     href="mailto:support@achtrex.com" 
                     aria-label="Email"
-                    className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#76bc1d] hover:bg-[#76bc1d]/10 hover:shadow-[0_0_15px_rgba(118,188,29,0.3)] flex items-center justify-center transition-all duration-300 text-slate-300 hover:text-white"
+                    className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 hover:border-[#76bc1d] hover:bg-[#76bc1d]/10 hover:shadow-[0_0_15px_rgba(118,188,29,0.3)] flex items-center justify-center transition-all duration-300 text-slate-200 hover:text-white"
                   >
                     <Mail size={16} />
                   </a>
@@ -183,13 +183,13 @@ export const Footer = () => {
                       href="https://automotivedataset.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-between text-slate-400 hover:text-white text-sm font-medium transition-all duration-200 hover:translate-x-1"
+                      className="group flex items-center justify-between text-slate-300 hover:text-white text-sm font-medium transition-all duration-200 hover:translate-x-1"
                     >
                       <span className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:scale-125 transition-transform"></span>
                         AutomotiveDataset.com
                       </span>
-                      <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                         LIVE <ExternalLink size={10} />
                       </span>
                     </a>
@@ -197,13 +197,13 @@ export const Footer = () => {
                   <li>
                     <Link 
                       href="/products/lumi"
-                      className="group flex items-center justify-between text-slate-400 hover:text-white text-sm font-medium transition-all duration-200 hover:translate-x-1"
+                      className="group flex items-center justify-between text-slate-300 hover:text-white text-sm font-medium transition-all duration-200 hover:translate-x-1"
                     >
                       <span className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#76bc1d] group-hover:scale-125 transition-transform"></span>
                         AAIA Platform
                       </span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                         AI
                       </span>
                     </Link>
@@ -211,7 +211,7 @@ export const Footer = () => {
                   <li>
                     <Link 
                       href="/products/automotive"
-                      className="group flex items-center gap-2 text-slate-400 hover:text-white text-sm font-medium transition-all duration-200 hover:translate-x-1"
+                      className="group flex items-center gap-2 text-slate-300 hover:text-white text-sm font-medium transition-all duration-200 hover:translate-x-1"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:scale-125 transition-transform"></span>
                       <span>Achtrex Core APIs</span>
@@ -220,7 +220,7 @@ export const Footer = () => {
                   <li>
                     <Link 
                       href="/products/enterprise-platforms"
-                      className="group flex items-center gap-2 text-slate-400 hover:text-white text-sm font-medium transition-all duration-200 hover:translate-x-1"
+                      className="group flex items-center gap-2 text-slate-300 hover:text-white text-sm font-medium transition-all duration-200 hover:translate-x-1"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#76bc1d] group-hover:scale-125 transition-transform"></span>
                       <span>Enterprise Platforms</span>
@@ -229,7 +229,7 @@ export const Footer = () => {
                   <li>
                     <Link 
                       href="/products/sales-inventory"
-                      className="group flex items-center gap-2 text-slate-400 hover:text-white text-sm font-medium transition-all duration-200 hover:translate-x-1"
+                      className="group flex items-center gap-2 text-slate-300 hover:text-white text-sm font-medium transition-all duration-200 hover:translate-x-1"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:scale-125 transition-transform"></span>
                       <span>Sales &amp; Inventory Cloud</span>
@@ -249,27 +249,27 @@ export const Footer = () => {
 
                 <ul className="space-y-3 pt-1">
                   <li>
-                    <Link href="/about-us" className="text-slate-400 hover:text-white text-sm font-medium transition-colors hover:translate-x-1 inline-block">
+                    <Link href="/about-us" className="text-slate-300 hover:text-white text-sm font-medium transition-colors hover:translate-x-1 inline-block">
                       About Achtrex
                     </Link>
                   </li>
                   <li>
-                    <Link href="/why-achtrex" className="text-slate-400 hover:text-white text-sm font-medium transition-colors hover:translate-x-1 inline-block">
+                    <Link href="/why-achtrex" className="text-slate-300 hover:text-white text-sm font-medium transition-colors hover:translate-x-1 inline-block">
                       Why Achtrex
                     </Link>
                   </li>
                   <li>
-                    <Link href="/products" className="text-slate-400 hover:text-white text-sm font-medium transition-colors hover:translate-x-1 inline-block">
+                    <Link href="/products" className="text-slate-300 hover:text-white text-sm font-medium transition-colors hover:translate-x-1 inline-block">
                       All Products
                     </Link>
                   </li>
                   <li>
-                    <Link href="/partners" className="text-slate-400 hover:text-white text-sm font-medium transition-colors hover:translate-x-1 inline-block">
+                    <Link href="/partners" className="text-slate-300 hover:text-white text-sm font-medium transition-colors hover:translate-x-1 inline-block">
                       Partner Network
                     </Link>
                   </li>
                   <li>
-                    <Link href="/use-cases" className="text-slate-400 hover:text-white text-sm font-medium transition-colors hover:translate-x-1 inline-block">
+                    <Link href="/use-cases" className="text-slate-300 hover:text-white text-sm font-medium transition-colors hover:translate-x-1 inline-block">
                       Industry Use Cases
                     </Link>
                   </li>

@@ -103,8 +103,8 @@ export const PortfolioGrid = () => {
                 transition={{ delay: 0.3 }}
                 className="flex flex-col"
               >
-                <div className="text-4xl md:text-4xl font-light text-[#001a22] mb-1">+15</div>
-                <div className="text-xs md:text-sm text-slate-500 font-medium">Industry Experts</div>
+                <div className="text-4xl md:text-4xl font-extrabold text-[#001a22] mb-1">+15</div>
+                <div className="text-xs md:text-sm text-slate-700 font-semibold">Industry Experts</div>
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
@@ -113,8 +113,8 @@ export const PortfolioGrid = () => {
                 transition={{ delay: 0.4 }}
                 className="flex flex-col"
               >
-                <div className="text-4xl md:text-4xl font-light text-[#001a22] mb-1">+50</div>
-                <div className="text-xs md:text-sm text-slate-500 font-medium">Projects Delivered</div>
+                <div className="text-4xl md:text-4xl font-extrabold text-[#001a22] mb-1">+50</div>
+                <div className="text-xs md:text-sm text-slate-700 font-semibold">Projects Delivered</div>
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
@@ -123,8 +123,8 @@ export const PortfolioGrid = () => {
                 transition={{ delay: 0.5 }}
                 className="flex flex-col"
               >
-                <div className="text-4xl md:text-4xl font-light text-[#001a22] mb-1">100%</div>
-                <div className="text-xs md:text-sm text-slate-500 font-medium">Client Satisfaction</div>
+                <div className="text-4xl md:text-4xl font-extrabold text-[#001a22] mb-1">100%</div>
+                <div className="text-xs md:text-sm text-slate-700 font-semibold">Client Satisfaction</div>
               </motion.div>
             </div>
           </div>
@@ -167,13 +167,13 @@ export const PortfolioGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="space-y-6 text-slate-500 leading-relaxed mb-10 text-[17px]"
+              className="space-y-6 text-slate-700 leading-relaxed mb-10 text-[17px] font-normal"
             >
               <p>
-                <strong className="text-[#001a22] font-semibold">We are an automotive intelligence company</strong>, providing cutting-edge infrastructure for VIN decoding, vehicle history, and API integrations. Our expertise lies in seamlessly connecting global automotive datasets to consumer applications.
+                <strong className="text-[#001a22] font-bold">We are an automotive intelligence company</strong>, providing cutting-edge infrastructure for VIN decoding, vehicle history, and API integrations. Our expertise lies in seamlessly connecting global automotive datasets to consumer applications.
               </p>
               <p>
-                As an enterprise technology provider, <strong className="text-[#001a22] font-semibold">we deeply understand the data needs of modern automotive businesses</strong>. With an innovative mindset, we excel in delivering scalable APIs and AI-driven solutions through our in-house team of experts.
+                As an enterprise technology provider, <strong className="text-[#001a22] font-bold">we deeply understand the data needs of modern automotive businesses</strong>. With an innovative mindset, we excel in delivering scalable APIs and AI-driven solutions through our in-house team of experts.
               </p>
             </motion.div>
 
@@ -185,7 +185,7 @@ export const PortfolioGrid = () => {
               className="flex flex-wrap gap-3"
             >
               {['Vehicle Data APIs', 'AAIA', 'Enterprise Infrastructure', 'Automotive Intelligence', 'Vehicle History Reports'].map((tag, i) => (
-                <span key={i} className="px-5 py-2.5 rounded-full border border-slate-300 text-[13px] font-medium text-slate-600 hover:border-[#018861] hover:text-[#018861] transition-colors cursor-default whitespace-nowrap">
+                <span key={i} className="px-5 py-2.5 rounded-full border border-slate-300 bg-white text-[13px] font-semibold text-slate-700 hover:border-[#018861] hover:text-[#018861] transition-colors cursor-default whitespace-nowrap shadow-xs">
                   {tag}
                 </span>
               ))}
@@ -205,10 +205,10 @@ export const PortfolioGrid = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group bg-white rounded-2xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-[#00a9ce]/30 transition-all duration-500 overflow-hidden flex flex-col"
+                className="group bg-white rounded-2xl border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-[#00a9ce]/50 transition-all duration-500 overflow-hidden flex flex-col"
               >
                 {/* Image Container */}
-                <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center overflow-hidden border-b border-slate-50">
+                <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center overflow-hidden border-b border-slate-100">
                   {item.isLogo ? (
                     <div className="relative w-full h-full flex items-center justify-center p-10">
                       <Image 
@@ -229,8 +229,8 @@ export const PortfolioGrid = () => {
                     />
                   )}
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-slate-100/50">
-                    <span className="text-[10px] font-bold tracking-widest uppercase text-slate-600">
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-slate-200">
+                    <span className="text-[10px] font-bold tracking-widest uppercase text-slate-800">
                       {item.category}
                     </span>
                   </div>
@@ -242,14 +242,14 @@ export const PortfolioGrid = () => {
                     {item.title}
                   </h3>
                   {item.subtitle && (
-                    <p className="text-sm font-semibold text-[#00a9ce] mb-3 -mt-2">
+                    <p className="text-sm font-bold text-[#00a9ce] mb-3 -mt-2">
                       {item.subtitle}
                     </p>
                   )}
-                  <p className="text-slate-500 text-[15px] leading-relaxed mb-8 flex-1">
+                  <p className="text-slate-600 text-[15px] leading-relaxed mb-8 flex-1 font-normal">
                     {item.desc}
                   </p>
-                  <div className="mt-auto pt-4 border-t border-slate-50">
+                  <div className="mt-auto pt-4 border-t border-slate-100">
                     <Link href={item.link} className="inline-flex items-center text-[#00a9ce] font-bold tracking-wide text-[13px] uppercase hover:text-[#001a22] transition-colors">
                       View Details <ArrowRight weight="bold" className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                     </Link>

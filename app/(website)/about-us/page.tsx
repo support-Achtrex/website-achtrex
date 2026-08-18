@@ -38,7 +38,7 @@ export default function AboutPage() {
    type="application/ld+json"
    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
  />
- <InnerPageHeader title="About Achtrex" subtitle="Architecting the Future of Data and Cognitive Mobility Infrastructure" />
+ <InnerPageHeader title="About Achtrex" subtitle="Architecting the Future of Data and Cognitive Mobility Infrastructure" theme="cyan" />
  <AboutContent />
  </main>
  );

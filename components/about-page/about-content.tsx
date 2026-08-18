@@ -111,15 +111,15 @@ export const AboutContent = () => {
           transition={{ duration: 0.6 }}
           className="relative z-10 max-w-[1200px] mx-auto text-center flex flex-col items-center">
 
-          <div className="text-[14px] md:text-[15px] text-slate-500 max-w-4xl leading-relaxed font-medium mb-8 text-center space-y-4">
+          <div className="text-[15px] md:text-[16px] text-slate-700 max-w-4xl leading-relaxed font-normal mb-8 text-center space-y-4">
             <p>
               Achtrex is fundamentally re-architecting how businesses interact with data, inventory, software, and artificial intelligence. Founded on the principle that modern enterprises require more than just disconnected silos of information, we build vertically integrated platforms that transform fragmented operations into unified, actionable, real-time intelligence.
             </p>
             <p>
-              Our ecosystem provides businesses with an absolute structural advantage through four core pillars. First, our <strong>Automotive Data & APIs</strong> grant instantaneous, robust access to comprehensive VIN intelligence and market valuations via a single streamlined interface. Second, our <strong>Sales & Inventory Management</strong> tools streamline dealership and retail operations, drastically reducing manual overhead through autonomous tracking.
+              Our ecosystem provides businesses with an absolute structural advantage through four core pillars. First, our <strong className="text-slate-900 font-bold">Automotive Data & APIs</strong> grant instantaneous, robust access to comprehensive VIN intelligence and market valuations via a single streamlined interface. Second, our <strong className="text-slate-900 font-bold">Sales & Inventory Management</strong> tools streamline dealership and retail operations, drastically reducing manual overhead through autonomous tracking.
             </p>
             <p>
-              Third, our <strong>Custom Software Development</strong> division engineers bespoke, zero-compromise enterprise platforms that scale infinitely without third-party vendor lock-in. Finally, our <strong>AAIA</strong> transition enterprises from static tools to truly autonomous cognitive workflows, leveraging advanced LLMs to process complex business logic. Together, these pillars form the mission-critical foundation required to build, scale, and dominate in the intelligent digital economy.
+              Third, our <strong className="text-slate-900 font-bold">Custom Software Development</strong> division engineers bespoke, zero-compromise enterprise platforms that scale infinitely without third-party vendor lock-in. Finally, our <strong className="text-slate-900 font-bold">AAIA</strong> transition enterprises from static tools to truly autonomous cognitive workflows, leveraging advanced LLMs to process complex business logic. Together, these pillars form the mission-critical foundation required to build, scale, and dominate in the intelligent digital economy.
             </p>
           </div>
 
@@ -139,7 +139,7 @@ export const AboutContent = () => {
                 key={i} 
                 className={`border ${s.border} rounded-xl px-4 py-6 flex flex-col items-center justify-center relative overflow-hidden ${s.color} hover:shadow-md transition-shadow`}>
                 <p className="text-[32px] font-black text-[#00a9ce] leading-none mb-2">{s.n}</p>
-                <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">{s.label}</p>
+                <p className="text-[11px] text-slate-700 font-bold uppercase tracking-wider">{s.label}</p>
               </motion.div>
             ))}
           </div>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function UseCasesPage() {
  return (
  <main className="min-h-screen bg-[#f4f4f4] text-slate-900 overflow-x-hidden pb-20">
- <InnerPageHeader title="Client & Industry Use Cases" subtitle="Enterprise Automotive Infrastructure, APIs & AI Systems Delivered by Achtrex" />
+ <InnerPageHeader title="Client & Industry Use Cases" subtitle="Enterprise Automotive Infrastructure, APIs & AI Systems Delivered by Achtrex" theme="software" />
  <UseCasesContent />
  </main>
  );

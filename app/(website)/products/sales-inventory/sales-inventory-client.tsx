@@ -26,6 +26,7 @@ export default function SalesInventoryClient() {
       <InnerPageHeader 
         title="Sales & Inventory Management" 
         subtitle="Empower your dealership or dealer group with unified multi-rooftop inventory orchestration, automated marketplace syndication, AI vehicle pricing, and high-converting lead routing." 
+        theme="sales"
       />
 
       {/* 2. Main Content Grid */}
@@ -56,17 +57,8 @@ export default function SalesInventoryClient() {
           <div className="bg-[#081622] rounded-3xl p-6 lg:p-10 border border-slate-700 shadow-2xl text-white">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#76bc1d]/20 text-[#76bc1d] text-xs font-bold uppercase tracking-wider mb-2">
-                  <LayoutDashboard size={14} /> Dealership Operating System
-                </div>
                 <h2 className="text-2xl lg:text-3xl font-extrabold">Live Multi-Store Inventory & Lead Control</h2>
                 <p className="text-slate-400 text-sm mt-1 font-medium">Real-time status across DMS sync, syndication feeds, and customer leads.</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  DMS Connected: Live
-                </span>
               </div>
             </div>
 
@@ -126,9 +118,6 @@ export default function SalesInventoryClient() {
           {/* Interactive ROI Dealership Calculator */}
           <div className="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm">
             <div className="max-w-3xl mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#76bc1d]/10 text-[#76bc1d] text-xs font-bold uppercase tracking-wider mb-2">
-                <TrendingUp size={14} /> Interactive Dealership ROI Model
-              </div>
               <h2 className="text-3xl font-black text-slate-900">Project Your Dealership Gross Profit Growth</h2>
               <p className="text-slate-600 text-sm mt-2 font-medium">Adjust your lot inventory size and average front-end gross to estimate annualized gains through faster turns and automated pricing.</p>
             </div>
@@ -252,9 +241,6 @@ export default function SalesInventoryClient() {
           {/* Dealership Integration Ecosystem */}
           <div className="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm space-y-8">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00a9ce]/10 text-[#00a9ce] text-xs font-bold uppercase tracking-wider mb-2">
-                <Workflow size={14} /> Seamless Compatibility
-              </div>
               <h3 className="text-3xl font-black text-slate-900">Pre-Built Integrations for Your Tech Stack</h3>
               <p className="text-slate-600 text-sm mt-2 font-medium">Plug into your existing DMS, CRM, and syndication platforms without replacing your existing business tools.</p>
             </div>

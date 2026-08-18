@@ -13,7 +13,7 @@ export default async function AITrainingPage() {
  return (
  <div className="bg-[#f4f4f4] text-slate-900 min-h-screen font-sans pb-20">
  {/* Hero Section */}
- <InnerPageHeader title="Enterprise AI Training & Optimization" subtitle="Architecting, training, and deploying large-scale AI models tailored to your business. From data annotation to autonomous agent deployment." />
+ <InnerPageHeader title="Enterprise AI Training & Optimization" subtitle="Architecting, training, and deploying large-scale AI models tailored to your business. From data annotation to autonomous agent deployment." theme="ai" />
 
  {/* Core Services */}
  <section className="py-24 bg-[#f4f4f4]">
