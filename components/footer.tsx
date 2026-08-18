@@ -10,13 +10,8 @@ import {
   Mail, 
   Phone, 
   PhoneCall, 
-  Sparkles, 
   ArrowRight, 
-  ShieldCheck, 
-  Activity, 
-  ArrowUp, 
-  Zap, 
-  Globe 
+  ArrowUp 
 } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
 import { cn } from '@/lib/utils';
@@ -44,24 +39,8 @@ export const Footer = () => {
           <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#001119]"></div>
 
           <div className="relative max-w-[1240px] mx-auto px-4 lg:px-8 z-10">
-            {/* Top Floating Badge */}
-            <div className="absolute -top-7 left-1/2 -translate-x-1/2 z-20">
-              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#041b26] border border-cyan-400/40 shadow-[0_0_25px_rgba(0,169,206,0.35)] backdrop-blur-xl">
-                <div className="relative w-5 h-5 flex items-center justify-center">
-                  <Image src="/logo.png" alt="Achtrex Emblem" width={20} height={20} className="object-contain" />
-                </div>
-                <span className="text-xs font-extrabold uppercase tracking-widest text-cyan-300">
-                  Automotive Intelligence
-                </span>
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#76bc1d] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#76bc1d]"></span>
-                </span>
-              </div>
-            </div>
-
             {/* Main CTA Card with Obsidian Deep Lighting & Mesh */}
-            <div className="relative bg-gradient-to-b from-[#061b29] via-[#02111c] to-[#010910] rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8),0_0_40px_rgba(0,169,206,0.12)] overflow-hidden pt-16 pb-12 px-6 sm:px-10 md:px-16 text-center border border-white/10 hover:border-cyan-500/30 transition-all duration-500">
+            <div className="relative bg-gradient-to-b from-[#061b29] via-[#02111c] to-[#010910] rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8),0_0_40px_rgba(0,169,206,0.12)] overflow-hidden py-14 px-6 sm:px-10 md:px-16 text-center border border-white/10 hover:border-cyan-500/30 transition-all duration-500">
               
               {/* Luminous Ambient Light Accents */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-cyan-500/20 blur-[90px] rounded-full pointer-events-none"></div>
@@ -77,17 +56,6 @@ export const Footer = () => {
 
               {/* Content Box */}
               <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-                
-                {/* Overline Capsule */}
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-[#00a9ce] text-[11px] font-bold uppercase tracking-widest"
-                >
-                  <Sparkles size={13} className="text-cyan-400" />
-                  Accelerate Your Mobility Roadmap
-                </motion.div>
 
                 {/* Main Headline */}
                 <motion.h2 
@@ -139,28 +107,6 @@ export const Footer = () => {
                   </a>
                 </motion.div>
 
-                {/* Trust & Performance Specs Pills */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-xl mx-auto border-t border-white/10 mt-6"
-                >
-                  <div className="flex items-center justify-center gap-2 text-[12px] font-semibold text-slate-300">
-                    <Zap size={14} className="text-cyan-400 shrink-0" />
-                    <span>&lt; 50ms API Latency</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2 text-[12px] font-semibold text-slate-300">
-                    <ShieldCheck size={14} className="text-[#76bc1d] shrink-0" />
-                    <span>99.99% Enterprise Uptime</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2 text-[12px] font-semibold text-slate-300">
-                    <Globe size={14} className="text-cyan-400 shrink-0" />
-                    <span>Global OEM Coverage</span>
-                  </div>
-                </motion.div>
-
               </div>
             </div>
           </div>
@@ -201,15 +147,6 @@ export const Footer = () => {
                 <p className="text-slate-400 text-sm leading-relaxed max-w-sm font-medium">
                   Automotive intelligence, real-time vehicle datasets, and cognitive infrastructure for modern dealerships, OEMs, and mobility enterprises.
                 </p>
-
-                {/* Operational Status Pill */}
-                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#031d2a] border border-emerald-500/30 text-xs font-semibold text-emerald-300">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span>All Systems Operational</span>
-                </div>
 
                 {/* Social Connect Icons */}
                 <div className="flex items-center gap-3 pt-2">
