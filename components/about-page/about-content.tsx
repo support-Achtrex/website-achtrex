@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ShieldCheck, Lock, Scale, CheckCircle2 } from 'lucide-react';
 
 export const AboutContent = () => {
 
@@ -363,6 +364,149 @@ export const AboutContent = () => {
                 )}
               </motion.div>
             ))}
+          </div>
+        </div>
+
+        {/* ROW 4: Corporate Governance, Privacy, Terms & Security */}
+        <div className="flex flex-col gap-6 mt-8">
+          <div className="px-2 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-6 bg-[#00a9ce] rounded-full"></div>
+              <h2 className="text-[22px] font-black text-slate-900 tracking-tight">Governance, Trust &amp; Legal Policies</h2>
+            </div>
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider hidden sm:inline">
+              Enterprise Transparency
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Note 1: Privacy Policy */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-lg hover:border-[#00a9ce]/50 transition-all flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-[#00a9ce]/10 text-[#00a9ce] flex items-center justify-center">
+                  <Lock size={22} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-slate-900 tracking-tight">Privacy Policy</h3>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#00a9ce] mt-0.5">Data Sovereignty &amp; Confidentiality</p>
+                </div>
+                <p className="text-[13.5px] text-slate-600 leading-relaxed font-medium">
+                  We enforce uncompromising privacy standards. All vehicle telemetry, enterprise VIN queries, and proprietary data streams remain the exclusive property of our clients and are never commoditized.
+                </p>
+                <ul className="space-y-2.5 pt-2 text-xs font-semibold text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-[#00a9ce] shrink-0 mt-0.5" />
+                    <span>Zero third-party telemetry or payload monetization</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-[#00a9ce] shrink-0 mt-0.5" />
+                    <span>GDPR &amp; CCPA compliant data processing protocols</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-[#00a9ce] shrink-0 mt-0.5" />
+                    <span>Configurable data retention &amp; cryptographic purge</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between text-xs">
+                <span className="text-slate-500 font-medium">DPO Inquiries:</span>
+                <a href="mailto:support@achtrex.com" className="font-bold text-[#00a9ce] hover:underline">
+                  support@achtrex.com
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Note 2: Terms of Service */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-lg hover:border-[#76bc1d]/50 transition-all flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-[#76bc1d]/10 text-[#76bc1d] flex items-center justify-center">
+                  <Scale size={22} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-slate-900 tracking-tight">Terms of Service</h3>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#76bc1d] mt-0.5">Enterprise Service Level Agreements</p>
+                </div>
+                <p className="text-[13.5px] text-slate-600 leading-relaxed font-medium">
+                  Our commercial terms guarantee transparent licensing, enterprise uptime commitments, and clear intellectual property protections for custom engineering workflows.
+                </p>
+                <ul className="space-y-2.5 pt-2 text-xs font-semibold text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-[#76bc1d] shrink-0 mt-0.5" />
+                    <span>99.99% guaranteed enterprise uptime SLA</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-[#76bc1d] shrink-0 mt-0.5" />
+                    <span>Transparent API consumption with predictable tier pricing</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-[#76bc1d] shrink-0 mt-0.5" />
+                    <span>100% client IP retention for bespoke software assets</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between text-xs">
+                <span className="text-slate-500 font-medium">Legal &amp; Contracts:</span>
+                <Link href="/contact-us" className="font-bold text-[#76bc1d] hover:underline">
+                  Contact Legal
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Note 3: Security */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-lg hover:border-[#001a22]/50 transition-all flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-[#001a22]/10 text-[#001a22] flex items-center justify-center">
+                  <ShieldCheck size={22} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-slate-900 tracking-tight">Security &amp; Compliance</h3>
+                  <p className="text-xs font-bold uppercase tracking-wider text-slate-700 mt-0.5">Multi-Layered Cyber Defense</p>
+                </div>
+                <p className="text-[13.5px] text-slate-600 leading-relaxed font-medium">
+                  We engineer mission-critical resilience. Every endpoint and database is defended with end-to-end encryption, strict role-based access, and continuous automated audits.
+                </p>
+                <ul className="space-y-2.5 pt-2 text-xs font-semibold text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-[#001a22] shrink-0 mt-0.5" />
+                    <span>TLS 1.3 in-transit &amp; AES-256 at-rest encryption</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-[#001a22] shrink-0 mt-0.5" />
+                    <span>Zero-Trust RBAC &amp; automated credential rotation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-[#001a22] shrink-0 mt-0.5" />
+                    <span>SOC2 Type II aligned SecOps &amp; DDoS edge protection</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between text-xs">
+                <span className="text-slate-500 font-medium">Security Officer:</span>
+                <a href="mailto:support@achtrex.com" className="font-bold text-slate-900 hover:underline">
+                  SecOps Desk
+                </a>
+              </div>
+            </motion.div>
           </div>
         </div>
 
