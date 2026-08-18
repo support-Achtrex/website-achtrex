@@ -9,7 +9,6 @@ import {
   Twitter, 
   Mail, 
   Phone, 
-  PhoneCall, 
   ArrowRight, 
   ArrowUp 
 } from 'lucide-react';
@@ -86,25 +85,16 @@ export const Footer = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.15 }}
-                  className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2"
+                  className="flex items-center justify-center pt-2"
                 >
                   {/* Primary CTA Button */}
                   <button 
                     onClick={() => router.push('/contact-us')}
-                    className="group relative w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#00a9ce] via-[#0cbdaf] to-[#76bc1d] text-white font-bold text-sm tracking-wide shadow-[0_0_25px_rgba(0,169,206,0.4)] hover:shadow-[0_0_35px_rgba(0,169,206,0.6)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer border-0"
+                    className="group relative w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-[#00a9ce] via-[#0cbdaf] to-[#76bc1d] text-white font-bold text-sm tracking-wide shadow-[0_0_25px_rgba(0,169,206,0.4)] hover:shadow-[0_0_35px_rgba(0,169,206,0.6)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer border-0"
                   >
                     <span>Work with Us</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
-
-                  {/* Secondary Call Button */}
-                  <a 
-                    href="tel:+16133664271" 
-                    className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 hover:border-cyan-400/40 text-white font-semibold text-sm tracking-wide backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-2.5 text-center group"
-                  >
-                    <PhoneCall size={15} className="text-cyan-400 group-hover:scale-110 transition-transform" />
-                    <span>Call Us: +1 613 366-4271</span>
-                  </a>
                 </motion.div>
 
               </div>
