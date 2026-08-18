@@ -93,7 +93,7 @@ export default async function PortalPage() {
 
       {/* Clean Minimal Portal Footer Note */}
       <footer className="relative z-10 w-full border-t border-white/10 py-6 text-center text-xs text-slate-400">
-        <p>© {new Date().getFullYear()} Achtrex Corporation. All rights reserved. Encrypted Enterprise Connection.</p>
+        <p>© {new Date().getFullYear()} Achtrex Technologies FZCO. All rights reserved. Encrypted Enterprise Connection.</p>
       </footer>
     </main>
   );

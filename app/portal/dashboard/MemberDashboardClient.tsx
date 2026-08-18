@@ -265,7 +265,7 @@ export default function MemberDashboardClient({
 
       {/* Clean Light Footer */}
       <footer className="w-full border-t border-slate-200 py-6 text-center text-xs text-slate-500 bg-white">
-        <p>© {new Date().getFullYear()} Achtrex Corporation. All rights reserved. Enterprise Workspace.</p>
+        <p>© {new Date().getFullYear()} Achtrex Technologies FZCO. All rights reserved. Enterprise Workspace.</p>
       </footer>
 
       <NewProjectModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

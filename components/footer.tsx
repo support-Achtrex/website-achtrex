@@ -344,7 +344,7 @@ export const Footer = () => {
             {/* Bottom Legal & Meta Bar */}
             <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-[12px] text-slate-400 font-medium text-center md:text-left">
-                &copy; {new Date().getFullYear()} Achtrex Technologies Inc. All rights reserved.
+                &copy; {new Date().getFullYear()} Achtrex Technologies FZCO. All rights reserved.
               </p>
 
               <div className="flex items-center gap-6 text-[12px] text-slate-400 font-medium">

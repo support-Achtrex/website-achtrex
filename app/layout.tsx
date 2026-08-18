@@ -27,7 +27,7 @@ export const metadata: Metadata = {
  "High-Velocity Data Ingestion", "Enterprise API Gateway", "Mobility Intelligence"
  ],
  authors: [{ name: "Achtrex Engineering Team", url: "https://achtrex.com" }],
- creator: "Achtrex Corporation",
+ creator: "Achtrex Technologies FZCO",
  publisher: "Achtrex",
  formatDetection: {
  email: false,
