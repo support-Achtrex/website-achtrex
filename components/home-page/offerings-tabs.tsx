@@ -213,7 +213,7 @@ export const OfferingsTabs = () => {
                     src={activeData.image}
                     alt={activeData.title}
                     fill
-                    className={`object-contain drop-shadow-2xl${activeData.id === 'sales-inventory' ? ' mix-blend-multiply' : ''}`}
+                    className="object-contain drop-shadow-xl"
                     priority
                     unoptimized
                   />
