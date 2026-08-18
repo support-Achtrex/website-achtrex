@@ -60,7 +60,7 @@ const offerings = [
     metricLabel: 'Dealership Efficiency',
     buttonText: 'View Sales & Inventory Solutions',
     href: '/products/sales-inventory',
-    image: '/images/sim_phone_isolated.png',
+    image: '/images/sim_gadget_isolated.png',
     accentColor: '#00a9ce'
   }
 ];
