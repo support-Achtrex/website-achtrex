@@ -1,249 +1,257 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { CaretLeft, CaretRight, Code, Database, Robot, Storefront } from '@phosphor-icons/react';
 import { cn } from '@/lib/utils';
-import { TypewriterWithPencil } from '../ui/typewriter-with-pencil';
 
 const offerings = [
   {
     id: 'software',
+    index: '01',
     title: 'Custom Software Development',
-    tabTitle: 'CUSTOM SOFTWARE',
-    icon: Code,
-    subtitle: 'Enterprise-grade software that gets results',
-    description: 'Renowned to be the best technology partner for automotive businesses, our team of engineers and developers are privileged to work with some of the best brands. From startup companies to award-winning clients, our custom software company helps businesses with professional responsive platforms that are designed with usability and performance in mind, guaranteed to affect the bottom line. We build Websites, Mobile apps, Marketplaces, Dealer platforms, Auto parts stores, and Enterprise systems.',
-    buttonText: 'More on Custom Software',
+    tabTitle: 'Custom Software',
+    subtitle: 'Bespoke, scalable platforms engineered for operational superiority',
+    description: 'We architect enterprise-grade software platforms engineered specifically for dealerships, automotive franchises, and digital mobility enterprises. From multi-rooftop dealer portals and high-load auto parts marketplaces to complex fleet ERPs, our systems are built from the ground up to ensure maximum reliability, zero third-party vendor lock-in, and full intellectual property ownership.',
+    capabilities: ['Bespoke Portals', 'Multi-Store DMS Sync', 'Marketplace Platforms', 'Automotive ERPs', 'Zero Lock-in'],
+    metric: '100% Client IP Ownership',
+    metricLabel: 'Architecture Autonomy',
+    buttonText: 'Explore Custom Software',
+    href: '/products/enterprise-platforms',
     image: '/images/slide1_foreground.png',
-    color: '#0ea5e9' // sky-500
+    accentColor: '#00a9ce',
+    gradientClass: 'from-[#00a9ce] to-[#0263c6]'
   },
   {
     id: 'data',
-    title: 'Data & APIs',
-    tabTitle: 'DATA & APIS',
-    icon: Database,
-    subtitle: 'Automotive intelligence for the connected era',
-    description: 'Power your applications with the most robust automotive datasets available. We provide highly accurate, lightning-fast APIs for VIN decoding, comprehensive vehicle specifications, real-time market values, and detailed vehicle history. Our data infrastructure is built for scale, allowing you to seamlessly integrate automotive intelligence into your existing workflows and products.',
+    index: '02',
+    title: 'Automotive Data & APIs',
+    tabTitle: 'Data & APIs',
+    subtitle: 'High-velocity vehicle intelligence and real-time market datasets',
+    description: 'Power your applications with the industry’s most comprehensive vehicle data engine. We provide sub-50ms REST and GraphQL APIs for instant VIN decoding, granular OEM build specifications, live retail valuations, fitment databases, and complete vehicle lifecycle histories querying tens of millions of records.',
+    capabilities: ['Instant VIN Decoding', 'OEM Fitment Data', 'Live Market Valuations', 'Sub-50ms Latency', 'GraphQL & REST'],
+    metric: '20M+ Vehicle Records',
+    metricLabel: 'Live Indexed Dataset',
     buttonText: 'Explore Data APIs',
+    href: '/products/automotive',
     image: '/images/slide2_foreground.png',
-    color: '#f97316' // orange-500
+    accentColor: '#0263c6',
+    gradientClass: 'from-[#0263c6] to-[#00a9ce]'
   },
   {
     id: 'ai',
-    title: 'AI Solutions',
-    tabTitle: 'AI SOLUTIONS',
-    icon: Robot,
-    subtitle: 'Next-generation AI for automotive teams',
-    description: 'Leverage the power of artificial intelligence to automate and optimize your automotive business. We implement state-of-the-art AI solutions including AAIA, intelligent customer support agents, internal knowledge assistants, and complex workflow automation. Our AI systems are trained specifically on automotive domains to deliver unprecedented accuracy and efficiency.',
+    index: '03',
+    title: 'Cognitive AI Solutions',
+    tabTitle: 'AI Solutions',
+    subtitle: 'Automotive-trained intelligence models and autonomous workflows',
+    description: 'Transform traditional manual processes into self-optimizing cognitive systems. Our AAIA intelligence engine delivers domain-specialized customer engagement assistants, automated diagnostic decoders, predictive pricing algorithms, and autonomous multi-agent business logic trained exclusively on automotive operations.',
+    capabilities: ['AAIA Intelligence', 'Autonomous Lead Routing', 'Predictive Pricing', 'Neural NLP Workflows', '24/7 Agent Ops'],
+    metric: 'Sub-60s Response Velocity',
+    metricLabel: 'Autonomous Execution',
     buttonText: 'Discover AI Solutions',
+    href: '/products/lumi',
     image: '/images/slide3_foreground.png',
-    color: '#8b5cf6' // violet-500
+    accentColor: '#76bc1d',
+    gradientClass: 'from-[#76bc1d] to-[#00a9ce]'
   },
   {
     id: 'sales-inventory',
+    index: '04',
     title: 'Sales & Inventory Management',
-    tabTitle: 'SALES & INVENTORY',
-    icon: Storefront,
-    subtitle: 'Unified platforms for modern dealerships',
-    description: 'Empower your dealership with our unified platforms for real-time inventory synchronization, dynamic vehicle listings, and comprehensive CRM integration. We help you manage multi-location inventory effortlessly, providing powerful dealer analytics and lead management tools to drive conversions and capture market opportunities.',
+    tabTitle: 'Sales & Inventory',
+    subtitle: 'Unified cloud infrastructure for modern franchised & independent dealer groups',
+    description: 'Eliminate operational friction and aged inventory lot lag. Our sales and inventory platform synchronizes directly with your DMS, powering instant multi-channel syndication, algorithmic age-on-lot pricing, automated lead routing, and executive turn-rate analytics across standalone and multi-state dealership networks.',
+    capabilities: ['Bi-Directional DMS Sync', 'Multi-Rooftop Tracking', 'Marketplace Syndication', 'Dynamic Price Velocity', 'Lead Auto-Routing'],
+    metric: '3.4x Faster Inventory Turn',
+    metricLabel: 'Dealership Efficiency',
     buttonText: 'View Sales & Inventory Solutions',
+    href: '/products/sales-inventory',
     image: '/images/sim_phone_isolated.png',
-    color: '#10b981' // emerald-500
+    accentColor: '#00a9ce',
+    gradientClass: 'from-[#00a9ce] to-[#76bc1d]'
   }
 ];
 
 export const OfferingsTabs = () => {
-  const router = useRouter();
   const [activeTab, setActiveTab] = useState(0);
-  const headerRef = useRef(null);
-  const isHeaderInView = useInView(headerRef, { amount: 0.5 });
-  const [isH2Done, setIsH2Done] = useState(false);
-
-  const handleNext = () => {
-    setActiveTab((prev) => (prev + 1) % offerings.length);
-  };
-
-  const handlePrev = () => {
-    setActiveTab((prev) => (prev - 1 + offerings.length) % offerings.length);
-  };
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (!isHeaderInView) {
-      setIsH2Done(false);
-    }
-  }, [isHeaderInView]);
-
-  useEffect(() => {
+    if (isPaused) return;
     const interval = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % offerings.length);
-    }, 5000); // Auto-slide every 5 seconds
+    }, 6000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
   const activeData = offerings[activeTab];
 
   return (
-    <section className="w-full py-24 bg-white font-sans overflow-hidden">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section 
+      className="w-full py-20 lg:py-28 bg-[#fafbfc] font-sans overflow-hidden border-y border-slate-200/60"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="max-w-[1320px] mx-auto px-6 lg:px-8">
         
         {/* Header Section */}
-        <div ref={headerRef} className="text-center max-w-4xl mx-auto mb-16 min-h-[300px]">
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-4">
-            THE TECHNOLOGY PARTNER FOR AUTOMOTIVE BUSINESSES
-          </motion.p>
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
+          <p className="text-xs font-black tracking-[0.25em] text-slate-400 uppercase">
+            The Technology Partner for Automotive Businesses
+          </p>
           
-          <TypewriterWithPencil 
-            text="Enterprise Automotive Solutions &
-Data Intelligence Platforms"
-            className="text-3xl md:text-4xl font-bold text-gradient mb-6 tracking-tight py-2 leading-[1.2] inline-block"
-            asBlock={true}
-            speed={35}
-            pencilSize={40}
-            active={isHeaderInView}
-            onComplete={() => setIsH2Done(true)}
-          />
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
+            Enterprise Automotive Solutions &amp;{' '}
+            <span className="text-gradient">Data Intelligence Platforms</span>
+          </h2>
 
-          <div className="mt-6 min-h-[100px]">
-            <TypewriterWithPencil 
-              text="As a premier automotive technology partner, we empower dealerships and mobility enterprises to scale operations. We deliver custom software development, highly accurate data APIs, advanced AI solutions, and comprehensive sales & inventory management systems designed to accelerate growth."
-              className="text-lg text-slate-600 leading-relaxed px-4 inline-block"
-              speed={20}
-              pencilSize={24}
-              active={isH2Done}
-            />
-          </div>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium max-w-2xl mx-auto">
+            We empower dealerships, OEMs, and mobility enterprises to scale operations through custom software engineering, high-precision vehicle data APIs, cognitive AI agents, and unified sales management systems.
+          </p>
         </div>
 
-        {/* Tabs Navigation */}
-        <div className="relative mb-16">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-0 relative z-10 w-full mb-6">
+        {/* Modern Segmented Tab Bar (Clean & Symbol-Free) */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-slate-200/70 p-1.5 rounded-2xl border border-slate-300/60 backdrop-blur-md">
             {offerings.map((offering, index) => {
               const isActive = activeTab === index;
               return (
                 <button
                   key={offering.id}
                   onClick={() => setActiveTab(index)}
-                  className="flex flex-col items-center justify-center gap-4 group transition-all duration-300 outline-none w-full"
+                  className={cn(
+                    "relative py-3.5 px-4 rounded-xl text-center transition-all duration-300 outline-none cursor-pointer select-none",
+                    isActive ? "text-slate-900 shadow-md bg-white font-black" : "text-slate-600 hover:text-slate-900 font-bold hover:bg-white/40"
+                  )}
                 >
-
-                  <span 
-                    className={cn(
-                      "text-sm md:text-base font-black tracking-wider uppercase transition-colors duration-300",
-                      isActive ? "" : "text-slate-400 group-hover:text-slate-600"
-                    )}
-                    style={{ color: isActive ? offering.color : undefined }}
-                  >
-                    {offering.tabTitle}
-                  </span>
+                  <div className="flex flex-col items-center justify-center gap-0.5">
+                    <span className={cn(
+                      "text-[10px] tracking-widest uppercase font-mono transition-colors",
+                      isActive ? "text-[#00a9ce]" : "text-slate-600"
+                    )}>
+                      {offering.index}
+                    </span>
+                    <span className="text-xs sm:text-sm tracking-tight whitespace-nowrap">
+                      {offering.tabTitle}
+                    </span>
+                  </div>
+                  {isActive && (
+                    <motion.div 
+                      layoutId="activeTabIndicator"
+                      className="absolute bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full bg-gradient-to-r from-[#00a9ce] to-[#76bc1d]"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
                 </button>
               );
             })}
           </div>
-
-          {/* Tab Track & Progress Line */}
-          <div className="absolute bottom-[-16px] left-0 w-full h-[6px] bg-slate-200 rounded-full">
-            <motion.div
-              className="absolute top-0 h-full rounded-full"
-              style={{ backgroundColor: activeData.color }}
-              initial={false}
-              animate={{
-                left: `${(activeTab / offerings.length) * 100}%`,
-                width: `${100 / offerings.length}%`
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-            {/* Little triangle pointer (like Kava Ghana) */}
-            <motion.div 
-              className="absolute top-[6px] w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent"
-              style={{ borderTopColor: activeData.color }}
-              initial={false}
-              animate={{
-                left: `calc(${(activeTab / offerings.length) * 100 + (100 / offerings.length) / 2}% - 10px)`
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-          </div>
         </div>
 
-        {/* Tab Content */}
-        <div className="relative min-h-[500px] flex items-center">
+        {/* Master Content Showcase Card */}
+        <div className="relative bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12 lg:p-16">
           
-          {/* Left/Right Arrows for Mobile/Desktop cycling */}
-          <button 
-            onClick={handlePrev}
-            className="absolute left-[-40px] top-1/2 -translate-y-1/2 p-3 md:p-4 rounded-full-full border border-slate-200 text-slate-400 hover:text-slate-900 hover:border-slate-400 transition-colors bg-white/50 backdrop-blur-sm hidden lg:block"
-            aria-label="Previous offering"
-          >
-            <CaretLeft weight="bold" className="w-5 h-5 md:w-6 md:h-6" />
-          </button>
-          <button 
-            onClick={handleNext}
-            className="absolute right-[-40px] top-1/2 -translate-y-1/2 p-3 md:p-4 rounded-full-full border border-slate-200 text-slate-400 hover:text-slate-900 hover:border-slate-400 transition-colors bg-white/50 backdrop-blur-sm hidden lg:block"
-            aria-label="Next offering"
-          >
-            <CaretRight weight="bold" className="w-5 h-5 md:w-6 md:h-6" />
-          </button>
+          {/* Subtle Ambient Radial Highlight in Active Platform Color */}
+          <div 
+            className="absolute -top-24 -right-24 w-96 h-96 rounded-full blur-[100px] opacity-20 pointer-events-none transition-colors duration-700"
+            style={{ backgroundColor: activeData.accentColor }}
+          />
 
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-8"
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.35 }}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"
             >
-              {/* Text Content */}
-              <div className="flex-1 pr-0 lg:pr-8">
-                <h3 className="text-3xl md:text-4xl font-bold text-gradient mb-3">
-                  {activeData.title}
-                </h3>
-                <h4 
-                  className="text-lg md:text-xl font-medium mb-6"
-                  style={{ color: activeData.color }}
-                >
-                  {activeData.subtitle}
-                </h4>
-                <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+              
+              {/* Left Column: Narrative, Capabilities & Metrics (Span 7) */}
+              <div className="lg:col-span-7 space-y-6">
+                
+                {/* Index / Category Pill */}
+                <div className="inline-block px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-[11px] font-extrabold uppercase tracking-widest font-mono">
+                  Platform {activeData.index} of 04
+                </div>
+
+                <div>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                    {activeData.title}
+                  </h3>
+                  <p 
+                    className="text-sm sm:text-base font-bold mt-1.5"
+                    style={{ color: activeData.accentColor }}
+                  >
+                    {activeData.subtitle}
+                  </p>
+                </div>
+
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                   {activeData.description}
                 </p>
-                <Link 
-                  href={`/contact-us?subject=${activeData.id}`}
-                  className="inline-block relative z-50 px-8 py-3 bg-white text-sm font-semibold tracking-wide transition-all hover:shadow-lg rounded-full border"
-                  style={{ 
-                    color: activeData.color,
-                    borderColor: activeData.color 
-                  }}
-                >
-                  {activeData.buttonText}
-                </Link>
+
+                {/* Capabilities Matrix (Clean Text Tags, Symbol-Free) */}
+                <div className="space-y-2 pt-2">
+                  <div className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
+                    Core Capabilities
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {activeData.capabilities.map((cap, i) => (
+                      <span 
+                        key={i}
+                        className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold shadow-2xs"
+                      >
+                        {cap}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Key Performance Metric Row */}
+                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                  <div>
+                    <div className="text-2xl font-black text-slate-900 tracking-tight">
+                      {activeData.metric}
+                    </div>
+                    <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                      {activeData.metricLabel}
+                    </div>
+                  </div>
+
+                  <Link 
+                    href={activeData.href}
+                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-slate-900 hover:bg-[#00a9ce] text-white text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 shrink-0 text-center"
+                  >
+                    {activeData.buttonText}
+                  </Link>
+                </div>
+
               </div>
 
-              {/* Image Content */}
-              <div className="flex-1 w-full relative aspect-square lg:aspect-[4/3] flex items-center justify-center">
-                {/* Decorative elements behind image similar to Kava */}
-                <div className="absolute w-[80%] h-[80%] border-[2px] border-slate-100 rounded-3xl -rotate-6 z-0"></div>
-                <div className="absolute w-[80%] h-[80%] border-[2px] border-slate-100 rounded-3xl rotate-3 z-0"></div>
+              {/* Right Column: High-Fidelity Showcase Asset (Span 5) */}
+              <div className="lg:col-span-5 relative w-full aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[420px] flex items-center justify-center p-4">
                 
-                <Image
-                  src={activeData.image}
-                  alt={activeData.title}
-                  fill
-                  className="object-contain z-10 drop-shadow-2xl scale-110 mix-blend-multiply"
-                  unoptimized
-                />
+                {/* Background Framing Geometry */}
+                <div className="absolute inset-4 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/80 -z-0 shadow-inner" />
+
+                <div className="relative w-full h-full max-h-[360px] z-10 flex items-center justify-center">
+                  <Image
+                    src={activeData.image}
+                    alt={activeData.title}
+                    fill
+                    className="object-contain drop-shadow-xl"
+                    priority
+                    unoptimized
+                  />
+                </div>
               </div>
+
             </motion.div>
           </AnimatePresence>
+
         </div>
 
       </div>
