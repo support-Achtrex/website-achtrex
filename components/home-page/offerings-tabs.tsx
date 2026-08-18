@@ -9,7 +9,6 @@ import { cn } from '@/lib/utils';
 const offerings = [
   {
     id: 'software',
-    index: '01',
     title: 'Custom Software Development',
     tabTitle: 'Custom Software',
     subtitle: 'Bespoke, scalable platforms engineered for operational superiority',
@@ -20,12 +19,10 @@ const offerings = [
     buttonText: 'Explore Custom Software',
     href: '/products/enterprise-platforms',
     image: '/images/slide1_foreground.png',
-    accentColor: '#00a9ce',
-    gradientClass: 'from-[#00a9ce] to-[#0263c6]'
+    accentColor: '#00a9ce'
   },
   {
     id: 'data',
-    index: '02',
     title: 'Automotive Data & APIs',
     tabTitle: 'Data & APIs',
     subtitle: 'High-velocity vehicle intelligence and real-time market datasets',
@@ -36,12 +33,10 @@ const offerings = [
     buttonText: 'Explore Data APIs',
     href: '/products/automotive',
     image: '/images/slide2_foreground.png',
-    accentColor: '#0263c6',
-    gradientClass: 'from-[#0263c6] to-[#00a9ce]'
+    accentColor: '#0263c6'
   },
   {
     id: 'ai',
-    index: '03',
     title: 'Cognitive AI Solutions',
     tabTitle: 'AI Solutions',
     subtitle: 'Automotive-trained intelligence models and autonomous workflows',
@@ -52,12 +47,10 @@ const offerings = [
     buttonText: 'Discover AI Solutions',
     href: '/products/lumi',
     image: '/images/slide3_foreground.png',
-    accentColor: '#76bc1d',
-    gradientClass: 'from-[#76bc1d] to-[#00a9ce]'
+    accentColor: '#76bc1d'
   },
   {
     id: 'sales-inventory',
-    index: '04',
     title: 'Sales & Inventory Management',
     tabTitle: 'Sales & Inventory',
     subtitle: 'Unified cloud infrastructure for modern franchised & independent dealer groups',
@@ -68,8 +61,7 @@ const offerings = [
     buttonText: 'View Sales & Inventory Solutions',
     href: '/products/sales-inventory',
     image: '/images/sim_phone_isolated.png',
-    accentColor: '#00a9ce',
-    gradientClass: 'from-[#00a9ce] to-[#76bc1d]'
+    accentColor: '#00a9ce'
   }
 ];
 
@@ -90,18 +82,14 @@ export const OfferingsTabs = () => {
 
   return (
     <section 
-      className="w-full py-20 lg:py-28 bg-[#fafbfc] font-sans overflow-hidden border-y border-slate-200/60"
+      className="w-full py-20 lg:py-24 bg-[#fafbfc] font-sans overflow-hidden border-y border-slate-200/60"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="max-w-[1320px] mx-auto px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-          <p className="text-xs font-black tracking-[0.25em] text-slate-400 uppercase">
-            The Technology Partner for Automotive Businesses
-          </p>
-          
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
             Enterprise Automotive Solutions &amp;{' '}
             <span className="text-gradient">Data Intelligence Platforms</span>
@@ -113,7 +101,7 @@ export const OfferingsTabs = () => {
         </div>
 
         {/* Modern Segmented Tab Bar (Clean & Symbol-Free) */}
-        <div className="max-w-4xl mx-auto mb-12">
+        <div className="max-w-4xl mx-auto mb-10">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-slate-200/70 p-1.5 rounded-2xl border border-slate-300/60 backdrop-blur-md">
             {offerings.map((offering, index) => {
               const isActive = activeTab === index;
@@ -126,17 +114,9 @@ export const OfferingsTabs = () => {
                     isActive ? "text-slate-900 shadow-md bg-white font-black" : "text-slate-600 hover:text-slate-900 font-bold hover:bg-white/40"
                   )}
                 >
-                  <div className="flex flex-col items-center justify-center gap-0.5">
-                    <span className={cn(
-                      "text-[10px] tracking-widest uppercase font-mono transition-colors",
-                      isActive ? "text-[#00a9ce]" : "text-slate-600"
-                    )}>
-                      {offering.index}
-                    </span>
-                    <span className="text-xs sm:text-sm tracking-tight whitespace-nowrap">
-                      {offering.tabTitle}
-                    </span>
-                  </div>
+                  <span className="text-xs sm:text-sm tracking-tight whitespace-nowrap block">
+                    {offering.tabTitle}
+                  </span>
                   {isActive && (
                     <motion.div 
                       layoutId="activeTabIndicator"
@@ -151,7 +131,7 @@ export const OfferingsTabs = () => {
         </div>
 
         {/* Master Content Showcase Card */}
-        <div className="relative bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12 lg:p-16">
+        <div className="relative bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12 lg:p-14">
           
           {/* Subtle Ambient Radial Highlight in Active Platform Color */}
           <div 
@@ -172,11 +152,6 @@ export const OfferingsTabs = () => {
               {/* Left Column: Narrative, Capabilities & Metrics (Span 7) */}
               <div className="lg:col-span-7 space-y-6">
                 
-                {/* Index / Category Pill */}
-                <div className="inline-block px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-[11px] font-extrabold uppercase tracking-widest font-mono">
-                  Platform {activeData.index} of 04
-                </div>
-
                 <div>
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
                     {activeData.title}
@@ -231,18 +206,14 @@ export const OfferingsTabs = () => {
 
               </div>
 
-              {/* Right Column: High-Fidelity Showcase Asset (Span 5) */}
-              <div className="lg:col-span-5 relative w-full aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[420px] flex items-center justify-center p-4">
-                
-                {/* Background Framing Geometry */}
-                <div className="absolute inset-4 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/80 -z-0 shadow-inner" />
-
-                <div className="relative w-full h-full max-h-[360px] z-10 flex items-center justify-center">
+              {/* Right Column: Clean Hardware Asset Without Box or Borders (Span 5) */}
+              <div className="lg:col-span-5 relative w-full aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[420px] flex items-center justify-center">
+                <div className="relative w-full h-full max-h-[380px] flex items-center justify-center">
                   <Image
                     src={activeData.image}
                     alt={activeData.title}
                     fill
-                    className="object-contain drop-shadow-xl"
+                    className="object-contain drop-shadow-2xl"
                     priority
                     unoptimized
                   />
