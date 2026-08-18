@@ -4,7 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Lock, Scale, CheckCircle2 } from 'lucide-react';
 
 export const AboutContent = () => {
 
@@ -372,136 +371,166 @@ export const AboutContent = () => {
           <div className="px-2 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-6 bg-[#00a9ce] rounded-full"></div>
-              <h2 className="text-[22px] font-black text-slate-900 tracking-tight">Governance, Trust &amp; Legal Policies</h2>
+              <h2 className="text-[22px] font-black text-slate-900 tracking-tight">Corporate Governance, Trust &amp; Legal Policies</h2>
             </div>
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider hidden sm:inline">
-              Enterprise Transparency
+              Enterprise Compliance &amp; Standards
             </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Note 1: Privacy Policy */}
+            {/* Card 1: Privacy Policy */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-lg hover:border-[#00a9ce]/50 transition-all flex flex-col justify-between"
+              className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg hover:border-[#00a9ce]/50 transition-all flex flex-col justify-between"
             >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-[#00a9ce]/10 text-[#00a9ce] flex items-center justify-center">
-                  <Lock size={22} />
+                <div className="border-b border-slate-100 pb-4">
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#00a9ce] block mb-1">Data Governance</span>
+                  <h3 className="text-xl font-black text-slate-900 tracking-tight">Privacy Policy</h3>
+                  <p className="text-xs font-semibold text-slate-500 mt-1">Data Sovereignty, Anonymization &amp; Regulatory Protection</p>
                 </div>
-                <div>
-                  <h3 className="text-lg font-black text-slate-900 tracking-tight">Privacy Policy</h3>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#00a9ce] mt-0.5">Data Sovereignty &amp; Confidentiality</p>
+
+                <div className="text-[13.5px] text-slate-600 leading-relaxed font-medium space-y-3">
+                  <p>
+                    Achtrex Technologies FZCO enforces strict data governance protocols across all platform layers. We operate on the foundational rule that automotive telemetry, vehicle identification records (VIN), dealership inventory metrics, and custom platform queries remain the exclusive intellectual property of our clients.
+                  </p>
+                  
+                  <div className="pt-2 space-y-2.5">
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Zero Telemetry Monetization</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        Client queries, inventory updates, and analytical payloads are never monetized, brokered, or utilized to train external or public machine learning models without explicit written authorization.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">International Privacy Frameworks</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        Our data pipelines are fully compliant with GDPR (Regulation EU 2016/679), CCPA/CPRA, and UAE Federal Data Protection Law (Federal Decree-Law No. 45/2021), featuring end-to-end data subject request workflows.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Configurable Retention &amp; Cryptographic Purge</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        Enterprise accounts can define custom lifecycle policies with automated data scrubbing, cold storage archival, and cryptographically verified deletion audit trails.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-[13.5px] text-slate-600 leading-relaxed font-medium">
-                  We enforce uncompromising privacy standards. All vehicle telemetry, enterprise VIN queries, and proprietary data streams remain the exclusive property of our clients and are never commoditized.
-                </p>
-                <ul className="space-y-2.5 pt-2 text-xs font-semibold text-slate-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={15} className="text-[#00a9ce] shrink-0 mt-0.5" />
-                    <span>Zero third-party telemetry or payload monetization</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={15} className="text-[#00a9ce] shrink-0 mt-0.5" />
-                    <span>GDPR &amp; CCPA compliant data processing protocols</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={15} className="text-[#00a9ce] shrink-0 mt-0.5" />
-                    <span>Configurable data retention &amp; cryptographic purge</span>
-                  </li>
-                </ul>
               </div>
 
               <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-medium">DPO Inquiries:</span>
+                <span className="text-slate-500 font-semibold">Data Protection Officer:</span>
                 <a href="mailto:support@achtrex.com" className="font-bold text-[#00a9ce] hover:underline">
                   support@achtrex.com
                 </a>
               </div>
             </motion.div>
 
-            {/* Note 2: Terms of Service */}
+            {/* Card 2: Terms of Service */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-lg hover:border-[#76bc1d]/50 transition-all flex flex-col justify-between"
+              className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg hover:border-[#76bc1d]/50 transition-all flex flex-col justify-between"
             >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-[#76bc1d]/10 text-[#76bc1d] flex items-center justify-center">
-                  <Scale size={22} />
+                <div className="border-b border-slate-100 pb-4">
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#76bc1d] block mb-1">Commercial Standards</span>
+                  <h3 className="text-xl font-black text-slate-900 tracking-tight">Terms of Service</h3>
+                  <p className="text-xs font-semibold text-slate-500 mt-1">Enterprise Service Level Agreements &amp; Intellectual Property</p>
                 </div>
-                <div>
-                  <h3 className="text-lg font-black text-slate-900 tracking-tight">Terms of Service</h3>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#76bc1d] mt-0.5">Enterprise Service Level Agreements</p>
+
+                <div className="text-[13.5px] text-slate-600 leading-relaxed font-medium space-y-3">
+                  <p>
+                    Our commercial framework is engineered for transparency, technical independence, and long-term enterprise partnership. We provide straightforward licensing terms that eliminate vendor lock-in while providing robust service guarantees.
+                  </p>
+                  
+                  <div className="pt-2 space-y-2.5">
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">99.99% Availability Guarantee</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        Contractually guaranteed 99.99% uptime for core API endpoints, VIN resolution engines, and webhook relays, backed by automated financial service credits for non-scheduled service interruptions.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Complete IP Retention for Bespoke Platforms</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        Clients retain 100% unilateral ownership of custom platform architectures, proprietary models, custom logic, and business workflows engineered under our enterprise development contracts.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Predictable Tier Scaling &amp; Fair Usage</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        Transparent API rate quotas with proactive volume surge warnings, zero punitive overage fees, and flexible multi-region routing allocations designed for growing dealer networks and platforms.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-[13.5px] text-slate-600 leading-relaxed font-medium">
-                  Our commercial terms guarantee transparent licensing, enterprise uptime commitments, and clear intellectual property protections for custom engineering workflows.
-                </p>
-                <ul className="space-y-2.5 pt-2 text-xs font-semibold text-slate-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={15} className="text-[#76bc1d] shrink-0 mt-0.5" />
-                    <span>99.99% guaranteed enterprise uptime SLA</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={15} className="text-[#76bc1d] shrink-0 mt-0.5" />
-                    <span>Transparent API consumption with predictable tier pricing</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={15} className="text-[#76bc1d] shrink-0 mt-0.5" />
-                    <span>100% client IP retention for bespoke software assets</span>
-                  </li>
-                </ul>
               </div>
 
               <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-medium">Legal &amp; Contracts:</span>
+                <span className="text-slate-500 font-semibold">Enterprise Contracting:</span>
                 <Link href="/contact-us" className="font-bold text-[#76bc1d] hover:underline">
-                  Contact Legal
+                  Commercial Desk
                 </Link>
               </div>
             </motion.div>
 
-            {/* Note 3: Security */}
+            {/* Card 3: Security & Compliance */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-lg hover:border-[#001a22]/50 transition-all flex flex-col justify-between"
+              className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg hover:border-[#001a22]/50 transition-all flex flex-col justify-between"
             >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-[#001a22]/10 text-[#001a22] flex items-center justify-center">
-                  <ShieldCheck size={22} />
+                <div className="border-b border-slate-100 pb-4">
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-slate-700 block mb-1">Infrastructure Defense</span>
+                  <h3 className="text-xl font-black text-slate-900 tracking-tight">Security &amp; Compliance</h3>
+                  <p className="text-xs font-semibold text-slate-500 mt-1">Multi-Layered Cyber Defense, Cryptography &amp; Continuous Auditing</p>
                 </div>
-                <div>
-                  <h3 className="text-lg font-black text-slate-900 tracking-tight">Security &amp; Compliance</h3>
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-700 mt-0.5">Multi-Layered Cyber Defense</p>
+
+                <div className="text-[13.5px] text-slate-600 leading-relaxed font-medium space-y-3">
+                  <p>
+                    Security is deeply integrated into our microservices architecture, data storage tiers, and deployment pipelines. We implement zero-trust engineering principles to defend against sophisticated threats and ensure absolute system resiliency.
+                  </p>
+                  
+                  <div className="pt-2 space-y-2.5">
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">End-to-End Cryptographic Protection</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        Mandatory TLS 1.3 with Perfect Forward Secrecy for all external and internal API transmissions, coupled with AES-256 cryptographic encryption for all at-rest databases, object storage, and backups.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Zero-Trust Access &amp; Hardware MFA</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        Granular Role-Based Access Control (RBAC), ephemeral SSH/session key provisioning, mandatory FIDO2 hardware MFA for engineering staff, and segregated multi-tenant database clusters.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Continuous Audit &amp; Threat Mitigation</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        SOC2 Type II aligned SecOps with 24/7 automated intrusion detection (IDS/IPS), daily vulnerability scans, regular third-party penetration audits, and enterprise-tier DDoS shielding.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-[13.5px] text-slate-600 leading-relaxed font-medium">
-                  We engineer mission-critical resilience. Every endpoint and database is defended with end-to-end encryption, strict role-based access, and continuous automated audits.
-                </p>
-                <ul className="space-y-2.5 pt-2 text-xs font-semibold text-slate-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={15} className="text-[#001a22] shrink-0 mt-0.5" />
-                    <span>TLS 1.3 in-transit &amp; AES-256 at-rest encryption</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={15} className="text-[#001a22] shrink-0 mt-0.5" />
-                    <span>Zero-Trust RBAC &amp; automated credential rotation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={15} className="text-[#001a22] shrink-0 mt-0.5" />
-                    <span>SOC2 Type II aligned SecOps &amp; DDoS edge protection</span>
-                  </li>
-                </ul>
               </div>
 
               <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-medium">Security Officer:</span>
+                <span className="text-slate-500 font-semibold">Security Operations:</span>
                 <a href="mailto:support@achtrex.com" className="font-bold text-slate-900 hover:underline">
                   SecOps Desk
                 </a>
