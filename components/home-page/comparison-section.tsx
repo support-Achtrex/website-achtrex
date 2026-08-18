@@ -50,26 +50,20 @@ export const ComparisonSection = () => {
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
 
   return (
-    <section className="py-24 lg:py-32 bg-[#020d14] relative overflow-hidden font-sans">
+    <section className="py-24 lg:py-32 relative overflow-hidden font-sans" style={{ background: 'linear-gradient(135deg, #020d14 0%, #031828 25%, #041f2e 45%, #021a25 65%, #010e18 85%, #000c14 100%)' }}>
 
-      {/* Deep ambient glows */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[10%] w-[500px] h-[500px] rounded-full bg-[#00a9ce]/10 blur-[140px]" />
-        <div className="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] rounded-full bg-[#76bc1d]/8 blur-[120px]" />
+      {/* Rich multi-color ambient glows */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[-15%] left-[-5%] w-[600px] h-[600px] rounded-full bg-[#00a9ce]/20 blur-[130px]" />
+        <div className="absolute top-[20%] right-[-8%] w-[500px] h-[500px] rounded-full bg-[#76bc1d]/15 blur-[110px]" />
+        <div className="absolute bottom-[-10%] left-[30%] w-[550px] h-[400px] rounded-full bg-[#0263c6]/18 blur-[120px]" />
+        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full bg-[#00a9ce]/8 blur-[100px]" />
       </div>
 
       <div className="relative z-10 max-w-[1240px] mx-auto px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-[11px] font-black tracking-[0.3em] text-[#00a9ce] uppercase mb-5"
-          >
-            Competitive Advantage
-          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
