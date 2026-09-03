@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { CaretRight } from '@phosphor-icons/react';
+import { ChevronRight } from 'lucide-react';
 
 export const ServicesGrid = () => {
   return (
@@ -37,11 +37,11 @@ export const ServicesGrid = () => {
               className="flex flex-col sm:flex-row gap-6 mb-12">
               <Link href="/contact-us" className="text-[#00a9ce] font-semibold hover:text-[#008db0] flex items-center gap-1 transition-all">
                 Request Trial API Key
-                <CaretRight weight="bold" className="w-4 h-4 mt-0.5" />
+                <ChevronRight className="w-4 h-4 mt-0.5" />
               </Link>
               <Link href="/contact-us" className="text-[#76bc1d] font-semibold hover:text-[#65a317] flex items-center gap-1 transition-all">
                 See Sample Responses
-                <CaretRight weight="bold" className="w-4 h-4 mt-0.5" />
+                <ChevronRight className="w-4 h-4 mt-0.5" />
               </Link>
             </motion.div>
           </div>

@@ -158,7 +158,6 @@ export async function GET() {
       BEGIN
         IF NOT EXISTS (SELECT 1 FROM team_members) THEN
           INSERT INTO team_members (name, role, image, bio, email, linkedin, twitter) VALUES
-          ('Achim Godwin Tetteh', 'Operations Project Manager', '/team/achim_real.jpg', 'Leading the vision and operations at Achtrex, driving innovation in digital product development.', 'achim@achtrex.com', '#', '#'),
           ('Dr. Emmanuella Yeboah-Appiah', 'CFO', '/team/emmanuella_v2.jpg', 'Steering the financial strategy and ensuring sustainable growth for our global operations.', 'emmanuella@achtrex.com', '#', '#'),
           ('Kojo Thompson', 'SEO & ASO', '/team/kojo_real.png', 'Optimizing digital presence and driving organic growth through advanced search strategies.', 'kojo@achtrex.com', '#', '#'),
           ('Junior Achim', 'Business Analyst and QA', '/team/junior_real.jpg', 'Ensuring product quality and aligning business strategies with technical execution.', 'junior@achtrex.com', '#', '#'),
@@ -169,12 +168,6 @@ export async function GET() {
       END $$;
     `;
 
-    // 8. Fix existing data: Ensure Achim's role is correct
-    await sql`
-        UPDATE team_members
-        SET role = 'Operations Project Manager'
-        WHERE email = 'achim@achtrex.com';
-    `;
 
     return NextResponse.json({ message: 'Database Initialized Successfully' }, { status: 200 });
   } catch (error) {

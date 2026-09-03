@@ -149,18 +149,36 @@ export async function submitContactForm(formData: FormData) {
 export async function submitPartnerForm(formData: FormData) {
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
+    const phone = (formData.get('phone') as string) || 'N/A';
     const company = formData.get('company') as string;
-    const type = formData.get('type') as string;
-    const message = formData.get('message') as string;
+    const website = (formData.get('website') as string) || 'N/A';
+    const role = (formData.get('role') as string) || 'N/A';
+    const country = (formData.get('country') as string) || 'N/A';
+    const companySize = (formData.get('companySize') as string) || 'N/A';
+    const type = (formData.get('type') as string) || (formData.get('partnershipTrack') as string) || 'N/A';
+    const targetMarket = (formData.get('targetMarket') as string) || 'N/A';
+    const timeline = (formData.get('timeline') as string) || 'N/A';
+    const message = (formData.get('message') as string) || '';
 
-    if (!name || !email) {
-        return { error: 'Name and Email are required.' };
+    if (!name || !email || !company) {
+        return { error: 'Name, Work Email, and Company Name are required.' };
     }
 
     let dbErrorOccurred = false;
     let dbErrorMessage = '';
     try {
-        const fullMessage = `Partnership Type: ${type}\n\nMessage: ${message}`;
+        const fullMessage = `Partnership Track: ${type}
+Role: ${role}
+Phone: ${phone}
+Website: ${website}
+Country/Region: ${country}
+Company Size: ${companySize}
+Target Market: ${targetMarket}
+Timeline: ${timeline}
+
+Proposal / Message:
+${message}`;
+
         await sql`
             INSERT INTO leads (name, email, company, message, service, status)
             VALUES (${name}, ${email}, ${company}, ${fullMessage}, 'Partnership', 'new')
@@ -190,22 +208,76 @@ export async function submitPartnerForm(formData: FormData) {
         });
 
         const adminHtml = `
-            <div style="font-family: system-ui, sans-serif; color: #333;">
-                <h2 style="color: #10b981;">New Partner Application</h2>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-                <p><strong>Company:</strong> ${company || 'N/A'}</p>
-                <p><strong>Partnership Type:</strong> ${type || 'N/A'}</p>
-                <hr style="border: 1px solid #eee; margin: 20px 0;" />
-                <h3>About Business:</h3>
-                <p style="white-space: pre-wrap; background: #f9f9f9; padding: 15px; border-radius: 5px;">${message}</p>
+            <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1e293b; max-width: 640px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <div style="background: #1e2226; color: #ffffff; padding: 24px 30px; border-bottom: 3px solid #F37021;">
+                    <span style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #F37021;">Achtrex Partner Program</span>
+                    <h2 style="margin: 6px 0 0 0; font-size: 22px; font-weight: 700; color: #ffffff;">New Partner Application</h2>
+                </div>
+                
+                <div style="padding: 30px;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b; width: 38%;">Full Name:</td>
+                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${name}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Work Email:</td>
+                            <td style="padding: 10px 0; font-weight: 600; color: #0284c7;"><a href="mailto:${email}" style="color: #0284c7; text-decoration: none;">${email}</a></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Phone / WhatsApp:</td>
+                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${phone}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Job Title / Role:</td>
+                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${role}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Company Name:</td>
+                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${company}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Company Website:</td>
+                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${website}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Country / Region:</td>
+                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${country}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Company Size:</td>
+                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${companySize}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Partnership Track:</td>
+                            <td style="padding: 10px 0; font-weight: 700; color: #F37021;">${type}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Target Market:</td>
+                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${targetMarket}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Expected Timeline:</td>
+                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${timeline}</td>
+                        </tr>
+                    </table>
+
+                    <div style="margin-top: 24px;">
+                        <h4 style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin: 0 0 8px 0;">Business Overview & Partnership Goals:</h4>
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; font-size: 13.5px; line-height: 1.6; color: #334155; white-space: pre-wrap;">${message || 'No additional message provided.'}</div>
+                    </div>
+                </div>
+
+                <div style="background: #f8fafc; padding: 16px 30px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #94a3b8; text-align: center;">
+                    Delivered securely to <strong>support@achtrex.com</strong> &bull; Achtrex Partner Management
+                </div>
             </div>
         `;
 
         await transporter.sendMail({
-            from: `"Achtrex Partner Gen" <${smtpEmail}>`,
+            from: `"Achtrex Partner Program" <${smtpEmail}>`,
             to: 'support@achtrex.com',
-            subject: `New Partner Application from ${company}`,
+            subject: `New Partner Application: ${company} (${name})`,
             html: adminHtml,
             replyTo: email
         });

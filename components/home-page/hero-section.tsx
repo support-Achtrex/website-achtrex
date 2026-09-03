@@ -21,7 +21,7 @@ export const Hero = () => {
         <div className="absolute inset-0 z-0 overflow-hidden">
           {/* Instant Poster Image to prevent any black/blank delay while video streams */}
           <Image
-            src="/aaia-poster.jpg"
+            src="/hero-bg-poster.jpg"
             alt="Automotive Intelligence Background"
             fill
             priority
@@ -30,7 +30,7 @@ export const Hero = () => {
             className={`object-cover object-center transition-opacity duration-700 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
           />
 
-          {/* Optimized Background Video */}
+          {/* Compressed Streaming Background Video */}
           <video
             ref={videoRef}
             autoPlay
@@ -38,16 +38,17 @@ export const Hero = () => {
             muted
             playsInline
             preload="auto"
-            poster="/aaia-poster.jpg"
+            poster="/hero-bg-poster.jpg"
             onCanPlay={() => setVideoLoaded(true)}
             onPlaying={() => setVideoLoaded(true)}
             className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-700 ${videoLoaded ? 'opacity-100' : 'opacity-90'}`}
           >
-            <source src="/aaia-video.mp4" type="video/mp4" />
+            <source src="/homepage-hero-bg.mp4" type="video/mp4" />
+            <source src="/homepage-hero-bg.webm" type="video/webm" />
           </video>
 
           {/* Dark gradient overlay to ensure text readability while keeping the video clear */}
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80"></div>
         </div>
 
@@ -65,7 +66,7 @@ export const Hero = () => {
             </h1>
 
             {/* Keywords */}
-            <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-[11px] md:text-[13px] font-bold tracking-widest text-slate-100 uppercase mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-[11px] md:text-[13px] font-bold tracking-widest text-slate-100 uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               <span>CUSTOM SOFTWARE SOLUTIONS</span>
               <span className="text-cyan-400">•</span>
               <span>AUTOMOTIVE DATA SOLUTIONS</span>
@@ -74,14 +75,6 @@ export const Hero = () => {
               <span className="text-cyan-400">•</span>
               <span>SALES & INVENTORY MANAGEMENT SOLUTIONS</span>
             </div>
-            
-            {/* CTA */}
-            <Link
-              href="/portal"
-              className="inline-block bg-white text-black px-12 py-4 font-bold tracking-[0.15em] text-xs md:text-sm uppercase transition-all hover:bg-slate-100 hover:scale-105 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.4)] cursor-pointer"
-            >
-              Access Platform
-            </Link>
           </motion.div>
         </div>
       </div>

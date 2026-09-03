@@ -9,9 +9,9 @@ const FloatingWidgets = () => {
         <div className="absolute -inset-2 rounded-full bg-[#053787] opacity-60 animate-ping [animation-duration:2s]"></div>
         <div className="absolute -inset-1 rounded-full bg-[#053787] opacity-40 animate-pulse"></div>
         <a
-          href="tel:+971502229587"
+          href="tel:+16133664271"
           className="relative flex h-9 w-9 items-center justify-center rounded-full bg-[#053787] text-white shadow-xl transition-transform duration-300 ease-in-out hover:scale-125 hover:rotate-12 active:scale-90"
-          aria-label="Call UAE office"
+          aria-label="Call US office"
         >
           <Phone className="w-4 h-4 animate-[wiggle_1s_ease-in-out_infinite]" />
         </a>

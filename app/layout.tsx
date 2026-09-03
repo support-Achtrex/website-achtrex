@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/ui/toast";
 import { SmoothScrollProvider } from "@/components/smooth-scroll";
 import { GoogleTagManager } from "@next/third-parties/google";
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
  subsets: ["latin"],
- weight: ["300", "400", "500", "600", "700", "800", "900"],
- variable: "--font-inter",
+ weight: ["400", "500", "600", "700", "800"],
+ variable: "--font-jakarta",
  display: "swap",
 });
 
@@ -90,13 +90,6 @@ const jsonLd = [
  "contactPoint": [
   {
    "@type": "ContactPoint",
-   "telephone": "+971-50-222-9587",
-   "contactType": "customer service",
-   "areaServed": ["AE", "SA", "QA", "KW", "BH", "OM"],
-   "availableLanguage": ["en", "ar"]
-  },
-  {
-   "@type": "ContactPoint",
    "telephone": "+1-613-366-4271",
    "contactType": "customer service",
    "areaServed": ["US", "CA", "GB", "NL"],
@@ -133,7 +126,7 @@ export default function RootLayout({
  <head>
     <link rel="preload" as="image" href="/aaia-poster.jpg" fetchPriority="high" />
  </head>
- <body className={`${inter.variable} antialiased min-h-screen flex flex-col bg-[#F8F9FA] text-slate-900 font-sans leading-relaxed selection:bg-[#00a9ce]/20 selection:text-slate-900 overflow-x-hidden`}>
+ <body className={`${plusJakartaSans.variable} font-sans antialiased min-h-screen flex flex-col bg-[#F8F9FA] text-[#0F172A] leading-relaxed selection:bg-[#F37021] selection:text-white overflow-x-hidden`}>
  <script
  type="application/ld+json"
  dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

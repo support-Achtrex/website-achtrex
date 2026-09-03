@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Users, Rocket, Target, Heart, Globe, Cpu, Zap, Shield, Sparkles, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/buttons';
@@ -122,41 +123,72 @@ export default function LifeAtAchtrexPage() {
  </section>
 
  {/* Perks */}
- <section className="py-20 px-6">
- <div className="max-w-7xl mx-auto">
- <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
- <div className="max-w-xl">
- <h2 className="text-sm font-black uppercase tracking-[0.4em] text-slate-500 mb-4">The Benefits</h2>
- <h3 className="text-3xl font-bold text-slate-900">Engineered for your well-being.</h3>
- </div>
- <Button className="bg-[#00a9ce] text-white hover:bg-[#001a22] px-8 rounded-none font-bold">
- See All Perks
- </Button>
- </div>
+      {/* Perks */}
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
+            <div className="max-w-xl">
+              <span className="text-xs font-black uppercase tracking-widest text-[#00a9ce] mb-2 block">The Benefits</span>
+              <h3 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Engineered for your well-being.</h3>
+            </div>
+            <Link 
+              href="/contact-us"
+              className="bg-[#00a9ce] text-white hover:bg-[#001a22] px-8 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
+            >
+              Join Our Team
+            </Link>
+          </div>
 
- <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 border border-slate-200 rounded-none overflow-hidden">
- {[
- { label: "Global Mobility", icon: <Globe size={24} /> },
- { label: "Equity Options", icon: <Target size={24} /> },
- { label: "Health & Wellness", icon: <Heart size={24} /> },
- { label: "Learning Stipends", icon: <Sparkles size={24} /> },
- { label: "Modern Hardware", icon: <Cpu size={24} /> },
- { label: "Unlimited PTO", icon: <Zap size={24} /> },
- { label: "Retirement Plans", icon: <Shield size={24} /> },
- { label: "Annual Offsites", icon: <Users size={24} /> },
- ].map((perk, i) => (
- <div key={i} className="bg-white p-8 hover:bg-slate-50 transition-colors flex flex-col items-center justify-center text-center gap-4">
- <div className="text-[#00a9ce]">{perk.icon}</div>
- <span className="text-sm font-bold text-slate-700">{perk.label}</span>
- </div>
- ))}
- </div>
- </div>
- </section>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { label: "Global Mobility", icon: <Globe size={24} /> },
+              { label: "Equity Options", icon: <Target size={24} /> },
+              { label: "Health & Wellness", icon: <Heart size={24} /> },
+              { label: "Learning Stipends", icon: <Sparkles size={24} /> },
+              { label: "Modern Hardware", icon: <Cpu size={24} /> },
+              { label: "Unlimited PTO", icon: <Zap size={24} /> },
+              { label: "Retirement Plans", icon: <Shield size={24} /> },
+              { label: "Annual Offsites", icon: <Users size={24} /> },
+            ].map((perk, i) => (
+              <div key={i} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md hover:border-[#00a9ce]/40 transition-all flex flex-col items-center justify-center text-center gap-4 group">
+                <div className="text-[#00a9ce] group-hover:scale-110 transition-transform">{perk.icon}</div>
+                <span className="text-sm font-bold text-slate-800">{perk.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
- <div className="bg-black py-20">
- 
- </div>
- </main>
- );
+      {/* CTA Section */}
+      <section className="px-6 pb-12">
+        <div className="max-w-7xl mx-auto relative rounded-3xl bg-gradient-to-r from-[#061420] to-[#0A2235] border border-white/10 overflow-hidden shadow-2xl p-8 sm:p-14 text-white">
+          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-15 mix-blend-overlay pointer-events-none" />
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="max-w-2xl">
+              <span className="text-xs font-black uppercase tracking-widest text-[#00a9ce] mb-2 block">Career Opportunities</span>
+              <h2 className="text-3xl sm:text-4xl font-black mb-4 tracking-tight">Ready to architect the next era of mobility?</h2>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
+                We are actively looking for elite distributed systems engineers, automotive data specialists, and AI researchers. Send your resume or portfolio directly to our leadership desk.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 shrink-0">
+              <a 
+                href="mailto:careers@achtrex.com" 
+                className="px-8 py-3.5 rounded-full font-black text-xs uppercase tracking-wider bg-logo-gradient text-white hover:scale-105 transition-all shadow-lg text-center flex items-center justify-center gap-2"
+              >
+                <span>careers@achtrex.com</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <Link 
+                href="/about-us" 
+                className="px-8 py-3.5 rounded-full font-black text-xs uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all text-center"
+              >
+                About Our Culture
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

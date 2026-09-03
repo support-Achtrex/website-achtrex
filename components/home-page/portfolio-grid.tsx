@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight } from '@phosphor-icons/react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const portfolioItems = [
@@ -251,7 +251,7 @@ export const PortfolioGrid = () => {
                   </p>
                   <div className="mt-auto pt-4 border-t border-slate-100">
                     <Link href={item.link} className="inline-flex items-center text-[#00a9ce] font-bold tracking-wide text-[13px] uppercase hover:text-[#001a22] transition-colors">
-                      View Details <ArrowRight weight="bold" className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                      View Details <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>

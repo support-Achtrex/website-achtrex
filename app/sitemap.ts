@@ -9,26 +9,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const routes: MetadataRoute.Sitemap = [
         '',
         '/about-us',
-        '/products',
-        '/products/automotive',
-        '/products/lumi',
-        '/products/enterprise-platforms',
+        '/industries',
         '/why-achtrex',
         '/contact-us',
         '/blog',
         '/request-quote',
         '/life-at-achtrex',
         '/partners',
-        '/press-release',
-        '/services/ai-training',
-        '/use-cases',
         '/privacy',
         '/terms'
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
         changeFrequency: (route === '' ? 'weekly' : 'monthly') as 'weekly' | 'monthly',
-        priority: route === '' ? 1 : (route.startsWith('/products') ? 0.9 : 0.8),
+        priority: route === '' ? 1 : 0.8,
     }));
 
     // Dynamic Blog Routes

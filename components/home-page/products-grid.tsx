@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Database, Lightning, Code, ArrowRight } from "@phosphor-icons/react";
+import { Database, Zap, Code, ArrowRight } from "lucide-react";
 
 export const ProductsGrid = () => {
  return (
@@ -61,7 +61,7 @@ export const ProductsGrid = () => {
       <div className="mt-auto">
         <Link href="/contact-us" className="inline-flex items-center gap-2 text-[#00a9ce] font-bold hover:text-[#008db0] transition-colors">
          Test the API
-         <ArrowRight weight="bold" className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
      </div>
@@ -94,7 +94,7 @@ export const ProductsGrid = () => {
       <div className="mt-auto relative z-10">
         <Link href="/products/lumi" className="inline-flex items-center gap-2 text-[#76bc1d] font-bold hover:text-[#65a317] transition-colors">
          Explore AAIA
-         <ArrowRight weight="bold" className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
      </div>
@@ -127,7 +127,7 @@ export const ProductsGrid = () => {
       <div className="mt-auto">
         <Link href="/contact-us" className="inline-flex items-center gap-2 text-[#00a9ce] font-bold hover:text-[#008db0] transition-colors">
          Discuss a Project
-         <ArrowRight weight="bold" className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
      </div>

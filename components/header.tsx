@@ -1,22 +1,15 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Calendar } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { Outfit } from 'next/font/google';
-
-const outfit = Outfit({ subsets: ['latin'], weight: ['700', '800', '900'] });
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
-  const isHome = pathname === '/';
-  const isDarkBg = isHome && !scrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +18,6 @@ export const Navbar = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const [forcedOpenDropdown, setForcedOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -49,250 +40,230 @@ export const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [isOpen]);
 
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
-    const handleOpenServices = () => {
-      setIsOpen(true);
-      setForcedOpenDropdown('Industries');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      // Close automatically after 5 seconds
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        setForcedOpenDropdown(null);
-      }, 5000);
-    };
-    
-    window.addEventListener('open-services-dropdown', handleOpenServices);
-    
-    return () => {
-      window.removeEventListener('open-services-dropdown', handleOpenServices);
-      clearTimeout(timeout);
-    };
-  }, []);
-
-  const navLinks: any[] = [
-    { label: 'Home', href: '/' },
-    { 
-      label: 'Our Solutions', 
-      href: '/products',
-      sub: [
-        { label: 'Automotive Data & APIs', href: '/products/automotive' },
-        { label: 'Sales & Inventory Management', href: '/products/sales-inventory' },
-        { label: 'Custom Software Development', href: '/products/enterprise-platforms' },
-        { label: 'AI Solutions', href: '/products/lumi' }
-      ]
-    },
-    { 
-      label: 'Industries', 
-      href: '/services',
-      sub: [
-        { label: 'Car Insurance', href: '/industries/auto-insurance' },
-        { label: 'Car Dealership', href: '/industries/car-dealerships' },
-        { label: 'Auto Repair Service', href: '/industries/auto-repair' },
-        { label: 'Car Website', href: '/industries/car-website' },
-        { label: 'Classified Website', href: '/industries/classifieds-websites' },
-        { label: 'Manufacturers', href: '/industries/manufacturers' },
-        { label: 'Car Rental', href: '/industries/car-rental' },
-        { label: 'Auto Parts Company', href: '/industries/auto-parts' },
-        { label: 'Car Finance', href: '/industries/car-finance' },
-        { label: 'Fleet Management', href: '/industries/fleet-management' },
-        { label: 'Ride-Sharing', href: '/industries/ride-sharing' },
-        { label: 'Government Agencies', href: '/industries/government-agencies' }
-      ]
-    },
-    { 
-      label: 'Resources', 
-      href: '/resources',
-      sub: [
-        { label: 'About Us', href: '/about-us' },
-        { label: 'Blogs', href: '/blog' },
-        { label: 'Press Release', href: '/press-release' },
-        { label: 'Use Cases', href: '/use-cases' }
-      ]
-    },
-    { label: 'Contact Us', href: '/contact-us' }
-  ];
-
   return (
     <>
-      <div className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "py-4 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/50" : "pt-6 pb-2 bg-transparent"
+      <header className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out font-sans border-b border-white/10",
+        scrolled 
+          ? "bg-[#0A0E14]/95 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.6)] py-1.5" 
+          : "bg-[#0A0E14]/90 backdrop-blur-md py-3.5 sm:py-4"
       )}>
-      <nav className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative w-8 h-8 lg:w-10 lg:h-10">
-            <Image
-              src="/logo.png"
-              alt="Achtrex Logo"
-              fill
-              className="object-contain"
-            />
-          </div>
-          <span className={cn(
-            "text-[22px] lg:text-[26px] font-black tracking-normal transition-all duration-300", 
-            isDarkBg ? "text-white" : "text-transparent bg-clip-text bg-logo-gradient drop-shadow-sm",
-            outfit.className
+        {/* Subtle luminous neon top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#00A9CE]/40 via-[#F37021]/50 to-transparent pointer-events-none" />
+
+        <nav className={cn(
+          "w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between transition-all duration-300 ease-in-out",
+          scrolled ? "min-h-[54px] lg:min-h-[60px]" : "min-h-[76px] lg:min-h-[88px]"
+        )}>
+          
+          {/* LEFT NAVIGATION: About Us, Our Services, Become a Partner */}
+          <div className={cn(
+            "hidden lg:flex items-center justify-end flex-1 transition-all duration-300",
+            scrolled ? "gap-6 xl:gap-8" : "gap-7 xl:gap-9"
           )}>
-            Achtrex
-          </span>
-        </Link>
+            <Link 
+              href="/about-us" 
+              className={cn(
+                "group/link relative font-semibold text-slate-200 hover:text-white transition-all whitespace-nowrap tracking-wide",
+                scrolled ? "text-[13.5px] py-1" : "text-[14.5px] xl:text-[15px] py-2"
+              )}
+            >
+              <span>About Us</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F37021] transition-all duration-300 group-hover/link:w-full rounded-full" />
+            </Link>
 
-        <div className="flex items-center">
-          {/* Desktop Navigation in White Pill */}
-          <div className="hidden lg:flex items-center gap-6 bg-white rounded-full pl-8 pr-2 py-2 shadow-lg border border-gray-100">
-            {navLinks.map((link) => (
-              <div key={link.href} className="relative group h-full flex items-center">
-                <Link
-                  href={link.sub ? "#" : link.href}
-                  onClick={(e) => link.sub ? e.preventDefault() : null}
-                  className={cn(
-                    "text-[14px] font-semibold transition-colors flex items-center gap-1.5 text-slate-800 hover:text-[#00a9ce] py-2"
-                  )}
-                >
-                  {link.label}
-                  {link.sub && (
-                    <svg className="w-3.5 h-3.5 opacity-60 transition-transform group-hover:rotate-180 text-slate-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  )}
-                </Link>
-                {link.sub && (
-                  <div className={cn(
-                    "absolute top-[calc(100%+10px)] left-0 pt-2 transition-all duration-200 z-50",
-                    forcedOpenDropdown === link.label 
-                      ? "opacity-100 visible" 
-                      : "opacity-0 invisible group-hover:opacity-100 group-hover:visible",
-                    link.sub.length > 4 ? "w-[600px] left-[-150px]" : "w-[240px]"
-                  )}>
-                    <div className={cn(
-                      "bg-white border border-gray-100 rounded-xl shadow-xl p-2",
-                      link.sub.length > 4 ? "grid grid-cols-2 gap-x-2 gap-y-1" : "flex flex-col gap-1"
-                    )}>
-                      {link.sub.map((subLink: any) => (
-                        <Link
-                          key={subLink.href}
-                          href={subLink.href}
-                          className={cn(
-                            "rounded-full transition-colors hover:bg-slate-50 flex items-start px-4 py-3"
-                          )}
-                        >
-                          <div className="flex flex-col">
-                            <span className="font-medium text-[14px] text-slate-700 hover:text-[#00a9ce]">
-                              {subLink.label}
-                            </span>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-            
-            {/* Action Buttons inside the pill */}
-            <div className="ml-4 flex items-center gap-2">
-              <Link href="/portal" className="text-[13px] font-bold px-4 py-2 text-slate-700 hover:text-primary transition-colors">
-                Portal
-              </Link>
-              <Link href="tel:+971502229587" className="bg-logo-gradient text-white text-[14px] font-bold px-5 py-2 rounded-full transition-transform hover:scale-105 border-0 shadow-md flex items-center justify-center">
-                Call Now
-              </Link>
-            </div>
+            {/* Our Services Link (Direct Page) */}
+            <Link 
+              href="/services" 
+              className={cn(
+                "group/link relative font-semibold text-slate-200 hover:text-white transition-all whitespace-nowrap tracking-wide",
+                scrolled ? "text-[13.5px] py-1" : "text-[14.5px] xl:text-[15px] py-2"
+              )}
+            >
+              <span>Our Services</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F37021] transition-all duration-300 group-hover/link:w-full rounded-full" />
+            </Link>
+
+            {/* Become a Partner */}
+            <Link 
+              href="/partners" 
+              className={cn(
+                "group/link relative font-semibold text-slate-200 hover:text-white transition-all whitespace-nowrap tracking-wide",
+                scrolled ? "text-[13.5px] py-1" : "text-[14.5px] xl:text-[15px] py-2"
+              )}
+            >
+              <span>Become a Partner</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#00A9CE] transition-all duration-300 group-hover/link:w-full rounded-full" />
+            </Link>
           </div>
-        </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className={cn("lg:hidden p-2 transition-colors", isDarkBg ? "text-white hover:text-gray-200" : "text-slate-800 hover:text-[#0263C6]")}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
-      </div>
+          {/* CENTER LOGO */}
+          <div className={cn(
+            "flex items-center justify-center shrink-0 transition-all duration-300 ease-in-out",
+            scrolled ? "mx-4 sm:mx-6 xl:mx-8" : "mx-6 sm:mx-8 xl:mx-12"
+          )}>
+            <Link href="/" className="relative flex items-center justify-center group p-0.5" aria-label="Achtrex Home">
+              {/* Creative Ambient Halo Glow */}
+              <div className={cn(
+                "absolute bg-gradient-to-tr from-[#00A9CE]/25 via-[#38BDF8]/20 to-[#F37021]/25 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-all duration-500",
+                scrolled ? "w-14 h-14 opacity-35" : "w-24 h-24 sm:w-28 sm:h-28 opacity-70"
+              )} />
 
-      {/* Mobile Menu */}
+              {/* Logo Icon dynamically scales down when scrolled */}
+              <div className={cn(
+                "relative shrink-0 transition-all duration-300 ease-in-out group-hover:scale-105 drop-shadow-[0_4px_20px_rgba(0,169,206,0.35)] group-hover:drop-shadow-[0_6px_28px_rgba(243,112,33,0.55)]",
+                scrolled 
+                  ? "w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12" 
+                  : "w-16 h-16 sm:w-20 sm:h-20 xl:w-24 xl:h-24"
+              )}>
+                <Image
+                  src="/logo.png"
+                  alt="Achtrex Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </Link>
+          </div>
+
+          {/* RIGHT NAVIGATION: Industries, Contact Us, Book a meeting */}
+          <div className={cn(
+            "hidden lg:flex items-center justify-start flex-1 transition-all duration-300",
+            scrolled ? "gap-6 xl:gap-8" : "gap-7 xl:gap-9"
+          )}>
+            {/* Industries Link (Direct Page) */}
+            <Link 
+              href="/industries" 
+              className={cn(
+                "group/link relative font-semibold text-slate-200 hover:text-white transition-all whitespace-nowrap tracking-wide",
+                scrolled ? "text-[13.5px] py-1" : "text-[14.5px] xl:text-[15px] py-2"
+              )}
+            >
+              <span>Industries</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F37021] transition-all duration-300 group-hover/link:w-full rounded-full" />
+            </Link>
+
+            <Link 
+              href="/contact-us" 
+              className={cn(
+                "group/link relative font-semibold text-slate-200 hover:text-white transition-all whitespace-nowrap tracking-wide",
+                scrolled ? "text-[13.5px] py-1" : "text-[14.5px] xl:text-[15px] py-2"
+              )}
+            >
+              <span>Contact Us</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F37021] transition-all duration-300 group-hover/link:w-full rounded-full" />
+            </Link>
+
+            {/* Glowing "Book a meeting" CTA */}
+            <Link 
+              href="/contact-us" 
+              className="relative group/btn overflow-hidden rounded-full p-[1.5px] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(243,112,33,0.45)] whitespace-nowrap"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-[#F37021] via-[#FB923C] to-[#00A9CE] rounded-full transition-all duration-300 group-hover/btn:opacity-100 opacity-85" />
+              <span className={cn(
+                "relative flex items-center gap-2 bg-[#0C1118] hover:bg-[#141B26] text-white font-bold rounded-full transition-all",
+                scrolled ? "text-[12.5px] px-4.5 py-1.5" : "text-[13.5px] px-6 py-2"
+              )}>
+                <Calendar className={cn("text-[#F37021] group-hover/btn:text-[#38BDF8] transition-colors", scrolled ? "w-3 h-3" : "w-3.5 h-3.5")} />
+                <span>Book a meeting</span>
+              </span>
+            </Link>
+          </div>
+
+          {/* MOBILE CONTROLS */}
+          <div className="flex lg:hidden items-center gap-3">
+            <Link 
+              href="/contact-us" 
+              className={cn(
+                "bg-[#F37021] text-white font-bold rounded-full hover:bg-[#d85d15] whitespace-nowrap shadow-md transition-all",
+                scrolled ? "text-[11px] px-3 py-1" : "text-xs px-3.5 py-1.5"
+              )}
+            >
+              Book Meeting
+            </Link>
+
+            <button
+              className="text-white p-2 hover:text-[#F37021] transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle navigation"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
+        </nav>
+      </header>
+
+      {/* MOBILE DRAWER */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-[76px] left-4 right-4 bottom-4 bg-[#081622] border border-white/10 rounded-none overflow-y-auto overscroll-contain shadow-2xl lg:hidden z-[60]"
+            className="fixed top-[70px] left-3 right-3 bottom-3 bg-[#0A0E14]/98 border border-white/15 rounded-2xl overflow-y-auto overscroll-contain shadow-2xl lg:hidden z-[60] font-sans p-6 flex flex-col justify-between"
           >
-            <div className="px-5 py-5 space-y-1 flex flex-col">
-              {navLinks.map((link) => {
-                const hasSub = !!link.sub;
-                const isSubOpen = forcedOpenDropdown === link.label;
-                
-                return (
-                  <div key={link.href} className="border-b border-white/5 last:border-0 py-2">
-                    <div className="flex justify-between items-center transition-colors rounded-none py-1">
-                      <Link
-                        href={hasSub ? "#" : link.href}
-                        onClick={(e) => {
-                          if (hasSub) {
-                            e.preventDefault();
-                            setForcedOpenDropdown(isSubOpen ? null : link.label);
-                          } else {
-                            setIsOpen(false);
-                          }
-                        }}
-                        className="text-[16px] font-bold py-2 w-full text-white block flex-1 flex items-center justify-between"
-                      >
-                        {link.label}
-                        {hasSub && (
-                          <svg 
-                            className={cn("w-4 h-4 transition-transform duration-200", isSubOpen ? "rotate-180" : "")} 
-                            fill="none" 
-                            viewBox="0 0 24 24" 
-                            stroke="currentColor"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        )}
-                      </Link>
-                    </div>
-                    {hasSub && isSubOpen && (
-                      <motion.div 
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        className="pl-3 pb-2 pt-1 flex flex-col gap-2 overflow-hidden"
-                      >
-                        {link.sub.map((subLink: any) => (
-                          <Link
-                            key={subLink.href}
-                            href={subLink.href}
-                            onClick={() => setIsOpen(false)}
-                            className="flex items-start gap-3 p-2 rounded-none hover:bg-transparent/5 transition-colors block"
-                          >
-                            <div className="flex flex-col">
-                              <span className={cn("font-semibold", subLink.description ? "text-white text-[15px]" : "text-[14px] text-white/70 hover:text-[#00a9ce]")}>
-                                {subLink.label}
-                              </span>
-                              {subLink.description && (
-                                <span className="text-[13px] text-white/60 mt-0.5 leading-snug">
-                                  {subLink.description}
-                                </span>
-                              )}
-                            </div>
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </div>
-                );
-              })}
-              <div className="pt-4 flex flex-col gap-3">
-                <Link href="/portal" onClick={() => setIsOpen(false)} className="w-full text-center bg-white text-black font-bold py-3 rounded-none uppercase text-xs tracking-wider">
-                  Access Platform / Portal
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#F37021]">Menu</span>
+                <span className="text-xs text-slate-400">Achtrex Automotive</span>
+              </div>
+
+              <div className="flex flex-col space-y-3">
+                <Link 
+                  href="/about-us" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-base font-semibold text-white hover:text-[#F37021] py-2 transition-colors border-b border-white/5"
+                >
+                  About Us
                 </Link>
-                <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full text-center bg-logo-gradient text-white font-bold py-3 rounded-none">
+
+                <Link 
+                  href="/services" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-base font-semibold text-white hover:text-[#F37021] py-2 transition-colors border-b border-white/5 flex items-center justify-between"
+                >
+                  <span>Our Services</span>
+                  <span className="text-xs font-normal text-slate-400">4 Solutions</span>
+                </Link>
+
+                <Link 
+                  href="/industries" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-base font-semibold text-white hover:text-[#F37021] py-2 transition-colors border-b border-white/5 flex items-center justify-between"
+                >
+                  <span>Industries</span>
+                  <span className="text-xs font-normal text-slate-400">16 Sectors</span>
+                </Link>
+
+                <Link 
+                  href="/partners" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-base font-semibold text-white hover:text-[#00A9CE] py-2 transition-colors border-b border-white/5"
+                >
+                  Become a Partner
+                </Link>
+
+                <Link 
+                  href="/contact-us" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-base font-semibold text-white hover:text-[#F37021] py-2 transition-colors border-b border-white/5"
+                >
                   Contact Us
                 </Link>
               </div>
+            </div>
+
+            <div className="pt-6 border-t border-white/10 flex flex-col gap-3">
+              <Link 
+                href="/contact-us" 
+                onClick={() => setIsOpen(false)}
+                className="w-full text-center bg-gradient-to-r from-[#F37021] to-[#FB923C] text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Book a meeting</span>
+              </Link>
             </div>
           </motion.div>
         )}

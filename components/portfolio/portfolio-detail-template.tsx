@@ -34,32 +34,33 @@ export const PortfolioDetailTemplate: React.FC<PortfolioDetailProps> = ({ data, 
   return (
     <div className="w-full bg-[#f8fafc] min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full bg-[#11243b] pt-32 pb-24 px-6 overflow-hidden">
-        {/* Background texture/overlay */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+      <section className="relative w-full bg-white border-b border-slate-200/90 pt-32 pb-12 sm:pt-36 sm:pb-16 px-6 sm:px-8 lg:px-12 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
         
-        <div className="max-w-[1200px] mx-auto relative z-10 flex flex-col items-center text-center">
-          <Link href={backLink} className="self-start md:self-center mb-8 inline-flex items-center text-orange-500 hover:text-orange-400 font-semibold transition-colors">
+        <div className="max-w-[1280px] mx-auto relative z-10">
+          <Link href={backLink} className="mb-6 inline-flex items-center text-amber-600 hover:text-amber-500 font-bold transition-colors text-sm">
             <ArrowLeft className="w-4 h-4 mr-2" /> Back to Portfolio
           </Link>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl"
           >
-            <h4 className="text-orange-500 font-black tracking-widest uppercase text-sm md:text-base mb-4">
+            <span className="text-xs font-black tracking-widest uppercase text-amber-500 bg-amber-50 px-3 py-1 rounded-md border border-amber-200/60 inline-block mb-3">
               {data.kicker}
-            </h4>
-            <h1 className="text-4xl md:text-4xl font-black text-white mb-8 tracking-tight">
+            </span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
               {data.title}
             </h1>
+            <div className="w-20 h-1 bg-amber-500 rounded-full mt-3.5 mb-6" />
           </motion.div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="w-full -mt-12 relative z-20 px-6">
+      <section className="w-full py-12 relative z-20 px-6">
         <div className="max-w-[1000px] mx-auto bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-8 md:p-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {data.stats.map((stat, idx) => (

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight } from '@phosphor-icons/react';
+import { ArrowRight } from 'lucide-react';
 
 export const AboutSection = () => {
   const router = useRouter();
@@ -85,7 +85,7 @@ export const AboutSection = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-teal-400 opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative w-full h-full bg-[#F8F9FA] hover:bg-[#0c1222] text-slate-900 font-bold text-[14px] px-8 py-3.5 rounded-full transition-colors duration-500 flex items-center justify-center gap-2">
               Learn about Achtrex
-              <ArrowRight weight="bold" className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4" />
             </div>
           </Link>
         </motion.div>

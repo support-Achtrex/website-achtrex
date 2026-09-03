@@ -1,45 +1,57 @@
-import { ContactClient } from "./contact-client";
-import { Metadata } from "next";
+import React, { Suspense } from 'react';
+import { Metadata } from 'next';
+import { ContactClient } from './contact-client';
 
 export const metadata: Metadata = {
- title: "Start Building | Contact Achtrex",
- description: "Get in touch with our team to start building better automotive products.",
- keywords: ["Contact Achtrex", "SaaS Partnership", "API Integration Support", "Enterprise Data Solutions", "Achtrex Support"],
- openGraph: {
- title: "Start Building | Contact Achtrex",
- description: "Get in touch with our team to start building better automotive products.",
- images: ["/projects/aaia_ui_v2.png"],
- }
+  title: 'Contact Us | Achtrex Technology FZCO — Automotive Data & Platform Solutions',
+  description: 'Connect with Achtrex Technology FZCO. Discuss enterprise automotive dataset APIs, real-time VIN decoding infrastructure, and custom dealership cloud platforms.',
+  keywords: [
+    'Contact Achtrex',
+    'Achtrex Technology FZCO',
+    'Automotive API Support',
+    'VIN Decoding Solutions',
+    'Enterprise Data Architecture',
+    'Dubai Automotive Software'
+  ],
+  alternates: {
+    canonical: 'https://achtrex.com/contact-us',
+  },
+  openGraph: {
+    title: 'Contact Achtrex Technology FZCO | Enterprise Mobility Solutions',
+    description: 'Get in touch with our architecture team to scale your automotive data and software infrastructure.',
+    images: ['/projects/aaia_ui_v2.png'],
+  }
 };
 
-import { Suspense } from "react";
-
 const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "name": "Contact Achtrex",
-  "description": "Get in touch with our team to start building better automotive products.",
-  "url": "https://achtrex.com/contact-us",
-  "mainEntity": {
-    "@type": "LocalBusiness",
-    "name": "Achtrex Support",
-    "telephone": ["+971-50-222-9587", "+1-613-366-4271"],
-    "email": "support@achtrex.com",
-    "address": [
-      { "@type": "PostalAddress", "addressCountry": "AE" },
-      { "@type": "PostalAddress", "addressCountry": "US" }
-    ]
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  'name': 'Contact Achtrex Technology FZCO',
+  'description': 'Direct collaboration and technical support desk for enterprise automotive data and custom software platforms.',
+  'url': 'https://achtrex.com/contact-us',
+  'mainEntity': {
+    '@type': 'LocalBusiness',
+    'name': 'Achtrex Technology FZCO',
+    'email': 'support@achtrex.com',
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Dubai Silicon Oasis',
+      'addressRegion': 'Dubai',
+      'addressCountry': 'AE'
+    }
   }
 };
 
 export default function ContactUsPage() {
- return (
- <Suspense>
- <script
-   type="application/ld+json"
-   dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
- />
- <ContactClient />
- </Suspense>
- );
+  return (
+    <main className="min-h-screen bg-[#FFFFFF] text-slate-900 overflow-x-hidden pt-32 sm:pt-36">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center">Loading contact desk...</div>}>
+        <ContactClient />
+      </Suspense>
+    </main>
+  );
 }

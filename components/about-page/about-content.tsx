@@ -1,567 +1,748 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ArrowRight, ChevronRight, Linkedin, Twitter, Mail } from 'lucide-react';
+
+const timelineData = [
+  {
+    id: '2018-2020',
+    tabLabel: '2018 to 2020',
+    period: '1994 TO 2004',
+    periodLabel: '2018 TO 2020',
+    title: 'Foundation and early digital innovation',
+    points: [
+      {
+        year: '2018',
+        text: 'Founding of Achtrex Technology FZCO in Dubai to engineer standardized automotive data pipelines and enterprise API infrastructure for the emerging mobility economy.'
+      },
+      {
+        year: '2019',
+        text: 'First deployment of the Achtrex Global VIN Decoding Engine, indexing over 20M+ vehicle specifications across North American, European, and Asian platforms.'
+      },
+      {
+        year: '2020',
+        text: 'Launch of AutomotiveDataset.com, providing instantaneous cloud API access to factory build configurations, parts catalogs, and market valuation curves.'
+      }
+    ]
+  },
+  {
+    id: '2021-2023',
+    tabLabel: '2021 to 2023',
+    periodLabel: '2021 TO 2023',
+    title: 'Expansion into dealer operations and cloud syndication',
+    points: [
+      {
+        year: '2021',
+        text: 'Deployment of the Achtrex Sales & Inventory Cloud, enabling bi-directional real-time DMS synchronization across major multi-rooftop dealer networks.'
+      },
+      {
+        year: '2022',
+        text: 'Expansion into 40+ global classified syndication channels, automating multi-channel vehicle broadcast with algorithmic lot velocity pricing.'
+      },
+      {
+        year: '2023',
+        text: 'Establishment of neutral aftermarket data exchange standards, connecting regional parts distributors with independent workshops and fleet operators.'
+      }
+    ]
+  },
+  {
+    id: '2024-2025',
+    tabLabel: '2024 to 2025',
+    periodLabel: '2024 TO 2025',
+    title: 'Autonomous AI reasoning and diagnostic triage',
+    points: [
+      {
+        year: '2024',
+        text: 'Introduction of AAIA (Achtrex Automotive Intelligence Architecture) — domain-specialized neural models for OBD-II diagnostic interpretation and predictive service triage.'
+      },
+      {
+        year: '2024',
+        text: 'Deployment of autonomous 24/7 AI conversational sales agents and computer-vision OCR pipelines extracting repair orders and title paperwork at 98%+ accuracy.'
+      },
+      {
+        year: '2025',
+        text: 'Integration of predictive regional demand forecasting models, synthesizing auction transactions, macroeconomic indicators, and search trend telemetry.'
+      }
+    ]
+  },
+  {
+    id: '2026-beyond',
+    tabLabel: '2026 & Beyond',
+    periodLabel: '2026 & BEYOND',
+    title: 'Connected mobility and neutral aftermarket infrastructure',
+    points: [
+      {
+        year: '2026',
+        text: 'Scaling real-time EV battery telemetry, predictive state-of-health degradation modeling, and charging network interoperability across international markets.'
+      },
+      {
+        year: 'Ongoing',
+        text: 'Strengthening the neutral digital backbone of the independent automotive aftermarket to ensure all operators remain competitive, agile, and sovereign over their data.'
+      }
+    ]
+  }
+];
+
+const teamMembers = [
+  {
+    name: 'Achim Godwin Tetteh',
+    role: 'Founder and System Architect',
+    image: '/team/achim_real.jpg',
+    bio: 'Pioneering automotive data architecture, distributed cloud systems, and domain-tuned AI models that power enterprise mobility platforms.'
+  },
+  {
+    name: 'Emmanuella Yeboah-Appiah',
+    role: 'Administrator',
+    image: '/team/emmanuella_v2.jpg',
+    bio: 'Overseeing executive administration, corporate governance, organizational workflows, and operations for Achtrex Technology FZCO.'
+  },
+  {
+    name: 'Rashid Ahmed',
+    role: 'Lead Backend & Data Architect',
+    image: '/team/rashid.png',
+    bio: 'Architecting high-throughput vehicle telemetry pipelines, normalized VIN schemas, and resilient multi-region cloud microservices.'
+  },
+  {
+    name: 'Kelvin Davis',
+    role: 'Senior Software Engineer',
+    image: '/team/kelvin-davis.png',
+    bio: 'Engineering scalable dealer management interfaces, high-performance API integrations, and robust automated test suites.'
+  },
+  {
+    name: 'Dede Davis',
+    role: 'Lead DevOps & Infrastructure Engineer',
+    image: '/team/dede_v2.jpg',
+    bio: 'Managing 99.99% SLA cloud deployments, zero-downtime CI/CD pipelines, container orchestration, and bank-grade security protocols.'
+  },
+  {
+    name: 'Kojo Thompson',
+    role: 'Head of Digital Growth & SEO',
+    image: '/team/kojo_real.png',
+    bio: 'Accelerating digital footprint, content architecture, and organic market presence across search engines and global automotive hubs.'
+  },
+  {
+    name: 'Junior Achim',
+    role: 'Business Analyst & Quality Assurance',
+    image: '/team/junior_real.jpg',
+    bio: 'Aligning business strategies with technical deliverables, regression testing, and data integrity verification across customer deployments.'
+  }
+];
 
 export const AboutContent = () => {
+  const [activeTimelineId, setActiveTimelineId] = useState(timelineData[0].id);
 
-  const platforms = [
-    {
-      accent: '#00a9ce',
-      bg: 'bg-white hover:bg-[#00a9ce]/5',
-      border: 'border-slate-200 hover:border-[#00a9ce]/50',
-      dot: 'bg-[#00a9ce]',
-      statusText: 'text-sky-400',
-      statusBg: 'bg-sky-900/30 border-sky-500/30',
-      name: 'Automotive Data & APIs',
-      tagline: 'AutomotiveDataset.com',
-      desc: 'Enterprise VIN intelligence, vehicle specifications, and fitment APIs querying over 20M+ live records for absolute data superiority.',
-      tags: ['VIN Decoding', 'Specs API', 'Fitment Data', 'Market Values'],
-      href: 'https://automotivedataset.com',
-      external: true,
-    },
-    {
-      accent: '#76bc1d',
-      bg: 'bg-white hover:bg-[#76bc1d]/5',
-      border: 'border-slate-200 hover:border-[#76bc1d]/50',
-      dot: 'bg-[#76bc1d]',
-      statusText: 'text-violet-400',
-      statusBg: 'bg-violet-900/30 border-violet-500/30',
-      name: 'Sales & Inventory Management',
-      tagline: 'Frictionless Operations',
-      desc: 'Structural sales ecosystems that streamline dealership operations, eliminating manual data entry and replacing it with real-time, automated tracking.',
-      tags: ['Dealership Ops', 'Inventory Sync', 'Automated Tracking', 'Retail'],
-      href: '/products/automotive',
-      external: false,
-    },
-    {
-      accent: '#001a22',
-      bg: 'bg-white hover:bg-[#001a22]/5',
-      border: 'border-slate-200 hover:border-[#001a22]/50',
-      dot: 'bg-[#001a22]',
-      statusText: 'text-emerald-400',
-      statusBg: 'bg-emerald-900/30 border-emerald-500/30',
-      name: 'Custom Software Development',
-      tagline: 'Enterprise Platforms',
-      desc: 'Bespoke, resilient, and highly-scalable enterprise platforms engineered from the ground up to ensure absolute technical autonomy and zero vendor lock-in.',
-      tags: ['Bespoke Systems', 'No Lock-In', 'Enterprise Cloud', 'SaaS'],
-      href: '/services',
-      external: false,
-    },
-    {
-      accent: '#053787',
-      bg: 'bg-white hover:bg-[#053787]/5',
-      border: 'border-slate-200 hover:border-[#053787]/50',
-      dot: 'bg-[#053787]',
-      statusText: 'text-blue-400',
-      statusBg: 'bg-blue-900/30 border-blue-500/30',
-      name: 'AI Solutions (AAIA)',
-      tagline: 'Cognitive Workflows',
-      desc: 'A powerful communications platform leveraging advanced LLMs and neural processing to execute complex autonomous business logic across your enterprise.',
-      tags: ['LLMs', 'Cognitive Processing', 'Workflow Automation', 'NLP'],
-      href: '/products/lumi',
-      external: false,
-    },
-  ];
-
-  const values = [
-    { label: 'Infrastructure-First', icon: '⬡' },
-    { label: 'Data Accuracy', icon: '◈' },
-    { label: 'Developer Experience', icon: '⌗' },
-    { label: 'Enterprise Reliability', icon: '◉' },
-    { label: 'AI-Driven Innovation', icon: '◆' },
-    { label: 'Scalability by Design', icon: '⬢' },
-    { label: 'Customer-Centric', icon: '◎' },
-    { label: 'Sales & Inventory', icon: '⟳' },
-  ];
-
-  const expertise = [
-    'Automotive Engineering', 
-    'System Architecture',
-    'Vehicle Diagnostics',
-    'Technical Training',
-    'Data Validation',
-    'Database Engineering',
-    'Data Orchestration',
-    'Technical Sales',
-    'Account Management',
-    'Managerial Leadership',
-    'Cross-Functional Leadership',
-    'Enterprise Integration',
-    'API Architecture', 
-    'Microservices Architecture',
-    'Cloud Infrastructure',
-    'AI Infrastructure',
-    'Predictive Analytics',
-    'Dealership Operations',
-    'SaaS Development',
-    'Automotive Research & Consulting'
-  ];
+  const currentTimeline = timelineData.find(t => t.id === activeTimelineId) || timelineData[0];
 
   return (
-    <div className="bg-transparent text-slate-900 font-sans antialiased min-h-screen pb-16">
-      
-      {/* ─── HERO ─────────────────────────────────────────────────────── */}
-      <div className="relative overflow-hidden pt-10 pb-10 px-6 bg-transparent">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="relative z-10 max-w-[1200px] mx-auto text-center flex flex-col items-center">
+    <div className="w-full bg-[#FFFFFF] text-slate-900 font-sans selection:bg-[#F37021] selection:text-white pb-24">
 
-          <div className="text-[15px] md:text-[16px] text-slate-700 max-w-4xl leading-relaxed font-normal mb-8 text-center space-y-4">
-            <p>
-              Achtrex is fundamentally re-architecting how businesses interact with data, inventory, software, and artificial intelligence. Founded on the principle that modern enterprises require more than just disconnected silos of information, we build vertically integrated platforms that transform fragmented operations into unified, actionable, real-time intelligence.
-            </p>
-            <p>
-              Our ecosystem provides businesses with an absolute structural advantage through four core pillars. First, our <strong className="text-slate-900 font-bold">Automotive Data & APIs</strong> grant instantaneous, robust access to comprehensive VIN intelligence and market valuations via a single streamlined interface. Second, our <strong className="text-slate-900 font-bold">Sales & Inventory Management</strong> tools streamline dealership and retail operations, drastically reducing manual overhead through autonomous tracking.
-            </p>
-            <p>
-              Third, our <strong className="text-slate-900 font-bold">Custom Software Development</strong> division engineers bespoke, zero-compromise enterprise platforms that scale infinitely without third-party vendor lock-in. Finally, our <strong className="text-slate-900 font-bold">AAIA</strong> transition enterprises from static tools to truly autonomous cognitive workflows, leveraging advanced LLMs to process complex business logic. Together, these pillars form the mission-critical foundation required to build, scale, and dominate in the intelligent digital economy.
-            </p>
-          </div>
-
-          {/* Quick stats row */}
-          <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl">
-            {[
-              { n: '20M+', label: 'Vehicle Records', color: 'bg-white', border: 'border-slate-200' },
-              { n: '99.99%', label: 'Uptime SLA', color: 'bg-white', border: 'border-slate-200' },
-              { n: '50ms', label: 'Avg API Latency', color: 'bg-white', border: 'border-slate-200' },
-              { n: 'Tier 1', label: 'Enterprise Security', color: 'bg-white', border: 'border-slate-200' },
-            ].map((s, i) => (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                key={i} 
-                className={`border ${s.border} rounded-xl px-4 py-6 flex flex-col items-center justify-center relative overflow-hidden ${s.color} hover:shadow-md transition-shadow`}>
-                <p className="text-[32px] font-black text-[#00a9ce] leading-none mb-2">{s.n}</p>
-                <p className="text-[11px] text-slate-700 font-bold uppercase tracking-wider">{s.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-
-      {/* ─── LIFESTYLE IMAGE ─────────────────────────────────────────── */}
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        className="max-w-[1200px] mx-auto px-6 pt-4 pb-10">
-        <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl group">
-          <Image 
-            src="/images/corporate_team_1.png" 
-            alt="Achtrex team collaborating in a modern office" 
-            fill 
-            className="object-cover transition-transform duration-700 group-hover:scale-105" 
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#001a22] via-[#001a22]/30 to-transparent opacity-90" />
-          <div className="absolute bottom-8 left-8 md:left-12">
-            <p className="text-white font-black text-2xl md:text-3xl tracking-tight mb-1">Engineering the Future</p>
-
-          </div>
-        </div>
-      </motion.div>
-
-      {/* ─── DENSE BENTO LAYOUT ────────────────────────────────────────── */}
-      <div className="max-w-[1200px] mx-auto px-6 pt-10 flex flex-col gap-10">
-        
-        {/* ROW 1 & 2: Leadership then Core Values */}
-        <div className="flex flex-col gap-8">
+      {/* ─── SECTION 1: OUR STORY / ABOUT ACHTREX TECHNOLOGY FZCO ───────── */}
+      <section className="max-w-[1240px] mx-auto px-6 pt-4 pb-20 sm:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Leadership */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col gap-4">
-            <div className="px-2 flex items-center gap-2">
-              <div className="w-1.5 h-6 bg-[#00a9ce] rounded-full"></div>
-              <h2 className="text-[22px] font-black text-slate-900 tracking-tight">Leadership</h2>
+          {/* Left Text */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <span className="text-xs font-black uppercase tracking-widest text-slate-500 mb-2">
+              OUR STORY
+            </span>
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight">
+              About Achtrex Technology FZCO
+            </h1>
+
+            {/* Signature Brand Orange Underline */}
+            <div className="w-16 h-1 bg-[#F37021] mt-3 mb-6 rounded-full" />
+
+            <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-xl">
+              <p>
+                From the very beginning, our focus has been simple: setting the data standard for the industry and solving what no one can solve alone. Achtrex Technology FZCO has grown alongside the independent automotive aftermarket, supporting how it evolves, connects, and operates across geographies.
+              </p>
+              <p>
+                Headquartered in Dubai, UAE, Achtrex Technology FZCO provides scalable automotive data APIs, enterprise VIN intelligence, and custom software solutions designed for the next generation of connected mobility, retail dealerships, and parts distribution networks worldwide.
+              </p>
             </div>
-            <div className="flex flex-col md:flex-row gap-6 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#00a9ce]/5 rounded-bl-full -z-0"></div>
+          </div>
+
+          {/* Right Visual Graphic (Illustration matching TecAlliance graphic) */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[440px] aspect-[4/3] flex items-center justify-center">
               
-              {/* Left Column: Image & Tags */}
-              <div className="relative z-10 w-full md:w-72 shrink-0 flex flex-col gap-5">
-                <div className="rounded-xl overflow-hidden bg-slate-100 shadow-inner w-full">
-                  <Image src="/team/achim_real.jpg" alt="Achim Godwin Tetteh" width={400} height={600} className="w-full h-auto object-cover" priority />
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {expertise.map((t, i) => (
-                    <span key={i} className="px-2.5 py-1 bg-slate-50 border border-slate-200 rounded-full text-[12px] font-bold text-slate-700 shadow-sm leading-tight">{t}</span>
+              {/* Subtle background glow */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#F37021]/10 via-transparent to-slate-100 rounded-3xl blur-2xl -z-10" />
+
+              {/* Graphic Composition */}
+              <svg viewBox="0 0 500 380" className="w-full h-full drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+                
+                {/* 1. Books / Data Foundation Stack (Bottom Left) */}
+                <g transform="translate(40, 210)">
+                  {/* Book 3 (Bottom) */}
+                  <rect x="10" y="70" width="180" height="26" rx="4" fill="#E2E8F0" stroke="#CBD5E1" strokeWidth="1.5" />
+                  <rect x="0" y="70" width="16" height="26" rx="3" fill="#64748B" />
+                  
+                  {/* Book 2 (Middle - Dark Charcoal) */}
+                  <rect x="8" y="42" width="180" height="26" rx="4" fill="#334155" stroke="#1E293B" strokeWidth="1.5" />
+                  <rect x="0" y="42" width="14" height="26" rx="3" fill="#0F172A" />
+                  
+                  {/* Book 1 (Top - White) */}
+                  <rect x="12" y="14" width="176" height="26" rx="4" fill="#FFFFFF" stroke="#CBD5E1" strokeWidth="1.5" />
+                  <rect x="0" y="14" width="16" height="26" rx="3" fill="#94A3B8" />
+
+                  {/* Mechanical Gear Schematic watermark above books */}
+                  <g opacity="0.4" stroke="#94A3B8" strokeWidth="1.5" strokeDasharray="3 3">
+                    <circle cx="90" cy="-30" r="38" />
+                    <circle cx="90" cy="-30" r="18" fill="#F8FAFC" />
+                    <circle cx="150" cy="-60" r="26" />
+                    <circle cx="150" cy="-60" r="10" fill="#F8FAFC" />
+                    <path d="M90 -68 L90 8 M52 -30 L128 -30" />
+                  </g>
+                </g>
+
+                {/* 2. Connected Data Bus Lines (Ascending Circuit) */}
+                <path d="M190 220 L270 220 L310 160 L380 160 L420 110" stroke="#64748B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M220 250 L270 250 L310 160" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
+                
+                {/* Circuit Nodes */}
+                <circle cx="190" cy="220" r="4" fill="#475569" />
+                <circle cx="220" cy="250" r="3.5" fill="#94A3B8" />
+                <circle cx="380" cy="160" r="3.5" fill="#475569" />
+
+                {/* 3. Ascending Golden-Orange Growth Trajectory Line */}
+                <path d="M160 270 L250 180 L320 180 L430 65" stroke="url(#orangeGlow)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="250" cy="180" r="6" fill="#FFFFFF" stroke="#F37021" strokeWidth="3" />
+                <circle cx="320" cy="180" r="6" fill="#FFFFFF" stroke="#F37021" strokeWidth="3" />
+                <circle cx="430" cy="65" r="8" fill="#FFFFFF" stroke="#F37021" strokeWidth="4" />
+
+                {/* 4. Top Right Floating Analytics Dashboard */}
+                <g transform="translate(330, 20)">
+                  {/* Dashboard Frame with subtle drop shadow */}
+                  <rect x="0" y="0" width="150" height="95" rx="8" fill="#FFFFFF" stroke="#E2E8F0" strokeWidth="1.5" filter="drop-shadow(0px 8px 16px rgba(0,0,0,0.12))" />
+                  
+                  {/* Dashboard Header Bar */}
+                  <rect x="0" y="0" width="150" height="18" rx="8" fill="#F8FAFC" />
+                  <circle cx="10" cy="9" r="2.5" fill="#CBD5E1" />
+                  <circle cx="18" cy="9" r="2.5" fill="#CBD5E1" />
+                  
+                  {/* Donut Chart Indicator */}
+                  <circle cx="35" cy="45" r="14" stroke="#F1F5F9" strokeWidth="4" fill="none" />
+                  <circle cx="35" cy="45" r="14" stroke="#F37021" strokeWidth="4" strokeDasharray="50 40" fill="none" transform="rotate(-90 35 45)" />
+
+                  {/* Bar Chart Bars */}
+                  <rect x="75" y="50" width="4" height="15" rx="1" fill="#00A9CE" />
+                  <rect x="83" y="40" width="4" height="25" rx="1" fill="#F37021" />
+                  <rect x="91" y="32" width="4" height="33" rx="1" fill="#0284C7" />
+                  <rect x="99" y="44" width="4" height="21" rx="1" fill="#94A3B8" />
+
+                  {/* Metric Trend Fill Area */}
+                  <path d="M75 80 Q95 68 115 76 T140 68 L140 85 L75 85 Z" fill="#F37021" opacity="0.2" />
+                  <path d="M75 80 Q95 68 115 76 T140 68" stroke="#F37021" strokeWidth="1.5" fill="none" />
+                </g>
+
+                {/* Gradients */}
+                <defs>
+                  <linearGradient id="orangeGlow" x1="160" y1="270" x2="430" y2="65" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#FB923C" />
+                    <stop offset="60%" stopColor="#F37021" />
+                    <stop offset="100%" stopColor="#D95000" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECTION 2: HOW IT STARTED / OUR JOURNEY IN THE AFTERMARKET ─── */}
+      <section className="max-w-[1240px] mx-auto px-6 pb-20 sm:pb-24">
+        
+        {/* Section Header */}
+        <div className="mb-8">
+          <span className="text-xs font-black uppercase tracking-widest text-slate-500 mb-2 block">
+            HOW IT STARTED
+          </span>
+          <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight">
+            Our journey in the aftermarket
+          </h2>
+
+          <div className="w-16 h-1 bg-[#F37021] mt-3 mb-5 rounded-full" />
+
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-3xl">
+            Since our founding, Achtrex Technology FZCO has supported the development of shared standards and data that enable the independent aftermarket to operate across systems, companies, and geographies.
+          </p>
+        </div>
+
+        {/* Milestone Card with Interactive Tabs (Image 2 style) */}
+        <div className="w-full bg-white rounded-2xl border border-slate-200/90 shadow-[0_8px_30px_rgba(0,0,0,0.04)] overflow-hidden">
+          
+          {/* Top Tab Bar */}
+          <div className="border-b border-slate-200/80 px-6 sm:px-10 pt-6 flex items-center gap-6 sm:gap-10 overflow-x-auto scrollbar-none">
+            {timelineData.map((item) => {
+              const isActive = item.id === activeTimelineId;
+
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveTimelineId(item.id)}
+                  className={`pb-4 text-xs sm:text-[13px] font-bold transition-all relative whitespace-nowrap cursor-pointer ${
+                    isActive ? 'text-slate-900' : 'text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  <span>{item.tabLabel}</span>
+                  {isActive && (
+                    <motion.div 
+                      layoutId="timelineUnderline"
+                      className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#F37021] rounded-full" 
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Tab Content Area */}
+          <div className="p-6 sm:p-10 lg:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              
+              {/* Left Column: Milestone Text */}
+              <div className="lg:col-span-7 space-y-4">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">
+                  {currentTimeline.periodLabel}
+                </span>
+
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug">
+                  {currentTimeline.title}
+                </h3>
+
+                <div className="space-y-4 pt-2">
+                  {currentTimeline.points.map((point, idx) => (
+                    <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#F37021] shrink-0 mt-2" />
+                      <p>
+                        <strong className="text-slate-900 font-bold">{point.year}:</strong> {point.text.replace(`${point.year}: `, '')}
+                      </p>
+                    </div>
                   ))}
                 </div>
               </div>
 
-              {/* Right Column: Bio */}
-              <div className="flex flex-col relative z-10 flex-1">
-                <h3 className="text-xl font-black text-slate-900">Achim Godwin Tetteh</h3>
-                <p className="text-[12px] font-bold uppercase tracking-widest text-[#00a9ce] mb-3">Founder & System Architect</p>
-                <div className="text-[14px] text-slate-600 leading-relaxed font-medium mb-4 space-y-4">
-                  <p>
-                    Godwin’s architectural vision is rooted in a rare, end-to-end mastery of the automotive ecosystem. He began his career as a hands-on Automotive Engineer, directly diagnosing and engineering complex vehicle mechanical and electrical systems. Recognizing a critical knowledge gap in the sector, he transitioned into an Automotive Trainer, educating over 800 technicians and students on advanced vehicle systems and modern diagnostics.
-                  </p>
-                  <p>
-                    His deep mechanical expertise naturally evolved into systemic problem-solving. Serving as a Data Validation Officer and in Technical Sales, Godwin rigorously mastered the complex requirements of automotive data. He began architecting bespoke software systems designed to solve the exact operational bottlenecks he had witnessed firsthand in repair shops and industrial environments.
-                  </p>
-                  <p>
-                    This foundation propelled him into high-level Account Management and Consulting, where he advised developers, startups, and large-scale enterprises seeking robust automotive databases and APIs. Through extensive independent research and contracting, he realized the industry's greatest barrier was data fragmentation, leading directly to the founding of Achtrex to architect the definitive data and software infrastructure for the connected mobility era.
-                  </p>
-                  <div className="bg-[#00a9ce]/5 border border-[#00a9ce]/10 p-5 rounded-xl mt-6 italic text-slate-700 shadow-sm relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-[#00a9ce]"></div>
-                    <span className="font-black text-[#00a9ce] not-italic block mb-2 text-[15px]">My Word to the Industry:</span>
-                    "For decades, the automotive world has been defined by physical engineering, but tomorrow will be defined by systemic intelligence. We are moving past the era where data was merely a byproduct of operations; today, data is the engine itself. My architectural philosophy is simple: software should not dictate how a business runs; it should invisibly empower how a business dominates. At Achtrex, we go beyond delivering consulting and providing Data. By unifying granular automotive intelligence, autonomous sales and inventory ecosystems, bespoke enterprise software, and cognitive AI workflows, we are engineering the complete central nervous system of the modern business. We eliminate structural friction entirely, so you can engineer the future."
-                  </div>
-                  <p className="mt-5">
-                    Godwin’s leadership is defined by this relentless pursuit of architectural perfection. He believes that true innovation happens exclusively at the intersection of raw mechanical understanding and elite software engineering. As Founder and System Architect, he remains deeply involved in the systemic design of Achtrex’s infrastructure, ensuring that every product, from the deepest VIN database query to the most complex cognitive AI workflow, meets his uncompromising standard of absolute operational superiority.
-                  </p>
+              {/* Right Column: Sketch Illustration Graphic (Image 2 style) */}
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl bg-[#F8FAFC] border border-slate-200/70 p-6 flex items-center justify-center overflow-hidden shadow-inner">
+                  
+                  {/* Subtle Blueprint Grid Pattern */}
+                  <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] opacity-60 pointer-events-none" />
+
+                  {/* Orange Vertical Accent Bar */}
+                  <div className="absolute w-6 h-48 bg-[#F37021] rounded-sm -rotate-3 opacity-90" />
+
+                  {/* Monochrome Technician / Engineer Silhouette */}
+                  <svg viewBox="0 0 200 240" className="relative z-10 w-44 h-auto drop-shadow-md" fill="none">
+                    {/* Head with Hard Hat */}
+                    <ellipse cx="100" cy="45" rx="14" ry="12" fill="#1E293B" />
+                    <path d="M82 45 C82 30, 118 30, 118 45 Z" fill="#0F172A" />
+                    <rect x="80" y="44" width="40" height="4" rx="2" fill="#F37021" />
+
+                    {/* Torso & Uniform in working posture */}
+                    <path d="M85 60 L115 60 L125 120 L75 120 Z" fill="#1E293B" />
+                    <path d="M98 60 L98 120" stroke="#94A3B8" strokeWidth="1.5" strokeDasharray="3 2" />
+
+                    {/* Arms holding wrench / inspection diagnostic device */}
+                    <path d="M85 65 L60 100 L75 125" stroke="#1E293B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M115 65 L135 95 L120 120" stroke="#1E293B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+
+                    {/* Inspection tool / tablet with glowing orange screen */}
+                    <rect x="70" y="115" width="40" height="26" rx="2" fill="#0F172A" stroke="#475569" strokeWidth="1.5" />
+                    <rect x="74" y="119" width="32" height="18" rx="1" fill="#FB923C" />
+
+                    {/* Legs / Safety Boots */}
+                    <path d="M85 120 L80 185 L70 215" stroke="#1E293B" strokeWidth="10" strokeLinecap="round" />
+                    <path d="M115 120 L120 185 L130 215" stroke="#1E293B" strokeWidth="10" strokeLinecap="round" />
+                    <ellipse cx="65" cy="218" rx="12" ry="6" fill="#0F172A" />
+                    <ellipse cx="135" cy="218" rx="12" ry="6" fill="#0F172A" />
+                  </svg>
                 </div>
               </div>
+
             </div>
-          </motion.div>
-
-          {/* Core Values */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="flex flex-col gap-4">
-            <div className="px-2 flex items-center gap-2">
-              <div className="w-1.5 h-6 bg-[#76bc1d] rounded-full"></div>
-              <h2 className="text-[22px] font-black text-slate-900 tracking-tight">Core Values</h2>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {values.map((v, i) => (
-                <div key={i} className="group flex flex-col items-center justify-center gap-3 p-5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition-all shadow-sm hover:shadow-md hover:border-[#76bc1d]/30 text-center">
-                  <span className="text-3xl text-[#76bc1d] leading-none font-mono group-hover:scale-110 transition-transform">{v.icon}</span>
-                  <span className="text-[14px] font-bold text-slate-700">{v.label}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-        </div>
-
-        {/* ROW 2: Foundation (2x2 Grid) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          {/* Mission */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 p-8 shadow-sm flex flex-col hover:border-[#00a9ce]/50 hover:shadow-lg transition-all relative overflow-hidden group">
-            <div className="absolute -right-4 -top-4 w-24 h-24 bg-[#00a9ce]/10 rounded-full blur-xl group-hover:bg-[#00a9ce]/20 transition-all"></div>
-            <h2 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">Our Mission</h2>
-            <p className="text-[15px] text-slate-600 leading-relaxed font-medium">
-              To provide scalable enterprise infrastructure that enables businesses to access intelligent data, custom software platforms, and real-time AI solutions through secure, modern digital architectures.
-            </p>
-          </motion.div>
-
-          {/* Vision */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 p-8 shadow-sm flex flex-col hover:border-[#76bc1d]/50 hover:shadow-lg transition-all relative overflow-hidden group">
-            <div className="absolute -right-4 -top-4 w-24 h-24 bg-[#76bc1d]/10 rounded-full blur-xl group-hover:bg-[#76bc1d]/20 transition-all"></div>
-            <h2 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">Our Vision</h2>
-            <p className="text-[15px] text-slate-600 leading-relaxed font-medium">
-              To build one of the world's leading technology ecosystems, powering the future of connected intelligence, zero-compromise software, and autonomous enterprise workflows.
-            </p>
-          </motion.div>
-
-          {/* Fragmentation Gap */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="rounded-2xl border border-slate-200 p-8 bg-white shadow-sm hover:shadow-lg hover:border-slate-300 transition-all">
-            <div className="flex items-center gap-3 mb-6">
-              <h3 className="text-xl font-black text-slate-900 tracking-tight">Industry Fragmentation</h3>
-            </div>
-            <ul className="space-y-4">
-              {[
-                'Data, inventory, and operations live in disconnected, legacy silos',
-                'Off-the-shelf software fails under modern enterprise scalability demands',
-                'Businesses need 5–10 vendors to get a complete data & software solution',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-[15px] text-slate-600 font-medium bg-slate-50 p-3 rounded-lg border border-slate-100">
-                  <span className="mt-1 w-2 h-2 rounded-full bg-slate-400 shrink-0 shadow-sm" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* The Achtrex Solution */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="rounded-2xl border border-slate-200 p-8 bg-white shadow-sm hover:shadow-lg hover:border-[#00a9ce]/50 transition-all">
-            <div className="flex items-center gap-3 mb-6">
-              <h3 className="text-xl font-black text-slate-900 tracking-tight">The Achtrex Solution</h3>
-            </div>
-            <ul className="space-y-4">
-              {[
-                'Automotive Data & APIs, massive intelligence via one enterprise endpoint',
-                'Sales & Inventory, automated tracking replacing manual entry',
-                'Custom Software, bespoke, scalable, zero vendor lock-in platforms',
-                'AAIA, cognitive workflow automation powered by advanced LLMs'
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-[15px] text-slate-600 font-medium bg-[#00a9ce]/5 p-3 rounded-lg border border-[#00a9ce]/10">
-                  <span className="mt-1 w-2 h-2 rounded-full bg-[#00a9ce] shrink-0 shadow-sm" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-
-        {/* ROW 3: Platform Ecosystem */}
-        <div className="flex flex-col gap-4 mt-8">
-          <div className="px-2 flex items-center gap-2">
-             <div className="w-1.5 h-6 bg-slate-900 rounded-full"></div>
-            <h2 className="text-[22px] font-black text-slate-900 tracking-tight">Platform Ecosystem</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {platforms.map((p, i) => (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                key={i} 
-                className={`group flex flex-col rounded-2xl border ${p.bg} ${p.border} p-8 transition-all shadow-sm hover:shadow-xl relative overflow-hidden`}>
-                <div className={`absolute top-0 right-0 w-24 h-24 rounded-bl-full opacity-10 transition-transform group-hover:scale-150`} style={{ backgroundColor: p.accent }}></div>
-                <h3 className="text-[18px] font-black text-slate-900 mb-3 tracking-tight relative z-10">{p.name}</h3>
-                <p className="text-[14px] text-slate-600 leading-relaxed font-medium flex-1 mb-6 relative z-10">{p.desc}</p>
-                
-                {p.external ? (
-                  <a href={p.href} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[14px] font-bold transition-all group-hover:gap-3 bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm self-start"
-                    style={{ color: p.accent }}>
-                    Visit platform <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                  </a>
-                ) : (
-                  <Link href={p.href}
-                    className="inline-flex items-center gap-2 text-[14px] font-bold transition-all group-hover:gap-3 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm self-start"
-                    style={{ color: p.accent }}>
-                    Learn more <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" /></svg>
-                  </Link>
-                )}
-              </motion.div>
-            ))}
-          </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECTION 3: DARK STATS STRIP (Bottom of Image 2) ─────────────── */}
+      <section className="w-full bg-[#181C21] text-white py-14 px-6 relative overflow-hidden my-4">
+        
+        {/* Subtle Map / Vector Road Pattern Overlay */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="cityMapPattern" width="160" height="160" patternUnits="userSpaceOnUse">
+                <path d="M0 40 Q40 80 80 40 T160 40 M40 0 L40 160 M120 0 L120 160 M0 120 Q80 160 160 120" stroke="#FFFFFF" strokeWidth="1" fill="none" />
+                <circle cx="40" cy="40" r="3" fill="#F37021" />
+                <circle cx="120" cy="120" r="3" fill="#F37021" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#cityMapPattern)" />
+          </svg>
         </div>
 
-        {/* ROW 4: Corporate Governance, Privacy, Terms & Security */}
-        <div className="flex flex-col gap-6 mt-8">
-          <div className="px-2 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-6 bg-[#00a9ce] rounded-full"></div>
-              <h2 className="text-[22px] font-black text-slate-900 tracking-tight">Corporate Governance, Trust &amp; Legal Policies</h2>
-            </div>
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider hidden sm:inline">
-              Enterprise Compliance &amp; Standards
+        <div className="max-w-[1240px] mx-auto relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          
+          <div className="flex flex-col items-center">
+            <span className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
+              15+
+            </span>
+            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight">
+              Years of leadership experience
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Card 1: Privacy Policy */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg hover:border-[#00a9ce]/50 transition-all flex flex-col justify-between"
-            >
-              <div className="space-y-4">
-                <div className="border-b border-slate-100 pb-4">
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#00a9ce] block mb-1">Data Governance</span>
-                  <h3 className="text-xl font-black text-slate-900 tracking-tight">Privacy Policy</h3>
-                  <p className="text-xs font-semibold text-slate-500 mt-1">Data Sovereignty, Anonymization &amp; Regulatory Protection</p>
-                </div>
+          <div className="flex flex-col items-center">
+            <span className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
+              50M+
+            </span>
+            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight">
+              Vehicle records indexed
+            </span>
+          </div>
 
-                <div className="text-[13.5px] text-slate-600 leading-relaxed font-medium space-y-3">
-                  <p>
-                    Achtrex Technologies FZCO enforces strict data governance protocols across all platform layers. We operate on the foundational rule that automotive telemetry, vehicle identification records (VIN), dealership inventory metrics, and custom platform queries remain the exclusive intellectual property of our clients.
-                  </p>
-                  
-                  <div className="pt-2 space-y-2.5">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Zero Telemetry Monetization</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        Client queries, inventory updates, and analytical payloads are never monetized, brokered, or utilized to train external or public machine learning models without explicit written authorization.
-                      </p>
-                    </div>
+          <div className="flex flex-col items-center">
+            <span className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
+              30+
+            </span>
+            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight">
+              Global partner networks
+            </span>
+          </div>
 
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">International Privacy Frameworks</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        Our data pipelines are fully compliant with GDPR (Regulation EU 2016/679), CCPA/CPRA, and UAE Federal Data Protection Law (Federal Decree-Law No. 45/2021), featuring end-to-end data subject request workflows.
-                      </p>
-                    </div>
+          <div className="flex flex-col items-center">
+            <span className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
+              40+
+            </span>
+            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight">
+              Countries covered
+            </span>
+          </div>
 
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Configurable Retention &amp; Cryptographic Purge</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        Enterprise accounts can define custom lifecycle policies with automated data scrubbing, cold storage archival, and cryptographically verified deletion audit trails.
-                      </p>
-                    </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 4: OUR VISION AND MISSION (Image 3 Top) ─────────────── */}
+      <section className="max-w-[1240px] mx-auto px-6 py-10 sm:py-16">
+        <div className="w-full bg-[#22262B] text-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Graphic: Network Constellation with Orange Box (Image 3) */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-2xl bg-white/95 p-6 flex items-center justify-center overflow-hidden shadow-md">
+                
+                {/* Orange Backdrop Rectangle */}
+                <div className="absolute right-8 w-44 h-32 bg-[#F37021] rounded-md" />
+
+                {/* Technologist / Professional Silhouette */}
+                <div className="relative z-10 flex items-center justify-between w-full h-full">
+                  <div className="w-1/3 flex items-center justify-center">
+                    <svg viewBox="0 0 100 160" className="w-20 h-auto" fill="none">
+                      <circle cx="50" cy="26" r="14" fill="#0F172A" />
+                      <path d="M30 46 L70 46 L65 110 L35 110 Z" fill="#1E293B" />
+                      <path d="M35 110 L32 155 M65 110 L68 155" stroke="#0F172A" strokeWidth="8" strokeLinecap="round" />
+                      <path d="M68 55 L88 72" stroke="#1E293B" strokeWidth="6" strokeLinecap="round" />
+                    </svg>
+                  </div>
+
+                  {/* 3D Network Mesh constellation (Interactive data graph) */}
+                  <div className="w-2/3 h-full flex items-center justify-center pl-2">
+                    <svg viewBox="0 0 160 120" className="w-full h-auto" fill="none">
+                      {/* Interconnected Network Links */}
+                      <line x1="20" y1="60" x2="60" y2="30" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.9" />
+                      <line x1="20" y1="60" x2="70" y2="80" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.9" />
+                      <line x1="60" y1="30" x2="110" y2="25" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.9" />
+                      <line x1="60" y1="30" x2="90" y2="60" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.9" />
+                      <line x1="70" y1="80" x2="90" y2="60" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.9" />
+                      <line x1="70" y1="80" x2="120" y2="90" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.9" />
+                      <line x1="90" y1="60" x2="140" y2="55" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.9" />
+                      <line x1="110" y1="25" x2="140" y2="55" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.9" />
+                      <line x1="120" y1="90" x2="140" y2="55" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.9" />
+
+                      {/* Network Data Nodes */}
+                      <circle cx="20" cy="60" r="4" fill="#FFFFFF" />
+                      <circle cx="60" cy="30" r="4" fill="#FFFFFF" />
+                      <circle cx="70" cy="80" r="4" fill="#FFFFFF" />
+                      <circle cx="90" cy="60" r="5" fill="#FFFFFF" stroke="#F37021" strokeWidth="2" />
+                      <circle cx="110" cy="25" r="4" fill="#FFFFFF" />
+                      <circle cx="120" cy="90" r="4" fill="#FFFFFF" />
+                      <circle cx="140" cy="55" r="5" fill="#FFFFFF" />
+                    </svg>
                   </div>
                 </div>
+
+              </div>
+            </div>
+
+            {/* Right Text: Vision and Mission */}
+            <div className="lg:col-span-7 space-y-6">
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  Our vision and mission
+                </h3>
+                <div className="w-16 h-1 bg-[#F37021] mt-3 mb-6 rounded-full" />
               </div>
 
-              <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-semibold">Data Protection Officer:</span>
-                <a href="mailto:support@achtrex.com" className="font-bold text-[#00a9ce] hover:underline">
-                  support@achtrex.com
-                </a>
+              <div className="space-y-4 text-slate-300 text-sm sm:text-[15px] leading-relaxed font-normal">
+                <p>
+                  Our vision is to empower the automotive aftermarket to shape a connected data ecosystem by safeguarding independence through trusted standards and a shared data foundation. We aim to drive sustainable global business growth.
+                </p>
+                <p>
+                  Our mission is to unlock growth and ensure the competitiveness of the independent aftermarket by establishing neutral standards and enabling market connectivity. This builds on trusted data elements, certified VIN intelligence, and core enabling functions.
+                </p>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Card 2: Terms of Service */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg hover:border-[#76bc1d]/50 transition-all flex flex-col justify-between"
-            >
-              <div className="space-y-4">
-                <div className="border-b border-slate-100 pb-4">
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#76bc1d] block mb-1">Commercial Standards</span>
-                  <h3 className="text-xl font-black text-slate-900 tracking-tight">Terms of Service</h3>
-                  <p className="text-xs font-semibold text-slate-500 mt-1">Enterprise Service Level Agreements &amp; Intellectual Property</p>
-                </div>
-
-                <div className="text-[13.5px] text-slate-600 leading-relaxed font-medium space-y-3">
-                  <p>
-                    Our commercial framework is engineered for transparency, technical independence, and long-term enterprise partnership. We provide straightforward licensing terms that eliminate vendor lock-in while providing robust service guarantees.
-                  </p>
-                  
-                  <div className="pt-2 space-y-2.5">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">99.99% Availability Guarantee</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        Contractually guaranteed 99.99% uptime for core API endpoints, VIN resolution engines, and webhook relays, backed by automated financial service credits for non-scheduled service interruptions.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Complete IP Retention for Bespoke Platforms</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        Clients retain 100% unilateral ownership of custom platform architectures, proprietary models, custom logic, and business workflows engineered under our enterprise development contracts.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Predictable Tier Scaling &amp; Fair Usage</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        Transparent API rate quotas with proactive volume surge warnings, zero punitive overage fees, and flexible multi-region routing allocations designed for growing dealer networks and platforms.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-semibold">Enterprise Contracting:</span>
-                <Link href="/contact-us" className="font-bold text-[#76bc1d] hover:underline">
-                  Commercial Desk
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Card 3: Security & Compliance */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg hover:border-[#001a22]/50 transition-all flex flex-col justify-between"
-            >
-              <div className="space-y-4">
-                <div className="border-b border-slate-100 pb-4">
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-slate-700 block mb-1">Infrastructure Defense</span>
-                  <h3 className="text-xl font-black text-slate-900 tracking-tight">Security &amp; Compliance</h3>
-                  <p className="text-xs font-semibold text-slate-500 mt-1">Multi-Layered Cyber Defense, Cryptography &amp; Continuous Auditing</p>
-                </div>
-
-                <div className="text-[13.5px] text-slate-600 leading-relaxed font-medium space-y-3">
-                  <p>
-                    Security is deeply integrated into our microservices architecture, data storage tiers, and deployment pipelines. We implement zero-trust engineering principles to defend against sophisticated threats and ensure absolute system resiliency.
-                  </p>
-                  
-                  <div className="pt-2 space-y-2.5">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">End-to-End Cryptographic Protection</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        Mandatory TLS 1.3 with Perfect Forward Secrecy for all external and internal API transmissions, coupled with AES-256 cryptographic encryption for all at-rest databases, object storage, and backups.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Zero-Trust Access &amp; Hardware MFA</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        Granular Role-Based Access Control (RBAC), ephemeral SSH/session key provisioning, mandatory FIDO2 hardware MFA for engineering staff, and segregated multi-tenant database clusters.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Continuous Audit &amp; Threat Mitigation</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        SOC2 Type II aligned SecOps with 24/7 automated intrusion detection (IDS/IPS), daily vulnerability scans, regular third-party penetration audits, and enterprise-tier DDoS shielding.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-semibold">Security Operations:</span>
-                <a href="mailto:support@achtrex.com" className="font-bold text-slate-900 hover:underline">
-                  SecOps Desk
-                </a>
-              </div>
-            </motion.div>
           </div>
         </div>
+      </section>
 
-        {/* CTA */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative rounded-2xl bg-gradient-to-r from-[#061420] to-[#0A2235] border border-white/10 overflow-hidden shadow-2xl mt-10 mb-10">
-          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay"></div>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#00a9ce]/20 rounded-full blur-3xl"></div>
-          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 p-10 md:p-12 text-center sm:text-left">
-            <div>
-              <h2 className="text-[28px] font-black text-white mb-3 tracking-tight drop-shadow-md">Ready to build on Achtrex?</h2>
-              <p className="text-[16px] text-slate-300 font-medium">
-                Contact our team to discuss integration at <a href="mailto:support@achtrex.com" className="text-[#00a9ce] hover:text-white font-bold transition-colors">support@achtrex.com</a>
-              </p>
+      {/* ─── SECTION 5: OUR ROLE TODAY (Image 4 Top) ─────────────────────── */}
+      <section className="max-w-[1240px] mx-auto px-6 py-6 sm:py-10">
+        <div className="w-full bg-[#22262B] text-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Text: Our Role Today */}
+            <div className="lg:col-span-6 space-y-6 order-2 lg:order-1">
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  Our role today
+                </h3>
+                <div className="w-16 h-1 bg-[#F37021] mt-3 mb-6 rounded-full" />
+              </div>
+
+              <div className="space-y-4 text-slate-300 text-sm sm:text-[15px] leading-relaxed font-normal">
+                <p>
+                  Today, Achtrex Technology FZCO acts as the neutral backbone for collaboration across the independent automotive aftermarket.
+                </p>
+                <p className="font-semibold text-white">
+                  We do not compete in the market. We support it.
+                </p>
+                <p>
+                  Our focus is on creating the conditions to allow companies to connect, collaborate, and operate efficiently while remaining completely independent.
+                </p>
+              </div>
             </div>
-            <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 bg-logo-gradient text-white font-bold text-[15px] px-8 py-4 rounded-full transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,169,206,0.4)] shrink-0 border-0 group">
-              Contact Us
-              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </Link>
-          </div>
-        </motion.div>
 
-      </div>
+            {/* Right Graphic: Precision Engineering Coupling & Circuit Schematic */}
+            <div className="lg:col-span-6 flex justify-center order-1 lg:order-2">
+              <div className="relative w-full max-w-[460px] aspect-[16/10] rounded-2xl bg-[#14171A] border border-white/10 p-4 flex items-center justify-center overflow-hidden shadow-2xl">
+                
+                {/* Mechanical Shaft & Telemetry Vector Graphic (matching Image 4) */}
+                <svg viewBox="0 0 400 220" className="w-full h-full" fill="none">
+                  {/* Center Metal Shaft Bar */}
+                  <rect x="0" y="98" width="400" height="24" fill="#475569" stroke="#334155" />
+                  <line x1="0" y1="104" x2="400" y2="104" stroke="#64748B" strokeWidth="1" />
+                  <line x1="0" y1="116" x2="400" y2="116" stroke="#1E293B" strokeWidth="1" />
+
+                  {/* Center Mechanical Coupling Collar */}
+                  <g transform="translate(150, 60)">
+                    {/* Outer Cylindrical Coupling Body */}
+                    <rect x="0" y="10" width="100" height="80" rx="6" fill="#1E293B" stroke="#0F172A" strokeWidth="2" />
+                    <rect x="15" y="15" width="70" height="70" rx="3" fill="#0F172A" />
+
+                    {/* Laser Etched / Circuit Traces on Coupling */}
+                    <path d="M25 30 L45 30 L55 50 L75 50" stroke="#F37021" strokeWidth="1.5" strokeLinecap="round" />
+                    <circle cx="25" cy="30" r="2" fill="#F37021" />
+                    <circle cx="75" cy="50" r="2" fill="#F37021" />
+
+                    <path d="M30 70 L50 70 L60 50 L75 50" stroke="#FB923C" strokeWidth="1.5" strokeLinecap="round" />
+                    <circle cx="30" cy="70" r="2" fill="#FB923C" />
+
+                    {/* Locking Collar Ring Screws */}
+                    <circle cx="8" cy="50" r="3" fill="#64748B" />
+                    <circle cx="92" cy="50" r="3" fill="#64748B" />
+                  </g>
+
+                  {/* CAD Tolerance Dimensioning Lines (Orange) */}
+                  <g stroke="#F37021" strokeWidth="1" opacity="0.8">
+                    <line x1="150" y1="40" x2="250" y2="40" />
+                    <line x1="150" y1="35" x2="150" y2="45" />
+                    <line x1="250" y1="35" x2="250" y2="45" />
+                    <line x1="130" y1="70" x2="130" y2="150" />
+                    <line x1="125" y1="70" x2="135" y2="70" />
+                    <line x1="125" y1="150" x2="135" y2="150" />
+                  </g>
+
+                  {/* Dimension Text Markers */}
+                  <text x="185" y="35" fill="#FB923C" fontSize="9" fontFamily="sans-serif" fontWeight="bold">Ø 85.0 mm</text>
+                  <text x="80" y="115" fill="#FB923C" fontSize="9" fontFamily="sans-serif" fontWeight="bold">TOL ±0.01</text>
+                </svg>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 6: OUR MANAGEMENT (Image 3 Bottom) ──────────────────── */}
+      <section className="max-w-[1240px] mx-auto px-6 py-16 sm:py-20 text-center">
+        
+        {/* Centered Heading */}
+        <div className="max-w-2xl mx-auto mb-14">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Our management
+          </h2>
+          <div className="w-16 h-1 bg-[#F37021] mx-auto mt-3 mb-6 rounded-full" />
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+            Achtrex Technology FZCO is led by a team with deep experience in automotive data, software architecture, and the independent aftermarket. They are united by a shared responsibility: supporting the long-term success of the industry.
+          </p>
+        </div>
+
+        {/* Clean Management Team Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 text-left">
+          {teamMembers.map((member, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              className="group bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#F37021]/50 transition-all overflow-hidden flex flex-col"
+            >
+              {/* Photo Frame */}
+              <div className="relative h-64 w-full bg-slate-100 overflow-hidden">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+
+              {/* Bio & Details */}
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#F37021] transition-colors leading-tight mb-1">
+                  {member.name}
+                </h3>
+                <span className="text-xs font-bold text-[#F37021] uppercase tracking-wider mb-3">
+                  {member.role}
+                </span>
+                <p className="text-xs text-slate-500 font-normal leading-relaxed flex-1">
+                  {member.bio}
+                </p>
+
+                <div className="pt-4 mt-auto border-t border-slate-100 flex items-center gap-3 text-slate-400">
+                  <a href="#" className="hover:text-[#00A9CE] transition-colors" aria-label="LinkedIn">
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a href="#" className="hover:text-slate-900 transition-colors" aria-label="Twitter">
+                    <Twitter className="w-4 h-4" />
+                  </a>
+                  <a href={`mailto:info@achtrex.com`} className="hover:text-[#F37021] transition-colors" aria-label="Email">
+                    <Mail className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+      </section>
+
+      {/* ─── SECTION 7: JOIN THE TEAM (Image 4 Bottom) ───────────────────── */}
+      <section className="max-w-[1240px] mx-auto px-6 py-12 sm:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Multi-Layered Visual: Team Professional + Rocket Launch Illustration (Image 4) */}
+          <div className="lg:col-span-6 flex justify-center">
+            <div className="relative w-full max-w-[460px] aspect-[4/3] flex items-center justify-center">
+              
+              {/* Subtle architectural background grid */}
+              <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:20px_20px] opacity-70 pointer-events-none" />
+
+              {/* Large Orange Geometric Backdrop Card */}
+              <div className="absolute left-10 top-4 w-52 h-64 bg-[#F37021] rounded-2xl -rotate-2 shadow-sm" />
+
+              {/* Team Professional Silhouette Card */}
+              <div className="absolute left-4 bottom-2 w-52 h-68 rounded-2xl bg-white border border-slate-200/90 shadow-xl overflow-hidden z-10 flex items-end justify-center">
+                <svg viewBox="0 0 160 200" className="w-44 h-auto" fill="none">
+                  <circle cx="80" cy="50" r="22" fill="#0F172A" />
+                  <path d="M48 85 C48 70, 112 70, 112 85 L120 200 L40 200 Z" fill="#1E293B" />
+                  <rect x="68" y="110" width="24" height="60" rx="3" fill="#FFFFFF" />
+                </svg>
+              </div>
+
+              {/* Rocket Launch Card (Front right layer) */}
+              <div className="absolute right-2 bottom-0 w-60 h-52 rounded-2xl bg-white border border-slate-200/90 shadow-2xl p-4 z-20 flex flex-col items-center justify-center">
+                <div className="w-full flex items-center gap-2 mb-2">
+                  <div className="w-2.5 h-12 bg-[#F37021] rounded-full" />
+                  <span className="text-[11px] font-black uppercase tracking-wider text-slate-800">
+                    High Velocity Growth
+                  </span>
+                </div>
+
+                {/* Ascending Space Rocket Illustration */}
+                <svg viewBox="0 0 160 110" className="w-full h-auto drop-shadow-sm" fill="none">
+                  {/* Launchpad Base */}
+                  <rect x="40" y="80" width="80" height="12" rx="2" fill="#F1F5F9" stroke="#94A3B8" strokeWidth="1.5" />
+                  <line x1="50" y1="92" x2="35" y2="105" stroke="#94A3B8" strokeWidth="2" />
+                  <line x1="110" y1="92" x2="125" y2="105" stroke="#94A3B8" strokeWidth="2" />
+
+                  {/* Propulsion Cloud */}
+                  <ellipse cx="80" cy="80" rx="22" ry="10" fill="#E2E8F0" />
+                  <circle cx="65" cy="78" r="8" fill="#CBD5E1" />
+                  <circle cx="95" cy="78" r="8" fill="#CBD5E1" />
+
+                  {/* Rocket Body */}
+                  <g transform="translate(68, 15) rotate(25)">
+                    {/* Rocket Fuselage */}
+                    <path d="M12 0 C16 10, 24 25, 24 50 L0 50 C0 25, 8 10, 12 0 Z" fill="#1E293B" />
+                    {/* Port Window */}
+                    <circle cx="12" cy="25" r="5" fill="#00A9CE" stroke="#FFFFFF" strokeWidth="1.5" />
+                    {/* Rocket Fins */}
+                    <path d="M0 40 L-8 55 L0 50 Z" fill="#F37021" />
+                    <path d="M24 40 L32 55 L24 50 Z" fill="#F37021" />
+                    {/* Flame Trail */}
+                    <path d="M6 50 L12 68 L18 50 Z" fill="#FB923C" />
+                  </g>
+
+                  {/* Ascending Orbit Trajectory */}
+                  <path d="M95 30 Q120 15 140 30" stroke="#94A3B8" strokeWidth="1.5" strokeDasharray="3 3" fill="none" />
+                  <polygon points="144,28 140,32 138,26" fill="#F37021" />
+                </svg>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Right Text: Join the team */}
+          <div className="lg:col-span-6 flex flex-col justify-center">
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              Join the team
+            </h3>
+
+            {/* Orange Underline */}
+            <div className="w-16 h-1 bg-[#F37021] mt-3 mb-6 rounded-full" />
+
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-8 max-w-lg">
+              Passionate about data, IT, and the automotive industry? Explore our open positions and join Achtrex Technology FZCO as we shape the future of the automotive aftermarket.
+            </p>
+
+            <div>
+              <Link
+                href="/life-at-achtrex"
+                className="btn-vibrant-pill"
+              >
+                <span>Explore careers</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
     </div>
   );
 };

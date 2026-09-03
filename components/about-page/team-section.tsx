@@ -4,20 +4,11 @@ import { TeamGrid } from './team-grid';
 
 // Fallback data in case DB is empty or not initialized
 const FALLBACK_TEAM = [
-  {
-    id: 1,
-    name: 'Achim Godwin Tetteh',
-    role: 'Operations Project Manager',
-    image: '/team/achim_real.jpg',
-    bio: 'Leading the vision and operations at Achtrex, driving innovation in digital product development.',
-    linkedin: '#',
-    twitter: '#',
-    email: 'achim@achtrex.com'
-  },
+
   {
     id: 2,
     name: 'Emmanuella Yeboah-Appiah',
-    role: 'CFO',
+    role: 'Administrator',
     image: '/team/emmanuella_v2.jpg',
     bio: 'Steering the financial strategy and ensuring sustainable growth for our global operations.',
     linkedin: '#',
@@ -91,10 +82,6 @@ export const TeamSection = async () => {
     teamMembers = teamMembers.map(member => {
       let updatedMember = { ...member };
 
-      // Fix Achim's role
-      if (member.name === 'Achim Godwin Tetteh') {
-        updatedMember.role = 'Operations Project Manager';
-      }
 
       // Remove Dr. prefix from Emmanuella (or anyone else)
       if (updatedMember.name && updatedMember.name.startsWith('Dr. ')) {

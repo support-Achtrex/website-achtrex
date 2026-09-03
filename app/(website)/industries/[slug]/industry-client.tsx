@@ -2,30 +2,30 @@
 
 import React from 'react';
 import { 
- ArrowRight, 
- ShieldCheck, 
- Database, 
- Shield, 
- Wrench, 
- Car, 
- Briefcase, 
- FileText, 
- Monitor, 
- Tag, 
- WarningCircle as AlertCircle, 
- Lightning as Zap, 
- Target, 
- Stack as Layers, 
- Pulse as Activity, 
- Cpu, 
- Fingerprint,
- ChartLineUp as LineChart,
- CheckCircle as CheckCircle2,
- Globe,
- Truck,
- MapPin,
- Bank as Landmark
-} from '@phosphor-icons/react';
+  ArrowRight, 
+  ShieldCheck, 
+  Database, 
+  Shield, 
+  Wrench, 
+  Car, 
+  Briefcase, 
+  FileText, 
+  Monitor, 
+  Tag, 
+  AlertCircle, 
+  Zap, 
+  Target, 
+  Layers, 
+  Activity, 
+  Cpu, 
+  Fingerprint,
+  LineChart,
+  CheckCircle2,
+  Globe,
+  Truck,
+  MapPin,
+  Landmark
+} from 'lucide-react';
 import Link from 'next/link';
 import { InnerPageHeader } from "@/components/inner-page-header";
 
@@ -350,25 +350,11 @@ export default function IndustryClient({ slug }: { slug: string }) {
 
  return (
  <main className="min-h-screen bg-[#f8fafc] text-slate-900 pb-24">
- {/* Dynamic Themed Header */}
- <div className={`w-full relative overflow-hidden bg-gradient-to-r ${data.color} pt-36 pb-20 md:pt-44 md:pb-24 lg:pt-48 lg:pb-28 px-6 shadow-inner`}>
- <div className="absolute inset-0 bg-slate-950/30 mix-blend-multiply pointer-events-none" />
- <div className="absolute inset-0 bg-cube-mesh opacity-25 pointer-events-none" />
- <div className="absolute -top-20 -left-20 w-96 h-96 bg-white/10 rounded-full blur-[100px] pointer-events-none" />
- <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-cyan-500/15 rounded-full blur-[100px] pointer-events-none" />
- <div className="max-w-[1200px] mx-auto relative z-10 text-center">
- <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 md:mb-6 drop-shadow-md leading-[1.15]">
- {displayTitle}
- </h1>
- <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-xs">
- {data.subtitle}
- </p>
- </div>
- <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent z-10" />
- </div>
+      {/* Dynamic Themed Header */}
+      <InnerPageHeader title={displayTitle} subtitle={data.subtitle} theme="data" />
 
- {/* Content */}
- <section className="px-6 -mt-12 relative z-20">
+      {/* Content */}
+      <section className="px-6 py-12 relative z-20">
  <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
  
  {/* Left Col */}
@@ -378,7 +364,7 @@ export default function IndustryClient({ slug }: { slug: string }) {
  <div className="relative">
  <div className="absolute -left-12 top-2 bottom-2 w-1.5 rounded-r-full bg-gradient-to-b opacity-50 hidden md:block" style={{ backgroundImage: `linear-gradient(to bottom, var(--tw-gradient-stops))` }} />
  <h2 className="text-3xl font-extrabold tracking-tight text-[#001a22] mb-8 flex items-center gap-4">
- <Target weight="duotone" className="w-8 h-8 text-[#00a9ce]" />
+ <Target className="w-8 h-8 text-[#00a9ce]" />
  Industry Overview
  </h2>
  <div className="space-y-6">
@@ -394,7 +380,7 @@ export default function IndustryClient({ slug }: { slug: string }) {
  {data.capabilities && (
  <div className="pt-8 border-t border-slate-100">
  <h3 className="text-2xl font-bold tracking-tight text-[#001a22] mb-8 flex items-center gap-3">
- <Zap weight="duotone" className="w-7 h-7 text-[#F2147A]" />
+ <Zap className="w-7 h-7 text-[#F2147A]" />
  What We Can Do For You
  </h3>
  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -403,7 +389,7 @@ export default function IndustryClient({ slug }: { slug: string }) {
  return (
  <div key={i} className="flex items-start gap-4 p-5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-md hover:border-[#00a9ce] transition-all group">
  <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
- <CapIcon weight="duotone" className="w-5 h-5 text-[#00a9ce]" />
+ <CapIcon className="w-5 h-5 text-[#00a9ce]" />
  </div>
  <span className="leading-snug font-semibold text-slate-700 pt-0.5">{cap.text}</span>
  </div>
@@ -420,7 +406,7 @@ export default function IndustryClient({ slug }: { slug: string }) {
  {/* Challenge Column */}
  <div className="space-y-6">
  <h3 className="text-2xl font-bold tracking-tight text-[#001a22] flex items-center gap-3">
- <AlertCircle weight="duotone" className="w-6 h-6 text-[#F2147A]" />
+ <AlertCircle className="w-6 h-6 text-[#F2147A]" />
  The Challenge
  </h3>
  <div className="space-y-5">
@@ -440,14 +426,14 @@ export default function IndustryClient({ slug }: { slug: string }) {
  {/* Solution Column */}
  <div className="space-y-6">
  <h3 className="text-2xl font-bold tracking-tight text-[#001a22] flex items-center gap-3">
- <ShieldCheck weight="duotone" className="w-6 h-6 text-[#76bc1d]" />
+ <ShieldCheck className="w-6 h-6 text-[#76bc1d]" />
  Our Solution
  </h3>
  <div className="space-y-5">
  {data.solutions.map((solution: string, i: number) => (
  <div key={i} className="flex items-start gap-4 bg-[#f2fdf5] rounded-xl p-5 border border-green-100/60">
  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm border border-green-100">
- <CheckCircle2 weight="duotone" className="w-5 h-5 text-[#76bc1d]" />
+ <CheckCircle2 className="w-5 h-5 text-[#76bc1d]" />
  </div>
  <p className="text-slate-700 leading-relaxed text-sm font-medium pt-1">
  {solution}
@@ -466,7 +452,7 @@ export default function IndustryClient({ slug }: { slug: string }) {
  <div className="lg:col-span-4">
  <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 sticky top-32">
  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center mb-6 shadow-md">
- <Cpu weight="duotone" className="w-6 h-6 text-white" />
+ <Cpu className="w-6 h-6 text-white" />
  </div>
  <h3 className="text-2xl font-bold mb-2 text-[#001a22]">Recommended Tech Stack</h3>
  <p className="text-slate-500 text-sm mb-6 font-medium">The specific APIs and models required to power this industry.</p>
@@ -475,7 +461,7 @@ export default function IndustryClient({ slug }: { slug: string }) {
  {data.apis.map((api: string, i: number) => (
  <div key={i} className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-white hover:border-[#00a9ce] hover:shadow-md transition-all cursor-default group">
  <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-[#00a9ce]/10 transition-colors">
- <Database weight="duotone" className="w-4 h-4 text-[#00a9ce]" />
+ <Database className="w-4 h-4 text-[#00a9ce]" />
  </div>
  <span className="font-bold text-sm text-slate-700">{api}</span>
  </div>
@@ -485,7 +471,7 @@ export default function IndustryClient({ slug }: { slug: string }) {
  <Link href="/contact-us" className="group relative flex items-center justify-center gap-3 w-full bg-[#001a22] text-white font-bold py-4 px-6 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all">
  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
  <span className="relative z-10 text-sm tracking-widest uppercase">Start Building</span>
- <ArrowRight weight="bold" className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+ <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" />
  </Link>
  </div>
  </div>
