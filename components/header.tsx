@@ -156,8 +156,10 @@ export const Navbar = () => {
             </Link>
 
             {/* Glowing "Book a meeting" CTA */}
-            <Link 
-              href="/contact-us" 
+            <a 
+              href="https://calendly.com/achtrex-support/30min" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative group/btn overflow-hidden rounded-full p-[1.5px] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(243,112,33,0.45)] whitespace-nowrap"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-[#F37021] via-[#FB923C] to-[#00A9CE] rounded-full transition-all duration-300 group-hover/btn:opacity-100 opacity-85" />
@@ -168,13 +170,15 @@ export const Navbar = () => {
                 <Calendar className={cn("text-[#F37021] group-hover/btn:text-[#38BDF8] transition-colors", scrolled ? "w-3 h-3" : "w-3.5 h-3.5")} />
                 <span>Book a meeting</span>
               </span>
-            </Link>
+            </a>
           </div>
 
           {/* MOBILE CONTROLS */}
           <div className="flex lg:hidden items-center gap-3">
-            <Link 
-              href="/contact-us" 
+            <a 
+              href="https://calendly.com/achtrex-support/30min" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative group/btn overflow-hidden rounded-full p-[1.5px] transition-all duration-300 hover:scale-105 whitespace-nowrap"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-[#F37021] via-[#FB923C] to-[#00A9CE] rounded-full opacity-90" />
@@ -185,7 +189,7 @@ export const Navbar = () => {
                 <Calendar className="w-3 h-3 text-[#F37021]" />
                 <span>Book Meeting</span>
               </span>
-            </Link>
+            </a>
 
             <button
               className="text-white p-2 hover:text-[#00A9CE] transition-colors"
@@ -260,8 +264,10 @@ export const Navbar = () => {
             </div>
 
             <div className="pt-6 border-t border-white/10 flex flex-col gap-3">
-              <Link 
-                href="/contact-us" 
+              <a 
+                href="https://calendly.com/achtrex-support/30min" 
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
                 className="w-full relative group/btn overflow-hidden rounded-full p-[1.5px] transition-all duration-300 hover:scale-[1.02]"
               >
@@ -270,7 +276,7 @@ export const Navbar = () => {
                   <Calendar className="w-4 h-4 text-[#F37021]" />
                   <span>Book a meeting</span>
                 </span>
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}

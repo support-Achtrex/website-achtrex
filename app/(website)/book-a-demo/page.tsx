@@ -1,19 +1,5 @@
-import { BookingClient } from "./booking-client";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
- title: "Book a Demo | Achtrex",
- description: "Book a demo with our team to see how Achtrex can power your automotive intelligence.",
- keywords: ["Book a demo", "Achtrex Demo", "API Integration Demo", "Enterprise Data Solutions"],
- openGraph: {
- title: "Book a Demo | Achtrex",
- description: "Book a demo with our team to see how Achtrex can power your automotive intelligence.",
- images: ["/projects/aaia_ui_v2.png"],
- }
-};
+import { redirect } from "next/navigation";
 
 export default function BookADemoPage() {
- return (
- <BookingClient />
- );
+  redirect("https://calendly.com/achtrex-support/30min");
 }
