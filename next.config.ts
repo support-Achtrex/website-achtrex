@@ -53,6 +53,25 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/privacy',
+        destination: '/legal#privacy',
+        permanent: true,
+      },
+      {
+        source: '/terms',
+        destination: '/legal#terms',
+        permanent: true,
+      },
+      {
+        source: '/security',
+        destination: '/legal#security',
+        permanent: true,
+      },
+    ];
+  },
   experimental: {
     serverActions: {
       bodySizeLimit: '10mb',

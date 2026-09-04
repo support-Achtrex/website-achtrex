@@ -44,18 +44,11 @@ export const Footer = () => {
             <p className="text-slate-700 font-normal leading-relaxed">
               Send a request and one of our solution architects will contact you with a customized enterprise proposal.
             </p>
-            <div className="pt-2 space-y-2 font-bold">
-              <Link href="/blog" className="block text-slate-900 hover:text-[#00A9CE] hover:underline transition-colors">
-                Blog Articles
-              </Link>
-              <Link href="/contact-us" className="block text-slate-900 hover:text-[#00A9CE] hover:underline transition-colors">
-                Contact us
-              </Link>
-              <Link href="/portal" className="block text-slate-900 hover:text-[#00A9CE] hover:underline transition-colors">
-                Client Portal / Access
-              </Link>
-              <Link href="/contact-us" className="block text-slate-900 hover:text-[#00A9CE] hover:underline transition-colors">
-                Remote Support
+            <div className="pt-2">
+              <Link href="/contact-us" className="btn-navbar-cta self-start inline-block">
+                <span className="btn-navbar-cta-inner !py-2.5 !px-6 text-xs uppercase tracking-widest font-bold">
+                  <span>Get In Touch</span>
+                </span>
               </Link>
             </div>
           </div>
@@ -107,13 +100,13 @@ export const Footer = () => {
             <Link href="/blog" className="hover:text-slate-900 hover:underline transition-colors">
               Blog Articles
             </Link>
-            <Link href="/privacy" className="hover:text-slate-900 hover:underline transition-colors">
+            <Link href="/legal#privacy" className="hover:text-slate-900 hover:underline transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/contact-us" className="hover:text-slate-900 hover:underline transition-colors">
+            <Link href="/legal#terms" className="hover:text-slate-900 hover:underline transition-colors">
               Terms of Service
             </Link>
-            <Link href="/contact-us" className="hover:text-slate-900 hover:underline transition-colors">
+            <Link href="/legal#security" className="hover:text-slate-900 hover:underline transition-colors">
               Security
             </Link>
             <Link href="/portal" className="hover:text-slate-900 hover:underline transition-colors">

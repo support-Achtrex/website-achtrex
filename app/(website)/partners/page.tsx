@@ -24,7 +24,7 @@ const tabs = ['Who Can Join', 'Prove Your Expertise', 'Scale It'];
 
 const whoCanJoin = {
   title: 'Market roles',
-  description: 'The Achtrex Partner Program (APP) is open to organizations across the global automotive technology value chain.',
+  description: 'The Achtrex Partner Program is open to organizations across the global automotive technology value chain.',
   roles: [
     {
       icon: <Puzzle className="w-5 h-5" />,
@@ -75,23 +75,17 @@ const testimonials = [
   {
     quote: 'Partnering with Achtrex was a decisive step for our DMS connectivity strategy. Their VIN intelligence APIs are the most accurate in the region and the integration support team is unmatched.',
     author: 'Mohammed Al-Rasheed',
-    title: 'Chief Technology Officer',
-    company: 'DriveNet Systems (GCC)',
-    tag: 'APP'
+    title: 'Chief Technology Officer'
   },
   {
-    quote: 'By integrating the Achtrex Automotive Data API into our classified platform, we now offer buyers real-time factory spec sheets and market valuations. Our listing conversion rate improved by over 30%.',
+    quote: 'By integrating the Achtrex Automotive Data API into our platform, we now offer buyers real-time factory spec sheets and market valuations. Our listing conversion rate improved by over 30%.',
     author: 'Priya Narayanan',
-    title: 'Head of Product',
-    company: 'AutoListings MENA',
-    tag: 'APP'
+    title: 'Head of Product'
   },
   {
-    quote: 'The Achtrex partnership program gave us a structured pathway to become the premier automotive data consultant in West Africa. The certification program is rigorous and the market recognition is real.',
+    quote: 'The Achtrex partnership program gave us a structured pathway to become a premier automotive data consultant. The certification program is rigorous and the client recognition is exceptional.',
     author: 'Kwame Asante',
-    title: 'CEO',
-    company: 'AutoTech Advisory (Ghana)',
-    tag: 'APP'
+    title: 'Executive Director & Solution Architect'
   }
 ];
 
@@ -134,7 +128,7 @@ export default function PartnersPage() {
           transition={{ delay: 0.05 }}
           className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight"
         >
-          Become an APP Partner
+          Become a Partner
         </motion.h1>
 
         {/* Brand Gradient Underline */}
@@ -487,7 +481,7 @@ export default function PartnersPage() {
           <div className="text-center mb-10">
             <span className="text-[11px] font-black uppercase tracking-widest text-slate-500 block mb-1">Partner Success Stories</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Testimonials from latest APP Partners
+              Testimonials from latest Partners
             </h2>
             <div className="w-14 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full mx-auto mt-3 mb-3" />
             <p className="text-sm text-slate-500 font-normal max-w-xl mx-auto">
@@ -509,16 +503,13 @@ export default function PartnersPage() {
                 transition={{ duration: 0.25 }}
                 className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-8 sm:p-10 text-center"
               >
-                <div className="inline-flex items-center gap-1.5 border-l-2 border-[#F37021] pl-3 mb-5 text-[11px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE]">
-                  APP
-                </div>
                 <p className="text-slate-700 text-sm sm:text-base italic leading-relaxed font-normal mb-6 max-w-2xl mx-auto">
                   "{testimonials[testimonialIndex].quote}"
                 </p>
                 <div>
                   <p className="font-bold text-slate-900 text-sm">{testimonials[testimonialIndex].author}</p>
                   <p className="text-xs text-slate-500 font-normal mt-0.5">
-                    {testimonials[testimonialIndex].title} &mdash; {testimonials[testimonialIndex].company}
+                    {testimonials[testimonialIndex].title}
                   </p>
                 </div>
               </motion.div>

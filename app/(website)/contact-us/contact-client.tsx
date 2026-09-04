@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { submitContactForm } from '@/app/actions/contact';
-import { Mail, MapPin, Clock, ShieldCheck, CheckCircle2, AlertCircle, Send, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, ExternalLink, CheckCircle2, AlertCircle, Send, ArrowRight } from 'lucide-react';
 
 const serviceOptions = [
   'Automotive Data APIs & VIN Intelligence',
@@ -170,43 +170,48 @@ export const ContactClient = () => {
                   </div>
                 </a>
 
-                {/* Headquarters Location */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200">
-                  <div className="w-10 h-10 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-[#F37021]" />
+                {/* Headquarters Location & Embedded Google Map */}
+                <div className="rounded-xl bg-white border border-slate-200 overflow-hidden shadow-xs">
+                  <div className="flex items-start gap-4 p-4">
+                    <div className="w-10 h-10 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <MapPin className="w-5 h-5 text-[#F37021]" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                        Global Headquarters
+                      </span>
+                      <span className="font-bold text-sm text-slate-900 leading-snug block">
+                        Dubai Silicon Oasis, Digital Park A5 Building, 6009, UAE
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                      Global Headquarters
-                    </span>
-                    <span className="font-bold text-sm text-slate-900">
-                      Dubai Silicon Oasis, Dubai, UAE
-                    </span>
+
+                  {/* Google Map Location */}
+                  <div className="w-full h-[220px] bg-slate-100 relative border-t border-slate-100">
+                    <iframe
+                      src="https://www.google.com/maps?q=Dubai+Silicon+Oasis+Digital+Park+A5+Building+UAE&output=embed"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Achtrex Location - Dubai Silicon Oasis, Digital Park A5 Building, 6009, UAE"
+                      className="w-full h-full"
+                    />
+                  </div>
+                  <div className="px-4 py-3 bg-slate-50 border-t border-slate-100 text-right">
+                    <a
+                      href="https://maps.google.com/?q=Dubai+Silicon+Oasis+Digital+Park+A5+Building+UAE"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A9CE] hover:text-[#F37021] transition-colors"
+                    >
+                      <span>Open in Google Maps</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
                   </div>
                 </div>
-
-                {/* Response SLA */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200">
-                  <div className="w-10 h-10 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5 text-[#00A9CE]" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                      Guaranteed Response SLA
-                    </span>
-                    <span className="font-bold text-sm text-slate-900">
-                      Within 24 Business Hours
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Data Perimeter Guarantee */}
-              <div className="bg-white rounded-xl p-5 border border-slate-200/80 flex items-start gap-3 shadow-inner">
-                <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <p className="text-xs font-medium text-slate-600 leading-relaxed">
-                  When you connect to an application with Achtrex, you maintain 100% unilateral ownership of your proprietary data perimeter and telemetry queries.
-                </p>
               </div>
             </div>
 

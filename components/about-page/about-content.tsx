@@ -16,7 +16,7 @@ const timelineData = [
     points: [
       {
         year: '2018',
-        text: 'Founding of Achtrex in Dubai to engineer standardized automotive data pipelines and enterprise API infrastructure for the emerging mobility economy.'
+        text: 'Founding of Achtrex to engineer standardized automotive data pipelines and enterprise API infrastructure for the emerging mobility economy.'
       },
       {
         year: '2019',

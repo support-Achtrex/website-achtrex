@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/request-quote',
         '/life-at-achtrex',
         '/partners',
+        '/legal',
         '/privacy',
         '/terms'
     ].map((route) => ({

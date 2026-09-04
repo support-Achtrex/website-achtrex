@@ -8,29 +8,23 @@ const testimonials = [
   {
     id: 1,
     tag: 'Achtrex VIN Core & Enterprise Data',
-    quote: 'Thanks to our successful, long-standing collaboration with Achtrex, we approached their platform solution team to build a cutting-edge, fully individualised alternative to the legacy e-catalogue that we were using. The combination of the web version and the mobile app for online parts search was a compelling offer that we embraced.',
-    author: 'Christian Schanz',
-    role: 'Head of Global Data Management and Category Management',
-    company: 'MAHLE Aftermarket',
-    logoText: 'MAHLE'
+    quote: 'Thanks to our successful collaboration with Achtrex, we built a cutting-edge, fully individualized alternative to legacy parts catalog systems. The combination of web tools and mobile access for online parts search has streamlined our technical operations significantly.',
+    author: 'Christian S.',
+    role: 'Global Data Management & Category Lead'
   },
   {
     id: 2,
     tag: 'AAIA Automotive AI Platform',
-    quote: 'Achtrex has fundamentally upgraded how our dealer network interfaces with vehicle telemetry and diagnostic datasets. Sub-50ms query latency and automated triage reduced our diagnostic time by over 70%, giving our repair networks real-time clarity across thousands of vehicles daily.',
+    quote: 'Achtrex fundamentally upgraded how our engineering teams interface with vehicle telemetry and diagnostic datasets. Sub-50ms query latency and automated triage reduced our diagnostic time by over 70%, giving our repair networks real-time clarity across thousands of vehicles daily.',
     author: 'Elena Rostova',
-    role: 'VP of Digital Operations & Fleet Architecture',
-    company: 'EuroParts Logistics Hub',
-    logoText: 'EUROPARTS'
+    role: 'VP of Digital Operations & Fleet Architecture'
   },
   {
     id: 3,
     tag: 'Cloud Catalog & Custom Software',
     quote: 'Deploying Achtrex as our central API gateway unified decades of fragmented parts databases into a single high-availability cloud layer. We achieved 100% data fidelity across multi-country parts syndication with zero downtime during peak season.',
     author: 'Marc Van Der Berg',
-    role: 'Chief Technology Officer',
-    company: 'Alliance Automotive Group',
-    logoText: 'ALLIANCE AUTO'
+    role: 'Chief Technology Officer'
   }
 ];
 
@@ -71,7 +65,7 @@ export const TrustedAftermarket = () => {
           </div>
 
           {/* Testimonial Box Card */}
-          <div className="relative max-w-4xl mx-auto">
+          <div className="relative max-w-3xl mx-auto">
             
             <AnimatePresence mode="wait">
               <motion.div
@@ -80,48 +74,34 @@ export const TrustedAftermarket = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                className="bg-white rounded-2xl p-8 sm:p-12 md:p-14 shadow-lg border border-slate-200/80 relative"
+                className="bg-white rounded-2xl p-8 sm:p-12 shadow-lg border border-slate-200/80 relative"
               >
                 {/* Large Quotation Mark Icon Top Right */}
                 <div className="absolute top-6 right-6 text-slate-300 pointer-events-none">
                   <Quote className="w-12 h-12 rotate-180 fill-slate-200 text-slate-200" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                  
-                  {/* Quote Body */}
-                  <div className="md:col-span-8 space-y-6">
-                    {/* Tag */}
-                    <div className="flex items-center gap-2">
-                      <span className="w-1 h-4 bg-gradient-to-b from-[#F37021] to-[#00A9CE] rounded-full" />
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                        {item.tag}
-                      </span>
-                    </div>
+                <div className="space-y-6">
+                  {/* Tag */}
+                  <div className="flex items-center gap-2">
+                    <span className="w-1 h-4 bg-gradient-to-b from-[#F37021] to-[#00A9CE] rounded-full" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                      {item.tag}
+                    </span>
+                  </div>
 
-                    {/* Text */}
-                    <p className="text-base sm:text-lg text-slate-800 font-bold leading-relaxed italic">
-                      &ldquo;{item.quote}&rdquo;
+                  {/* Text */}
+                  <p className="text-base sm:text-lg text-slate-800 font-bold leading-relaxed italic">
+                    &ldquo;{item.quote}&rdquo;
+                  </p>
+
+                  {/* Author Information */}
+                  <div className="pt-4 border-t border-slate-100">
+                    <h4 className="text-sm font-black text-slate-900">{item.author}</h4>
+                    <p className="text-xs text-slate-500 font-medium mt-0.5">
+                      {item.role}
                     </p>
-
-                    {/* Author Information */}
-                    <div className="pt-2 border-t border-slate-100">
-                      <h4 className="text-sm font-black text-slate-900">{item.author}</h4>
-                      <p className="text-xs text-slate-500 font-medium">
-                        {item.role}, <span className="font-semibold text-slate-700">{item.company}</span>
-                      </p>
-                    </div>
                   </div>
-
-                  {/* Right Logo Presentation */}
-                  <div className="md:col-span-4 flex items-center justify-center p-6 border-t md:border-t-0 md:border-l border-slate-100">
-                    <div className="text-center">
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tighter uppercase font-mono">
-                        {item.logoText}
-                      </span>
-                    </div>
-                  </div>
-
                 </div>
 
                 {/* Quotation Mark Icon Bottom Left */}
