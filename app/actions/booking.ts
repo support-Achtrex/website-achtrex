@@ -91,11 +91,11 @@ export async function submitBookingForm(formData: FormData) {
                     <p style="color: #e2e8f0; line-height: 1.6;">Before our meeting, explore the powerful platforms driving innovation at Achtrex:</p>
                     
                     <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
-                        <img src="https://achtrex.com/projects/ad-logo.png" alt="AutomotiveDataset Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
+                        <img src="https://achtrex.com/logo.png" alt="Achtrex Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
                         <div>
-                            <h3 style="color: #60a5fa; margin: 0 0 5px 0;">AutomotiveDataset.com</h3>
-                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Integrate the world's most comprehensive vehicle specification and market data API into your business.</p>
-                            <a href="https://automotivedataset.com" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 14px;">Explore Dataset &rarr;</a>
+                            <h3 style="color: #60a5fa; margin: 0 0 5px 0;">Achtrex Automotive Intelligence</h3>
+                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Integrate comprehensive vehicle specification and market data API infrastructure into your business.</p>
+                            <a href="https://achtrex.com/services" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 14px;">Explore Services &rarr;</a>
                         </div>
                     </div>
                     

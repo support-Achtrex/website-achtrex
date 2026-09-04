@@ -3,11 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { submitContactForm } from '@/app/actions/contact';
-import { Mail, Phone, MapPin, Clock, ShieldCheck, CheckCircle2, AlertCircle, Send, Globe, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, Clock, ShieldCheck, CheckCircle2, AlertCircle, Send, ArrowRight } from 'lucide-react';
 
 const serviceOptions = [
-  'Automotive Data APIs (AutomotiveDataset.com)',
-  'Global VIN Decoding & Specification Intelligence',
+  'Automotive Data APIs & VIN Intelligence',
+  'Global VIN Decoding & Specification Architecture',
   'Sales & Inventory DMS Bi-Directional Sync',
   'Custom Automotive Software Development',
   'AAIA Cognitive AI & Diagnostic Reasoning',
@@ -54,7 +54,7 @@ export const ContactClient = () => {
         setFormData(prev => ({ ...prev, service: 'Custom Automotive Software Development' }));
         break;
       case 'data':
-        setFormData(prev => ({ ...prev, service: 'Automotive Data APIs (AutomotiveDataset.com)' }));
+        setFormData(prev => ({ ...prev, service: 'Automotive Data APIs & VIN Intelligence' }));
         break;
       case 'ai':
         setFormData(prev => ({ ...prev, service: 'AAIA Cognitive AI & Diagnostic Reasoning' }));
@@ -109,7 +109,7 @@ export const ContactClient = () => {
     }
   };
 
-  const inputClasses = "w-full py-3.5 px-4 bg-white border border-slate-300 rounded-xl text-slate-900 text-sm font-medium focus:outline-none focus:border-[#F37021] focus:ring-1 focus:ring-[#F37021] transition-colors placeholder:text-slate-400";
+  const inputClasses = "w-full py-3.5 px-4 bg-white border border-slate-300 rounded-xl text-slate-900 text-sm font-medium focus:outline-none focus:border-[#00A9CE] focus:ring-1 focus:ring-[#00A9CE] transition-colors placeholder:text-slate-400";
   const labelClasses = "block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5";
 
   return (
@@ -117,13 +117,13 @@ export const ContactClient = () => {
       
       {/* ─── HEADER SECTION ─────────────────────────────────────────────── */}
       <section className="max-w-[1240px] mx-auto px-6 pt-4 pb-14 text-center">
-        <span className="text-xs font-black uppercase tracking-widest text-[#F37021] mb-2 block">
+        <span className="text-xs font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] mb-2 block">
           DIRECT COLLABORATION DESK
         </span>
         <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight">
-          Contact Achtrex Technology FZCO
+          Contact Achtrex
         </h1>
-        <div className="w-16 h-1 bg-[#F37021] mx-auto mt-3 mb-5 rounded-full" />
+        <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mx-auto mt-3 mb-5 rounded-full" />
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
           Whether you need high-volume vehicle data APIs, real-time VIN decoding, or custom dealership cloud software — our engineering team is ready to connect.
         </p>
@@ -145,7 +145,7 @@ export const ContactClient = () => {
                 <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">
                   Direct Contact Channels
                 </h2>
-                <div className="w-12 h-1 bg-[#F37021] mt-2 mb-4 rounded-full" />
+                <div className="w-12 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-2 mb-4 rounded-full" />
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
                   Our solutions architecture team is available worldwide to discuss API access tiers, enterprise volume contracts, and tailored platform scoping.
                 </p>
@@ -155,16 +155,16 @@ export const ContactClient = () => {
                 {/* Email Support */}
                 <a
                   href="mailto:support@achtrex.com"
-                  className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 hover:border-[#F37021] hover:shadow-md transition-all group"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 hover:border-[#00A9CE] hover:shadow-md transition-all group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[#F37021]/10 text-[#F37021] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                    <Mail className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-tr from-[#F37021]/15 to-[#00A9CE]/15 text-[#F37021] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <Mail className="w-5 h-5 text-[#00A9CE]" />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
                       Email Support Desk
                     </span>
-                    <span className="font-bold text-sm text-slate-900 group-hover:text-[#F37021] transition-colors">
+                    <span className="font-bold text-sm text-slate-900 group-hover:text-[#00A9CE] transition-colors">
                       support@achtrex.com
                     </span>
                   </div>
@@ -180,7 +180,7 @@ export const ContactClient = () => {
                       Global Headquarters
                     </span>
                     <span className="font-bold text-sm text-slate-900">
-                      Dubai Silicon Oasis, Dubai, UAE (FZCO)
+                      Dubai Silicon Oasis, Dubai, UAE
                     </span>
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export const ContactClient = () => {
                 {/* Response SLA */}
                 <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200">
                   <div className="w-10 h-10 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5 text-[#F37021]" />
+                    <Clock className="w-5 h-5 text-[#00A9CE]" />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
@@ -210,10 +210,10 @@ export const ContactClient = () => {
               </div>
             </div>
 
-            {/* Book a Meeting Promo Card */}
+            {/* Consultation Promo Card */}
             <div className="bg-[#1E2226] text-white rounded-2xl p-7 border border-white/10 shadow-lg relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-36 h-36 bg-[#F37021]/15 rounded-full blur-2xl pointer-events-none" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#F37021] block mb-1">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-[#00A9CE]/15 rounded-full blur-2xl pointer-events-none" />
+              <span className="text-[10px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] block mb-1">
                 Priority Technical Briefing
               </span>
               <h3 className="text-lg font-bold text-white mb-2">
@@ -224,9 +224,12 @@ export const ContactClient = () => {
               </p>
               <a
                 href="mailto:support@achtrex.com?subject=Schedule%20Architectural%20Briefing"
-                className="btn-vibrant-pill !py-2.5 !px-5 !text-xs !uppercase !tracking-wider"
+                className="btn-navbar-cta"
               >
-                Request Consultation <ArrowRight className="w-3.5 h-3.5 text-white" />
+                <span className="btn-navbar-cta-inner !py-2.5 !px-5 !text-xs !uppercase !tracking-wider">
+                  <span>Request Consultation</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#00A9CE]" />
+                </span>
               </a>
             </div>
 
@@ -237,7 +240,7 @@ export const ContactClient = () => {
             <div className="bg-white rounded-2xl border border-slate-200/90 shadow-[0_12px_40px_rgba(0,0,0,0.06)] p-8 sm:p-10 lg:p-12">
               
               <div className="border-b border-slate-100 pb-6 mb-8 text-left">
-                <span className="text-[11px] font-black uppercase tracking-widest text-[#F37021] block mb-1">
+                <span className="text-[11px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] block mb-1">
                   Project Intake & Specifications
                 </span>
                 <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
@@ -257,13 +260,15 @@ export const ContactClient = () => {
                     Message Dispatched Successfully!
                   </h4>
                   <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to Achtrex Technology FZCO. Your inquiry has been forwarded to <strong>support@achtrex.com</strong>. An enterprise solution architect will reply within 24 business hours.
+                    Thank you for reaching out to Achtrex. Your inquiry has been forwarded to <strong>support@achtrex.com</strong>. An enterprise solution architect will reply within 24 business hours.
                   </p>
                   <button
                     onClick={() => setStatus('idle')}
-                    className="mt-4 btn-vibrant-pill !py-2.5 !px-6 !text-xs !uppercase !tracking-wider"
+                    className="mt-4 btn-navbar-cta"
                   >
-                    Send Another Message
+                    <span className="btn-navbar-cta-inner !py-2.5 !px-6 !text-xs !uppercase !tracking-wider">
+                      Send Another Message
+                    </span>
                   </button>
                 </div>
               ) : (
@@ -399,10 +404,12 @@ export const ContactClient = () => {
                     <button
                       type="submit"
                       disabled={status === 'loading'}
-                      className="btn-vibrant-pill !px-8 !py-3.5 !text-xs !uppercase !tracking-wider disabled:opacity-60 w-full sm:w-auto"
+                      className="btn-navbar-cta disabled:opacity-60 w-full sm:w-auto"
                     >
-                      <Send className="w-4 h-4 text-white" />
-                      <span>{status === 'loading' ? 'Dispatching Message...' : 'Send Message'}</span>
+                      <span className="btn-navbar-cta-inner !px-8 !py-3.5 !text-xs !uppercase !tracking-wider">
+                        <Send className="w-4 h-4 text-[#00A9CE]" />
+                        <span>{status === 'loading' ? 'Dispatching Message...' : 'Send Message'}</span>
+                      </span>
                     </button>
                   </div>
 

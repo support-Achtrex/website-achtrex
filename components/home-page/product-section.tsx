@@ -6,6 +6,7 @@ import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/buttons';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
+import Link from 'next/link';
 
 export const ProductSection = () => {
   const router = useRouter();
@@ -75,15 +76,15 @@ export const ProductSection = () => {
             </div>
             
             <div className="p-8 md:p-10 pt-0 mt-auto">
-              <a 
-                href="https://automotivedataset.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-logo-gradient text-slate-900 py-4 rounded-xl font-bold transition-all hover:scale-[1.02] shadow-lg"
+              <Link 
+                href="/services" 
+                className="w-full btn-navbar-cta"
               >
-                Visit Automotivedataset.com
-                <ExternalLink size={18} />
-              </a>
+                <span className="btn-navbar-cta-inner !py-4">
+                  <span>Explore Vehicle Intelligence</span>
+                  <ExternalLink size={18} className="text-[#00A9CE]" />
+                </span>
+              </Link>
             </div>
           </motion.div>
 

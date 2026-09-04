@@ -16,7 +16,7 @@ const timelineData = [
     points: [
       {
         year: '2018',
-        text: 'Founding of Achtrex Technology FZCO in Dubai to engineer standardized automotive data pipelines and enterprise API infrastructure for the emerging mobility economy.'
+        text: 'Founding of Achtrex in Dubai to engineer standardized automotive data pipelines and enterprise API infrastructure for the emerging mobility economy.'
       },
       {
         year: '2019',
@@ -24,7 +24,7 @@ const timelineData = [
       },
       {
         year: '2020',
-        text: 'Launch of AutomotiveDataset.com, providing instantaneous cloud API access to factory build configurations, parts catalogs, and market valuation curves.'
+        text: 'Launch of the Achtrex Enterprise Automotive Data Engine, providing instantaneous cloud API access to factory build configurations, parts catalogs, and market valuation curves.'
       }
     ]
   },
@@ -97,7 +97,7 @@ const teamMembers = [
     name: 'Emmanuella Yeboah-Appiah',
     role: 'Administrator',
     image: '/team/emmanuella_v2.jpg',
-    bio: 'Overseeing executive administration, corporate governance, organizational workflows, and operations for Achtrex Technology FZCO.'
+    bio: 'Overseeing executive administration, corporate governance, organizational workflows, and operations for Achtrex.'
   },
   {
     name: 'Rashid Ahmed',
@@ -139,7 +139,7 @@ export const AboutContent = () => {
   return (
     <div className="w-full bg-[#FFFFFF] text-slate-900 font-sans selection:bg-[#F37021] selection:text-white pb-24">
 
-      {/* ─── SECTION 1: OUR STORY / ABOUT ACHTREX TECHNOLOGY FZCO ───────── */}
+      {/* ─── SECTION 1: OUR STORY / ABOUT ACHTREX ───────────────────────── */}
       <section className="max-w-[1240px] mx-auto px-6 pt-4 pb-20 sm:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -149,18 +149,18 @@ export const AboutContent = () => {
               OUR STORY
             </span>
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight">
-              About Achtrex Technology FZCO
+              About Achtrex
             </h1>
 
-            {/* Signature Brand Orange Underline */}
-            <div className="w-16 h-1 bg-[#F37021] mt-3 mb-6 rounded-full" />
+            {/* Signature Brand Gradient Underline */}
+            <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
 
             <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-xl">
               <p>
-                From the very beginning, our focus has been simple: setting the data standard for the industry and solving what no one can solve alone. Achtrex Technology FZCO has grown alongside the independent automotive aftermarket, supporting how it evolves, connects, and operates across geographies.
+                From the very beginning, our focus has been simple: setting the data standard for the industry and solving what no one can solve alone. Achtrex has grown alongside the independent automotive aftermarket, supporting how it evolves, connects, and operates across geographies.
               </p>
               <p>
-                Headquartered in Dubai, UAE, Achtrex Technology FZCO provides scalable automotive data APIs, enterprise VIN intelligence, and custom software solutions designed for the next generation of connected mobility, retail dealerships, and parts distribution networks worldwide.
+                Headquartered in Dubai, UAE, Achtrex provides scalable automotive data APIs, enterprise VIN intelligence, and custom software solutions designed for the next generation of connected mobility, retail dealerships, and parts distribution networks worldwide.
               </p>
             </div>
           </div>
@@ -266,10 +266,10 @@ export const AboutContent = () => {
             Our journey in the aftermarket
           </h2>
 
-          <div className="w-16 h-1 bg-[#F37021] mt-3 mb-5 rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-5 rounded-full" />
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-3xl">
-            Since our founding, Achtrex Technology FZCO has supported the development of shared standards and data that enable the independent aftermarket to operate across systems, companies, and geographies.
+            Since our founding, Achtrex has supported the development of shared standards and data that enable the independent aftermarket to operate across systems, companies, and geographies.
           </p>
         </div>
 
@@ -293,7 +293,7 @@ export const AboutContent = () => {
                   {isActive && (
                     <motion.div 
                       layoutId="timelineUnderline"
-                      className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#F37021] rounded-full" 
+                      className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full" 
                     />
                   )}
                 </button>
@@ -318,7 +318,7 @@ export const AboutContent = () => {
                 <div className="space-y-4 pt-2">
                   {currentTimeline.points.map((point, idx) => (
                     <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#F37021] shrink-0 mt-2" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] shrink-0 mt-2" />
                       <p>
                         <strong className="text-slate-900 font-bold">{point.year}:</strong> {point.text.replace(`${point.year}: `, '')}
                       </p>
@@ -331,11 +331,11 @@ export const AboutContent = () => {
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl bg-[#F8FAFC] border border-slate-200/70 p-6 flex items-center justify-center overflow-hidden shadow-inner">
                   
-                  {/* Subtle Blueprint Grid Pattern */}
+                  {/* Blueprint Grid Pattern */}
                   <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] opacity-60 pointer-events-none" />
 
-                  {/* Orange Vertical Accent Bar */}
-                  <div className="absolute w-6 h-48 bg-[#F37021] rounded-sm -rotate-3 opacity-90" />
+                  {/* Brand Gradient Vertical Accent Bar */}
+                  <div className="absolute w-6 h-48 bg-gradient-to-b from-[#F37021] to-[#00A9CE] rounded-sm -rotate-3 opacity-90" />
 
                   {/* Monochrome Technician / Engineer Silhouette */}
                   <svg viewBox="0 0 200 240" className="relative z-10 w-44 h-auto drop-shadow-md" fill="none">
@@ -438,8 +438,8 @@ export const AboutContent = () => {
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-2xl bg-white/95 p-6 flex items-center justify-center overflow-hidden shadow-md">
                 
-                {/* Orange Backdrop Rectangle */}
-                <div className="absolute right-8 w-44 h-32 bg-[#F37021] rounded-md" />
+                {/* Brand Gradient Backdrop Rectangle */}
+                <div className="absolute right-8 w-44 h-32 bg-gradient-to-br from-[#F37021] to-[#00A9CE] rounded-md" />
 
                 {/* Technologist / Professional Silhouette */}
                 <div className="relative z-10 flex items-center justify-between w-full h-full">
@@ -487,7 +487,7 @@ export const AboutContent = () => {
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                   Our vision and mission
                 </h3>
-                <div className="w-16 h-1 bg-[#F37021] mt-3 mb-6 rounded-full" />
+                <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
               </div>
 
               <div className="space-y-4 text-slate-300 text-sm sm:text-[15px] leading-relaxed font-normal">
@@ -515,12 +515,12 @@ export const AboutContent = () => {
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                   Our role today
                 </h3>
-                <div className="w-16 h-1 bg-[#F37021] mt-3 mb-6 rounded-full" />
+                <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
               </div>
 
               <div className="space-y-4 text-slate-300 text-sm sm:text-[15px] leading-relaxed font-normal">
                 <p>
-                  Today, Achtrex Technology FZCO acts as the neutral backbone for collaboration across the independent automotive aftermarket.
+                  Today, Achtrex acts as the neutral backbone for collaboration across the independent automotive aftermarket.
                 </p>
                 <p className="font-semibold text-white">
                   We do not compete in the market. We support it.
@@ -591,9 +591,9 @@ export const AboutContent = () => {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Our management
           </h2>
-          <div className="w-16 h-1 bg-[#F37021] mx-auto mt-3 mb-6 rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mx-auto mt-3 mb-6 rounded-full" />
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-            Achtrex Technology FZCO is led by a team with deep experience in automotive data, software architecture, and the independent aftermarket. They are united by a shared responsibility: supporting the long-term success of the industry.
+            Achtrex is led by a team with deep experience in automotive data, software architecture, and the independent aftermarket. They are united by a shared responsibility: supporting the long-term success of the industry.
           </p>
         </div>
 
@@ -661,8 +661,8 @@ export const AboutContent = () => {
               {/* Subtle architectural background grid */}
               <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:20px_20px] opacity-70 pointer-events-none" />
 
-              {/* Large Orange Geometric Backdrop Card */}
-              <div className="absolute left-10 top-4 w-52 h-64 bg-[#F37021] rounded-2xl -rotate-2 shadow-sm" />
+              {/* Large Brand Gradient Geometric Backdrop Card */}
+              <div className="absolute left-10 top-4 w-52 h-64 bg-gradient-to-br from-[#F37021] to-[#00A9CE] rounded-2xl -rotate-2 shadow-sm" />
 
               {/* Team Professional Silhouette Card */}
               <div className="absolute left-4 bottom-2 w-52 h-68 rounded-2xl bg-white border border-slate-200/90 shadow-xl overflow-hidden z-10 flex items-end justify-center">
@@ -676,7 +676,7 @@ export const AboutContent = () => {
               {/* Rocket Launch Card (Front right layer) */}
               <div className="absolute right-2 bottom-0 w-60 h-52 rounded-2xl bg-white border border-slate-200/90 shadow-2xl p-4 z-20 flex flex-col items-center justify-center">
                 <div className="w-full flex items-center gap-2 mb-2">
-                  <div className="w-2.5 h-12 bg-[#F37021] rounded-full" />
+                  <div className="w-2.5 h-12 bg-gradient-to-b from-[#F37021] to-[#00A9CE] rounded-full" />
                   <span className="text-[11px] font-black uppercase tracking-wider text-slate-800">
                     High Velocity Growth
                   </span>
@@ -722,20 +722,22 @@ export const AboutContent = () => {
               Join the team
             </h3>
 
-            {/* Orange Underline */}
-            <div className="w-16 h-1 bg-[#F37021] mt-3 mb-6 rounded-full" />
+            {/* Brand Gradient Underline */}
+            <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-8 max-w-lg">
-              Passionate about data, IT, and the automotive industry? Explore our open positions and join Achtrex Technology FZCO as we shape the future of the automotive aftermarket.
+              Passionate about data, IT, and the automotive industry? Explore our open positions and join Achtrex as we shape the future of the automotive aftermarket.
             </p>
 
             <div>
               <Link
                 href="/life-at-achtrex"
-                className="btn-vibrant-pill"
+                className="btn-navbar-cta"
               >
-                <span>Explore careers</span>
-                <ArrowRight className="w-4 h-4 text-white" />
+                <span className="btn-navbar-cta-inner">
+                  <span>Explore careers</span>
+                  <ArrowRight className="w-4 h-4 text-[#00A9CE]" />
+                </span>
               </Link>
             </div>
           </div>

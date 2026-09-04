@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -81,7 +80,7 @@ const testimonials = [
     tag: 'APP'
   },
   {
-    quote: 'By integrating the AutomotiveDataset.com API into our classified platform, we now offer buyers real-time factory spec sheets and market valuations. Our listing conversion rate improved by over 30%.',
+    quote: 'By integrating the Achtrex Automotive Data API into our classified platform, we now offer buyers real-time factory spec sheets and market valuations. Our listing conversion rate improved by over 30%.',
     author: 'Priya Narayanan',
     title: 'Head of Product',
     company: 'AutoListings MENA',
@@ -124,7 +123,7 @@ export default function PartnersPage() {
         <motion.span
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-[11px] font-black uppercase tracking-widest text-[#F37021] mb-2 block"
+          className="text-[11px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] mb-2 block"
         >
           Achtrex Partner Program
         </motion.span>
@@ -138,7 +137,8 @@ export default function PartnersPage() {
           Become an APP Partner
         </motion.h1>
 
-        <div className="w-20 h-1 bg-[#F37021] rounded-full mx-auto mt-3 mb-5" />
+        {/* Brand Gradient Underline */}
+        <div className="w-20 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full mx-auto mt-3 mb-5" />
 
         <motion.p
           initial={{ opacity: 0 }}
@@ -157,17 +157,19 @@ export default function PartnersPage() {
         >
           <a
             href="#partner-apply-form"
-            className="btn-vibrant-pill"
+            className="btn-navbar-cta"
           >
-            Apply Now
-            <ArrowRight className="w-4 h-4 text-white" />
+            <span className="btn-navbar-cta-inner">
+              <span>Apply Now</span>
+              <ArrowRight className="w-4 h-4 text-[#00A9CE]" />
+            </span>
           </a>
           <Link
             href="/contact-us"
             className="btn-navbar-cta"
           >
-            <span className="btn-navbar-cta-inner !text-xs sm:!text-sm">
-              Talk to Partner Team
+            <span className="btn-navbar-cta-inner">
+              <span>Talk to Partner Team</span>
             </span>
           </Link>
         </motion.div>
@@ -217,7 +219,7 @@ export default function PartnersPage() {
                   {isActive && (
                     <motion.div
                       layoutId="partnerTabUnderline"
-                      className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#F37021] rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full"
                     />
                   )}
                 </button>
@@ -251,7 +253,7 @@ export default function PartnersPage() {
                     <div className="space-y-5 pt-2">
                       {whoCanJoin.roles.map((role, idx) => (
                         <div key={idx} className="flex items-start gap-3">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#F37021] shrink-0 mt-2" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] shrink-0 mt-2" />
                           <div>
                             <p className="text-sm font-bold text-slate-900">{role.label}</p>
                             <p className="text-xs text-slate-500 font-normal leading-relaxed mt-0.5">{role.desc}</p>
@@ -261,10 +263,10 @@ export default function PartnersPage() {
                     </div>
                   </div>
 
-                  {/* Right: Icon Graphic (matching TecAlliance 3-cube illustration) */}
+                  {/* Right: Icon Graphic */}
                   <div className="lg:col-span-6 flex justify-center">
                     <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-2xl bg-[#F8FAFC] border border-slate-200/70 flex items-center justify-center overflow-hidden shadow-inner p-8">
-                      <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#F37021] rounded-b-2xl" />
+                      <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-b-2xl" />
 
                       <div className="grid grid-cols-4 gap-4 w-full">
                         {[
@@ -315,9 +317,9 @@ export default function PartnersPage() {
                         initial={{ opacity: 0, y: 14 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.06 }}
-                        className="flex gap-4 p-5 rounded-xl border border-slate-200/90 bg-[#F8FAFC] hover:border-[#F37021]/40 hover:bg-white transition-all"
+                        className="flex gap-4 p-5 rounded-xl border border-slate-200/90 bg-[#F8FAFC] hover:border-[#00A9CE]/40 hover:bg-white transition-all"
                       >
-                        <span className="text-2xl font-black text-[#F37021]/30 leading-none shrink-0">{step.num}</span>
+                        <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] leading-none shrink-0">{step.num}</span>
                         <div className="space-y-1">
                           <h4 className="text-sm font-bold text-slate-900">{step.title}</h4>
                           <p className="text-xs text-slate-500 leading-relaxed font-normal">{step.detail}</p>
@@ -354,7 +356,7 @@ export default function PartnersPage() {
                         initial={{ opacity: 0, y: 14 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.06 }}
-                        className="flex gap-4 p-5 rounded-xl border border-slate-200/90 bg-[#F8FAFC] hover:border-[#F37021]/40 hover:bg-white transition-all"
+                        className="flex gap-4 p-5 rounded-xl border border-slate-200/90 bg-[#F8FAFC] hover:border-[#00A9CE]/40 hover:bg-white transition-all"
                       >
                         <span className="text-[#F37021] shrink-0 mt-0.5">{benefit.icon}</span>
                         <div className="space-y-1">
@@ -379,15 +381,13 @@ export default function PartnersPage() {
           <div className="text-center mb-10">
             <span className="text-[11px] font-black uppercase tracking-widest text-slate-500 block mb-1">Partner Tiers</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Three levels of partnership</h2>
-            <div className="w-14 h-1 bg-[#F37021] rounded-full mx-auto mt-3" />
+            <div className="w-14 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full mx-auto mt-3" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 tier: 'Registered',
-                color: '#94A3B8',
-                bg: '#F8FAFC',
                 badge: 'Entry Level',
                 perks: [
                   'Access to partner portal & API sandbox',
@@ -398,8 +398,6 @@ export default function PartnersPage() {
               },
               {
                 tier: 'Certified',
-                color: '#F37021',
-                bg: '#FFFFFF',
                 badge: 'Most Popular',
                 featured: true,
                 perks: [
@@ -413,8 +411,6 @@ export default function PartnersPage() {
               },
               {
                 tier: 'Strategic',
-                color: '#0F172A',
-                bg: '#1E2226',
                 badge: 'Enterprise',
                 dark: true,
                 perks: [
@@ -437,20 +433,22 @@ export default function PartnersPage() {
                   item.dark
                     ? 'bg-[#1E2226] border-white/10 text-white'
                     : item.featured
-                    ? 'bg-white border-[#F37021]/40 text-slate-900'
+                    ? 'bg-white border-[#00A9CE]/40 text-slate-900 shadow-md'
                     : 'bg-[#F8FAFC] border-slate-200/80 text-slate-900'
                 }`}
               >
                 {item.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-[#F37021] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
-                      {item.badge}
+                    <span className="btn-navbar-cta">
+                      <span className="btn-navbar-cta-inner !py-1 !px-3 !text-[10px] !uppercase !tracking-wider">
+                        {item.badge}
+                      </span>
                     </span>
                   </div>
                 )}
 
                 <div className="mb-4">
-                  <div className="w-10 h-1 rounded-full mb-3" style={{ background: item.color }} />
+                  <div className="w-10 h-1 rounded-full mb-3 bg-gradient-to-r from-[#F37021] to-[#00A9CE]" />
                   <span className={`text-[10px] font-black uppercase tracking-widest ${item.dark ? 'text-slate-400' : 'text-slate-500'}`}>
                     {!item.featured ? item.badge : ''}
                   </span>
@@ -462,7 +460,7 @@ export default function PartnersPage() {
                 <ul className="space-y-2.5 flex-1">
                   {item.perks.map((perk, pidx) => (
                     <li key={pidx} className="flex items-start gap-2 text-xs font-normal leading-relaxed">
-                      <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${item.dark ? 'text-[#F37021]' : 'text-[#F37021]'}`} />
+                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#00A9CE]" />
                       <span className={item.dark ? 'text-slate-300' : 'text-slate-600'}>{perk}</span>
                     </li>
                   ))}
@@ -470,18 +468,12 @@ export default function PartnersPage() {
 
                 <a
                   href="#partner-apply-form"
-                  className={item.featured || item.dark 
-                    ? "mt-7 btn-vibrant-pill !py-2.5 !px-5 !text-xs !uppercase !tracking-wider" 
-                    : "mt-7 btn-navbar-cta !text-xs"
-                  }
+                  className="mt-7 btn-navbar-cta"
                 >
-                  {item.featured || item.dark ? (
-                    <>Apply Now <ArrowRight className="w-3.5 h-3.5 text-white" /></>
-                  ) : (
-                    <span className="btn-navbar-cta-inner !py-2 !px-4 !text-xs !uppercase !tracking-wider">
-                      Apply Now <ArrowRight className="w-3.5 h-3.5 text-[#F37021]" />
-                    </span>
-                  )}
+                  <span className="btn-navbar-cta-inner !py-2.5 !px-5 !text-xs !uppercase !tracking-wider">
+                    <span>Apply Now</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#00A9CE]" />
+                  </span>
                 </a>
               </motion.div>
             ))}
@@ -497,7 +489,7 @@ export default function PartnersPage() {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               Testimonials from latest APP Partners
             </h2>
-            <div className="w-14 h-1 bg-[#F37021] rounded-full mx-auto mt-3 mb-3" />
+            <div className="w-14 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full mx-auto mt-3 mb-3" />
             <p className="text-sm text-slate-500 font-normal max-w-xl mx-auto">
               The newest Achtrex Partners share their perspective on being part of the community.
             </p>
@@ -517,7 +509,7 @@ export default function PartnersPage() {
                 transition={{ duration: 0.25 }}
                 className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-8 sm:p-10 text-center"
               >
-                <div className="inline-flex items-center gap-1.5 border-l-2 border-[#F37021] pl-3 mb-5 text-[11px] font-black uppercase tracking-widest text-[#F37021]">
+                <div className="inline-flex items-center gap-1.5 border-l-2 border-[#F37021] pl-3 mb-5 text-[11px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE]">
                   APP
                 </div>
                 <p className="text-slate-700 text-sm sm:text-base italic leading-relaxed font-normal mb-6 max-w-2xl mx-auto">
@@ -536,7 +528,7 @@ export default function PartnersPage() {
             <div className="flex items-center justify-center gap-4 mt-6">
               <button
                 onClick={prevTestimonial}
-                className="w-8 h-8 rounded-full border border-slate-300 hover:border-[#F37021] hover:text-[#F37021] flex items-center justify-center text-slate-500 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-full border border-slate-300 hover:border-[#00A9CE] hover:text-[#00A9CE] flex items-center justify-center text-slate-500 transition-all cursor-pointer"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -548,7 +540,7 @@ export default function PartnersPage() {
                     key={idx}
                     onClick={() => setTestimonialIndex(idx)}
                     className={`rounded-full transition-all cursor-pointer ${
-                      idx === testimonialIndex ? 'w-5 h-2.5 bg-[#F37021]' : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400'
+                      idx === testimonialIndex ? 'w-6 h-2.5 bg-gradient-to-r from-[#F37021] to-[#00A9CE]' : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400'
                     }`}
                     aria-label={`Go to testimonial ${idx + 1}`}
                   />
@@ -557,7 +549,7 @@ export default function PartnersPage() {
 
               <button
                 onClick={nextTestimonial}
-                className="w-8 h-8 rounded-full border border-slate-300 hover:border-[#F37021] hover:text-[#F37021] flex items-center justify-center text-slate-500 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-full border border-slate-300 hover:border-[#00A9CE] hover:text-[#00A9CE] flex items-center justify-center text-slate-500 transition-all cursor-pointer"
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -593,19 +585,21 @@ export default function PartnersPage() {
                   value={newsletterEmail}
                   onChange={e => setNewsletterEmail(e.target.value)}
                   placeholder="Your work email address"
-                  className="flex-1 py-3 px-3.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#F37021] transition-colors font-medium"
+                  className="flex-1 py-3 px-3.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#00A9CE] transition-colors font-medium"
                 />
                 <button
                   type="submit"
                   disabled={newsletterStatus === 'loading'}
-                  className="shrink-0 btn-vibrant-pill !py-3 !px-6 !text-xs !uppercase !tracking-wider disabled:opacity-60"
+                  className="shrink-0 btn-navbar-cta disabled:opacity-60"
                 >
-                  {newsletterStatus === 'loading' ? 'Subscribing...' : (
-                    <>
-                      Subscribe
-                      <ArrowRight className="w-3.5 h-3.5 text-white" />
-                    </>
-                  )}
+                  <span className="btn-navbar-cta-inner !py-2.5 !px-5 !text-xs !uppercase !tracking-wider">
+                    {newsletterStatus === 'loading' ? 'Subscribing...' : (
+                      <>
+                        <span>Subscribe</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-[#00A9CE]" />
+                      </>
+                    )}
+                  </span>
                 </button>
               </form>
             )}
@@ -615,8 +609,8 @@ export default function PartnersPage() {
           <div className="lg:col-span-7 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-[520px] aspect-[16/10] flex items-end justify-center">
 
-              {/* Orange vertical accent bar */}
-              <div className="absolute right-12 bottom-0 w-7 h-4/5 bg-[#F37021] rounded-t-md z-0" />
+              {/* Gradient vertical accent bar */}
+              <div className="absolute right-12 bottom-0 w-7 h-4/5 bg-gradient-to-t from-[#00A9CE] to-[#F37021] rounded-t-md z-0" />
 
               {/* Paper airplane */}
               <svg viewBox="0 0 50 50" className="absolute right-4 top-10 w-10 h-10 text-slate-400 opacity-60" fill="none">
@@ -627,20 +621,15 @@ export default function PartnersPage() {
 
               {/* Laptop wireframe illustration */}
               <svg viewBox="0 0 500 320" className="relative z-10 w-full h-auto drop-shadow-lg" fill="none">
-                {/* Laptop base / keyboard */}
                 <rect x="50" y="250" width="400" height="30" rx="4" fill="#E2E8F0" />
                 <rect x="40" y="277" width="420" height="10" rx="5" fill="#CBD5E1" />
-                {/* Screen bezel */}
                 <rect x="100" y="30" width="300" height="225" rx="8" fill="#1E293B" />
-                {/* Screen surface */}
                 <rect x="108" y="38" width="284" height="210" rx="4" fill="#F8FAFC" />
 
                 {/* Newsletter layout wireframe on screen */}
-                {/* Header bar */}
                 <rect x="116" y="46" width="268" height="20" rx="3" fill="#E2E8F0" />
                 <rect x="120" y="50" width="80" height="12" rx="2" fill="#F37021" opacity="0.7" />
 
-                {/* Body content rows */}
                 {[72, 98, 124, 150, 176].map((y, i) => (
                   <g key={i}>
                     <rect x="116" y={y} width={i % 2 === 0 ? 268 : 220} height="10" rx="2" fill="#E2E8F0" />
@@ -648,9 +637,8 @@ export default function PartnersPage() {
                   </g>
                 ))}
 
-                {/* Email subscribe bar at bottom of screen */}
                 <rect x="116" y="200" width="200" height="22" rx="4" fill="#E2E8F0" />
-                <rect x="322" y="200" width="70" height="22" rx="4" fill="#F37021" />
+                <rect x="322" y="200" width="70" height="22" rx="4" fill="#00A9CE" />
                 <text x="342" y="215" fill="#FFFFFF" fontSize="9" fontFamily="sans-serif" fontWeight="bold">Subscribe</text>
               </svg>
 
@@ -664,13 +652,13 @@ export default function PartnersPage() {
       <section className="w-full bg-[#F8FAFC] border-t border-slate-200/80 py-16 px-6">
         <div className="max-w-[1240px] mx-auto">
           <div className="text-center mb-10">
-            <span className="text-[11px] font-black uppercase tracking-widest text-[#F37021] block mb-1">
+            <span className="text-[11px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] block mb-1">
               Official Application
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               Apply for Partnership
             </h2>
-            <div className="w-14 h-1 bg-[#F37021] rounded-full mx-auto mt-3 mb-3" />
+            <div className="w-14 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full mx-auto mt-3 mb-3" />
             <p className="text-sm text-slate-500 font-normal max-w-xl mx-auto">
               Submit your application and our Partner Management Team will respond within 1–2 business days. All communications land at <strong className="text-slate-700">support@achtrex.com</strong>.
             </p>

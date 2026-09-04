@@ -22,11 +22,11 @@ const products = [
     isRawImage: true
   },
   {
-    title: 'AutomotiveDataset.com',
+    title: 'Vehicle Intelligence API',
     subtitle: 'Deep Vehicle Intelligence',
     description: 'Unlock the power of vehicle data with a comprehensive API suite providing VIN-to-Build-Sheet decoding, real-time specs, service history, and official recall databases.',
     image: '/projects/automotive_ui_new.jpg',
-    link: 'https://automotivedataset.com',
+    link: '/services',
     color: '#3b82f6',
     tags: ['VIN Decoding', 'Recall API', 'Service History'],
     hasMobile: true,

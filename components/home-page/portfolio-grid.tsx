@@ -8,11 +8,11 @@ import Link from 'next/link';
 const portfolioItems = [
   {
     id: 1,
-    title: "AutomotiveDataset.com",
-    category: "Product",
+    title: "Achtrex Vehicle Intelligence",
+    category: "Platform",
     image: "/projects/ad-logo.png",
-    link: "/products/automotive",
-    desc: "We built and launched AutomotiveDataset.com as our proprietary enterprise VIN intelligence infrastructure. We engineered the entire backend system to deliver sub-50ms latency for vehicle specifications, allowing the platform to scale to millions of daily queries.",
+    link: "/services",
+    desc: "We built and launched our proprietary enterprise VIN intelligence infrastructure. We engineered the entire backend system to deliver sub-50ms latency for vehicle specifications, allowing the platform to scale to millions of daily queries.",
     isLogo: true
   },
   {

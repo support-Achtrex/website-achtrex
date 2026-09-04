@@ -3,59 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-const iconServices = [
-  {
-    id: 1,
-    title: 'Multilingual Data Management',
-    link: '/services#data-management',
-    icon: (
-      <svg className="w-6 h-6 text-slate-800 stroke-[1.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <rect x="2" y="4" width="20" height="16" rx="2" />
-        <path d="M7 10h4M9 8v6M13 14l3-6 3 6M14 12h4" />
-      </svg>
-    )
-  },
-  {
-    id: 2,
-    title: 'Automotive Technical Helpline',
-    link: '/contact-us',
-    icon: (
-      <svg className="w-6 h-6 text-slate-800 stroke-[1.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <circle cx="8" cy="7" r="3" />
-        <circle cx="16" cy="17" r="3" />
-        <path d="M8 10v7a2 2 0 002 2h4M16 14V7a2 2 0 00-2-2h-4" />
-      </svg>
-    )
-  },
-  {
-    id: 3,
-    title: 'Customized services',
-    link: '/services#custom-software',
-    icon: (
-      <svg className="w-6 h-6 text-slate-800 stroke-[1.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <rect x="3" y="4" width="18" height="16" rx="2" />
-        <line x1="7" y1="9" x2="17" y2="9" />
-        <line x1="7" y1="15" x2="17" y2="15" />
-        <circle cx="10" cy="9" r="1.5" fill="#1e293b" />
-        <circle cx="14" cy="15" r="1.5" fill="#1e293b" />
-      </svg>
-    )
-  },
-  {
-    id: 4,
-    title: '100% White Label',
-    link: '/services/ai-training',
-    icon: (
-      <svg className="w-6 h-6 text-slate-800 stroke-[1.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34L12 14.24l-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z" />
-        <line x1="12" y1="18" x2="12" y2="22" />
-        <line x1="4.93" y1="4.93" x2="2.1" y2="2.1" />
-        <line x1="19.07" y1="4.93" x2="21.9" y2="2.1" />
-      </svg>
-    )
-  }
-];
-
 export const Footer = () => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -69,29 +16,8 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-[#E5EAE9] font-sans text-slate-800 border-t border-slate-300 pt-14 pb-8">
+    <footer className="w-full bg-[#E5EAE9] font-sans text-slate-800 border-t border-slate-300 pt-12 pb-8">
       <div className="max-w-[1240px] mx-auto px-6">
-        
-        {/* Top 4 Icons Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-          {iconServices.map((svc) => (
-            <Link 
-              key={svc.id} 
-              href={svc.link}
-              className="flex items-center gap-3 group"
-            >
-              <div className="shrink-0 transition-transform group-hover:scale-110">
-                {svc.icon}
-              </div>
-              <span className="text-xs sm:text-[13px] font-bold text-slate-900 underline underline-offset-4 group-hover:text-[#B30D2B] transition-colors leading-tight">
-                {svc.title}
-              </span>
-            </Link>
-          ))}
-        </div>
-
-        {/* Solid Line Divider */}
-        <hr className="border-t border-slate-400/80 mb-12" />
 
         {/* 3 Columns Consultation Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 text-xs leading-relaxed mb-12">
@@ -102,7 +28,7 @@ export const Footer = () => {
               AUTOMOTIVE EXPERT
             </h4>
             <p className="text-slate-700 font-normal leading-relaxed">
-              <strong>Achtrex Technologies</strong> provides enterprise software and API infrastructure for key players across the automotive mobility chain. Databases, diagnostics, and customized scalable systems.
+              <strong>Achtrex</strong> provides enterprise software and API infrastructure for key players across the automotive mobility chain. Databases, diagnostics, and customized scalable systems.
             </p>
             <div className="pt-2 text-slate-700 font-medium">
               <strong className="block text-slate-900 font-bold mb-0.5">Headquarters</strong>
@@ -119,16 +45,16 @@ export const Footer = () => {
               Send a request and one of our solution architects will contact you with a customized enterprise proposal.
             </p>
             <div className="pt-2 space-y-2 font-bold">
-              <Link href="/blog" className="block text-slate-900 hover:text-[#B30D2B] hover:underline transition-colors">
+              <Link href="/blog" className="block text-slate-900 hover:text-[#00A9CE] hover:underline transition-colors">
                 Blog Articles
               </Link>
-              <Link href="/contact-us" className="block text-slate-900 hover:text-[#B30D2B] hover:underline transition-colors">
+              <Link href="/contact-us" className="block text-slate-900 hover:text-[#00A9CE] hover:underline transition-colors">
                 Contact us
               </Link>
-              <Link href="/portal" className="block text-slate-900 hover:text-[#B30D2B] hover:underline transition-colors">
+              <Link href="/portal" className="block text-slate-900 hover:text-[#00A9CE] hover:underline transition-colors">
                 Client Portal / Access
               </Link>
-              <Link href="/contact-us" className="block text-slate-900 hover:text-[#B30D2B] hover:underline transition-colors">
+              <Link href="/contact-us" className="block text-slate-900 hover:text-[#00A9CE] hover:underline transition-colors">
                 Remote Support
               </Link>
             </div>
@@ -162,9 +88,11 @@ export const Footer = () => {
                 </div>
                 <button
                   type="submit"
-                  className="bg-[#363E3D] hover:bg-[#202524] text-white font-bold text-xs uppercase tracking-widest py-2.5 px-7 self-start shadow-sm transition-colors cursor-pointer"
+                  className="btn-navbar-cta self-start"
                 >
-                  SUBMIT
+                  <span className="btn-navbar-cta-inner !py-2.5 !px-7 text-xs uppercase tracking-widest font-bold">
+                    <span>SUBMIT</span>
+                  </span>
                 </button>
               </form>
             )}
@@ -174,7 +102,7 @@ export const Footer = () => {
 
         {/* Bottom Copyright & Legal Links Bar */}
         <div className="border-t border-slate-300/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-600 gap-4">
-          <p>© {new Date().getFullYear()} Achtrex Technologies. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Achtrex. All rights reserved.</p>
           <div className="flex items-center gap-6 font-medium">
             <Link href="/blog" className="hover:text-slate-900 hover:underline transition-colors">
               Blog Articles

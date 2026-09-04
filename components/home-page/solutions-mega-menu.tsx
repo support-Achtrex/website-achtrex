@@ -224,7 +224,7 @@ export const SolutionsMegaMenu = ({ onClose }: { onClose?: () => void }) => {
                 >
                   {/* Active left accent bar */}
                   {isActive && (
-                    <span className="absolute left-0 top-0 bottom-0 w-[4px] bg-[#F37021]" />
+                    <span className="absolute left-0 top-0 bottom-0 w-[4px] bg-gradient-to-b from-[#F37021] to-[#00A9CE]" />
                   )}
 
                   <span className="text-[14px] leading-snug">
@@ -303,9 +303,11 @@ export const SolutionsMegaMenu = ({ onClose }: { onClose?: () => void }) => {
             <Link
               href="/contact-us"
               onClick={onClose}
-              className="block w-full text-center border-2 border-[#F37021] text-[#F37021] hover:bg-[#F37021] hover:text-white text-[12px] font-bold py-2.5 px-4 transition-all uppercase tracking-wider"
+              className="btn-navbar-cta w-full block"
             >
-              Request a Consultation
+              <span className="btn-navbar-cta-inner !py-2.5 !px-4 text-[12px] uppercase tracking-wider justify-center w-full">
+                <span>Request a Consultation</span>
+              </span>
             </Link>
           </div>
         </div>

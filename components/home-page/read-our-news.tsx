@@ -85,7 +85,7 @@ export const ReadOurNews = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xs sm:text-sm font-black text-slate-800 leading-snug tracking-wider uppercase group-hover:text-[#B30D2B] transition-colors mb-3">
+                <h3 className="text-xs sm:text-sm font-black text-slate-800 leading-snug tracking-wider uppercase group-hover:text-[#00A9CE] transition-colors mb-3">
                   {news.title}
                 </h3>
 
@@ -95,7 +95,7 @@ export const ReadOurNews = () => {
                 </p>
 
                 {/* Read More Link */}
-                <span className="mt-auto inline-flex items-center text-xs font-semibold text-slate-600 group-hover:text-[#B30D2B] transition-colors">
+                <span className="mt-auto inline-flex items-center text-xs font-semibold text-slate-600 group-hover:text-[#00A9CE] transition-colors">
                   Read more ›
                 </span>
               </Link>

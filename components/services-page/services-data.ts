@@ -4,7 +4,7 @@ export const productsData = [
     {
         id: 'automotive-data',
         icon: Travel,
-        title: 'AutomotiveDataset.com',
+        title: 'Vehicle Intelligence API',
         description: 'A massive vehicle intelligence API providing 2.5M+ records, VIN-to-Build-Sheet data, and recall databases for the global mobility market.',
         details: {
             overview: "A comprehensive verification platform delivering granular life-cycle data and historical vehicle records via a high-performance API.",

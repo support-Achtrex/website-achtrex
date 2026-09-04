@@ -120,7 +120,7 @@ export default async function PressReleaseSingle({ params }: { params: Promise<{
                   Achtrex is an enterprise SaaS venture builder specializing in robust data infrastructure and AI solutions for the global automotive market. With a focus on scale, security, and extreme reliability, Achtrex empowers businesses to navigate the complexities of digital transformation with confidence.
                 </p>
                 <div className="mt-4 pt-4 border-t border-slate-200 flex flex-wrap gap-4 text-xs font-semibold text-slate-600">
-                  <span className="flex items-center gap-1.5"><Building2 className="w-4 h-4 text-[#00a9ce]" /> Achtrex Technologies FZCO</span>
+                  <span className="flex items-center gap-1.5"><Building2 className="w-4 h-4 text-[#00a9ce]" /> Achtrex</span>
                   <a href="mailto:press@achtrex.com" className="flex items-center gap-1.5 text-[#00a9ce] hover:underline"><Mail className="w-4 h-4" /> press@achtrex.com</a>
                 </div>
               </div>

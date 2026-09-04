@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 export const BusinessSupportSection = () => {
   return (
@@ -22,6 +23,7 @@ export const BusinessSupportSection = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 leading-[1.15] tracking-tight">
               Find out how Achtrex can support your business
             </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full" />
 
             <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
               <p>
@@ -32,13 +34,16 @@ export const BusinessSupportSection = () => {
               </p>
             </div>
 
-            {/* High-Converting Rounded Red CTA Button */}
+            {/* High-Converting Brand Pill CTA Button */}
             <div className="pt-2">
               <Link
                 href="/contact-us"
-                className="inline-block bg-[#C8102E] hover:bg-[#A00D25] text-white text-sm sm:text-base font-bold px-8 py-3.5 rounded-full shadow-md hover:shadow-xl transition-all hover:-translate-y-0.5 cursor-pointer tracking-wide"
+                className="btn-navbar-cta"
               >
-                Contact Us Today
+                <span className="btn-navbar-cta-inner !py-3.5 !px-8 text-sm sm:text-base font-bold">
+                  <span>Contact Us Today</span>
+                  <ArrowRight className="w-4 h-4 text-[#00A9CE]" />
+                </span>
               </Link>
             </div>
           </motion.div>

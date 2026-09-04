@@ -120,7 +120,7 @@ export const OfferingsTabs = () => {
                   {isActive && (
                     <motion.div 
                       layoutId="activeTabIndicator"
-                      className="absolute bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full bg-gradient-to-r from-[#00a9ce] to-[#76bc1d]"
+                      className="absolute bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE]"
                       transition={{ type: "spring", stiffness: 350, damping: 30 }}
                     />
                   )}
@@ -198,9 +198,11 @@ export const OfferingsTabs = () => {
 
                   <Link 
                     href={activeData.href}
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-slate-900 hover:bg-[#00a9ce] text-white text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 shrink-0 text-center"
+                    className="btn-navbar-cta shrink-0 text-center"
                   >
-                    {activeData.buttonText}
+                    <span className="btn-navbar-cta-inner !py-3.5 !px-8 text-xs sm:text-sm font-bold tracking-wide">
+                      <span>{activeData.buttonText}</span>
+                    </span>
                   </Link>
                 </div>
 

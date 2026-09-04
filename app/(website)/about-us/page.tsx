@@ -3,10 +3,10 @@ import { Metadata } from 'next';
 import { AboutContent } from '@/components/about-page/about-content';
 
 export const metadata: Metadata = {
-  title: 'About Us | Achtrex Technology FZCO — Automotive Data & Aftermarket Solutions',
-  description: 'Learn about Achtrex Technology FZCO — setting the data standard for the independent automotive aftermarket with enterprise VIN APIs, dealer inventory platforms, and neutral infrastructure.',
+  title: 'About Us | Achtrex — Automotive Data & Aftermarket Solutions',
+  description: 'Learn about Achtrex — setting the data standard for the independent automotive aftermarket with enterprise VIN APIs, dealer inventory platforms, and neutral infrastructure.',
   keywords: [
-    'Achtrex Technology FZCO', 
+    'Achtrex', 
     'Automotive Aftermarket Data', 
     'VIN Decoding API', 
     'Dealership Inventory Systems', 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     canonical: 'https://achtrex.com/about-us',
   },
   openGraph: {
-    title: 'About Achtrex Technology FZCO | Automotive Data & Technology',
+    title: 'About Achtrex | Automotive Data & Technology',
     description: 'Setting the automotive data standard for the independent aftermarket and enterprise mobility.',
     images: ['/projects/aaia_ui_v2.png'],
   }
@@ -25,12 +25,12 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
-  'name': 'About Achtrex Technology FZCO',
+  'name': 'About Achtrex',
   'description': 'Setting the data standard for the independent automotive aftermarket with enterprise VIN APIs and custom platforms.',
   'url': 'https://achtrex.com/about-us',
   'publisher': {
     '@type': 'Organization',
-    'name': 'Achtrex Technology FZCO'
+    'name': 'Achtrex'
   }
 };
 

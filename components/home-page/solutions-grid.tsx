@@ -77,8 +77,8 @@ export const SolutionsGrid = () => {
               <circle cx="20" cy="46" r="4" stroke="currentColor" strokeWidth="1.5" />
               <circle cx="44" cy="46" r="4" stroke="currentColor" strokeWidth="1.5" />
               {/* Antenna / Sensor Node */}
-              <circle cx="32" cy="18" r="2" fill="#B30D2B" stroke="#B30D2B" />
-              <line x1="32" y1="20" x2="32" y2="23" stroke="#B30D2B" strokeWidth="1.5" />
+              <circle cx="32" cy="18" r="2.5" fill="#F37021" />
+              <line x1="32" y1="20" x2="32" y2="23" stroke="#00A9CE" strokeWidth="1.5" />
             </svg>
           </motion.div>
 
@@ -96,10 +96,13 @@ export const SolutionsGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-base sm:text-lg font-bold text-slate-500 tracking-widest uppercase mb-6"
+            className="text-xs sm:text-sm font-bold text-slate-500 tracking-widest uppercase mb-3"
           >
             CHOSEN BY AUTOMOTIVE EXPERTS
           </motion.h3>
+
+          {/* Brand Gradient Underline */}
+          <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mx-auto mb-6 rounded-full" />
 
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
@@ -124,7 +127,7 @@ export const SolutionsGrid = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group flex flex-col bg-white border border-slate-200 hover:border-slate-400 hover:shadow-lg transition-all duration-300 rounded-none overflow-hidden"
+                className="group flex flex-col bg-white border border-slate-200/90 hover:border-slate-300 hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden"
               >
                 <Link href={item.link} className="flex flex-col h-full block">
                   {/* Image Container */}
@@ -138,7 +141,7 @@ export const SolutionsGrid = () => {
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
                     
                     {/* Corner Tag */}
-                    <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider border border-white/10">
+                    <div className="absolute top-3 left-3 bg-[#0A0E14]/85 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider rounded-md border border-white/10">
                       {item.kicker}
                     </div>
                   </div>
@@ -146,8 +149,8 @@ export const SolutionsGrid = () => {
                   {/* Body Content */}
                   <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <Icon className="w-4 h-4 text-[#B30D2B] shrink-0" />
-                      <h4 className="text-base font-bold text-slate-900 group-hover:text-[#B30D2B] transition-colors leading-snug">
+                      <Icon className="w-4 h-4 text-[#F37021] shrink-0" />
+                      <h4 className="text-base font-bold text-slate-900 group-hover:text-[#00A9CE] transition-colors leading-snug">
                         {item.title}
                       </h4>
                     </div>
@@ -156,9 +159,9 @@ export const SolutionsGrid = () => {
                       {item.desc}
                     </p>
 
-                    <div className="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#B30D2B] group-hover:text-[#8B0A21] uppercase tracking-wider">
-                      <span>Explore Solution</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    <div className="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE]">Explore Solution</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#00A9CE] transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
                 </Link>

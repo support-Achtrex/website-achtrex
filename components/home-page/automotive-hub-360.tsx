@@ -49,16 +49,17 @@ export const AutomotiveHub360 = () => {
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
             className="lg:col-span-6 flex flex-col items-start space-y-6"
           >
-            {/* Top Red Crimson Banner Box */}
-            <div className="w-full bg-[#B30D2B] text-white px-6 py-5 rounded-none shadow-md">
-              <p className="text-base sm:text-lg font-medium leading-snug">
-                Welcome into the <strong className="font-bold">#1 Automotive Hub</strong> of customized services and enterprise platforms.
+            {/* Top Brand Banner Box */}
+            <div className="w-full bg-[#0C1118] border border-white/10 text-white px-6 py-5 rounded-2xl shadow-md relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#F37021]/15 to-[#00A9CE]/15 pointer-events-none" />
+              <p className="text-base sm:text-lg font-medium leading-snug relative z-10">
+                Welcome into the <strong className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE]">#1 Automotive Hub</strong> of customized services and enterprise platforms.
               </p>
             </div>
 
             {/* Emblem / Badge & Titles */}
             <div className="flex items-start gap-5 pt-2">
-              <div className="w-20 h-20 bg-[#B30D2B] text-white rounded-none p-2 flex flex-col justify-center items-center text-center shrink-0 shadow-sm">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#F37021] to-[#00A9CE] text-white rounded-2xl p-2 flex flex-col justify-center items-center text-center shrink-0 shadow-md">
                 <span className="text-2xl font-black leading-none tracking-tighter">26</span>
                 <span className="text-[9px] font-bold uppercase tracking-wider mt-0.5 border-t border-white/40 pt-0.5 w-full">ACHTREX</span>
                 <span className="text-[7px] text-white/80 font-mono">2024 - 2026</span>
@@ -77,8 +78,8 @@ export const AutomotiveHub360 = () => {
             {/* Actions / Sub-links */}
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <Link 
-                href="/products" 
-                className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-[#B30D2B] hover:text-[#8B0A21] hover:underline transition-colors"
+                href="/services" 
+                className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] hover:opacity-80 transition-opacity"
               >
                 Explore Modules →
               </Link>

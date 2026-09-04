@@ -65,8 +65,8 @@ export const AchtrexFaq = () => {
             Everything you need to know about <span className="text-slate-900">Achtrex</span>
           </motion.h2>
           
-          {/* Orange Accent Underline Bar */}
-          <div className="w-24 h-1 bg-[#F37021] mx-auto mt-4 rounded-full" />
+          {/* Brand Gradient Underline Bar */}
+          <div className="w-24 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mx-auto mt-4 rounded-full" />
         </div>
 
         {/* Accordion List matching reference image 1 */}
@@ -83,12 +83,12 @@ export const AchtrexFaq = () => {
                   className="w-full py-5 flex items-center justify-between text-left group focus:outline-none cursor-pointer"
                 >
                   <div className="flex items-center gap-3 pr-4">
-                    <ArrowRight className="w-4 h-4 text-slate-900 shrink-0 stroke-[2.5]" />
-                    <span className="text-sm sm:text-base md:text-[17px] font-bold text-slate-900 group-hover:text-[#F37021] transition-colors leading-snug">
+                    <ArrowRight className="w-4 h-4 text-slate-900 shrink-0 stroke-[2.5] group-hover:text-[#00A9CE] transition-colors" />
+                    <span className="text-sm sm:text-base md:text-[17px] font-bold text-slate-900 group-hover:text-[#00A9CE] transition-colors leading-snug">
                       {faq.question}
                     </span>
                   </div>
-                  <div className="shrink-0 text-slate-800 group-hover:text-[#F37021] transition-colors">
+                  <div className="shrink-0 text-slate-800 group-hover:text-[#00A9CE] transition-colors">
                     {isOpen ? (
                       <ChevronUp className="w-5 h-5 stroke-[2]" />
                     ) : (

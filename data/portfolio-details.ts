@@ -1,6 +1,6 @@
 export const portfolioDetails = {
     "automotive-dataset": {
-        title: "AutomotiveDataset.com",
+        title: "Global Vehicle Intelligence API",
         kicker: "Enterprise VIN Intelligence",
         heroImage: "/projects/ad-logo.png",
         stats: [

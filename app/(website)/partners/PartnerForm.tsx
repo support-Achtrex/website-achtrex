@@ -117,7 +117,7 @@ export const PartnerForm = () => {
       
       {/* Form Header */}
       <div className="border-b border-slate-200/80 pb-6 mb-8 text-left">
-        <span className="text-[11px] font-black uppercase tracking-widest text-[#F37021] block mb-1">
+        <span className="text-[11px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] block mb-1">
           Official Partner Application
         </span>
         <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
@@ -366,10 +366,12 @@ export const PartnerForm = () => {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="btn-vibrant-pill !px-8 !py-3.5 !text-xs !uppercase !tracking-wider disabled:opacity-60"
+              className="btn-navbar-cta disabled:opacity-60"
             >
-              <Send className="w-4 h-4 text-white" />
-              <span>{status === 'loading' ? 'Dispatching Application...' : 'Submit Partner Application'}</span>
+              <span className="btn-navbar-cta-inner !px-8 !py-3.5 !text-xs !uppercase !tracking-wider">
+                <Send className="w-4 h-4 text-[#00A9CE]" />
+                <span>{status === 'loading' ? 'Dispatching Application...' : 'Submit Partner Application'}</span>
+              </span>
             </button>
           </div>
 

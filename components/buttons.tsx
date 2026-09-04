@@ -13,31 +13,18 @@ export const Button = ({
   className = '',
   ...props
 }: ButtonProps) => {
-
-  const baseStyles = 'font-bold rounded-full transition-all duration-300 inline-flex items-center justify-center relative disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer tracking-wide';
-
-  const variants = {
-    // Vibrant Orange-to-Amber Pill (matching Quick Digital reference & navbar accent)
-    primary: 'bg-gradient-to-r from-[#E8592A] via-[#F37021] to-[#FB923C] text-white shadow-[0_4px_16px_rgba(243,112,33,0.35)] hover:shadow-[0_6px_24px_rgba(243,112,33,0.55)] hover:scale-105 border border-white/20',
-    vibrantPill: 'bg-gradient-to-r from-[#E8592A] via-[#F37021] to-[#FB923C] text-white shadow-[0_4px_16px_rgba(243,112,33,0.35)] hover:shadow-[0_6px_24px_rgba(243,112,33,0.55)] hover:scale-105 border border-white/20',
-    // Navbar Glowing Two-Tone Pill
-    navbarCta: 'relative group/btn overflow-hidden p-[1.5px] bg-gradient-to-r from-[#F37021] via-[#FB923C] to-[#00A9CE] hover:shadow-[0_0_24px_rgba(243,112,33,0.45)] hover:scale-105 text-white',
-    secondary: 'bg-[#1E2226] text-white hover:bg-black border border-white/10 shadow-sm',
-    outline: 'border-2 border-[#F37021] text-[#F37021] hover:bg-[#F37021] hover:text-white',
-    ghost: 'bg-transparent text-slate-800 hover:bg-slate-100 hover:text-slate-900'
-  };
-
   const sizes = {
-    sm: 'px-4 py-2 text-xs',
+    sm: 'px-4 py-1.5 text-xs',
     md: 'px-6 py-2.5 text-sm',
     lg: 'px-8 py-3.5 text-base'
   };
 
-  if (variant === 'navbarCta') {
+  // Primary, navbarCta, and vibrantPill use the signature CTA from the navbar (Book a meeting style)
+  if (variant === 'primary' || variant === 'navbarCta' || variant === 'vibrantPill') {
     return (
       <button
         className={cn(
-          'relative group/btn overflow-hidden rounded-full p-[1.5px] bg-gradient-to-r from-[#F37021] via-[#FB923C] to-[#00A9CE] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(243,112,33,0.45)] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed',
+          'relative group/btn overflow-hidden rounded-full p-[1.5px] sm:p-[2px] bg-gradient-to-r from-[#F37021] via-[#FB923C] to-[#00A9CE] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_22px_rgba(243,112,33,0.4)] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap',
           className
         )}
         {...props}
@@ -52,9 +39,17 @@ export const Button = ({
     );
   }
 
+  const baseStyles = 'font-bold rounded-full transition-all duration-300 inline-flex items-center justify-center relative disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer tracking-wide';
+
+  const variants = {
+    secondary: 'bg-[#1E2226] text-white hover:bg-black border border-white/10 shadow-sm',
+    outline: 'border-2 border-[#F37021] text-[#F37021] hover:bg-[#F37021] hover:text-white',
+    ghost: 'bg-transparent text-slate-800 hover:bg-slate-100 hover:text-slate-900'
+  };
+
   return (
     <button
-      className={cn(baseStyles, variants[variant], sizes[size], className)}
+      className={cn(baseStyles, variants[variant as 'secondary' | 'outline' | 'ghost'], sizes[size], className)}
       {...props}
     >
       <span className="relative z-10 flex items-center justify-center gap-2">{children}</span>

@@ -69,7 +69,7 @@ export const Navbar = () => {
               )}
             >
               <span>About Us</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F37021] transition-all duration-300 group-hover/link:w-full rounded-full" />
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#F37021] to-[#00A9CE] transition-all duration-300 group-hover/link:w-full rounded-full" />
             </Link>
 
             {/* Our Services Link (Direct Page) */}
@@ -81,7 +81,7 @@ export const Navbar = () => {
               )}
             >
               <span>Our Services</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F37021] transition-all duration-300 group-hover/link:w-full rounded-full" />
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#F37021] to-[#00A9CE] transition-all duration-300 group-hover/link:w-full rounded-full" />
             </Link>
 
             {/* Become a Partner */}
@@ -93,7 +93,7 @@ export const Navbar = () => {
               )}
             >
               <span>Become a Partner</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#00A9CE] transition-all duration-300 group-hover/link:w-full rounded-full" />
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#F37021] to-[#00A9CE] transition-all duration-300 group-hover/link:w-full rounded-full" />
             </Link>
           </div>
 
@@ -141,7 +141,7 @@ export const Navbar = () => {
               )}
             >
               <span>Industries</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F37021] transition-all duration-300 group-hover/link:w-full rounded-full" />
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#F37021] to-[#00A9CE] transition-all duration-300 group-hover/link:w-full rounded-full" />
             </Link>
 
             <Link 
@@ -152,7 +152,7 @@ export const Navbar = () => {
               )}
             >
               <span>Contact Us</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F37021] transition-all duration-300 group-hover/link:w-full rounded-full" />
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#F37021] to-[#00A9CE] transition-all duration-300 group-hover/link:w-full rounded-full" />
             </Link>
 
             {/* Glowing "Book a meeting" CTA */}
@@ -175,16 +175,20 @@ export const Navbar = () => {
           <div className="flex lg:hidden items-center gap-3">
             <Link 
               href="/contact-us" 
-              className={cn(
-                "bg-[#F37021] text-white font-bold rounded-full hover:bg-[#d85d15] whitespace-nowrap shadow-md transition-all",
-                scrolled ? "text-[11px] px-3 py-1" : "text-xs px-3.5 py-1.5"
-              )}
+              className="relative group/btn overflow-hidden rounded-full p-[1.5px] transition-all duration-300 hover:scale-105 whitespace-nowrap"
             >
-              Book Meeting
+              <span className="absolute inset-0 bg-gradient-to-r from-[#F37021] via-[#FB923C] to-[#00A9CE] rounded-full opacity-90" />
+              <span className={cn(
+                "relative flex items-center gap-1.5 bg-[#0C1118] text-white font-bold rounded-full transition-all",
+                scrolled ? "text-[11px] px-3 py-1" : "text-xs px-3.5 py-1.5"
+              )}>
+                <Calendar className="w-3 h-3 text-[#F37021]" />
+                <span>Book Meeting</span>
+              </span>
             </Link>
 
             <button
-              className="text-white p-2 hover:text-[#F37021] transition-colors"
+              className="text-white p-2 hover:text-[#00A9CE] transition-colors"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle navigation"
             >
@@ -259,10 +263,13 @@ export const Navbar = () => {
               <Link 
                 href="/contact-us" 
                 onClick={() => setIsOpen(false)}
-                className="w-full text-center bg-gradient-to-r from-[#F37021] to-[#FB923C] text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"
+                className="w-full relative group/btn overflow-hidden rounded-full p-[1.5px] transition-all duration-300 hover:scale-[1.02]"
               >
-                <Calendar className="w-4 h-4" />
-                <span>Book a meeting</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#F37021] via-[#FB923C] to-[#00A9CE] rounded-full" />
+                <span className="relative flex items-center justify-center gap-2 bg-[#0C1118] hover:bg-[#141B26] text-white font-bold py-3.5 px-6 rounded-full transition-all">
+                  <Calendar className="w-4 h-4 text-[#F37021]" />
+                  <span>Book a meeting</span>
+                </span>
               </Link>
             </div>
           </motion.div>

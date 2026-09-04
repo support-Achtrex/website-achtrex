@@ -59,8 +59,12 @@ const services = [
 
 export const SupplyChainServices = () => {
   return (
-    <section className="w-full bg-[#B30D2B] text-white py-16 md:py-24 font-sans relative overflow-hidden">
-      <div className="max-w-[1240px] mx-auto px-6">
+    <section className="w-full bg-[#0A0E14] text-white py-16 md:py-24 font-sans relative overflow-hidden border-y border-white/10">
+      {/* Subtle brand ambient glow */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#F37021]/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#00A9CE]/15 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-[1240px] mx-auto px-6 relative z-10">
         
         {/* Header Titles */}
         <div className="text-center max-w-4xl mx-auto mb-16">
@@ -68,17 +72,20 @@ export const SupplyChainServices = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-4xl font-black tracking-wider uppercase mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl font-black tracking-wider uppercase mb-3"
           >
             SERVICES DESIGNED FOR THE PROTAGONISTS OF THE SUPPLY CHAIN
           </motion.h2>
+
+          {/* Brand Gradient Underline */}
+          <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mx-auto mb-5 rounded-full" />
 
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xs sm:text-sm md:text-base text-white/90 font-normal leading-relaxed max-w-3xl mx-auto"
+            className="text-xs sm:text-sm md:text-base text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto"
           >
             Car Manufacturers, Parts Manufacturers, Equipment Manufacturers, Repairer Networks, Parts Distributors, Car Fleet and Insurance.
           </motion.p>
@@ -93,20 +100,22 @@ export const SupplyChainServices = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex flex-col items-center text-center space-y-4"
+              className="group flex flex-col items-center text-center space-y-3 p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all duration-300"
             >
-              {/* Icon */}
-              <div className="w-14 h-14 flex items-center justify-center mb-1">
+              {/* Icon Container with Gradient Rim */}
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#F37021]/20 via-[#FB923C]/10 to-[#00A9CE]/20 border border-white/15 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
                 {item.icon}
               </div>
 
-              {/* Underlined Title */}
-              <h3 className="text-sm sm:text-base font-bold underline underline-offset-4 tracking-wide text-white">
+              {/* Title */}
+              <h3 className="text-sm sm:text-base font-bold tracking-wide text-white group-hover:text-[#00A9CE] transition-colors">
                 {item.title}
               </h3>
 
+              <div className="w-8 h-0.5 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full" />
+
               {/* Body */}
-              <p className="text-xs sm:text-[13px] text-white/85 leading-relaxed font-normal max-w-xs">
+              <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed font-normal max-w-xs">
                 {item.desc}
               </p>
             </motion.div>

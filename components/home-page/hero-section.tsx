@@ -75,6 +75,28 @@ export const Hero = () => {
               <span className="text-cyan-400">•</span>
               <span>SALES & INVENTORY MANAGEMENT SOLUTIONS</span>
             </div>
+
+            {/* Signature Navbar-style Pill CTAs */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <Link 
+                href="/contact-us"
+                className="btn-navbar-cta"
+              >
+                <span className="btn-navbar-cta-inner !py-3.5 !px-8 text-xs sm:text-sm font-bold tracking-wide">
+                  <span>Book a Consultation</span>
+                  <span className="text-[#00A9CE]">→</span>
+                </span>
+              </Link>
+
+              <Link 
+                href="/services"
+                className="btn-navbar-cta"
+              >
+                <span className="btn-navbar-cta-inner !py-3.5 !px-7 text-xs sm:text-sm font-bold tracking-wide">
+                  <span>Explore Solutions</span>
+                </span>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>

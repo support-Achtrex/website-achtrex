@@ -61,8 +61,8 @@ export const InsightsResources = () => {
             Find the insights and{' '}
             <span className="relative inline-block">
               resources to support
-              {/* Orange underline bar */}
-              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[#F37021] mx-auto" />
+              {/* Brand gradient underline bar */}
+              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mx-auto rounded-full" />
             </span>{' '}
             your business
           </motion.h2>
@@ -101,7 +101,7 @@ export const InsightsResources = () => {
                   
                   {/* Category Tag Badge */}
                   {card.tag && (
-                    <div className="absolute top-4 left-4 bg-[#F37021] text-white text-[11px] font-bold px-3 py-1 rounded shadow-md uppercase tracking-wider">
+                    <div className="absolute top-4 left-4 bg-gradient-to-r from-[#F37021] to-[#00A9CE] text-white text-[11px] font-bold px-3 py-1 rounded shadow-md uppercase tracking-wider">
                       {card.tag}
                     </div>
                   )}
@@ -116,7 +116,7 @@ export const InsightsResources = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug group-hover:text-[#F37021] transition-colors mb-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug group-hover:text-[#00A9CE] transition-colors mb-3">
                     {card.title}
                   </h3>
 
@@ -126,9 +126,9 @@ export const InsightsResources = () => {
                   </p>
 
                   {/* Read More link */}
-                  <div className="mt-auto inline-flex items-center gap-2 text-xs font-bold text-white group-hover:text-[#F37021] uppercase tracking-wider transition-colors">
+                  <div className="mt-auto inline-flex items-center gap-2 text-xs font-bold text-white group-hover:text-[#00A9CE] uppercase tracking-wider transition-colors">
                     <span>Read more</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-[#F37021]" />
                   </div>
                 </div>
               </Link>
@@ -136,13 +136,16 @@ export const InsightsResources = () => {
           ))}
         </div>
 
-        {/* Orange Center Button */}
+        {/* Brand Pill CTA Button */}
         <div className="flex justify-center">
           <Link
             href="/resources"
-            className="inline-block bg-[#F37021] hover:bg-[#D95D12] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-8 py-3.5 rounded shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5"
+            className="btn-navbar-cta"
           >
-            See all resources
+            <span className="btn-navbar-cta-inner !py-3.5 !px-8 text-xs sm:text-sm uppercase tracking-wider">
+              <span>See all resources</span>
+              <ArrowRight className="w-4 h-4 text-[#00A9CE]" />
+            </span>
           </Link>
         </div>
 

@@ -4,34 +4,44 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 export const WelcomeBanner = () => {
   return (
     <section className="w-full bg-[#FFFFFF] font-sans">
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
         
-        {/* Left Slate Box */}
+        {/* Left Dark Tech Box */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-5 bg-[#677573] text-white p-10 sm:p-14 lg:p-16 flex flex-col justify-center items-start space-y-6"
+          className="lg:col-span-5 bg-[#0C1118] text-white p-10 sm:p-14 lg:p-16 flex flex-col justify-center items-start space-y-6 relative overflow-hidden"
         >
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight">
-            Welcome to <br />
-            <span className="text-white">Achtrex Technologies</span>
-          </h2>
+          {/* Subtle Ambient Glow */}
+          <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#F37021]/15 rounded-full blur-[80px] pointer-events-none" />
 
-          <p className="text-sm sm:text-base text-slate-100 font-normal leading-relaxed max-w-sm">
-            A single interface for a highly customized portfolio of automotive services.
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight mb-3">
+              Welcome to <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE]">Achtrex</span>
+            </h2>
+            <div className="w-14 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full" />
+          </div>
+
+          <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-sm">
+            A single interface for a highly customized portfolio of automotive services, data intelligence, and enterprise software platforms.
           </p>
 
           <Link 
             href="/about-us"
-            className="inline-block bg-[#B30D2B] hover:bg-[#8F0A22] text-white text-xs font-black uppercase tracking-widest px-8 py-3.5 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5"
+            className="btn-navbar-cta"
           >
-            WHO WE ARE
+            <span className="btn-navbar-cta-inner !py-3.5 !px-8 text-xs font-black uppercase tracking-widest">
+              <span>WHO WE ARE</span>
+              <ArrowRight className="w-4 h-4 text-[#00A9CE]" />
+            </span>
           </Link>
         </motion.div>
 

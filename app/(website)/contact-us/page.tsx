@@ -3,11 +3,11 @@ import { Metadata } from 'next';
 import { ContactClient } from './contact-client';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Achtrex Technology FZCO — Automotive Data & Platform Solutions',
-  description: 'Connect with Achtrex Technology FZCO. Discuss enterprise automotive dataset APIs, real-time VIN decoding infrastructure, and custom dealership cloud platforms.',
+  title: 'Contact Us | Achtrex — Automotive Data & Platform Solutions',
+  description: 'Connect with Achtrex. Discuss enterprise automotive dataset APIs, real-time VIN decoding infrastructure, and custom dealership cloud platforms.',
   keywords: [
     'Contact Achtrex',
-    'Achtrex Technology FZCO',
+    'Achtrex',
     'Automotive API Support',
     'VIN Decoding Solutions',
     'Enterprise Data Architecture',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     canonical: 'https://achtrex.com/contact-us',
   },
   openGraph: {
-    title: 'Contact Achtrex Technology FZCO | Enterprise Mobility Solutions',
+    title: 'Contact Achtrex | Enterprise Mobility Solutions',
     description: 'Get in touch with our architecture team to scale your automotive data and software infrastructure.',
     images: ['/projects/aaia_ui_v2.png'],
   }
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  'name': 'Contact Achtrex Technology FZCO',
+  'name': 'Contact Achtrex',
   'description': 'Direct collaboration and technical support desk for enterprise automotive data and custom software platforms.',
   'url': 'https://achtrex.com/contact-us',
   'mainEntity': {
     '@type': 'LocalBusiness',
-    'name': 'Achtrex Technology FZCO',
+    'name': 'Achtrex',
     'email': 'support@achtrex.com',
     'address': {
       '@type': 'PostalAddress',

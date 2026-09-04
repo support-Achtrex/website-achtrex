@@ -84,7 +84,7 @@ export const ConsultationBar = () => {
               <div className="shrink-0 transition-transform group-hover:scale-110">
                 {svc.icon}
               </div>
-              <span className="text-xs font-bold text-slate-800 underline underline-offset-2 group-hover:text-[#B30D2B] transition-colors leading-tight">
+              <span className="text-xs font-bold text-slate-800 underline underline-offset-2 group-hover:text-[#00A9CE] transition-colors leading-tight">
                 {svc.title}
               </span>
             </Link>
@@ -103,7 +103,7 @@ export const ConsultationBar = () => {
               AUTOMOTIVE EXPERT
             </h4>
             <p className="text-slate-700 font-normal">
-              <strong>Achtrex Technologies</strong> provides enterprise software and API infrastructure for key players across the automotive mobility chain. Databases, diagnostics, and customized scalable systems.
+              <strong>Achtrex</strong> provides enterprise software and API infrastructure for key players across the automotive mobility chain. Databases, diagnostics, and customized scalable systems.
             </p>
             <p className="text-slate-600 font-medium pt-2">
               <strong className="block text-slate-900">Headquarters</strong>
@@ -120,10 +120,10 @@ export const ConsultationBar = () => {
               Send a request and one of our solution architects will contact you with a customized enterprise proposal.
             </p>
             <div className="pt-2 space-y-1.5 font-bold">
-              <Link href="/contact-us" className="block text-slate-900 hover:text-[#B30D2B] hover:underline transition-colors">
+              <Link href="/contact-us" className="block text-slate-900 hover:text-[#00A9CE] hover:underline transition-colors">
                 Contact us
               </Link>
-              <Link href="/contact-us" className="block text-slate-900 hover:text-[#B30D2B] hover:underline transition-colors">
+              <Link href="/contact-us" className="block text-slate-900 hover:text-[#00A9CE] hover:underline transition-colors">
                 Remote Support
               </Link>
             </div>

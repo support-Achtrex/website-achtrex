@@ -60,8 +60,8 @@ export const TrustedAftermarket = () => {
               Trusted across the{' '}
               <span className="relative inline-block">
                 independent aftermarket
-                {/* Orange underline bar */}
-                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[#F37021] mx-auto" />
+                {/* Brand gradient underline bar */}
+                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mx-auto rounded-full" />
               </span>
             </h2>
 
@@ -93,7 +93,7 @@ export const TrustedAftermarket = () => {
                   <div className="md:col-span-8 space-y-6">
                     {/* Tag */}
                     <div className="flex items-center gap-2">
-                      <span className="w-1 h-4 bg-[#00a9ce] rounded-full" />
+                      <span className="w-1 h-4 bg-gradient-to-b from-[#F37021] to-[#00A9CE] rounded-full" />
                       <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
                         {item.tag}
                       </span>
@@ -149,7 +149,7 @@ export const TrustedAftermarket = () => {
                     onClick={() => setCurrent(idx)}
                     aria-label={`Go to slide ${idx + 1}`}
                     className={`h-2 rounded-full transition-all ${
-                      current === idx ? 'w-6 bg-[#F37021]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                      current === idx ? 'w-6 bg-gradient-to-r from-[#F37021] to-[#00A9CE]' : 'w-2 bg-slate-300 hover:bg-slate-400'
                     }`}
                   />
                 ))}
