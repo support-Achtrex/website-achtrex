@@ -144,7 +144,7 @@ export default function PartnersPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal"
+          className="text-slate-800 text-[15px] sm:text-base max-w-2xl mx-auto leading-[1.8] font-normal"
         >
           Grow your legitimacy, visibility, portfolio, and revenue with the Achtrex Partner Program — the official ecosystem for automotive data and technology specialists worldwide.
         </motion.p>

@@ -124,7 +124,7 @@ export const ContactClient = () => {
           Contact Achtrex
         </h1>
         <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mx-auto mt-3 mb-5 rounded-full" />
-        <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
+        <p className="text-slate-800 text-[15px] sm:text-base leading-[1.8] font-normal max-w-2xl mx-auto">
           Whether you need high-volume vehicle data APIs, real-time VIN decoding, or custom dealership cloud software — our engineering team is ready to connect.
         </p>
       </section>

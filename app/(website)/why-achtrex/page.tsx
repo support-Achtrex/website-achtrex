@@ -53,9 +53,9 @@ export default function WhyAchtrexPage() {
             viewport={{ once: true }}
             className="text-left">
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight tracking-tight">
-              We are an architectural <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00a9ce] to-[#053787]">technology laboratory.</span>
+              We are an architectural <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE]">technology laboratory.</span>
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
+            <p className="text-[15px] sm:text-base md:text-lg text-slate-800 leading-[1.8] font-normal">
               We do not simply iterate, we originate. Achtrex builds, strictly owns, and aggressively scales high-leverage algorithmic engines. Interfacing with our technology means plugging directly into a state-of-the-art, enterprise-grade cognitive infrastructure.
             </p>
           </motion.div>
@@ -112,9 +112,9 @@ export default function WhyAchtrexPage() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center bg-white p-12 md:p-16 rounded-3xl border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.05)] relative overflow-hidden group">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#00a9ce] to-[#76bc1d]"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE]"></div>
           <h2 className="text-3xl md:text-5xl font-black mb-8 text-slate-900 tracking-tight">Velocity via vertical integration.</h2>
-          <p className="text-lg md:text-xl text-slate-700 leading-relaxed italic font-normal">
+          <p className="text-[15px] sm:text-base md:text-lg text-slate-800 leading-[1.8] italic font-normal">
             "The most sophisticated systems integrate seamlessly into the background. By providing frictionless API access to our architectural core, we completely abstract the friction of massive data orchestration, enabling our partners to structurally outpace their competition."
           </p>
         </motion.div>

@@ -51,7 +51,7 @@ export default function BlogListingPage() {
  {/* Categories Navigation */}
  <div className="flex flex-wrap items-center gap-4 border-b border-slate-200 pb-4 mb-12">
  {categories.map((cat, idx) => (
- <button key={idx} className={`text-[15px] font-semibold px-5 py-2 rounded-full transition-colors ${idx === 0 ? 'bg-[#00a9ce] text-white' : 'text-slate-600 hover:bg-slate-200/50 hover:text-[#00a9ce]'}`}>
+ <button key={idx} className={`text-[15px] font-semibold px-5 py-2 rounded-full transition-all cursor-pointer ${idx === 0 ? 'bg-gradient-to-r from-[#F37021] to-[#00A9CE] text-white shadow-sm' : 'text-slate-600 hover:bg-slate-200/50 hover:text-[#00a9ce]'}`}>
  {cat}
  </button>
  ))}
@@ -77,7 +77,7 @@ export default function BlogListingPage() {
  {featuredPost.title}
  </h2>
  </Link>
- <p className="text-lg text-slate-500 mb-6 line-clamp-3">
+ <p className="text-[15px] sm:text-base text-slate-800 leading-[1.8] font-normal mb-6 line-clamp-3">
  {featuredPost.excerpt}
  </p>
  <div className="flex items-center gap-2 text-sm text-slate-400 font-medium">
@@ -97,8 +97,10 @@ export default function BlogListingPage() {
 
  {/* Load More Button */}
  <div className="flex justify-center">
- <button className="bg-transparent border-2 border-[#00a9ce] text-[#00a9ce] font-bold text-[15px] px-8 py-3 rounded-full hover:bg-[#00a9ce] hover:text-white transition-colors">
- Load More Articles
+ <button className="btn-navbar-cta">
+   <span className="btn-navbar-cta-inner !py-3 !px-8 text-[13px] uppercase tracking-wider">
+     <span>Load More Articles</span>
+   </span>
  </button>
  </div>
  </div>

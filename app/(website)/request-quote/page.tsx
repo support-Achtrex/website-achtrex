@@ -17,43 +17,43 @@ export default function RequestQuotePage() {
  
  <div className="lg:col-span-4 space-y-12">
  <div>
- <h2 className="text-2xl font-bold tracking-tight text-slate-900 mb-4">Enterprise SLAs & Delivery</h2>
- <p className="text-slate-600 leading-relaxed font-medium">
- We understand that velocity is a structural advantage. Our enterprise proposals include comprehensive delivery timelines and strict Service Level Agreements.
- </p>
- </div>
- 
- <div className="space-y-6">
- <div className="flex gap-4">
- <div className="w-1.5 h-1.5 rounded-none bg-[#00a9ce] shrink-0 mt-2" />
- <div>
- <h4 className="font-bold text-slate-900 mb-1">24-Hour Turnaround</h4>
- <p className="text-sm text-slate-600 font-medium">Initial technical proposal and architecture scoping within 24 business hours.</p>
- </div>
- </div>
- <div className="flex gap-4">
- <div className="w-1.5 h-1.5 rounded-none bg-[#00a9ce] shrink-0 mt-2" />
- <div>
- <h4 className="font-bold text-slate-900 mb-1">99.99% Guaranteed Uptime</h4>
- <p className="text-sm text-slate-600 font-medium">Financially backed SLAs for all API and AI infrastructure deployments.</p>
- </div>
- </div>
- <div className="flex gap-4">
- <div className="w-1.5 h-1.5 rounded-none bg-[#00a9ce] shrink-0 mt-2" />
- <div>
- <h4 className="font-bold text-slate-900 mb-1">Dedicated Engineering Team</h4>
- <p className="text-sm text-slate-600 font-medium">Direct access to the architects building your system via Slack/Teams.</p>
- </div>
- </div>
- </div>
+  <h2 className="text-2xl font-bold tracking-tight text-slate-900 mb-4">Enterprise SLAs & Delivery</h2>
+  <p className="text-[15px] sm:text-base text-slate-800 leading-[1.8] font-normal">
+  We understand that velocity is a structural advantage. Our enterprise proposals include comprehensive delivery timelines and strict Service Level Agreements.
+  </p>
+  </div>
+  
+  <div className="space-y-6">
+  <div className="flex gap-4">
+  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] shrink-0 mt-2" />
+  <div>
+  <h4 className="font-bold text-slate-900 mb-1">24-Hour Turnaround</h4>
+  <p className="text-[14px] text-slate-700 font-normal leading-relaxed">Initial technical proposal and architecture scoping within 24 business hours.</p>
+  </div>
+  </div>
+  <div className="flex gap-4">
+  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] shrink-0 mt-2" />
+  <div>
+  <h4 className="font-bold text-slate-900 mb-1">99.99% Guaranteed Uptime</h4>
+  <p className="text-[14px] text-slate-700 font-normal leading-relaxed">Financially backed SLAs for all API and AI infrastructure deployments.</p>
+  </div>
+  </div>
+  <div className="flex gap-4">
+  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] shrink-0 mt-2" />
+  <div>
+  <h4 className="font-bold text-slate-900 mb-1">Dedicated Engineering Team</h4>
+  <p className="text-[14px] text-slate-700 font-normal leading-relaxed">Direct access to the architects building your system via Slack/Teams.</p>
+  </div>
+  </div>
+  </div>
 
- <div className="p-6 bg-white border border-slate-200">
- <h4 className="text-sm font-bold tracking-widest text-[#00a9ce] uppercase mb-2">Technical Feasibility</h4>
- <p className="text-sm text-slate-600 font-medium italic">
- Every quote includes a preliminary architecture diagram to ensure complete alignment before contracts are signed.
- </p>
- </div>
- </div>
+  <div className="p-6 bg-white border border-slate-200 rounded-xl shadow-xs">
+  <h4 className="text-xs font-bold tracking-widest text-[#F37021] uppercase mb-2">Technical Feasibility</h4>
+  <p className="text-[13.5px] text-slate-700 font-normal italic leading-relaxed">
+  Every quote includes a preliminary architecture diagram to ensure complete alignment before contracts are signed.
+  </p>
+  </div>
+  </div>
  
  <div className="lg:col-span-8">
  <div className="bg-white p-8 border border-slate-200 shadow-sm">

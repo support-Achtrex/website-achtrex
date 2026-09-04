@@ -39,26 +39,36 @@
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
-  --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
-  --font-heading: var(--font-heading);
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --background-image-logo-gradient: var(--logo-gradient);
 }
 
 html {
-  text-rendering: geometricPrecision;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-jakarta), var(--font-sans), sans-serif;
-  text-rendering: geometricPrecision;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* Crisp & Sharp Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  letter-spacing: -0.02em;
+}
+
+p, span, li, a, button, input, textarea {
+  text-rendering: optimizeLegibility;
 }
 
 /* Sharp Image & Graphic Rendering */

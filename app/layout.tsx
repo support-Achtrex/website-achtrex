@@ -126,7 +126,7 @@ export default function RootLayout({
  <head>
     <link rel="preload" as="image" href="/aaia-poster.jpg" fetchPriority="high" />
  </head>
- <body className={`${plusJakartaSans.variable} font-sans antialiased min-h-screen flex flex-col bg-[#F8F9FA] text-[#0F172A] leading-relaxed selection:bg-[#F37021] selection:text-white overflow-x-hidden`}>
+ <body className={`${plusJakartaSans.className} ${plusJakartaSans.variable} font-sans min-h-screen flex flex-col bg-[#F8F9FA] text-[#0F172A] leading-relaxed selection:bg-[#F37021] selection:text-white overflow-x-hidden`}>
  <script
  type="application/ld+json"
  dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

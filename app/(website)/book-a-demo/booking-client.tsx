@@ -148,8 +148,8 @@ export const BookingClient = () => {
                   className="!m-0 text-slate-800 calendar-custom"
                   disabled={{ before: new Date(), dayOfWeek: [0, 6] }}
                   classNames={{
-                    selected: "!bg-[#00a9ce] !text-white hover:!bg-[#001a22]",
-                    today: "text-[#00a9ce] font-bold",
+                    selected: "!bg-gradient-to-r !from-[#F37021] !to-[#00A9CE] !text-white hover:!opacity-95",
+                    today: "text-[#F37021] font-bold",
                   }}
                 />
               </div>
@@ -203,9 +203,11 @@ export const BookingClient = () => {
                 <button 
                   type="submit" 
                   disabled={status === 'loading'}
-                  className="w-full bg-[#00a9ce] hover:bg-[#001a22] text-white font-black text-xs uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all disabled:opacity-70 mt-2 shadow-md cursor-pointer"
+                  className="btn-navbar-cta w-full block mt-3 cursor-pointer disabled:opacity-60"
                 >
-                  {status === 'loading' ? 'Scheduling Demo...' : 'Confirm Demo Session'}
+                  <span className="btn-navbar-cta-inner !py-3.5 !px-6 text-[12px] uppercase tracking-wider justify-center w-full">
+                    <span>{status === 'loading' ? 'Scheduling Demo...' : 'Confirm Demo Session'}</span>
+                  </span>
                 </button>
               </form>
             </div>

@@ -99,8 +99,8 @@ export const ComparisonSection = () => {
             <div className="px-7 py-4 rounded-xl bg-white/10 border border-white/15">
               <span className="text-xs font-black text-slate-200 uppercase tracking-widest">Key Factor</span>
             </div>
-            <div className="px-7 py-4 rounded-xl bg-gradient-to-r from-[#00a9ce] to-[#0080af] flex items-center justify-between shadow-lg shadow-[#00a9ce]/20">
-              <span className="text-sm font-black text-white tracking-wide uppercase">Achtrex Technologies</span>
+            <div className="px-7 py-4 rounded-xl bg-gradient-to-r from-[#F37021] to-[#00A9CE] flex items-center justify-between shadow-lg shadow-[#F37021]/20">
+              <span className="text-sm font-black text-white tracking-wide uppercase">Achtrex</span>
               <span className="text-[10px] font-extrabold text-white/90 uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full">Recommended</span>
             </div>
             <div className="px-7 py-4 rounded-xl bg-white/10 border border-white/15">
@@ -177,14 +177,14 @@ export const ComparisonSection = () => {
             className="mt-6 grid grid-cols-1 lg:grid-cols-[1.4fr_1.8fr_1.4fr] gap-2 lg:gap-3"
           >
             <div />
-            <div className="px-7 py-5 rounded-xl bg-white/10 border border-[#00a9ce]/35 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="px-7 py-5 rounded-xl bg-white/10 border border-[#F37021]/40 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-black text-white uppercase tracking-widest">Achtrex Advantage</p>
                 <p className="text-[11px] text-slate-300 font-medium mt-0.5">8 of 8 critical dimensions. Zero compromise.</p>
               </div>
               <div className="flex items-center gap-3">
                 <div className="text-right">
-                  <div className="text-2xl font-black text-[#00a9ce]">8/8</div>
+                  <div className="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#F37021] to-[#00A9CE]">8/8</div>
                   <div className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Factors Won</div>
                 </div>
               </div>

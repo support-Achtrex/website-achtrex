@@ -235,7 +235,7 @@ export const UseCasesContent = () => {
 
                 {/* Description */}
                 <div className="mb-10">
-                  <p className="text-[16px] text-slate-500 leading-relaxed font-medium">
+                  <p className="text-[15px] sm:text-base text-slate-800 leading-[1.8] font-normal">
                     {useCase.description}
                   </p>
                 </div>
@@ -249,8 +249,8 @@ export const UseCasesContent = () => {
                     </h3>
                     <ul className="space-y-3">
                       {useCase.scope.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-[14px] text-slate-500 font-medium">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-none bg-[#00a9ce] shrink-0" />
+                        <li key={i} className="flex items-start gap-3 text-[14px] sm:text-[15px] text-slate-700 font-normal leading-relaxed">
+                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -265,8 +265,8 @@ export const UseCasesContent = () => {
                     </h3>
                     <ul className="space-y-3">
                       {useCase.capabilities.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-[14px] text-slate-500 font-medium">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-none bg-[#00a9ce] shrink-0" />
+                        <li key={i} className="flex items-start gap-3 text-[14px] sm:text-[15px] text-slate-700 font-normal leading-relaxed">
+                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -276,23 +276,23 @@ export const UseCasesContent = () => {
 
                 {/* AAIA Section (if exists) */}
                 {useCase.lumi && (
-                  <div className="mb-10 rounded-2xl border border-[#76bc1d]/20 bg-gradient-to-r from-[#76bc1d]/5 to-transparent p-8 relative overflow-hidden">
-                    <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-[#76bc1d]/10 rounded-full blur-2xl"></div>
+                  <div className="mb-10 rounded-2xl border border-[#00a9ce]/20 bg-gradient-to-r from-[#00a9ce]/5 to-transparent p-8 relative overflow-hidden">
+                    <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-[#00a9ce]/10 rounded-full blur-2xl"></div>
                     <div className="flex items-center gap-3 mb-4 relative z-10">
-                      <div className="w-8 h-8 rounded-full bg-[#76bc1d]/10 border border-[#76bc1d]/30 flex items-center justify-center shadow-sm">
-                        <span className="text-[#76bc1d] text-sm">✦</span>
+                      <div className="w-8 h-8 rounded-full bg-[#00a9ce]/10 border border-[#00a9ce]/30 flex items-center justify-center shadow-sm">
+                        <span className="text-[#00a9ce] text-sm">✦</span>
                       </div>
                       <h3 className="text-lg font-black text-slate-900 tracking-tight">{useCase.lumi.title}</h3>
                     </div>
-                    <p className="text-[15px] text-slate-600 mb-6 font-medium relative z-10">{useCase.lumi.description}</p>
+                    <p className="text-[15px] text-slate-800 mb-6 font-normal leading-[1.8] relative z-10">{useCase.lumi.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4 relative z-10">
                       {useCase.lumi.capabilities.map((cap, i) => (
-                        <span key={i} className="px-3 py-1.5 rounded-full text-[11px] font-bold bg-white border border-[#76bc1d]/20 text-[#76bc1d] shadow-sm">
+                        <span key={i} className="px-3 py-1.5 rounded-full text-[11px] font-bold bg-white border border-[#00a9ce]/20 text-[#00a9ce] shadow-sm">
                           {cap}
                         </span>
                       ))}
                     </div>
-                    <p className="text-[13px] text-slate-500 italic border-t border-[#76bc1d]/20 pt-4 mt-4 font-medium relative z-10">
+                    <p className="text-[13px] text-slate-600 italic border-t border-slate-200/80 pt-4 mt-4 font-normal relative z-10">
                       {useCase.lumi.note}
                     </p>
                   </div>
@@ -300,8 +300,8 @@ export const UseCasesContent = () => {
 
                 {/* Strategic Value */}
                 <div className="rounded-2xl bg-slate-50 border border-slate-100 p-8">
-                  <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-[#00a9ce] mb-3">Strategic Value</h3>
-                  <p className="text-[15px] text-slate-600 leading-relaxed font-medium">
+                  <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-[#F37021] mb-3">Strategic Value</h3>
+                  <p className="text-[15px] text-slate-800 leading-[1.8] font-normal">
                     {useCase.strategicValue}
                   </p>
                 </div>
@@ -325,17 +325,18 @@ export const UseCasesContent = () => {
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10 p-12 lg:p-16 text-center md:text-left">
             <div>
               <h2 className="text-[32px] md:text-[36px] font-black text-white mb-4 tracking-tight drop-shadow-md">Ready to build your solution?</h2>
-              <p className="text-[16px] md:text-[18px] text-slate-300 font-medium">
+              <p className="text-[15px] md:text-[16px] text-slate-200 font-normal leading-[1.8]">
                 Contact our team to discuss integration at{' '}
                 <a href="mailto:support@achtrex.com" className="text-[#00a9ce] hover:text-white font-bold transition-colors">
                   support@achtrex.com
                 </a>
               </p>
             </div>
-            <Link href="/contact-us"
-              className="inline-flex items-center gap-3 bg-logo-gradient text-white font-bold text-[15px] px-8 py-4 rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(0,169,206,0.4)] transition-all whitespace-nowrap shrink-0 group border-0">
-              Get in touch
-              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            <Link href="/contact-us" className="btn-navbar-cta inline-block shrink-0">
+              <span className="btn-navbar-cta-inner !py-3.5 !px-8 text-[13px] uppercase tracking-wider">
+                <span>Get in touch</span>
+                <svg className="w-4 h-4 ml-2 inline-block transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </span>
             </Link>
           </div>
         </motion.div>

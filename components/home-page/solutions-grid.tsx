@@ -96,7 +96,7 @@ export const SolutionsGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xs sm:text-sm font-bold text-slate-500 tracking-widest uppercase mb-3"
+            className="text-xs sm:text-[13px] font-extrabold text-slate-600 tracking-widest uppercase mb-3"
           >
             CHOSEN BY AUTOMOTIVE EXPERTS
           </motion.h3>
@@ -109,7 +109,7 @@ export const SolutionsGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl font-normal"
+            className="text-[15px] sm:text-base text-slate-700 leading-[1.75] max-w-2xl font-normal"
           >
             We provide solutions that can be adapted to meet the specific requirements of Auto Manufacturers, Parts and Equipment Manufacturers, Repairer Networks, Parts Distributors, Car Fleets and Insurance that manage Authority processes.
           </motion.p>
@@ -141,7 +141,7 @@ export const SolutionsGrid = () => {
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
                     
                     {/* Corner Tag */}
-                    <div className="absolute top-3 left-3 bg-[#0A0E14]/85 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider rounded-md border border-white/10">
+                    <div className="absolute top-3 left-3 bg-[#0A0E14]/85 backdrop-blur-md px-2.5 py-1 text-[10px] font-extrabold text-white uppercase tracking-wider rounded-md border border-white/10">
                       {item.kicker}
                     </div>
                   </div>
@@ -150,16 +150,16 @@ export const SolutionsGrid = () => {
                   <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       <Icon className="w-4 h-4 text-[#F37021] shrink-0" />
-                      <h4 className="text-base font-bold text-slate-900 group-hover:text-[#00A9CE] transition-colors leading-snug">
+                      <h4 className="text-base sm:text-[17px] font-extrabold text-slate-900 group-hover:text-[#00A9CE] transition-colors leading-snug">
                         {item.title}
                       </h4>
                     </div>
 
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal mb-5 flex-1">
+                    <p className="text-[13px] sm:text-[13.5px] text-slate-600 leading-relaxed font-normal mb-5 flex-1">
                       {item.desc}
                     </p>
 
-                    <div className="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+                    <div className="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between text-xs sm:text-[12.5px] font-extrabold uppercase tracking-wider">
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE]">Explore Solution</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#00A9CE] transition-transform group-hover:translate-x-1" />
                     </div>

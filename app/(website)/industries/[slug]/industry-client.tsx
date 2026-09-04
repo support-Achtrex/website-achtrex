@@ -369,7 +369,7 @@ export default function IndustryClient({ slug }: { slug: string }) {
  </h2>
  <div className="space-y-6">
  {data.description.split('\n\n').map((paragraph: string, i: number) => (
- <p key={i} className="text-slate-600 leading-relaxed text-lg font-medium">
+ <p key={i} className="text-slate-800 leading-[1.8] text-[15px] sm:text-base font-normal">
  {paragraph}
  </p>
  ))}
@@ -468,11 +468,12 @@ export default function IndustryClient({ slug }: { slug: string }) {
  ))}
  </div>
  
- <Link href="/contact-us" className="group relative flex items-center justify-center gap-3 w-full bg-[#001a22] text-white font-bold py-4 px-6 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all">
- <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
- <span className="relative z-10 text-sm tracking-widest uppercase">Start Building</span>
- <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" />
- </Link>
+  <Link href="/contact-us" className="btn-navbar-cta w-full block">
+    <span className="btn-navbar-cta-inner !py-3.5 !px-6 text-[13px] uppercase tracking-wider justify-center w-full">
+      <span>Start Building</span>
+      <ArrowRight className="w-4 h-4 ml-2 inline-block group-hover:translate-x-1 transition-transform" />
+    </span>
+  </Link>
  </div>
  </div>
 

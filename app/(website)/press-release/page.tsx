@@ -60,7 +60,7 @@ export default function PressReleasePage() {
  <h3 className="text-3xl md:text-[36px] font-black leading-tight mb-4 group-hover:text-[#00a9ce] transition-colors tracking-tight text-slate-900">
  {featuredPress.title}
  </h3>
- <p className="text-lg text-slate-600 mb-8 line-clamp-3 font-medium leading-relaxed">
+ <p className="text-[15px] sm:text-base text-slate-800 mb-8 line-clamp-3 font-normal leading-[1.8]">
  {featuredPress.excerpt}
  </p>
  <div className="inline-flex items-center gap-2 text-[#00a9ce] font-bold group-hover:gap-4 transition-all bg-[#00a9ce]/5 px-6 py-3 rounded-xl group-hover:bg-[#00a9ce] group-hover:text-white">
@@ -104,7 +104,7 @@ export default function PressReleasePage() {
  <h4 className="text-xl md:text-2xl font-black mb-3 group-hover:text-[#00a9ce] transition-colors leading-snug tracking-tight text-slate-900">
  {press.title}
  </h4>
- <p className="text-slate-500 line-clamp-2 font-medium">
+ <p className="text-[14px] text-slate-700 line-clamp-2 font-normal leading-relaxed">
  {press.excerpt}
  </p>
  </div>
@@ -115,8 +115,10 @@ export default function PressReleasePage() {
  
  {/* Pagination / Load More */}
  <div className="mt-12 flex justify-center border-t border-slate-200 pt-12">
- <button className="bg-white border-2 border-[#00a9ce] text-[#00a9ce] font-bold text-[15px] px-8 py-3 rounded-full hover:bg-[#00a9ce] hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-1">
- View Older Releases
+ <button className="btn-navbar-cta">
+ <span className="btn-navbar-cta-inner !py-3 !px-8 text-[13px] uppercase tracking-wider">
+ <span>View Older Releases</span>
+ </span>
  </button>
  </div>
  </div>
@@ -179,8 +181,11 @@ export default function PressReleasePage() {
  <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#00a9ce]/20 rounded-full blur-2xl"></div>
  <h3 className="text-xl font-black mb-4 tracking-tight relative z-10">Brand Assets</h3>
  <p className="text-slate-300 mb-8 text-[15px] font-medium leading-relaxed relative z-10">Download official Achtrex logos, executive headshots, and product screenshots for media use.</p>
- <button className="flex items-center gap-3 bg-logo-gradient text-white px-6 py-4 rounded-full font-bold hover:shadow-[0_0_20px_rgba(0,169,206,0.4)] hover:scale-[1.02] transition-all w-full justify-center relative z-10">
- <Download className="w-5 h-5" /> Download Media Kit
+ <button className="btn-navbar-cta w-full block relative z-10">
+ <span className="btn-navbar-cta-inner !py-3.5 !px-6 text-[13px] uppercase tracking-wider justify-center w-full">
+ <Download className="w-4 h-4 mr-2 inline-block" />
+ <span>Download Media Kit</span>
+ </span>
  </button>
  </motion.div>
  </div>

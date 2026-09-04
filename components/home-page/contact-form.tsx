@@ -89,7 +89,7 @@ const ContactForm = () => {
       <h2 className="text-4xl md:text-4xl font-bold leading-tight text-gradient mb-6">
        Discuss infrastructure <br /> and API limits.
       </h2>
-      <p className="text-xl text-slate-500">
+      <p className="text-[15px] sm:text-base text-slate-800 leading-[1.8] font-normal">
        Connect with our deployment team to gain technical access, discuss pipeline integration, or explore custom enterprise architecture deployments.
       </p>
      </motion.div>
@@ -181,15 +181,16 @@ const ContactForm = () => {
       transition={{ duration: 0.5, delay: 0.8 }}
       className="flex flex-col md:flex-row items-center gap-6 pt-4"
      >
-      <Button
+      <button
        type="submit"
        disabled={status === 'loading'}
-       size="lg"
-       className="w-full md:w-auto bg-[#00a9ce] text-white hover:bg-[#001a22] rounded-none px-10 py-4 font-bold tracking-wide transition-all shadow-none"
+       className="btn-navbar-cta w-full md:w-auto block disabled:opacity-60 cursor-pointer"
       >
-       {status === 'loading' ? 'Submitting...' : 'Submit Request'}
-       <ArrowRight className="ml-2 w-4 h-4 inline-block" />
-      </Button>
+       <span className="btn-navbar-cta-inner !py-3.5 !px-8 text-[13px] uppercase tracking-wider justify-center">
+        <span>{status === 'loading' ? 'Submitting...' : 'Submit Request'}</span>
+        <ArrowRight className="ml-2 w-4 h-4 inline-block" />
+       </span>
+      </button>
 
       {status === 'success' && (
        <div className="flex flex-col gap-2">

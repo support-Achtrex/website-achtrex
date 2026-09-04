@@ -155,7 +155,7 @@ export const AboutContent = () => {
             {/* Signature Brand Gradient Underline */}
             <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
 
-            <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-xl">
+            <div className="space-y-4 text-slate-800 text-[15px] sm:text-[16px] leading-[1.8] font-normal max-w-xl">
               <p>
                 From the very beginning, our focus has been simple: setting the data standard for the industry and solving what no one can solve alone. Achtrex has grown alongside the independent automotive aftermarket, supporting how it evolves, connects, and operates across geographies.
               </p>
@@ -268,7 +268,7 @@ export const AboutContent = () => {
 
           <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-5 rounded-full" />
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-3xl">
+          <p className="text-slate-800 text-[15px] sm:text-base leading-[1.8] font-normal max-w-3xl">
             Since our founding, Achtrex has supported the development of shared standards and data that enable the independent aftermarket to operate across systems, companies, and geographies.
           </p>
         </div>
@@ -490,7 +490,7 @@ export const AboutContent = () => {
                 <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
               </div>
 
-              <div className="space-y-4 text-slate-300 text-sm sm:text-[15px] leading-relaxed font-normal">
+              <div className="space-y-4 text-slate-200 text-[15px] sm:text-base leading-[1.8] font-normal">
                 <p>
                   Our vision is to empower the automotive aftermarket to shape a connected data ecosystem by safeguarding independence through trusted standards and a shared data foundation. We aim to drive sustainable global business growth.
                 </p>
@@ -518,7 +518,7 @@ export const AboutContent = () => {
                 <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
               </div>
 
-              <div className="space-y-4 text-slate-300 text-sm sm:text-[15px] leading-relaxed font-normal">
+              <div className="space-y-4 text-slate-200 text-[15px] sm:text-base leading-[1.8] font-normal">
                 <p>
                   Today, Achtrex acts as the neutral backbone for collaboration across the independent automotive aftermarket.
                 </p>
@@ -725,7 +725,7 @@ export const AboutContent = () => {
             {/* Brand Gradient Underline */}
             <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
 
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-8 max-w-lg">
+            <p className="text-slate-800 text-[15px] sm:text-base leading-[1.8] font-normal mb-8 max-w-lg">
               Passionate about data, IT, and the automotive industry? Explore our open positions and join Achtrex as we shape the future of the automotive aftermarket.
             </p>
 
