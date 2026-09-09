@@ -25,7 +25,7 @@ export const AboutSection = () => {
             Powering the future of<br />automotive intelligence
           </h2>
           <p className="text-[16px] text-slate-500 leading-[1.6] max-w-3xl font-medium">
-            Achtrex is a global automotive technology company delivering scalable data APIs, enterprise VIN intelligence, and AAIA, a cognitive automotive reasoning engine. We operate live platforms, active integrations, and growing client engagements worldwide.
+            Achtrex is a global automotive technology company delivering bespoke software builds, cognitive AI diagnostics, and strategic consultation. We operate live platforms, active integrations, and growing client engagements worldwide.
           </p>
         </motion.div>
 
@@ -66,7 +66,7 @@ export const AboutSection = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#F8F9FA]/30 via-transparent to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-3">
-            {['Vehicle Intelligence', 'AAIA', 'Achtrex Core', 'Enterprise APIs'].map((tag, i) => (
+            {['Software Builds', 'Cognitive AI', 'Achtrex Core', 'Strategic Advisory'].map((tag, i) => (
               <span key={i} className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-[12px] font-bold text-slate-900 border border-slate-300">
                 {tag}
               </span>

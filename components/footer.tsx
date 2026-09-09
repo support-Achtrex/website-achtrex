@@ -28,12 +28,8 @@ export const Footer = () => {
               AUTOMOTIVE EXPERT
             </h4>
             <p className="text-slate-700 font-normal leading-relaxed">
-              <strong>Achtrex</strong> provides enterprise software and API infrastructure for key players across the automotive mobility chain. Databases, diagnostics, and customized scalable systems.
+              <strong>Achtrex</strong> provides enterprise automotive software builds, cognitive AI diagnostics, and strategic consultation for businesses, dealerships, and manufacturers worldwide.
             </p>
-            <div className="pt-2 text-slate-700 font-medium">
-              <strong className="block text-slate-900 font-bold mb-0.5">Headquarters</strong>
-              Global Automotive Software & Cloud Operations
-            </div>
           </div>
 
           {/* Col 2: Request A Consultation */}

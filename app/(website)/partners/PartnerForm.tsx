@@ -5,20 +5,24 @@ import { ArrowRight, CheckCircle2, AlertCircle, Building2, User, Globe, FileText
 import { submitPartnerForm } from '@/app/actions/contact';
 
 const partnershipTracks = [
-  'System Integrator (API & Data Integration)',
-  'Consultant & Solutions Architect (Automotive Advisory)',
-  'Reseller & Commercial Partner (License Distribution)',
-  'Independent Software Vendor (ISV / SaaS Developer)',
-  'OEM & Strategic Technology Partner'
+  'Strategic Collaboration & Joint Venture',
+  'Technology Co-Innovation & AI Research Partner',
+  'Supplier & Hardware Provider (Telematics, Diagnostics, Parts)',
+  'OEM & Automotive Manufacturer Alliance',
+  'Commercial & Regional Distribution Alliance',
+  'Executive Advisory & Automotive Specialist',
+  'Other Collaborative Initiative'
 ];
 
 const targetMarkets = [
-  'Retail Dealerships (Franchise & Independent)',
-  'Independent Aftermarket & Repair Workshops',
-  'Automotive Insurance & Actuarial Providers',
-  'Commercial Fleet & Logistics Operators',
-  'Automotive Classifieds & Digital Marketplaces',
-  'Auto Parts Distributors & Wholesalers'
+  'Global Mobility & International Operations',
+  'Middle East & GCC Region',
+  'North America (US & Canada)',
+  'Europe & United Kingdom',
+  'Automotive Hardware & Diagnostic Devices',
+  'Dealership Networks & Retail Groups',
+  'Fleet Operators & Commercial Mobility',
+  'Cross-Border Distribution & Market Expansion'
 ];
 
 const companySizes = [
@@ -71,7 +75,12 @@ export const PartnerForm = () => {
     payload.append('phone', formData.phone);
     payload.append('role', formData.role);
     payload.append('company', formData.company);
-    payload.append('website', formData.website);
+    
+    let cleanWebsite = formData.website.trim();
+    if (cleanWebsite && !/^https?:\/\//i.test(cleanWebsite)) {
+      cleanWebsite = `https://${cleanWebsite}`;
+    }
+    payload.append('website', cleanWebsite);
     payload.append('country', formData.country);
     payload.append('companySize', formData.companySize);
     payload.append('type', formData.partnershipTrack);
@@ -118,13 +127,13 @@ export const PartnerForm = () => {
       {/* Form Header */}
       <div className="border-b border-slate-200/80 pb-6 mb-8 text-left">
         <span className="text-[11px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] block mb-1">
-          Official Partner Application
+          Strategic Alliances & Ecosystem Relations
         </span>
         <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-          Achtrex Partner Program Application
+          Achtrex Partnership & Collaboration Inquiry
         </h3>
         <p className="text-xs sm:text-sm text-slate-500 font-normal mt-1">
-          All applications are reviewed by our Partner Management Team and delivered directly to <strong className="text-slate-700">support@achtrex.com</strong>.
+          All inquiries are reviewed directly by Achtrex Executive Leadership and delivered securely to <strong className="text-slate-700">support@achtrex.com</strong>.
         </p>
       </div>
 
@@ -134,16 +143,16 @@ export const PartnerForm = () => {
             <CheckCircle2 className="w-8 h-8" />
           </div>
           <h4 className="text-xl font-extrabold text-emerald-950">
-            Application Submitted Successfully!
+            Inquiry Submitted Successfully!
           </h4>
           <p className="text-sm text-emerald-800 max-w-md mx-auto leading-relaxed">
-            Thank you for applying to the Achtrex Partner Program. Your application has been dispatched to <strong>support@achtrex.com</strong>. A dedicated partner director will review your profile and reach out within 1–2 business days.
+            Thank you for reaching out. Your partnership inquiry has been delivered directly to <strong>support@achtrex.com</strong>. An executive director will review your profile and connect within 1–2 business days.
           </p>
           <button
             onClick={() => setStatus('idle')}
             className="mt-4 px-6 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors cursor-pointer"
           >
-            Submit Another Application
+            Submit Another Inquiry
           </button>
         </div>
       ) : (
@@ -235,12 +244,15 @@ export const PartnerForm = () => {
               <div>
                 <label className={labelClasses}>Company Website / URL *</label>
                 <input
-                  type="url"
+                  type="text"
                   required
                   name="website"
                   value={formData.website}
                   onChange={handleChange}
-                  placeholder="https://www.company.com"
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  spellCheck={false}
+                  placeholder="e.g. company.com or https://company.com"
                   className={inputClasses}
                 />
               </div>
@@ -278,12 +290,12 @@ export const PartnerForm = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wide border-b border-slate-100 pb-2">
               <Globe className="w-4 h-4 text-[#F37021]" />
-              <span>3. Partnership Track & Market Alignment</span>
+              <span>3. Partnership Category & Strategic Scope</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               <div>
-                <label className={labelClasses}>Primary Partner Track *</label>
+                <label className={labelClasses}>Partnership Category *</label>
                 <select
                   name="partnershipTrack"
                   value={formData.partnershipTrack}
@@ -297,7 +309,7 @@ export const PartnerForm = () => {
               </div>
 
               <div>
-                <label className={labelClasses}>Target Customer Vertical *</label>
+                <label className={labelClasses}>Primary Market / Scope *</label>
                 <select
                   name="targetMarket"
                   value={formData.targetMarket}
@@ -335,7 +347,7 @@ export const PartnerForm = () => {
 
             <div>
               <label className={labelClasses}>
-                Tell us about your business, client ecosystem, and partnership goals *
+                Tell us about your organization, strategic objectives, or supplier/collaboration scope *
               </label>
               <textarea
                 required
@@ -343,7 +355,7 @@ export const PartnerForm = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Briefly describe your company's core automotive services, existing software/API integrations, customer volume, and what you aim to build with Achtrex..."
+                placeholder="Please describe your organization, strategic objectives, proposed collaboration or supply structure, and how we can achieve mutual success..."
                 className={`${inputClasses} resize-none min-h-[110px] leading-relaxed`}
               />
             </div>
@@ -360,7 +372,7 @@ export const PartnerForm = () => {
           {/* Submit Action */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100">
             <p className="text-[11px] text-slate-500 font-normal">
-              By submitting, you agree to receive communications from Achtrex Partner Relations.
+              By submitting, you agree to receive communications from Achtrex Strategic Alliances &amp; Capital Relations.
             </p>
 
             <button
@@ -370,7 +382,7 @@ export const PartnerForm = () => {
             >
               <span className="btn-navbar-cta-inner !px-8 !py-3.5 !text-xs !uppercase !tracking-wider">
                 <Send className="w-4 h-4 text-[#00A9CE]" />
-                <span>{status === 'loading' ? 'Dispatching Application...' : 'Submit Partner Application'}</span>
+                <span>{status === 'loading' ? 'Dispatching Inquiry...' : 'Submit Partnership Inquiry'}</span>
               </span>
             </button>
           </div>

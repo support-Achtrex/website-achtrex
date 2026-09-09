@@ -4,44 +4,35 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Database, Layers, Brain, Cpu } from 'lucide-react';
+import { ArrowRight, Brain, Cpu, Compass } from 'lucide-react';
 
 const solutions = [
   {
-    id: 'data',
-    title: 'Automotive Data & APIs',
-    kicker: 'Vehicle Intelligence',
-    icon: Database,
-    image: '/images/home_data_dots.jpg',
-    link: '/contact-us',
-    desc: 'High-velocity vehicle intelligence, instant VIN decoding pipelines, granular OEM specifications, and real-time market datasets with sub-50ms response latency.'
-  },
-  {
-    id: 'sales-inventory',
-    title: 'Sales & Inventory Cloud',
-    kicker: 'DMS & Dealership Platform',
-    icon: Layers,
-    image: '/images/home_processes_traffic.jpg',
-    link: '/contact-us',
-    desc: 'Bi-directional DMS synchronization, automated multi-channel inventory syndication, algorithmic age-on-lot pricing, and intelligent lead auto-routing.'
-  },
-  {
     id: 'software',
-    title: 'Custom Software Builds',
-    kicker: 'Bespoke Enterprise Systems',
+    title: 'Automotive Software Builds',
+    kicker: 'Bespoke Mobility Engineering',
     icon: Cpu,
-    image: '/images/home_software_chip.jpg',
+    image: '/images/solutions/auto_software_builds.jpg',
     link: '/contact-us',
-    desc: 'Bespoke dealer management portals, high-load auto parts marketplaces, and fleet ERPs built with zero vendor lock-in and 100% client IP ownership.'
+    desc: 'Bespoke dealership management platforms (DMS), multi-channel sales & inventory clouds, connected vehicle telematics backends, and workshop scheduling systems built with 100% IP ownership.'
   },
   {
     id: 'ai',
     title: 'Cognitive AI Solutions',
-    kicker: 'AAIA Diagnostic Reasoning',
+    kicker: 'AAIA Automotive Intelligence',
     icon: Brain,
-    image: '/images/home_360_hub.jpg',
+    image: '/images/solutions/auto_cognitive_ai.jpg',
     link: '/contact-us',
-    desc: 'Domain-specialized vehicle diagnostic engines, 24/7 conversational customer assistants, and neural multi-agent workflows trained specifically for automotive operations.'
+    desc: 'Domain-specialized vehicle diagnostic reasoning engines trained on OBD-II/DTC fault trees, 24/7 conversational dealership sales agents, automated service bay triage, and computer-vision vehicle damage inspection.'
+  },
+  {
+    id: 'consultation',
+    title: 'Automotive Consultation',
+    kicker: 'Strategic Advisory & Operations',
+    icon: Compass,
+    image: '/images/solutions/auto_consultation.jpg',
+    link: '/contact-us',
+    desc: 'Strategic advisory for businesses, manufacturers, dealerships, and individuals—covering vehicle technologies, automotive data pipelines, repair processes, diagnostics, workshop operations, and business strategy.'
   }
 ];
 
@@ -115,8 +106,8 @@ export const SolutionsGrid = () => {
           </motion.p>
         </div>
 
-        {/* 4 Solutions Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {/* 3 Core Automotive Solutions Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {solutions.map((item, idx) => {
             const Icon = item.icon;
 

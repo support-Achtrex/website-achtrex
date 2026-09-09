@@ -78,7 +78,7 @@ export function LegalContent() {
             transition={{ delay: 0.1 }}
             className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
           >
-            A unified transparency center governing how Achtrex secures automotive data, delivers enterprise API platforms, and upholds international privacy standards.
+            A unified transparency center governing how Achtrex secures automotive systems, delivers enterprise software platforms, and upholds international privacy standards.
           </motion.p>
 
           {/* Quick Tab Selector */}
@@ -232,7 +232,7 @@ export function LegalContent() {
                 <div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">1. Agreement to Terms</h3>
                   <p className="mb-3">
-                    These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you (whether individually or on behalf of an enterprise entity, &quot;Customer&quot;, &quot;you&quot;, or &quot;your&quot;) and <strong className="text-slate-900">Achtrex</strong> (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), governing your access to and use of Achtrex automotive data engines, API endpoints, VIN decoding services, cloud platforms, and related documentation (collectively, the &quot;Services&quot;).
+                    These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you (whether individually or on behalf of an enterprise entity, &quot;Customer&quot;, &quot;you&quot;, or &quot;your&quot;) and <strong className="text-slate-900">Achtrex</strong> (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), governing your access to and use of Achtrex automotive software builds, cognitive AI platforms, consultation advisory services, cloud platforms, and related documentation (collectively, the &quot;Services&quot;).
                   </p>
                   <p>
                     By accessing, querying, integrating, or utilizing the Services, you acknowledge that you have read, understood, and agreed to be bound by all of these Terms. If you do not agree with all of these Terms, you are prohibited from using the Services.
@@ -240,21 +240,21 @@ export function LegalContent() {
                 </div>
 
                 <div>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">2. Enterprise Licensing &amp; API Access</h3>
+                  <h3 className="text-base font-bold text-slate-900 mb-2">2. Enterprise Licensing &amp; Software Access</h3>
                   <p className="mb-3">
-                    Subject to your full compliance with these Terms and payment of applicable platform subscriptions, Achtrex grants you a limited, non-exclusive, non-transferable, revocable license to access our APIs and automotive datasets solely for internal operational workflows, application enrichment, or authorized dealer platform syndication.
+                    Subject to your full compliance with these Terms and payment of applicable platform subscriptions, Achtrex grants you a limited, non-exclusive, non-transferable, revocable license to access our custom software builds, cognitive AI tools, and consulting deliverables solely for internal operational workflows, application enrichment, or authorized dealer platform syndication.
                   </p>
                   <ul className="list-disc pl-5 space-y-1.5 text-slate-700">
-                    <li><strong className="text-slate-900">API Credentials:</strong> You are strictly responsible for maintaining the confidentiality of API keys, client secrets, and authentication bearer tokens. Any query initiated via your credentials is deemed authorized by your organization.</li>
+                    <li><strong className="text-slate-900">Platform Credentials:</strong> You are strictly responsible for maintaining the confidentiality of platform credentials, client secrets, and authentication bearer tokens. Any query or action initiated via your credentials is deemed authorized by your organization.</li>
                     <li><strong className="text-slate-900">Rate Limits &amp; Fair Use:</strong> You agree to conform with published rate-limiting tiers (measured in requests per second and monthly quota limits). Scripted circumvention of rate limit controls constitutes an immediate breach.</li>
-                    <li><strong className="text-slate-900">No Bulk Scraping:</strong> Automated scraping, reverse compilation, bulk offline mirroring, or sub-licensing of raw Achtrex VIN databases without express written authorization is strictly prohibited.</li>
+                    <li><strong className="text-slate-900">No Unauthorized Reverse Engineering:</strong> Automated extraction, reverse compilation, bulk offline mirroring, or unauthorized sub-licensing of proprietary Achtrex code or AI models without express written authorization is strictly prohibited.</li>
                   </ul>
                 </div>
 
                 <div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">3. Service Level Commitments &amp; Reliability</h3>
                   <p>
-                    For production tier enterprise accounts, Achtrex provides a standard <strong className="text-slate-900">99.9% Core API Uptime Commitment</strong> calculated on a calendar month basis, excluding scheduled maintenance windows notified at least 72 hours in advance. Sub-50ms target response latencies are maintained via redundant edge nodes.
+                    For production tier enterprise accounts, Achtrex provides a standard <strong className="text-slate-900">99.9% Platform Uptime Commitment</strong> calculated on a calendar month basis, excluding scheduled maintenance windows notified at least 72 hours in advance. Target response latencies are maintained via redundant edge nodes.
                   </p>
                 </div>
 
@@ -311,7 +311,7 @@ export function LegalContent() {
                 <div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">1. Our Privacy Commitment</h3>
                   <p>
-                    <strong className="text-slate-900">Achtrex</strong> respects the privacy of our website visitors, API consumers, enterprise partners, and authorized users. This Privacy Policy details how we collect, process, store, and safeguard personal and operational information across our platform, in full alignment with the <strong className="text-slate-900">UAE Federal Decree-Law No. 45/2021 on Personal Data Protection</strong>, the <strong className="text-slate-900">General Data Protection Regulation (GDPR)</strong>, and other applicable global standards.
+                    <strong className="text-slate-900">Achtrex</strong> respects the privacy of our website visitors, platform clients, enterprise partners, and authorized users. This Privacy Policy details how we collect, process, store, and safeguard personal and operational information across our platform, in full alignment with the <strong className="text-slate-900">UAE Federal Decree-Law No. 45/2021 on Personal Data Protection</strong>, the <strong className="text-slate-900">General Data Protection Regulation (GDPR)</strong>, and other applicable global standards.
                   </p>
                 </div>
 
@@ -319,8 +319,8 @@ export function LegalContent() {
                   <h3 className="text-base font-bold text-slate-900 mb-2">2. Categories of Information Collected</h3>
                   <ul className="list-disc pl-5 space-y-2 text-slate-700">
                     <li><strong className="text-slate-900">Account &amp; Contact Data:</strong> Name, work email address, company affiliation, telephone number, job title, and billing records provided during partner enrollment, contact inquiries, or meeting bookings.</li>
-                    <li><strong className="text-slate-900">Technical &amp; API Logs:</strong> Request timestamps, originating IP addresses, user agent headers, endpoint parameters, and latency metrics recorded automatically when interacting with Achtrex APIs.</li>
-                    <li><strong className="text-slate-900">Vehicular &amp; Catalog Metadata:</strong> VINs, vehicle equipment codes, diagnostic trouble codes (DTC), and parts identifiers processed through decoding interfaces. <em>Note:</em> VIN and mechanical vehicle identifiers do not contain personal individual identity data by default unless cross-referenced with external government title registries (which Achtrex does not store or process).</li>
+                    <li><strong className="text-slate-900">Technical &amp; System Logs:</strong> Request timestamps, originating IP addresses, user agent headers, session parameters, and latency metrics recorded automatically when interacting with Achtrex software platforms.</li>
+                    <li><strong className="text-slate-900">Vehicular &amp; Diagnostic Metadata:</strong> Vehicle equipment codes, diagnostic trouble codes (DTC), and parts identifiers processed through diagnostic and workshop interfaces. <em>Note:</em> Mechanical vehicle identifiers do not contain personal individual identity data.</li>
                   </ul>
                 </div>
 
@@ -328,8 +328,8 @@ export function LegalContent() {
                   <h3 className="text-base font-bold text-slate-900 mb-2">3. Purpose and Legal Grounds for Processing</h3>
                   <p className="mb-2">We process collected data exclusively under the following legal bases:</p>
                   <ul className="list-disc pl-5 space-y-1.5 text-slate-700">
-                    <li><strong className="text-slate-900">Contractual Performance:</strong> Fulfilling our service obligations, provisioning API keys, maintaining uptime, and delivering vehicle information.</li>
-                    <li><strong className="text-slate-900">Legitimate Interests:</strong> Preventing fraudulent queries, ensuring system cybersecurity, and optimizing global API caching layers.</li>
+                    <li><strong className="text-slate-900">Contractual Performance:</strong> Fulfilling our service obligations, provisioning platform access, maintaining uptime, and delivering software engineering deliverables.</li>
+                    <li><strong className="text-slate-900">Legitimate Interests:</strong> Preventing unauthorized access, ensuring system cybersecurity, and optimizing software performance.</li>
                     <li><strong className="text-slate-900">Legal Compliance:</strong> Meeting corporate, taxation, and statutory audit obligations under UAE law.</li>
                   </ul>
                 </div>
@@ -364,7 +364,7 @@ export function LegalContent() {
                 <div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">6. Data Retention &amp; Anonymization</h3>
                   <p>
-                    Account profiles are maintained throughout the active contractual lifecycle. Operational API telemetry logs are pseudonymized and archived for 90 days for fraud analysis before automatic purged retention.
+                    Account profiles are maintained throughout the active contractual lifecycle. Operational platform telemetry logs are pseudonymized and archived for 90 days for security analysis before automatic purged retention.
                   </p>
                 </div>
               </div>
@@ -462,7 +462,7 @@ export function LegalContent() {
                 <div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">4. Responsible Disclosure &amp; Vulnerability Submissions</h3>
                   <p>
-                    We welcome responsible vulnerability disclosures from certified security researchers. If you identify a potential vulnerability in our APIs or web infrastructure, please report it immediately to <code className="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-mono text-xs">security@achtrex.com</code> with proof-of-concept replication steps.
+                    We welcome responsible vulnerability disclosures from certified security researchers. If you identify a potential vulnerability in our software or web infrastructure, please report it immediately to <code className="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-mono text-xs">security@achtrex.com</code> with proof-of-concept replication steps.
                   </p>
                 </div>
               </div>

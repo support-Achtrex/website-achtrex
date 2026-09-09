@@ -8,33 +8,32 @@ import Link from 'next/link';
 const portfolioItems = [
   {
     id: 1,
-    title: "Achtrex Vehicle Intelligence",
-    category: "Platform",
+    title: "Automotive Software Builds",
+    category: "Pillar 01",
     image: "/projects/ad-logo.png",
-    link: "/services",
-    desc: "We built and launched our proprietary enterprise VIN intelligence infrastructure. We engineered the entire backend system to deliver sub-50ms latency for vehicle specifications, allowing the platform to scale to millions of daily queries.",
+    link: "/solutions/automotive-software",
+    desc: "We engineer bespoke automotive software platforms. From custom dealership portals to workshop bay schedulers and fleet systems, we deliver enterprise-grade architectures with 100% client code ownership.",
     isLogo: true
   },
   {
     id: 2,
-    title: "AAIA",
-    category: "Product",
+    title: "Cognitive AI Solutions",
+    category: "Pillar 02",
     image: "/projects/aaia-logo.png",
-    link: "/products/lumi",
-    desc: "We engineered AAIA, our proprietary cognitive reasoning model designed specifically for vehicle diagnostics and automotive data processing. This engine powers automated customer support and internal knowledge assistants.",
+    link: "/solutions/cognitive-ai",
+    desc: "We engineered AAIA, our proprietary cognitive reasoning model designed specifically for multimodal vehicle diagnostics, acoustic defect analysis, and autonomous technician guidance.",
     isLogo: true
   },
   {
     id: 3,
-    title: "Achtrex Core",
-    subtitle: "Custom Software Builds & Dealer Platform",
-    category: "Product",
+    title: "Automotive Consultation",
+    subtitle: "Operations & Business Strategy",
+    category: "Pillar 03",
     image: "/achtrex-logo-email.png",
-    link: "/products/enterprise-platforms",
-    desc: "Achtrex Core serves as our foundational enterprise integration hub. We designed this API gateway entirely in-house to provide seamless, secure, and rapid access to our full suite of automotive intelligence tools.",
+    link: "/solutions/automotive-consultation",
+    desc: "Achtrex advises businesses, manufacturers, dealerships, and repair shops on workshop workflow modernization, diagnostic operations, and long-term technical growth strategy.",
     isLogo: true
   },
-
 ];
 
 export const PortfolioGrid = () => {
@@ -170,10 +169,10 @@ export const PortfolioGrid = () => {
               className="space-y-6 text-slate-700 leading-relaxed mb-10 text-[17px] font-normal"
             >
               <p>
-                <strong className="text-[#001a22] font-bold">We are an automotive intelligence company</strong>, providing cutting-edge infrastructure for VIN decoding, vehicle history, and API integrations. Our expertise lies in seamlessly connecting global automotive datasets to consumer applications.
+                <strong className="text-[#001a22] font-bold">Automotive businesses need more than tools. They need software, intelligence, and direction. We build all three.</strong> Our expertise lies in bespoke automotive software builds, cognitive AI diagnostics, and strategic operational consultation.
               </p>
               <p>
-                As an enterprise technology provider, <strong className="text-[#001a22] font-bold">we deeply understand the data needs of modern automotive businesses</strong>. With an innovative mindset, we excel in delivering scalable APIs and AI-driven solutions through our in-house team of experts.
+                As an enterprise automotive partner, <strong className="text-[#001a22] font-bold">we deeply understand the technical and operational challenges of modern automotive enterprises</strong>. We build custom software solutions, deploy specialized cognitive AI models, and advise leadership on process optimization with 100% client code ownership.
               </p>
             </motion.div>
 
@@ -184,7 +183,7 @@ export const PortfolioGrid = () => {
               transition={{ delay: 0.2 }}
               className="flex flex-wrap gap-3"
             >
-              {['Vehicle Data APIs', 'AAIA', 'Enterprise Infrastructure', 'Automotive Intelligence', 'Vehicle History Reports'].map((tag, i) => (
+              {['Automotive Software Builds', 'Cognitive AI Solutions', 'Automotive Consultation', 'AAIA Diagnostics', 'Workshop Modernization'].map((tag, i) => (
                 <span key={i} className="px-5 py-2.5 rounded-full border border-slate-300 bg-white text-[13px] font-semibold text-slate-700 hover:border-[#018861] hover:text-[#018861] transition-colors cursor-default whitespace-nowrap shadow-xs">
                   {tag}
                 </span>

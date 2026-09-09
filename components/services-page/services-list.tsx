@@ -60,14 +60,14 @@ export const ServicesList = () => {
   return (
     <section className="py-24 px-6 bg-[image:var(--bg-dark-purple)] relative z-10">
       <div className="max-w-7xl mx-auto">
-        {/* Flagship Products Section */}
+        {/* Core Solutions Section */}
         <div className="mb-20">
           <div className="flex items-center gap-4 mb-10">
-            <h2 className="text-3xl font-bold text-slate-900">Flagship Products</h2>
+            <h2 className="text-3xl font-bold text-slate-900">Core Solutions</h2>
             <div className="h-px flex-grow bg-transparent/10" />
           </div>
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

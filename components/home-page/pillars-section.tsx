@@ -7,23 +7,29 @@ import Image from 'next/image';
 export const PillarsSection = () => {
   const pillars = [
     {
-      image: '/projects/automotive_ui_new.jpg',
-      title: 'Automotive Intelligence',
-      description: 'Massive-scale datasets and high-performance APIs powering the next generation of global mobility platforms.',
+      image: '/projects/software_builds_real.png',
+      title: 'Automotive Software Builds',
+      description: 'Bespoke dealership DMS, workshop bay management, and fleet telematics platforms engineered for end-to-end operational mastery.',
       color: 'from-blue-600 to-indigo-700'
     },
     {
       image: '/projects/aaia_ui_v2.png',
-      title: 'AAIA',
-      description: 'Intelligent AI agents and reasoning frameworks designed to automate workflows and deliver real-time insights.',
+      title: 'Cognitive AI Solutions',
+      description: 'Domain-specialized neural models (AAIA) for multi-modal OBD-II fault diagnostics, predictive parts wear, and computer-vision vehicle inspection.',
       color: 'from-purple-600 to-pink-700'
+    },
+    {
+      image: '/projects/consultation_advisory.png',
+      title: 'Automotive Consultation',
+      description: 'Strategic advisory for businesses, manufacturers, dealerships, and workshops on diagnostic workflows, repair operations, and digital modernization.',
+      color: 'from-emerald-600 to-teal-700'
     }
   ];
 
   return (
     <section className="py-24 bg-transparent">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
           {pillars.map((pillar, idx) => (
             <motion.div
               key={idx}

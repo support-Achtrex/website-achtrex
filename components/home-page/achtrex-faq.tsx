@@ -14,27 +14,27 @@ const faqs: FAQ[] = [
   {
     id: 1,
     question: 'What is Achtrex and what does it do?',
-    answer: 'Achtrex is a specialized automotive technology venture builder and enterprise software partner. We engineer high-velocity vehicle data APIs, proprietary AI diagnostic frameworks (AAIA), DMS inventory synchronization tools, and bespoke cloud platforms for automakers, parts distributors, dealership networks, and mobility startups worldwide.'
+    answer: 'Achtrex is a specialized automotive technology enterprise and consultation partner. We deliver across three core pillars: Automotive Software Builds (custom dealer portals, DMS sync, parts fitment), Cognitive AI Solutions (domain-trained diagnostics, predictive triage, smart agents), and Automotive Consultation (end-to-end strategic advisory for businesses, manufacturers, dealerships, and repair operations).'
   },
   {
     id: 2,
-    question: 'Who benefits most from using Achtrex platforms & APIs?',
-    answer: 'Our solutions are built for participants across the entire automotive supply chain: automotive dealerships looking to automate inventory and lead workflows, parts and equipment manufacturers managing catalog fitment, fleet operators requiring real-time diagnostic telemetry, insurance carriers needing instant vehicle history validation, and software developers building next-generation mobility applications.'
+    question: 'Who benefits most from using Achtrex platforms & advisory?',
+    answer: 'Our offerings empower participants across the entire mobility ecosystem: automotive dealerships looking to automate inventory and lead workflows, vehicle and parts manufacturers optimizing repair data, independent service centers scaling diagnostic precision, fleet operators requiring telemetry builds, and businesses seeking strategic automotive consultation.'
   },
   {
     id: 3,
-    question: 'How does Achtrex improve automotive data latency and VIN intelligence?',
-    answer: 'Achtrex Core processes millions of vehicle records daily with sub-50ms query response times. Our normalized REST and GraphQL endpoints offer instant VIN decoding, granular OEM build specifications, historical market valuations, EV battery telemetry, and real-time title data with 99.9% uptime SLA.'
+    question: 'What does Achtrex Automotive Consultation cover?',
+    answer: 'Our consultation practice advises businesses, manufacturers, dealerships, or individuals on anything related to vehicles, automotive data, repair processes, diagnostics, operations, or commercial business strategy.'
   },
   {
     id: 4,
     question: 'Can Achtrex build custom software tailored to our proprietary workflows?',
-    answer: 'Yes. We specialize in end-to-end bespoke software engineering. We develop custom dealer management portals, high-load auto parts marketplaces, multi-rooftop inventory syndication hubs, and fleet ERPs. Clients receive 100% intellectual property (IP) ownership with zero vendor lock-in.'
+    answer: 'Yes. Under our Automotive Software Builds pillar, we develop custom dealer management portals, high-load auto parts marketplaces, multi-rooftop inventory syndication hubs, and fleet ERPs. Clients receive 100% intellectual property (IP) ownership with zero vendor lock-in.'
   },
   {
     id: 5,
     question: 'How does the AAIA cognitive AI engine assist automotive businesses?',
-    answer: 'AAIA is our domain-trained automotive reasoning model. It powers autonomous 24/7 customer support agents, automated vehicle diagnostic triage, predictive age-on-lot pricing algorithms, and intelligent repair recommendations, reducing resolution times by up to 70%.'
+    answer: 'AAIA is our domain-trained automotive reasoning model within our Cognitive AI Solutions pillar. It powers autonomous 24/7 customer support agents, automated vehicle diagnostic triage, predictive age-on-lot pricing algorithms, and intelligent repair recommendations, reducing resolution times by up to 70%.'
   },
   {
     id: 6,

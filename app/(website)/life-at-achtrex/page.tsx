@@ -29,19 +29,16 @@ export default function LifeAtAchtrexPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Cpu className="w-8 h-8 text-[#00a9ce]" />,
                 title: "Infrastructure First",
                 desc: "We focus on the underlying protocols and data engines that power the world, not just the surface-level UI.",
                 bg: "bg-slate-200/50"
               },
               {
-                icon: <Zap className="w-8 h-8 text-[#F37021]" />,
                 title: "High Velocity",
                 desc: "We ship fast and iterate often. Our CI/CD pipelines are the heartbeat of our distributed laboratory.",
                 bg: "bg-slate-200/50"
               },
               {
-                icon: <Globe className="w-8 h-8 text-[#00a9ce]" />,
                 title: "Global by Default",
                 desc: "Our team spans continents. We operate in a follow-the-sun model to ensure continuous delivery.",
                 bg: "bg-slate-200/50"
@@ -55,9 +52,6 @@ export default function LifeAtAchtrexPage() {
                 transition={{ delay: i * 0.1 }}
                 className={`p-10 rounded-2xl ${value.bg} border border-slate-200/60 hover:border-slate-300 transition-all group`}
               >
-                <div className="mb-8 p-4 bg-white rounded-xl w-fit shadow-sm group-hover:scale-110 transition-transform">
-                  {value.icon}
-                </div>
                 <h4 className="text-xl font-bold mb-3 text-slate-900">{value.title}</h4>
                 <p className="text-slate-700 text-sm leading-[1.7] font-normal">
                   {value.desc}

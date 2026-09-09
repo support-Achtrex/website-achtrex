@@ -11,24 +11,35 @@ import { MultiDeviceMockup } from '@/components/multi-device-mockup';
 
 const products = [
   {
-    title: 'AAIA',
-    subtitle: 'Communications Ecosystem',
-    description: 'AAIA is a unified communications platform featuring instant messaging, voice calls, video conferencing, and file sharing. Engineered to integrate seamlessly into any business workflow with AI-powered logic.',
+    title: 'AAIA Diagnostic Engine',
+    subtitle: 'Cognitive AI Solutions',
+    description: 'Specialized multimodal AI models for acoustic vehicle diagnosis, predictive maintenance, and autonomous technician reasoning.',
     image: '/projects/lumi_ui_new.jpg',
-    link: '/products',
+    link: '/solutions/cognitive-ai',
     color: '#818cf8',
-    tags: ['Unified Comms', 'Workflow SDK', 'Cross-Platform'],
+    tags: ['Cognitive AI', 'Acoustic Diagnostics', 'Predictive Failure'],
     hasMobile: true,
     isRawImage: true
   },
   {
-    title: 'Vehicle Intelligence API',
-    subtitle: 'Deep Vehicle Intelligence',
-    description: 'Unlock the power of vehicle data with a comprehensive API suite providing VIN-to-Build-Sheet decoding, real-time specs, service history, and official recall databases.',
+    title: 'Automotive Software Builds',
+    subtitle: 'Bespoke Engineering',
+    description: 'Enterprise automotive architectures for dealership management, workshop bay scheduling, and fleet operations with 100% client code ownership.',
     image: '/projects/automotive_ui_new.jpg',
-    link: '/services',
+    link: '/solutions/automotive-software',
     color: '#3b82f6',
-    tags: ['VIN Decoding', 'Recall API', 'Service History'],
+    tags: ['Dealership Software', 'Bay Schedulers', 'Fleet Systems'],
+    hasMobile: true,
+    isRawImage: true
+  },
+  {
+    title: 'Automotive Consultation',
+    subtitle: 'Strategic Operational Advisory',
+    description: 'Hands-on advisory for businesses, manufacturers, dealerships, and repair shops on shop floor modernization, diagnostics, and growth strategy.',
+    image: '/projects/aaia_ui_v2.png',
+    link: '/solutions/automotive-consultation',
+    color: '#10b981',
+    tags: ['Operations Advisory', 'Workshop Modernization', 'Strategy'],
     hasMobile: true,
     isRawImage: true
   }

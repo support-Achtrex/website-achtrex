@@ -229,7 +229,7 @@ export const Navbar = () => {
                   className="text-base font-semibold text-white hover:text-[#F37021] py-2 transition-colors border-b border-white/5 flex items-center justify-between"
                 >
                   <span>Our Services</span>
-                  <span className="text-xs font-normal text-slate-400">4 Solutions</span>
+                  <span className="text-xs font-normal text-slate-400">3 Solutions</span>
                 </Link>
 
                 <Link 

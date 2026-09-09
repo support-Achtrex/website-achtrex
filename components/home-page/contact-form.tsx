@@ -66,7 +66,7 @@ const ContactForm = () => {
   }
  };
 
- const services = ["Automotive Data API", "AI Platform Access", "Enterprise Architecture", "Integration Support", "Other"];
+ const services = ["Automotive Software Builds", "Cognitive AI Solutions", "Automotive Consultation", "Workshop & Bay Systems", "Other"];
  const budgets = ["<$5k", "$5k - $10k", "$10k - $25k", "$25k - $50k", ">$50k"];
  const sources = ["Reference/Documentation", "Search Engine", "Referral", "Other"];
 
@@ -87,10 +87,10 @@ const ContactForm = () => {
      >
       <span className="text-[#00a9ce] text-sm font-bold tracking-widest uppercase mb-4 block">Enterprise Partnerships</span>
       <h2 className="text-4xl md:text-4xl font-bold leading-tight text-gradient mb-6">
-       Discuss infrastructure <br /> and API limits.
+       Discuss custom builds <br /> and enterprise advisory.
       </h2>
       <p className="text-[15px] sm:text-base text-slate-800 leading-[1.8] font-normal">
-       Connect with our deployment team to gain technical access, discuss pipeline integration, or explore custom enterprise architecture deployments.
+       Connect with our deployment team to discuss custom software engineering, domain-trained AI diagnostics, or automotive strategic consultation.
       </p>
      </motion.div>
     </div>
@@ -169,7 +169,7 @@ const ContactForm = () => {
        value={formData.message}
        onChange={handleChange}
        required
-       placeholder="Describe your infrastructure requirements, API needs, or integration timeline..."
+       placeholder="Describe your software requirements, AI diagnostic needs, or consultation timeline..."
        className={`${inputClasses} resize-y min-h-[120px]`}
       ></textarea>
      </motion.div>

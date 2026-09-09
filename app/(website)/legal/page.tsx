@@ -3,14 +3,14 @@ import { Metadata } from 'next';
 import { LegalContent } from './legal-content';
 
 export const metadata: Metadata = {
-  title: 'Legal, Privacy & Security | Achtrex — Automotive Data Infrastructure',
-  description: 'Review Achtrex Terms of Service, Privacy Policy, and Enterprise Security Architecture. Enterprise governance for automotive APIs and VIN datasets.',
+  title: 'Legal, Privacy & Security | Achtrex — Automotive Software & AI Solutions',
+  description: 'Review Achtrex Terms of Service, Privacy Policy, and Enterprise Security Architecture. Enterprise governance for automotive software builds, cognitive AI, and consultation.',
   keywords: [
     'Achtrex Legal',
     'Terms of Service',
     'Privacy Policy',
     'Security Architecture',
-    'Automotive Data Protection',
+    'Automotive Software Protection',
     'GDPR UAE Compliance'
   ],
   alternates: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Legal, Privacy & Security | Achtrex',
-    description: 'Review the unified Terms of Service, Privacy Policy, and Security Architecture governing Achtrex automotive data infrastructure.',
+    description: 'Review the unified Terms of Service, Privacy Policy, and Security Architecture governing Achtrex automotive software builds and cognitive AI platforms.',
     images: ['/projects/aaia_ui_v2.png'],
   }
 };

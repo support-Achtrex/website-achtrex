@@ -5,11 +5,11 @@ import { SolutionsMegaMenu } from '@/components/home-page/solutions-mega-menu';
 
 export const metadata: Metadata = {
   title: 'Our Services & Solutions | Achtrex Automotive Technology',
-  description: 'Explore the complete portfolio of Achtrex automotive solutions: Automotive Data & APIs, Sales & Inventory Cloud, Custom Software Builds, and Cognitive AI Solutions.',
+  description: 'Explore the 3 core Achtrex automotive solutions: Automotive Software Builds, Cognitive AI Solutions, and Automotive Consultation.',
   openGraph: {
     title: 'Our Services & Solutions | Achtrex Automotive Technology',
-    description: 'Enterprise automotive technology solutions, VIN APIs, dealer inventory systems, and cognitive AI.',
-    images: ['/projects/aaia_ui_v2.png'],
+    description: 'Enterprise automotive technology solutions: Automotive Software Builds, Cognitive AI Solutions, and Automotive Consultation.',
+    images: ['/images/solutions/auto_software_builds.jpg'],
   }
 };
 
@@ -19,7 +19,7 @@ export default function ServicesPage() {
       {/* 1. Header */}
       <InnerPageHeader 
         title="Our Services & Solutions" 
-        subtitle="A single interface for a highly customized portfolio of automotive services, intelligent APIs, and cognitive platforms." 
+        subtitle="A unified interface for our 3 core automotive pillars: bespoke software builds, cognitive AI diagnostics, and strategic automotive consultation." 
         theme="data" 
       />
 

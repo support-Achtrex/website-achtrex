@@ -20,7 +20,7 @@ export const UseCasesContent = () => {
         "Frontend systems development",
         "Automotive workflow architecture",
         "Cloud infrastructure deployment",
-        "API integrations",
+        "Enterprise software integrations",
         "Ongoing platform management",
         "Automotive intelligence integrations"
       ],
@@ -43,7 +43,7 @@ export const UseCasesContent = () => {
         "Intelligent automotive workflows",
         "Customer engagement systems",
         "Enterprise operational infrastructure",
-        "API-ready automotive architecture",
+        "Modern automotive software architecture",
         "Scalable automotive commerce systems",
         "Intelligent fitment workflows",
         "Vehicle compatibility systems",
@@ -61,7 +61,7 @@ export const UseCasesContent = () => {
       description: "Achtrex contributed automotive research and technical documentation support for vehicle intelligence and automotive reporting systems.",
       scope: [
         "Automotive dataset research",
-        "VIN intelligence research",
+        "Automotive systems research",
         "Technical documentation",
         "Vehicle information workflows",
         "Automotive reporting analysis"
@@ -72,33 +72,33 @@ export const UseCasesContent = () => {
         "Vehicle intelligence workflow analysis",
         "Automotive data research systems"
       ],
-      strategicValue: "The engagement strengthened Achtrex’s expertise in automotive intelligence systems, VIN infrastructure, vehicle reporting workflows, and consumer automotive intelligence technologies."
+      strategicValue: "The engagement strengthened Achtrex’s expertise in automotive software systems, vehicle reporting workflows, and consumer automotive technologies."
     },
     {
       name: "OptiCar.ai",
       domain: "opticar.ai",
       logoPath: "/logos/use-cases/opticar.png",
-      tagline: "Enterprise Automotive AI Consultation & API Infrastructure",
+      tagline: "Enterprise Automotive AI Consultation & Custom Software",
       description: "Achtrex provides continuous consultation and enterprise automotive intelligence infrastructure support for AI-powered automotive systems within the OptiCar ecosystem.",
       scope: [
-        "Advanced VIN Decode API integration",
-        "Vehicle History Report API integration",
-        "Market Value API systems",
+        "Vehicle specification systems integration",
+        "Cognitive vehicle reporting systems",
+        "Vehicle market intelligence systems",
         "Vehicle image infrastructure",
         "Automotive data quality optimization",
-        "API integration consultation",
+        "Systems architecture consultation",
         "Enterprise automotive intelligence workflows",
         "Technical infrastructure support"
       ],
       capabilities: [
-        "Advanced automotive API infrastructure",
+        "Enterprise automotive software infrastructure",
         "Vehicle intelligence integration systems",
         "Automotive data enrichment workflows",
         "AI-ready automotive intelligence systems",
         "Enterprise integration consultation",
         "Automotive infrastructure optimization"
       ],
-      strategicValue: "The engagement demonstrates Achtrex’s capability to support enterprise automotive AI ecosystems through scalable API infrastructure, automotive intelligence systems, high-quality vehicle data integration, enterprise automotive workflows, and AI-powered mobility infrastructure."
+      strategicValue: "The engagement demonstrates Achtrex’s capability to support enterprise automotive AI ecosystems through scalable software infrastructure, automotive intelligence systems, high-quality vehicle data integration, enterprise automotive workflows, and AI-powered mobility infrastructure."
     },
     {
       name: "Price360.ai",
@@ -107,23 +107,23 @@ export const UseCasesContent = () => {
       tagline: "AI Vehicle Valuation & Automotive Intelligence Infrastructure",
       description: "Achtrex provides continuous consultation and automotive intelligence infrastructure support for AI-powered vehicle valuation and inspection technologies.",
       scope: [
-        "Market Value API integration",
-        "Advanced VIN decoding systems",
-        "Vehicle History Report integrations",
+        "Valuation software system integration",
+        "Vehicle specification parsing systems",
+        "Vehicle condition assessment systems",
         "Vehicle image infrastructure",
         "Automotive intelligence systems",
         "Data quality optimization",
-        "Enterprise API consultation"
+        "Enterprise software consultation"
       ],
       capabilities: [
         "Vehicle valuation infrastructure support",
         "Automotive intelligence workflows",
         "AI-ready vehicle data systems",
-        "Automotive API integration support",
+        "Automotive software integration support",
         "Vehicle information processing systems",
         "Enterprise automotive infrastructure consultation"
       ],
-      strategicValue: "The project demonstrates Achtrex’s experience supporting advanced automotive AI ecosystems involving vehicle valuation technologies, automotive intelligence systems, AI-powered automotive workflows, scalable API-driven infrastructure, and real-time vehicle intelligence systems."
+      strategicValue: "The project demonstrates Achtrex’s experience supporting advanced automotive AI ecosystems involving vehicle valuation technologies, automotive intelligence systems, AI-powered automotive workflows, scalable software infrastructure, and real-time vehicle intelligence systems."
     },
     {
       name: "Carkasa.com",
@@ -156,11 +156,11 @@ export const UseCasesContent = () => {
       domain: "vehiclereportcheck.com",
       logoPath: "/logos/use-cases/vehiclereportcheck.png",
       tagline: "Vehicle Verification & Automotive Intelligence Platform",
-      description: "Achtrex fully developed and continues to manage the VehicleReportCheck platform as an automotive intelligence and vehicle verification ecosystem focused on VIN intelligence, vehicle transparency, automotive reporting systems, and vehicle verification workflows.",
+      description: "Achtrex fully developed and continues to manage the VehicleReportCheck platform as an automotive intelligence and vehicle verification ecosystem focused on vehicle transparency, automotive reporting systems, and vehicle verification workflows.",
       scope: [
         "Platform architecture",
         "Vehicle intelligence systems",
-        "VIN infrastructure integration",
+        "Verification workflow engineering",
         "Reporting workflow engineering",
         "Backend systems development",
         "Frontend platform systems",
@@ -170,7 +170,7 @@ export const UseCasesContent = () => {
       capabilities: [
         "Vehicle verification workflows",
         "Automotive reporting systems",
-        "VIN intelligence infrastructure",
+        "Vehicle verification infrastructure",
         "Vehicle transparency systems",
         "Automotive operational architecture",
         "Scalable automotive platform systems"

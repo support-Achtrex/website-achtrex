@@ -7,85 +7,117 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
-  Puzzle,
-  Headphones,
-  Tag,
-  Code2,
-  BarChart3,
+  Handshake,
+  TrendingUp,
+  Truck,
+  Globe,
+  Sparkles,
+  Briefcase,
   CheckCircle2,
-  Star,
-  Mail
+  Users2
 } from 'lucide-react';
 import PartnerForm from './PartnerForm';
 
 // ─── DATA ──────────────────────────────────────────────────────────────────────
 
-const tabs = ['Who Can Join', 'Prove Your Expertise', 'Scale It'];
+const tabs = ['Partnership Pathways', 'Collaboration Framework', 'Mutual Value'];
 
 const whoCanJoin = {
-  title: 'Market roles',
-  description: 'The Achtrex Partner Program is open to organizations across the global automotive technology value chain.',
+  title: 'Partnership Pathways',
+  description: 'The Achtrex Partner Ecosystem is open to forward-thinking collaborators, component suppliers, automotive institutions, and technology pioneers worldwide.',
   roles: [
     {
-      icon: <Puzzle className="w-5 h-5" />,
-      label: 'System Integrators',
-      desc: 'Companies that integrate Achtrex APIs and data infrastructure into existing dealer, workshop, or fleet management ecosystems.'
+      icon: <Handshake className="w-5 h-5 text-[#F37021]" />,
+      label: 'Strategic Collaboration & Joint Ventures',
+      desc: 'Automotive enterprises, research institutions, and technology pioneers co-innovating transformative mobility platforms, cognitive intelligence, and shared IP.'
     },
     {
-      icon: <Headphones className="w-5 h-5" />,
-      label: 'Consultants',
-      desc: 'Automotive technology advisors and domain experts that guide clients on Achtrex solutions, VIN data standards, and digital retailing strategy.'
+      icon: <Sparkles className="w-5 h-5 text-[#00A9CE]" />,
+      label: 'Technology Pioneers & Co-Innovators',
+      desc: 'Engineering firms, specialized software developers, and research labs collaborating with Achtrex to expand automotive AI capabilities and connected mobility architectures.'
     },
     {
-      icon: <Tag className="w-5 h-5" />,
-      label: 'Resellers',
-      desc: 'Companies that commercially distribute and resell Achtrex platform licenses and automotive data subscriptions to end clients.'
+      icon: <Truck className="w-5 h-5 text-[#F37021]" />,
+      label: 'Suppliers & OEM Providers',
+      desc: 'Hardware manufacturers, diagnostic toolmakers, telematics IoT providers, and automotive parts distributors integrating directly with our software and AI systems.'
     },
     {
-      icon: <Code2 className="w-5 h-5" />,
-      label: 'ISV / SaaS Developers',
-      desc: 'Independent software vendors building on top of the Achtrex API layer to create specialized applications for the aftermarket.'
+      icon: <Globe className="w-5 h-5 text-[#00A9CE]" />,
+      label: 'Commercial & Regional Alliances',
+      desc: 'Dealership conglomerates, fleet operators, and regional automotive organizations establishing cross-border alliances, localized distribution, and joint market entry.'
     }
   ]
 };
 
-const proveExpertise = {
-  title: 'Demonstrate & certify your capabilities',
-  description: 'Partners are evaluated on their technical depth, market reach, and delivery track record. Certified Partners receive elevated co-marketing and sales support.',
+const collaborationFramework = {
+  title: 'How We Collaborate & Align',
+  description: 'We believe in agile, high-conviction partnerships grounded in transparent communication, shared incentives, and long-term value compounding.',
   steps: [
-    { num: '01', title: 'Technical Onboarding', detail: 'Complete the Achtrex API Integration Certification — covering VIN decoding, DMS sync endpoints, and vehicle specification query interfaces.' },
-    { num: '02', title: 'Market Validation', detail: 'Submit a client reference or pilot use case demonstrating live deployment of an Achtrex-powered workflow in a real automotive business context.' },
-    { num: '03', title: 'Partner Review', detail: 'Our Partner Success team evaluates your submission and onboards you at the appropriate tier (Registered, Certified, or Strategic).' },
-    { num: '04', title: 'Joint Go-To-Market', detail: 'Co-create a joint GTM plan including co-branded assets, shared pipeline tracking, and joint event participation in your region.' }
+    { 
+      num: '01', 
+      title: 'Discovery & Strategic Alignment', 
+      detail: 'Initial strategic briefing with our executive leadership and principal architects to assess mutual synergy, strategic vision, and supplier or collaborative fit.' 
+    },
+    { 
+      num: '02', 
+      title: 'Collaborative Structuring', 
+      detail: 'Tailoring the partnership model — structuring joint venture roadmaps, technology co-development, supply chain integration, or preferred commercial terms.' 
+    },
+    { 
+      num: '03', 
+      title: 'Executive Review & Agreement', 
+      detail: 'Rapid due diligence, transparent governance frameworks, and formalization of agreements aligned with long-term technological and economic success.' 
+    },
+    { 
+      num: '04', 
+      title: 'Active Execution & Global Scale', 
+      detail: 'Co-innovation deployment, executive syncs, shared market access, and collaborative industry visibility across international automotive hubs.' 
+    }
   ]
 };
 
-const scaleIt = {
-  title: 'Grow with the Achtrex ecosystem',
-  description: 'Certified and Strategic partners receive exclusive benefits designed to scale their automotive technology practice and revenue.',
+const mutualValue = {
+  title: 'Enduring Value for Every Partner',
+  description: 'Achtrex partnerships are engineered to deliver durable competitive moats, strategic upside, and direct alignment with executive decision-makers.',
   benefits: [
-    { icon: <BarChart3 className="w-5 h-5" />, title: 'Revenue Share & Referral Rewards', detail: 'Earn competitive deal registration credits and recurring commission on client renewals for your active fleet of Achtrex accounts.' },
-    { icon: <CheckCircle2 className="w-5 h-5" />, title: 'Partner Portal Access', detail: 'Access exclusive co-marketing collateral, API sandbox environments, early product roadmap previews, and a dedicated Slack partner channel.' },
-    { icon: <Star className="w-5 h-5" />, title: 'Co-Marketing Programs', detail: 'Participate in Achtrex regional roadshows, thought leadership webinars, partner spotlights on achtrex.com, and IAM industry events.' },
-    { icon: <Mail className="w-5 h-5" />, title: 'Dedicated Partner Support', detail: 'Direct access to a named Partner Success Manager, priority SLA, and technical escalation routing on all Achtrex platform deployments.' }
+    { 
+      icon: <Sparkles className="w-5 h-5" />, 
+      title: 'Co-Innovation & Strategic Moats', 
+      detail: 'Collaborate directly with our engineering and research teams to co-develop proprietary automotive software and cognitive AI advantages.' 
+    },
+    { 
+      icon: <Globe className="w-5 h-5" />, 
+      title: 'Global Footprint & Market Reach', 
+      detail: 'Tap into our established presence and relationships across the Middle East, North America, Europe, and emerging automotive mobility markets.' 
+    },
+    { 
+      icon: <Briefcase className="w-5 h-5" />, 
+      title: 'Flexible Commercial & Deployment Models', 
+      detail: 'Tailored collaborative roadmaps, revenue-sharing models, preferred vendor terms, or strategic alliance structures aligned with mutual growth.' 
+    },
+    { 
+      icon: <Users2 className="w-5 h-5" />, 
+      title: 'Direct Executive & Architectural Access', 
+      detail: 'Direct access to Achtrex founders, lead system architects, and domain strategists with zero bureaucratic layers.' 
+    }
   ]
 };
 
 const testimonials = [
   {
-    quote: 'Partnering with Achtrex was a decisive step for our DMS connectivity strategy. Their VIN intelligence APIs are the most accurate in the region and the integration support team is unmatched.',
-    author: 'Mohammed Al-Rasheed',
-    title: 'Chief Technology Officer'
+    quote: 'Partnering with Achtrex on cognitive automotive intelligence and custom software infrastructure has proven to be a transformative decision. Their execution velocity, deep domain specialization, and engineering discipline set them apart in the global mobility space.',
+    author: 'Marcus Vance',
+    title: 'Managing Director, Apex Mobility Systems'
   },
   {
-    quote: 'By integrating the Achtrex Automotive Data API into our platform, we now offer buyers real-time factory spec sheets and market valuations. Our listing conversion rate improved by over 30%.',
-    author: 'Priya Narayanan',
-    title: 'Head of Product'
+    quote: 'As an automotive diagnostic hardware and telematics manufacturer, partnering with Achtrex has unlocked massive worldwide reach. Their software seamlessly complements our hardware devices, creating complete turnkey solutions for workshops.',
+    author: 'Elena Rostova',
+    title: 'VP of Global Hardware Partnerships, Telematics Core'
   },
   {
-    quote: 'The Achtrex partnership program gave us a structured pathway to become a premier automotive data consultant. The certification program is rigorous and the client recognition is exceptional.',
-    author: 'Kwame Asante',
-    title: 'Executive Director & Solution Architect'
+    quote: 'Our cross-border alliance with Achtrex has transformed how we structure dealer network operations and technical diagnostics. They aren\'t just another tech vendor — they are genuine strategic partners who invest in mutual success.',
+    author: 'Tariq Al-Mansoor',
+    title: 'Executive Director, Gulf Automotive Group'
   }
 ];
 
@@ -119,7 +151,7 @@ export default function PartnersPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-[11px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] mb-2 block"
         >
-          Achtrex Partner Program
+          STRATEGIC ALLIANCES & CAPITAL
         </motion.span>
 
         <motion.h1
@@ -128,7 +160,7 @@ export default function PartnersPage() {
           transition={{ delay: 0.05 }}
           className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight"
         >
-          Become a Partner
+          Partner with Achtrex
         </motion.h1>
 
         {/* Brand Gradient Underline */}
@@ -140,7 +172,7 @@ export default function PartnersPage() {
           transition={{ delay: 0.1 }}
           className="text-slate-800 text-[15px] sm:text-base max-w-2xl mx-auto leading-[1.8] font-normal"
         >
-          Grow your legitimacy, visibility, portfolio, and revenue with the Achtrex Partner Program — the official ecosystem for automotive data and technology specialists worldwide.
+          We collaborate with forward-thinking enterprises, suppliers, automotive institutions, and technology pioneers worldwide. Whether exploring supplier integrations, joint research, commercial deployment, or regional co-innovation — we build enduring automotive value together.
         </motion.p>
 
         <motion.div
@@ -154,7 +186,7 @@ export default function PartnersPage() {
             className="btn-navbar-cta"
           >
             <span className="btn-navbar-cta-inner">
-              <span>Apply Now</span>
+              <span>Explore Partnership</span>
               <ArrowRight className="w-4 h-4 text-[#00A9CE]" />
             </span>
           </a>
@@ -163,7 +195,7 @@ export default function PartnersPage() {
             className="btn-navbar-cta"
           >
             <span className="btn-navbar-cta-inner">
-              <span>Talk to Partner Team</span>
+              <span>Connect with Leadership</span>
             </span>
           </Link>
         </motion.div>
@@ -173,10 +205,10 @@ export default function PartnersPage() {
       <section className="max-w-[1240px] mx-auto px-6 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {[
-            { num: '40+', label: 'Countries Active' },
-            { num: '3', label: 'Partner Tiers' },
-            { num: '20M+', label: 'Vehicle Records Accessible' },
-            { num: '99.99%', label: 'Platform API Uptime SLA' }
+            { num: '40+', label: 'Global Markets Reached' },
+            { num: 'Flexible', label: 'Strategic & Capital Models' },
+            { num: '100%', label: 'Collaborative Value & IP Synergy' },
+            { num: 'Direct', label: 'Executive & Architectural Access' }
           ].map((stat, idx) => (
             <motion.div
               key={idx}
@@ -259,22 +291,22 @@ export default function PartnersPage() {
 
                   {/* Right: Icon Graphic */}
                   <div className="lg:col-span-6 flex justify-center">
-                    <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-2xl bg-[#F8FAFC] border border-slate-200/70 flex items-center justify-center overflow-hidden shadow-inner p-8">
+                    <div className="relative w-full max-w-[440px] aspect-[4/3] rounded-2xl bg-[#F8FAFC] border border-slate-200/70 flex items-center justify-center overflow-hidden shadow-inner p-6 sm:p-8">
                       <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-b-2xl" />
 
-                      <div className="grid grid-cols-4 gap-4 w-full">
+                      <div className="grid grid-cols-2 gap-4 w-full">
                         {[
-                          { icon: <Puzzle className="w-8 h-8" />, label: 'System\nIntegrators' },
-                          { icon: <Headphones className="w-8 h-8" />, label: 'Consultants' },
-                          { icon: <Tag className="w-8 h-8" />, label: 'Resellers' },
-                          { icon: <Code2 className="w-8 h-8" />, label: 'ISV\nDevelopers' }
+                          { icon: <Handshake className="w-7 h-7 text-[#F37021]" />, label: 'Strategic\nCollaboration' },
+                          { icon: <Sparkles className="w-7 h-7 text-[#00A9CE]" />, label: 'Technology\nPioneers' },
+                          { icon: <Truck className="w-7 h-7 text-[#00A9CE]" />, label: 'Suppliers &\nOEMs' },
+                          { icon: <Globe className="w-7 h-7 text-[#F37021]" />, label: 'Commercial\nAlliances' }
                         ].map((item, idx) => (
                           <div
                             key={idx}
-                            className="flex flex-col items-center gap-2 bg-white rounded-xl border border-slate-200/90 p-3 shadow-sm text-center"
+                            className="flex flex-col items-center justify-center gap-2.5 bg-white rounded-xl border border-slate-200/90 p-4 shadow-sm text-center min-h-[105px]"
                           >
-                            <div className="text-slate-600">{item.icon}</div>
-                            <span className="text-[9px] font-bold text-slate-600 uppercase tracking-wide leading-tight whitespace-pre-wrap text-center">
+                            <div>{item.icon}</div>
+                            <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wide leading-tight whitespace-pre-wrap text-center">
                               {item.label}
                             </span>
                           </div>
@@ -285,10 +317,10 @@ export default function PartnersPage() {
                 </motion.div>
               )}
 
-              {/* Tab 2: Prove Your Expertise */}
+              {/* Tab 2: Collaboration Framework */}
               {activeTab === 1 && (
                 <motion.div
-                  key="prove"
+                  key="framework"
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
@@ -297,15 +329,15 @@ export default function PartnersPage() {
                 >
                   <div className="max-w-2xl">
                     <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                      {proveExpertise.title}
+                      {collaborationFramework.title}
                     </h2>
                     <p className="text-sm text-slate-600 leading-relaxed font-normal mt-2 mb-6">
-                      {proveExpertise.description}
+                      {collaborationFramework.description}
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    {proveExpertise.steps.map((step, idx) => (
+                    {collaborationFramework.steps.map((step, idx) => (
                       <motion.div
                         key={idx}
                         initial={{ opacity: 0, y: 14 }}
@@ -324,10 +356,10 @@ export default function PartnersPage() {
                 </motion.div>
               )}
 
-              {/* Tab 3: Scale It */}
+              {/* Tab 3: Mutual Value */}
               {activeTab === 2 && (
                 <motion.div
-                  key="scale"
+                  key="value"
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
@@ -336,15 +368,15 @@ export default function PartnersPage() {
                 >
                   <div className="max-w-2xl">
                     <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                      {scaleIt.title}
+                      {mutualValue.title}
                     </h2>
                     <p className="text-sm text-slate-600 leading-relaxed font-normal mt-2 mb-6">
-                      {scaleIt.description}
+                      {mutualValue.description}
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    {scaleIt.benefits.map((benefit, idx) => (
+                    {mutualValue.benefits.map((benefit, idx) => (
                       <motion.div
                         key={idx}
                         initial={{ opacity: 0, y: 14 }}
@@ -369,51 +401,56 @@ export default function PartnersPage() {
 
       </section>
 
-      {/* ─── PARTNER TIERS ───────────────────────────────────────────────── */}
+      {/* ─── FLEXIBLE PARTNERSHIP MODELS ─────────────────────────────────── */}
       <section className="w-full bg-[#F8FAFC] border-y border-slate-200/80 py-16 px-6">
         <div className="max-w-[1240px] mx-auto">
           <div className="text-center mb-10">
-            <span className="text-[11px] font-black uppercase tracking-widest text-slate-500 block mb-1">Partner Tiers</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Three levels of partnership</h2>
-            <div className="w-14 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full mx-auto mt-3" />
+            <span className="text-[11px] font-black uppercase tracking-widest text-slate-500 block mb-1">Engagement Models</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Flexible Partnership Frameworks</h2>
+            <div className="w-14 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full mx-auto mt-3 mb-3" />
+            <p className="text-sm text-slate-500 font-normal max-w-xl mx-auto">
+              Tailored pathways designed to align with corporate innovators, premier component suppliers, and regional enterprise leaders.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                tier: 'Registered',
-                badge: 'Entry Level',
+                tier: 'Strategic Alliances & Co-Innovation',
+                badge: 'Collaboration',
                 perks: [
-                  'Access to partner portal & API sandbox',
-                  'Standard Achtrex co-branded collateral',
-                  'Community Slack channel access',
-                  'Basic deal registration'
+                  'Joint automotive software and AI co-development',
+                  'Shared intellectual property & commercial frameworks',
+                  'Co-branded industry initiatives and announcements',
+                  'Direct engineering and product architecture collaboration',
+                  'Joint customer symposiums and international representation',
+                  'Cross-sector mobility ecosystem integration'
                 ]
               },
               {
-                tier: 'Certified',
-                badge: 'Most Popular',
+                tier: 'Suppliers & Hardware Providers',
+                badge: 'Preferred Partner',
                 featured: true,
                 perks: [
-                  'Everything in Registered',
-                  'Technical certification badge',
-                  'Named Partner Success Manager',
-                  'Co-marketing campaigns & case studies',
-                  'Prioritized SLA & escalation support',
-                  'Revenue share & referral commissions'
+                  'Direct hardware-software compatibility validation',
+                  'Integration into Achtrex diagnostic and fleet platforms',
+                  'Preferred supplier status across international deployments',
+                  'Joint product roadmap planning and technical briefings',
+                  'Global visibility across our enterprise automotive client base',
+                  'Dedicated supply chain and technical integration liaison'
                 ]
               },
               {
-                tier: 'Strategic',
-                badge: 'Enterprise',
+                tier: 'Enterprise & Regional Alliances',
+                badge: 'Global Expansion',
                 dark: true,
                 perks: [
-                  'Everything in Certified',
-                  'Joint product roadmap input',
-                  'Dedicated partner engineering support',
-                  'Executive sponsor access',
-                  'Joint press releases & analyst briefs',
-                  'Custom commercial terms'
+                  'Regional co-distribution across GCC, North America, and Europe',
+                  'Direct briefings on proprietary automotive AI & software roadmap',
+                  'Executive stakeholder alignment and quarterly reviews',
+                  'Joint commercial venture development and localized delivery',
+                  'Cross-sector mobility ecosystem integration',
+                  'Priority access to emerging Achtrex platforms and tools'
                 ]
               }
             ].map((item, idx) => (
@@ -446,12 +483,12 @@ export default function PartnersPage() {
                   <span className={`text-[10px] font-black uppercase tracking-widest ${item.dark ? 'text-slate-400' : 'text-slate-500'}`}>
                     {!item.featured ? item.badge : ''}
                   </span>
-                  <h3 className={`text-xl font-extrabold mt-0.5 ${item.dark ? 'text-white' : 'text-slate-900'}`}>
-                    {item.tier} Partner
+                  <h3 className={`text-lg sm:text-xl font-extrabold mt-0.5 leading-snug ${item.dark ? 'text-white' : 'text-slate-900'}`}>
+                    {item.tier}
                   </h3>
                 </div>
 
-                <ul className="space-y-2.5 flex-1">
+                <ul className="space-y-2.5 flex-1 pt-2">
                   {item.perks.map((perk, pidx) => (
                     <li key={pidx} className="flex items-start gap-2 text-xs font-normal leading-relaxed">
                       <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#00A9CE]" />
@@ -465,7 +502,7 @@ export default function PartnersPage() {
                   className="mt-7 btn-navbar-cta"
                 >
                   <span className="btn-navbar-cta-inner !py-2.5 !px-5 !text-xs !uppercase !tracking-wider">
-                    <span>Apply Now</span>
+                    <span>Discuss Partnership</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#00A9CE]" />
                   </span>
                 </a>
@@ -479,13 +516,13 @@ export default function PartnersPage() {
       <section className="w-full bg-[#F0F2F5] border-b border-slate-200/70 py-16 px-6">
         <div className="max-w-[1240px] mx-auto">
           <div className="text-center mb-10">
-            <span className="text-[11px] font-black uppercase tracking-widest text-slate-500 block mb-1">Partner Success Stories</span>
+            <span className="text-[11px] font-black uppercase tracking-widest text-slate-500 block mb-1">Partner Voices</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Testimonials from latest Partners
+              Perspectives from Our Ecosystem
             </h2>
             <div className="w-14 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full mx-auto mt-3 mb-3" />
             <p className="text-sm text-slate-500 font-normal max-w-xl mx-auto">
-              The newest Achtrex Partners share their perspective on being part of the community.
+              Insights from our global component suppliers, automotive institutions, and enterprise collaborators.
             </p>
           </div>
 
@@ -557,16 +594,16 @@ export default function PartnersPage() {
           {/* Left Text */}
           <div className="lg:col-span-5 space-y-4">
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Stay informed on IAM developments
+              Stay connected with our global ecosystem
             </h3>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              Receive updates on the latest Achtrex Partner Program activities, global aftermarket industry developments, data standards evolution, and insights shaping the independent automotive ecosystem.
+              Receive executive briefings on Achtrex strategic alliances, supplier innovations, platform milestones, and automotive technology developments shaping the international market.
             </p>
 
             {newsletterStatus === 'success' ? (
               <div className="flex items-center gap-2 text-emerald-700 text-sm font-bold bg-emerald-50 border border-emerald-200 rounded-lg px-4 py-3">
                 <CheckCircle2 className="w-4 h-4 shrink-0" />
-                <span>Subscribed! Thank you for joining.</span>
+                <span>Subscribed! Thank you for joining our ecosystem network.</span>
               </div>
             ) : (
               <form onSubmit={handleNewsletter} className="flex items-center gap-2 mt-2">
@@ -575,7 +612,7 @@ export default function PartnersPage() {
                   required
                   value={newsletterEmail}
                   onChange={e => setNewsletterEmail(e.target.value)}
-                  placeholder="Your work email address"
+                  placeholder="Your executive or corporate email"
                   className="flex-1 py-3 px-3.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#00A9CE] transition-colors font-medium"
                 />
                 <button
@@ -584,9 +621,9 @@ export default function PartnersPage() {
                   className="shrink-0 btn-navbar-cta disabled:opacity-60"
                 >
                   <span className="btn-navbar-cta-inner !py-2.5 !px-5 !text-xs !uppercase !tracking-wider">
-                    {newsletterStatus === 'loading' ? 'Subscribing...' : (
+                    {newsletterStatus === 'loading' ? 'Connecting...' : (
                       <>
-                        <span>Subscribe</span>
+                        <span>Connect</span>
                         <ArrowRight className="w-3.5 h-3.5 text-[#00A9CE]" />
                       </>
                     )}
@@ -644,14 +681,14 @@ export default function PartnersPage() {
         <div className="max-w-[1240px] mx-auto">
           <div className="text-center mb-10">
             <span className="text-[11px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] block mb-1">
-              Official Application
+              Direct Executive Inquiry
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Apply for Partnership
+              Initiate Partnership Discussion
             </h2>
             <div className="w-14 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full mx-auto mt-3 mb-3" />
             <p className="text-sm text-slate-500 font-normal max-w-xl mx-auto">
-              Submit your application and our Partner Management Team will respond within 1–2 business days. All communications land at <strong className="text-slate-700">support@achtrex.com</strong>.
+              Submit your inquiry and our Executive Partnerships &amp; Capital Relations team will respond promptly. All communications land directly at <strong className="text-slate-700">support@achtrex.com</strong>.
             </p>
           </div>
 

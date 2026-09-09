@@ -30,12 +30,12 @@ export const industryCategories: IndustryCategory[] = [
       },
       {
         title: 'Car Rental & Fleet Operators',
-        description: 'Optimize fleet utilization, predict lifecycle disposition windows, and automate insurance compliance across vehicle pools of any size using depreciation analytics and VIN-level telemetry.',
+        description: 'Optimize fleet utilization, predict lifecycle disposition windows, and automate compliance across vehicle pools of any size using depreciation analytics and real-time telemetry.',
         href: '/industries/car-rental'
       },
       {
         title: 'Classified & Marketplace Platforms',
-        description: 'Build unshakable consumer trust in peer-to-peer vehicle listings through live VIN verification, instant history reports, and automated fraud signal detection.',
+        description: 'Build unshakable consumer trust in automotive classifieds and dealer portals through digital inspection verification, condition scoring, and automated fraud signal detection.',
         href: '/industries/classifieds-websites'
       },
       {
@@ -76,7 +76,7 @@ export const industryCategories: IndustryCategory[] = [
     ],
     spotlight: {
       heading: 'Risk Intelligence at Machine Speed',
-      body: 'Insurance and financial institutions face mounting pressure to underwrite accurately in seconds. Achtrex delivers the precise vehicle intelligence needed to make those decisions — ADAS feature verification, historical damage records, real-time market value, and VIN-level title status — all available through a single API integration. Our data reduces adverse selection, accelerates claims triage, and supports regulatory audit trails.'
+      body: 'Insurance and financial institutions face mounting pressure to underwrite and assess risk accurately. Achtrex delivers custom digital platforms and cognitive AI models to streamline decisions — ADAS active safety evaluations, damage severity scoring, real-time market valuations, and repair triage. Our custom systems accelerate workflows and support regulatory compliance.'
     }
   },
   {
@@ -90,7 +90,7 @@ export const industryCategories: IndustryCategory[] = [
       },
       {
         title: 'Auto Parts Distributors',
-        description: 'Eliminate fitment errors and return friction with normalized PIES/ACES catalog data, VIN-to-part cross-referencing, and regional demand forecasting across your SKU catalogue.',
+        description: 'Streamline catalog workflows, parts cross-referencing, and regional demand forecasting across your parts and warehouse inventory.',
         href: '/industries/auto-parts'
       },
       {
@@ -125,7 +125,7 @@ export const industryCategories: IndustryCategory[] = [
       },
       {
         title: 'EV Charging & Infrastructure',
-        description: 'Identify charging compatibility, battery chemistry, and onboard charger specs for any vehicle by VIN — enabling smart routing, tariff optimization, and grid load balancing.',
+        description: 'Analyze charging compatibility, battery telemetry, and onboard charger specs — enabling smart route planning, energy optimization, and depot load management.',
         href: '/contact-us'
       },
       {
@@ -136,7 +136,7 @@ export const industryCategories: IndustryCategory[] = [
     ],
     spotlight: {
       heading: 'Powering the Connected Mobility Stack',
-      body: 'The future of automotive is digital-first — and Achtrex is built for it. Our APIs are designed to power ride-sharing dispatch systems, EV charging networks, content platforms, and connected vehicle applications with the same reliability that established insurers and dealers depend on. Whether your platform serves millions of consumers or hundreds of fleet operators, Achtrex provides the underlying vehicle intelligence layer that keeps it accurate.'
+      body: 'The future of automotive is digital-first — and Achtrex is built for it. Our bespoke software builds and cognitive AI frameworks power mobility fleets, EV operational systems, and connected vehicle applications with enterprise reliability. Whether your platform serves thousands of drivers or multi-rooftop dealer networks, Achtrex provides the engineering backbone that keeps it performing.'
     }
   }
 ];
@@ -239,16 +239,16 @@ export const IndustriesMegaMenu = ({ onClose }: { onClose?: () => void }) => {
                 Global Reach
               </p>
               <p className="text-[12px] text-slate-600 leading-relaxed">
-                Achtrex serves clients across North America, the GCC, and Western Europe — with localized vehicle datasets and regulatory compliance frameworks for each region.
+                Achtrex serves clients across North America, the GCC, and Western Europe — with tailored automotive software builds and consulting frameworks for each region.
               </p>
             </div>
 
             <div>
               <p className="text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1.5">
-                Integration
+                Architecture
               </p>
               <p className="text-[12px] text-slate-600 leading-relaxed">
-                REST and GraphQL APIs with comprehensive developer documentation, sandbox access, and dedicated integration support for enterprise onboarding.
+                Turnkey software architectures with comprehensive documentation, staging environments, and dedicated technical deployment support for enterprise onboarding.
               </p>
             </div>
 

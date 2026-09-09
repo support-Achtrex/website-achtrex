@@ -21,125 +21,43 @@ export interface SolutionCategory {
 
 export const solutionCategories: SolutionCategory[] = [
   {
-    id: 'data-management',
-    name: 'Automotive Data & APIs',
+    id: 'automotive-software',
+    name: 'Automotive Software Builds',
     features: [
       {
-        title: 'Instant VIN Decoding API',
-        description: 'Decode any North American or international VIN in real time. Retrieve full factory specs, trim packages, optional equipment, engine configuration, and safety system details in a single API call.',
+        title: 'Bespoke Dealership & DMS Platforms',
+        description: 'Full-lifecycle custom web and mobile DMS/CRM platforms engineered around your store workflows, sales desks, F&I contracting, and role-based staff permissions.',
         href: '/contact-us'
       },
       {
-        title: 'OEM Build Specifications',
-        description: 'Granular factory-installed equipment records including ADAS sensor suites, paint codes, transmission types, towing capacity, and exact options configured at the assembly line.',
+        title: 'Sales & Inventory Cloud Integration',
+        description: 'Bi-directional DMS synchronization, automated multi-channel inventory broadcast to AutoTrader and CarGurus, algorithmic lot pricing, and turn velocity tracking.',
         href: '/contact-us'
       },
       {
-        title: 'Market Valuation Engine',
-        description: 'Predictive residual value curves and real-time depreciation analytics built from auction lane data, private sale transactions, and certified pre-owned market pricing across 40+ regions.',
+        title: 'Connected Fleet Telematics & IoT Streaming',
+        description: 'High-frequency Kafka and MQTT vehicle data pipelines ingesting CAN bus telemetry, GPS tracks, driver behavior metrics, and remote diagnostic codes.',
         href: '/contact-us'
       },
       {
-        title: 'Vehicle History & Title Records',
-        description: 'Lifetime ownership chain, total-loss declarations, odometer discrepancy alerts, lien records, province and state title history, and structural damage disclosures in one unified report.',
+        title: 'Workshop Service Bay Scheduling',
+        description: 'Customer self-booking portals, dynamic bay capacity algorithms, certified technician labor allocation, and automated service parts staging.',
         href: '/contact-us'
       },
       {
-        title: 'EV Battery & Range Telemetry',
-        description: 'State-of-health curves, degradation modelling over charge cycles, DC fast-charge compatibility, real-world range variance by temperature, and battery chemistry identification.',
+        title: 'Enterprise Automotive ERP Architectures',
+        description: 'Cloud-native ERPs purpose-built for automotive groups, vehicle distributors, and fleet operators—spanning procurement, reconditioning tracking, and parts logistics.',
         href: '/contact-us'
       },
       {
-        title: 'Vehicle Parc & VIO Intelligence',
-        description: 'National and regional vehicles-in-operation counts segmented by make, model, age, and geography — used for parts demand forecasting, territory planning, and market sizing.',
+        title: 'OEM Direct-to-Consumer (D2C) Retailing',
+        description: 'Digital showroom configurators, build-to-order reservation funnels, dynamic trade-in calculations, and legally compliant online checkout flows.',
         href: '/contact-us'
       }
     ],
     spotlight: {
-      heading: 'The Achtrex Data Layer',
-      body: 'Our vehicle data infrastructure is purpose-built for enterprise throughput. Every API endpoint is backed by multi-region redundancy, versioned schema contracts, and a comprehensive developer sandbox. Whether you are enriching a DMS, powering an insurance underwriting engine, or building a consumer-facing vehicle detail page, the Achtrex data layer gives your team the reliability and depth required to move fast without compromise.',
-      href: '/contact-us'
-    }
-  },
-  {
-    id: 'sales-inventory',
-    name: 'Sales & Inventory Cloud',
-    features: [
-      {
-        title: 'Bi-Directional DMS Sync',
-        description: 'Live two-way inventory mirroring across CDK Global, Reynolds & Reynolds, DealerSocket, DealerTrack, and custom dealer management systems with conflict resolution and audit logs.',
-        href: '/contact-us'
-      },
-      {
-        title: 'Multi-Channel Syndication',
-        description: 'Automated vehicle broadcast to AutoTrader, Cars.com, CarGurus, Kijiji Autos, and over 40 regional classifieds — with dynamic photo ordering, pricing rules, and compliance flags.',
-        href: '/contact-us'
-      },
-      {
-        title: 'Algorithmic Lot Pricing',
-        description: 'Age-on-lot decay models that automatically lower asking price at configurable thresholds to protect velocity, preserve gross profit, and reduce aged unit carrying costs.',
-        href: '/contact-us'
-      },
-      {
-        title: 'Intelligent Lead Routing',
-        description: 'Neural lead scoring that weights intent signals, browsing behavior, and trade-in value to route hot prospects directly to the highest-performing available sales specialist.',
-        href: '/contact-us'
-      },
-      {
-        title: 'Digital Appraisal Suite',
-        description: 'Consumer self-appraisal tools, condition-guided photo capture, algorithmic wholesale valuation with configurable margin buffers, and instant offer generation for trade-in conversions.',
-        href: '/contact-us'
-      },
-      {
-        title: 'Multi-Rooftop Fleet View',
-        description: 'Unified executive dashboard for dealer groups managing multiple rooftops — enabling cross-location inventory rebalancing, consolidated reporting, and group-level profitability analytics.',
-        href: '/contact-us'
-      }
-    ],
-    spotlight: {
-      heading: 'End-to-End Dealer Operations',
-      body: 'The Achtrex Inventory Cloud eliminates the manual overhead that slows dealership operations. From the moment a unit lands in stock to the final signature on the sale, every workflow — appraisal, listing, pricing, lead follow-up — is orchestrated by intelligent automation. Our platform integrates with your existing DMS on day one, requires no data migration, and goes live in under two weeks for most dealer groups.',
-      href: '/contact-us'
-    }
-  },
-  {
-    id: 'custom-software',
-    name: 'Custom Software Builds',
-    features: [
-      {
-        title: 'Bespoke Dealership Portals',
-        description: 'Custom-designed web and mobile applications for dealership staff, service advisors, and general managers — built to your exact operational workflow with role-based access controls.',
-        href: '/contact-us'
-      },
-      {
-        title: 'Auto Parts B2B Marketplaces',
-        description: 'High-performance parts catalog search engines that cross-reference OEM part numbers with aftermarket equivalents, fitment guides, and real-time distributor inventory levels.',
-        href: '/contact-us'
-      },
-      {
-        title: 'Enterprise Mobility Cloud ERP',
-        description: 'Modular, cloud-native ERP architectures purpose-built for automotive group operations — procurement, reconditioning, warranty management, and compliance modules included.',
-        href: '/contact-us'
-      },
-      {
-        title: 'Custom Middleware & Integration Layers',
-        description: 'Resilient API middleware connecting legacy on-premise dealership systems to modern SaaS platforms — built with schema validation, retry logic, and full observability.',
-        href: '/contact-us'
-      },
-      {
-        title: 'Workshop & Service Bay Scheduling',
-        description: 'Customer self-booking portals, real-time bay capacity management, technician assignment, parts pre-staging, and automated customer communication at every step.',
-        href: '/contact-us'
-      },
-      {
-        title: 'Telematics & IoT Data Pipelines',
-        description: 'Distributed streaming pipelines ingesting high-frequency vehicle telemetry via MQTT and Kafka — enabling real-time fleet tracking, predictive maintenance alerts, and driver analytics.',
-        href: '/contact-us'
-      }
-    ],
-    spotlight: {
-      heading: 'You Own Every Line of Code',
-      body: 'When Achtrex builds your platform, there is no subscription, no vendor lock-in, and no licensing ceiling. Every deliverable is transferred to you as full intellectual property. Our architecture team designs systems that scale from a single-rooftop dealer to a national OEM subsidiary — and we stand behind each build with a structured hypercare period, documentation, and optional long-term support contracts.',
+      heading: 'You Own Every Line of Automotive Code',
+      body: 'When Achtrex builds your automotive technology, there are no licensing ceilings or third-party vendor lock-in. Every system—from dealership management portals and inventory clouds to connected fleet telematics and enterprise ERPs—is engineered to your exact operational specifications and transferred with 100% intellectual property ownership.',
       href: '/contact-us'
     }
   },
@@ -149,38 +67,89 @@ export const solutionCategories: SolutionCategory[] = [
     features: [
       {
         title: 'AAIA Diagnostic Reasoning Engine',
-        description: 'Domain-specialized neural models trained on tens of millions of OBD-II fault codes, factory service procedures, TSBs, and real-world repair outcomes across hundreds of vehicle platforms.',
+        description: 'Domain-specialized neural models trained on tens of millions of OBD-II DTC fault codes, OEM Technical Service Bulletins (TSBs), and guided vehicle repair trees.',
         href: '/contact-us'
       },
       {
-        title: '24/7 Autonomous Sales Agents',
-        description: 'Conversational AI assistants that handle inbound vehicle inquiries around the clock — answering spec questions, generating trade-in estimates, and booking test drives without human intervention.',
+        title: '24/7 Autonomous Dealership Sales Agents',
+        description: 'Conversational AI handling vehicle inquiries around the clock—answering factory spec questions, calculating preliminary payments, and booking showroom test drives.',
         href: '/contact-us'
       },
       {
-        title: 'Automated Service Triage',
-        description: 'Intelligent intake system that classifies customer complaints, estimates repair complexity, checks parts availability, and generates preliminary quotes before a service advisor is involved.',
+        title: 'Automated Service Bay Triage AI',
+        description: 'Intelligent repair intake classifying customer symptom descriptions, estimating labor hours, checking parts inventory readiness, and drafting repair orders.',
         href: '/contact-us'
       },
       {
-        title: 'Document & Invoice Extraction (OCR)',
-        description: 'Computer-vision OCR pipeline extracting structured data from repair orders, auction bills of sale, title paperwork, and insurance declarations with over 98% field accuracy.',
+        title: 'Computer-Vision Vehicle Damage Inspection',
+        description: 'Neural image models evaluating exterior panel damage, scratch/dent severity, paint depth, and tire tread from photos to generate repair cost estimates.',
         href: '/contact-us'
       },
       {
-        title: 'Predictive Demand Forecasting',
-        description: 'Machine learning models that project regional consumer vehicle demand 60–90 days out, integrating macroeconomic signals, search trend data, and historical transaction patterns.',
+        title: 'Automotive Document & Repair Order OCR',
+        description: 'Deep-learning extraction of vehicle titles, auction bills of sale, parts invoices, and repair orders with over 98% field accuracy and ERP ingestion.',
         href: '/contact-us'
       },
       {
-        title: 'Autonomous Damage Audit',
-        description: 'Computer-vision inspection models that assess vehicle damage from photos, cross-reference repair estimates against insurer guidelines, and flag anomalies for adjuster review.',
+        title: 'Predictive Spare Parts Demand & Inventory ML',
+        description: 'Machine learning models projecting regional component wear-and-tear cycles and seasonal demand to optimize parts department stocking and minimize backorders.',
+        href: '/contact-us'
+      },
+      {
+        title: 'Autonomous Warranty Claims Audit AI',
+        description: 'Automated review comparing technician repair narratives against OBD-II freeze-frame data and OEM guidelines to prevent warranty claim rejections.',
+        href: '/contact-us'
+      },
+      {
+        title: 'Dynamic Residual Value & Depreciation ML',
+        description: 'Predictive machine learning models calculating 30/60/90-day wholesale and retail asset depreciation curves across makes, trims, and market regions.',
         href: '/contact-us'
       }
     ],
     spotlight: {
-      heading: 'AI Built for Automotive Specificity',
-      body: 'General-purpose AI models do not understand torque specifications, VIN structure, or ADAS calibration requirements. Achtrex builds and fine-tunes AI systems on automotive-specific training sets so the outputs are accurate enough to act on — not just plausible enough to read. Every model we deploy is tested against domain benchmarks before it touches a production workflow, and each system includes human-in-the-loop escalation paths where confidence falls below threshold.',
+      heading: 'AI Engineered for Automotive Specificity',
+      body: 'General-purpose AI models do not understand torque specifications, telemetry protocols, or ADAS calibration requirements. Achtrex builds and fine-tunes domain-specialized neural architectures trained specifically on automotive engineering, repair documentation, and dealership operations. Whether automating customer engagement or accelerating technician diagnostics in the service bay, our AI solutions deliver reliable, production-ready accuracy.',
+      href: '/contact-us'
+    }
+  },
+  {
+    id: 'automotive-consultation',
+    name: 'Automotive Consultation',
+    features: [
+      {
+        title: 'Manufacturer & OEM Strategy',
+        description: 'Feature adoption curves, electrification transition planning, vehicle architecture roadmaps, and global competitive market positioning.',
+        href: '/contact-us'
+      },
+      {
+        title: 'Dealership Operations & Profitability',
+        description: 'Comprehensive operational audits, showroom workflow automation, sales desking optimization, and age-on-lot inventory turn enhancement.',
+        href: '/contact-us'
+      },
+      {
+        title: 'Repair Processes & Workshop Throughput',
+        description: 'Body shop and service bay workflow consulting, cycle time reduction, flat-rate labor efficiency, and technician throughput optimization.',
+        href: '/contact-us'
+      },
+      {
+        title: 'Vehicle Diagnostics & Telematics Advisory',
+        description: 'Guided troubleshooting protocols, OBD-II/CAN bus architecture, remote diagnostic integration, and high-frequency telemetry pipeline design.',
+        href: '/contact-us'
+      },
+      {
+        title: 'Aftermarket Supply Chain & Parts Strategy',
+        description: 'Parts inventory optimization, warehouse turn modeling, and distributor logistics engineering.',
+        href: '/contact-us'
+      },
+      {
+        title: 'Private Client & Fleet Advisory',
+        description: 'Strategic advisory for corporate fleets, transport businesses, and private entities on vehicle acquisitions, lifecycle costs, and custom technology.',
+        href: '/contact-us'
+      }
+    ],
+    spotlight: {
+      heading: 'Advising Across the Mobility Chain',
+      body: 'Achtrex advises businesses, manufacturers, dealerships, and individuals on anything related to vehicles, repair processes, diagnostics, workshop operations, and business strategy. Our seasoned automotive practitioners bring deep domain expertise to de-risk technology initiatives, optimize workshop throughput, and architect future-proof operational models.',
       href: '/contact-us'
     }
   }
@@ -296,7 +265,7 @@ export const SolutionsMegaMenu = ({ onClose }: { onClose?: () => void }) => {
                 Deployment
               </p>
               <p className="text-[12px] text-slate-600 leading-relaxed">
-                Cloud-native, API-first, and deployable on AWS, Azure, GCP, or private infrastructure. SLA-backed with dedicated onboarding support.
+                Cloud-native, enterprise-grade, and deployable on AWS, Azure, GCP, or private infrastructure. SLA-backed with dedicated onboarding support.
               </p>
             </div>
 

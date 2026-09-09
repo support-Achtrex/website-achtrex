@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
  title: "Request a Technical Proposal | Enterprise Solutions",
- description: "Submit your requirements for a customized technical proposal. From high-volume API integrations to autonomous AI agent deployments, let's architect your next-gen infrastructure.",
+ description: "Submit your requirements for a customized technical proposal. From bespoke automotive software builds to cognitive AI diagnostic deployments, let's architect your platform.",
 };
 
 export default function RequestQuotePage() {
@@ -35,7 +35,7 @@ export default function RequestQuotePage() {
   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] shrink-0 mt-2" />
   <div>
   <h4 className="font-bold text-slate-900 mb-1">99.99% Guaranteed Uptime</h4>
-  <p className="text-[14px] text-slate-700 font-normal leading-relaxed">Financially backed SLAs for all API and AI infrastructure deployments.</p>
+  <p className="text-[14px] text-slate-700 font-normal leading-relaxed">Financially backed SLAs for all custom software and cognitive AI deployments.</p>
   </div>
   </div>
   <div className="flex gap-4">

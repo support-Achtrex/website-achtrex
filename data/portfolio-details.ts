@@ -1,25 +1,25 @@
 export const portfolioDetails = {
     "automotive-dataset": {
-        title: "Global Vehicle Intelligence API",
-        kicker: "Enterprise VIN Intelligence",
+        title: "Automotive Software Builds",
+        kicker: "Bespoke Enterprise Systems",
         heroImage: "/projects/ad-logo.png",
         stats: [
-            { value: "50", suffix: "ms", label: "Latency" },
-            { value: "2.5", suffix: "M", label: "Daily Queries" },
-            { value: "99.9", suffix: "%", label: "Uptime" },
-            { value: "150", suffix: "+", label: "Data Points" }
+            { value: "100", suffix: "%", label: "IP Ownership" },
+            { value: "500", suffix: "+", label: "Deployments" },
+            { value: "99.99", suffix: "%", label: "Uptime SLA" },
+            { value: "24/7", suffix: "", label: "Engineering" }
         ],
-        challenge: "The #1 Global Automotive Data Platform & Vehicle API. Access comprehensive enterprise-grade intelligence: VIN Decoding, Technical Specs, Market Values, Carfax Alternatives, Auction History, Maintenance Schedules, EV Battery Health, and more.",
+        challenge: "Enterprise automotive software engineering tailored to modern dealership operations, workshop bay dispatch, and multi-location fleets with 100% client code ownership.",
         scope: [
-            "VIN Decoding APIs",
-            "Technical Specifications",
-            "Market Values & Auction History",
-            "EV Battery Health Intelligence",
-            "B2B Automotive Data Platform"
+            "Dealership Management Platforms",
+            "Workshop Bay Schedulers",
+            "Fleet Telemetry Systems",
+            "Custom Automotive Mobile Apps",
+            "Enterprise Software Architecture"
         ],
         outcomes: [
-            { title: "Developer Dashboard", image: "/projects/automotive_hero_new.png" },
-            { title: "API Infrastructure", image: "/server_infrastructure.png" }
+            { title: "Enterprise Dashboard", image: "/projects/automotive_hero_new.png" },
+            { title: "Cloud Architecture", image: "/server_infrastructure.png" }
         ]
     },
     "lumi-ai": {
@@ -52,11 +52,11 @@ export const portfolioDetails = {
             { value: "100", suffix: "%", label: "Centralized" },
             { value: "0", suffix: "", label: "Data Silos" },
             { value: "500", suffix: "+", label: "B2B Partners" },
-            { value: "Secure", suffix: "", label: "API Gateway" }
+            { value: "Secure", suffix: "", label: "Cloud Services" }
         ],
         challenge: "Creating a seamless, secure, and rapid access hub connecting our entire suite of automotive intelligence tools for enterprise B2B partners.",
         scope: [
-            "Unified API Gateway",
+            "Unified Enterprise Gateway",
             "Partner Authentication System",
             "Rate Limiting & Billing",
             "Real-time Monitoring Dashboard"
@@ -90,7 +90,7 @@ export const portfolioDetails = {
     },
     "carkasa": {
         title: "Carkasa",
-        kicker: "Global Vehicle History",
+        kicker: "Automotive Commerce Platform",
         heroImage: "/logos/use-cases/vehiclehistory.png",
         stats: [
             { value: "40", suffix: "%", label: "Increased Sales" },
@@ -98,12 +98,12 @@ export const portfolioDetails = {
             { value: "1", suffix: "s", label: "Report Generation" },
             { value: "Global", suffix: "", label: "Coverage" }
         ],
-        challenge: "Perform a free VIN check and get instant vehicle history reports globally. The ultimate Carfax and AutoCheck alternative for free vehicle look up, accident history, and mileage check.",
+        challenge: "Modernizing automotive digital retail and consumer transparency with custom web applications and real-time inventory management.",
         scope: [
-            "Free VIN Check Engine",
-            "Accident & Damage History",
-            "Mileage Verification",
-            "Carfax & AutoCheck Alternative"
+            "Digital Showroom Platform",
+            "Inspection Verification Workflows",
+            "Inventory Synchronization",
+            "Consumer Engagement Systems"
         ],
         outcomes: [
             { title: "Carkasa Web Application", image: "/projects/carkasa-screenshot.jpg" },
@@ -112,7 +112,7 @@ export const portfolioDetails = {
     },
     "vehicle-report-check": {
         title: "VehicleReportCheck",
-        kicker: "VIN Verification Ecosystem",
+        kicker: "Vehicle Verification Platform",
         heroImage: "/logos/use-cases/vehiclereportcheck.png",
         stats: [
             { value: "100", suffix: "K+", label: "Reports Monthly" },
@@ -120,12 +120,12 @@ export const portfolioDetails = {
             { value: "Instant", suffix: "", label: "Delivery" },
             { value: "Secure", suffix: "", label: "Platform" }
         ],
-        challenge: "The best AutoCheck and Carfax alternative. Do a free vehicle lookup and check any VIN instantly for accidents, damage, pictures and more. Built to provide extreme VIN intelligence and secure car marketplaces.",
+        challenge: "Modernizing vehicle verification and inspection reporting for digital marketplaces, providing transparency and operational confidence.",
         scope: [
-            "Instant Vehicle Lookup",
-            "Damage & Picture History",
-            "Secure Car Marketplace",
-            "Subscription Management"
+            "Inspection Reporting Platform",
+            "Condition Verification Engine",
+            "Digital Marketplace Tools",
+            "Subscription Architecture"
         ],
         outcomes: [
             { title: "Web Application", image: "/projects/vrc-screenshot.jpg" },

@@ -7,10 +7,10 @@ import * as motion from 'framer-motion/client';
 export const metadata = {
   title: 'Why Achtrex | The Structural Intelligence Advantage',
   description: 'Explore the technical leverage of Achtrex infrastructure. From proprietary autonomy to planetary scale, learn why our architectural engines are the foundation of high-velocity enterprises.',
-  keywords: ["Proprietary Data Autonomy", "Geo-Agnostic Scaling", "Resilient API Infrastructure", "Algorithmic Transparency", "SaaS Architectural Advantage"],
+  keywords: ["Proprietary Software Autonomy", "Automotive Systems Scale", "Resilient Cloud Infrastructure", "Cognitive AI Architecture", "SaaS Architectural Advantage"],
   openGraph: {
     title: "Why Achtrex | Unmatched Technical Velocity",
-    description: "Plug directly into a state-of-the-art enterprise-grade cognitive infrastructure.",
+    description: "Plug directly into state-of-the-art bespoke automotive software and cognitive AI infrastructure.",
     images: ["/projects/aaia_ui_v2.png"],
   }
 };
@@ -20,7 +20,7 @@ export default function WhyAchtrexPage() {
     {
       icon: Server,
       title: 'Proprietary Autonomy',
-      desc: 'We are entirely decoupled from third-party vendor constraints. By exclusively authoring our underlying data pipelines and API proxy layers, we algorithmically guarantee uptime and infinitely control our scalability runway.'
+      desc: 'We are entirely decoupled from third-party vendor constraints. By exclusively authoring our underlying software architectures and cloud platforms, we guarantee complete client code ownership and infinite scalability.'
     },
     {
       icon: Globe2,
@@ -115,7 +115,7 @@ export default function WhyAchtrexPage() {
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE]"></div>
           <h2 className="text-3xl md:text-5xl font-black mb-8 text-slate-900 tracking-tight">Velocity via vertical integration.</h2>
           <p className="text-[15px] sm:text-base md:text-lg text-slate-800 leading-[1.8] italic font-normal">
-            "The most sophisticated systems integrate seamlessly into the background. By providing frictionless API access to our architectural core, we completely abstract the friction of massive data orchestration, enabling our partners to structurally outpace their competition."
+            &quot;Automotive businesses need more than tools. They need software, intelligence, and direction. We build bespoke automotive software, deploy cognitive AI diagnostics, and advise leadership on operational excellence — enabling our clients to structurally outpace their competition.&quot;
           </p>
         </motion.div>
       </section>

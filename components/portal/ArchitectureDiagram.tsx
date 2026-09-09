@@ -144,7 +144,7 @@ export default function ArchitectureDiagram({ nodes, projectId }: ArchitectureDi
   // Group nodes by tier for visual flow representation
   const tiers = [
     { title: '1. Client & Ingress Tier', categories: ['frontend'] },
-    { title: '2. Edge Gateway & API Tier', categories: ['gateway'] },
+    { title: '2. Edge Gateway & Services Tier', categories: ['gateway'] },
     { title: '3. Microservices & AI Engines', categories: ['service', 'ai'] },
     { title: '4. Database & Storage Tier', categories: ['database'] },
     { title: '5. Cloud & Cluster Infra', categories: ['cloud', 'pipeline'] }

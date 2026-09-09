@@ -7,14 +7,14 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    tag: 'Achtrex VIN Core & Enterprise Data',
+    tag: 'Bespoke Automotive Software',
     quote: 'Thanks to our successful collaboration with Achtrex, we built a cutting-edge, fully individualized alternative to legacy parts catalog systems. The combination of web tools and mobile access for online parts search has streamlined our technical operations significantly.',
     author: 'Christian S.',
     role: 'Global Data Management & Category Lead'
   },
   {
     id: 2,
-    tag: 'AAIA Automotive AI Platform',
+    tag: 'AAIA Cognitive AI Solutions',
     quote: 'Achtrex fundamentally upgraded how our engineering teams interface with vehicle telemetry and diagnostic datasets. Sub-50ms query latency and automated triage reduced our diagnostic time by over 70%, giving our repair networks real-time clarity across thousands of vehicles daily.',
     author: 'Elena Rostova',
     role: 'VP of Digital Operations & Fleet Architecture'
@@ -22,7 +22,7 @@ const testimonials = [
   {
     id: 3,
     tag: 'Cloud Catalog & Custom Software',
-    quote: 'Deploying Achtrex as our central API gateway unified decades of fragmented parts databases into a single high-availability cloud layer. We achieved 100% data fidelity across multi-country parts syndication with zero downtime during peak season.',
+    quote: 'Deploying Achtrex custom software builds unified decades of fragmented workshop and catalog systems into a single high-availability platform. We achieved 100% operational fidelity across multi-country parts syndication with zero downtime during peak season.',
     author: 'Marc Van Der Berg',
     role: 'Chief Technology Officer'
   }

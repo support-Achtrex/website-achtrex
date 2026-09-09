@@ -28,28 +28,13 @@ export const BusinessSupportSection = () => {
             <div className="space-y-4 text-slate-800 text-[15px] sm:text-[16px] leading-[1.8] font-normal">
               <p>
                 <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] inline-block mr-2.5 align-middle shrink-0" />
-                <strong className="font-extrabold text-slate-900">Achtrex</strong> is an enterprise automotive technology and API provider. We support our enterprise partners with comprehensive digital infrastructure, high-velocity APIs, and custom platforms designed to improve technical performance and operational confidence.
+                <strong className="font-extrabold text-slate-900">Achtrex</strong> is an enterprise automotive technology partner. We support our enterprise partners with bespoke automotive software builds, domain-trained cognitive AI solutions, and strategic automotive consultation designed to elevate operational excellence and long-term profitability.
               </p>
               <p>
-                From instant VIN decoding and dealer inventory automation to bespoke enterprise portals and cognitive AI diagnostic models, our engineering resources ensure your operations stay ahead of industry demands. This commitment to technical excellence strengthens performance, eliminates fragmented workflows, and drives long-term business growth.
+                From custom dealership management platforms and connected fleet telematics to cognitive AI diagnostic models and executive advisory across the mobility chain, our engineering and consulting practices ensure your operations lead the industry.
               </p>
             </div>
 
-            {/* High-Impact Stat Metrics matching reference layout */}
-            <div className="pt-2 flex flex-wrap items-center gap-8 sm:gap-12 w-full">
-              <div className="flex flex-col">
-                <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">20M+</span>
-                <span className="text-xs sm:text-[13px] font-bold text-slate-600 mt-0.5">Vehicle Datasets</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">&lt;50ms</span>
-                <span className="text-xs sm:text-[13px] font-bold text-slate-600 mt-0.5">Response Latency</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE] tracking-tight">100%</span>
-                <span className="text-xs sm:text-[13px] font-bold text-slate-600 mt-0.5">IP Ownership</span>
-              </div>
-            </div>
 
             {/* High-Converting Brand Pill CTA Button */}
             <div className="pt-2">

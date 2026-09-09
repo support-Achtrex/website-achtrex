@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 const comparisonData = [
   {
     factor: 'Deep Automotive Domain Expertise',
-    achtrex: 'Scalable software and data APIs engineered exclusively for the automotive industry — VIN-native, OEM-aware, and dealer-ready from the ground up.',
+    achtrex: 'Bespoke software builds and cognitive AI diagnostics engineered exclusively for the automotive industry — OEM-aware and dealer-ready from the ground up.',
     others: 'Generic software development agencies applied to automotive without domain fluency or native data understanding.'
   },
   {

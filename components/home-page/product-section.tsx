@@ -35,12 +35,12 @@ export const ProductSection = () => {
             transition={{ delay: 0.1 }}
             className="text-slate-500 text-lg max-w-2xl"
           >
-            Achtrex builds and operates specialized digital platforms designed for high-performance API access, unified communications, and global data scale.
+            Achtrex builds and operates specialized automotive software platforms, cognitive AI diagnostic systems, and operational advisory solutions.
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Automotive Data Platform */}
+          {/* Automotive Software Builds */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export const ProductSection = () => {
             <div className="absolute top-6 right-6 z-20">
               <span className="flex items-center gap-2 bg-green-500/90 text-slate-900 shadow-lg border border-slate-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-transparent animate-pulse" />
-                Live Product
+                Live Pillar
               </span>
             </div>
 
@@ -59,7 +59,7 @@ export const ProductSection = () => {
             <div className="relative h-72 w-full bg-slate-900 border-b border-slate-200 overflow-hidden">
               <Image
                 src="/projects/automotive_ui_v2.jpg"
-                alt="Automotive Data Engine"
+                alt="Automotive Software Builds"
                 fill
                 className="object-cover object-top opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700"
               />
@@ -67,21 +67,21 @@ export const ProductSection = () => {
             </div>
 
             <div className="p-8 md:p-10 flex-grow relative z-10 pt-4">
-              <h3 className="text-3xl font-bold text-gradient mb-3">Automotive Dataset</h3>
-              <p className="text-gradient text-sm font-bold uppercase tracking-widest mb-6">Deep Vehicle Intelligence</p>
+              <h3 className="text-3xl font-bold text-gradient mb-3">Automotive Software Builds</h3>
+              <p className="text-gradient text-sm font-bold uppercase tracking-widest mb-6">Bespoke Systems Engineering</p>
               
               <p className="text-slate-500 text-lg leading-relaxed mb-8">
-                Power your business with the industry’s most extensive data catalog. Access over 50 specialized APIs and full database downloads, including Premium VIN, Window Stickers, Valuation, Auction Data, Plate OCR, vehicle media, YMM specs, Repair Estimates, Parts Catalogs, and detailed Technical Specs.
+                Power your automotive business with bespoke software architectures. We build custom dealership portals, workshop bay schedulers, fleet management platforms, parts catalog systems, and mobile technician workflows with 100% client code ownership.
               </p>
             </div>
             
             <div className="p-8 md:p-10 pt-0 mt-auto">
               <Link 
-                href="/services" 
+                href="/solutions/automotive-software" 
                 className="w-full btn-navbar-cta"
               >
                 <span className="btn-navbar-cta-inner !py-4">
-                  <span>Explore Vehicle Intelligence</span>
+                  <span>Explore Software Builds</span>
                   <ExternalLink size={18} className="text-[#00A9CE]" />
                 </span>
               </Link>

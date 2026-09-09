@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -7,12 +7,6 @@ import { motion } from 'framer-motion';
 export const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current && videoRef.current.readyState >= 2) {
-      setVideoLoaded(true);
-    }
-  }, []);
 
   return (
     <section className="relative w-full min-h-[100vh] z-20 flex flex-col font-sans">
@@ -62,18 +56,16 @@ export const Hero = () => {
           >
             {/* Title */}
             <h1 className="text-3xl md:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.2] mb-12 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
-              We build the data, the intelligence, and the platforms behind automotive businesses.
+              Automotive businesses need more than tools. They need software, intelligence, and direction. We build all three.
             </h1>
 
             {/* Keywords */}
             <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-[11px] md:text-[13px] font-bold tracking-widest text-slate-100 uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-              <span>CUSTOM SOFTWARE SOLUTIONS</span>
+              <span>AUTOMOTIVE SOFTWARE BUILDS</span>
               <span className="text-cyan-400">•</span>
-              <span>AUTOMOTIVE DATA SOLUTIONS</span>
+              <span>COGNITIVE AI SOLUTIONS</span>
               <span className="text-cyan-400">•</span>
-              <span>AI-POWERED SOLUTIONS</span>
-              <span className="text-cyan-400">•</span>
-              <span>SALES & INVENTORY MANAGEMENT SOLUTIONS</span>
+              <span>AUTOMOTIVE CONSULTATION</span>
             </div>
 
             {/* Signature Navbar-style Pill CTAs */}

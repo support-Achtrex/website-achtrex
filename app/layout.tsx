@@ -14,18 +14,16 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
  metadataBase: new URL('https://achtrex.com'),
- title: {
- default: "Achtrex | Global Automotive Data Infrastructure & AI Platforms",
- template: "%s | Achtrex - Enterprise Automotive Data"
- },
-  description: "Achtrex is a leading enterprise SaaS venture builder. We architect high-velocity data platforms, autonomous AI agents, and resilient API infrastructure for automotive and global digital economies.",
+  title: {
+    default: "Achtrex | Automotive Software, Cognitive AI & Automotive Consultation",
+    template: "%s | Achtrex - Automotive Software & AI Solutions"
+  },
+  description: "Achtrex engineers bespoke automotive software builds, cognitive AI diagnostics, and strategic operational consultation for automotive businesses worldwide.",
   keywords: [
- "Achtrex", "Enterprise SaaS Venture Builder", "Automotive Data Infrastructure", 
- "Cognitive AI Platforms", "Global Automotive API", "Vehicle Intelligence Data", 
- "Vehicle History API", "VIN Decoding Service", "Scalable SaaS Architecture", 
- "Automotive AI Platforms", "Dealership Data Solutions", "Fleet Management API",
- "High-Velocity Data Ingestion", "Enterprise API Gateway", "Mobility Intelligence"
- ],
+    "Achtrex", "Automotive Software Builds", "Cognitive AI Solutions", "Automotive Consultation", 
+    "Dealership Management Software", "Workshop Scheduling Systems", "AI Vehicle Diagnostics", 
+    "Automotive Advisory", "Fleet Software Solutions", "Mobility Platforms"
+  ],
  authors: [{ name: "Achtrex Engineering Team", url: "https://achtrex.com" }],
  creator: "Achtrex",
  publisher: "Achtrex",
@@ -90,7 +88,7 @@ const jsonLd = [
  "contactPoint": [
   {
    "@type": "ContactPoint",
-   "telephone": "+1-613-366-4271",
+   "telephone": "+971-50-222-9587",
    "contactType": "customer service",
    "areaServed": ["US", "CA", "GB", "NL"],
    "availableLanguage": ["en", "fr"]

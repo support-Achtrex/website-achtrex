@@ -3,16 +3,15 @@ import React from 'react';
 
 export const TrustMetrics = () => {
   const metrics = [
-    { label: "Vehicles Processed", value: "20M+" },
-    { label: "Manual Decoding Reduced", value: "95%" },
-    { label: "API Uptime", value: "99.9%" },
-    { label: "Global Coverage", value: "Dataset" }
+    { label: "Manual Workflow Reduced", value: "95%" },
+    { label: "Platform Uptime SLA", value: "99.99%" },
+    { label: "Client IP Ownership", value: "100%" }
   ];
 
   return (
     <section className="py-16 bg-[#001a22] text-white">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
           {metrics.map((metric, idx) => (
             <div key={idx} className="flex flex-col items-center">
               <div className="text-4xl md:text-4xl font-black text-[#00a9ce] mb-2">

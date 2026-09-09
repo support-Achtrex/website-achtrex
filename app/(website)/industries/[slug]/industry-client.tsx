@@ -34,49 +34,49 @@ const industryData: Record<string, any> = {
  title: 'Auto Insurance',
  subtitle: 'Next-Generation Actuarial Precision & Claims Automation',
  color: 'from-[#00a9ce] to-[#174395]',
- description: 'Achtrex delivers the ultimate data infrastructure designed from the ground up for the modern insurance sector. Historically, underwriting and claims adjustment have relied on fragmented, often self-reported data that introduces massive institutional risk. By seamlessly integrating our high-velocity VIN decoding, Advanced Driver Assistance Systems (ADAS) feature extraction, and historical vehicle records, actuaries can construct predictive risk models with unprecedented, surgical precision.\n\nWe eliminate the guesswork inherent in policy pricing. By streaming real-time data on exact factory specifications, active safety systems, and historical accident records directly into your core underwriting engines, you can dynamically adjust premiums based on the true physical capabilities and history of the insured vehicle.',
+ description: 'Achtrex delivers bespoke software engineering, cognitive AI inspection, and actuarial consultation designed from the ground up for the modern insurance sector. Historically, underwriting and claims adjustment have relied on fragmented, manual assessments that introduce institutional risk. By seamlessly integrating our predictive software builds, Advanced Driver Assistance Systems (ADAS) feature modeling, and cognitive damage evaluation, actuaries can construct predictive risk models with surgical precision.\n\nWe eliminate the guesswork in policy pricing. By deploying specialized software systems and cognitive AI directly into your core underwriting workflows, you dynamically adjust premiums based on verified vehicle safety systems and operational risk profiles.',
  challenges: [
  'Blind spots in factory-installed ADAS features which drastically skew risk profiles. Underwriters rely on generalized data, leading to mispriced risk.',
  'Relying on delayed, fragmented, or incomplete total-loss and accident histories during rapid underwriting decisions.',
  'High operational overhead and friction caused by manual data entry in claims and onboarding, leading to misquoted policies.'
  ],
  solutions: [
- 'Sub-second VIN Decoding: Instantly retrieve exhaustive vehicle specifications, including standard and optional safety equipment.',
- 'Automated Intelligence: Stream comprehensive vehicle history, title branding, and real-time market value data directly into models.',
- 'Scalable Claim Pipelines: Drastically reduce manual processing time by automating the identification of exact replacement parts and ACV.'
+ 'Custom Actuarial Software: Enterprise platforms designed specifically for dynamic underwriting and risk assessment.',
+ 'Cognitive Claims Intelligence: AI-assisted image and damage evaluation to accelerate total loss thresholds and repair estimates.',
+ 'Actuarial Systems Advisory: Expert automotive consultation to streamline technical claims workflows and compliance.'
  ],
  capabilities: [
- { text: 'Deep ADAS & Active Safety Feature Verification via VIN', icon: ShieldCheck },
- { text: 'Instantaneous Total Loss, Salvage, and Title History Checks', icon: AlertCircle },
- { text: 'Real-time Market Value Appraisals for Accurate Claims Adjustment', icon: LineChart },
- { text: 'Automated Vehicle Image OCR for Rapid Intake and Validation', icon: Fingerprint }
+ { text: 'Deep ADAS & Active Safety Feature Verification Engines', icon: ShieldCheck },
+ { text: 'Automated Total Loss & Repair Cost Modeling', icon: AlertCircle },
+ { text: 'Custom Claims Intake & Processing Software Platforms', icon: LineChart },
+ { text: 'Cognitive Damage Inspection & Visual Validation', icon: Fingerprint }
  ],
  icon: Shield,
- apis: ['VIN Decoding API', 'Vehicle History API', 'Market Value API', 'OCR API']
+ solutionStack: ['Custom Actuarial Platform', 'Cognitive Claims AI', 'ADAS Verification Software', 'Insurance Advisory']
  },
  'car-dealerships': {
  title: 'Car Dealerships',
  subtitle: 'Hyper-Accelerate Inventory Turnover & Maximize Gross Margin',
  color: 'from-[#F2147A] to-[#861F80]',
- description: "Transform your entire dealership operation with Achtrex's absolute market intelligence layer. In a highly volatile automotive retail environment, intuition is no longer sufficient; dealerships must operate on definitive, real-time data. We deliver live market valuations, exact OEM specifications, and aggressive competitive pricing insights natively into your Dealer Management System (DMS) and CRM.\n\nEquip your sales staff, BDC, and acquisition teams with unassailable data transparency. Whether you are appraising a vehicle at the trade-in desk or acquiring inventory from wholesale auctions, our APIs ensure you never overpay for a vehicle and never under-price a highly optioned trim.",
+ description: "Transform your entire dealership operation with Achtrex custom automotive software builds, cognitive assistant tools, and hands-on operational consultation. In a highly volatile automotive retail environment, intuition is no longer sufficient; dealerships must operate on agile, modern systems. We build bespoke dealership portals, workshop scheduling systems, and inventory orchestration platforms that modernize your operations.\n\nEquip your sales staff, service advisors, and acquisition teams with unassailable software performance. Whether streamlining trade-in appraisals or optimizing reconditioning turnaround, Achtrex delivers the software systems and strategic advisory to boost profitability.",
  challenges: [
  'Pricing pre-owned inventory competitively in a rapidly fluctuating market without sacrificing front-end gross.',
  'Inaccurately representing complex vehicle trims and expensive factory options online, leading to lost digital sales.',
  'Slow and highly inefficient appraisal processes that bottleneck trade-ins and significantly delay getting inventory front-line ready.'
  ],
  solutions: [
- 'Algorithmic Pricing Architecture: Leverage our Real-time Market Value API to algorithmically determine the optimal acquisition price.',
- 'Automated Merchandising: Utilize our comprehensive VIN decoding to automatically generate rich, highly converting vehicle descriptions.',
- 'Digital Showroom Integration: Embed instant vehicle history and exact specification reports directly into your VDPs.'
+ 'Custom Dealership Portals: Tailored showroom and inventory management software built for your exact sales workflows.',
+ 'Automated Bay Schedulers: High-velocity workshop and reconditioning dispatch software to slash turnaround times.',
+ 'Dealership Operational Advisory: Strategic consulting on digital retail processes, BDC efficiency, and workflow modernization.'
  ],
  capabilities: [
- { text: 'Automated Window Sticker (Monroney) Generation', icon: FileText },
- { text: 'Live Wholesale vs. Retail Price Arbitrage Metrics', icon: LineChart },
- { text: 'Instant Trade-In Valuation & Exact Factory Spec Verification', icon: Target },
- { text: 'Historical Sales Data & Predictive Days-to-Turn Analytics', icon: Activity }
+ { text: 'Custom Dealership Management & Showroom Portals', icon: FileText },
+ { text: 'Bay & Reconditioning Workflow Optimization', icon: LineChart },
+ { text: 'Real-Time Appraisal & Valuation Workflow Tools', icon: Target },
+ { text: 'Predictive Days-to-Turn Analytics & Floorplan Software', icon: Activity }
  ],
  icon: Car,
- apis: ['VIN Decoding API', 'Window Sticker API', 'Market Value API', 'Sales History API']
+ solutionStack: ['Dealership Software Builds', 'Workshop Scheduling Engine', 'Cognitive Assistant', 'Dealership Operations Advisory']
  },
  'auto-repair': {
  title: 'Auto Repair Service',
@@ -89,66 +89,66 @@ const industryData: Record<string, any> = {
  'Managing supply chain delays and accurately identifying cross-compatible parts for specific niche sub-models.'
  ],
  solutions: [
- 'Direct OEM Data Access: Provide your technicians and service advisors with instant, normalized access to comprehensive maintenance schedules.',
- 'AI-Powered Diagnostic Routing: Deploy our AAIA engine to instantly map obscure error codes and symptoms to statistically probable fixes.',
- 'Intelligent Parts Cross-Reference: Seamlessly integrate our vast aftermarket and OEM parts database with your Shop Management System.'
+ 'AAIA Cognitive AI Diagnostics: Multi-modal AI acoustic and DTC reasoning models that pinpoint mechanical failures in minutes.',
+ 'Custom Workshop Management Software: Modern bay scheduling, technician tracking, and digital RO dispatch systems.',
+ 'Repair Process Advisory: Direct consultation on shop floor throughput, lean workshop layouts, and technician productivity.'
  ],
  capabilities: [
- { text: 'Live OEM Maintenance Schedules & Precise Fluid Capacity Lookups', icon: Database },
- { text: 'Predictive OBD2 Trouble Code Resolution via Cognitive AI', icon: Cpu },
- { text: 'Accurate Labor Time & Dynamic Repair Cost Estimation', icon: Target },
- { text: 'Real-time Technical Service Bulletin (TSB) & Recall Alerts', icon: AlertCircle }
+ { text: 'Cognitive OBD2 & Acoustic Defect Diagnostics (AAIA)', icon: Cpu },
+ { text: 'Custom Digital Repair Order (RO) & Bay Management', icon: Database },
+ { text: 'Predictive Labor & Repair Estimation Software', icon: Target },
+ { text: 'Shop Floor Throughput & Lean Operations Advisory', icon: AlertCircle }
  ],
  icon: Wrench,
- apis: ['Repair Pricing API', 'Vehicle Maintenance API', 'Technical Service Bulletins API', 'AAIA Engine']
+ solutionStack: ['AAIA Cognitive Diagnostics', 'Workshop Software Build', 'Dynamic Bay Scheduler', 'Repair Advisory']
  },
  'car-website': {
  title: 'Car Website',
  subtitle: 'Enrich Your Digital Automotive Content Ecosystem',
  color: 'from-[#861F80] to-[#174395]',
- description: "Supercharge your automotive blog, editorial review site, or consumer portal with enterprise-grade vehicle specifications, high-resolution imagery, and dynamic performance metrics. In the highly competitive digital publishing space, authoritative content is the ultimate differentiator. Achtrex allows digital publishers to construct massive, highly-accurate vehicle databases without the crippling overhead of manual data curation.\n\nEnsure your audience always has access to the most authoritative, interactive automotive content on the web. From granular internal combustion engine displacement metrics to deep EV battery architectures, our APIs stream perfectly formatted data directly into your CMS.",
+ description: "Supercharge your automotive blog, editorial review site, or consumer portal with enterprise-grade vehicle specifications, high-resolution imagery, and dynamic performance metrics. In the highly competitive digital publishing space, authoritative content is the ultimate differentiator. Achtrex allows digital publishers to construct massive, highly-accurate vehicle databases without the crippling overhead of manual data curation.\n\nEnsure your audience always has access to the most authoritative, interactive automotive content on the web. From granular vehicle comparison tools to AI-powered vehicle recommendation engines, we engineer platforms that drive engagement and retention.",
  challenges: [
  'Sourcing exhaustive, reliable, and continuously updated vehicle specifications across global markets and distinct trims.',
  'Maintaining high-quality databases of specific metrics, like exact vehicle dimensions and EV battery ranges, without immense labor.',
  'Keeping discerning users engaged and increasing platform dwell time with dynamic, interactive, and visually rich data.'
  ],
  solutions: [
- 'Automated CMS Ingestion Pipelines: Pull real-time, exhaustive specifications directly into your publishing backend.',
+ 'Bespoke Web Platform Builds: Ultra-fast Next.js automotive portals engineered for speed, SEO, and interactive engagement.',
  'Comprehensive EV Intelligence: Access specific electric vehicle metrics, including exact battery chemistries and charging curves.',
- 'Interactive Analytical Widgets: Enhance editorial reviews with accurate market value trends and historical depreciation charts.'
+ 'Digital Product Strategy: Consultation on content architecture, monetization funnels, and tech stack design.'
  ],
  capabilities: [
  { text: 'Complete Global Vehicle Spec Database Access', icon: Globe },
  { text: 'High-Resolution OEM Color & Interior Imagery Integration', icon: Monitor },
- { text: 'Deep EV Metrics (Charging Speeds, Battery Architecture)', icon: Zap },
- { text: 'Historical Depreciation & Value Retention Analysis Curves', icon: LineChart }
+ { text: 'Cognitive Car Recommendation Engine', icon: Zap },
+ { text: 'Modern Digital Publishing Architecture & Strategy', icon: LineChart }
  ],
  icon: Monitor,
- apis: ['Vehicle Specifications API', 'EV Specifications API', 'Vehicle Image API']
+ solutionStack: ['Automotive Web Platform', 'Cognitive Recommendation AI', 'Interactive Valuation Tools', 'Digital Product Advisory']
  },
  'classifieds-websites': {
  title: 'Classifieds Website',
  subtitle: 'Build Unshakable Trust in Peer-to-Peer Marketplaces',
  color: 'from-[#00a9ce] to-[#76bc1d]',
- description: "Protect your marketplace users and dramatically elevate the quality of your listings by automatically verifying VINs, checking stolen vehicle registries, and providing objective market value context. Peer-to-peer automotive marketplaces inherently suffer from an massive trust deficit. Achtrex provides the essential data infrastructure required to transform a chaotic, low-trust classifieds site into a secure, transparent, and highly efficient transactional platform.\n\nBy algorithmically validating every vehicle that enters your platform, you eradicate fraudulent listings and cloned VINs before they reach your buyers. Furthermore, you vastly improve marketplace liquidity and establish your platform as the definitive, safe destination for automotive commerce.",
+ description: "Protect your marketplace users and dramatically elevate the quality of your listings with custom marketplace software engineering, cognitive fraud detection, and operational advisory. Peer-to-peer automotive marketplaces inherently suffer from trust deficits and fraud risks. Achtrex engineers secure, scalable marketplace architectures that streamline vehicle onboarding and eliminate fraudulent listings.\n\nBy deploying intelligent software workflows and cognitive verification algorithms, your platform flags fraudulent listings, standardizes vehicle specifications, and establishes your marketplace as the safe destination for automotive commerce.",
  challenges: [
- 'Combating fraudulent listings, cloned VINs, title washing, and highly inaccurate descriptions uploaded by malicious sellers.',
+ 'Combating fraudulent listings, fake seller accounts, and inaccurate vehicle specifications.',
  'Sellers vastly overpricing or underpricing their vehicles due to a lack of market knowledge, leading to severe marketplace stagnation.',
  'A fundamental, structural lack of trust between anonymous buyers and sellers regarding the true mechanical condition.'
  ],
  solutions: [
- 'Instant Infrastructure Verification: Automatically verify every submitted VIN against authoritative global databases to flag invalid formats.',
- 'Objective Market Value Context: Provide integrated, dynamic market value widgets on every listing to educate users on fair pricing.',
- 'Comprehensive Trust Infrastructure: Generate automatic vehicle history summaries and rigorous title checks to establish confidence.'
+ 'Custom Marketplace Software Builds: End-to-end peer-to-peer automotive platforms with automated listing verification.',
+ 'Cognitive Fraud Detection: AI algorithms that analyze listing photos, descriptions, and seller patterns in real time.',
+ 'Marketplace Strategy Advisory: Strategic consultation on liquidity, dealer onboarding, and escrow transaction flows.'
  ],
  capabilities: [
- { text: 'Automated Listing Enrichment & Spec Population via VIN Input', icon: Database },
- { text: 'Live Stolen Vehicle, Total Loss & Salvage Title Verification', icon: ShieldCheck },
- { text: 'Dynamic Price Rating Badges (Great Price, Fair Price)', icon: Tag },
- { text: 'Instant Verification Badges for Authenticated Listings', icon: Fingerprint }
+ { text: 'Custom Automotive Marketplace Architecture', icon: Database },
+ { text: 'Cognitive Listing Verification & Image Analysis', icon: ShieldCheck },
+ { text: 'Automated Vehicle Spec Standardization & Badging', icon: Tag },
+ { text: 'Trust & Verification Transaction Infrastructure', icon: Fingerprint }
  ],
  icon: FileText,
- apis: ['Stolen Vehicle API', 'Market Value API', 'VIN Title Check API']
+ solutionStack: ['Custom Marketplace Build', 'Cognitive Verification AI', 'Trust Infrastructure', 'Marketplace Advisory']
  },
  'car-rental': {
  title: 'Car Rental',
@@ -161,72 +161,72 @@ const industryData: Record<string, any> = {
  'Managing highly variable preventative maintenance schedules to avoid catastrophic mechanical failures and maximize utilization.'
  ],
  solutions: [
- 'Instant Fleet Onboarding: Instantly ingest new vehicles into your fleet management platform by decoding the VIN.',
- 'Algorithmic Disposition Optimization: Monitor real-time fleet market value to algorithmically optimize your sell-off timing.',
- 'Automated Preventative Maintenance: Trigger automated maintenance workflows and service alerts based on exact OEM schedules.'
+ 'Custom Rental Fleet Software: Cloud and tablet-based fleet management systems for multi-branch rental operations.',
+ 'Cognitive Damage Inspection: Mobile visual AI that compares pre- and post-rental vehicle conditions automatically.',
+ 'Fleet Operations Consultation: Hands-on advisory on turnaround logistics, bay staffing, and maintenance scheduling.'
  ],
  capabilities: [
- { text: 'Bulk Fleet VIN Decoding & Specification Normalization', icon: Layers },
- { text: 'Live Fleet Depreciation Tracking & Portfolio Market Value', icon: LineChart },
- { text: 'Automated OEM Maintenance Milestone & Recall Alerts', icon: AlertCircle },
- { text: 'Predictive Disposition Analytics for Optimal Defleeting', icon: Target }
+ { text: 'Custom Fleet Operations & Reservation Platforms', icon: Layers },
+ { text: 'Cognitive Mobile Visual Damage Inspection', icon: LineChart },
+ { text: 'Automated Preventative Maintenance Scheduling', icon: AlertCircle },
+ { text: 'Fleet Lifecycle & Turnaround Logistics Advisory', icon: Target }
  ],
  icon: Briefcase,
- apis: ['Vehicle Maintenance API', 'Market Value API', 'VIN Decoding API']
+ solutionStack: ['Custom Rental Fleet Software', 'Cognitive Damage Detection AI', 'Bay Turnaround Dispatcher', 'Rental Operations Advisory']
  },
  'auto-parts': {
  title: 'Auto Parts Company',
  subtitle: 'Ensure Perfect Fitment & Completely Eliminate Return Friction',
  color: 'from-[#F2147A] to-[#174395]',
- description: "Drastically reduce return rates and fundamentally transform customer satisfaction by integrating precise vehicle specifications and guaranteed fitment data into your e-commerce platform. The aftermarket auto parts industry is plagued by the complexities of ACES/PIES catalog data and the high cost of reverse logistics. Achtrex bridges the gap between these massive engineering databases and a consumer-friendly shopping experience.\n\nWe ensure that your customers always purchase the exact right part for their specific vehicle configuration. By allowing users to shop via License Plate or precise VIN decoding, our APIs map their exact engine code, transmission type, and sub-model directly to your inventory.",
+ description: "Drastically reduce return rates and fundamentally transform customer satisfaction by integrating precise vehicle specifications and guaranteed fitment data into your e-commerce platform. The aftermarket auto parts industry is plagued by the complexities of ACES/PIES catalog data and the high cost of reverse logistics. Achtrex bridges the gap between these massive engineering databases and a consumer-friendly shopping experience.\n\nWe ensure that your customers always purchase the exact right part for their specific vehicle configuration. By engineering intuitive fitment search software and deploying intelligent catalog cross-referencing, our platforms eliminate return friction.",
  challenges: [
  'Crippling return rates and massive reverse-logistics costs caused entirely by customers purchasing incompatible parts.',
  'Customers struggling to identify their exact vehicle sub-model or engine displacement from confusing dropdown menus.',
  'Managing and successfully normalizing massive, highly complex ACES/PIES catalog data across thousands of manufacturers.'
  ],
  solutions: [
- 'Seamless Fitment Lookup: Allow your customers to seamlessly shop for compatible parts by entering their License Plate or VIN.',
- 'High-Precision Inventory Mapping: Map highly specific vehicle sub-models and exact engine codes directly to your inventory.',
- 'Guaranteed Fitment Architecture: Provide absolute confidence at checkout with our guaranteed fitment APIs, increasing conversion.'
+ 'Custom Auto Parts E-Commerce Builds: High-velocity catalog and checkout platforms with integrated fitment selectors.',
+ 'Intelligent Part Compatibility Engines: Software architectures that map complex vehicle trims to exact manufacturer part numbers.',
+ 'Supply Chain & Catalog Advisory: Expert consultation on inventory synchronization, fitment standards, and return reduction.'
  ],
  capabilities: [
- { text: 'License Plate-to-VIN & Exact Specification Conversion', icon: Car },
- { text: 'Deep Engine Code, Drivetrain & Transmission Identification', icon: Cpu },
- { text: 'Comprehensive ACES/PIES Data Normalization & Inventory Mapping', icon: Database },
- { text: 'Automated Fitment Guarantee Badging & Compatibility API', icon: ShieldCheck }
+ { text: 'Custom Auto Parts E-Commerce & B2B Portals', icon: Car },
+ { text: 'Engineered Fitment & Specification Matchmaker', icon: Cpu },
+ { text: 'Multi-Warehouse Inventory Synchronization', icon: Database },
+ { text: 'Fitment Accuracy & Reverse Logistics Advisory', icon: ShieldCheck }
  ],
  icon: Tag,
- apis: ['License Plate API', 'VIN Decoding API', 'Vehicle Specifications API']
+ solutionStack: ['Custom Parts E-Commerce Build', 'Intelligent Fitment Match Engine', 'Warehouse Inventory Software', 'Parts Operations Advisory']
  },
  'car-finance': {
  title: 'Car Finance',
  subtitle: 'Instantaneous Loan-to-Value & Comprehensive Risk Assessments',
  color: 'from-[#174395] to-[#00a9ce]',
- description: "Minimize institutional risk and approve automotive loans instantly with real-time market value algorithms, rigorous title checks, and auction history verification. In automotive finance, speed and accuracy are paramount. Underwriters must assess the exact value of collateral in a highly volatile market to determine safe Loan-to-Value (LTV) limits. Achtrex empowers lenders with the definitive, objective data required to make these decisions instantaneously.\n\nEnsure that your portfolios are strictly protected against market volatility, title washing, and synthetic fraud. By integrating our APIs directly into your Loan Origination System (LOS), you can automatically flag salvage titles and pull live wholesale appraisals in milliseconds.",
+ description: "Minimize institutional risk and approve automotive loans instantly with real-time market value algorithms, rigorous title checks, and auction history verification. In automotive finance, speed and accuracy are paramount. Underwriters must assess the exact value of collateral in a highly volatile market to determine safe Loan-to-Value (LTV) limits. Achtrex empowers lenders with the definitive, objective data required to make these decisions instantaneously.\n\nEnsure that your portfolios are strictly protected against market volatility, title washing, and synthetic fraud. By engineering unified underwriting portals and deploying cognitive decision support, our platforms accelerate loan approval times from days to minutes.",
  challenges: [
  'Assessing the accurate, real-time collateral value of a vehicle in a rapidly fluctuating market to determine safe LTV limits.',
  'Rigorously verifying title status and actively preventing loan origination on severely depreciated salvage or stolen vehicles.',
  'Time-consuming manual loan approval processes that require underwriters to consult fragmented data sources.'
  ],
  solutions: [
- 'Algorithmic LTV Assessment: Instantly calculate highly accurate LTV ratios by pulling real-time retail and wholesale valuations.',
- 'Automated Fraud Prevention: Automatically check every single application for salvage titles, total loss history, and odometer rollback.',
- 'Automated Underwriting Integration: Streamline approvals with instantaneous data ingestion directly into your Loan Origination System (LOS).'
+ 'Custom Loan Origination Platforms: Bespoke portals connecting dealerships, direct borrowers, and underwriters.',
+ 'Cognitive Underwriting Models: AI-driven risk scoring and document verification to streamline approval decisions.',
+ 'FinTech Systems Advisory: Strategic consultation on regulatory compliance, risk modeling, and workflow automation.'
  ],
  capabilities: [
- { text: 'Real-time Wholesale, Trade-In, & Retail Market Appraisals', icon: LineChart },
- { text: 'Instant Title Brand, Odometer & Total Loss Verification', icon: AlertCircle },
- { text: 'Historical Auction Price Data for Deep Collateral Assessment', icon: Database },
- { text: 'Direct Automated Loan Origination System (LOS) Integration', icon: Cpu }
+ { text: 'Custom Loan Origination & Dealer Portal Builds', icon: LineChart },
+ { text: 'Automated Collateral Risk & LTV Assessment Tools', icon: AlertCircle },
+ { text: 'Cognitive Financial Document Verification', icon: Database },
+ { text: 'Automated Underwriting Workflow Architecture', icon: Cpu }
  ],
  icon: Database,
- apis: ['Market Value API', 'VIN Title Check API', 'Auction History API']
+ solutionStack: ['Custom Lending Platform Build', 'Cognitive Underwriting Engine', 'Collateral Risk Software', 'Automotive FinTech Advisory']
  },
  'manufacturers': {
  title: 'Manufacturers',
  subtitle: 'Unprecedented OEM Intelligence & Global Market Analytics',
  color: 'from-[#76bc1d] to-[#174395]',
- description: "Leverage our massive global automotive data lakes to gain aggressive competitive intelligence, track precise production insights, and analyze macroeconomic market trends. For Original Equipment Manufacturers (OEMs), understanding the exact movements of competitors and the historical trajectory of the market is critical to long-term survival. Achtrex provides OEMs with the macro and micro-level telemetry required to analyze competitor feature adoption, track long-term vehicle depreciation curves, and optimize future vehicle architectures.\n\nOur enterprise APIs allow your strategic planning teams to access exhaustive datasets detailing exactly how competitors are pricing specific trims, bundling ADAS features, and reacting to market pressures.",
+ description: "Leverage our massive global automotive data lakes to gain aggressive competitive intelligence, track precise production insights, and analyze macroeconomic market trends. For Original Equipment Manufacturers (OEMs), understanding the exact movements of competitors and the historical trajectory of the market is critical to long-term survival. Achtrex provides OEMs with the macro and micro-level telemetry required to analyze competitor feature adoption, track long-term vehicle depreciation curves, and optimize future vehicle architectures.\n\nFrom factory-floor software workflows to dealer diagnostic coordination, our systems provide the digital backbone that modern OEMs need to scale.",
  challenges: [
  'Gaining granular visibility into competitor vehicle specifications, feature bundling strategies, and trim-level pricing architectures.',
  'Tracking long-term vehicle depreciation and precise residual value retention to optimize highly competitive lease pricing.',
@@ -234,23 +234,23 @@ const industryData: Record<string, any> = {
  ],
  solutions: [
  'Aggressive Competitor Telemetry: Access exhaustive datasets detailing competitor specs, ADAS adoption rates, and global pricing.',
- 'Advanced Residual Analysis: Utilize our historical market value APIs to deeply analyze residual value retention across competing models.',
- 'Macro Strategic Planning: Integrate our immense, global automotive data lakes directly into your strategic planning dashboards.'
+ 'Cognitive Quality Control AI: Machine vision and acoustic analysis models to detect assembly anomalies early.',
+ 'Strategic Automotive Consultation: Deep advisory on digital transformation, service operations, and diagnostic architecture.'
  ],
  capabilities: [
- { text: 'Global Competitor Specification & Complex Pricing Matrices', icon: Globe },
- { text: 'Granular Feature Adoption, ADAS & Packaging Analytics', icon: Layers },
- { text: 'Long-Term Residual Value & Lease Depreciation Modeling', icon: LineChart },
- { text: 'Macro-Economic Vehicle Sales & Global Turn-Rate Insights', icon: Activity }
+ { text: 'Enterprise OEM Portal & Network Software Builds', icon: Globe },
+ { text: 'Cognitive Quality Control & Defect Detection AI', icon: Layers },
+ { text: 'Warranty & Diagnostic Analytics Software', icon: LineChart },
+ { text: 'Global Automotive Operations Advisory', icon: Activity }
  ],
  icon: Database,
- apis: ['Vehicle Specifications API', 'Market Value API', 'Sales History API']
+ solutionStack: ['Enterprise Software Builds', 'Cognitive Quality Inspection AI', 'Warranty Analytics Engine', 'OEM Operations Advisory']
  },
  'fleet-management': {
  title: 'Fleet Management',
  subtitle: 'Streamline Logistics & Maximize Fleet Uptime',
  color: 'from-[#00a9ce] to-[#174395]',
- description: "Empower your logistics network with true, real-time vehicular telematics and predictive maintenance frameworks. Achtrex allows massive commercial fleets to move beyond reactive repairs and fragmented data silos into a unified, predictive ecosystem. By actively monitoring the real-world health and exact factory specifications of your logistics vehicles, we prevent catastrophic failures before they happen.\n\nFrom long-haul trucking to last-mile delivery vans, our comprehensive APIs allow dispatchers and fleet managers to instantly decode VINs, ensuring every vehicle is perfectly mapped to specific cargo capacities and route profiles.",
+ description: "Empower your logistics network with true, real-time vehicular telematics and predictive maintenance frameworks. Achtrex allows massive commercial fleets to move beyond reactive repairs and fragmented data silos into a unified, predictive ecosystem. By actively monitoring the real-world health and exact factory specifications of your logistics vehicles, we prevent catastrophic failures before they happen.\n\nFrom municipal transit to last-mile logistics, our custom software gives fleet dispatchers and operations directors total control over vehicle health, service schedules, and driver assignments.",
  challenges: [
  'Managing highly complex, disjointed preventative maintenance schedules across thousands of commercial vehicles, leading to unexpected, expensive breakdowns.',
  'Lacking immediate visibility into the specific payload capacities, gross vehicle weight ratings (GVWR), and dimensional constraints of mixed fleets.',
@@ -258,41 +258,41 @@ const industryData: Record<string, any> = {
  ],
  solutions: [
  'Predictive Maintenance Triggers: Integrate dynamic OEM maintenance schedules into your fleet management platform to drastically reduce downtime.',
- 'Deep Specification Mapping: Utilize our robust VIN decoding to instantly map payload capacities and dimensional constraints to exact vehicles.',
- 'Lifecycle Value Optimization: Track the macroeconomic depreciation of your commercial assets to algorithmically determine the optimal defleeting window.'
+ 'Predictive Maintenance AI: Cognitive algorithms analyzing vehicle sensor data and operating hours to forecast service needs.',
+ 'Fleet Operations Advisory: Consultation on route optimization, maintenance depot logistics, and lifecycle management.'
  ],
  capabilities: [
- { text: 'Live OEM Maintenance & Fluid Capacity Tracking', icon: Layers },
- { text: 'Exact Gross Vehicle Weight (GVWR) & Payload Metrics', icon: Truck },
- { text: 'Bulk Commercial VIN Decoding & Normalization', icon: Database },
- { text: 'Predictive Lifecycle & Defleeting Analytics', icon: LineChart }
+ { text: 'Bespoke Fleet Telematics & Dispatch Software', icon: Layers },
+ { text: 'Cognitive Component Failure Prediction AI', icon: Truck },
+ { text: 'Custom Maintenance Bay & Scheduler Systems', icon: Database },
+ { text: 'Fleet Lifecycle & Depots Logistics Advisory', icon: LineChart }
  ],
  icon: Truck,
- apis: ['Vehicle Maintenance API', 'VIN Decoding API', 'Market Value API']
+ solutionStack: ['Custom Fleet Software Build', 'Cognitive Maintenance AI Engine', 'Bay Scheduling Infrastructure', 'Fleet Operations Advisory']
  },
  'ride-sharing': {
  title: 'Ride-Sharing & Mobility',
  subtitle: 'Empower Mobility Networks & Driver Safety Compliance',
  color: 'from-[#861F80] to-[#F2147A]',
- description: "Establish absolute safety and compliance across your entire mobility network with instantaneous vehicle verification infrastructure. Ride-sharing and on-demand delivery networks scale rapidly, but manual onboarding processes introduce massive friction and severe legal risk. Achtrex provides the API backbone required to instantly verify the exact specifications, title status, and safety features of any vehicle attempting to join your platform.\n\nBy fully automating the vehicle inspection and onboarding pipeline, you drastically reduce time-to-first-ride for new drivers while simultaneously protecting your riders from unsafe, salvaged, or structurally compromised vehicles.",
+ description: "Establish absolute safety and compliance across your entire mobility network with instantaneous vehicle verification infrastructure. Ride-sharing and on-demand delivery networks scale rapidly, but manual onboarding processes introduce massive friction and severe legal risk. Achtrex builds custom onboarding portals and automated vehicle compliance tools that streamline network growth.\n\nBy fully automating the vehicle inspection and onboarding pipeline, you drastically reduce time-to-first-ride for new drivers while simultaneously protecting your riders from unsafe, salvaged, or structurally compromised vehicles.",
  challenges: [
  'Severe operational bottlenecks during driver onboarding due to manual, error-prone vehicle inspection and document verification.',
  'Allowing structurally compromised, salvaged, or technically inadequate vehicles onto the platform, exposing the network to massive liability.',
  'Failing to accurately verify specific vehicle classifications (e.g., luxury tiers, high-capacity seating) resulting in poor rider experiences.'
  ],
  solutions: [
- 'Instantaneous Onboarding: Allow drivers to onboard simply by entering their VIN or License Plate, automatically verifying their specific vehicle tier.',
- 'Automated Risk Mitigation: Instantly cross-reference new vehicles against national stolen registries and salvage title databases.',
- 'Feature Validation: Automatically verify interior capacities, active safety features, and luxury trims to properly classify vehicles into premium service tiers.'
+ 'Custom Mobility Onboarding Platforms: Rapid digital portals for driver and vehicle intake and credential verification.',
+ 'Cognitive Document & Safety AI: Automated verification of vehicle inspection documents, photos, and condition reports.',
+ 'Mobility Network Advisory: Strategic consultation on driver compliance workflows, vehicle tiering, and operational scale.'
  ],
  capabilities: [
- { text: 'Automated License Plate & VIN Resolution', icon: Target },
- { text: 'Instant Salvage Title & Stolen Vehicle Checks', icon: ShieldCheck },
- { text: 'Vehicle Classification & Seating Capacity Validation', icon: Layers },
- { text: 'ADAS & Safety Feature Identification via VIN', icon: Shield }
+ { text: 'Custom Driver & Vehicle Onboarding Portals', icon: Target },
+ { text: 'Cognitive Safety Document & Photo Verification', icon: ShieldCheck },
+ { text: 'Automated Vehicle Classification & Tiering Tools', icon: Layers },
+ { text: 'Mobility Operations & Compliance Advisory', icon: Shield }
  ],
  icon: MapPin,
- apis: ['License Plate API', 'VIN Title Check API', 'Stolen Vehicle API']
+ solutionStack: ['Custom Mobility Software Build', 'Cognitive Verification AI Engine', 'Safety Inspection Platform', 'Mobility Strategy Advisory']
  },
  'government-agencies': {
  title: 'Government Agencies',
@@ -302,45 +302,45 @@ const industryData: Record<string, any> = {
  challenges: [
  'Inaccurately classifying vehicles on toll roads and bridges due to legacy, fragmented state registry databases.',
  'Struggling to enforce urban environmental policies and Low Emission Zones (LEZ) due to a lack of rapid emissions and fuel-type data.',
- 'Widespread tax evasion and registration fraud facilitated by cloned VINs and inaccurate vehicular documentation.'
+ 'Aging legacy municipal software platforms that are difficult to maintain and integrate with modern vehicle hardware.'
  ],
  solutions: [
- 'Dynamic Tolling Architecture: Instantly map passing license plates to exact gross vehicle weights to automatically calculate correct tolling brackets.',
- 'Environmental Enforcement: Utilize our API to instantly verify a vehicle\'s exact fuel type, EV architecture, and emissions rating.',
- 'Registry Integrity: Cross-reference state and municipal registrations with our definitive, global VIN databases to eradicate cloning and documentation fraud.'
+ 'Custom Public Sector Software Builds: Secure, accessible software systems for municipal fleet and transit coordination.',
+ 'Environmental Enforcement: Utilize our custom software models to instantly verify a vehicle\'s exact fuel type, EV architecture, and emissions rating.',
+ 'Public Mobility Consultation: Strategic advisory on civic transit modernization, software procurement, and systems design.'
  ],
  capabilities: [
- { text: 'High-Velocity License Plate-to-VIN Resolution', icon: Zap },
- { text: 'Exact Gross Vehicle Weight & Dimension Identification', icon: Layers },
- { text: 'Instant EV, Hybrid & Fuel Emissions Classification', icon: Activity },
- { text: 'National Stolen Vehicle & Title Validation Checks', icon: ShieldCheck }
+ { text: 'Custom Municipal Fleet & Transit Management Builds', icon: Zap },
+ { text: 'Cognitive Infrastructure & Predictive Health AI', icon: Layers },
+ { text: 'Public Sector Security & Accessible Software Standards', icon: Activity },
+ { text: 'Civic Mobility Operations & Modernization Advisory', icon: ShieldCheck }
  ],
  icon: Landmark,
- apis: ['License Plate API', 'Vehicle Specifications API', 'VIN Title Check API']
+ solutionStack: ['Custom Civic Software Build', 'Cognitive Transit Analytics AI', 'Fleet Maintenance Platform', 'Public Mobility Advisory']
  },
  'default': {
  title: 'Automotive Industry Solutions',
  subtitle: 'Powering the Future of Enterprise Mobility & Intelligence',
  color: 'from-[#00a9ce] to-[#174395]',
- description: "Integrate comprehensive, highly-normalized vehicle data APIs and advanced AI reasoning engines to ruthlessly accelerate your automotive business operations. The automotive ecosystem is historically plagued by fragmented, siloed, and intensely difficult-to-parse data. Achtrex provides the robust, high-velocity data infrastructure required to shatter these silos and build the next generation of digital automotive platforms.\n\nWhether you are constructing intelligent consumer marketplaces, automating massive underwriting systems, or powering real-time logistics networks, Achtrex provides the architectural foundation. We offer real-time data synchronization, guaranteed 99.99% enterprise uptime, and completely normalized datasets.",
+ description: "Deploy bespoke automotive software builds, specialized cognitive AI diagnostics, and strategic automotive consultation to accelerate your business operations. The automotive ecosystem is historically plagued by disjointed tools, fragmented workflows, and legacy software that hinders growth. Achtrex provides the software engineering, cognitive intelligence, and strategic direction required to build high-velocity automotive enterprises.\n\nWhether constructing specialized workshop management platforms, deploying cognitive diagnostic models, or advising executive teams on shop floor operations, Achtrex delivers end-to-end excellence across the 3 core pillars.",
  challenges: [
- 'Fragmented, inaccurate, and heavily siloed legacy vehicle data sources that require immense engineering effort to normalize.',
- 'High latency and incredibly poor reliability in legacy automotive API providers, causing critical bottlenecks.',
- 'A complete lack of intelligent, predictive insights in the market that move beyond basic tabular data retrieval.'
+ 'Fragmented, disconnected legacy automotive tools that create operational bottlenecks.',
+ 'A lack of specialized domain software tailored to modern workshop and dealership workflows.',
+ 'Difficulty implementing modern AI diagnostics and finding strategic automotive technical leadership.'
  ],
  solutions: [
- 'Unified Data Infrastructure: Access high-speed GraphQL and REST API endpoints that deliver normalized data in milliseconds.',
- 'Extreme Enterprise Reliability: Rely on infrastructure explicitly built for massive scale, backed by absolute 99.99% uptime guarantees.',
- 'Cognitive Workflow Automation: Leverage our proprietary AAIA models for complex automotive reasoning and intelligent workflow automation.'
+ 'Bespoke Automotive Software Builds: Tailored web and mobile applications engineered for your exact operational workflows.',
+ 'Cognitive AI Solutions: Domain-trained multimodal AI models for acoustic vehicle diagnosis and predictive maintenance.',
+ 'Automotive Consultation: Strategic advisory for businesses, manufacturers, and repair networks on operations and technology.'
  ],
  capabilities: [
- { text: 'Unified, Highly Normalized Global Vehicle Data Lake', icon: Database },
- { text: 'High-Velocity, Low-Latency GraphQL & REST API Architecture', icon: Zap },
- { text: 'Proprietary Automotive AI (AAIA) & Cognitive Integration', icon: Cpu },
+ { text: 'Custom Automotive Software Engineering (100% IP Ownership)', icon: Database },
+ { text: 'Cognitive AI Diagnostics & Multi-Modal Models', icon: Zap },
+ { text: 'Automotive Advisory & Workflow Optimization', icon: Cpu },
  { text: 'Bank-Grade Encryption & Guaranteed 99.99% Uptime SLA', icon: ShieldCheck }
  ],
  icon: Database,
- apis: ['VIN Decoding API', 'Market Value API', 'License Plate API', 'AAIA Engine']
+ solutionStack: ['Automotive Software Builds', 'Cognitive AI Diagnostics', 'Automotive Consultation', 'Enterprise Architecture']
  }
 };
 
@@ -454,23 +454,23 @@ export default function IndustryClient({ slug }: { slug: string }) {
  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center mb-6 shadow-md">
  <Cpu className="w-6 h-6 text-white" />
  </div>
- <h3 className="text-2xl font-bold mb-2 text-[#001a22]">Recommended Tech Stack</h3>
- <p className="text-slate-500 text-sm mb-6 font-medium">The specific APIs and models required to power this industry.</p>
+ <h3 className="text-2xl font-bold mb-2 text-[#001a22]">Recommended Solution Stack</h3>
+ <p className="text-slate-500 text-sm mb-6 font-medium">Specialized software builds, cognitive AI models, and advisory modules deployed for this sector.</p>
  
  <div className="space-y-3 mb-8">
- {data.apis.map((api: string, i: number) => (
+ {data.solutionStack.map((item: string, i: number) => (
  <div key={i} className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-white hover:border-[#00a9ce] hover:shadow-md transition-all cursor-default group">
  <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-[#00a9ce]/10 transition-colors">
  <Database className="w-4 h-4 text-[#00a9ce]" />
  </div>
- <span className="font-bold text-sm text-slate-700">{api}</span>
+ <span className="font-bold text-sm text-slate-700">{item}</span>
  </div>
  ))}
  </div>
  
   <Link href="/contact-us" className="btn-navbar-cta w-full block">
     <span className="btn-navbar-cta-inner !py-3.5 !px-6 text-[13px] uppercase tracking-wider justify-center w-full">
-      <span>Start Building</span>
+      <span>Discuss Your Solution</span>
       <ArrowRight className="w-4 h-4 ml-2 inline-block group-hover:translate-x-1 transition-transform" />
     </span>
   </Link>

@@ -95,7 +95,7 @@ export const BookingClient = () => {
             <Image src="/logo.png" alt="Achtrex Logo" width={140} height={40} className="mb-6 object-contain opacity-90" />
             <h1 className="text-2xl font-black text-slate-900 mb-2 tracking-tight">Book a Demo</h1>
             <p className="text-xs text-slate-500 font-medium mb-6">
-              Connect with an Achtrex solutions architect to explore live API datasets, AI diagnostics, and custom platform integration.
+              Connect with an Achtrex solutions architect to explore bespoke software builds, AI diagnostics, and custom platform integration.
             </p>
             
             <div className="flex flex-col gap-4 text-slate-600 font-semibold text-xs sm:text-sm">

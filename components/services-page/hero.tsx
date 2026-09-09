@@ -38,7 +38,7 @@ export const ServicesHero = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
         >
-          Achtrex builds scalable digital platforms powered by data, APIs, and AI to enable businesses and developers to create intelligent solutions.
+          Achtrex builds bespoke automotive software, cognitive AI diagnostics, and strategic operational advisory to empower automotive businesses and enterprises.
         </motion.p>
       </div>
     </section>

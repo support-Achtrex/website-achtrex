@@ -9,12 +9,12 @@ import { Calendar, ArrowRight } from 'lucide-react';
 const resourceCards = [
   {
     id: 1,
-    tag: 'Cloud API',
+    tag: 'Software Builds',
     date: 'August 27, 2026',
     title: 'Make or Buy: How go-live speed affects competitiveness',
-    excerpt: 'In digital B2B sales, waiting for the perfect in-house solution can become a competitive disadvantage. The sooner you connect to standardized automotive APIs, the faster you capture market share.',
+    excerpt: 'In digital automotive commerce, waiting for the perfect in-house solution can become a competitive disadvantage. The sooner you deploy modern bespoke automotive platforms, the faster you capture market share.',
     image: '/images/home_software_chip.jpg',
-    link: '/blog/future-of-automotive-data-apis'
+    link: '/blog/future-of-automotive-software-systems'
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const resourceCards = [
   },
   {
     id: 3,
-    tag: 'VIN Suite',
+    tag: 'AI Diagnostics',
     date: 'August 25, 2026',
     title: 'Inter Cars scales automation with TecCom',
     excerpt: 'When a company operates at scale, even small inefficiencies in order management quickly become big ones: more manual handling, more errors, and slower response times for customers.',
@@ -39,7 +39,7 @@ const resourceCards = [
     tag: null,
     date: 'August 25, 2026',
     title: 'Looking Ahead to Automechanika Frankfurt 2026',
-    excerpt: 'From 8 to 12 September, we will be welcoming customers, enterprise partners and industry experts to explore next-generation VIN decoding engines, cognitive AI assistants, and dealer DMS integrations.',
+    excerpt: 'From 8 to 12 September, we will be welcoming customers, enterprise partners and industry experts to explore next-generation bespoke software platforms, cognitive AI diagnostic assistants, and dealer DMS integrations.',
     image: '/images/home_noc_center.jpg',
     link: '/blog/ai-transforming-auto-dealerships'
   }

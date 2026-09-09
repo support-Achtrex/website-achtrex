@@ -5,23 +5,23 @@ import { Folder, Zoom, Computer, Rocket } from "@nobertdev/react-3d-icons/fc";
 
 const processes = [
   {
-    title: "Proprietary Data Core",
-    description: "We aggregate, structure, and refine massive datasets to serve as the foundation of our specific products.",
+    title: "Domain Scoping",
+    description: "Deep consultation to map shop floor workflows, dealership operations, and technical specifications.",
     icon: Folder
   },
   {
-    title: "Intelligent Processing",
-    description: "Utilizing AI and machine learning to extract insights, decode complex variables, and ensure absolute enterprise accuracy.",
+    title: "Cognitive Intelligence",
+    description: "Integrating domain-trained AI models to automate diagnostics, acoustic analysis, and predictive maintenance.",
     icon: Zoom
   },
   {
-    title: "API Provisioning",
-    description: "Exposing our deep architectures through robust, developer-friendly REST and GraphQL endpoints.",
+    title: "Bespoke Engineering",
+    description: "Developing robust, scalable web and mobile software tailored to your automotive operations with full IP ownership.",
     icon: Computer
   },
   {
-    title: "Subscription Scaling",
-    description: "Deploying our solutions globally via highly available SaaS infrastructure and subscription models.",
+    title: "Operational Rollout",
+    description: "Deploying enterprise systems with hands-on staff training, workflow modernizations, and continuous support.",
     icon: Rocket
   }
 ];
@@ -31,8 +31,8 @@ export const ProcessSection = () => {
     <section className="py-20 px-6 bg-background relative overflow-hidden text-left border-y border-white/5">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 space-y-3">
-          <span className="text-gradient text-sm font-bold tracking-widest uppercase block">SaaS Go-To-Market</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-6">Our Product Architecture</h2>
+          <span className="text-gradient text-sm font-bold tracking-widest uppercase block">Delivery Framework</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-6">How We Build &amp; Advise</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

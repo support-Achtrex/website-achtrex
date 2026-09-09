@@ -3,23 +3,23 @@ import { Metadata } from 'next';
 import { ContactClient } from './contact-client';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Achtrex — Automotive Data & Platform Solutions',
-  description: 'Connect with Achtrex. Discuss enterprise automotive dataset APIs, real-time VIN decoding infrastructure, and custom dealership cloud platforms.',
+  title: 'Contact Us | Achtrex — Automotive Software, AI & Consultation',
+  description: 'Connect with Achtrex. Discuss bespoke automotive software builds, cognitive AI diagnostics, and strategic automotive consultation.',
   keywords: [
     'Contact Achtrex',
     'Achtrex',
-    'Automotive API Support',
-    'VIN Decoding Solutions',
-    'Enterprise Data Architecture',
+    'Automotive Software Builds',
+    'Cognitive AI Diagnostics',
+    'Automotive Consultation',
     'Dubai Automotive Software'
   ],
   alternates: {
     canonical: 'https://achtrex.com/contact-us',
   },
   openGraph: {
-    title: 'Contact Achtrex | Enterprise Mobility Solutions',
-    description: 'Get in touch with our architecture team to scale your automotive data and software infrastructure.',
-    images: ['/projects/aaia_ui_v2.png'],
+    title: 'Contact Achtrex | Automotive Software & AI Solutions',
+    description: 'Get in touch with our engineering team to scale your automotive software and AI infrastructure.',
+    images: ['/images/solutions/auto_software_builds.jpg'],
   }
 };
 

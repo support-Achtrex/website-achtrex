@@ -10,9 +10,9 @@ interface NewProjectModalProps {
 }
 
 const SOLUTION_TYPES = [
-  'Automotive Data & OEM APIs',
-  'AI-Powered Dealership Solutions',
-  'Sales & Inventory Management',
+  'Automotive Software Builds (DMS, Workshops, Fleet)',
+  'Cognitive AI Solutions (AAIA Diagnostics, Multi-Modal)',
+  'Automotive Consultation (Operations, Diagnostics, Strategy)',
   'Fleet Telematics & Tracking Platform',
   'Custom Enterprise Software Development',
   'Cloud Architecture & Microservices'

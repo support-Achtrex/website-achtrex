@@ -131,7 +131,7 @@ export async function sendPortalSignupAndProjectEmail(data: NewMemberProjectEmai
 
         <div style="background: #f8fafc; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0;">
           <p style="margin: 0 0 6px 0; font-size: 13px; color: #64748b; font-weight: 600;">Need immediate assistance?</p>
-          <p style="margin: 0; font-size: 13px; color: #64748b;">Contact us at <a href="mailto:support@achtrex.com" style="color: #0263c6; text-decoration: none;">support@achtrex.com</a> or call <a href="tel:+16133664271" style="color: #0263c6; text-decoration: none;">+1 (613) 366-4271</a></p>
+          <p style="margin: 0; font-size: 13px; color: #64748b;">Contact us at <a href="mailto:support@achtrex.com" style="color: #0263c6; text-decoration: none;">support@achtrex.com</a> or call <a href="tel:+971502229587" style="color: #0263c6; text-decoration: none;">+971 50 222 9587</a></p>
         </div>
       </div>
     `;

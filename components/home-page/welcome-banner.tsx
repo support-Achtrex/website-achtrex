@@ -31,7 +31,7 @@ export const WelcomeBanner = () => {
           </div>
 
           <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-sm">
-            A single interface for a highly customized portfolio of automotive services, data intelligence, and enterprise software platforms.
+            A single interface for our core automotive pillars: bespoke software builds, cognitive AI diagnostics, and strategic consultation.
           </p>
 
           <Link 

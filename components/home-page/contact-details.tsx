@@ -52,7 +52,7 @@ const ContactDetails = () => {
           >
             <h3 className="text-lg font-semibold text-gradient/90">Phone Numbers</h3>
             <div className="space-y-1 text-base text-muted-foreground">
-              <a href="tel:+16133664271" className="block hover:text-slate-900 transition-colors">🇺🇸 +1 613 366-4271</a>
+              <a href="tel:+971502229587" className="block hover:text-slate-900 transition-colors">🇦🇪 +971 50 222 9587</a>
             </div>
           </motion.div>
         </div>

@@ -9,59 +9,45 @@ import { cn } from '@/lib/utils';
 const offerings = [
   {
     id: 'software',
-    title: 'Custom Software Development',
-    tabTitle: 'Custom Software',
-    subtitle: 'Bespoke, scalable platforms engineered for operational superiority',
-    description: 'We architect enterprise-grade software platforms engineered specifically for dealerships, automotive franchises, and digital mobility enterprises. From multi-rooftop dealer portals and high-load auto parts marketplaces to complex fleet ERPs, our systems are built from the ground up to ensure maximum reliability, zero third-party vendor lock-in, and full intellectual property ownership.',
-    capabilities: ['Bespoke Portals', 'Multi-Store DMS Sync', 'Marketplace Platforms', 'Automotive ERPs', 'Zero Lock-in'],
+    title: 'Automotive Software Builds',
+    tabTitle: 'Software Builds',
+    subtitle: 'Bespoke automotive engineering platforms built with zero vendor lock-in',
+    description: 'We architect enterprise-grade software platforms engineered specifically for dealership groups and mobility enterprises. From custom DMS portals and sales & inventory engines to connected fleet telematics and workshop scheduling, our systems are delivered with 100% intellectual property ownership.',
+    capabilities: ['Bespoke Dealership DMS', 'Sales & Inventory Clouds', 'Fleet Telematics IoT', 'Workshop Bay Scheduling', '100% IP Ownership'],
     metric: '100% Client IP Ownership',
     metricLabel: 'Architecture Autonomy',
-    buttonText: 'Explore Custom Software',
-    href: '/products/enterprise-platforms',
-    image: '/images/slide1_foreground.png',
-    accentColor: '#00a9ce'
-  },
-  {
-    id: 'data',
-    title: 'Automotive Data & APIs',
-    tabTitle: 'Data & APIs',
-    subtitle: 'High-velocity vehicle intelligence and real-time market datasets',
-    description: 'Power your applications with the industry’s most comprehensive vehicle data engine. We provide sub-50ms REST and GraphQL APIs for instant VIN decoding, granular OEM build specifications, live retail valuations, fitment databases, and complete vehicle lifecycle histories querying tens of millions of records.',
-    capabilities: ['Instant VIN Decoding', 'OEM Fitment Data', 'Live Market Valuations', 'Sub-50ms Latency', 'GraphQL & REST'],
-    metric: '20M+ Vehicle Records',
-    metricLabel: 'Live Indexed Dataset',
-    buttonText: 'Explore Data APIs',
-    href: '/products/automotive',
-    image: '/images/slide2_foreground.png',
+    buttonText: 'Explore Software Builds',
+    href: '/contact-us',
+    image: '/images/solutions/auto_software_builds.jpg',
     accentColor: '#0263c6'
   },
   {
     id: 'ai',
     title: 'Cognitive AI Solutions',
-    tabTitle: 'AI Solutions',
-    subtitle: 'Automotive-trained intelligence models and autonomous workflows',
-    description: 'Transform traditional manual processes into self-optimizing cognitive systems. Our AAIA intelligence engine delivers domain-specialized customer engagement assistants, automated diagnostic decoders, predictive pricing algorithms, and autonomous multi-agent business logic trained exclusively on automotive operations.',
-    capabilities: ['AAIA Intelligence', 'Autonomous Lead Routing', 'Predictive Pricing', 'Neural NLP Workflows', '24/7 Agent Ops'],
+    tabTitle: 'Cognitive AI',
+    subtitle: 'Automotive-trained neural models and autonomous diagnostic workflows',
+    description: 'Transform traditional dealership and service operations into self-optimizing cognitive systems. Our AAIA intelligence engine delivers domain-specialized diagnostic reasoning decoders trained on OBD-II/DTC fault trees, 24/7 conversational showroom sales agents, automated service bay triage, and computer-vision damage appraisal.',
+    capabilities: ['AAIA Diagnostic Reasoning', '24/7 Virtual Showroom AI', 'Service Bay Triage', 'Vision Damage Inspection', 'Automotive OCR'],
     metric: 'Sub-60s Response Velocity',
     metricLabel: 'Autonomous Execution',
     buttonText: 'Discover AI Solutions',
-    href: '/products/lumi',
-    image: '/images/slide3_foreground.png',
+    href: '/contact-us',
+    image: '/images/solutions/auto_cognitive_ai.jpg',
     accentColor: '#76bc1d'
   },
   {
-    id: 'sales-inventory',
-    title: 'Sales & Inventory Management',
-    tabTitle: 'Sales & Inventory',
-    subtitle: 'Unified cloud infrastructure for modern franchised & independent dealer groups',
-    description: 'Eliminate operational friction and aged inventory lot lag. Our sales and inventory platform synchronizes directly with your DMS, powering instant multi-channel syndication, algorithmic age-on-lot pricing, automated lead routing, and executive turn-rate analytics across standalone and multi-state dealership networks.',
-    capabilities: ['Bi-Directional DMS Sync', 'Multi-Rooftop Tracking', 'Marketplace Syndication', 'Dynamic Price Velocity', 'Lead Auto-Routing'],
-    metric: '3.4x Faster Inventory Turn',
-    metricLabel: 'Dealership Efficiency',
-    buttonText: 'View Sales & Inventory Solutions',
-    href: '/products/sales-inventory',
-    image: '/images/sim_gadget_group.png',
-    accentColor: '#00a9ce'
+    id: 'consultation',
+    title: 'Automotive Consultation',
+    tabTitle: 'Automotive Consultation',
+    subtitle: 'Advising businesses, manufacturers, dealerships, and individuals across the automotive chain',
+    description: 'Strategic advisory covering vehicle technologies, automotive data pipelines, repair processes, diagnostics, operations, and business strategy. Our seasoned practitioners de-risk digital migrations, optimize workshop throughput, and architect future-proof operational models.',
+    capabilities: ['OEM & Dealer Strategy', 'Workshop Process Audits', 'Diagnostic & Data Advisory', 'DMS Migration Roadmaps', 'Aftermarket Supply Chain'],
+    metric: 'Zero-Downtime Transition',
+    metricLabel: 'Migration Guarantee',
+    buttonText: 'Consult With Our Specialists',
+    href: '/contact-us',
+    image: '/images/solutions/auto_consultation.jpg',
+    accentColor: '#f37021'
   }
 ];
 
@@ -92,17 +78,17 @@ export const OfferingsTabs = () => {
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
             Enterprise Automotive Solutions &amp;{' '}
-            <span className="text-gradient">Data Intelligence Platforms</span>
+            <span className="text-gradient">Strategic Advisory</span>
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium max-w-2xl mx-auto">
-            We empower dealerships, OEMs, and mobility enterprises to scale operations through custom software engineering, high-precision vehicle data APIs, cognitive AI agents, and unified sales management systems.
+            We empower dealerships, OEMs, and mobility enterprises to scale operations through bespoke automotive software builds, domain-trained cognitive AI agents, and strategic automotive consultation.
           </p>
         </div>
 
         {/* Modern Segmented Tab Bar (Clean & Symbol-Free) */}
         <div className="max-w-4xl mx-auto mb-10">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-slate-200/70 p-1.5 rounded-2xl border border-slate-300/60 backdrop-blur-md">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 bg-slate-200/70 p-1.5 rounded-2xl border border-slate-300/60 backdrop-blur-md">
             {offerings.map((offering, index) => {
               const isActive = activeTab === index;
               return (

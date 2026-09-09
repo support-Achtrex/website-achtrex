@@ -18,7 +18,7 @@ export const ServicesGrid = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-3xl md:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.05] mb-6">
               Start building today.<br />
-              We've got the API keys.
+              We engineer the solution.
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -26,7 +26,7 @@ export const ServicesGrid = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
               className="text-[16px] text-slate-500 mb-8 font-medium leading-[1.4]">
-              You build the experience. We'll handle the data. Connect seamlessly to our live automotive datasets with our enterprise-grade API infrastructure. Available today for testing and integration.
+              Automotive businesses need more than tools. They need software, intelligence, and direction. We build custom dealership platforms, cognitive AI diagnostic engines, and provide hands-on operational consultation.
             </motion.p>
             
             <motion.div 
@@ -35,12 +35,12 @@ export const ServicesGrid = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="flex flex-col sm:flex-row gap-6 mb-12">
-              <Link href="/contact-us" className="text-[#00a9ce] font-semibold hover:text-[#008db0] flex items-center gap-1 transition-all">
-                Request Trial API Key
+              <Link href="/solutions/automotive-software" className="text-[#00a9ce] font-semibold hover:text-[#008db0] flex items-center gap-1 transition-all">
+                Explore Software Builds
                 <ChevronRight className="w-4 h-4 mt-0.5" />
               </Link>
-              <Link href="/contact-us" className="text-[#76bc1d] font-semibold hover:text-[#65a317] flex items-center gap-1 transition-all">
-                See Sample Responses
+              <Link href="/solutions/automotive-consultation" className="text-[#76bc1d] font-semibold hover:text-[#65a317] flex items-center gap-1 transition-all">
+                Book Consultation
                 <ChevronRight className="w-4 h-4 mt-0.5" />
               </Link>
             </motion.div>
@@ -60,16 +60,17 @@ export const ServicesGrid = () => {
                 <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
               </div>
 
-              <div className="text-slate-500 mb-4">##### /vehicles/decode</div>
+              <div className="text-slate-500 mb-4">##### /aaia/diagnostic_dispatch</div>
               <pre className="overflow-x-auto">
                 <code className="text-[#e5e5e5]">
-                  <span className="text-[#ff7b72]">request</span> = <span className="text-[#79c0ff]">DecodeRequest</span>(vin=vin_number)<br/>
-                  <span className="text-[#ff7b72]">response</span> = client.vehicle_decode(request)<br/>
+                  <span className="text-[#ff7b72]">diagnostic</span> = <span className="text-[#79c0ff]">AAIA</span>.analyze(telemetry, audio_sample)<br/>
+                  <span className="text-[#ff7b72]">recommendation</span> = diagnostic.get_repair_plan()<br/>
                   <br/>
-                  <span className="text-[#ff7b72]">make</span> = response[<span className="text-[#a5d6ff]">'vehicle'</span>][<span className="text-[#a5d6ff]">'make'</span>]<br/>
-                  <span className="text-[#ff7b72]">model</span> = response[<span className="text-[#a5d6ff]">'vehicle'</span>][<span className="text-[#a5d6ff]">'model'</span>]<br/>
-                  <span className="text-[#ff7b72]">year</span> = response[<span className="text-[#a5d6ff]">'vehicle'</span>][<span className="text-[#a5d6ff]">'year'</span>]<br/>
-                  <span className="text-[#ff7b72]">specs</span> = response[<span className="text-[#a5d6ff]">'specifications'</span>][<span className="text-[#a5d6ff]">'engine'</span>]<br/>
+                  <span className="text-[#ff7b72]">bay_dispatch</span> = <span className="text-[#79c0ff]">BayScheduler</span>.assign(<br/>
+                  &nbsp;&nbsp;bay_id=<span className="text-[#a5d6ff]">&quot;BAY-04&quot;</span>,<br/>
+                  &nbsp;&nbsp;procedure=recommendation.target_procedure,<br/>
+                  &nbsp;&nbsp;labor_hours=recommendation.estimated_hours<br/>
+                  )<br/>
                 </code>
               </pre>
             </div>

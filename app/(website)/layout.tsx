@@ -2,7 +2,6 @@ import { Navbar } from "@/components/header";
 import dynamic from 'next/dynamic';
 
 const Footer = dynamic(() => import('@/components/footer').then(mod => mod.Footer));
-const FloatingWidgets = dynamic(() => import('@/components/floating-whatsapp'));
 
 export default function WebsiteLayout({
  children,
@@ -16,7 +15,6 @@ export default function WebsiteLayout({
  <main className="flex-1">
  {children}
  </main>
- <FloatingWidgets />
  <Footer />
  </div>
  </div>

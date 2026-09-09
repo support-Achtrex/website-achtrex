@@ -16,7 +16,7 @@ export const CalendlyBookingView = () => {
             </span>
           </h1>
           <p className="text-[15px] sm:text-base text-slate-700 leading-[1.8] font-normal">
-            Select a convenient date and time to speak directly with our solutions architecture and engineering team. We’ll discuss your workflows, explore our live vehicle data APIs, and scope integration feasibility.
+            Select a convenient date and time to speak directly with our solutions architecture and engineering team. We’ll discuss your workflows, explore our bespoke software builds and AI diagnostics, and scope integration feasibility.
           </p>
         </div>
 

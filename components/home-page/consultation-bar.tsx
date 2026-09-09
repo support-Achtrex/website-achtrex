@@ -103,11 +103,7 @@ export const ConsultationBar = () => {
               AUTOMOTIVE EXPERT
             </h4>
             <p className="text-slate-700 font-normal">
-              <strong>Achtrex</strong> provides enterprise software and API infrastructure for key players across the automotive mobility chain. Databases, diagnostics, and customized scalable systems.
-            </p>
-            <p className="text-slate-600 font-medium pt-2">
-              <strong className="block text-slate-900">Headquarters</strong>
-              Global Automotive Software & Cloud Operations
+              <strong>Achtrex</strong> provides enterprise automotive software builds, cognitive AI diagnostics, and strategic consultation for businesses, dealerships, and manufacturers worldwide.
             </p>
           </div>
 

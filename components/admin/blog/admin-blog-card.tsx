@@ -21,7 +21,7 @@ export function AdminBlogCard({ slug, category, title, date, image, views, readT
     e.preventDefault();
     e.stopPropagation();
     if (confirm('Are you sure you want to delete this post?')) {
-      // In a real app, this would call an API
+      // In a real app, this would trigger a backend action
       alert('Post deleted!');
     }
     setShowActions(false);

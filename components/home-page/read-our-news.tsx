@@ -8,11 +8,11 @@ import { motion } from 'framer-motion';
 const newsItems = [
   {
     id: 1,
-    title: 'ACCESS TO VEHICLE DATA: INSIGHTS FROM ADPA GENERAL ASSEMBLY',
-    category: 'Vehicle Data',
+    title: 'MODERNIZING DEALERSHIP INFRASTRUCTURE: SCALING BESPOKE SOFTWARE ARCHITECTURES',
+    category: 'Software Builds',
     date: '23 June 2026',
     image: '/images/home_noc_center.jpg',
-    link: '/blog/future-of-automotive-data-apis'
+    link: '/blog/future-of-automotive-software-systems'
   },
   {
     id: 2,

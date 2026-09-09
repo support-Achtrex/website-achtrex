@@ -53,7 +53,7 @@ const ARCHITECTURE_TEMPLATES: Record<string, { name: string; nodes: Architecture
       },
       {
         id: 'api-gateway',
-        label: 'Achtrex Edge API Gateway & Auth',
+        label: 'Achtrex Edge Gateway & Auth',
         category: 'gateway',
         status: 'active',
         description: 'Cloudflare / Edge Layer reverse proxy with rate limiting, SSL, and token validation',
@@ -62,10 +62,10 @@ const ARCHITECTURE_TEMPLATES: Record<string, { name: string; nodes: Architecture
       },
       {
         id: 'automotive-engine',
-        label: 'Automotive Data & VIN Engine',
+        label: 'Automotive Software & Telemetry Engine',
         category: 'service',
         status: 'in_progress',
-        description: 'Real-time vehicle dataset parsing, OEM specs lookup, and market pricing algorithms',
+        description: 'Real-time vehicle software processing, workshop scheduling, and operational telemetry',
         specs: 'Node.js / Go microservices, 50,000+ RPS capacity',
         connections: ['postgres-db', 'redis-cache']
       },
@@ -525,7 +525,7 @@ export default function AdminProjectDetailClient({
                   required
                   value={updateTitle}
                   onChange={(e) => setUpdateTitle(e.target.value)}
-                  placeholder="e.g. Backend API Gateway & PostgreSQL Deployed"
+                  placeholder="e.g. Backend Services & PostgreSQL Deployed"
                   className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2 px-3 text-xs text-gray-900 focus:outline-none focus:border-blue-600"
                 />
               </div>
@@ -631,7 +631,7 @@ export default function AdminProjectDetailClient({
                 <Cpu size={18} className="text-blue-600" /> Live Architecture Node Editor
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">
-                Add, edit, re-link, or delete microservices, databases, and API nodes shown in the member portal.
+                Add, edit, re-link, or delete microservices, databases, and service nodes shown in the member portal.
               </p>
             </div>
 
@@ -1046,7 +1046,7 @@ export default function AdminProjectDetailClient({
                   required
                   value={nodeLabel}
                   onChange={(e) => setNodeLabel(e.target.value)}
-                  placeholder="e.g. Achtrex Edge API Gateway"
+                  placeholder="e.g. Achtrex Edge Gateway"
                   className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2 px-3 text-xs text-gray-900 font-bold focus:outline-none focus:border-blue-600"
                 />
               </div>

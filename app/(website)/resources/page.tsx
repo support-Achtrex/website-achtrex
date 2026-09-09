@@ -1,16 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import { FileText, Newspaper, Target, BookOpen, Terminal, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { FileText, Newspaper, Target, ArrowRight } from 'lucide-react';
 import { InnerPageHeader } from '@/components/inner-page-header';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Resources & Insights | Achtrex',
-  description: 'Explore technical publications, architecture case studies, press releases, and API guides from Achtrex.',
-  keywords: ['Achtrex Resources', 'Automotive Whitepapers', 'Engineering Case Studies', 'Newsroom', 'API Reference'],
+  description: 'Explore technical publications, architecture case studies, press releases, and engineering blueprints from Achtrex.',
+  keywords: ['Achtrex Resources', 'Automotive Whitepapers', 'Engineering Case Studies', 'Newsroom', 'Software Blueprints'],
   openGraph: {
     title: 'Resources & Insights | Achtrex',
-    description: 'Explore technical publications, architecture case studies, press releases, and API guides from Achtrex.',
+    description: 'Explore technical publications, architecture case studies, press releases, and engineering blueprints from Achtrex.',
     images: ['/projects/aaia_ui_v2.png'],
   }
 };
@@ -37,7 +37,7 @@ const mainResources = [
   { 
     label: 'Client & Industry Use Cases', 
     kicker: 'Production Deployments',
-    description: 'Real-world data applications, platform architectures, and measurable success stories across the mobility ecosystem.', 
+    description: 'Real-world software applications, platform architectures, and measurable success stories across the mobility ecosystem.', 
     href: '/use-cases', 
     icon: Target,
     accent: '#0284c7',
@@ -47,22 +47,22 @@ const mainResources = [
 
 const technicalGuides = [
   {
-    title: 'Automotive Data & VIN API Reference',
-    description: 'Sub-50ms VIN decoding, build sheet specs, and market valuation endpoints documentation.',
-    tag: 'API Reference',
-    href: '/products/automotive'
+    title: 'Bespoke Automotive Software Architecture',
+    description: 'Custom workshop systems, dealer management platforms, and high-velocity workflow architecture.',
+    tag: 'Software Builds',
+    href: '/solutions/automotive-software'
   },
   {
     title: 'AAIA Autonomous Reasoning Architecture',
     description: 'Overview of cognitive AI models powering multi-modal vehicle diagnostics and predictive maintenance.',
-    tag: 'Architecture Blueprint',
-    href: '/products/lumi'
+    tag: 'Cognitive AI',
+    href: '/solutions/cognitive-ai'
   },
   {
-    title: 'Dealership Inventory Orchestration',
-    description: 'Multi-rooftop inventory synchronization protocols and real-time dealer management systems.',
-    tag: 'Platform Guide',
-    href: '/products/sales-inventory'
+    title: 'Automotive Operations & Strategy Blueprint',
+    description: 'Enterprise consulting frameworks for workshop efficiency, repair diagnostics, and business transformation.',
+    tag: 'Advisory Blueprint',
+    href: '/solutions/automotive-consultation'
   }
 ];
 
@@ -133,7 +133,7 @@ export default function ResourcesPage() {
         <section className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-10 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-100">
             <div>
-              <span className="text-xs font-black uppercase tracking-wider text-amber-500 mb-1 block">Developer & Architecture Hub</span>
+              <span className="text-xs font-black uppercase tracking-wider text-amber-500 mb-1 block">Engineering & Architecture Hub</span>
               <h2 className="text-2xl font-black text-slate-900 tracking-tight">Technical Specifications & Blueprints</h2>
             </div>
             <Link 
@@ -163,7 +163,7 @@ export default function ResourcesPage() {
                   </p>
                 </div>
                 <div className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 group-hover:text-[#00a9ce] transition-colors">
-                  <span>Explore Specification</span>
+                  <span>Explore Blueprint</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
               </Link>
@@ -175,9 +175,9 @@ export default function ResourcesPage() {
         <section className="relative rounded-2xl bg-gradient-to-r from-[#061420] to-[#0A2235] border border-white/10 overflow-hidden shadow-2xl p-8 sm:p-12 text-white">
           <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-black mb-2 tracking-tight">Need dedicated enterprise consulting?</h3>
+              <h3 className="text-2xl sm:text-3xl font-black mb-2 tracking-tight">Need dedicated automotive advisory?</h3>
               <p className="text-slate-300 text-sm sm:text-base font-medium max-w-xl">
-                Partner with our systems architecture team to design and deploy custom automotive data pipelines.
+                Partner with our systems engineers and automotive consultants to build custom software and AI diagnostics.
               </p>
             </div>
             <Link 

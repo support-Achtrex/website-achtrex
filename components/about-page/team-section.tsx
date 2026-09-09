@@ -40,7 +40,7 @@ const FALLBACK_TEAM = [
     name: 'Rashid Ahmed',
     role: 'Backend Developer',
     image: '/team/rashid.png',
-    bio: 'Architecting scalable server-side solutions and robust APIs that power our high-performance applications.',
+    bio: 'Architecting scalable server-side systems and automotive software builds that power our high-performance applications.',
     linkedin: '#',
     twitter: '#',
     email: 'rashid@achtrex.com'

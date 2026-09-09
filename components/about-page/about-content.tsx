@@ -1,53 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, Linkedin, Twitter, Mail } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const timelineData = [
-  {
-    id: '2018-2020',
-    tabLabel: '2018 to 2020',
-    period: '1994 TO 2004',
-    periodLabel: '2018 TO 2020',
-    title: 'Foundation and early digital innovation',
-    points: [
-      {
-        year: '2018',
-        text: 'Founding of Achtrex to engineer standardized automotive data pipelines and enterprise API infrastructure for the emerging mobility economy.'
-      },
-      {
-        year: '2019',
-        text: 'First deployment of the Achtrex Global VIN Decoding Engine, indexing over 20M+ vehicle specifications across North American, European, and Asian platforms.'
-      },
-      {
-        year: '2020',
-        text: 'Launch of the Achtrex Enterprise Automotive Data Engine, providing instantaneous cloud API access to factory build configurations, parts catalogs, and market valuation curves.'
-      }
-    ]
-  },
-  {
-    id: '2021-2023',
-    tabLabel: '2021 to 2023',
-    periodLabel: '2021 TO 2023',
-    title: 'Expansion into dealer operations and cloud syndication',
-    points: [
-      {
-        year: '2021',
-        text: 'Deployment of the Achtrex Sales & Inventory Cloud, enabling bi-directional real-time DMS synchronization across major multi-rooftop dealer networks.'
-      },
-      {
-        year: '2022',
-        text: 'Expansion into 40+ global classified syndication channels, automating multi-channel vehicle broadcast with algorithmic lot velocity pricing.'
-      },
-      {
-        year: '2023',
-        text: 'Establishment of neutral aftermarket data exchange standards, connecting regional parts distributors with independent workshops and fleet operators.'
-      }
-    ]
-  },
   {
     id: '2024-2025',
     tabLabel: '2024 to 2025',
@@ -86,51 +44,6 @@ const timelineData = [
   }
 ];
 
-const teamMembers = [
-  {
-    name: 'Achim Godwin Tetteh',
-    role: 'Founder and System Architect',
-    image: '/team/achim_real.jpg',
-    bio: 'Pioneering automotive data architecture, distributed cloud systems, and domain-tuned AI models that power enterprise mobility platforms.'
-  },
-  {
-    name: 'Emmanuella Yeboah-Appiah',
-    role: 'Administrator',
-    image: '/team/emmanuella_v2.jpg',
-    bio: 'Overseeing executive administration, corporate governance, organizational workflows, and operations for Achtrex.'
-  },
-  {
-    name: 'Rashid Ahmed',
-    role: 'Lead Backend & Data Architect',
-    image: '/team/rashid.png',
-    bio: 'Architecting high-throughput vehicle telemetry pipelines, normalized VIN schemas, and resilient multi-region cloud microservices.'
-  },
-  {
-    name: 'Kelvin Davis',
-    role: 'Senior Software Engineer',
-    image: '/team/kelvin-davis.png',
-    bio: 'Engineering scalable dealer management interfaces, high-performance API integrations, and robust automated test suites.'
-  },
-  {
-    name: 'Dede Davis',
-    role: 'Lead DevOps & Infrastructure Engineer',
-    image: '/team/dede_v2.jpg',
-    bio: 'Managing 99.99% SLA cloud deployments, zero-downtime CI/CD pipelines, container orchestration, and bank-grade security protocols.'
-  },
-  {
-    name: 'Kojo Thompson',
-    role: 'Head of Digital Growth & SEO',
-    image: '/team/kojo_real.png',
-    bio: 'Accelerating digital footprint, content architecture, and organic market presence across search engines and global automotive hubs.'
-  },
-  {
-    name: 'Junior Achim',
-    role: 'Business Analyst & Quality Assurance',
-    image: '/team/junior_real.jpg',
-    bio: 'Aligning business strategies with technical deliverables, regression testing, and data integrity verification across customer deployments.'
-  }
-];
-
 export const AboutContent = () => {
   const [activeTimelineId, setActiveTimelineId] = useState(timelineData[0].id);
 
@@ -160,7 +73,7 @@ export const AboutContent = () => {
                 From the very beginning, our focus has been simple: setting the data standard for the industry and solving what no one can solve alone. Achtrex has grown alongside the independent automotive aftermarket, supporting how it evolves, connects, and operates across geographies.
               </p>
               <p>
-                Headquartered in Dubai, UAE, Achtrex provides scalable automotive data APIs, enterprise VIN intelligence, and custom software solutions designed for the next generation of connected mobility, retail dealerships, and parts distribution networks worldwide.
+                Headquartered in Dubai, UAE, Achtrex provides bespoke automotive software builds, cognitive AI diagnostics, and strategic advisory solutions designed for the next generation of connected mobility, retail dealerships, and automotive enterprises worldwide.
               </p>
             </div>
           </div>
@@ -388,7 +301,7 @@ export const AboutContent = () => {
           </svg>
         </div>
 
-        <div className="max-w-[1240px] mx-auto relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="max-w-[1240px] mx-auto relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           
           <div className="flex flex-col items-center">
             <span className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
@@ -396,15 +309,6 @@ export const AboutContent = () => {
             </span>
             <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight">
               Years of leadership experience
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <span className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
-              50M+
-            </span>
-            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight">
-              Vehicle records indexed
             </span>
           </div>
 
@@ -495,7 +399,7 @@ export const AboutContent = () => {
                   Our vision is to empower the automotive aftermarket to shape a connected data ecosystem by safeguarding independence through trusted standards and a shared data foundation. We aim to drive sustainable global business growth.
                 </p>
                 <p>
-                  Our mission is to unlock growth and ensure the competitiveness of the independent aftermarket by establishing neutral standards and enabling market connectivity. This builds on trusted data elements, certified VIN intelligence, and core enabling functions.
+                  Our mission is to unlock growth and ensure the competitiveness of the independent aftermarket by establishing neutral standards and enabling market connectivity. This builds on trusted technical standards, enterprise software frameworks, and core enabling functions.
                 </p>
               </div>
             </div>
@@ -583,74 +487,7 @@ export const AboutContent = () => {
         </div>
       </section>
 
-      {/* ─── SECTION 6: OUR MANAGEMENT (Image 3 Bottom) ──────────────────── */}
-      <section className="max-w-[1240px] mx-auto px-6 py-16 sm:py-20 text-center">
-        
-        {/* Centered Heading */}
-        <div className="max-w-2xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Our management
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mx-auto mt-3 mb-6 rounded-full" />
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-            Achtrex is led by a team with deep experience in automotive data, software architecture, and the independent aftermarket. They are united by a shared responsibility: supporting the long-term success of the industry.
-          </p>
-        </div>
-
-        {/* Clean Management Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 text-left">
-          {teamMembers.map((member, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="group bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#F37021]/50 transition-all overflow-hidden flex flex-col"
-            >
-              {/* Photo Frame */}
-              <div className="relative h-64 w-full bg-slate-100 overflow-hidden">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-
-              {/* Bio & Details */}
-              <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#F37021] transition-colors leading-tight mb-1">
-                  {member.name}
-                </h3>
-                <span className="text-xs font-bold text-[#F37021] uppercase tracking-wider mb-3">
-                  {member.role}
-                </span>
-                <p className="text-xs text-slate-500 font-normal leading-relaxed flex-1">
-                  {member.bio}
-                </p>
-
-                <div className="pt-4 mt-auto border-t border-slate-100 flex items-center gap-3 text-slate-400">
-                  <a href="#" className="hover:text-[#00A9CE] transition-colors" aria-label="LinkedIn">
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="hover:text-slate-900 transition-colors" aria-label="Twitter">
-                    <Twitter className="w-4 h-4" />
-                  </a>
-                  <a href={`mailto:info@achtrex.com`} className="hover:text-[#F37021] transition-colors" aria-label="Email">
-                    <Mail className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-      </section>
-
-      {/* ─── SECTION 7: JOIN THE TEAM (Image 4 Bottom) ───────────────────── */}
+      {/* ─── SECTION 6: JOIN THE TEAM (Image 4 Bottom) ───────────────────── */}
       <section className="max-w-[1240px] mx-auto px-6 py-12 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           

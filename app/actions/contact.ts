@@ -102,8 +102,8 @@ export async function submitContactForm(formData: FormData) {
                     <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
                         <img src="https://achtrex.com/logo.png" alt="Achtrex Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
                         <div>
-                            <h3 style="color: #60a5fa; margin: 0 0 5px 0;">Achtrex Automotive Intelligence</h3>
-                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Integrate comprehensive vehicle specification and market data API infrastructure into your business.</p>
+                            <h3 style="color: #60a5fa; margin: 0 0 5px 0;">Automotive Software Builds</h3>
+                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Deploy bespoke automotive software builds, workshop platforms, and dealership management systems.</p>
                             <a href="https://achtrex.com/services" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 14px;">Explore Services &rarr;</a>
                         </div>
                     </div>
@@ -297,8 +297,8 @@ ${message}`;
                     <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
                         <img src="https://achtrex.com/logo.png" alt="Achtrex Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
                         <div>
-                            <h3 style="color: #60a5fa; margin: 0 0 5px 0;">Achtrex Automotive Intelligence</h3>
-                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Integrate comprehensive vehicle specification and market data API infrastructure into your ecosystem.</p>
+                            <h3 style="color: #60a5fa; margin: 0 0 5px 0;">Automotive Software Builds</h3>
+                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Deploy bespoke automotive software builds, workshop platforms, and dealership management systems.</p>
                             <a href="https://achtrex.com/services" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 14px;">Explore Services &rarr;</a>
                         </div>
                     </div>

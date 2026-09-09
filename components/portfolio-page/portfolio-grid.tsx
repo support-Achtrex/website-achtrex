@@ -18,14 +18,14 @@ interface PortfolioItem {
 
 const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Automotive Dataset',
-    description: 'Global Data Intelligence Solution',
-    category: 'Data Platform',
-    tags: ['API', 'Big Data', 'Intelligence'],
+    title: 'Automotive Software & Systems',
+    description: 'Bespoke Automotive Architecture',
+    category: 'Software Builds',
+    tags: ['Software Builds', 'Systems Architecture', 'Diagnostics'],
     images: ['/projects/automotive-mockup.png', '/projects/automotive_detail.png'],
-    challenge: 'Acquiring accurate vehicle data for insurance or retail often involves high costs and inconsistent quality. Integrating this data is a major bottleneck for innovation in the automotive tech space.',
-    product: 'Achtrex provides a high-performance, developer-first API solution. It offers granular data for over 1.2 million trims and real-time market valuations, delivered through a unified, modern web platform.',
-    outcome: 'The platform powers global automotive applications, achieving a 40% reduction in integration time for developers while ensuring reliable, data-driven system performance.',
+    challenge: 'Modernizing legacy automotive dealer management systems and workshop operations often faces fragmented architecture and brittle software integrations.',
+    product: 'Achtrex delivers bespoke automotive software platforms tailored to workshop workflows, dealership management, and fleet coordination with 100% client code ownership.',
+    outcome: 'Clients achieve seamless operational workflows, reduced workshop turnaround times, and total ownership over their proprietary digital systems.',
   },
   {
     title: 'Yach Telemedicine',
