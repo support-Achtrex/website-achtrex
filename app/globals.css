@@ -46,35 +46,42 @@
 }
 
 html {
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
 }
 
 body {
   font-family: var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
   overflow-x: hidden;
+  color: #171717;
+  font-weight: 500;
 }
 
 /* Crisp & Sharp Typography Hierarchy */
 h1, h2, h3, h4, h5, h6 {
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  letter-spacing: -0.02em;
+  text-rendering: geometricPrecision;
+  letter-spacing: -0.025em;
+  color: inherit;
 }
 
 p, span, li, a, button, input, textarea {
-  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
 }
 
-/* Sharp Image & Graphic Rendering */
-img, svg, video, canvas {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+/* Sharp, High-Fidelity Image & Graphic Rendering */
+img {
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  max-width: 100%;
+}
+
+svg {
+  shape-rendering: geometricPrecision;
 }
 
 /* Signature Navbar-Style Gradient CTA Buttons (Matches Book a meeting CTA in image) */
@@ -162,26 +169,15 @@ img, svg, video, canvas {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='104' viewBox='0 0 60 104'%3E%3Cpath d='M30 0l30 17.32v34.64L30 69.28 0 51.96V17.32L30 0zm0 104l30-17.32V51.96L30 34.64 0 51.96v34.64L30 104zM0 51.96l30 17.32-30 17.32V51.96zm60 0L30 69.28l30 17.32V51.96zM30 0v34.64L0 17.32 30 0zm0 0v34.64l30-17.32L30 0z' fill='none' stroke='rgba(255,255,255,0.09)' stroke-width='1'/%3E%3C/svg%3E");
 }
 
-/* Subtle light grey-to-white monotone gradient with warm peach/orange stippling (Top Section) */
+/* Clean, Solid, High-Contrast Section Backgrounds */
 .bg-stipple-warm-gray-top {
-  background-color: #F3F5F8;
-  background-image: 
-    radial-gradient(ellipse 65% 45% at 15% 25%, rgba(249, 115, 22, 0.055) 0%, transparent 65%),
-    radial-gradient(ellipse 55% 55% at 85% 75%, rgba(251, 146, 60, 0.045) 0%, transparent 70%),
-    radial-gradient(circle at 50% 10%, rgba(254, 215, 170, 0.04) 0%, transparent 60%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Ccircle cx='10' cy='14' r='1.1' fill='%23f97316' opacity='0.18'/%3E%3Ccircle cx='28' cy='48' r='1.4' fill='%23fb923c' opacity='0.16'/%3E%3Ccircle cx='62' cy='22' r='0.85' fill='%23ea580c' opacity='0.14'/%3E%3Ccircle cx='46' cy='64' r='1.2' fill='%23fdba74' opacity='0.24'/%3E%3Ccircle cx='70' cy='52' r='0.9' fill='%23f97316' opacity='0.16'/%3E%3Ccircle cx='18' cy='68' r='1.3' fill='%23fed7aa' opacity='0.32'/%3E%3Ccircle cx='54' cy='10' r='0.85' fill='%23fb923c' opacity='0.16'/%3E%3Ccircle cx='36' cy='28' r='1.5' fill='%23ffedd5' opacity='0.40'/%3E%3Ccircle cx='24' cy='10' r='0.9' fill='%2394a3b8' opacity='0.20'/%3E%3Ccircle cx='66' cy='38' r='1.1' fill='%2364748b' opacity='0.14'/%3E%3Ccircle cx='6' cy='50' r='0.8' fill='%23cbd5e1' opacity='0.28'/%3E%3Ccircle cx='40' cy='46' r='0.95' fill='%2394a3b8' opacity='0.16'/%3E%3Ccircle cx='68' cy='14' r='0.8' fill='%2364748b' opacity='0.12'/%3E%3Ccircle cx='54' cy='70' r='1.0' fill='%23cbd5e1' opacity='0.25'/%3E%3C/svg%3E"),
-    linear-gradient(180deg, #ECEFF3 0%, #F5F7FA 100%);
+  background-color: #FFFFFF;
 }
 
-/* Subtle light grey-to-white monotone gradient with warm peach/orange stippling (Bottom Section) */
 .bg-stipple-warm-gray-bottom {
-  background-color: #F8F9FA;
-  background-image: 
-    radial-gradient(ellipse 65% 55% at 85% 25%, rgba(249, 115, 22, 0.045) 0%, transparent 65%),
-    radial-gradient(ellipse 55% 45% at 15% 75%, rgba(251, 146, 60, 0.04) 0%, transparent 70%),
-    radial-gradient(circle at 60% 60%, rgba(254, 215, 170, 0.035) 0%, transparent 60%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Ccircle cx='10' cy='14' r='1.1' fill='%23f97316' opacity='0.18'/%3E%3Ccircle cx='28' cy='48' r='1.4' fill='%23fb923c' opacity='0.16'/%3E%3Ccircle cx='62' cy='22' r='0.85' fill='%23ea580c' opacity='0.14'/%3E%3Ccircle cx='46' cy='64' r='1.2' fill='%23fdba74' opacity='0.24'/%3E%3Ccircle cx='70' cy='52' r='0.9' fill='%23f97316' opacity='0.16'/%3E%3Ccircle cx='18' cy='68' r='1.3' fill='%23fed7aa' opacity='0.32'/%3E%3Ccircle cx='54' cy='10' r='0.85' fill='%23fb923c' opacity='0.16'/%3E%3Ccircle cx='36' cy='28' r='1.5' fill='%23ffedd5' opacity='0.40'/%3E%3Ccircle cx='24' cy='10' r='0.9' fill='%2394a3b8' opacity='0.20'/%3E%3Ccircle cx='66' cy='38' r='1.1' fill='%2364748b' opacity='0.14'/%3E%3Ccircle cx='6' cy='50' r='0.8' fill='%23cbd5e1' opacity='0.28'/%3E%3Ccircle cx='40' cy='46' r='0.95' fill='%2394a3b8' opacity='0.16'/%3E%3Ccircle cx='68' cy='14' r='0.8' fill='%2364748b' opacity='0.12'/%3E%3Ccircle cx='54' cy='70' r='1.0' fill='%23cbd5e1' opacity='0.25'/%3E%3C/svg%3E"),
-    linear-gradient(180deg, #F5F7FA 0%, #FAFAFC 45%, #FFFFFF 100%);
+  background-color: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
 }
 
 .bg-tech-mesh {

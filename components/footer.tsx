@@ -27,7 +27,7 @@ export const Footer = () => {
             <h4 className="font-black uppercase tracking-widest text-slate-900 text-xs">
               AUTOMOTIVE EXPERT
             </h4>
-            <p className="text-slate-700 font-normal leading-relaxed">
+            <p className="text-slate-800 font-medium leading-relaxed">
               <strong>Achtrex</strong> provides enterprise automotive software builds, cognitive AI diagnostics, and strategic consultation for businesses, dealerships, and manufacturers worldwide.
             </p>
           </div>
@@ -37,7 +37,7 @@ export const Footer = () => {
             <h4 className="font-black uppercase tracking-widest text-slate-900 text-xs">
               REQUEST A CONSULTATION
             </h4>
-            <p className="text-slate-700 font-normal leading-relaxed">
+            <p className="text-slate-800 font-medium leading-relaxed">
               Send a request and one of our solution architects will contact you with a customized enterprise proposal.
             </p>
             <div className="pt-2">
@@ -54,7 +54,7 @@ export const Footer = () => {
             <h4 className="font-black uppercase tracking-widest text-slate-900 text-xs">
               STAY UPDATED
             </h4>
-            <p className="text-slate-700 font-normal leading-relaxed">
+            <p className="text-slate-800 font-medium leading-relaxed">
               Subscribe to the automotive newsletter and receive updates directly in your email box.
             </p>
             
@@ -65,7 +65,7 @@ export const Footer = () => {
             ) : (
               <form onSubmit={handleSubmit} className="pt-1 flex flex-col space-y-3">
                 <div>
-                  <label className="block text-[11px] font-semibold text-slate-700 mb-1">Email Address *</label>
+                  <label className="block text-[11px] font-bold text-slate-800 mb-1">Email Address *</label>
                   <input
                     type="email"
                     required
@@ -90,9 +90,9 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Copyright & Legal Links Bar */}
-        <div className="border-t border-slate-300/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-600 gap-4">
+        <div className="border-t border-slate-300/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-700 font-medium gap-4">
           <p>© {new Date().getFullYear()} Achtrex. All rights reserved.</p>
-          <div className="flex items-center gap-6 font-medium">
+          <div className="flex items-center gap-6 font-semibold">
             <Link href="/blog" className="hover:text-slate-900 hover:underline transition-colors">
               Blog Articles
             </Link>

@@ -45,8 +45,8 @@ export const TrustedAftermarket = () => {
     <section className="w-full bg-[#FFFFFF] py-16 md:py-24 font-sans">
       <div className="max-w-[1240px] mx-auto px-6">
         
-        {/* Grey Rounded Container */}
-        <div className="bg-[#EEF2F5] rounded-3xl p-8 sm:p-12 md:p-16 relative overflow-hidden">
+        {/* Solid Grey Rounded Container */}
+        <div className="bg-[#F8FAFC] rounded-3xl p-8 sm:p-12 md:p-16 relative overflow-hidden border border-slate-200">
           
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -59,7 +59,7 @@ export const TrustedAftermarket = () => {
               </span>
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mt-5">
+            <p className="text-sm sm:text-base text-slate-700 font-medium leading-relaxed mt-5">
               Thousands of companies rely on Achtrex every day to operate efficiently and maintain consistency across markets.
             </p>
           </div>

@@ -12,7 +12,7 @@ const solutions = [
     title: 'Automotive Software Builds',
     kicker: 'Bespoke Mobility Engineering',
     icon: Cpu,
-    image: '/images/solutions/auto_software_builds.jpg',
+    image: '/images/vehicles/electric_sedan.png',
     link: '/contact-us',
     desc: 'Bespoke dealership management platforms (DMS), multi-channel sales & inventory clouds, connected vehicle telematics backends, and workshop scheduling systems built with 100% IP ownership.'
   },
@@ -21,7 +21,7 @@ const solutions = [
     title: 'Cognitive AI Solutions',
     kicker: 'AAIA Automotive Intelligence',
     icon: Brain,
-    image: '/images/solutions/auto_cognitive_ai.jpg',
+    image: '/images/vehicles/luxury_suv.png',
     link: '/contact-us',
     desc: 'Domain-specialized vehicle diagnostic reasoning engines trained on OBD-II/DTC fault trees, 24/7 conversational dealership sales agents, automated service bay triage, and computer-vision vehicle damage inspection.'
   },
@@ -30,7 +30,7 @@ const solutions = [
     title: 'Automotive Consultation',
     kicker: 'Strategic Advisory & Operations',
     icon: Compass,
-    image: '/images/solutions/auto_consultation.jpg',
+    image: '/images/vehicles/supercar_gt.png',
     link: '/contact-us',
     desc: 'Strategic advisory for businesses, manufacturers, dealerships, and individuals—covering vehicle technologies, automotive data pipelines, repair processes, diagnostics, workshop operations, and business strategy.'
   }
@@ -118,35 +118,37 @@ export const SolutionsGrid = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group flex flex-col bg-white border border-slate-200/90 hover:border-slate-300 hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden"
+                className="group flex flex-col bg-white border border-slate-300 hover:border-[#00A9CE] hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden"
               >
                 <Link href={item.link} className="flex flex-col h-full block">
                   {/* Image Container */}
-                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-900 border-b border-slate-100">
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-white border-b border-slate-200/80 flex items-center justify-center">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                      quality={95}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                      className="object-contain p-3 transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_8px_16px_rgba(0,0,0,0.12)]"
+                      priority={idx === 0}
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
                     
                     {/* Corner Tag */}
-                    <div className="absolute top-3 left-3 bg-[#0A0E14]/85 backdrop-blur-md px-2.5 py-1 text-[10px] font-extrabold text-white uppercase tracking-wider rounded-md border border-white/10">
+                    <div className="absolute top-3 left-3 bg-white/95 px-2.5 py-1 text-[10px] font-extrabold text-slate-900 uppercase tracking-wider rounded-md border border-slate-200 shadow-sm">
                       {item.kicker}
                     </div>
                   </div>
 
                   {/* Body Content */}
-                  <div className="p-5 flex flex-col flex-1">
-                    <div className="flex items-center gap-2 mb-2">
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 mb-2.5">
                       <Icon className="w-4 h-4 text-[#F37021] shrink-0" />
-                      <h4 className="text-base sm:text-[17px] font-extrabold text-slate-900 group-hover:text-[#00A9CE] transition-colors leading-snug">
+                      <h4 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-[#00A9CE] transition-colors leading-snug">
                         {item.title}
                       </h4>
                     </div>
 
-                    <p className="text-[13px] sm:text-[13.5px] text-slate-600 leading-relaxed font-normal mb-5 flex-1">
+                    <p className="text-[13.5px] sm:text-sm text-slate-800 leading-relaxed font-medium mb-5 flex-1">
                       {item.desc}
                     </p>
 

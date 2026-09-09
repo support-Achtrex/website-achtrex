@@ -5,17 +5,17 @@ import Script from 'next/script';
 
 export const CalendlyBookingView = () => {
   return (
-    <main className="min-h-screen bg-[#F8FAFC] py-20 sm:py-24 px-4 sm:px-6 lg:px-8 font-sans text-slate-900">
+    <main className="min-h-screen bg-[#F8FAFC] pt-36 sm:pt-40 lg:pt-44 pb-20 px-4 sm:px-6 lg:px-8 font-sans text-neutral-900">
       <div className="max-w-6xl mx-auto">
         {/* Header Title */}
-        <div className="text-center max-w-3xl mx-auto mb-10 pt-4">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 tracking-tight mb-4">
             Book a Meeting with{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE]">
               Achtrex
             </span>
           </h1>
-          <p className="text-[15px] sm:text-base text-slate-700 leading-[1.8] font-normal">
+          <p className="text-[15px] sm:text-base text-neutral-700 leading-[1.8] font-medium">
             Select a convenient date and time to speak directly with our solutions architecture and engineering team. We’ll discuss your workflows, explore our bespoke software builds and AI diagnostics, and scope integration feasibility.
           </p>
         </div>

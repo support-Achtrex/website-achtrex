@@ -23,14 +23,14 @@ export const WelcomeBanner = () => {
           <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#F37021]/15 rounded-full blur-[80px] pointer-events-none" />
 
           <div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight mb-3">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight mb-3 text-white !text-white">
               Welcome to <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F37021] to-[#00A9CE]">Achtrex</span>
             </h2>
             <div className="w-14 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full" />
           </div>
 
-          <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-sm">
+          <p className="text-sm sm:text-base text-slate-100 font-medium leading-relaxed max-w-sm">
             A single interface for our core automotive pillars: bespoke software builds, cognitive AI diagnostics, and strategic consultation.
           </p>
 
@@ -48,13 +48,14 @@ export const WelcomeBanner = () => {
         {/* Right Operations Room / NOC Photo */}
         <div className="lg:col-span-7 relative min-h-[300px] lg:min-h-[420px] bg-slate-900 overflow-hidden">
           <Image
-            src="/images/home_noc_center.jpg"
-            alt="Achtrex Operations and Engineering Command Center"
+            src="/images/vehicles/cockpit_telematics.jpg"
+            alt="Achtrex Connected Vehicle Cockpit & Digital Telematics Interface"
             fill
+            quality={95}
+            sizes="(max-width: 1024px) 100vw, 60vw"
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-black/20" />
         </div>
 
       </div>

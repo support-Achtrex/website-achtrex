@@ -107,7 +107,7 @@ export const AchtrexFaq = () => {
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-6 pl-7 pr-4 text-xs sm:text-sm md:text-[15px] text-slate-600 leading-relaxed font-normal">
+                      <div className="pb-6 pl-7 pr-4 text-xs sm:text-sm md:text-[15px] text-slate-700 leading-relaxed font-medium">
                         {faq.answer}
                       </div>
                     </motion.div>

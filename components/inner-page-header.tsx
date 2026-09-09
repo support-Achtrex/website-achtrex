@@ -9,7 +9,6 @@ export interface InnerPageHeaderProps {
 }
 
 export const InnerPageHeader = (_props: InnerPageHeaderProps) => {
-  // Completely removed the visual header (title, subtitle, accent line, and schematic diagram)
   // Maintains top spacing so page content clears the fixed navbar smoothly
-  return <div className="pt-24 sm:pt-28 lg:pt-32" />;
+  return <div className="pt-32 sm:pt-36 lg:pt-40" />;
 };

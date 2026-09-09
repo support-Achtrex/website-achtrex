@@ -25,7 +25,7 @@ export const BusinessSupportSection = () => {
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full" />
 
-            <div className="space-y-4 text-slate-800 text-[15px] sm:text-[16px] leading-[1.8] font-normal">
+            <div className="space-y-4 text-slate-800 text-[15px] sm:text-[16px] leading-[1.8] font-medium">
               <p>
                 <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] inline-block mr-2.5 align-middle shrink-0" />
                 <strong className="font-extrabold text-slate-900">Achtrex</strong> is an enterprise automotive technology partner. We support our enterprise partners with bespoke automotive software builds, domain-trained cognitive AI solutions, and strategic automotive consultation designed to elevate operational excellence and long-term profitability.
@@ -50,7 +50,7 @@ export const BusinessSupportSection = () => {
             </div>
           </motion.div>
 
-          {/* Right Column: Animated GIF Demonstration */}
+          {/* Right Column: High-Res Demonstration Photo */}
           <motion.div 
             initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -58,13 +58,14 @@ export const BusinessSupportSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[480px] aspect-[16/9] rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900">
+            <div className="relative w-full max-w-[480px] aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-slate-200/90 bg-white p-4 flex items-center justify-center">
               <Image
-                src="/images/home_business_support_animation.gif"
-                alt="Achtrex automotive technology animation demonstration"
+                src="/images/vehicles/ev_profile.png"
+                alt="Achtrex automotive technology demonstration"
                 fill
-                unoptimized
-                className="object-cover object-center"
+                quality={95}
+                sizes="(max-width: 1024px) 100vw, 480px"
+                className="object-contain p-2 drop-shadow-[0_10px_20px_rgba(0,0,0,0.12)]"
                 priority
               />
             </div>

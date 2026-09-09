@@ -19,7 +19,7 @@ export const Hero = () => {
             alt="Automotive Intelligence Background"
             fill
             priority
-            quality={85}
+            quality={95}
             sizes="100vw"
             className={`object-cover object-center transition-opacity duration-700 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
           />
@@ -47,7 +47,7 @@ export const Hero = () => {
         </div>
 
         {/* Main Content Layout */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center items-center w-full max-w-[1200px] mx-auto px-6 pt-24 md:pt-32 text-center">
+        <div className="relative z-10 flex-1 flex flex-col justify-center items-center w-full max-w-[1200px] mx-auto px-6 pt-36 sm:pt-40 md:pt-48 pb-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -55,12 +55,12 @@ export const Hero = () => {
             className="flex flex-col items-center max-w-5xl relative"
           >
             {/* Title */}
-            <h1 className="text-3xl md:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.2] mb-12 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
+            <h1 className="text-3xl md:text-5xl lg:text-[54px] font-bold tracking-tight text-white !text-white leading-[1.2] mb-12 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Automotive businesses need more than tools. They need software, intelligence, and direction. We build all three.
             </h1>
 
             {/* Keywords */}
-            <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-[11px] md:text-[13px] font-bold tracking-widest text-slate-100 uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-[11px] md:text-[13px] font-bold tracking-widest text-neutral-100 uppercase">
               <span>AUTOMOTIVE SOFTWARE BUILDS</span>
               <span className="text-cyan-400">•</span>
               <span>COGNITIVE AI SOLUTIONS</span>

@@ -13,7 +13,7 @@ const resourceCards = [
     date: 'August 27, 2026',
     title: 'Make or Buy: How go-live speed affects competitiveness',
     excerpt: 'In digital automotive commerce, waiting for the perfect in-house solution can become a competitive disadvantage. The sooner you deploy modern bespoke automotive platforms, the faster you capture market share.',
-    image: '/images/home_software_chip.jpg',
+    image: '/images/vehicles/diagnostic_tech.jpg',
     link: '/blog/future-of-automotive-software-systems'
   },
   {
@@ -22,7 +22,7 @@ const resourceCards = [
     date: 'August 26, 2026',
     title: 'CARUSO Dataplace Adds Hyundai to Its Platform, One Integration for Fleet and Privately-Owned Vehicles',
     excerpt: 'Our partner data ecosystem expands with live telematics integration, announcing seamless access to vehicle sensor feeds and diagnostic alerts across connected fleets and commercial vehicles.',
-    image: '/images/home_processes_traffic.jpg',
+    image: '/images/vehicles/commercial_fleet.jpg',
     link: '/blog/enterprise-fleet-management-software'
   },
   {
@@ -31,7 +31,7 @@ const resourceCards = [
     date: 'August 25, 2026',
     title: 'Inter Cars scales automation with TecCom',
     excerpt: 'When a company operates at scale, even small inefficiencies in order management quickly become big ones: more manual handling, more errors, and slower response times for customers.',
-    image: '/images/home_data_dots.jpg',
+    image: '/images/vehicles/workshop_lifts.jpg',
     link: '/blog/scaling-nmvtis-data-pipelines'
   },
   {
@@ -40,14 +40,14 @@ const resourceCards = [
     date: 'August 25, 2026',
     title: 'Looking Ahead to Automechanika Frankfurt 2026',
     excerpt: 'From 8 to 12 September, we will be welcoming customers, enterprise partners and industry experts to explore next-generation bespoke software platforms, cognitive AI diagnostic assistants, and dealer DMS integrations.',
-    image: '/images/home_noc_center.jpg',
+    image: '/images/vehicles/dealership_showroom.jpg',
     link: '/blog/ai-transforming-auto-dealerships'
   }
 ];
 
 export const InsightsResources = () => {
   return (
-    <section className="w-full bg-[#1A1D20] text-white py-20 md:py-28 font-sans">
+    <section className="w-full bg-white text-slate-900 py-20 md:py-28 font-sans border-t border-slate-200">
       <div className="max-w-[1240px] mx-auto px-6">
         
         {/* Header */}
@@ -56,7 +56,7 @@ export const InsightsResources = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight mb-4 text-slate-900"
           >
             Find the insights and{' '}
             <span className="relative inline-block">
@@ -72,7 +72,7 @@ export const InsightsResources = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-sm sm:text-base text-slate-400 font-normal leading-relaxed mt-4"
+            className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed mt-4"
           >
             Access expert insights, customer stories, and updates on data, standards, and market developments across the IAM.
           </motion.p>
@@ -87,16 +87,18 @@ export const InsightsResources = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-[#23272B] rounded-2xl overflow-hidden border border-slate-700/60 flex flex-col group hover:border-[#F37021]/50 transition-all duration-300 shadow-lg"
+              className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-slate-200/90 flex flex-col group hover:border-[#F37021]/60 hover:shadow-xl transition-all duration-300 shadow-sm"
             >
               <Link href={card.link} className="flex flex-col h-full block">
                 {/* Card Top Image Container */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-950">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
                   <Image
                     src={card.image}
                     alt={card.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                    quality={95}
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-100"
                   />
                   
                   {/* Category Tag Badge */}
@@ -110,23 +112,23 @@ export const InsightsResources = () => {
                 {/* Card Body */}
                 <div className="p-6 sm:p-8 flex flex-col flex-1">
                   {/* Date with Calendar icon */}
-                  <div className="flex items-center text-xs font-semibold text-slate-400 mb-3 gap-2">
-                    <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                  <div className="flex items-center text-xs font-semibold text-slate-500 mb-3 gap-2">
+                    <Calendar className="w-3.5 h-3.5 text-slate-500" />
                     <span>{card.date}</span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug group-hover:text-[#00A9CE] transition-colors mb-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:text-[#00A9CE] transition-colors mb-3">
                     {card.title}
                   </h3>
 
                   {/* Excerpt */}
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6 line-clamp-3">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-6 line-clamp-3">
                     {card.excerpt}
                   </p>
 
                   {/* Read More link */}
-                  <div className="mt-auto inline-flex items-center gap-2 text-xs font-bold text-white group-hover:text-[#00A9CE] uppercase tracking-wider transition-colors">
+                  <div className="mt-auto inline-flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#00A9CE] uppercase tracking-wider transition-colors">
                     <span>Read more</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-[#F37021]" />
                   </div>

@@ -46,14 +46,14 @@ export const Navbar = () => {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out font-sans border-b border-white/10",
         scrolled 
           ? "bg-[#0A0E14]/95 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.6)] py-1.5" 
-          : "bg-[#0A0E14]/90 backdrop-blur-md py-3.5 sm:py-4"
+          : "bg-[#0A0E14]/90 backdrop-blur-md py-2 sm:py-2.5"
       )}>
         {/* Subtle luminous neon top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#00A9CE]/40 via-[#F37021]/50 to-transparent pointer-events-none" />
 
         <nav className={cn(
           "w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between transition-all duration-300 ease-in-out",
-          scrolled ? "min-h-[54px] lg:min-h-[60px]" : "min-h-[76px] lg:min-h-[88px]"
+          scrolled ? "min-h-[50px] lg:min-h-[54px]" : "min-h-[60px] lg:min-h-[68px]"
         )}>
           
           {/* LEFT NAVIGATION: About Us, Our Services, Become a Partner */}
@@ -103,23 +103,19 @@ export const Navbar = () => {
             scrolled ? "mx-4 sm:mx-6 xl:mx-8" : "mx-6 sm:mx-8 xl:mx-12"
           )}>
             <Link href="/" className="relative flex items-center justify-center group p-0.5" aria-label="Achtrex Home">
-              {/* Creative Ambient Halo Glow */}
-              <div className={cn(
-                "absolute bg-gradient-to-tr from-[#00A9CE]/25 via-[#38BDF8]/20 to-[#F37021]/25 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-all duration-500",
-                scrolled ? "w-14 h-14 opacity-35" : "w-24 h-24 sm:w-28 sm:h-28 opacity-70"
-              )} />
-
               {/* Logo Icon dynamically scales down when scrolled */}
               <div className={cn(
-                "relative shrink-0 transition-all duration-300 ease-in-out group-hover:scale-105 drop-shadow-[0_4px_20px_rgba(0,169,206,0.35)] group-hover:drop-shadow-[0_6px_28px_rgba(243,112,33,0.55)]",
+                "relative shrink-0 transition-all duration-300 ease-in-out group-hover:scale-105",
                 scrolled 
-                  ? "w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12" 
-                  : "w-16 h-16 sm:w-20 sm:h-20 xl:w-24 xl:h-24"
+                  ? "w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10" 
+                  : "w-11 h-11 sm:w-12 sm:h-12 lg:w-13 lg:h-13 xl:w-14 xl:h-14"
               )}>
                 <Image
                   src="/logo.png"
                   alt="Achtrex Logo"
                   fill
+                  quality={100}
+                  sizes="(max-width: 768px) 48px, 64px"
                   className="object-contain"
                   priority
                 />
