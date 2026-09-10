@@ -3,82 +3,127 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Cpu, Database, TrendingUp, CheckCircle2 } from 'lucide-react';
 
-const timelineData = [
+const roadmapData = [
   {
-    id: '2024-2025',
-    tabLabel: '2024 to 2025',
-    periodLabel: '2024 TO 2025',
-    title: 'Autonomous AI reasoning and diagnostic triage',
+    id: 'phase-1',
+    tabLabel: 'Phase 1: Core Architecture',
+    phaseLabel: 'PHASE 1 // IMMEDIATE HORIZON',
+    title: 'Sovereign Digital Architecture & Enterprise Foundations',
+    summary: 'Deploying high-performance custom operating software, unified vehicle data schemas, and proprietary architectures that eliminate enterprise dependency on rigid legacy platforms.',
     points: [
       {
-        year: '2024',
-        text: 'Introduction of AAIA (Achtrex Automotive Intelligence Architecture) — domain-specialized neural models for OBD-II diagnostic interpretation and predictive service triage.'
+        badge: 'Custom Platforms',
+        text: 'Engineering bespoke Dealer Management Systems (DMS), parts catalog engines, and workshop management software delivered with 100% intellectual property ownership to the client.'
       },
       {
-        year: '2024',
-        text: 'Deployment of autonomous 24/7 AI conversational sales agents and computer-vision OCR pipelines extracting repair orders and title paperwork at 98%+ accuracy.'
+        badge: 'Standardized Data Schemas',
+        text: 'Normalizing heterogeneous vehicle diagnostics, repair taxonomies, and cross-catalog OEM/aftermarket part mappings into unified high-throughput data models.'
       },
       {
-        year: '2025',
-        text: 'Integration of predictive regional demand forecasting models, synthesizing auction transactions, macroeconomic indicators, and search trend telemetry.'
+        badge: 'Legacy Modernization',
+        text: 'Replacing fragmented on-premise silos with secure, cloud-native microservices designed for elastic throughput, zero data loss, and uninterrupted multi-branch operations.'
       }
     ]
   },
   {
-    id: '2026-beyond',
-    tabLabel: '2026 & Beyond',
-    periodLabel: '2026 & BEYOND',
-    title: 'Connected mobility and neutral aftermarket infrastructure',
+    id: 'phase-2',
+    tabLabel: 'Phase 2: Cognitive Intelligence',
+    phaseLabel: 'PHASE 2 // EXPANSION HORIZON',
+    title: 'Deterministic AI Diagnostics & Operational Automation',
+    summary: 'Infusing deep domain-specialized artificial intelligence into everyday automotive workflows to multiply operational capacity, eliminate diagnostic guesswork, and automate customer engagement.',
     points: [
       {
-        year: '2026',
-        text: 'Scaling real-time EV battery telemetry, predictive state-of-health degradation modeling, and charging network interoperability across international markets.'
+        badge: 'Diagnostic Intelligence',
+        text: 'Developing the Achtrex Automotive Intelligence Architecture (AAIA) — neural reasoning models that map complex multi-sensor OBD-II telemetry and symptom profiles directly to verified root-cause fixes.'
       },
       {
-        year: 'Ongoing',
-        text: 'Strengthening the neutral digital backbone of the independent automotive aftermarket to ensure all operators remain competitive, agile, and sovereign over their data.'
+        badge: 'Autonomous Agents',
+        text: 'Deploying 24/7 intelligent sales and service booking agents capable of parsing natural customer inquiries, matching inventory, calculating estimates, and scheduling repair slots autonomously.'
+      },
+      {
+        badge: 'Predictive Market Telemetry',
+        text: 'Synthesizing regional auction trends, macroeconomic signals, and historical parts velocity to provide real-time dynamic pricing and predictive inventory stocking forecasts.'
+      }
+    ]
+  },
+  {
+    id: 'phase-3',
+    tabLabel: 'Phase 3: Global Mobility Scale',
+    phaseLabel: 'PHASE 3 // LONG-TERM HORIZON',
+    title: 'Connected Fleet Ecosystems & Interoperable Aftermarket Cloud',
+    summary: 'Building the neutral, borderless digital backbone that seamlessly connects fleet operators, parts manufacturers, multi-brand service networks, and connected vehicles worldwide.',
+    points: [
+      {
+        badge: 'Connected Telematics',
+        text: 'Real-time edge ingestion of high-frequency vehicle telemetry, predictive EV battery state-of-health (SoH) modeling, and automated roadside triage dispatch.'
+      },
+      {
+        badge: 'Neutral Aftermarket Grid',
+        text: 'Establishing secure, open API protocols enabling verified cross-brand parts interchangeability, decentralized warranty adjudication, and real-time inventory discovery across borders.'
+      },
+      {
+        badge: 'Autonomous Supply Routing',
+        text: 'End-to-end algorithmic parts fulfillment connecting regional logistics hubs directly to workshop service bays just-in-time, slashing technician idle time.'
       }
     ]
   }
 ];
 
 export const AboutContent = () => {
-  const [activeTimelineId, setActiveTimelineId] = useState(timelineData[0].id);
+  const [activePhaseId, setActivePhaseId] = useState(roadmapData[0].id);
 
-  const currentTimeline = timelineData.find(t => t.id === activeTimelineId) || timelineData[0];
+  const currentPhase = roadmapData.find(p => p.id === activePhaseId) || roadmapData[0];
 
   return (
     <div className="w-full bg-[#FFFFFF] text-slate-900 font-sans selection:bg-[#F37021] selection:text-white pb-24">
 
-      {/* ─── SECTION 1: OUR STORY / ABOUT ACHTREX ───────────────────────── */}
+      {/* ─── SECTION 1: ABOUT ACHTREX / OUR PURPOSE ─────────────────────── */}
       <section className="max-w-[1240px] mx-auto px-6 pt-4 pb-20 sm:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Text */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <span className="text-xs font-black uppercase tracking-widest text-slate-500 mb-2">
-              OUR STORY
+            <span className="text-xs font-black uppercase tracking-widest text-[#F37021] mb-2">
+              OUR VISION & CONVICTION
             </span>
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight">
-              About Achtrex
+              Architecting the Future of Enterprise Automotive Technology
             </h1>
 
             {/* Signature Brand Gradient Underline */}
             <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
 
-            <div className="space-y-4 text-slate-800 text-[15px] sm:text-[16px] leading-[1.8] font-normal max-w-xl">
+            <div className="space-y-4 text-slate-700 text-[15px] sm:text-[16px] leading-[1.8] font-normal max-w-xl">
               <p>
-                From the very beginning, our focus has been simple: setting the data standard for the industry and solving what no one can solve alone. Achtrex has grown alongside the independent automotive aftermarket, supporting how it evolves, connects, and operates across geographies.
+                The global automotive ecosystem is undergoing the most consequential digital shift in its history. As vehicles evolve into software-defined machines and customer expectations demand real-time transparency, enterprise dealerships, aftermarket networks, and mobility operators cannot afford to be constrained by rigid, fragmented software.
               </p>
               <p>
-                Headquartered in Dubai, UAE, Achtrex provides bespoke automotive software builds, cognitive AI diagnostics, and strategic advisory solutions designed for the next generation of connected mobility, retail dealerships, and automotive enterprises worldwide.
+                Headquartered in Dubai, UAE, Achtrex is built to solve this challenge. We partner with ambitious automotive enterprises worldwide to engineer sovereign custom platforms, domain-specific AI diagnostics, and high-throughput digital backbones that turn complex technical operations into scalable, defensible competitive advantages.
               </p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact-us"
+                className="btn-navbar-cta"
+              >
+                <span className="btn-navbar-cta-inner">
+                  <span>Initiate Partnership</span>
+                  <ArrowRight className="w-4 h-4 text-[#00A9CE]" />
+                </span>
+              </Link>
+              <Link
+                href="/services"
+                className="px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors duration-200 flex items-center gap-2 border border-slate-200"
+              >
+                <span>Explore Solutions</span>
+              </Link>
             </div>
           </div>
 
-          {/* Right Visual Graphic (Illustration matching TecAlliance graphic) */}
+          {/* Right Visual Graphic */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-[440px] aspect-[4/3] flex items-center justify-center">
               
@@ -167,37 +212,37 @@ export const AboutContent = () => {
         </div>
       </section>
 
-      {/* ─── SECTION 2: HOW IT STARTED / OUR JOURNEY IN THE AFTERMARKET ─── */}
+      {/* ─── SECTION 2: STRATEGIC GROWTH ROADMAP & INNOVATION HORIZONS ─── */}
       <section className="max-w-[1240px] mx-auto px-6 pb-20 sm:pb-24">
         
         {/* Section Header */}
         <div className="mb-8">
-          <span className="text-xs font-black uppercase tracking-widest text-slate-500 mb-2 block">
-            HOW IT STARTED
+          <span className="text-xs font-black uppercase tracking-widest text-[#F37021] mb-2 block">
+            STRATEGIC ROADMAP
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight">
-            Our journey in the aftermarket
+            Our Intended Growth & Innovation Horizons
           </h2>
 
           <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-5 rounded-full" />
 
-          <p className="text-slate-800 text-[15px] sm:text-base leading-[1.8] font-normal max-w-3xl">
-            Since our founding, Achtrex has supported the development of shared standards and data that enable the independent aftermarket to operate across systems, companies, and geographies.
+          <p className="text-slate-700 text-[15px] sm:text-base leading-[1.8] font-normal max-w-3xl">
+            Achtrex executes against a disciplined multi-phase engineering trajectory designed to systematically de-risk automotive operations, establish dominant technical infrastructure, and unlock long-term enterprise value for our partners and investors.
           </p>
         </div>
 
-        {/* Milestone Card with Interactive Tabs (Image 2 style) */}
+        {/* Milestone Card with Interactive Tabs */}
         <div className="w-full bg-white rounded-2xl border border-slate-200/90 shadow-[0_8px_30px_rgba(0,0,0,0.04)] overflow-hidden">
           
           {/* Top Tab Bar */}
           <div className="border-b border-slate-200/80 px-6 sm:px-10 pt-6 flex items-center gap-6 sm:gap-10 overflow-x-auto scrollbar-none">
-            {timelineData.map((item) => {
-              const isActive = item.id === activeTimelineId;
+            {roadmapData.map((item) => {
+              const isActive = item.id === activePhaseId;
 
               return (
                 <button
                   key={item.id}
-                  onClick={() => setActiveTimelineId(item.id)}
+                  onClick={() => setActivePhaseId(item.id)}
                   className={`pb-4 text-xs sm:text-[13px] font-bold transition-all relative whitespace-nowrap cursor-pointer ${
                     isActive ? 'text-slate-900' : 'text-slate-500 hover:text-slate-800'
                   }`}
@@ -205,7 +250,7 @@ export const AboutContent = () => {
                   <span>{item.tabLabel}</span>
                   {isActive && (
                     <motion.div 
-                      layoutId="timelineUnderline"
+                      layoutId="roadmapUnderline"
                       className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#F37021] to-[#00A9CE] rounded-full" 
                     />
                   )}
@@ -220,27 +265,32 @@ export const AboutContent = () => {
               
               {/* Left Column: Milestone Text */}
               <div className="lg:col-span-7 space-y-4">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">
-                  {currentTimeline.periodLabel}
+                <span className="text-xs font-bold text-[#F37021] uppercase tracking-widest block">
+                  {currentPhase.phaseLabel}
                 </span>
 
                 <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug">
-                  {currentTimeline.title}
+                  {currentPhase.title}
                 </h3>
 
-                <div className="space-y-4 pt-2">
-                  {currentTimeline.points.map((point, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#F37021] to-[#00A9CE] shrink-0 mt-2" />
-                      <p>
-                        <strong className="text-slate-900 font-bold">{point.year}:</strong> {point.text.replace(`${point.year}: `, '')}
-                      </p>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-1">
+                  {currentPhase.summary}
+                </p>
+
+                <div className="space-y-4 pt-3">
+                  {currentPhase.points.map((point, idx) => (
+                    <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-relaxed font-normal bg-slate-50/80 p-3.5 rounded-xl border border-slate-200/70">
+                      <CheckCircle2 className="w-4 h-4 text-[#F37021] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-slate-900 font-bold mr-1.5">{point.badge}:</strong>
+                        <span>{point.text}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Right Column: Sketch Illustration Graphic (Image 2 style) */}
+              {/* Right Column: Schematic Graphic */}
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl bg-[#F8FAFC] border border-slate-200/70 p-6 flex items-center justify-center overflow-hidden shadow-inner">
                   
@@ -250,30 +300,40 @@ export const AboutContent = () => {
                   {/* Brand Gradient Vertical Accent Bar */}
                   <div className="absolute w-6 h-48 bg-gradient-to-b from-[#F37021] to-[#00A9CE] rounded-sm -rotate-3 opacity-90" />
 
-                  {/* Monochrome Technician / Engineer Silhouette */}
+                  {/* High Tech Engineering Blueprint / Circuit Iconography */}
                   <svg viewBox="0 0 200 240" className="relative z-10 w-44 h-auto drop-shadow-md" fill="none">
-                    {/* Head with Hard Hat */}
-                    <ellipse cx="100" cy="45" rx="14" ry="12" fill="#1E293B" />
-                    <path d="M82 45 C82 30, 118 30, 118 45 Z" fill="#0F172A" />
-                    <rect x="80" y="44" width="40" height="4" rx="2" fill="#F37021" />
+                    {/* Diagnostic Sensor Hub Graphic */}
+                    <circle cx="100" cy="70" r="36" fill="#0F172A" stroke="#334155" strokeWidth="3" />
+                    <circle cx="100" cy="70" r="24" fill="#1E293B" />
+                    <circle cx="100" cy="70" r="10" fill="#F37021" />
 
-                    {/* Torso & Uniform in working posture */}
-                    <path d="M85 60 L115 60 L125 120 L75 120 Z" fill="#1E293B" />
-                    <path d="M98 60 L98 120" stroke="#94A3B8" strokeWidth="1.5" strokeDasharray="3 2" />
+                    {/* Surrounding Node Ring */}
+                    <circle cx="100" cy="70" r="52" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="4 3" />
+                    <circle cx="50" cy="60" r="5" fill="#00A9CE" />
+                    <circle cx="150" cy="60" r="5" fill="#00A9CE" />
+                    <circle cx="100" cy="18" r="5" fill="#F37021" />
 
-                    {/* Arms holding wrench / inspection diagnostic device */}
-                    <path d="M85 65 L60 100 L75 125" stroke="#1E293B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M115 65 L135 95 L120 120" stroke="#1E293B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+                    {/* Lower Gateway Module */}
+                    <rect x="60" y="135" width="80" height="45" rx="6" fill="#0F172A" stroke="#475569" strokeWidth="1.5" />
+                    <line x1="100" y1="106" x2="100" y2="135" stroke="#F37021" strokeWidth="2.5" />
+                    
+                    {/* Status LED Bars */}
+                    <rect x="70" y="145" width="12" height="4" rx="1" fill="#00A9CE" />
+                    <rect x="86" y="145" width="12" height="4" rx="1" fill="#F37021" />
+                    <rect x="102" y="145" width="12" height="4" rx="1" fill="#10B981" />
+                    <rect x="118" y="145" width="12" height="4" rx="1" fill="#38BDF8" />
 
-                    {/* Inspection tool / tablet with glowing orange screen */}
-                    <rect x="70" y="115" width="40" height="26" rx="2" fill="#0F172A" stroke="#475569" strokeWidth="1.5" />
-                    <rect x="74" y="119" width="32" height="18" rx="1" fill="#FB923C" />
+                    {/* Integrated Microchip Grid */}
+                    <rect x="70" y="156" width="60" height="14" rx="2" fill="#1E293B" />
+                    <line x1="78" y1="163" x2="122" y2="163" stroke="#FB923C" strokeWidth="1.5" strokeDasharray="2 2" />
 
-                    {/* Legs / Safety Boots */}
-                    <path d="M85 120 L80 185 L70 215" stroke="#1E293B" strokeWidth="10" strokeLinecap="round" />
-                    <path d="M115 120 L120 185 L130 215" stroke="#1E293B" strokeWidth="10" strokeLinecap="round" />
-                    <ellipse cx="65" cy="218" rx="12" ry="6" fill="#0F172A" />
-                    <ellipse cx="135" cy="218" rx="12" ry="6" fill="#0F172A" />
+                    {/* Telemetry Bus Links Out */}
+                    <path d="M75 180 L60 215" stroke="#64748B" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M100 180 L100 220" stroke="#F37021" strokeWidth="2.5" strokeLinecap="round" />
+                    <path d="M125 180 L140 215" stroke="#64748B" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="60" cy="215" r="3.5" fill="#00A9CE" />
+                    <circle cx="100" cy="220" r="4" fill="#F37021" />
+                    <circle cx="140" cy="215" r="3.5" fill="#00A9CE" />
                   </svg>
                 </div>
               </div>
@@ -284,7 +344,7 @@ export const AboutContent = () => {
         </div>
       </section>
 
-      {/* ─── SECTION 3: DARK STATS STRIP (Bottom of Image 2) ─────────────── */}
+      {/* ─── SECTION 3: STRATEGIC OPPORTUNITY & COMMITMENT METRICS ────────── */}
       <section className="w-full bg-[#181C21] text-white py-14 px-6 relative overflow-hidden my-4">
         
         {/* Subtle Map / Vector Road Pattern Overlay */}
@@ -301,44 +361,53 @@ export const AboutContent = () => {
           </svg>
         </div>
 
-        <div className="max-w-[1240px] mx-auto relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        <div className="max-w-[1240px] mx-auto relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           
           <div className="flex flex-col items-center">
             <span className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
-              15+
+              $1.8T+
             </span>
-            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight">
-              Years of leadership experience
+            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight max-w-[200px]">
+              Global mobility & aftermarket market shift
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <span className="text-4xl sm:text-5xl font-black text-[#F37021] tracking-tight mb-2">
+              100%
+            </span>
+            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight max-w-[200px]">
+              Intellectual property ownership transferred to client
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <span className="text-4xl sm:text-5xl font-black text-[#00A9CE] tracking-tight mb-2">
+              99.9%
+            </span>
+            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight max-w-[200px]">
+              Targeted cloud architecture uptime SLA
             </span>
           </div>
 
           <div className="flex flex-col items-center">
             <span className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
-              30+
+              Zero
             </span>
-            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight">
-              Global partner networks
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <span className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
-              40+
-            </span>
-            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight">
-              Countries covered
+            <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-tight max-w-[200px]">
+              Vendor lock-in: fully sovereign codebases
             </span>
           </div>
 
         </div>
       </section>
 
-      {/* ─── SECTION 4: OUR VISION AND MISSION (Image 3 Top) ─────────────── */}
+      {/* ─── SECTION 4: OUR VISION AND MISSION ───────────────────────────── */}
       <section className="max-w-[1240px] mx-auto px-6 py-10 sm:py-16">
         <div className="w-full bg-[#22262B] text-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Graphic: Network Constellation with Orange Box (Image 3) */}
+            {/* Left Graphic: Network Constellation */}
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-2xl bg-white/95 p-6 flex items-center justify-center overflow-hidden shadow-md">
                 
@@ -388,19 +457,29 @@ export const AboutContent = () => {
             {/* Right Text: Vision and Mission */}
             <div className="lg:col-span-7 space-y-6">
               <div>
+                <span className="text-xs font-black uppercase tracking-widest text-[#F37021] mb-2 block">
+                  CORPORATE GUIDELINES
+                </span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  Our vision and mission
+                  Our Vision and Mission
                 </h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
               </div>
 
-              <div className="space-y-4 text-slate-200 text-[15px] sm:text-base leading-[1.8] font-normal">
-                <p>
-                  Our vision is to empower the automotive aftermarket to shape a connected data ecosystem by safeguarding independence through trusted standards and a shared data foundation. We aim to drive sustainable global business growth.
-                </p>
-                <p>
-                  Our mission is to unlock growth and ensure the competitiveness of the independent aftermarket by establishing neutral standards and enabling market connectivity. This builds on trusted technical standards, enterprise software frameworks, and core enabling functions.
-                </p>
+              <div className="space-y-6 text-slate-200 text-[15px] sm:text-base leading-[1.8] font-normal">
+                <div className="border-l-2 border-[#F37021] pl-4 py-1">
+                  <h4 className="text-white font-bold text-lg mb-1">Our Vision</h4>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    To be the preeminent engineering partner and neutral digital architecture that powers the world&apos;s most resilient, agile, and technologically independent automotive enterprises.
+                  </p>
+                </div>
+
+                <div className="border-l-2 border-[#00A9CE] pl-4 py-1">
+                  <h4 className="text-white font-bold text-lg mb-1">Our Mission</h4>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    To dismantle technical friction in the automotive sector by engineering sovereign bespoke software, deterministic AI reasoning engines, and unified data networks that guarantee 100% intellectual property ownership to our clients.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -408,30 +487,55 @@ export const AboutContent = () => {
         </div>
       </section>
 
-      {/* ─── SECTION 5: OUR ROLE TODAY (Image 4 Top) ─────────────────────── */}
+      {/* ─── SECTION 5: INSTITUTIONAL VALUE & ADVANTAGES ─────────────────── */}
       <section className="max-w-[1240px] mx-auto px-6 py-6 sm:py-10">
         <div className="w-full bg-[#22262B] text-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Text: Our Role Today */}
+            {/* Left Text: Strategic Advantages */}
             <div className="lg:col-span-6 space-y-6 order-2 lg:order-1">
               <div>
+                <span className="text-xs font-black uppercase tracking-widest text-[#F37021] mb-2 block">
+                  ENTERPRISE DIFFERENTIATION
+                </span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  Our role today
+                  Why Enterprises & Investors Choose Achtrex
                 </h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
               </div>
 
-              <div className="space-y-4 text-slate-200 text-[15px] sm:text-base leading-[1.8] font-normal">
-                <p>
-                  Today, Achtrex acts as the neutral backbone for collaboration across the independent automotive aftermarket.
-                </p>
-                <p className="font-semibold text-white">
-                  We do not compete in the market. We support it.
-                </p>
-                <p>
-                  Our focus is on creating the conditions to allow companies to connect, collaborate, and operate efficiently while remaining completely independent.
-                </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
+                  <ShieldCheck className="w-6 h-6 text-[#F37021] mb-2" />
+                  <h4 className="font-bold text-white text-sm mb-1">100% IP Sovereignty</h4>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Clients retain complete, unencumbered ownership of all delivered source code, architectures, and proprietary models.
+                  </p>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
+                  <Cpu className="w-6 h-6 text-[#00A9CE] mb-2" />
+                  <h4 className="font-bold text-white text-sm mb-1">Deterministic AI</h4>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Unlike generic probabilistic chat tools, our AI models are trained on real automotive telemetry, schematics, and DTC codes.
+                  </p>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
+                  <Database className="w-6 h-6 text-[#F37021] mb-2" />
+                  <h4 className="font-bold text-white text-sm mb-1">Modern Cloud Native</h4>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Zero legacy technical debt. Built from ground up on modern Next.js, Python microservices, and distributed cloud systems.
+                  </p>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
+                  <TrendingUp className="w-6 h-6 text-[#00A9CE] mb-2" />
+                  <h4 className="font-bold text-white text-sm mb-1">EBITDA Expansion</h4>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Slashing workshop diagnostic triage times and automating customer quoting directly elevates client operational margins.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -439,7 +543,7 @@ export const AboutContent = () => {
             <div className="lg:col-span-6 flex justify-center order-1 lg:order-2">
               <div className="relative w-full max-w-[460px] aspect-[16/10] rounded-2xl bg-[#14171A] border border-white/10 p-4 flex items-center justify-center overflow-hidden shadow-2xl">
                 
-                {/* Mechanical Shaft & Telemetry Vector Graphic (matching Image 4) */}
+                {/* Mechanical Shaft & Telemetry Vector Graphic */}
                 <svg viewBox="0 0 400 220" className="w-full h-full" fill="none">
                   {/* Center Metal Shaft Bar */}
                   <rect x="0" y="98" width="400" height="24" fill="#475569" stroke="#334155" />
@@ -487,11 +591,11 @@ export const AboutContent = () => {
         </div>
       </section>
 
-      {/* ─── SECTION 6: JOIN THE TEAM (Image 4 Bottom) ───────────────────── */}
+      {/* ─── SECTION 6: PARTNER WITH ACHTREX / JOIN OUR GROWTH ───────────── */}
       <section className="max-w-[1240px] mx-auto px-6 py-12 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Multi-Layered Visual: Team Professional + Rocket Launch Illustration (Image 4) */}
+          {/* Left Multi-Layered Visual */}
           <div className="lg:col-span-6 flex justify-center">
             <div className="relative w-full max-w-[460px] aspect-[4/3] flex items-center justify-center">
               
@@ -553,28 +657,37 @@ export const AboutContent = () => {
             </div>
           </div>
 
-          {/* Right Text: Join the team */}
+          {/* Right Text: Join our growth */}
           <div className="lg:col-span-6 flex flex-col justify-center">
+            <span className="text-xs font-black uppercase tracking-widest text-[#F37021] mb-2 block">
+              COLLABORATION & TALENT
+            </span>
             <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Join the team
+              Join Our Trajectory
             </h3>
 
             {/* Brand Gradient Underline */}
             <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mt-3 mb-6 rounded-full" />
 
-            <p className="text-slate-800 text-[15px] sm:text-base leading-[1.8] font-normal mb-8 max-w-lg">
-              Passionate about data, IT, and the automotive industry? Explore our open positions and join Achtrex as we shape the future of the automotive aftermarket.
+            <p className="text-slate-700 text-[15px] sm:text-base leading-[1.8] font-normal mb-8 max-w-lg">
+              Whether you are an automotive enterprise seeking custom software builds, an investor exploring strategic mobility opportunities, or an exceptional engineer eager to solve hard technical problems, we welcome your partnership.
             </p>
 
-            <div>
+            <div className="flex flex-wrap items-center gap-4">
               <Link
-                href="/life-at-achtrex"
+                href="/contact-us"
                 className="btn-navbar-cta"
               >
                 <span className="btn-navbar-cta-inner">
-                  <span>Explore careers</span>
+                  <span>Initiate Partnership</span>
                   <ArrowRight className="w-4 h-4 text-[#00A9CE]" />
                 </span>
+              </Link>
+              <Link
+                href="/life-at-achtrex"
+                className="px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors duration-200 flex items-center gap-2 border border-slate-200"
+              >
+                <span>Explore Careers</span>
               </Link>
             </div>
           </div>

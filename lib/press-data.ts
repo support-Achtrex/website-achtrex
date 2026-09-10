@@ -6,7 +6,7 @@ export const pressReleases = [
         date: 'May 15, 2026',
         category: 'Product Launch',
         excerpt: 'Achtrex today announced the launch of AAIA, a proprietary cognitive framework built to interpret complex enterprise logic and autonomously synthesize automotive datasets with millisecond latency.',
-        image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
+        image: '/images/vehicles/diagnostic_tech.jpg',
         content: `
           <p class="text-xl text-slate-600 font-medium leading-relaxed mb-8">
             Achtrex today announced the launch of AAIA, a proprietary cognitive framework built to interpret complex enterprise logic and autonomously synthesize automotive datasets with millisecond latency.
@@ -36,7 +36,7 @@ export const pressReleases = [
         date: 'April 02, 2026',
         category: 'Infrastructure',
         excerpt: 'To support rapid international growth, Achtrex has deployed three new edge data centers across Europe, ensuring zero-latency data access for its continental automotive partners.',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc4b?auto=format&fit=crop&q=80&w=800'
+        image: '/images/real_server_room_1775935470750.png'
     },
     {
         id: '3',
@@ -45,7 +45,7 @@ export const pressReleases = [
         date: 'March 18, 2026',
         category: 'Partnerships',
         excerpt: 'Achtrex’s high-frequency vehicle datasets will now power underwriting and claims automation for three of the world’s largest automotive insurance conglomerates.',
-        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800'
+        image: '/images/vehicles/commercial_fleet.jpg'
     },
     {
         id: '4',
@@ -54,7 +54,7 @@ export const pressReleases = [
         date: 'February 28, 2026',
         category: 'Company Milestone',
         excerpt: 'Demonstrating massive scale and reliability, the Achtrex Automotive API ecosystem has successfully processed over one billion queries in a single calendar month with 99.999% uptime.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
+        image: '/images/real_dashboard_context.jpg'
     },
     {
         id: '5',
@@ -63,6 +63,6 @@ export const pressReleases = [
         date: 'January 10, 2026',
         category: 'Corporate',
         excerpt: 'As Achtrex accelerates its transition to an AI-first infrastructure company, it has appointed leading machine learning researchers to spearhead the AAIA initiative.',
-        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800'
+        image: '/images/corporate_team_1.png'
     }
 ];

@@ -18,7 +18,7 @@ export default function PressReleasePage() {
  const categories = ["All News", "Product Launch", "Infrastructure", "Partnerships", "Corporate", "Milestones"];
 
  return (
- <main className="min-h-screen bg-[#f4f4f4] pb-20 font-sans text-slate-900">
+ <main className="min-h-screen bg-[#F8FAFC] pb-24 font-sans text-slate-900">
  
  {/* Header */}
  <InnerPageHeader title="Newsroom" subtitle="Discover the latest press releases, corporate announcements, and product innovations from Achtrex." theme="cyan" />
@@ -40,8 +40,8 @@ export default function PressReleasePage() {
  </div>
  Featured Press Release
  </h2>
- <Link href={`/press-release/${featuredPress.slug}`} className="group block bg-white p-4 rounded-full-[2rem] border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:border-[#00a9ce]/30 transition-all">
- <div className="relative h-[350px] md:h-[450px] w-full rounded-3xl overflow-hidden mb-8 bg-slate-100 shadow-inner">
+ <Link href={`/press-release/${featuredPress.slug}`} className="group block bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:border-[#00a9ce]/40 transition-all">
+ <div className="relative h-[300px] sm:h-[380px] md:h-[440px] w-full rounded-2xl overflow-hidden mb-8 bg-slate-100 shadow-inner">
  <Image
  src={featuredPress.image}
  alt={featuredPress.title}
@@ -51,13 +51,13 @@ export default function PressReleasePage() {
  />
  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
  </div>
- <div className="px-4 pb-4">
+ <div className="px-2 pb-2">
  <div className="flex items-center gap-3 text-[13px] font-bold text-[#00a9ce] uppercase tracking-wider mb-4">
  <span className="bg-[#00a9ce]/10 px-3 py-1 rounded-full">{featuredPress.category}</span>
  <span className="text-slate-400">|</span>
  <span className="text-slate-500">{featuredPress.date}</span>
  </div>
- <h3 className="text-3xl md:text-[36px] font-black leading-tight mb-4 group-hover:text-[#00a9ce] transition-colors tracking-tight text-slate-900">
+ <h3 className="text-2xl sm:text-3xl md:text-[34px] font-black leading-tight mb-4 group-hover:text-[#00a9ce] transition-colors tracking-tight text-slate-900">
  {featuredPress.title}
  </h3>
  <p className="text-[15px] sm:text-base text-slate-800 mb-8 line-clamp-3 font-normal leading-[1.8]">
@@ -86,25 +86,25 @@ export default function PressReleasePage() {
  viewport={{ once: true }}
  transition={{ delay: idx * 0.1 }}
  key={press.id}>
- <Link href={`/press-release/${press.slug}`} className="group grid grid-cols-1 md:grid-cols-4 gap-6 items-center bg-white p-4 rounded-full border border-slate-100 hover:shadow-[0_15px_30px_rgba(0,0,0,0.04)] hover:border-[#00a9ce]/20 transition-all">
- <div className="md:col-span-1 relative aspect-video md:aspect-square lg:aspect-video rounded-2xl overflow-hidden bg-slate-100">
+ <Link href={`/press-release/${press.slug}`} className="group grid grid-cols-1 sm:grid-cols-12 gap-6 items-center bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 hover:shadow-lg hover:border-[#00a9ce]/40 transition-all">
+ <div className="sm:col-span-4 relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-slate-100 border border-slate-100">
  <Image
  src={press.image}
  alt={press.title}
  fill
- className="object-cover transition-transform duration-700 group-hover:scale-110"
+ className="object-cover transition-transform duration-700 group-hover:scale-105"
  />
  </div>
- <div className="md:col-span-3 flex flex-col justify-center h-full px-2">
- <div className="flex items-center gap-3 text-[12px] font-bold text-slate-400 uppercase tracking-wider mb-3">
- <span className="text-[#00a9ce] bg-[#00a9ce]/5 px-2 py-1 rounded-md">{press.category}</span>
+ <div className="sm:col-span-8 flex flex-col justify-center h-full">
+ <div className="flex items-center gap-3 text-[12px] font-bold text-slate-400 uppercase tracking-wider mb-2.5">
+ <span className="text-[#00a9ce] bg-[#00a9ce]/10 px-2.5 py-1 rounded-md">{press.category}</span>
  <span className="text-slate-300">|</span>
  <span className="text-slate-500">{press.date}</span>
  </div>
- <h4 className="text-xl md:text-2xl font-black mb-3 group-hover:text-[#00a9ce] transition-colors leading-snug tracking-tight text-slate-900">
+ <h4 className="text-lg sm:text-xl font-black mb-2 group-hover:text-[#00a9ce] transition-colors leading-snug tracking-tight text-slate-900">
  {press.title}
  </h4>
- <p className="text-[14px] text-slate-700 line-clamp-2 font-normal leading-relaxed">
+ <p className="text-[13.5px] sm:text-sm text-slate-700 line-clamp-2 font-normal leading-relaxed">
  {press.excerpt}
  </p>
  </div>

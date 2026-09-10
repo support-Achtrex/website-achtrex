@@ -35,13 +35,13 @@ const mainResources = [
     actionText: 'View Newsroom'
   },
   { 
-    label: 'Client & Industry Use Cases', 
-    kicker: 'Production Deployments',
-    description: 'Real-world software applications, platform architectures, and measurable success stories across the mobility ecosystem.', 
-    href: '/use-cases', 
+    label: 'Solutions & Services', 
+    kicker: 'Core Pillars',
+    description: 'Explore bespoke automotive software builds, domain-trained cognitive AI diagnostics, and strategic operational consultation.', 
+    href: '/services', 
     icon: Target,
     accent: '#0284c7',
-    actionText: 'Explore Use Cases'
+    actionText: 'Explore Solutions'
   }
 ];
 
@@ -50,19 +50,19 @@ const technicalGuides = [
     title: 'Bespoke Automotive Software Architecture',
     description: 'Custom workshop systems, dealer management platforms, and high-velocity workflow architecture.',
     tag: 'Software Builds',
-    href: '/solutions/automotive-software'
+    href: '/services'
   },
   {
     title: 'AAIA Autonomous Reasoning Architecture',
     description: 'Overview of cognitive AI models powering multi-modal vehicle diagnostics and predictive maintenance.',
     tag: 'Cognitive AI',
-    href: '/solutions/cognitive-ai'
+    href: '/blog/future-of-automotive-software-systems'
   },
   {
     title: 'Automotive Operations & Strategy Blueprint',
     description: 'Enterprise consulting frameworks for workshop efficiency, repair diagnostics, and business transformation.',
     tag: 'Advisory Blueprint',
-    href: '/solutions/automotive-consultation'
+    href: '/contact-us'
   }
 ];
 

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
@@ -18,7 +17,7 @@ export const BusinessSupportSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 flex flex-col items-start space-y-6"
+            className="lg:col-span-6 flex flex-col items-start space-y-6"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 leading-[1.15] tracking-tight">
               Find out how Achtrex can support your business
@@ -50,24 +49,26 @@ export const BusinessSupportSection = () => {
             </div>
           </motion.div>
 
-          {/* Right Column: High-Res Demonstration Photo */}
+          {/* Right Column: Dynamic Animation Video (Frameless & Seamless) */}
           <motion.div 
             initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-5 flex justify-center lg:justify-end"
+            className="lg:col-span-6 flex justify-center lg:justify-end w-full"
           >
-            <div className="relative w-full max-w-[480px] aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-slate-200/90 bg-white p-4 flex items-center justify-center">
-              <Image
-                src="/images/vehicles/ev_profile.png"
-                alt="Achtrex automotive technology demonstration"
-                fill
-                quality={95}
-                sizes="(max-width: 1024px) 100vw, 480px"
-                className="object-contain p-2 drop-shadow-[0_10px_20px_rgba(0,0,0,0.12)]"
-                priority
-              />
+            <div className="relative w-full max-w-[680px] aspect-[21/9] sm:aspect-[7/3] flex items-center justify-center">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                poster="/images/animation_poster.jpg"
+                className="w-full h-full object-contain mix-blend-multiply"
+              >
+                <source src="/animation.mp4" type="video/mp4" />
+              </video>
             </div>
           </motion.div>
 

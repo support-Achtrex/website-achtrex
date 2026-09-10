@@ -13,7 +13,7 @@ const resourceCards = [
     date: 'August 27, 2026',
     title: 'Make or Buy: How go-live speed affects competitiveness',
     excerpt: 'In digital automotive commerce, waiting for the perfect in-house solution can become a competitive disadvantage. The sooner you deploy modern bespoke automotive platforms, the faster you capture market share.',
-    image: '/images/vehicles/diagnostic_tech.jpg',
+    image: '/images/real_dashboard_context.jpg',
     link: '/blog/future-of-automotive-software-systems'
   },
   {

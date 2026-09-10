@@ -12,7 +12,7 @@ const solutions = [
     title: 'Automotive Software Builds',
     kicker: 'Bespoke Mobility Engineering',
     icon: Cpu,
-    image: '/images/vehicles/electric_sedan.png',
+    image: '/images/vehicles/cockpit_telematics.jpg',
     link: '/contact-us',
     desc: 'Bespoke dealership management platforms (DMS), multi-channel sales & inventory clouds, connected vehicle telematics backends, and workshop scheduling systems built with 100% IP ownership.'
   },
@@ -21,7 +21,7 @@ const solutions = [
     title: 'Cognitive AI Solutions',
     kicker: 'AAIA Automotive Intelligence',
     icon: Brain,
-    image: '/images/vehicles/luxury_suv.png',
+    image: '/images/vehicles/diagnostic_tech.jpg',
     link: '/contact-us',
     desc: 'Domain-specialized vehicle diagnostic reasoning engines trained on OBD-II/DTC fault trees, 24/7 conversational dealership sales agents, automated service bay triage, and computer-vision vehicle damage inspection.'
   },
@@ -30,7 +30,7 @@ const solutions = [
     title: 'Automotive Consultation',
     kicker: 'Strategic Advisory & Operations',
     icon: Compass,
-    image: '/images/vehicles/supercar_gt.png',
+    image: '/images/vehicles/workshop_lifts.jpg',
     link: '/contact-us',
     desc: 'Strategic advisory for businesses, manufacturers, dealerships, and individuals—covering vehicle technologies, automotive data pipelines, repair processes, diagnostics, workshop operations, and business strategy.'
   }
@@ -121,20 +121,23 @@ export const SolutionsGrid = () => {
                 className="group flex flex-col bg-white border border-slate-300 hover:border-[#00A9CE] hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden"
               >
                 <Link href={item.link} className="flex flex-col h-full block">
-                  {/* Image Container */}
-                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-white border-b border-slate-200/80 flex items-center justify-center">
+                  {/* Image Container with seamless soft fade */}
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 flex items-center justify-center">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
                       quality={95}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                      className="object-contain p-3 transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_8px_16px_rgba(0,0,0,0.12)]"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                       priority={idx === 0}
                     />
                     
+                    {/* Seamless bottom fade that melts the photo smoothly into the card surface */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent pointer-events-none" />
+
                     {/* Corner Tag */}
-                    <div className="absolute top-3 left-3 bg-white/95 px-2.5 py-1 text-[10px] font-extrabold text-slate-900 uppercase tracking-wider rounded-md border border-slate-200 shadow-sm">
+                    <div className="absolute top-3.5 left-3.5 bg-white/90 backdrop-blur-md px-2.5 py-1 text-[10px] font-extrabold text-slate-900 uppercase tracking-wider rounded-md border border-white/60 shadow-sm">
                       {item.kicker}
                     </div>
                   </div>
