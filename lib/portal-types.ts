@@ -82,10 +82,10 @@ export const DEFAULT_ARCHITECTURE_NODES: ArchitectureNode[] = [
   },
   {
     id: 'automotive-engine',
-    label: 'Automotive Data & VIN Engine',
+    label: 'Automotive Software & Telemetry Engine',
     category: 'service',
     status: 'in_progress',
-    description: 'Real-time vehicle dataset parsing, OEM specs lookup, and market pricing algorithms',
+    description: 'High-performance vehicle telemetry processing, workshop workflows, and predictive analytics',
     specs: 'High-throughput Node.js microservices, 50,000+ RPS capacity',
     connections: ['postgres-db', 'redis-cache']
   },
@@ -148,9 +148,9 @@ export const DEFAULT_CART_ITEMS: ScopeCartItem[] = [
   },
   {
     id: 'auto-data-module',
-    name: 'Automotive Data & Inventory Integration',
-    category: 'Data & APIs',
-    description: 'Live VIN decoding, dealer inventory synchronization, and vehicle specs data feeds',
+    name: 'Automotive Software & Inventory Integration',
+    category: 'Software Builds',
+    description: 'Custom dealer software, multi-branch inventory synchronization, and workshop service feeds',
     status: 'included',
     estimatedCost: 'Included in Base',
     estimatedTimeline: 'Weeks 3-4'

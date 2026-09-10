@@ -40,20 +40,20 @@ export const pressReleases = [
     },
     {
         id: '3',
-        slug: 'achtrex-partners-with-major-insurance-providers',
-        title: 'Top Tier Global Insurance Providers Select Achtrex for Real-Time VIN Intelligence',
+        slug: 'achtrex-partners-with-major-fleet-networks',
+        title: 'Global Commercial Fleet Networks Adopt Achtrex Cognitive Diagnostic Architecture',
         date: 'March 18, 2026',
         category: 'Partnerships',
-        excerpt: 'Achtrex’s high-frequency vehicle datasets will now power underwriting and claims automation for three of the world’s largest automotive insurance conglomerates.',
+        excerpt: 'Achtrex’s domain-trained cognitive AI models and bespoke workshop management systems power predictive service operations and maintenance triage for international fleet networks.',
         image: '/images/vehicles/commercial_fleet.jpg'
     },
     {
         id: '4',
-        slug: 'achtrex-surpasses-one-billion-api-requests',
-        title: 'Achtrex API Infrastructure Surpasses One Billion Monthly Requests',
+        slug: 'achtrex-unveils-enterprise-software-architecture',
+        title: 'Achtrex Unveils Enterprise Automotive Software Build Architecture & Advisory Suite',
         date: 'February 28, 2026',
-        category: 'Company Milestone',
-        excerpt: 'Demonstrating massive scale and reliability, the Achtrex Automotive API ecosystem has successfully processed over one billion queries in a single calendar month with 99.999% uptime.',
+        category: 'Product Innovation',
+        excerpt: 'Delivering sovereign software builds, zero vendor lock-in, and deterministic AI diagnostics engineered to accelerate modern automotive and dealership operations.',
         image: '/images/real_dashboard_context.jpg'
     },
     {

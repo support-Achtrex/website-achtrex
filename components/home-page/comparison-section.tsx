@@ -15,9 +15,9 @@ const comparisonData = [
     others: 'Basic feature-based development with no native AI intelligence or automotive-specific training data.'
   },
   {
-    factor: 'Live Data & Compliance Infrastructure',
-    achtrex: 'Real-time automotive data pipelines with GDPR/CCPA-aligned architecture, cryptographic data governance, and zero third-party data brokering.',
-    others: 'Fragmented data sourced from expensive third-party vendors with inconsistent freshness and compliance gaps.'
+    factor: '100% Code & IP Sovereignty',
+    achtrex: 'Clients receive 100% intellectual property ownership of all delivered source code, custom algorithms, and architectures with zero vendor lock-in or recurring per-seat fees.',
+    others: 'Closed SaaS vendor lock-in with restrictive license terms, recurring per-seat fees, and zero client code ownership.'
   },
   {
     factor: 'Modern UX & UI Engineering',

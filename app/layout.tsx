@@ -111,37 +111,37 @@ export const metadata: Metadata = {
  'max-snippet': -1,
  },
  },
- openGraph: {
- title: "Achtrex | Global Automotive Data Infrastructure & AI Platforms",
- description: "Architecting high-velocity automotive data platforms and autonomous AI agent frameworks. Discover Achtrex's proprietary enterprise solutions for the mobility ecosystem.",
- url: "https://achtrex.com",
- siteName: "Achtrex",
- locale: "en_US",
- type: "website",
- images: [{
- url: "/projects/aaia_ui_v2.png",
- width: 1200,
- height: 630,
- alt: "Achtrex Enterprise AI Platform",
- }],
- },
- twitter: {
- card: "summary_large_image",
- title: "Achtrex | Global Automotive Data Infrastructure & AI Platforms",
- description: "Architecting high-velocity automotive data platforms and cognitive AI platforms for global mobility.",
- images: ["/projects/aaia_ui_v2.png"],
- creator: "@achtrex",
- },
+  openGraph: {
+    title: "Achtrex | Enterprise Automotive Software, Cognitive AI & Advisory",
+    description: "Achtrex is an enterprise automotive technology partner delivering bespoke automotive software builds, cognitive AI diagnostics, and strategic operational consultation.",
+    url: "https://achtrex.com",
+    siteName: "Achtrex",
+    locale: "en_US",
+    type: "website",
+    images: [{
+      url: "/images/solutions/auto_software_builds.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Achtrex Enterprise Automotive Software & AI",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Achtrex | Enterprise Automotive Software, Cognitive AI & Advisory",
+    description: "Achtrex is an enterprise automotive technology partner delivering bespoke automotive software builds, cognitive AI diagnostics, and strategic operational consultation.",
+    images: ["/images/solutions/auto_software_builds.jpg"],
+    creator: "@achtrex",
+  },
 };
 
 const jsonLd = [
- {
- "@context": "https://schema.org",
- "@type": "Organization",
- "name": "Achtrex",
- "url": "https://achtrex.com",
- "logo": "https://achtrex.com/logo.png",
- "description": "Enterprise SaaS venture builder specializing in high-velocity data architectures and cognitive AI platforms.",
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Achtrex",
+    "url": "https://achtrex.com",
+    "logo": "https://achtrex.com/logo.png",
+    "description": "Enterprise automotive technology partner delivering bespoke software builds, domain-trained cognitive AI diagnostics, and strategic operational consultation.",
  "contactPoint": [
   {
    "@type": "ContactPoint",
