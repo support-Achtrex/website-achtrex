@@ -1,15 +1,72 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ToastProvider } from "@/components/ui/toast";
 import { SmoothScrollProvider } from "@/components/smooth-scroll";
 import { GoogleTagManager } from "@next/third-parties/google";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
- subsets: ["latin"],
- weight: ["400", "500", "600", "700", "800"],
- variable: "--font-jakarta",
- display: "swap",
+const overusedGrotesk = localFont({
+  src: [
+    {
+      path: "../public/fonts/overused-grotesk/OverusedGrotesk-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/overused-grotesk/OverusedGrotesk-Roman.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/overused-grotesk/OverusedGrotesk-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/overused-grotesk/OverusedGrotesk-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/overused-grotesk/OverusedGrotesk-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/overused-grotesk/OverusedGrotesk-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/overused-grotesk/OverusedGrotesk-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-overused-grotesk",
+  display: "swap",
+});
+
+const jetbrainsMono = localFont({
+  src: [
+    {
+      path: "../public/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/jetbrains-mono/JetBrainsMono-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/jetbrains-mono/JetBrainsMono-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -124,7 +181,7 @@ export default function RootLayout({
  <head>
     <link rel="preload" as="image" href="/aaia-poster.jpg" fetchPriority="high" />
  </head>
- <body className={`${plusJakartaSans.className} ${plusJakartaSans.variable} font-sans min-h-screen flex flex-col bg-[#F8F9FA] text-[#171717] leading-relaxed selection:bg-[#F37021] selection:text-white overflow-x-hidden`}>
+  <body className={`${overusedGrotesk.className} ${overusedGrotesk.variable} ${jetbrainsMono.variable} font-sans min-h-screen flex flex-col bg-[#F8F9FA] text-[#171717] leading-relaxed selection:bg-[#F37021] selection:text-white overflow-x-hidden`}>
  <script
  type="application/ld+json"
  dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
