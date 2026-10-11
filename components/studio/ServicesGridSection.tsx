@@ -5,142 +5,119 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface InnovationCard {
+export interface ServiceCardData {
   id: string;
+  number: string;
   title: string;
   subtitle: string;
-  category: 'highlights' | 'industries' | 'technologies' | 'assets';
+  category: 'all' | 'ai-tech' | 'design' | 'spatial';
   categoryLabel: string;
   image: string;
   href: string;
 }
 
-const INNOVATION_ITEMS: InnovationCard[] = [
+const REAL_SERVICES: ServiceCardData[] = [
   {
     id: 'ai-dev',
-    title: 'Artificial Intelligence',
-    subtitle: 'Custom AI solutions, autonomous agents, RAG & LLMs',
-    category: 'highlights',
-    categoryLabel: 'Digital Technologies',
-    image: '/studio-assets/service-ai-intelligent.jpg',
+    number: '04',
+    title: 'Artificial Intelligence Development Services',
+    subtitle: 'Custom AI solutions, autonomous multi-agents, RAG & LLMs, predictive workflows and intelligent systems.',
+    category: 'ai-tech',
+    categoryLabel: 'AI & Intelligence',
+    image: '/studio-assets/grid-ai-neural.png',
     href: '/services/ai-intelligent-experiences',
   },
   {
-    id: 'architecture-systems',
-    title: 'Water, Utilities & Environment',
-    subtitle: 'High-scale spatial architecture & ecological digital twins',
-    category: 'industries',
-    categoryLabel: 'Industries',
-    image: '/studio-assets/aerial-intro-bg.jpg',
-    href: '/projects/architectural-spatial-experience',
+    id: 'creative-strategy',
+    number: '02',
+    title: 'Creative Strategy & Digital Content',
+    subtitle: 'Creative direction, cinematic studio production, storytelling, interactive content and brand worlds.',
+    category: 'design',
+    categoryLabel: 'Design & Content',
+    image: '/studio-assets/grid-creative-studio.png',
+    href: '/services/creative-strategy',
   },
   {
-    id: 'digital-journeys',
-    title: 'Smart Mobility & Journeys',
-    subtitle: 'Connected mobility platforms & passenger telemetry',
-    category: 'industries',
-    categoryLabel: 'Industries',
-    image: '/images/home_processes_traffic.jpg',
-    href: '/projects/connected-hospitality-platform',
+    id: 'digital-products',
+    number: '03',
+    title: 'Digital Products',
+    subtitle: 'High-performance web platforms, custom applications, enterprise portals, SaaS and cloud systems.',
+    category: 'ai-tech',
+    categoryLabel: 'Engineering & Platforms',
+    image: '/studio-assets/grid-digital-products.png',
+    href: '/services/digital-products',
   },
   {
-    id: 'transport-logistics',
-    title: 'Transportation & Logistics',
-    subtitle: 'Real-time telemetry, routing engines & enterprise fleets',
-    category: 'industries',
-    categoryLabel: 'Industries',
-    image: '/studio-assets/project-afterdark.jpg',
-    href: '/projects/automotive-spatial-configurator',
-  },
-  {
-    id: 'cgi-spatial',
-    title: 'Velvet & Spatial 3D',
-    subtitle: 'Photorealistic CGI, real-time spatial computing & assets',
-    category: 'assets',
-    categoryLabel: 'Proprietary Assets',
-    image: '/studio-assets/service-cgi-immersive.jpg',
+    id: 'cgi-immersive',
+    number: '05',
+    title: 'CGI, 3D & Immersive Experiences',
+    subtitle: 'Photorealistic CGI, real-time 3D, WebGL/WebGPU viewports, spatial computing and virtual spaces.',
+    category: 'spatial',
+    categoryLabel: 'Spatial & 3D',
+    image: '/studio-assets/grid-cgi-immersive.png',
     href: '/services/cgi-immersive',
   },
   {
-    id: 'cognitive-helios',
-    title: 'Cognitive Systems & Copilots',
-    subtitle: 'Multi-agent orchestration & enterprise knowledge graphs',
-    category: 'technologies',
-    categoryLabel: 'Digital Technologies',
-    image: '/studio-assets/hero-spatial-installation.jpg',
-    href: '/projects/intelligent-copilot-interface',
-  },
-  {
     id: 'experience-design',
+    number: '01',
     title: 'Experience Design',
-    subtitle: 'Human-centered digital products, UX/UI & interaction design',
-    category: 'highlights',
-    categoryLabel: 'Digital Technologies',
-    image: '/studio-assets/service-experience-design.jpg',
+    subtitle: 'Human-centered UX/UI, digital journeys, design systems, tactile micro-interactions and immersive interfaces.',
+    category: 'design',
+    categoryLabel: 'Design & UX',
+    image: '/studio-assets/grid-experience-design.jpg',
     href: '/services/experience-design',
   },
   {
     id: 'configurators',
+    number: '06',
     title: 'Product Configuration & Customization',
-    subtitle: 'Real-time 3D PBR configurators & combinatorial rule engines',
-    category: 'assets',
-    categoryLabel: 'Proprietary Assets',
-    image: '/studio-assets/service-product-configurators.jpg',
+    subtitle: 'Real-time 3D PBR configurators, tangible material swatches, automotive customizers and rule engines.',
+    category: 'spatial',
+    categoryLabel: 'Spatial & Customization',
+    image: '/studio-assets/grid-product-config.jpg',
     href: '/services/product-configurators',
-  },
-  {
-    id: 'digital-products',
-    title: 'Cloud & Infrastructure',
-    subtitle: 'Mission-critical web platforms & high-concurrency systems',
-    category: 'technologies',
-    categoryLabel: 'Digital Technologies',
-    image: '/studio-assets/service-digital-products.jpg',
-    href: '/services/digital-products',
   },
 ];
 
-type FilterTab = 'all' | 'industries' | 'technologies' | 'assets';
+type FilterCategory = 'all' | 'ai-tech' | 'design' | 'spatial';
 
 export function ServicesGridSection() {
-  const [activeTab, setActiveTab] = useState<FilterTab>('all');
+  const [activeTab, setActiveTab] = useState<FilterCategory>('all');
 
-  const filteredItems = INNOVATION_ITEMS.filter((item) => {
+  const filteredItems = REAL_SERVICES.filter((item) => {
     if (activeTab === 'all') return true;
-    if (activeTab === 'industries') return item.category === 'industries';
-    if (activeTab === 'technologies') return item.category === 'technologies' || item.id === 'ai-dev' || item.id === 'experience-design';
-    if (activeTab === 'assets') return item.category === 'assets';
-    return true;
+    return item.category === activeTab;
   });
 
   return (
-    <section id="services-grid" className="w-full bg-[#f0f2fa] text-[#111827] py-24 sm:py-32 px-4 sm:px-8 lg:px-16 border-b border-black/10">
+    <section id="services-grid" className="w-full bg-white text-gray-900 py-24 sm:py-32 px-4 sm:px-8 lg:px-16 border-b border-gray-200">
       <div className="w-full max-w-[1720px] mx-auto">
         {/* Header Zone: Exact WEDOO Reference Styling */}
-        <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-18">
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#6366f1] block font-semibold mb-3">
+        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
+          <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#4f46e5] block font-semibold mb-3">
             What We Do
           </span>
-          <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal text-[#1e1b4b] tracking-tight mb-8">
+          <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal text-[#0f172a] tracking-tight mb-8">
             We are innovation
           </h2>
 
           {/* Interactive Filter Pills */}
           <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 pt-2">
             {[
-              { id: 'all', label: 'Highlights' },
-              { id: 'industries', label: 'Industries' },
-              { id: 'technologies', label: 'Digital Technologies' },
-              { id: 'assets', label: 'Proprietary Assets' },
+              { id: 'all', label: 'All Services' },
+              { id: 'ai-tech', label: 'AI & Engineering' },
+              { id: 'design', label: 'Design & Content' },
+              { id: 'spatial', label: '3D & Customization' },
             ].map((tab) => {
               const isActive = activeTab === tab.id;
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id as FilterTab)}
+                  onClick={() => setActiveTab(tab.id as FilterCategory)}
                   className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer border ${
                     isActive
-                      ? 'bg-[#1e40af] text-white border-[#1e40af] shadow-md shadow-blue-900/15'
-                      : 'bg-white/80 text-[#374151] border-neutral-300 hover:bg-white hover:border-neutral-400'
+                      ? 'bg-[#0f172a] text-white border-[#0f172a] shadow-md shadow-slate-900/15'
+                      : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-gray-400 hover:text-black'
                   }`}
                 >
                   {tab.label}
@@ -150,8 +127,8 @@ export function ServicesGridSection() {
           </div>
         </div>
 
-        {/* 3x3 Innovation Grid Matching Reference */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2.5">
+        {/* 3x2 Grid of Achtrex's Real Services */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           <AnimatePresence>
             {filteredItems.map((item) => (
               <motion.div
@@ -161,7 +138,7 @@ export function ServicesGridSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="group relative aspect-[16/10] sm:aspect-[16/11] lg:aspect-[16/10] overflow-hidden bg-neutral-900 shadow-sm"
+                className="group relative aspect-[16/11] sm:aspect-[16/11] lg:aspect-[16/11] overflow-hidden bg-black shadow-md rounded-none"
               >
                 <Link href={item.href} className="block w-full h-full relative focus:outline-none">
                   {/* High-Resolution Art-Directed Background Image */}
@@ -173,22 +150,48 @@ export function ServicesGridSection() {
                     className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                   />
 
-                  {/* Dark Gradient Scrim to ensure crisp typography */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity group-hover:opacity-90" />
+                  {/* Dark Gradient Scrim: Deep dark overlay guaranteeing 100% white text legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/25 opacity-90 group-hover:opacity-95 transition-opacity duration-300" />
 
-                  {/* Subtle Top-Right Category Pill (Appears on Hover) */}
-                  <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="px-2.5 py-1 rounded bg-black/60 backdrop-blur-md text-[10px] font-mono uppercase tracking-widest text-white/90 border border-white/20">
-                      Explore &rarr;
+                  {/* Top Zone: Service Number & Hover Pill */}
+                  <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
+                    <span 
+                      className="font-mono text-xs uppercase tracking-widest font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
+                      style={{ color: 'rgba(255, 255, 255, 0.85)' }}
+                    >
+                      {item.number}
+                    </span>
+                    <span 
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-2.5 py-1 rounded bg-white/20 backdrop-blur-md text-[10px] font-mono uppercase tracking-widest border border-white/30"
+                      style={{ color: '#ffffff' }}
+                    >
+                      Explore Service &rarr;
                     </span>
                   </div>
 
-                  {/* Bottom Content: Bold Title + Excerpt */}
+                  {/* Bottom Content: Bright White Bold Title + High-Contrast Subtitle */}
                   <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 z-10">
-                    <h3 className="font-sans font-bold text-lg sm:text-xl md:text-[1.35rem] text-white tracking-tight leading-snug drop-shadow-md">
+                    {/* Category Label */}
+                    <span 
+                      className="font-mono text-[11px] uppercase tracking-[0.2em] font-semibold block mb-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
+                      style={{ color: '#67e8f9' }}
+                    >
+                      {item.categoryLabel}
+                    </span>
+
+                    {/* Service Title in Pure White Bold */}
+                    <h3 
+                      className="font-sans font-bold text-xl sm:text-2xl tracking-tight leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,1)]"
+                      style={{ color: '#ffffff' }}
+                    >
                       {item.title}
                     </h3>
-                    <p className="font-sans text-xs text-white/80 font-light mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-1">
+
+                    {/* Subtitle / Description */}
+                    <p 
+                      className="font-sans text-xs sm:text-sm font-light mt-2 leading-relaxed line-clamp-2 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]"
+                      style={{ color: 'rgba(255, 255, 255, 0.92)' }}
+                    >
                       {item.subtitle}
                     </p>
                   </div>

@@ -142,7 +142,7 @@ export const SERVICES: ServiceItem[] = [
         description: 'Publishing unified design tokens and scalable multi-platform component specifications for seamless handoff.',
       },
     ],
-    heroImage: '/studio-assets/service-experience-design.jpg',
+    heroImage: '/studio-assets/grid-experience-design.jpg',
     secondaryImage: '/studio-assets/service-experience-design-detail.jpg',
     galleryImages: [
       '/studio-assets/service-experience-design-detail.jpg',
@@ -211,7 +211,7 @@ export const SERVICES: ServiceItem[] = [
         description: 'Translating the story seamlessly across web platforms, physical touchpoints, and digital campaigns.',
       },
     ],
-    heroImage: '/studio-assets/service-creative-strategy.jpg',
+    heroImage: '/studio-assets/grid-creative-studio.png',
     secondaryImage: '/studio-assets/service-creative-strategy-detail.jpg',
     galleryImages: [
       '/studio-assets/service-creative-strategy-detail.jpg',
@@ -280,7 +280,7 @@ export const SERVICES: ServiceItem[] = [
         description: 'Deploying across global edge CDNs with zero-downtime CI/CD pipelines, real-time observability, and monitoring.',
       },
     ],
-    heroImage: '/studio-assets/service-digital-products.jpg',
+    heroImage: '/studio-assets/grid-digital-products.png',
     secondaryImage: '/studio-assets/service-digital-products-detail.jpg',
     galleryImages: [
       '/studio-assets/service-digital-products-detail.jpg',
@@ -353,7 +353,7 @@ export const SERVICES: ServiceItem[] = [
         description: 'Continuous monitoring of model latency, token budgets, hallucination prevention, and completion benchmarks.',
       },
     ],
-    heroImage: '/studio-assets/service-ai-intelligent.jpg',
+    heroImage: '/studio-assets/grid-ai-neural.png',
     secondaryImage: '/studio-assets/service-ai-detail.jpg',
     galleryImages: [
       '/studio-assets/service-ai-detail.jpg',
@@ -423,7 +423,7 @@ export const SERVICES: ServiceItem[] = [
         description: 'Integrating seamless interaction models, camera controls, and spatial audio.',
       },
     ],
-    heroImage: '/studio-assets/service-cgi-immersive.jpg',
+    heroImage: '/studio-assets/grid-cgi-immersive.png',
     secondaryImage: '/studio-assets/service-cgi-detail.jpg',
     galleryImages: [
       '/studio-assets/service-cgi-detail.jpg',
@@ -491,7 +491,7 @@ export const SERVICES: ServiceItem[] = [
         description: 'Generating instant build sheets, dynamic PDF specs, and bidirectional ERP cart integration.',
       },
     ],
-    heroImage: '/studio-assets/service-product-configurators.jpg',
+    heroImage: '/studio-assets/grid-product-config.jpg',
     secondaryImage: '/studio-assets/service-product-configurators-detail.jpg',
     galleryImages: [
       '/studio-assets/service-product-configurators-detail.jpg',
