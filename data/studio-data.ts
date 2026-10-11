@@ -142,7 +142,7 @@ export const SERVICES: ServiceItem[] = [
         description: 'Publishing unified design tokens and scalable multi-platform component specifications for seamless handoff.',
       },
     ],
-    heroImage: '/studio-assets/grid-experience-design.jpg',
+    heroImage: '/studio-assets/preview-7e05b651.jpg',
     secondaryImage: '/studio-assets/service-experience-design-detail.jpg',
     galleryImages: [
       '/studio-assets/service-experience-design-detail.jpg',
@@ -423,7 +423,7 @@ export const SERVICES: ServiceItem[] = [
         description: 'Integrating seamless interaction models, camera controls, and spatial audio.',
       },
     ],
-    heroImage: '/studio-assets/grid-cgi-immersive.png',
+    heroImage: '/studio-assets/preview-008df38e.jpg',
     secondaryImage: '/studio-assets/service-cgi-detail.jpg',
     galleryImages: [
       '/studio-assets/service-cgi-detail.jpg',

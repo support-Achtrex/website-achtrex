@@ -13,6 +13,7 @@ export interface ServiceCardData {
   category: 'all' | 'ai-tech' | 'design' | 'spatial';
   categoryLabel: string;
   image: string;
+  video?: string;
   href: string;
 }
 
@@ -54,7 +55,8 @@ const REAL_SERVICES: ServiceCardData[] = [
     subtitle: 'Photorealistic CGI, real-time 3D, WebGL/WebGPU viewports, spatial computing and virtual spaces.',
     category: 'spatial',
     categoryLabel: 'Spatial & 3D',
-    image: '/studio-assets/grid-cgi-immersive.png',
+    image: '/studio-assets/preview-008df38e.jpg',
+    video: '/studio-assets/video-spatial-installation.mp4',
     href: '/services/cgi-immersive',
   },
   {
@@ -64,7 +66,8 @@ const REAL_SERVICES: ServiceCardData[] = [
     subtitle: 'Human-centered UX/UI, digital journeys, design systems, tactile micro-interactions and immersive interfaces.',
     category: 'design',
     categoryLabel: 'Design & UX',
-    image: '/studio-assets/grid-experience-design.jpg',
+    image: '/studio-assets/preview-7e05b651.jpg',
+    video: '/studio-assets/video-kinetic-sculpture.mp4',
     href: '/services/experience-design',
   },
   {
@@ -141,20 +144,32 @@ export function ServicesGridSection() {
                 className="group relative aspect-[16/11] sm:aspect-[16/11] lg:aspect-[16/11] overflow-hidden bg-black shadow-md rounded-none"
               >
                 <Link href={item.href} className="block w-full h-full relative focus:outline-none">
-                  {/* High-Resolution Art-Directed Background Image */}
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                  />
+                  {/* High-Resolution Media: Smooth Looping Video or Image */}
+                  {item.video ? (
+                    <video
+                      src={item.video}
+                      poster={item.image}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                    />
+                  ) : (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                    />
+                  )}
 
                   {/* Dark Gradient Scrim: Deep dark overlay guaranteeing 100% white text legibility */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/25 opacity-90 group-hover:opacity-95 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/25 opacity-90 group-hover:opacity-95 transition-opacity duration-300 pointer-events-none" />
 
                   {/* Top Zone: Service Number & Hover Pill */}
-                  <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
+                  <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10 pointer-events-none">
                     <span 
                       className="font-mono text-xs uppercase tracking-widest font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
                       style={{ color: 'rgba(255, 255, 255, 0.85)' }}
@@ -170,7 +185,7 @@ export function ServicesGridSection() {
                   </div>
 
                   {/* Bottom Content: Bright White Bold Title + High-Contrast Subtitle */}
-                  <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 z-10">
+                  <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 z-10 pointer-events-none">
                     {/* Category Label */}
                     <span 
                       className="font-mono text-[11px] uppercase tracking-[0.2em] font-semibold block mb-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
