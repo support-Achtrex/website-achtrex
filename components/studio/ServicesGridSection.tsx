@@ -25,7 +25,8 @@ const REAL_SERVICES: ServiceCardData[] = [
     subtitle: 'Custom AI solutions, autonomous multi-agents, RAG & LLMs, predictive workflows and intelligent systems.',
     category: 'ai-tech',
     categoryLabel: 'AI & Intelligence',
-    image: '/studio-assets/grid-ai-neural.png',
+    image: '/studio-assets/preview-lumen.jpg',
+    video: '/hero-videos/lumen-intelligent-cover.mp4',
     href: '/services/ai-intelligent-experiences',
   },
   {
@@ -35,7 +36,8 @@ const REAL_SERVICES: ServiceCardData[] = [
     subtitle: 'Creative direction, cinematic studio production, storytelling, interactive content and brand worlds.',
     category: 'design',
     categoryLabel: 'Design & Content',
-    image: '/studio-assets/grid-creative-studio.png',
+    image: '/studio-assets/preview-afterdark.jpg',
+    video: '/hero-videos/after-dark-cover.mp4',
     href: '/services/creative-strategy',
   },
   {
@@ -45,7 +47,8 @@ const REAL_SERVICES: ServiceCardData[] = [
     subtitle: 'High-performance web platforms, custom applications, enterprise portals, SaaS and cloud systems.',
     category: 'ai-tech',
     categoryLabel: 'Engineering & Platforms',
-    image: '/studio-assets/grid-digital-products.png',
+    image: '/studio-assets/preview-aura.jpg',
+    video: '/hero-videos/aura-vehicle-cover.mp4',
     href: '/services/digital-products',
   },
   {
@@ -74,10 +77,11 @@ const REAL_SERVICES: ServiceCardData[] = [
     id: 'configurators',
     number: '06',
     title: 'Product Configuration & Customization',
-    subtitle: 'Real-time 3D PBR configurators, tangible material swatches, automotive customizers and rule engines.',
+    subtitle: 'Real-time 3D PBR configurators, tangible material swatches, industrial automated systems and rule engines.',
     category: 'spatial',
     categoryLabel: 'Spatial & Customization',
-    image: '/studio-assets/grid-product-config.jpg',
+    image: '/studio-assets/preview-b2311f23-4s.jpg',
+    video: '/studio-assets/video-conveyor-customizer.mp4',
     href: '/services/product-configurators',
   },
 ];

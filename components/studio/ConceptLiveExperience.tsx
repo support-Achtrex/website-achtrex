@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface ConceptLiveExperienceProps {
@@ -50,11 +50,11 @@ export function ConceptLiveExperience({
 
         {/* Dynamic Concept Interactive Console based on Slug */}
         <div className="pt-12">
-          {slug === 'automotive-spatial-configurator' && <AutomotiveConfiguratorSimulator />}
+          {slug === 'automotive-spatial-configurator' && <SpatialConfiguratorEngine initialStream="conveyor" />}
+          {slug === 'realtime-product-customizer' && <SpatialConfiguratorEngine initialStream="monolith" />}
           {slug === 'architectural-spatial-experience' && <ArchitecturalSpatialSimulator />}
           {slug === 'intelligent-copilot-interface' && <AutonomousAiCopilotSimulator />}
           {slug === 'interactive-storytelling-campaign' && <KineticStorytellingSimulator />}
-          {slug === 'realtime-product-customizer' && <ProductCustomizerSimulator />}
           {slug === 'intelligent-clinical-platform' && <ClinicalPlatformSimulator />}
           {slug === 'connected-hospitality-platform' && <HospitalityJourneySimulator />}
         </div>
@@ -64,294 +64,602 @@ export function ConceptLiveExperience({
 }
 
 // =========================================================================
-// 1. AUTOMOTIVE SPATIAL CONFIGURATOR SIMULATOR
+// 1. SPATIAL CONFIGURATOR ENGINE (POWERED BY USER ASSETS)
+// Assets:
+// - 008df38e-0aeb09d1.m4v: Architectural Spatial Installation & Fluid LED Monolith
+// - b2311f23-aac2f772.m4v: Industrial Conveyor Twin & Automated Sorting Simulator
+// - 7e05b651-f1f6f2fe.m4v: Generative Kinetic Particle Physics & Amber Simulation
 // =========================================================================
-function AutomotiveConfiguratorSimulator() {
-  const [paintColor, setPaintColor] = useState<'liquid-obsidian' | 'rosso-corsa' | 'titanium-satin' | 'deep-azure'>('liquid-obsidian');
-  const [finish, setFinish] = useState<'gloss' | 'satin-matte' | 'forged-carbon'>('gloss');
-  const [wheelType, setWheelType] = useState<'aero-monoblock' | 'multi-spoke-carbon' | 'forged-gold'>('multi-spoke-carbon');
-  const [activeAero, setActiveAero] = useState(true);
-  const [viewMode, setViewMode] = useState<'exterior' | 'exploded' | 'aerodynamics'>('exterior');
 
-  const colorPalettes = [
-    { id: 'liquid-obsidian', name: 'Liquid Obsidian', hex: '#111317', highlight: '#3a4454', price: 0 },
-    { id: 'rosso-corsa', name: 'Formula Rosso', hex: '#991119', highlight: '#f8434b', price: 14500 },
-    { id: 'titanium-satin', name: 'Grigio Titanium', hex: '#63666f', highlight: '#b0b5c1', price: 9200 },
-    { id: 'deep-azure', name: 'Midnight Azure', hex: '#15243b', highlight: '#2a609d', price: 12800 },
-  ];
+type SpatialStreamId = 'monolith' | 'conveyor' | 'kinetic';
 
-  const selectedColorObj = colorPalettes.find((c) => c.id === paintColor)!;
-  const basePrice = 285000;
-  const finishPrice = finish === 'forged-carbon' ? 18000 : finish === 'satin-matte' ? 6500 : 0;
-  const wheelPrice = wheelType === 'multi-spoke-carbon' ? 12000 : wheelType === 'forged-gold' ? 8500 : 4000;
-  const totalPrice = basePrice + selectedColorObj.price + finishPrice + wheelPrice;
+interface SpatialStreamConfig {
+  id: SpatialStreamId;
+  label: string;
+  badge: string;
+  title: string;
+  assetCode: string;
+  videoSrc: string;
+  posterSrc: string;
+  resolution: string;
+  frameRate: string;
+  pipeline: string;
+  category: string;
+  description: string;
+}
+
+const SPATIAL_STREAMS: Record<SpatialStreamId, SpatialStreamConfig> = {
+  monolith: {
+    id: 'monolith',
+    label: '01 • Architectural Monolith',
+    badge: 'ARCHITECTURAL HUD',
+    title: 'Spatial Installation & Fluid LED Monolith',
+    assetCode: '008df38e-0aeb09d1',
+    videoSrc: '/studio-assets/video-spatial-installation.mp4',
+    posterSrc: '/studio-assets/preview-008df38e.jpg',
+    resolution: '3840 x 2160 UHD',
+    frameRate: '25 FPS Progressive',
+    pipeline: 'Volumetric Fluid Dynamics & 8K Monolithic LED Array',
+    category: 'Architecture & Spatial Computing',
+    description: 'Physical pavilion installation featuring fluid wave dynamics rendered across a large-scale architectural LED screen with dynamic light reflectance.',
+  },
+  conveyor: {
+    id: 'conveyor',
+    label: '02 • Conveyor Digital Twin',
+    badge: 'LOGISTICS TWIN',
+    title: 'Automated Conveyor Twin & Sorting Simulator',
+    assetCode: 'b2311f23-aac2f772',
+    videoSrc: '/studio-assets/video-conveyor-customizer.mp4',
+    posterSrc: '/studio-assets/preview-b2311f23-4s.jpg',
+    resolution: '1920 x 1080 FHD',
+    frameRate: '30 FPS Progressive',
+    pipeline: 'Industrial Digital Twin & Optical Routing Logic',
+    category: 'Industrial Automation & Customization',
+    description: 'Autonomous showroom conveyor sorting simulator with optical package recognition, barcode telemetry, and real-time belt mechanics.',
+  },
+  kinetic: {
+    id: 'kinetic',
+    label: '03 • Kinetic Particle Physics',
+    badge: 'GENERATIVE PHYSICS',
+    title: 'Generative Kinetic Particle & Amber Physics Engine',
+    assetCode: '7e05b651-f1f6f2fe',
+    videoSrc: '/studio-assets/video-kinetic-sculpture.mp4',
+    posterSrc: '/studio-assets/preview-7e05b651.jpg',
+    resolution: '1080 x 1350 HD',
+    frameRate: '30 FPS Orbital',
+    pipeline: '250,000 N-Body Particle Physics & Amber Raymarching',
+    category: 'Generative 3D & Particle Systems',
+    description: 'Orbital particle physics simulation rendering luminous amber matter with real-time gravitational clustering and volumetric light scattering.',
+  },
+};
+
+export function SpatialConfiguratorEngine({
+  initialStream = 'conveyor',
+}: {
+  initialStream?: SpatialStreamId;
+}) {
+  const [activeStreamId, setActiveStreamId] = useState<SpatialStreamId>(initialStream);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [playbackSpeed, setPlaybackSpeed] = useState<number>(1.0);
+  const [filterMode, setFilterMode] = useState<'pbr' | 'scanline' | 'specular' | 'amber'>('pbr');
+  const [showSpecModal, setShowSpecModal] = useState(false);
+
+  // Monolith parameters
+  const [fluidWaveVelocity, setFluidWaveVelocity] = useState(1.8);
+  const [ledLuminance, setLedLuminance] = useState(2400);
+  const [spatialAudioMode, setSpatialAudioMode] = useState<'binaural' | 'stereo'>('binaural');
+
+  // Conveyor parameters
+  const [conveyorVelocity, setConveyorVelocity] = useState(2.8);
+  const [opticalGateSensitivity, setOpticalGateSensitivity] = useState<'standard' | 'high-speed'>('high-speed');
+  const [routingChute, setRoutingChute] = useState<'dual-route' | 'express'>('dual-route');
+
+  // Kinetic parameters
+  const [particleDensity, setParticleDensity] = useState(250); // in thousands
+  const [kelvinTemp, setKelvinTemp] = useState(3200);
+  const [gravityTurbulence, setGravityTurbulence] = useState(65);
+
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const activeStream = SPATIAL_STREAMS[activeStreamId];
+
+  // Update playback speed when state changes
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = playbackSpeed;
+    }
+  }, [playbackSpeed, activeStreamId]);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
+
+  // Determine dynamic CSS filter based on filterMode
+  const getFilterStyle = () => {
+    switch (filterMode) {
+      case 'scanline':
+        return 'contrast(1.15) brightness(1.05)';
+      case 'specular':
+        return 'contrast(1.4) grayscale(0.85) brightness(0.95)';
+      case 'amber':
+        return 'contrast(1.1) sepia(0.35) saturate(1.4)';
+      default:
+        return 'contrast(1.02) brightness(1.0)';
+    }
+  };
 
   return (
     <div className="w-full rounded-2xl border border-white/15 bg-neutral-950 overflow-hidden shadow-2xl">
       {/* Top Configurator Header Bar */}
-      <div className="flex flex-wrap items-center justify-between p-4 sm:p-6 border-b border-white/10 bg-black/60 backdrop-blur-md">
+      <div className="flex flex-wrap items-center justify-between p-4 sm:p-6 border-b border-white/10 bg-black/70 backdrop-blur-md gap-4">
         <div className="flex items-center gap-4">
-          <span className="font-mono text-xs text-white/50 tracking-widest uppercase">
-            ACHTREX-V4 AERO GT
-          </span>
-          <span className="font-clash text-sm text-white/70 hidden sm:inline">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="font-mono text-xs text-white/80 tracking-widest uppercase">
+              ACHTREX SPATIAL ENGINE V4
+            </span>
+          </div>
+          <span className="hidden sm:inline-block w-[1px] h-4 bg-white/20" />
+          <span className="font-clash text-sm text-white/90 hidden sm:inline">
             Spatial Configurator Engine
           </span>
         </div>
-        <div className="flex items-center gap-6">
-          <div className="text-right">
+
+        <div className="flex items-center gap-4 sm:gap-6">
+          <div className="text-right hidden md:block">
             <span className="block font-mono text-[10px] text-white/50 uppercase tracking-widest">
-              Configured Valuation
+              TELEMETRY STATE
             </span>
-            <span className="font-mono text-base sm:text-lg text-emerald-400 font-semibold">
-              ${totalPrice.toLocaleString()} USD
+            <span className="font-mono text-xs sm:text-sm text-emerald-400 font-medium">
+              HARDWARE PBR ACTIVE &bull; 60 FPS
             </span>
           </div>
-          <button className="px-4 py-2 rounded-full bg-white text-black font-clash text-xs font-medium hover:bg-neutral-200 transition-colors">
-            Generate Spec Sheet &rarr;
+          <button
+            onClick={() => setShowSpecModal(true)}
+            className="px-4 py-2 rounded-full bg-white text-black font-clash text-xs font-medium hover:bg-neutral-200 transition-colors shadow-md"
+          >
+            Export Spec Sheet &rarr;
           </button>
         </div>
       </div>
 
-      {/* Main Viewport + Live Interactive Controls */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[540px]">
-        {/* Visual Simulated Canvas Zone */}
-        <div className="lg:col-span-8 relative p-8 flex flex-col justify-between overflow-hidden bg-gradient-to-b from-neutral-900 to-black">
-          {/* Animated Ambient Car Representation with Color Reflectivity */}
-          <div className="relative w-full h-80 my-auto flex items-center justify-center">
-            {/* Ambient Shadow Plane */}
-            <div className="absolute bottom-4 w-3/4 h-12 bg-black/80 blur-2xl rounded-full" />
-
-            {/* Simulated 3D Hypercar Silhouette */}
-            <motion.div
-              animate={{
-                scale: viewMode === 'exploded' ? 1.08 : 1,
-                rotateY: viewMode === 'aerodynamics' ? 5 : 0,
-              }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="relative w-full max-w-lg aspect-[16/9] rounded-3xl p-8 flex flex-col justify-between shadow-2xl border border-white/10 overflow-hidden"
-              style={{
-                background: `linear-gradient(135deg, ${selectedColorObj.hex} 0%, #060709 100%)`,
-                boxShadow: `0 20px 80px -20px ${selectedColorObj.highlight}40`,
-              }}
+      {/* Stream Switcher Navigation Strip */}
+      <div className="flex items-center gap-2 sm:gap-4 p-3 sm:p-4 bg-black/40 border-b border-white/10 overflow-x-auto no-scrollbar font-mono text-xs">
+        <span className="text-white/40 uppercase tracking-wider text-[11px] shrink-0 pl-2">
+          ENGINE CHANNEL:
+        </span>
+        {(Object.keys(SPATIAL_STREAMS) as SpatialStreamId[]).map((streamKey) => {
+          const stream = SPATIAL_STREAMS[streamKey];
+          const isActive = activeStreamId === streamKey;
+          return (
+            <button
+              key={streamKey}
+              onClick={() => setActiveStreamId(streamKey)}
+              className={`px-3.5 py-1.5 rounded-lg border flex items-center gap-2 transition-all shrink-0 ${
+                isActive
+                  ? 'border-white bg-white/15 text-white font-medium shadow-sm'
+                  : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
+              }`}
             >
-              {/* Dynamic Glare & Finish Overlay */}
-              <div
-                className="absolute inset-0 pointer-events-none mix-blend-overlay transition-opacity duration-700"
-                style={{
-                  background:
-                    finish === 'forged-carbon'
-                      ? 'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.4) 0%, transparent 60%), repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, transparent 2px, transparent 6px)'
-                      : finish === 'satin-matte'
-                      ? 'radial-gradient(circle at 40% 30%, rgba(255,255,255,0.15) 0%, transparent 70%)'
-                      : 'radial-gradient(circle at 25% 15%, rgba(255,255,255,0.6) 0%, transparent 50%), linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, transparent 60%)',
-                }}
+              <span
+                className={`w-1.5 h-1.5 rounded-full ${
+                  isActive ? 'bg-cyan-400 animate-pulse' : 'bg-white/30'
+                }`}
               />
+              <span>{stream.label}</span>
+              <span className="text-[10px] text-white/40 font-mono hidden sm:inline">
+                [{stream.assetCode}]
+              </span>
+            </button>
+          );
+        })}
+      </div>
 
-              {/* Wireframe Aerodynamic Streamlines */}
-              {viewMode === 'aerodynamics' && (
-                <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                  {[...Array(6)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      animate={{ x: ['-100%', '200%'] }}
-                      transition={{
-                        duration: 1.6,
-                        repeat: Infinity,
-                        delay: i * 0.25,
-                        ease: 'linear',
-                      }}
-                      className="absolute h-[1px] w-48 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
-                      style={{ top: `${20 + i * 14}%` }}
-                    />
-                  ))}
-                </div>
-              )}
+      {/* Main Viewport + Live Interactive Controls */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[580px]">
+        {/* Visual Simulated Canvas Zone (Video Viewport) */}
+        <div className="lg:col-span-8 relative flex flex-col justify-between overflow-hidden bg-black p-4 sm:p-6">
+          {/* Main Video Viewport Container */}
+          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-xl overflow-hidden border border-white/10 bg-neutral-950 my-auto shadow-2xl">
+            <video
+              ref={videoRef}
+              key={activeStream.videoSrc}
+              src={activeStream.videoSrc}
+              poster={activeStream.posterSrc}
+              autoPlay
+              loop
+              muted={isMuted}
+              playsInline
+              style={{ filter: getFilterStyle() }}
+              className="w-full h-full object-cover transition-all duration-500"
+            />
 
-              {/* Vehicle Body Visual Representation */}
-              <div className="flex justify-between items-start z-10">
-                <div>
-                  <span className="font-mono text-[10px] text-white/50 uppercase tracking-widest block">
-                    Surface Finish
-                  </span>
-                  <span className="font-clash text-lg text-white font-medium">
-                    {selectedColorObj.name}
-                  </span>
-                </div>
-                <div className="px-3 py-1 rounded-full bg-black/60 border border-white/20 font-mono text-[11px] text-white/90">
-                  {finish.toUpperCase().replace('-', ' ')}
-                </div>
-              </div>
+            {/* Optional Scanlines Simulation Overlay */}
+            {filterMode === 'scanline' && (
+              <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.35)_50%)] bg-[length:100%_4px] opacity-75" />
+            )}
 
-              {/* Center Body Visual Detail */}
-              <div className="my-auto z-10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-44 h-16 mx-auto rounded-full border border-white/20 bg-white/5 backdrop-blur-sm flex items-center justify-center">
-                    <span className="font-mono text-xs tracking-widest text-white/70">
-                      {wheelType.toUpperCase().replace('-', ' ')}
-                    </span>
-                  </div>
-                  {viewMode === 'exploded' && (
-                    <span className="font-mono text-[11px] text-cyan-300 block mt-2 animate-pulse">
-                      &bull; Exploded Mechanical Component Layer Active
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Bottom Telemetry inside Car View */}
-              <div className="flex justify-between items-end z-10 border-t border-white/10 pt-4">
-                <div className="flex gap-6 font-mono text-xs text-white/80">
-                  <div>
-                    <span className="text-[10px] text-white/40 block">0-100 KM/H</span>
-                    <span>2.12s</span>
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-white/40 block">DOWNFORCE</span>
-                    <span>480 KG</span>
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-white/40 block">DRAG (Cd)</span>
-                    <span>0.238</span>
-                  </div>
-                </div>
-                <div className="font-mono text-[11px] text-emerald-400">
-                  AERO WING: {activeAero ? 'DEPLOYED' : 'STOWED'}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Bottom View Mode Controls */}
-          <div className="flex items-center justify-between border-t border-white/10 pt-4">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs text-white/50 mr-2">Camera Mode:</span>
-              {(['exterior', 'exploded', 'aerodynamics'] as const).map((m) => (
-                <button
-                  key={m}
-                  onClick={() => setViewMode(m)}
-                  className={`px-3 py-1 rounded-md font-mono text-xs transition-colors ${
-                    viewMode === m
-                      ? 'bg-white text-black font-medium'
-                      : 'bg-white/5 text-white/70 hover:bg-white/10'
-                  }`}
-                >
-                  {m.toUpperCase()}
-                </button>
-              ))}
+            {/* Viewport Top HUD Badge */}
+            <div className="absolute top-4 left-4 z-10 flex flex-wrap items-center gap-2 pointer-events-none">
+              <span className="px-2.5 py-1 rounded bg-black/75 backdrop-blur-md border border-white/20 font-mono text-[11px] text-white">
+                {activeStream.badge}
+              </span>
+              <span className="px-2.5 py-1 rounded bg-black/60 backdrop-blur-md border border-white/15 font-mono text-[10px] text-cyan-300">
+                {activeStream.resolution}
+              </span>
+              <span className="px-2.5 py-1 rounded bg-black/60 backdrop-blur-md border border-white/15 font-mono text-[10px] text-emerald-400">
+                {activeStream.frameRate}
+              </span>
             </div>
 
-            <button
-              onClick={() => setActiveAero(!activeAero)}
-              className="font-mono text-xs px-3 py-1 rounded-md border border-white/20 bg-white/5 hover:bg-white/10 transition-colors"
-            >
-              Toggle Active Wing
-            </button>
+            {/* Viewport Top Right Stream Telemetry */}
+            <div className="absolute top-4 right-4 z-10 pointer-events-none hidden sm:block">
+              <div className="px-3 py-1.5 rounded bg-black/80 backdrop-blur-md border border-white/15 font-mono text-[10px] text-right text-white/80 space-y-0.5">
+                <div>PIPELINE: <strong className="text-cyan-300">HARDWARE PBR</strong></div>
+                <div>FRAME TIME: <strong className="text-emerald-400">11.4 MS</strong></div>
+              </div>
+            </div>
+
+            {/* Bottom HUD Bar inside Viewport */}
+            <div className="absolute bottom-4 inset-x-4 z-10 flex flex-wrap items-center justify-between gap-3 p-3 rounded-lg bg-black/80 backdrop-blur-md border border-white/15">
+              {/* Transport Controls */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={togglePlay}
+                  className="px-3 py-1 rounded bg-white/10 hover:bg-white/20 border border-white/20 font-mono text-xs text-white transition-colors"
+                >
+                  {isPlaying ? 'PAUSE' : 'PLAY'}
+                </button>
+                <button
+                  onClick={toggleMute}
+                  className="px-3 py-1 rounded bg-white/10 hover:bg-white/20 border border-white/20 font-mono text-xs text-white transition-colors"
+                >
+                  {isMuted ? 'UNMUTE' : 'MUTE'}
+                </button>
+                <div className="hidden sm:flex items-center gap-1 pl-2 border-l border-white/20 font-mono text-[11px] text-white/70">
+                  <span>SPEED:</span>
+                  {[0.5, 1.0, 1.5].map((spd) => (
+                    <button
+                      key={spd}
+                      onClick={() => setPlaybackSpeed(spd)}
+                      className={`px-2 py-0.5 rounded transition-colors ${
+                        playbackSpeed === spd
+                          ? 'bg-white text-black font-semibold'
+                          : 'bg-white/5 hover:bg-white/15 text-white/70'
+                      }`}
+                    >
+                      {spd}x
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Viewport Filter Modes */}
+              <div className="flex items-center gap-1 font-mono text-[11px]">
+                <span className="text-white/50 mr-1 hidden sm:inline">FILTER:</span>
+                {[
+                  { id: 'pbr', label: 'PBR' },
+                  { id: 'scanline', label: 'SCANLINE' },
+                  { id: 'specular', label: 'SPECULAR' },
+                  { id: 'amber', label: 'AMBER' },
+                ].map((f) => (
+                  <button
+                    key={f.id}
+                    onClick={() => setFilterMode(f.id as any)}
+                    className={`px-2 py-0.5 rounded transition-colors ${
+                      filterMode === f.id
+                        ? 'bg-cyan-400 text-black font-semibold'
+                        : 'bg-white/10 hover:bg-white/20 text-white/80'
+                    }`}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Sub-Viewport Information Bar */}
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-white/10 pt-4 font-mono text-xs text-white/70">
+            <div>
+              <span className="text-white/40">SOURCE ASSET: </span>
+              <span className="text-white">{activeStream.assetCode}.m4v</span>
+            </div>
+            <div>
+              <span className="text-white/40">RENDER MESH: </span>
+              <span className="text-emerald-400">{activeStream.pipeline}</span>
+            </div>
           </div>
         </div>
 
         {/* Right Configuration Palette Column */}
         <div className="lg:col-span-4 p-6 sm:p-8 border-t lg:border-t-0 lg:border-l border-white/10 bg-black/40 space-y-8 font-clash">
-          {/* Paint Palette */}
+          {/* Active Concept Identity */}
           <div>
-            <div className="flex justify-between items-center mb-3">
-              <label className="font-mono text-xs uppercase tracking-wider text-white/60">
-                01 &bull; Exterior Colorway
-              </label>
-              <span className="font-mono text-xs text-emerald-400">
-                +${selectedColorObj.price.toLocaleString()}
-              </span>
-            </div>
-            <div className="grid grid-cols-2 gap-2.5">
-              {colorPalettes.map((c) => (
-                <button
-                  key={c.id}
-                  onClick={() => setPaintColor(c.id as any)}
-                  className={`p-3 rounded-xl border text-left flex items-center gap-3 transition-all ${
-                    paintColor === c.id
-                      ? 'border-white bg-white/10 ring-1 ring-white'
-                      : 'border-white/10 bg-white/5 hover:border-white/30'
-                  }`}
-                >
-                  <span
-                    className="w-5 h-5 rounded-full border border-white/30 shadow-sm shrink-0"
-                    style={{ backgroundColor: c.hex }}
-                  />
-                  <div className="truncate">
-                    <span className="block text-xs font-medium text-white truncate">
-                      {c.name}
-                    </span>
-                  </div>
-                </button>
-              ))}
-            </div>
+            <span className="font-mono text-xs uppercase tracking-wider text-cyan-400 block mb-1">
+              Active Simulation Node
+            </span>
+            <h4 className="text-xl sm:text-2xl text-white font-normal leading-tight">
+              {activeStream.title}
+            </h4>
+            <p className="text-xs text-white/70 font-light mt-2 leading-relaxed">
+              {activeStream.description}
+            </p>
           </div>
 
-          {/* Surface Finish Treatment */}
-          <div>
-            <label className="font-mono text-xs uppercase tracking-wider text-white/60 block mb-3">
-              02 &bull; Clearcoat &amp; Finish
-            </label>
-            <div className="grid grid-cols-3 gap-2">
-              {[
-                { id: 'gloss', label: 'Gloss' },
-                { id: 'satin-matte', label: 'Satin Matte' },
-                { id: 'forged-carbon', label: 'Forged Carbon' },
-              ].map((f) => (
-                <button
-                  key={f.id}
-                  onClick={() => setFinish(f.id as any)}
-                  className={`py-2.5 px-2 rounded-lg border text-center font-mono text-xs transition-colors ${
-                    finish === f.id
-                      ? 'border-white bg-white/15 text-white font-medium'
-                      : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
-                  }`}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
-          </div>
+          {/* Interactive Parameters based on active stream */}
+          {activeStreamId === 'monolith' && (
+            <div className="space-y-6 border-t border-white/10 pt-6">
+              {/* Wave Velocity */}
+              <div>
+                <div className="flex justify-between items-center mb-2 font-mono text-xs">
+                  <span className="text-white/70">Wave Fluid Energy:</span>
+                  <span className="text-cyan-300 font-semibold">{fluidWaveVelocity} m/s</span>
+                </div>
+                <input
+                  type="range"
+                  min={0.5}
+                  max={3.5}
+                  step={0.1}
+                  value={fluidWaveVelocity}
+                  onChange={(e) => setFluidWaveVelocity(parseFloat(e.target.value))}
+                  className="w-full accent-cyan-400 cursor-pointer"
+                />
+              </div>
 
-          {/* Wheel & Caliper Assembly */}
-          <div>
-            <label className="font-mono text-xs uppercase tracking-wider text-white/60 block mb-3">
-              03 &bull; Wheel Configuration
-            </label>
-            <div className="space-y-2">
-              {[
-                { id: 'aero-monoblock', label: '21" Aero Monoblock Disc', price: '+$4,000' },
-                { id: 'multi-spoke-carbon', label: '21" Multi-Spoke Carbon Weave', price: '+$12,000' },
-                { id: 'forged-gold', label: '20/21" Forged Satin Aurum', price: '+$8,500' },
-              ].map((w) => (
-                <button
-                  key={w.id}
-                  onClick={() => setWheelType(w.id as any)}
-                  className={`w-full p-3 rounded-lg border flex justify-between items-center text-xs font-mono transition-all ${
-                    wheelType === w.id
-                      ? 'border-white bg-white/10 text-white'
-                      : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
-                  }`}
-                >
-                  <span>{w.label}</span>
-                  <span className="text-emerald-400">{w.price}</span>
-                </button>
-              ))}
+              {/* LED Luminance */}
+              <div>
+                <div className="flex justify-between items-center mb-2 font-mono text-xs">
+                  <span className="text-white/70">Monolith LED Luminance:</span>
+                  <span className="text-amber-300 font-semibold">{ledLuminance} nits</span>
+                </div>
+                <input
+                  type="range"
+                  min={1000}
+                  max={4500}
+                  step={100}
+                  value={ledLuminance}
+                  onChange={(e) => setLedLuminance(parseInt(e.target.value))}
+                  className="w-full accent-amber-400 cursor-pointer"
+                />
+              </div>
+
+              {/* Spatial Audio Mode */}
+              <div>
+                <span className="font-mono text-xs text-white/70 block mb-2 uppercase">
+                  Spatial Soundscape Mode:
+                </span>
+                <div className="grid grid-cols-2 gap-2 font-mono text-xs">
+                  {(['binaural', 'stereo'] as const).map((mode) => (
+                    <button
+                      key={mode}
+                      onClick={() => setSpatialAudioMode(mode)}
+                      className={`py-2 px-3 rounded-lg border transition-colors ${
+                        spatialAudioMode === mode
+                          ? 'border-white bg-white/15 text-white font-medium'
+                          : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+                      }`}
+                    >
+                      {mode.toUpperCase()} ACOUSTICS
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          )}
+
+          {activeStreamId === 'conveyor' && (
+            <div className="space-y-6 border-t border-white/10 pt-6">
+              {/* Conveyor Velocity */}
+              <div>
+                <div className="flex justify-between items-center mb-2 font-mono text-xs">
+                  <span className="text-white/70">Belt Linear Velocity:</span>
+                  <span className="text-cyan-300 font-semibold">{conveyorVelocity} m/s</span>
+                </div>
+                <input
+                  type="range"
+                  min={1.0}
+                  max={5.0}
+                  step={0.1}
+                  value={conveyorVelocity}
+                  onChange={(e) => setConveyorVelocity(parseFloat(e.target.value))}
+                  className="w-full accent-cyan-400 cursor-pointer"
+                />
+              </div>
+
+              {/* Optical Gate Sensitivity */}
+              <div>
+                <span className="font-mono text-xs text-white/70 block mb-2 uppercase">
+                  Optical Barcode Gate:
+                </span>
+                <div className="grid grid-cols-2 gap-2 font-mono text-xs">
+                  {(['standard', 'high-speed'] as const).map((mode) => (
+                    <button
+                      key={mode}
+                      onClick={() => setOpticalGateSensitivity(mode)}
+                      className={`py-2 px-3 rounded-lg border transition-colors ${
+                        opticalGateSensitivity === mode
+                          ? 'border-white bg-white/15 text-white font-medium'
+                          : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+                      }`}
+                    >
+                      {mode.toUpperCase()} SENSOR
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Routing Chute */}
+              <div>
+                <span className="font-mono text-xs text-white/70 block mb-2 uppercase">
+                  Logistics Routing Matrix:
+                </span>
+                <div className="grid grid-cols-2 gap-2 font-mono text-xs">
+                  {(['dual-route', 'express'] as const).map((mode) => (
+                    <button
+                      key={mode}
+                      onClick={() => setRoutingChute(mode)}
+                      className={`py-2 px-3 rounded-lg border transition-colors ${
+                        routingChute === mode
+                          ? 'border-white bg-white/15 text-white font-medium'
+                          : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+                      }`}
+                    >
+                      {mode.toUpperCase()} CHUTE
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeStreamId === 'kinetic' && (
+            <div className="space-y-6 border-t border-white/10 pt-6">
+              {/* Particle Density */}
+              <div>
+                <div className="flex justify-between items-center mb-2 font-mono text-xs">
+                  <span className="text-white/70">Particle Physics Nodes:</span>
+                  <span className="text-amber-300 font-semibold">{particleDensity},000 Nodes</span>
+                </div>
+                <input
+                  type="range"
+                  min={50}
+                  max={500}
+                  step={25}
+                  value={particleDensity}
+                  onChange={(e) => setParticleDensity(parseInt(e.target.value))}
+                  className="w-full accent-amber-400 cursor-pointer"
+                />
+              </div>
+
+              {/* Color Temperature */}
+              <div>
+                <div className="flex justify-between items-center mb-2 font-mono text-xs">
+                  <span className="text-white/70">Amber Color Temperature:</span>
+                  <span className="text-amber-400 font-semibold">{kelvinTemp} K</span>
+                </div>
+                <input
+                  type="range"
+                  min={2400}
+                  max={4800}
+                  step={100}
+                  value={kelvinTemp}
+                  onChange={(e) => setKelvinTemp(parseInt(e.target.value))}
+                  className="w-full accent-amber-400 cursor-pointer"
+                />
+              </div>
+
+              {/* Gravitational Turbulence */}
+              <div>
+                <div className="flex justify-between items-center mb-2 font-mono text-xs">
+                  <span className="text-white/70">Orbital Turbulence:</span>
+                  <span className="text-cyan-300 font-semibold">{gravityTurbulence}%</span>
+                </div>
+                <input
+                  type="range"
+                  min={10}
+                  max={100}
+                  step={5}
+                  value={gravityTurbulence}
+                  onChange={(e) => setGravityTurbulence(parseInt(e.target.value))}
+                  className="w-full accent-cyan-400 cursor-pointer"
+                />
+              </div>
+            </div>
+          )}
 
           {/* Client Commission Architecture Note */}
-          <div className="pt-4 border-t border-white/10 text-xs text-white/50 leading-relaxed font-sans">
+          <div className="pt-6 border-t border-white/10 text-xs text-white/60 leading-relaxed font-sans">
             <strong className="text-white block font-mono uppercase text-[11px] mb-1">
-              Production Architecture:
+              Production Architecture Scope:
             </strong>
-            Streaming Draco GLTF assets with progressive LOD, WebGL 2.0 PBR anisotropic materials, and bidirectional ERP pricing integration.
+            Integrated with WebGL 2.0 PBR anisotropic materials, hardware-accelerated video decoding loops, and live physical actuator telemetry.
           </div>
         </div>
       </div>
+
+      {/* Interactive Spec Sheet Modal */}
+      <AnimatePresence>
+        {showSpecModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="w-full max-w-2xl rounded-2xl border border-white/20 bg-neutral-950 p-6 sm:p-8 space-y-6 shadow-2xl text-white font-clash"
+            >
+              <div className="flex justify-between items-start border-b border-white/10 pb-4">
+                <div>
+                  <span className="font-mono text-xs uppercase tracking-widest text-[#67e8f9] block">
+                    ACHTREX ARCHITECTURE SPECIFICATION
+                  </span>
+                  <h3 className="text-2xl font-normal mt-1">{activeStream.title}</h3>
+                </div>
+                <button
+                  onClick={() => setShowSpecModal(false)}
+                  className="font-mono text-xs px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white"
+                >
+                  CLOSE [X]
+                </button>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 font-mono text-xs">
+                <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                  <span className="text-white/40 block">ASSET CODE:</span>
+                  <span className="text-white font-medium">{activeStream.assetCode}</span>
+                </div>
+                <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                  <span className="text-white/40 block">OUTPUT RESOLUTION:</span>
+                  <span className="text-emerald-400 font-medium">{activeStream.resolution}</span>
+                </div>
+                <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                  <span className="text-white/40 block">FRAME TARGET:</span>
+                  <span className="text-cyan-400 font-medium">{activeStream.frameRate}</span>
+                </div>
+                <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                  <span className="text-white/40 block">COMMISSION DOMAIN:</span>
+                  <span className="text-white font-medium">{activeStream.category}</span>
+                </div>
+              </div>
+
+              <div className="space-y-2 text-xs font-mono text-white/70 border-t border-white/10 pt-4">
+                <div>&bull; Codebase: Modular React 19 / Next.js 15 Server &amp; Client Components</div>
+                <div>&bull; Rendering: WebGL 2.0 / WebGPU Pipeline with Hardware Video Sync</div>
+                <div>&bull; Integration: Real-Time WebSockets &bull; REST API &bull; Headless Architecture</div>
+              </div>
+
+              <div className="pt-2 flex justify-end gap-3">
+                <button
+                  onClick={() => setShowSpecModal(false)}
+                  className="px-5 py-2.5 rounded-full bg-white text-black font-clash text-xs font-medium hover:bg-neutral-200 transition-colors"
+                >
+                  Acknowledge &amp; Return to Console
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
+
+// Backward-compatible alias for existing imports
+const AutomotiveConfiguratorSimulator = SpatialConfiguratorEngine;
 
 // =========================================================================
 // 2. ARCHITECTURAL SPATIAL EXPERIENCE SIMULATOR

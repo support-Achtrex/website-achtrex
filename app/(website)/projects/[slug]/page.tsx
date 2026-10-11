@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Interactive3DViewport } from '@/components/studio/Interactive3DViewport';
 import { ConceptLiveExperience } from '@/components/studio/ConceptLiveExperience';
+import { InteractiveSpatialSimulationSection } from '@/components/studio/InteractiveSpatialSimulationSection';
 import { PROJECTS, LEGACY_SLUG_MAP, SERVICES, ConceptExperienceItem, STUDIO_CONFIG } from '@/data/studio-data';
 
 function getProjectBySlug(slug: string): ConceptExperienceItem {
@@ -199,37 +200,12 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       />
 
       {/* =========================================================================
-          LIVE 3D SPATIAL SIMULATION & VIEWPORT
+          LIVE 3D SPATIAL SIMULATION & MULTI-CHANNEL GRID (HOMEPAGE HERO VIDEOS)
       ========================================================================== */}
-      <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#000000]">
-        <div className="w-full max-w-[1720px] mx-auto">
-          {/* Header Row */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6 font-clash">
-            <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-2">
-                Real-Time 3D Engine &bull; Orbital Canvas
-              </span>
-              <h3 className="text-3xl sm:text-5xl font-normal text-white tracking-tight">
-                Interactive Spatial Simulation
-              </h3>
-            </div>
-            <p className="text-xs sm:text-sm text-white/60 max-w-md font-light leading-relaxed">
-              Orbital 3D spatial simulation responding dynamically to cursor interaction and viewport orientation. Drag to rotate geometry and inspect light reflection physics.
-            </p>
-          </div>
-
-          {/* Interactive 3D Viewport */}
-          <div className="relative w-full h-[520px] sm:h-[640px] rounded-2xl overflow-hidden border border-white/10 bg-neutral-950">
-            <Interactive3DViewport mode={project.sceneMode || 'general'} className="w-full h-full" />
-            
-            {/* Minimalist Telemetry Overlay */}
-            <div className="absolute bottom-6 left-6 z-10 flex items-center gap-3 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/15 font-mono text-[11px] text-white/70">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Real-Time 60fps Viewport Active</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <InteractiveSpatialSimulationSection
+        sceneMode={project.sceneMode || 'general'}
+        projectTitle={project.title}
+      />
 
       {/* =========================================================================
           INTERACTION DYNAMICS & ASYMMETRICAL EDITORIAL SPREAD

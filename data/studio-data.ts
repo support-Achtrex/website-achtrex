@@ -548,8 +548,8 @@ export const PROJECTS: ConceptExperienceItem[] = [
     industry: 'Real Estate',
     serviceId: 'cgi-immersive',
     year: '2025',
-    heroImage: '/studio-assets/project-nova.jpg',
-    heroVideo: '/hero-videos/nova-property-cover.jpg',
+    heroImage: '/studio-assets/preview-008df38e.jpg',
+    heroVideo: '/studio-assets/video-spatial-installation.mp4',
     secondaryImage: '/studio-assets/service-cgi-immersive.jpg',
     galleryImages: [
       '/studio-assets/service-cgi-immersive.jpg',
@@ -650,7 +650,7 @@ export const PROJECTS: ConceptExperienceItem[] = [
     year: '2025',
     heroImage: '/studio-assets/project-form.jpg',
     heroVideo: '/hero-videos/form-customizer-cover.mp4',
-    secondaryImage: '/studio-assets/service-product-configurators.jpg',
+    secondaryImage: '/studio-assets/preview-b2311f23-4s.jpg',
     galleryImages: [
       '/studio-assets/service-product-configurators.jpg',
       '/studio-assets/service-product-configurators-detail.jpg',
@@ -713,7 +713,8 @@ export const PROJECTS: ConceptExperienceItem[] = [
     industry: 'Hospitality',
     serviceId: 'experience-design',
     year: '2025',
-    heroImage: '/studio-assets/project-sola.jpg',
+    heroImage: '/studio-assets/preview-7e05b651.jpg',
+    heroVideo: '/studio-assets/video-kinetic-sculpture.mp4',
     secondaryImage: '/studio-assets/service-experience-design.jpg',
     galleryImages: [
       '/studio-assets/service-experience-design.jpg',
