@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ServiceDetailTemplate } from '@/components/studio/ServiceDetailTemplate';
 import { SERVICES } from '@/data/studio-data';
+import { ServicesDB } from '@/lib/services-db';
+
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: 'Artificial Intelligence Development Services',
@@ -14,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function AiIntelligentExperiencesPage() {
-  const service = SERVICES.find((s) => s.id === 'ai-intelligent-experiences');
+  const service = ServicesDB.getBySlug('ai-intelligent-experiences') ?? SERVICES.find((s) => s.id === 'ai-intelligent-experiences');
   if (!service) notFound();
 
   return <ServiceDetailTemplate service={service} />;

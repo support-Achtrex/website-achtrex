@@ -2,19 +2,22 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ServiceDetailTemplate } from '@/components/studio/ServiceDetailTemplate';
 import { SERVICES } from '@/data/studio-data';
+import { ServicesDB } from '@/lib/services-db';
+
+export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: 'Experience Design',
-  description: 'We design digital experiences around the people who use them. UX, UI, interaction mechanics, prototyping, and human-machine interfaces.',
+  title: 'Experience Design Services',
+  description: 'Design digital experiences that engage users, simplify complex systems, and connect brand and product identity.',
   openGraph: {
-    title: 'Experience Design | Achtrex Studio',
-    description: 'Human-centered digital product and interaction design that turns complexity into clarity.',
+    title: 'Experience Design Services | Achtrex Studio',
+    description: 'We turn abstract concepts into tangible digital journeys, responsive systems, and memorable user touchpoints.',
     images: ['/studio-assets/service-experience-design.jpg'],
   },
 };
 
 export default function ExperienceDesignPage() {
-  const service = SERVICES.find((s) => s.id === 'experience-design');
+  const service = ServicesDB.getBySlug('experience-design') ?? SERVICES.find((s) => s.id === 'experience-design');
   if (!service) notFound();
 
   return <ServiceDetailTemplate service={service} />;

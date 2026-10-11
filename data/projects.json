@@ -1,0 +1,275 @@
+[
+  {
+    "slug": "automotive-spatial-configurator",
+    "title": "Spatial Vehicle Configurator",
+    "subtitle": "Real-Time 3D Automotive Customization",
+    "badge": "ACHTREX CONCEPT",
+    "category": "Automotive & Real-Time 3D",
+    "industry": "Automotive",
+    "serviceId": "product-configurators",
+    "year": "2025",
+    "heroImage": "/studio-assets/project-aura.jpg",
+    "heroVideo": "/hero-videos/aura-vehicle-cover.mp4",
+    "secondaryImage": "/studio-assets/service-product-configurators-detail.jpg",
+    "galleryImages": [
+      "/studio-assets/service-cgi-detail.jpg",
+      "/studio-assets/service-product-configurators.jpg",
+      "/studio-assets/service-cgi-immersive.jpg"
+    ],
+    "shortDescription": "A cinematic real-time vehicle exploration and configuration experience engineered with real-time 3D and WebGL visual precision across web, mobile, and interactive showroom displays.",
+    "challenge": "How luxury automotive brands can move beyond static pre-rendered brochures to deliver visceral, interactive configuration experiences directly inside the web browser.",
+    "conceptArchitecture": "Built on a modular WebGL rendering pipeline that streams progressive LOD geometry, dynamic environment maps, and physically-accurate metallic paint shaders responding dynamically to cursor position.",
+    "interactiveExperience": "Seamless 360-degree orbital camera controls, interactive panel deconstruction, carbon weave customization, and real-time ray-traced lighting physics.",
+    "creativeDirection": "Editorial dark-mode showroom aesthetic with high-contrast studio illumination, minimal monospace telemetry, and tactile controls.",
+    "technicalCapabilities": [
+      "Real-Time PBR Shaders",
+      "Three.js & WebGL Architecture",
+      "Interactive Camera Choreography",
+      "Low-Latency Asset Streaming",
+      "Modular Configuration Logic"
+    ],
+    "techStack": [
+      "Three.js",
+      "WebGL 2.0",
+      "GLTF Draco Compression",
+      "Next.js 15",
+      "Tailwind CSS"
+    ],
+    "sceneMode": "product-configurators",
+    "featuredOnHome": true,
+    "gridSpan": "two-thirds"
+  },
+  {
+    "slug": "architectural-spatial-experience",
+    "title": "Architectural Spatial Walkthrough",
+    "subtitle": "Virtual Real Estate & Lighting Simulation",
+    "badge": "ACHTREX CONCEPT",
+    "category": "Real Estate & 3D Architecture",
+    "industry": "Real Estate",
+    "serviceId": "cgi-immersive",
+    "year": "2025",
+    "heroImage": "/studio-assets/preview-008df38e.jpg",
+    "heroVideo": "/studio-assets/video-spatial-installation.mp4",
+    "secondaryImage": "/studio-assets/service-cgi-immersive.jpg",
+    "galleryImages": [
+      "/studio-assets/service-cgi-immersive.jpg",
+      "/studio-assets/project-sola.jpg",
+      "/studio-assets/service-cgi-detail.jpg"
+    ],
+    "shortDescription": "An interactive digital property experience combining virtual architecture, volumetric daylight simulation, and immersive room navigation before physical ground is broken.",
+    "challenge": "Demonstrating architectural scale, seasonal solar paths, and interior acoustic atmosphere to prospective global buyers without relying on passive pre-rendered videos.",
+    "conceptArchitecture": "Procedural sun-angle math, physically-based interior materials, volumetric light scattering, and progressive level-of-detail asset streaming over standard broadband.",
+    "interactiveExperience": "Glide between vantage points, toggle interior finishes from marble to brushed bronze, and simulate dawn-to-dusk sunlight trajectories with geometric accuracy.",
+    "creativeDirection": "Monochromatic architectural HUD with minimal typographic wayfinding, spatial floorplan radar, and tactile room switching.",
+    "technicalCapabilities": [
+      "Volumetric Light Scattering",
+      "Dynamic Sun-Path Calculations",
+      "Spatial Level-of-Detail Streaming",
+      "Cross-Platform Touch & Orbit Controls"
+    ],
+    "techStack": [
+      "Three.js",
+      "WebGL 2.0",
+      "GLSL Custom Shaders",
+      "Next.js 15",
+      "Framer Motion"
+    ],
+    "sceneMode": "cgi-immersive",
+    "featuredOnHome": true,
+    "gridSpan": "one-third"
+  },
+  {
+    "slug": "intelligent-copilot-interface",
+    "title": "Autonomous AI Copilot & Knowledge Surface",
+    "subtitle": "Contextual AI Interaction & Multimodal Telemetry",
+    "badge": "ACHTREX CONCEPT",
+    "category": "AI Interfaces & Enterprise Workspaces",
+    "industry": "Artificial Intelligence",
+    "serviceId": "ai-intelligent-experiences",
+    "year": "2025",
+    "heroImage": "/studio-assets/project-lumen.jpg",
+    "heroVideo": "/hero-videos/lumen-intelligent-cover.mp4",
+    "secondaryImage": "/studio-assets/service-ai-detail.jpg",
+    "galleryImages": [
+      "/studio-assets/service-ai-intelligent.jpg",
+      "/studio-assets/service-ai-detail.jpg",
+      "/studio-assets/service-digital-products-detail.jpg"
+    ],
+    "shortDescription": "An intelligent digital surface designed around contextual AI collaboration, transforming high-velocity streaming data into actionable insights with zero cognitive clutter.",
+    "challenge": "Modern enterprise analytics platforms inundate operators with disjointed dashboards, alert noise, and cryptic tabular datasets, causing decision paralysis.",
+    "conceptArchitecture": "Distributed edge synchronization, streaming LLM token rendering, and agentic task orchestration with human-in-the-loop oversight and vector retrieval.",
+    "interactiveExperience": "Adaptive typography scales dynamically to operator attention; proactive AI recommendations surface inline without interrupting user flow.",
+    "creativeDirection": "Subtle midnight color system, high-contrast monospace typography, and rhythmic data visualizations engineered for sustained focus.",
+    "technicalCapabilities": [
+      "Streaming Token Processing",
+      "Agentic Task Orchestration",
+      "RAG Knowledge Synthesis",
+      "Zero-Latency Optimistic State",
+      "Canvas Telemetry Rendering"
+    ],
+    "techStack": [
+      "Next.js 15",
+      "AI SDK & LangChain",
+      "WebSockets",
+      "Canvas 2D Engine",
+      "Tailwind CSS"
+    ],
+    "sceneMode": "ai-intelligent-experiences",
+    "featuredOnHome": true,
+    "gridSpan": "half"
+  },
+  {
+    "slug": "interactive-storytelling-campaign",
+    "title": "Nocturnal Brand Storytelling Experience",
+    "subtitle": "Kinetic Typography & Audio-Reactive Media",
+    "badge": "ACHTREX CONCEPT",
+    "category": "Digital Marketing & Interactive Storytelling",
+    "industry": "Digital Marketing",
+    "serviceId": "creative-strategy",
+    "year": "2025",
+    "heroImage": "/studio-assets/project-afterdark.jpg",
+    "heroVideo": "/hero-videos/after-dark-cover.mp4",
+    "secondaryImage": "/studio-assets/service-creative-strategy-detail.jpg",
+    "galleryImages": [
+      "/studio-assets/service-creative-strategy.jpg",
+      "/studio-assets/service-creative-strategy-detail.jpg",
+      "/studio-assets/service-cgi-immersive.jpg"
+    ],
+    "shortDescription": "A cinematic interactive campaign concept combining digital storytelling, CGI and brand experience, blending kinetic typography, reactive spatial audio, and nocturnal storytelling.",
+    "challenge": "Traditional brand campaigns dissipate quickly on social feeds without generating genuine emotional immersion or lasting cultural resonance.",
+    "conceptArchitecture": "Hardware-accelerated GLSL shader distortion, Web Audio procedural synthesis, and responsive scroll-driven narrative pacing.",
+    "interactiveExperience": "A hypnotic sensory journey from twilight to dawn, reacting dynamically to device gyro, cursor speed, and ambient audio frequencies.",
+    "creativeDirection": "High-contrast neo-grotesk typography paired with liquid chromatic refractions and midnight-gradient silhouettes.",
+    "technicalCapabilities": [
+      "Audio-Reactive Synthesis",
+      "GLSL Fragment Shaders",
+      "Scroll-Linked Narrative Pacing",
+      "Hardware-Accelerated Canvas"
+    ],
+    "techStack": [
+      "WebGL Shaders",
+      "Web Audio API",
+      "Framer Motion",
+      "Next.js 15",
+      "Tailwind CSS"
+    ],
+    "sceneMode": "creative-strategy",
+    "featuredOnHome": true,
+    "gridSpan": "half"
+  },
+  {
+    "slug": "realtime-product-customizer",
+    "title": "Tactile 3D Product Customizer",
+    "subtitle": "Interactive Customization Engine & PBR Rendering",
+    "badge": "ACHTREX CONCEPT",
+    "category": "Retail & Product Configurators",
+    "industry": "Retail & E-commerce",
+    "serviceId": "product-configurators",
+    "year": "2025",
+    "heroImage": "/studio-assets/project-form.jpg",
+    "heroVideo": "/hero-videos/form-customizer-cover.mp4",
+    "secondaryImage": "/studio-assets/preview-b2311f23-4s.jpg",
+    "galleryImages": [
+      "/studio-assets/service-product-configurators.jpg",
+      "/studio-assets/service-product-configurators-detail.jpg",
+      "/studio-assets/service-cgi-detail.jpg"
+    ],
+    "shortDescription": "An interactive product exploration and customization environment providing tactile, millimeter-accurate 3D product customization with instantaneous constraint validation.",
+    "challenge": "Bespoke consumer goods often lose conversion due to clunky 2D dropdown selectors that fail to show how chosen materials interact under physical light.",
+    "conceptArchitecture": "Combinatorial configuration logic matrices, PBR material swatches with micro-surface displacement, and instantaneous build sheet generation.",
+    "interactiveExperience": "Users grab, rotate, explode, and customize luxury industrial hardware with real-time anisotropic reflections and micro-surface roughness previews.",
+    "creativeDirection": "Minimalist editorial interface with clean monospace dimensions, haptic-style selectors, and high-contrast studio illumination.",
+    "technicalCapabilities": [
+      "Instantaneous Material Swapping",
+      "Exploded View Assembly",
+      "Dynamic Rule Evaluation",
+      "PBR Surface Roughness Physics"
+    ],
+    "techStack": [
+      "Three.js",
+      "Draco Compression",
+      "WebGL 2.0 PBR",
+      "React 19",
+      "Tailwind CSS"
+    ],
+    "sceneMode": "product-configurators",
+    "featuredOnHome": true,
+    "gridSpan": "two-thirds"
+  },
+  {
+    "slug": "intelligent-clinical-platform",
+    "title": "Calm Healthcare & Clinical Surface",
+    "subtitle": "Human-Centered Digital Product & Telemetry",
+    "badge": "ACHTREX CONCEPT",
+    "category": "Healthcare & Clinical Systems",
+    "industry": "Healthcare",
+    "serviceId": "digital-products",
+    "year": "2025",
+    "heroImage": "/studio-assets/project-careflow.jpg",
+    "secondaryImage": "/studio-assets/service-digital-products-detail.jpg",
+    "galleryImages": [
+      "/studio-assets/service-digital-products.jpg",
+      "/studio-assets/service-experience-design-detail.jpg",
+      "/studio-assets/service-digital-products-detail.jpg"
+    ],
+    "shortDescription": "A human-centered digital healthcare experience focused on clarity, accessibility and intelligent interaction across complex clinical workflows.",
+    "challenge": "Healthcare portals and medical systems consistently suffer from bureaucratic cognitive overload, high error rates in patient triage, and inaccessible interfaces.",
+    "conceptArchitecture": "Strict WCAG 2.2 AAA accessibility architecture, encrypted client-side telemetry cache, and optimistic state updates.",
+    "interactiveExperience": "Patients and clinicians glide through consultation booking, diagnostic record review, and biometric telemetry with total clarity and zero visual friction.",
+    "creativeDirection": "Calm medical minimalism: high-contrast Swiss typography, spacious information cards, and soothing daylight color palettes.",
+    "technicalCapabilities": [
+      "WCAG 2.2 AAA Accessibility",
+      "Optimistic State Reconciliation",
+      "Progressive Disclosure UX",
+      "High-Density Data Ergonomics"
+    ],
+    "techStack": [
+      "Next.js 15",
+      "React Server Components",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion"
+    ],
+    "sceneMode": "digital-products",
+    "featuredOnHome": true,
+    "gridSpan": "half"
+  },
+  {
+    "slug": "connected-hospitality-platform",
+    "title": "Connected Hospitality Digital Journey",
+    "subtitle": "Spatial Interaction & Flagship Guest Experience",
+    "badge": "ACHTREX CONCEPT",
+    "category": "Hospitality & Luxury Travel",
+    "industry": "Hospitality",
+    "serviceId": "experience-design",
+    "year": "2025",
+    "heroImage": "/studio-assets/preview-7e05b651.jpg",
+    "heroVideo": "/studio-assets/video-kinetic-sculpture.mp4",
+    "secondaryImage": "/studio-assets/service-experience-design.jpg",
+    "galleryImages": [
+      "/studio-assets/service-experience-design.jpg",
+      "/studio-assets/service-experience-design-detail.jpg",
+      "/studio-assets/project-nova.jpg"
+    ],
+    "shortDescription": "A premium immersive hospitality experience combining architecture, storytelling and digital interaction, blending documentary cinematography with intuitive reservation architecture.",
+    "challenge": "Luxury hospitality websites often resemble generic travel booking forms, divorcing the reservation process from the serenity and poetry of the physical destination.",
+    "conceptArchitecture": "Unified design tokens bridging mobile viewports, guest room displays, and web platforms with micro-interaction feedback.",
+    "interactiveExperience": "Guests explore archipelago weather, panoramic sunset villas, and culinary itineraries through continuous horizontal editorial scroll reveals.",
+    "creativeDirection": "Quiet luxury aesthetics: generous whitespace, high-fashion typography, deep ocean hues, and subtle tactile motion.",
+    "technicalCapabilities": [
+      "Omnichannel Design System",
+      "Spatial Map Interactivity",
+      "Fluid Motion Choreography",
+      "Micro-Interaction Feedback"
+    ],
+    "techStack": [
+      "Next.js 15",
+      "Framer Motion",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "sceneMode": "experience-design",
+    "featuredOnHome": true,
+    "gridSpan": "one-third"
+  }
+]

@@ -4,11 +4,13 @@ import { HeroSlider } from '@/components/studio/HeroSlider';
 import { ServicesGridSection } from '@/components/studio/ServicesGridSection';
 import { HomeMediaSection } from '@/components/studio/HomeMediaSection';
 import { MediaDB } from '@/lib/media-db';
+import { ServicesDB } from '@/lib/services-db';
 
 export const revalidate = 0; // Fresh updates when admin updates content
 
 export default function StudioHomePage() {
   const mediaItems = MediaDB.getAll();
+  const services = ServicesDB.getAll();
 
   return (
     <div className="bg-[#000000] text-white min-h-screen selection:bg-white selection:text-black overflow-x-hidden font-sans">
@@ -151,7 +153,7 @@ export default function StudioHomePage() {
       {/* =========================================================================
           CHAPTER 03: SERVICES & INNOVATION GRID (WEDOO Reference Style)
       ========================================================================== */}
-      <ServicesGridSection />
+      <ServicesGridSection services={services} />
 
       {/* =========================================================================
           CHAPTER 04: MEDIA SECTION ("The digital in real time" carousel)

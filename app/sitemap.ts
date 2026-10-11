@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
-import { SERVICES, PROJECTS } from '@/data/studio-data';
-import { blogPosts } from '@/lib/blog-data';
+import { ServicesDB } from '@/lib/services-db';
+import { ProjectsDB } from '@/lib/projects-db';
 import { MediaDB } from '@/lib/media-db';
+import { blogPosts } from '@/lib/blog-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://achtrex.com';
@@ -22,23 +23,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1.0 : route === '/media' ? 0.9 : 0.85,
   }));
 
-  // Service Detail Routes
-  const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({
+  // Dynamic Service Detail Routes from DB
+  const services = ServicesDB.getAll();
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${baseUrl}/services/${service.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.85,
   }));
 
-  // Project Detail Routes
-  const projectRoutes: MetadataRoute.Sitemap = PROJECTS.map((project) => ({
+  // Dynamic Project Detail Routes from DB
+  const projects = ProjectsDB.getAll();
+  const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.85,
   }));
 
-  // Dynamic Media Newsroom Routes
+  // Dynamic Media Newsroom Routes from DB
   const mediaItems = MediaDB.getAll();
   const mediaRoutes: MetadataRoute.Sitemap = mediaItems.map((item) => ({
     url: `${baseUrl}/media/${item.slug}`,

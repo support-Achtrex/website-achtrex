@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ServiceDetailTemplate } from '@/components/studio/ServiceDetailTemplate';
 import { SERVICES } from '@/data/studio-data';
+import { ServicesDB } from '@/lib/services-db';
+
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: 'CGI & Immersive Experiences',
@@ -14,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function CgiImmersivePage() {
-  const service = SERVICES.find((s) => s.id === 'cgi-immersive');
+  const service = ServicesDB.getBySlug('cgi-immersive') ?? SERVICES.find((s) => s.id === 'cgi-immersive');
   if (!service) notFound();
 
   return <ServiceDetailTemplate service={service} />;

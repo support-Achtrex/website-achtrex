@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ServiceItem } from '@/data/studio-data';
 
 export interface ServiceCardData {
   id: string;
@@ -88,10 +89,25 @@ const REAL_SERVICES: ServiceCardData[] = [
 
 type FilterCategory = 'all' | 'ai-tech' | 'design' | 'spatial';
 
-export function ServicesGridSection() {
+export function ServicesGridSection({ services }: { services?: ServiceItem[] }) {
   const [activeTab, setActiveTab] = useState<FilterCategory>('all');
 
-  const filteredItems = REAL_SERVICES.filter((item) => {
+  // Merge with live services from DB if available
+  const items: ServiceCardData[] = REAL_SERVICES.map((defaultItem) => {
+    if (!services || services.length === 0) return defaultItem;
+    const dbItem = services.find(
+      (s) => s.id === defaultItem.id || s.slug === defaultItem.href.replace('/services/', '')
+    );
+    if (!dbItem) return defaultItem;
+    return {
+      ...defaultItem,
+      title: dbItem.title || defaultItem.title,
+      subtitle: dbItem.subtitle || defaultItem.subtitle,
+      image: dbItem.heroImage || defaultItem.image,
+    };
+  });
+
+  const filteredItems = items.filter((item) => {
     if (activeTab === 'all') return true;
     return item.category === activeTab;
   });

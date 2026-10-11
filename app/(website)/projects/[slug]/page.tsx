@@ -5,16 +5,20 @@ import { Interactive3DViewport } from '@/components/studio/Interactive3DViewport
 import { ConceptLiveExperience } from '@/components/studio/ConceptLiveExperience';
 import { InteractiveSpatialSimulationSection } from '@/components/studio/InteractiveSpatialSimulationSection';
 import { PROJECTS, LEGACY_SLUG_MAP, SERVICES, ConceptExperienceItem, STUDIO_CONFIG } from '@/data/studio-data';
+import { ProjectsDB } from '@/lib/projects-db';
+
+export const revalidate = 0;
 
 function getProjectBySlug(slug: string): ConceptExperienceItem {
   const resolved = LEGACY_SLUG_MAP[slug] || slug;
-  return PROJECTS.find((p) => p.slug === resolved) || PROJECTS[0];
+  return ProjectsDB.getBySlug(resolved) || PROJECTS.find((p) => p.slug === resolved) || PROJECTS[0];
 }
 
 function getNextProject(currentSlug: string): ConceptExperienceItem {
-  const currentIndex = PROJECTS.findIndex((p) => p.slug === currentSlug);
-  const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % PROJECTS.length : 0;
-  return PROJECTS[nextIndex];
+  const all = ProjectsDB.getAll();
+  const currentIndex = all.findIndex((p) => p.slug === currentSlug);
+  const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % all.length : 0;
+  return all[nextIndex] || PROJECTS[0];
 }
 
 export async function generateStaticParams() {

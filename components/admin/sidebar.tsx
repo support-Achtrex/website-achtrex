@@ -1,22 +1,17 @@
-'use client'
-
+'use client';
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
-  FileText,
-  BarChart2,
-  Users,
-  Settings,
-  HelpCircle,
-  LogOut,
+  Layers,
+  FolderKanban,
+  Film,
   MessageSquare,
-  Megaphone,
-  Receipt,
-  Film
+  Settings,
+  LogOut,
+  ExternalLink
 } from 'lucide-react';
-
 import Image from 'next/image';
 import { useToast } from '@/components/ui/toast';
 
@@ -26,7 +21,6 @@ const AdminSidebar = () => {
   const toast = useToast();
 
   const handleLogout = async () => {
-    // Clear auth cookie
     document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     toast.success('Logged out successfully');
     router.push('/login');
@@ -41,134 +35,116 @@ const AdminSidebar = () => {
   const getLinkClass = (path: string) => {
     const active = isActive(path);
     return active
-      ? "flex items-center gap-3 px-4 py-3 bg-linear-to-r from-primary/10 to-transparent text-primary rounded-xl font-medium transition-all relative group"
-      : "flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-700 hover:bg-transparent rounded-xl font-medium transition-colors group";
+      ? "flex items-center gap-3 px-4 py-3 bg-blue-50/80 text-blue-700 rounded-xl font-semibold transition-all relative group shadow-xs"
+      : "flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-900 hover:bg-slate-100/70 rounded-xl font-medium transition-colors group";
   };
 
   return (
-    <aside className="w-64 h-screen fixed left-0 top-0 flex flex-col justify-between p-6 bg-transparent border-r border-slate-200 z-50">
+    <aside className="w-64 h-screen fixed left-0 top-0 flex flex-col justify-between p-6 bg-white border-r border-slate-200 z-50">
       <div>
         {/* Logo */}
-        <div className="flex items-center gap-3 mb-12">
-          <div className="relative w-8 h-8">
-            <Image
-              src="/logo.png"
-              alt="Achtrex Logo"
-              fill
-              className="object-contain"
-            />
-          </div>
-          <span className="text-xl font-bold text-gray-900 tracking-tight">Achtrex</span>
+        <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
+          <Link href="/admin" className="flex items-center gap-3 group">
+            <div className="relative w-8 h-8 rounded-lg overflow-hidden bg-slate-900 flex items-center justify-center p-1">
+              <Image
+                src="/logo.png"
+                alt="Achtrex Logo"
+                fill
+                className="object-contain p-1"
+              />
+            </div>
+            <div>
+              <span className="text-lg font-bold text-slate-900 tracking-tight block leading-tight">Achtrex</span>
+              <span className="text-[10px] font-mono tracking-wider text-slate-400 uppercase">Studio Admin</span>
+            </div>
+          </Link>
+          <a
+            href="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View live site"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+          >
+            <ExternalLink size={15} />
+          </a>
         </div>
 
-        {/* Menu */}
-        <div className="mb-8">
-          <h3 className="text-xs font-semibold text-slate-500 uppercase mb-4 tracking-wider">Menu</h3>
-          <nav className="space-y-2">
+        {/* Content Management */}
+        <div className="mb-6">
+          <h3 className="text-[11px] font-semibold text-slate-400 uppercase mb-3 tracking-wider px-2">Studio Content</h3>
+          <nav className="space-y-1.5">
             <Link href="/admin" className={getLinkClass('/admin')}>
               {isActive('/admin') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-blue-600 rounded-r-full shadow-xs"></div>
               )}
-              <LayoutDashboard size={20} />
+              <LayoutDashboard size={19} className={isActive('/admin') ? 'text-blue-600' : 'text-slate-400'} />
               <span>Dashboard</span>
+            </Link>
+
+            <Link href="/admin/services" className={getLinkClass('/admin/services')}>
+              {isActive('/admin/services') && (
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-blue-600 rounded-r-full shadow-xs"></div>
+              )}
+              <Layers size={19} className={isActive('/admin/services') ? 'text-blue-600' : 'text-slate-400'} />
+              <span className="flex-1">Services</span>
+              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">6</span>
+            </Link>
+
+            <Link href="/admin/projects" className={getLinkClass('/admin/projects')}>
+              {isActive('/admin/projects') && (
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-blue-600 rounded-r-full shadow-xs"></div>
+              )}
+              <FolderKanban size={19} className={isActive('/admin/projects') ? 'text-blue-600' : 'text-slate-400'} />
+              <span className="flex-1">Projects</span>
+              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">5</span>
+            </Link>
+
+            <Link href="/admin/media" className={getLinkClass('/admin/media')}>
+              {isActive('/admin/media') && (
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-blue-600 rounded-r-full shadow-xs"></div>
+              )}
+              <Film size={19} className={isActive('/admin/media') ? 'text-blue-600' : 'text-slate-400'} />
+              <span className="flex-1">Media</span>
+              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200">Live</span>
             </Link>
 
             <Link href="/admin/leads" className={getLinkClass('/admin/leads')}>
               {isActive('/admin/leads') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-blue-600 rounded-r-full shadow-xs"></div>
               )}
-              <MessageSquare size={20} />
-              <span className="flex-1">Inbox</span>
-              {/* Mock count for now, could be dynamic later */}
-              <span className={`text-[10px] px-1.5 py-0.5 rounded-md transition-opacity ${isActive('/admin/leads') ? 'bg-primary text-slate-900 opacity-100' : 'bg-white/5 text-slate-500 opacity-0 group-hover:opacity-100'}`}>New</span>
+              <MessageSquare size={19} className={isActive('/admin/leads') ? 'text-blue-600' : 'text-slate-400'} />
+              <span className="flex-1">Inbox Leads</span>
             </Link>
-            <Link href="/admin/subscribers" className={getLinkClass('/admin/subscribers')}>
-              {isActive('/admin/subscribers') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
-              )}
-              <Users size={20} />
-              <span>Subscribers</span>
-            </Link>
-            <Link href="/admin/marketing" className={getLinkClass('/admin/marketing')}>
-              {isActive('/admin/marketing') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
-              )}
-              <Megaphone size={20} />
-              <span>Marketing</span>
-            </Link>
-            <Link href="/admin/blogs" className={getLinkClass('/admin/blogs')}>
-              {isActive('/admin/blogs') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
-              )}
-              <FileText size={20} />
-              <span className="flex-1">Blogs</span>
-              <span className={`text-[10px] px-1.5 py-0.5 rounded-md transition-opacity ${isActive('/admin/blogs') ? 'bg-primary text-slate-900 opacity-100' : 'bg-white/5 text-slate-500 opacity-0 group-hover:opacity-100'}`}>12+</span>
-            </Link>
-            <Link href="/admin/media" className={getLinkClass('/admin/media')}>
-              {isActive('/admin/media') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
-              )}
-              <Film size={20} />
-              <span className="flex-1">Media</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-blue-50 text-blue-700 font-medium border border-blue-200">Live</span>
-            </Link>
-            <Link href="/admin/analytics" className={getLinkClass('/admin/analytics')}>
-              {isActive('/admin/analytics') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
-              )}
-              <BarChart2 size={20} />
-              <span>Analytics</span>
-            </Link>
-            <Link href="/admin/invoices" className={getLinkClass('/admin/invoices')}>
-              {isActive('/admin/invoices') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
-              )}
-              <Receipt size={20} />
-              <span>Invoices</span>
-            </Link>
-            <Link href="/admin/team" className={getLinkClass('/admin/team')}>
-              {isActive('/admin/team') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
-              )}
-              <Users size={20} />
-              <span>Team</span>
-            </Link>
-
           </nav>
         </div>
 
-        {/* General */}
+        {/* System Settings */}
         <div>
-          <h3 className="text-xs font-semibold text-slate-500 uppercase mb-4 tracking-wider">General</h3>
-          <nav className="space-y-2">
+          <h3 className="text-[11px] font-semibold text-slate-400 uppercase mb-3 tracking-wider px-2">Configuration</h3>
+          <nav className="space-y-1.5">
             <Link href="/admin/settings" className={getLinkClass('/admin/settings')}>
               {isActive('/admin/settings') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-blue-600 rounded-r-full shadow-xs"></div>
               )}
-              <Settings size={20} />
+              <Settings size={19} className={isActive('/admin/settings') ? 'text-blue-600' : 'text-slate-400'} />
               <span>Settings</span>
             </Link>
-            <Link href="/admin/help" className={getLinkClass('/admin/help')}>
-              {isActive('/admin/help') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
-              )}
-              <HelpCircle size={20} />
-              <span>Help</span>
-            </Link>
-            <button
-              onClick={handleLogout}
-              className="w-full flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-full font-medium transition-colors text-left"
-            >
-              <LogOut size={20} />
-              <span>Logout</span>
-            </button>
           </nav>
         </div>
       </div>
 
+      {/* Logout */}
+      <div className="pt-4 border-t border-slate-100">
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center gap-3 px-4 py-2.5 text-slate-500 hover:text-red-600 hover:bg-red-50/80 rounded-xl font-medium transition-colors text-left"
+        >
+          <LogOut size={18} />
+          <span className="text-sm">Sign Out</span>
+        </button>
+      </div>
     </aside>
   );
 };
 
 export default AdminSidebar;
-

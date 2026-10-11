@@ -1,111 +1,365 @@
 import React from 'react';
-import { Plus, Upload } from 'lucide-react';
-import AdminSidebar from '@/components/admin/sidebar';
-import fs from 'fs';
-import path from 'path';
+import Link from 'next/link';
+import Image from 'next/image';
+import {
+  Layers,
+  FolderKanban,
+  Film,
+  MessageSquare,
+  ArrowUpRight,
+  ExternalLink,
+  Plus,
+  ShieldCheck,
+  CheckCircle2,
+  Sparkles
+} from 'lucide-react';
 import { revalidatePath } from 'next/cache';
 import { sql } from '@/lib/db';
-import AdminTopbar from '@/components/admin/topbar';
-import StatsCards from '@/components/admin/stats-cards';
-import AnalyticsWidget from '@/components/admin/analytics-widget';
-import RecentBlogsList from '@/components/admin/recent-blogs-list';
-import TeamOverview from '@/components/admin/team-overview';
-import ProjectProgress from '@/components/admin/project-progress';
-import TotalViewsWidget from '@/components/admin/total-views-widget';
+import { ServicesDB } from '@/lib/services-db';
+import { ProjectsDB } from '@/lib/projects-db';
+import { MediaDB } from '@/lib/media-db';
+
+export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard() {
- const settingsRes = await sql`SELECT value FROM settings WHERE key = 'payment_details'`;
- const paymentDetails = settingsRes.rows.length > 0 ? JSON.parse(settingsRes.rows[0].value) : {
- bank_name: "Fidelity Bank",
- account_name: "Achtrex Services",
- account_number: "2400931904813",
- swift_bic: "FBLIGHAC"
- };
+  // Fetch studio data
+  const services = ServicesDB.getAll();
+  const projects = ProjectsDB.getAll();
+  const mediaItems = MediaDB.getAll();
 
- async function updatePaymentDetails(formData: FormData) {
- 'use server';
- const details = {
- bank_name: formData.get('bank_name') as string,
- account_name: formData.get('account_name') as string,
- account_number: formData.get('account_number') as string,
- swift_bic: formData.get('swift_bic') as string,
- };
- await sql`UPDATE settings SET value = ${JSON.stringify(details)} WHERE key = 'payment_details'`;
- revalidatePath('/admin');
- }
+  let leadsCount = 0;
+  try {
+    const { rows } = await sql`SELECT COUNT(*)::int as count FROM leads`;
+    if (rows && rows[0]) {
+      leadsCount = rows[0].count;
+    }
+  } catch (error) {
+    console.error('Failed to query leads count:', error);
+  }
 
- return (
- <>
+  // Payment details
+  let paymentDetails = {
+    bank_name: 'Fidelity Bank',
+    account_name: 'Achtrex Services',
+    account_number: '2400931904813',
+    swift_bic: 'FBLIGHAC',
+  };
 
- {/* Dashboard Header */}
- <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
- <div>
- <h1 className="text-3xl font-bold text-gray-900 mb-1">Dashboard</h1>
- <p className="text-slate-400 text-sm">Plan, prioritize, and accomplish your blogs with ease.</p>
- </div>
- <div className="flex items-center gap-3">
- <button className="flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-slate-900 rounded-full-full font-medium transition-colors shadow-lg shadow-primary/20">
- <Plus size={18} />
- <span>Add Blog</span>
- </button>
- <button className="flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 rounded-full-full font-medium transition-colors">
- <Upload size={18} />
- <span>Import Data</span>
- </button>
- </div>
- </div>
+  try {
+    const settingsRes = await sql`SELECT value FROM settings WHERE key = 'payment_details'`;
+    if (settingsRes.rows.length > 0) {
+      paymentDetails = JSON.parse(settingsRes.rows[0].value);
+    }
+  } catch (error) {
+    console.error('Failed to query payment details:', error);
+  }
 
- <StatsCards />
+  async function updatePaymentDetails(formData: FormData) {
+    'use server';
+    const details = {
+      bank_name: formData.get('bank_name') as string,
+      account_name: formData.get('account_name') as string,
+      account_number: formData.get('account_number') as string,
+      swift_bic: formData.get('swift_bic') as string,
+    };
+    try {
+      await sql`UPDATE settings SET value = ${JSON.stringify(details)} WHERE key = 'payment_details'`;
+    } catch (err) {
+      console.error('Failed to update payment details:', err);
+    }
+    revalidatePath('/admin');
+  }
 
- {/* Main Grid */}
- <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
- {/* Row 1: Analytics (Span 2) + Recent Blogs (Span 1) */}
- <div className="lg:col-span-2 h-80">
- <AnalyticsWidget />
- </div>
- <div className="lg:col-span-1 h-80">
- <RecentBlogsList />
- </div>
+  return (
+    <div className="space-y-8">
+      {/* Top Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-200">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Studio Live
+            </span>
+            <span className="text-xs font-mono text-slate-400">ACHTREX v2.4</span>
+          </div>
+          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Studio Command Center</h1>
+          <p className="text-slate-500 text-sm mt-0.5">
+            Manage public services, concept projects, media publications, and client inquiries.
+          </p>
+        </div>
+        <div className="flex items-center gap-3">
+          <a
+            href="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl text-sm font-semibold transition-all shadow-xs"
+          >
+            <span>Preview Website</span>
+            <ExternalLink size={15} />
+          </a>
+          <Link
+            href="/admin/services"
+            className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-semibold transition-all shadow-sm"
+          >
+            <Plus size={16} />
+            <span>Manage Services</span>
+          </Link>
+        </div>
+      </div>
 
- {/* Row 2: Team, Progress, Time */}
- <div className="lg:col-span-1 h-64">
- <TeamOverview />
- </div>
- <div className="lg:col-span-1 h-64">
- <ProjectProgress />
- </div>
- <div className="lg:col-span-1 h-64">
- <TotalViewsWidget />
- </div>
- </div>
+      {/* Metrics Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Services Card */}
+        <Link
+          href="/admin/services"
+          className="group relative bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all"
+        >
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <Layers size={22} />
+            </div>
+            <ArrowUpRight size={18} className="text-slate-300 group-hover:text-blue-600 transition-colors" />
+          </div>
+          <div className="text-3xl font-extrabold text-slate-900 tracking-tight mb-1">{services.length}</div>
+          <div className="text-sm font-bold text-slate-800">Studio Services</div>
+          <div className="text-xs text-slate-500 mt-1">Spatial 3D, WebGL & Configurator offerings</div>
+        </Link>
 
- {/* Payment Details Section */}
- <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm mb-6">
- <h2 className="text-xl font-bold text-gray-900 mb-4">Payment Details</h2>
- <form action={updatePaymentDetails} className="grid grid-cols-1 md:grid-cols-2 gap-4">
- <div>
- <label className="block text-sm font-medium text-gray-700 mb-1">Bank Name</label>
- <input type="text" name="bank_name" defaultValue={paymentDetails.bank_name} className="border border-gray-200 rounded-lg px-3 py-2 w-full text-sm" />
- </div>
- <div>
- <label className="block text-sm font-medium text-gray-700 mb-1">Account Name</label>
- <input type="text" name="account_name" defaultValue={paymentDetails.account_name} className="border border-gray-200 rounded-lg px-3 py-2 w-full text-sm" />
- </div>
- <div>
- <label className="block text-sm font-medium text-gray-700 mb-1">Account Number</label>
- <input type="text" name="account_number" defaultValue={paymentDetails.account_number} className="border border-gray-200 rounded-lg px-3 py-2 w-full text-sm" />
- </div>
- <div>
- <label className="block text-sm font-medium text-gray-700 mb-1">SWIFT/BIC</label>
- <input type="text" name="swift_bic" defaultValue={paymentDetails.swift_bic} className="border border-gray-200 rounded-lg px-3 py-2 w-full text-sm" />
- </div>
- <div className="md:col-span-2 text-right">
- <button type="submit" className="bg-gray-900 text-white px-4 py-2 rounded-full hover:bg-gray-800 transition-colors text-sm font-medium">
- Save Payment Details
- </button>
- </div>
- </form>
- </div>
- </>
- );
+        {/* Projects Card */}
+        <Link
+          href="/admin/projects"
+          className="group relative bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/5 transition-all"
+        >
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <FolderKanban size={22} />
+            </div>
+            <ArrowUpRight size={18} className="text-slate-300 group-hover:text-purple-600 transition-colors" />
+          </div>
+          <div className="text-3xl font-extrabold text-slate-900 tracking-tight mb-1">{projects.length}</div>
+          <div className="text-sm font-bold text-slate-800">Concept Projects</div>
+          <div className="text-xs text-slate-500 mt-1">Interactive showcases, galleries & videos</div>
+        </Link>
+
+        {/* Media Card */}
+        <Link
+          href="/admin/media"
+          className="group relative bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/5 transition-all"
+        >
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <Film size={22} />
+            </div>
+            <ArrowUpRight size={18} className="text-slate-300 group-hover:text-emerald-600 transition-colors" />
+          </div>
+          <div className="text-3xl font-extrabold text-slate-900 tracking-tight mb-1">{mediaItems.length}</div>
+          <div className="text-sm font-bold text-slate-800">Media Publications</div>
+          <div className="text-xs text-slate-500 mt-1">Press releases, newsroom stories & reels</div>
+        </Link>
+
+        {/* Leads Card */}
+        <Link
+          href="/admin/leads"
+          className="group relative bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/5 transition-all"
+        >
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <MessageSquare size={22} />
+            </div>
+            <ArrowUpRight size={18} className="text-slate-300 group-hover:text-amber-600 transition-colors" />
+          </div>
+          <div className="text-3xl font-extrabold text-slate-900 tracking-tight mb-1">{leadsCount}</div>
+          <div className="text-sm font-bold text-slate-800">Client Inquiries</div>
+          <div className="text-xs text-slate-500 mt-1">Inbound consultations & project briefs</div>
+        </Link>
+      </div>
+
+      {/* Main Studio Management Columns */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Services Quick Management */}
+        <div className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs">
+          <div className="flex items-center justify-between mb-5 pb-4 border-b border-slate-100">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+                <Layers size={18} />
+              </div>
+              <div>
+                <h2 className="text-base font-bold text-slate-900">Services Catalog</h2>
+                <p className="text-xs text-slate-500">Live on homepage & /services</p>
+              </div>
+            </div>
+            <Link
+              href="/admin/services"
+              className="text-xs font-semibold text-blue-600 hover:text-blue-700 hover:underline flex items-center gap-1"
+            >
+              <span>Manage all</span>
+              <ArrowUpRight size={13} />
+            </Link>
+          </div>
+
+          <div className="space-y-3">
+            {services.slice(0, 4).map((service) => (
+              <div
+                key={service.id}
+                className="flex items-center justify-between p-3 rounded-xl border border-slate-100 hover:border-slate-200 hover:bg-slate-50/50 transition-all group"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-slate-100 shrink-0 border border-slate-200/60">
+                    {service.heroImage ? (
+                      <Image
+                        src={service.heroImage}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-slate-400">
+                        <Layers size={16} />
+                      </div>
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-bold text-slate-900 truncate">{service.title}</h3>
+                    <p className="text-xs text-slate-500 truncate">{service.subtitle}</p>
+                  </div>
+                </div>
+                <Link
+                  href="/admin/services"
+                  className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-blue-50 hover:text-blue-600 text-slate-600 transition-colors shrink-0"
+                >
+                  Edit
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Projects Quick Management */}
+        <div className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs">
+          <div className="flex items-center justify-between mb-5 pb-4 border-b border-slate-100">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+                <FolderKanban size={18} />
+              </div>
+              <div>
+                <h2 className="text-base font-bold text-slate-900">Concept Projects</h2>
+                <p className="text-xs text-slate-500">Live on homepage hero & /projects</p>
+              </div>
+            </div>
+            <Link
+              href="/admin/projects"
+              className="text-xs font-semibold text-purple-600 hover:text-purple-700 hover:underline flex items-center gap-1"
+            >
+              <span>Manage all</span>
+              <ArrowUpRight size={13} />
+            </Link>
+          </div>
+
+          <div className="space-y-3">
+            {projects.slice(0, 4).map((project) => (
+              <div
+                key={project.id}
+                className="flex items-center justify-between p-3 rounded-xl border border-slate-100 hover:border-slate-200 hover:bg-slate-50/50 transition-all group"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-slate-900 shrink-0 border border-slate-200/60">
+                    {project.heroVideo ? (
+                      <video
+                        src={project.heroVideo}
+                        className="w-full h-full object-cover"
+                        muted
+                        loop
+                        playsInline
+                      />
+                    ) : project.heroImage ? (
+                      <Image
+                        src={project.heroImage}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-slate-400">
+                        <FolderKanban size={16} />
+                      </div>
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-bold text-slate-900 truncate">{project.title}</h3>
+                    <p className="text-xs text-slate-500 truncate">{project.category} &bull; {project.year}</p>
+                  </div>
+                </div>
+                <Link
+                  href="/admin/projects"
+                  className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-purple-50 hover:text-purple-600 text-slate-600 transition-colors shrink-0"
+                >
+                  Edit
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Payment Details Section */}
+      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="flex items-center gap-3 mb-4 pb-4 border-b border-slate-100">
+          <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <ShieldCheck size={18} />
+          </div>
+          <div>
+            <h2 className="text-base font-bold text-slate-900">Studio Wire & Payment Details</h2>
+            <p className="text-xs text-slate-500">Official banking instructions referenced for international client contracts</p>
+          </div>
+        </div>
+
+        <form action={updatePaymentDetails} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">Bank Name</label>
+            <input
+              type="text"
+              name="bank_name"
+              defaultValue={paymentDetails.bank_name}
+              className="border border-slate-200 rounded-xl px-3.5 py-2.5 w-full text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">Account Name</label>
+            <input
+              type="text"
+              name="account_name"
+              defaultValue={paymentDetails.account_name}
+              className="border border-slate-200 rounded-xl px-3.5 py-2.5 w-full text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">Account Number</label>
+            <input
+              type="text"
+              name="account_number"
+              defaultValue={paymentDetails.account_number}
+              className="border border-slate-200 rounded-xl px-3.5 py-2.5 w-full text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">SWIFT / BIC</label>
+            <input
+              type="text"
+              name="swift_bic"
+              defaultValue={paymentDetails.swift_bic}
+              className="border border-slate-200 rounded-xl px-3.5 py-2.5 w-full text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+            />
+          </div>
+          <div className="md:col-span-2 flex justify-end pt-2">
+            <button
+              type="submit"
+              className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-sm font-semibold transition-all shadow-xs"
+            >
+              Save Payment Details
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }
