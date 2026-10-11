@@ -113,15 +113,15 @@ export const EMAIL_TEMPLATES: EmailTemplate[] = [
                 </div>
                 <div class="col-2" style="background: #f8fafc; border-radius: 8px; padding: 20px;">
                     <img src="https://cdn-icons-png.flaticon.com/512/2103/2103533.png" width="40" style="margin-bottom: 10px; opacity: 0.8;">
-                    <h4 style="margin:0 0 5px 0; color:#0f172a;">Enterprise AI</h4>
-                    <p style="margin:0; font-size:13px; line-height:1.4;">Custom AI models and autonomous agents like AAIA.</p>
+                    <h4 style="margin:0 0 5px 0; color:#0f172a;">AI & Intelligent Systems</h4>
+                    <p style="margin:0; font-size:13px; line-height:1.4;">Custom AI models, generative UI, and intelligent systems.</p>
                 </div>
             </div>
 
-            <p style="margin-top: 25px;">Next steps: You will receive an invitation to our project management board shortly where we will track every milestone together.</p>
+            <p style="margin-top: 25px;">Next steps: Our team will connect with you to review your project roadmap and objectives.</p>
             
             <div class="button-container">
-                <a href="https://achtrex.com/login" class="button">Access Client Portal</a>
+                <a href="https://achtrex.com/contact" class="button">Contact Achtrex Studio</a>
             </div>
             
             <p style="text-align: center; color: #64748b; font-style: italic;">Welcome to the future of digital excellence.</p>

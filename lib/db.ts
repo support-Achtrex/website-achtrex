@@ -11,16 +11,25 @@ const isInternal = Boolean(
   )
 );
 
-const pool = new Pool({
-  connectionString: connectionString,
-  ssl: (isInternal || !connectionString) ? false : { rejectUnauthorized: false },
-  connectionTimeoutMillis: 10000,
-  query_timeout: 15000,
-  max: 20
-});
+let pool: Pool | null = null;
+
+if (connectionString) {
+  pool = new Pool({
+    connectionString: connectionString,
+    ssl: isInternal ? false : { rejectUnauthorized: false },
+    connectionTimeoutMillis: 3500,
+    idleTimeoutMillis: 5000,
+    max: 10,
+    keepAlive: true,
+  });
+
+  pool.on('error', (err) => {
+    console.warn('PostgreSQL idle client notice:', err.message);
+  });
+}
 
 export async function sql(strings: TemplateStringsArray, ...values: any[]) {
-  if (!connectionString) {
+  if (!pool) {
     console.warn('DATABASE_URL is not configured.');
     return { rows: [] };
   }
@@ -30,10 +39,11 @@ export async function sql(strings: TemplateStringsArray, ...values: any[]) {
     query += `$${i + 1}` + strings[i + 1];
   }
   
-  try {
-    return await pool.query(query, values);
-  } catch (error) {
-    console.error('Database query error:', error);
-    throw error;
-  }
+  // Enforce a strict 3.5s timeout so requests never hang on dead proxy sockets
+  const queryPromise = pool.query(query, values);
+  const timeoutPromise = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error('Connection terminated due to connection timeout')), 3500)
+  );
+
+  return (await Promise.race([queryPromise, timeoutPromise])) as any;
 }

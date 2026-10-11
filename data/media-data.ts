@@ -1,0 +1,130 @@
+export interface MediaItem {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  category: 'STORIES' | 'EVENTS' | 'ABOUT US' | 'ESG' | 'INNOVATION';
+  date: string;
+  dateFormatted: string;
+  summary: string;
+  content: string;
+  mediaType: 'image' | 'video';
+  mediaUrl: string;
+  thumbnailUrl?: string;
+  featured?: boolean;
+}
+
+export const INITIAL_MEDIA_ITEMS: MediaItem[] = [
+  {
+    id: 'media-1',
+    slug: 'virtual-rescue-experience',
+    title: '“Virtual Rescue Experience”',
+    subtitle: 'Achtrex and partners at the Genoa International Boat Show',
+    category: 'EVENTS',
+    date: '05/10/2026',
+    dateFormatted: '05 October 2026',
+    summary: 'Achtrex and the Italian Coast Guard at the Genoa International Boat Show presenting the next-gen immersive maritime simulation.',
+    content: 'Tomorrow marks the close of the 66th Genoa International Boat Show. As an innovation technology partner, Achtrex is collaborating on the Virtual Rescue Experience, a virtual reality and spatial simulator that transforms maritime rescue training into a realistic, immersive, and highly educational experience.\n\nOnce the VR headset is put on, users take command of a Coast Guard rescue vessel and are virtually transported into an emergency scenario on the open sea. They take control of the rescue unit, navigate high-swell telemetry, and execute life-saving operations with millimeter-accurate physics.\n\nThe initiative combines spatial computing, real-time physics engines, and ergonomic human-machine interaction to demonstrate how modern digital systems directly enhance frontline emergency preparedness.',
+    mediaType: 'image',
+    mediaUrl: '/studio-assets/service-experience-design.jpg',
+    featured: true,
+  },
+  {
+    id: 'media-2',
+    slug: 'eur-90-years-of-history',
+    title: '“EUR – 90 Years of History”',
+    subtitle: 'Achtrex is Main Technology Partner of the Digital Heritage Exhibition',
+    category: 'STORIES',
+    date: '07/10/2026',
+    dateFormatted: '07 October 2026',
+    summary: 'Achtrex is Main Technology Partner of the Exhibition, deploying interactive spatial installations and archival digital twins.',
+    content: 'In celebration of 90 years of architectural and civic heritage, Achtrex has engineered an interactive digital twin and archival spatial journey for the EUR historic preservation pavilion.\n\nVisitors can explore nine decades of architectural evolutions through tactile projection-mapped surfaces and high-definition photogrammetry models that bring unbuilt blueprints to lifelike fruition.\n\nBy uniting digital preservation with spatial storytelling, we demonstrate how cultural heritage institutions can engage global audiences through state-of-the-art interactive technology.',
+    mediaType: 'image',
+    mediaUrl: '/studio-assets/aerial-intro-bg.jpg',
+    featured: true,
+  },
+  {
+    id: 'media-3',
+    slug: 'artificial-intelligence-cognitive-futures',
+    title: 'Artificial Intelligence: Achtrex Launches Autonomous Core',
+    subtitle: 'Next-generation multi-agent reasoning and RAG synthesis platforms',
+    category: 'ABOUT US',
+    date: '01/10/2026',
+    dateFormatted: '01 October 2026',
+    summary: 'Achtrex announces enterprise availability of its autonomous AI development services and contextual reasoning framework.',
+    content: 'Achtrex has officially launched its autonomous enterprise AI platform, designed for high-concurrency organizations requiring contextual intelligence and real-time reasoning.\n\nThe platform integrates deterministic guardrails with multi-agent orchestration, enabling automated complex decision-making across healthcare, logistics, and spatial design workflows without hallucination risks.\n\n"Modern enterprises do not just need conversational chat; they need autonomous systems capable of executing multi-stage deterministic tasks with auditability," stated Achtrex Engineering.',
+    mediaType: 'image',
+    mediaUrl: '/studio-assets/service-ai-intelligent.jpg',
+    featured: true,
+  },
+  {
+    id: 'media-4',
+    slug: 'inclusive-digital-interfaces-disability-pride',
+    title: 'Inclusive Digital Interfaces & Accessibility at Scale',
+    subtitle: 'Designing universal human-machine interactions for modern public surfaces',
+    category: 'ESG',
+    date: '01/10/2026',
+    dateFormatted: '01 October 2026',
+    summary: 'Take part in Achtrex universal design initiative advancing WCAG AAA compliance and neurodivergent-friendly digital products.',
+    content: 'Accessibility is not an afterthought or compliance checklist; it is the cornerstone of exceptional interaction design. Achtrex has released its Universal Design Framework, open-sourcing interaction tokens designed specifically for adaptive input devices, high-contrast readability, and low-cognitive-load navigation.\n\nFrom high-velocity portals to civic kiosks, designing universally accessible systems ensures every individual participates equally in the modern digital economy.',
+    mediaType: 'image',
+    mediaUrl: '/studio-assets/service-digital-products.jpg',
+    featured: false,
+  },
+  {
+    id: 'media-5',
+    slug: 'the-ai-race-a-race-without-rules',
+    title: '“The AI Race: A Race Without Rules?”',
+    subtitle: 'Executive keynote on regulatory frameworks and ethical AI deployment',
+    category: 'ABOUT US',
+    date: '29/09/2026',
+    dateFormatted: '29 September 2026',
+    summary: 'Keynote panel at the Global Tech Summit analyzing governance, ethics, and algorithmic transparency.',
+    content: 'At the Global Tech Summit, Achtrex leadership delivered a keynote exploring the rapid acceleration of generative and autonomous AI systems. The presentation addressed critical topics including intellectual property provenance, model alignment, and the necessity of transparent data lineage in enterprise deployments.',
+    mediaType: 'image',
+    mediaUrl: '/studio-assets/hero-spatial-installation.jpg',
+    featured: false,
+  },
+  {
+    id: 'media-6',
+    slug: 'investments-and-strategic-supply-chains',
+    title: '“Investments and Strategic Supply Chains”',
+    subtitle: 'Achtrex digital telemetry deployed across regional logistics corridors',
+    category: 'EVENTS',
+    date: '25/09/2026',
+    dateFormatted: '25 September 2026',
+    summary: 'Executive briefing at the Middle East Economy Summit on digitalizing supply chains and port operations.',
+    content: 'Strategic supply chains require uninterrupted visibility and automated bottleneck mitigation. Achtrex demonstrated its real-time digital twin platform for ports and distribution logistics, processing millions of telemetry events per second to optimize cargo transit and reduce carbon expenditure.',
+    mediaType: 'image',
+    mediaUrl: '/images/home_processes_traffic.jpg',
+    featured: false,
+  },
+  {
+    id: 'media-7',
+    slug: 'clinical-ai-melanoma-early-detection',
+    title: 'Clinical AI & High-Precision Image Segmentation',
+    subtitle: 'Partnering with research medical centers to advance non-invasive diagnostics',
+    category: 'ESG',
+    date: '01/10/2026',
+    dateFormatted: '01 October 2026',
+    summary: 'Achtrex Health Engineering shares clinical benchmark findings for high-precision dermatological segmentation.',
+    content: 'In collaboration with medical research institutes, Achtrex Health Engineering has benchmarked a low-latency vision transformer model capable of segmenting sub-millimeter skin anomalies with 98.4% diagnostic concordance against board-certified pathologists.',
+    mediaType: 'image',
+    mediaUrl: '/studio-assets/service-creative-strategy.jpg',
+    featured: false,
+  },
+  {
+    id: 'media-8',
+    slug: 'together-towards-new-sustainable-goals',
+    title: 'Achtrex & Regional Initiatives: Sustainable Digital Futures',
+    subtitle: 'Carbon-neutral cloud architectures and energy-aware computing',
+    category: 'ESG',
+    date: '25/09/2026',
+    dateFormatted: '25 September 2026',
+    summary: 'Achtrex commits to 100% green-compute clusters across all real-time rendering pipelines.',
+    content: 'Achtrex has achieved carbon neutrality across all cloud rendering and AI inference workloads by migrating to solar-powered regional data centers and optimizing shader execution cycles, setting a new sustainability standard for digital creative agencies.',
+    mediaType: 'image',
+    mediaUrl: '/studio-assets/hero-3d-sculpture.jpg',
+    featured: false,
+  },
+];

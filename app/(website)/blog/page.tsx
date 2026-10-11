@@ -7,21 +7,21 @@ import { InnerPageHeader } from "@/components/inner-page-header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Engineering Blog | Architecture & Infrastructure",
-  description: "Deep dives into automotive software engineering, cognitive AI diagnostics, and enterprise venture building from the Achtrex team. Learn our technical approach to building high-velocity platforms.",
-  keywords: ["Engineering Blog", "System Architecture", "SaaS Engineering", "Automotive Software Builds", "Cognitive AI Diagnostics", "Achtrex Insights"],
+  title: "Insights & Perspectives | Achtrex Studio",
+  description: "Perspectives on experience design, creative technology, real-time 3D, and artificial intelligence from the Achtrex team.",
+  keywords: ["Experience Design", "Creative Technology", "Real-Time 3D", "Design Systems", "AI Interfaces", "Achtrex Studio"],
   openGraph: {
-    title: "Achtrex Engineering Blog | Technical Deep Dives",
-    description: "Engineering bespoke automotive software platforms and cognitive AI architectures.",
-    images: ["/projects/aaia_ui_v2.png"],
+    title: "Achtrex Studio Insights | Design & Technology",
+    description: "Perspectives on experience design, creative technology, and artificial intelligence from Achtrex.",
+    images: ["/logo.png"],
   }
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": "Achtrex Engineering Blog",
-  "description": "Deep dives into automotive software engineering, cognitive AI diagnostics, and enterprise venture building from the Achtrex team.",
+  "name": "Achtrex Studio Insights",
+  "description": "Perspectives on experience design, creative technology, real-time 3D, and artificial intelligence from the Achtrex team.",
   "url": "https://achtrex.com/blog",
   "publisher": {
     "@type": "Organization",
@@ -36,7 +36,7 @@ const jsonLd = {
 export default function BlogListingPage() {
   const featuredPost = blogPosts[0];
   const otherPosts = blogPosts.slice(1);
-  const categories = ["All", "Software Builds", "Cognitive AI", "Automotive Consultation", "Systems Architecture", "Infrastructure"];
+  const categories = ["All", "Creative Technology", "AI & Experience", "Design Systems"];
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] pb-20 font-sans">

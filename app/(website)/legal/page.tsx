@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { LegalContent } from './legal-content';
 
 export const metadata: Metadata = {
-  title: 'Legal, Privacy & Security | Achtrex — Automotive Software & AI Solutions',
+  title: 'Legal, Privacy & Security | Achtrex : Digital Experience & Technology Studio',
   description: 'Review Achtrex Terms of Service, Privacy Policy, and Enterprise Security Architecture. Enterprise governance for automotive software builds, cognitive AI, and consultation.',
   keywords: [
     'Achtrex Legal',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  'name': 'Legal, Privacy & Security — Achtrex',
+  'name': 'Legal, Privacy & Security : Achtrex',
   'description': 'Terms of Service, Privacy Policy, and Security Architecture for Achtrex.',
   'url': 'https://achtrex.com/legal',
   'publisher': {

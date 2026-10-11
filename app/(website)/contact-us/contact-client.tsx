@@ -125,7 +125,7 @@ export const ContactClient = () => {
         </h1>
         <div className="w-16 h-1 bg-gradient-to-r from-[#F37021] to-[#00A9CE] mx-auto mt-3 mb-5 rounded-full" />
         <p className="text-slate-800 text-[15px] sm:text-base leading-[1.8] font-normal max-w-2xl mx-auto">
-          Whether you need bespoke automotive software builds, cognitive AI diagnostics, or automotive operational consultation — our engineering team is ready to connect.
+          Whether you need bespoke automotive software builds, cognitive AI diagnostics, or automotive operational consultation, our engineering team is ready to connect.
         </p>
       </section>
 

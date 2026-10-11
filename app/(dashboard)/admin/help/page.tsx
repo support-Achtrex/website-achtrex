@@ -126,7 +126,7 @@ export default function HelpPage() {
  <h4 className="font-bold text-gray-900 text-sm">Pro Tip</h4>
  </div>
  <p className="text-gray-600 text-xs leading-relaxed font-medium">
- Use the <strong>"Weekly Update"</strong> feature in the Subscriber portal to automatically keep your clients in the loop without typing a single email.
+ Use the <strong>"Weekly Update"</strong> feature in the Subscribers section to automatically keep your clients in the loop without typing a single email.
  </p>
  </div>
  </div>

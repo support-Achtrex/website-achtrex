@@ -2,12 +2,28 @@
 
 import nodemailer from 'nodemailer';
 import { sql } from '@/lib/db';
+import { LeadsDB } from '@/lib/local-db';
+import fs from 'fs';
+import path from 'path';
+
+function queueOutgoingEmail(payload: any) {
+    try {
+        const dir = path.join(process.cwd(), 'data');
+        if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+        const queueFile = path.join(dir, 'pending-emails.json');
+        const existing = fs.existsSync(queueFile) ? JSON.parse(fs.readFileSync(queueFile, 'utf-8')) : [];
+        existing.unshift({ id: Date.now().toString(), createdAt: new Date().toISOString(), payload });
+        fs.writeFileSync(queueFile, JSON.stringify(existing, null, 2));
+    } catch (err) {
+        console.error('Error queuing outgoing email:', err);
+    }
+}
 
 export async function submitContactForm(formData: FormData) {
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
-    const company = formData.get('company') as string;
-    const message = formData.get('message') as string;
+    const company = formData.get('company') as string || '';
+    const message = formData.get('message') as string || '';
     const phone = formData.get('phone') as string || '';
     const service = formData.get('service') as string || '';
     const budget = formData.get('budget') as string || '';
@@ -17,51 +33,45 @@ export async function submitContactForm(formData: FormData) {
         return { error: 'Name and Email are required.' };
     }
 
-    // 1. Save to Database (Resilient)
-    let dbErrorOccurred = false;
-    let dbErrorMessage = '';
+    const fullMessage = `Phone: ${phone}\n\nMessage: ${message}`;
+
+    // 1. Guaranteed Local Persistence (Fail-Safe Redundancy)
     try {
-        const fullMessage = `Phone: ${phone}\n\nMessage: ${message}`;
+        LeadsDB.add({
+            name,
+            email,
+            company,
+            message: fullMessage,
+            service: service || 'General Inquiry',
+            budget,
+            source: source || 'Contact Form',
+        });
+    } catch (localErr) {
+        console.error('Local LeadsDB write warning:', localErr);
+    }
+
+    // 2. Remote PostgreSQL Persistence (With strict timeout)
+    try {
         await sql`
             INSERT INTO leads (name, email, company, message, service, budget, source, status)
             VALUES (${name}, ${email}, ${company}, ${fullMessage}, ${service}, ${budget}, ${source}, 'new')
         `;
 
-        // Auto-subscribe to newsletter (ignore if already exists)
         try {
             await sql`
                 INSERT INTO subscribers (email)
                 VALUES (${email})
                 ON CONFLICT (email) DO NOTHING
             `;
-        } catch (subError) {
-            console.error('Subscriber insertion warning:', subError);
-        }
-
+        } catch (_) {}
     } catch (dbError: any) {
-        console.error('Database insertion error:', dbError);
-        dbErrorOccurred = true;
-        dbErrorMessage = dbError.message || String(dbError);
+        console.warn('PostgreSQL write skipped, saved safely in LeadsDB:', dbError.message);
     }
 
-    // 2. Send Email via Nodemailer
+    // 3. Email Notification (With timeout & queue fallback)
     try {
         const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
         const smtpPassword = (process.env.SMTP_PASS || '').replace(/['"]/g, '');
-
-        if (!smtpEmail || !smtpPassword) {
-            throw new Error('Missing SMTP credentials');
-        }
-
-        const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
-            auth: {
-                user: smtpEmail,
-                pass: smtpPassword
-            }
-        });
 
         const adminHtml = `
             <div style="font-family: system-ui, sans-serif; color: #333;">
@@ -79,14 +89,6 @@ export async function submitContactForm(formData: FormData) {
             </div>
         `;
 
-        await transporter.sendMail({
-            from: `"Achtrex Lead Gen" <${smtpEmail}>`,
-            to: 'support@achtrex.com',
-            subject: `New Lead: ${name} (${company || 'No Company'})`,
-            html: adminHtml,
-            replyTo: email
-        });
-
         const customerHtml = `
             <div style="font-family: 'Inter', Helvetica, sans-serif; background-color: #070b14; color: #ffffff; padding: 40px 20px; max-width: 600px; margin: 0 auto; border-radius: 12px;">
                 <div style="text-align: center; margin-bottom: 30px;">
@@ -94,63 +96,57 @@ export async function submitContactForm(formData: FormData) {
                     <h1 style="color: #ffffff; margin: 0; font-size: 28px;">Thank you for reaching out!</h1>
                     <p style="color: #a0aec0; font-size: 16px; margin-top: 10px;">Hi ${name.split(' ')[0]}, we have received your request and our team will be in touch shortly.</p>
                 </div>
-                
-                <div style="background-color: #111112; border: 1px solid #2d3748; border-radius: 12px; padding: 25px; margin-bottom: 30px;">
-                    <h2 style="color: #c2fce3; font-size: 20px; margin-top: 0;">While you wait...</h2>
-                    <p style="color: #e2e8f0; line-height: 1.6;">Explore some of the powerful platforms driving innovation at Achtrex:</p>
-                    
-                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
-                        <img src="https://achtrex.com/logo.png" alt="Achtrex Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
-                        <div>
-                            <h3 style="color: #60a5fa; margin: 0 0 5px 0;">Automotive Software Builds</h3>
-                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Deploy bespoke automotive software builds, workshop platforms, and dealership management systems.</p>
-                            <a href="https://achtrex.com/services" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 14px;">Explore Services &rarr;</a>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
-                        <img src="https://achtrex.com/logos/aaia-logo.png" alt="AAIA Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
-                        <div>
-                            <h3 style="color: #c084fc; margin: 0 0 5px 0;">✨ AAIA</h3>
-                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Leverage cognitive automotive reasoning to unlock predictive insights and automate vehicle appraisals.</p>
-                            <a href="https://achtrex.com/products/lumi" style="color: #c084fc; text-decoration: none; font-weight: bold; font-size: 14px;">Discover AAIA &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-                
                 <div style="text-align: center; color: #718096; font-size: 12px;">
                     <p>&copy; ${new Date().getFullYear()} Achtrex. All rights reserved.</p>
                 </div>
             </div>
         `;
 
-        await transporter.sendMail({
-            from: `"Achtrex" <${smtpEmail}>`,
-            to: email,
-            subject: `Thank you for contacting Achtrex, ${name.split(' ')[0]}!`,
-            html: customerHtml
-        });
+        if (smtpEmail && smtpPassword) {
+            const transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                port: 587,
+                secure: false,
+                auth: {
+                    user: smtpEmail,
+                    pass: smtpPassword,
+                },
+                connectionTimeout: 4000,
+                greetingTimeout: 4000,
+                socketTimeout: 5000,
+                tls: { rejectUnauthorized: false },
+            });
 
-        if (dbErrorOccurred) {
-            return { success: true, warning: `Lead received, but failed to save to database: ${dbErrorMessage}` };
+            await transporter.sendMail({
+                from: `"Achtrex Lead Gen" <${smtpEmail}>`,
+                to: 'support@achtrex.com',
+                subject: `New Lead: ${name} (${company || 'No Company'})`,
+                html: adminHtml,
+                replyTo: email,
+            });
+
+            await transporter.sendMail({
+                from: `"Achtrex" <${smtpEmail}>`,
+                to: email,
+                subject: `Thank you for contacting Achtrex, ${name.split(' ')[0]}!`,
+                html: customerHtml,
+            });
+        } else {
+            queueOutgoingEmail({ type: 'contact', name, email, company, phone, service, message });
         }
-
-        return { success: true, warning: '' };
-
     } catch (error: any) {
-        console.error('Resend email failed:', error);
-        if (dbErrorOccurred) {
-            return { error: `Failed to send inquiry and failed to save to database. DB Error: ${dbErrorMessage}. Email Error: ${error.message}` };
-        }
-        return { error: `Database saved successfully, but failed to send email. Error: ${error.message}` };
+        console.warn('SMTP delivery deferred, queuing notification:', error.message);
+        queueOutgoingEmail({ type: 'contact', name, email, company, phone, service, message, error: error.message });
     }
+
+    return { success: true };
 }
 
 export async function submitPartnerForm(formData: FormData) {
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const phone = (formData.get('phone') as string) || 'N/A';
-    const company = formData.get('company') as string;
+    const company = formData.get('company') as string || '';
     const website = (formData.get('website') as string) || 'N/A';
     const role = (formData.get('role') as string) || 'N/A';
     const country = (formData.get('country') as string) || 'N/A';
@@ -164,179 +160,66 @@ export async function submitPartnerForm(formData: FormData) {
         return { error: 'Name, Work Email, and Company Name are required.' };
     }
 
-    let dbErrorOccurred = false;
-    let dbErrorMessage = '';
+    const fullMessage = `Partnership Track: ${type}\nRole: ${role}\nPhone: ${phone}\nWebsite: ${website}\nCountry/Region: ${country}\nCompany Size: ${companySize}\nTarget Market: ${targetMarket}\nTimeline: ${timeline}\n\nProposal / Message:\n${message}`;
+
+    // 1. Guaranteed Local Persistence
     try {
-        const fullMessage = `Partnership Track: ${type}
-Role: ${role}
-Phone: ${phone}
-Website: ${website}
-Country/Region: ${country}
-Company Size: ${companySize}
-Target Market: ${targetMarket}
-Timeline: ${timeline}
+        LeadsDB.add({
+            name,
+            email,
+            company,
+            message: fullMessage,
+            service: `Partnership: ${type}`,
+            source: 'Partner Form',
+        });
+    } catch (localErr) {
+        console.error('Local LeadsDB write warning:', localErr);
+    }
 
-Proposal / Message:
-${message}`;
-
+    // 2. Remote PostgreSQL Persistence
+    try {
         await sql`
             INSERT INTO leads (name, email, company, message, service, status)
             VALUES (${name}, ${email}, ${company}, ${fullMessage}, 'Partnership', 'new')
         `;
     } catch (dbError: any) {
-        console.error('Database insertion error:', dbError);
-        dbErrorOccurred = true;
-        dbErrorMessage = dbError.message || String(dbError);
+        console.warn('PostgreSQL write skipped, saved safely in LeadsDB:', dbError.message);
     }
 
+    // 3. Email Notification
     try {
         const smtpEmail = process.env.SMTP_USER || 'support@achtrex.com';
         const smtpPassword = (process.env.SMTP_PASS || '').replace(/['"]/g, '');
 
-        if (!smtpEmail || !smtpPassword) {
-            throw new Error('Missing SMTP credentials');
+        if (smtpEmail && smtpPassword) {
+            const transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                port: 587,
+                secure: false,
+                auth: {
+                    user: smtpEmail,
+                    pass: smtpPassword,
+                },
+                connectionTimeout: 4000,
+                greetingTimeout: 4000,
+                socketTimeout: 5000,
+                tls: { rejectUnauthorized: false },
+            });
+
+            await transporter.sendMail({
+                from: `"Achtrex Partner Program" <${smtpEmail}>`,
+                to: 'support@achtrex.com',
+                subject: `New Partner Application: ${company} (${name})`,
+                text: fullMessage,
+                replyTo: email,
+            });
+        } else {
+            queueOutgoingEmail({ type: 'partner', name, email, company, fullMessage });
         }
-
-        const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
-            auth: {
-                user: smtpEmail,
-                pass: smtpPassword
-            }
-        });
-
-        const adminHtml = `
-            <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1e293b; max-width: 640px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-                <div style="background: #1e2226; color: #ffffff; padding: 24px 30px; border-bottom: 3px solid #F37021;">
-                    <span style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #F37021;">Achtrex Partner Program</span>
-                    <h2 style="margin: 6px 0 0 0; font-size: 22px; font-weight: 700; color: #ffffff;">New Partner Application</h2>
-                </div>
-                
-                <div style="padding: 30px;">
-                    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b; width: 38%;">Full Name:</td>
-                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${name}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Work Email:</td>
-                            <td style="padding: 10px 0; font-weight: 600; color: #0284c7;"><a href="mailto:${email}" style="color: #0284c7; text-decoration: none;">${email}</a></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Phone / WhatsApp:</td>
-                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${phone}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Job Title / Role:</td>
-                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${role}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Company Name:</td>
-                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${company}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Company Website:</td>
-                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${website}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Country / Region:</td>
-                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${country}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Company Size:</td>
-                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${companySize}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Partnership Track:</td>
-                            <td style="padding: 10px 0; font-weight: 700; color: #F37021;">${type}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Target Market:</td>
-                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${targetMarket}</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #f1f5f9;">
-                            <td style="padding: 10px 0; font-weight: 700; color: #64748b;">Expected Timeline:</td>
-                            <td style="padding: 10px 0; font-weight: 600; color: #0f172a;">${timeline}</td>
-                        </tr>
-                    </table>
-
-                    <div style="margin-top: 24px;">
-                        <h4 style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin: 0 0 8px 0;">Business Overview & Partnership Goals:</h4>
-                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; font-size: 13.5px; line-height: 1.6; color: #334155; white-space: pre-wrap;">${message || 'No additional message provided.'}</div>
-                    </div>
-                </div>
-
-                <div style="background: #f8fafc; padding: 16px 30px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #94a3b8; text-align: center;">
-                    Delivered securely to <strong>support@achtrex.com</strong> &bull; Achtrex Partner Management
-                </div>
-            </div>
-        `;
-
-        await transporter.sendMail({
-            from: `"Achtrex Partner Program" <${smtpEmail}>`,
-            to: 'support@achtrex.com',
-            subject: `New Partner Application: ${company} (${name})`,
-            html: adminHtml,
-            replyTo: email
-        });
-
-        const customerHtml = `
-            <div style="font-family: 'Inter', Helvetica, sans-serif; background-color: #070b14; color: #ffffff; padding: 40px 20px; max-width: 600px; margin: 0 auto; border-radius: 12px;">
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <img src="https://achtrex.com/achtrex-logo-email.png" alt="Achtrex Logo" style="max-height: 40px; margin-bottom: 20px;" />
-                    <h1 style="color: #ffffff; margin: 0; font-size: 28px;">Partnership Request Received</h1>
-                    <p style="color: #a0aec0; font-size: 16px; margin-top: 10px;">Hi ${name.split(' ')[0]}, thank you for your interest in partnering with Achtrex. Our team will review your application and be in touch soon.</p>
-                </div>
-                
-                <div style="background-color: #111112; border: 1px solid #2d3748; border-radius: 12px; padding: 25px; margin-bottom: 30px;">
-                    <h2 style="color: #c2fce3; font-size: 20px; margin-top: 0;">While you wait...</h2>
-                    <p style="color: #e2e8f0; line-height: 1.6;">Explore the powerful platforms we can build together:</p>
-                    
-                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
-                        <img src="https://achtrex.com/logo.png" alt="Achtrex Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
-                        <div>
-                            <h3 style="color: #60a5fa; margin: 0 0 5px 0;">Automotive Software Builds</h3>
-                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Deploy bespoke automotive software builds, workshop platforms, and dealership management systems.</p>
-                            <a href="https://achtrex.com/services" style="color: #60a5fa; text-decoration: none; font-weight: bold; font-size: 14px;">Explore Services &rarr;</a>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #2d3748; display: flex; align-items: start; gap: 15px;">
-                        <img src="https://achtrex.com/logos/aaia-logo.png" alt="AAIA Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
-                        <div>
-                            <h3 style="color: #c084fc; margin: 0 0 5px 0;">✨ AAIA</h3>
-                            <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 10px 0;">Leverage cognitive automotive reasoning to unlock predictive insights and automate workflows.</p>
-                            <a href="https://achtrex.com/products/lumi" style="color: #c084fc; text-decoration: none; font-weight: bold; font-size: 14px;">Discover AAIA &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; color: #718096; font-size: 12px;">
-                    <p>&copy; ${new Date().getFullYear()} Achtrex. All rights reserved.</p>
-                </div>
-            </div>
-        `;
-
-        await transporter.sendMail({
-            from: `"Achtrex Partnerships" <${smtpEmail}>`,
-            to: email,
-            subject: `We've received your partnership request, ${name.split(' ')[0]}`,
-            html: customerHtml
-        });
-
-        if (dbErrorOccurred) {
-            return { success: true, warning: `Application received, but failed to save to database: ${dbErrorMessage}` };
-        }
-
-        return { success: true, warning: '' };
-
     } catch (error: any) {
-        console.error('Resend email failed:', error);
-        if (dbErrorOccurred) {
-            return { error: `Failed to send application and failed to save to database. DB Error: ${dbErrorMessage}. Email Error: ${error.message}` };
-        }
-        return { error: `Application saved to DB, but failed to send email. Error: ${error.message}` };
+        console.warn('SMTP delivery deferred, queuing notification:', error.message);
+        queueOutgoingEmail({ type: 'partner', name, email, company, fullMessage, error: error.message });
     }
+
+    return { success: true };
 }

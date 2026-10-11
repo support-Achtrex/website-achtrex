@@ -14,7 +14,7 @@ import {
   MessageSquare,
   Megaphone,
   Receipt,
-  Briefcase
+  Film
 } from 'lucide-react';
 
 import Image from 'next/image';
@@ -72,14 +72,7 @@ const AdminSidebar = () => {
               <LayoutDashboard size={20} />
               <span>Dashboard</span>
             </Link>
-            <Link href="/admin/projects" className={getLinkClass('/admin/projects')}>
-              {isActive('/admin/projects') && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
-              )}
-              <Briefcase size={20} />
-              <span className="flex-1">Member Projects</span>
-              <span className={`text-[10px] px-1.5 py-0.5 rounded-md transition-opacity ${isActive('/admin/projects') ? 'bg-primary text-slate-900 opacity-100' : 'bg-blue-100 text-blue-700 opacity-100'}`}>Live</span>
-            </Link>
+
             <Link href="/admin/leads" className={getLinkClass('/admin/leads')}>
               {isActive('/admin/leads') && (
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
@@ -110,6 +103,14 @@ const AdminSidebar = () => {
               <FileText size={20} />
               <span className="flex-1">Blogs</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded-md transition-opacity ${isActive('/admin/blogs') ? 'bg-primary text-slate-900 opacity-100' : 'bg-white/5 text-slate-500 opacity-0 group-hover:opacity-100'}`}>12+</span>
+            </Link>
+            <Link href="/admin/media" className={getLinkClass('/admin/media')}>
+              {isActive('/admin/media') && (
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(0,90,176,0.5)]"></div>
+              )}
+              <Film size={20} />
+              <span className="flex-1">Media</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-blue-50 text-blue-700 font-medium border border-blue-200">Live</span>
             </Link>
             <Link href="/admin/analytics" className={getLinkClass('/admin/analytics')}>
               {isActive('/admin/analytics') && (

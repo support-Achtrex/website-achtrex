@@ -211,21 +211,23 @@ svg {
   background: #141B26;
 }
 
-/* Brand Orange-to-Cyan Gradient Utilities for underlines, tabs, highlights */
-.bg-brand-gradient {
-  background: linear-gradient(90deg, #F37021 0%, #00A9CE 100%) !important;
-}
-
-.bg-brand-gradient-tri {
-  background: linear-gradient(90deg, #F37021 0%, #FB923C 40%, #00A9CE 100%) !important;
-}
-
-.text-brand-gradient {
-  background: linear-gradient(90deg, #F37021 0%, #00A9CE 100%);
-  -webkit-background-clip: text;
+/* Studio Outline Typography */
+.outline-text {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: currentColor;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
+.outline-text-white {
+  -webkit-text-stroke-width: 1.2px;
+  -webkit-text-stroke-color: #ffffff;
+  -webkit-text-fill-color: transparent;
+}
+.outline-text-black {
+  -webkit-text-stroke-width: 1.2px;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: transparent;
+}
+
 
 /* Tech Background Variables */
 :root {
@@ -341,23 +343,84 @@ svg {
   animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* Scrollbar */
+/* Minimal Studio Scrollbar */
 ::-webkit-scrollbar {
-  width: 13px !important;
-  background-color: #00a9ce !important;
+  width: 6px !important;
+}
+
+@font-face {
+  font-family: 'ClashDisplay';
+  font-display: swap;
+  font-weight: 200 700;
+  src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'ClashDisplayRegular';
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/ClashDisplay-Regular.woff2') format('woff2');
+}
+
+@keyframes scrollAnim {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { transform: translateY(0%); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* Studio Typographic Outline Text System */
+.font-clash {
+  font-family: 'ClashDisplay', system-ui, -apple-system, sans-serif;
+}
+
+.outline-text,
+.outline-text-white {
+  -webkit-text-stroke: 1.5px #ffffff;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-family: 'ClashDisplay', system-ui, -apple-system, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.outline-text-black {
+  -webkit-text-stroke: 1.5px #000000;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-family: 'ClashDisplay', system-ui, -apple-system, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.text-only em {
+  color: #ffffff;
+  font-style: normal;
+  padding: 0.05em 0.25em;
+  margin: 0 0.1em;
+  display: inline-block;
+  position: relative;
+  background-color: #000000;
+}
+
+@media (max-width: 768px) {
+  .outline-text,
+  .outline-text-white {
+    -webkit-text-stroke: 1px #ffffff;
+  }
+  .outline-text-black {
+    -webkit-text-stroke: 1px #000000;
+  }
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: #070A0F !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0,0,0,.3) !important;
-  background-color: #001a22 !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 9999px !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #000c11 !important;
+  background-color: rgba(255, 255, 255, 0.4) !important;
 }
 
 /* Tiptap Table Styles */
