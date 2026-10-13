@@ -15,12 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/media',
     '/about',
     '/contact',
+    '/terms',
+    '/privacy',
     '/legal',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === '' || route === '/media' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1.0 : route === '/media' ? 0.9 : 0.85,
+    priority: route === '' ? 1.0 : route === '/media' ? 0.9 : route === '/terms' || route === '/privacy' ? 0.7 : 0.85,
   }));
 
   // Dynamic Service Detail Routes from DB

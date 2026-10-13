@@ -5,7 +5,7 @@ import { MediaListingClient } from '@/components/studio/MediaListingClient';
 
 export const metadata: Metadata = {
   title: 'Media & Real-Time Insights | Achtrex Innovation Studio',
-  description: 'Technology simplifying and making everyday actions smarter and more connected: a driver of change capable of improving our way of living, learning, working, and taking care of others.',
+  description: 'Technology simplifying and making everyday actions smarter and more connected: stories, events, ESG initiatives, and technological breakthroughs from Achtrex.',
   alternates: {
     canonical: 'https://achtrex.com/media',
   },
@@ -13,7 +13,35 @@ export const metadata: Metadata = {
     title: 'Media & Real-Time Insights | Achtrex',
     description: 'The digital in real time: stories, events, ESG initiatives, and technological breakthroughs from Achtrex.',
     url: 'https://achtrex.com/media',
+    siteName: 'Achtrex',
+    type: 'website',
+    images: [{
+      url: '/studio-assets/aerial-intro-bg.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Achtrex Media and Real-Time Insights',
+    }],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Media & Real-Time Insights | Achtrex',
+    description: 'Stories, events, ESG initiatives, and technological breakthroughs from Achtrex.',
+    images: ['/studio-assets/aerial-intro-bg.jpg'],
+  },
+};
+
+const mediaJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': 'https://achtrex.com/media#webpage',
+  'name': 'Achtrex Media & Real-Time Insights',
+  'url': 'https://achtrex.com/media',
+  'description': 'Stories, press releases, events, ESG initiatives, and technological breakthroughs from Achtrex.',
+  'publisher': {
+    '@type': 'Corporation',
+    'name': 'Achtrex',
+    'url': 'https://achtrex.com'
+  }
 };
 
 export const revalidate = 0; // Dynamic server component for instant updates when admin adds items
@@ -23,6 +51,10 @@ export default function MediaPage() {
 
   return (
     <div className="w-full bg-[#050b14] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(mediaJsonLd) }}
+      />
       {/* =========================================================================
           TOP HERO BANNER (Matches Reference Screenshot 2)
       ========================================================================== */}

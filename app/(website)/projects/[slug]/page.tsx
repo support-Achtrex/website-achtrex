@@ -30,13 +30,35 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
+  const imageUrl = project.heroImage || project.secondaryImage || '/studio-assets/hero-spatial-installation.jpg';
+  const canonicalUrl = `https://achtrex.com/projects/${project.slug}`;
+
   return {
     title: `${project.title} : Achtrex Concept`,
     description: project.shortDescription,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${project.title} | Achtrex Concept Experience`,
       description: project.shortDescription,
-      images: [project.heroImage || project.secondaryImage || '/studio-assets/hero-spatial-installation.jpg'],
+      url: canonicalUrl,
+      siteName: 'Achtrex',
+      type: 'article',
+      images: [
+        {
+          url: imageUrl.startsWith('http') ? imageUrl : `https://achtrex.com${imageUrl}`,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} | Achtrex Concept Experience`,
+      description: project.shortDescription,
+      images: [imageUrl],
     },
   };
 }
@@ -47,8 +69,58 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const nextProject = getNextProject(project.slug);
   const relatedService = SERVICES.find((s) => s.id === project.serviceId) || SERVICES[0];
 
+  const projectJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    '@id': `https://achtrex.com/projects/${project.slug}#creativework`,
+    'name': project.title,
+    'headline': project.subtitle || project.title,
+    'description': project.shortDescription,
+    'url': `https://achtrex.com/projects/${project.slug}`,
+    'image': project.heroImage || project.secondaryImage,
+    'creator': {
+      '@type': 'Corporation',
+      'name': 'Achtrex',
+      'url': 'https://achtrex.com'
+    },
+    'keywords': [...(project.technicalCapabilities || []), ...(project.techStack || [])].join(', ')
+  };
+
+  const breadcrumbsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://achtrex.com'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Projects',
+        'item': 'https://achtrex.com/projects'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': project.title,
+        'item': `https://achtrex.com/projects/${project.slug}`
+      }
+    ]
+  };
+
   return (
     <div className="bg-[#000000] text-white min-h-screen font-sans selection:bg-white selection:text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
       {/* =========================================================================
           HERO (Concept Experience Showcase)
       ========================================================================== */}

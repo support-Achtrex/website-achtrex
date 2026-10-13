@@ -74,16 +74,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/privacy',
-        destination: '/legal#privacy',
-        permanent: true,
-      },
-      {
-        source: '/terms',
-        destination: '/legal#terms',
-        permanent: true,
-      },
-      {
         source: '/security',
         destination: '/legal#security',
         permanent: true,
@@ -96,16 +86,6 @@ const nextConfig: NextConfig = {
       {
         source: '/portal',
         destination: '/contact',
-        permanent: true,
-      },
-      {
-        source: '/admin/projects/:path*',
-        destination: '/admin',
-        permanent: true,
-      },
-      {
-        source: '/admin/projects',
-        destination: '/admin',
         permanent: true,
       },
       {

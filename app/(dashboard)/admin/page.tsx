@@ -258,7 +258,7 @@ export default async function AdminDashboard() {
           <div className="space-y-3">
             {projects.slice(0, 4).map((project) => (
               <div
-                key={project.id}
+                key={project.slug}
                 className="flex items-center justify-between p-3 rounded-xl border border-slate-100 hover:border-slate-200 hover:bg-slate-50/50 transition-all group"
               >
                 <div className="flex items-center gap-3 min-w-0">

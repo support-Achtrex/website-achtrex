@@ -10,11 +10,21 @@ export const metadata: Metadata = {
   title: "Insights & Perspectives | Achtrex Studio",
   description: "Perspectives on experience design, creative technology, real-time 3D, and artificial intelligence from the Achtrex team.",
   keywords: ["Experience Design", "Creative Technology", "Real-Time 3D", "Design Systems", "AI Interfaces", "Achtrex Studio"],
+  alternates: {
+    canonical: "https://achtrex.com/blog",
+  },
   openGraph: {
     title: "Achtrex Studio Insights | Design & Technology",
     description: "Perspectives on experience design, creative technology, and artificial intelligence from Achtrex.",
+    url: "https://achtrex.com/blog",
     images: ["/logo.png"],
-  }
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Achtrex Studio Insights | Design & Technology",
+    description: "Perspectives on experience design, creative technology, and artificial intelligence from Achtrex.",
+    images: ["/logo.png"],
+  },
 };
 
 const jsonLd = {

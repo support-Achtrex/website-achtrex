@@ -23,6 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} | Achtrex Engineering Blog`,
     description: post.excerpt,
+    alternates: {
+      canonical: `https://achtrex.com/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -162,7 +165,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {otherPosts.map((other) => (
                 <Link 
                   key={other.id} 
-                  href={`https://achtrex.com/blog/${other.slug}`}
+                  href={`/blog/${other.slug}`}
                   className="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-[#00a9ce]/50 hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div>

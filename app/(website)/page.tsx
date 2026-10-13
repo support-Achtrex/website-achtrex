@@ -3,10 +3,19 @@ import Image from 'next/image';
 import { HeroSlider } from '@/components/studio/HeroSlider';
 import { ServicesGridSection } from '@/components/studio/ServicesGridSection';
 import { HomeMediaSection } from '@/components/studio/HomeMediaSection';
+import { Metadata } from 'next';
 import { MediaDB } from '@/lib/media-db';
 import { ServicesDB } from '@/lib/services-db';
 
 export const revalidate = 0; // Fresh updates when admin updates content
+
+export const metadata: Metadata = {
+  title: 'Achtrex : Digital Experience & Technology Studio',
+  description: 'We design and build digital experiences where technology, creativity and intelligence come together. High-performance 3D configurators, spatial systems, and custom AI products.',
+  alternates: {
+    canonical: 'https://achtrex.com',
+  },
+};
 
 export default function StudioHomePage() {
   const mediaItems = MediaDB.getAll();

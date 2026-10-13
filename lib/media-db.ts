@@ -33,9 +33,14 @@ export const MediaDB = {
     }
   },
 
+  getById: (id: string): MediaItem | undefined => {
+    const all = MediaDB.getAll();
+    return all.find((item) => item.id === id);
+  },
+
   getBySlug: (slug: string): MediaItem | undefined => {
     const all = MediaDB.getAll();
-    return all.find((item) => item.slug === slug);
+    return all.find((item) => item.slug === slug || item.id === slug);
   },
 
   add: (item: Omit<MediaItem, 'id' | 'dateFormatted'>): MediaItem => {
@@ -69,6 +74,41 @@ export const MediaDB = {
     }
 
     return newItem;
+  },
+
+  update: (id: string, updates: Partial<MediaItem>): MediaItem | null => {
+    const all = MediaDB.getAll();
+    const index = all.findIndex((item) => item.id === id || item.slug === id);
+    if (index === -1) return null;
+
+    let dateFormatted = all[index].dateFormatted;
+    if (updates.date) {
+      dateFormatted = updates.date;
+      try {
+        const parts = updates.date.split('/');
+        if (parts.length === 3) {
+          const [day, month, year] = parts;
+          const d = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+          dateFormatted = d.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+        }
+      } catch (_) {}
+    }
+
+    all[index] = {
+      ...all[index],
+      ...updates,
+      dateFormatted,
+    };
+
+    try {
+      const dir = path.dirname(DATA_FILE);
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(DATA_FILE, JSON.stringify(all, null, 2), 'utf-8');
+    } catch (err) {
+      console.error('Error saving media.json:', err);
+    }
+
+    return all[index];
   },
 
   delete: (id: string): boolean => {

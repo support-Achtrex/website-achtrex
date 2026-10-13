@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { ConceptExperienceItem, PROJECTS as DEFAULT_PROJECTS } from '@/data/studio-data';
+import { ConceptExperienceItem, PROJECTS as DEFAULT_PROJECTS, LEGACY_SLUG_MAP } from '@/data/studio-data';
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'projects.json');
 
@@ -27,13 +27,15 @@ export const ProjectsDB = {
   },
 
   getBySlug: (slug: string): ConceptExperienceItem | undefined => {
+    const resolved = (LEGACY_SLUG_MAP && LEGACY_SLUG_MAP[slug]) || slug;
     const all = ProjectsDB.getAll();
-    return all.find((p) => p.slug === slug);
+    return all.find((p) => p.slug === resolved || p.slug === slug);
   },
 
   update: (slug: string, updates: Partial<ConceptExperienceItem>): ConceptExperienceItem | null => {
+    const resolved = (LEGACY_SLUG_MAP && LEGACY_SLUG_MAP[slug]) || slug;
     const all = ProjectsDB.getAll();
-    const index = all.findIndex((p) => p.slug === slug);
+    const index = all.findIndex((p) => p.slug === resolved || p.slug === slug);
     if (index === -1) return null;
 
     all[index] = {

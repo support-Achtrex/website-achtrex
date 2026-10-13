@@ -41,7 +41,7 @@ export async function sendCampaign(formData: FormData) {
         // 1. Fetch Subscribers if requested
         if (sendToAll) {
             const { rows: subscribers } = await sql`SELECT email FROM subscribers`;
-            subscribers.forEach(sub => recipientsSet.add(sub.email));
+            subscribers.forEach((sub: any) => recipientsSet.add(sub.email));
         }
 
         // 2. Add Manual Recipients

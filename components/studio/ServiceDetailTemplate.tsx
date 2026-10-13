@@ -33,8 +33,67 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
   const isAiService = service.id === 'ai-intelligent-experiences';
   const [mediaMode, setMediaMode] = useState<'3d' | 'image'>(isAiService ? '3d' : 'image');
 
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `https://achtrex.com/services/${service.slug}#service`,
+    'name': service.title,
+    'description': service.description,
+    'url': `https://achtrex.com/services/${service.slug}`,
+    'provider': {
+      '@type': 'Corporation',
+      'name': 'Achtrex',
+      'url': 'https://achtrex.com'
+    },
+    'serviceType': service.headline,
+    'hasOfferCatalog': {
+      '@type': 'OfferCatalog',
+      'name': `${service.title} Capabilities`,
+      'itemListElement': (service.capabilities || []).map((cap) => ({
+        '@type': 'Offer',
+        'itemOffered': {
+          '@type': 'Service',
+          'name': cap
+        }
+      }))
+    }
+  };
+
+  const breadcrumbsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://achtrex.com'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Services',
+        'item': 'https://achtrex.com/services'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': service.title,
+        'item': `https://achtrex.com/services/${service.slug}`
+      }
+    ]
+  };
+
   return (
     <div className="bg-[#000000] text-white min-h-screen font-sans selection:bg-white selection:text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
       {/* =========================================================================
           HERO
       ========================================================================== */}

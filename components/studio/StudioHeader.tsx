@@ -201,14 +201,14 @@ export function StudioHeader() {
                     </span>
                   </div>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px]">
-                    <Link href="/legal#company" onClick={() => setIsOpen(false)} className="hover:text-white underline underline-offset-2 transition-colors">
-                      Company Info
-                    </Link>
-                    <Link href="/legal#notice" onClick={() => setIsOpen(false)} className="hover:text-white underline underline-offset-2 transition-colors">
-                      Legal Notice
+                    <Link href="/terms" onClick={() => setIsOpen(false)} className="hover:text-white underline underline-offset-2 transition-colors">
+                      Terms of Service
                     </Link>
                     <Link href="/privacy" onClick={() => setIsOpen(false)} className="hover:text-white underline underline-offset-2 transition-colors">
                       Privacy Policy
+                    </Link>
+                    <Link href="/legal" onClick={() => setIsOpen(false)} className="hover:text-white underline underline-offset-2 transition-colors">
+                      Legal Hub
                     </Link>
                     <span className="text-white/40">© 2026 Achtrex</span>
                   </div>

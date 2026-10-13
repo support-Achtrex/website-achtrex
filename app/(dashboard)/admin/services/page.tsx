@@ -57,7 +57,7 @@ export default function AdminServicesPage() {
   const fetchServices = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/services-items');
+      const res = await fetch(`/api/services-items?t=${Date.now()}`, { cache: 'no-store' });
       if (res.ok) {
         const data = await res.json();
         setServices(data);
@@ -169,6 +169,11 @@ export default function AdminServicesPage() {
 
       if (res?.success) {
         setToastMessage({ type: 'success', text: isCreating ? 'Service created successfully!' : 'Service updated successfully!' });
+        if (editingService && res.service) {
+          setServices((prev) => prev.map((s) => (s.slug === editingService.slug || s.id === editingService.id ? res.service! : s)));
+        } else if (isCreating && res.service) {
+          setServices((prev) => [res.service!, ...prev]);
+        }
         setEditingService(null);
         setIsCreating(false);
         fetchServices();
@@ -189,6 +194,7 @@ export default function AdminServicesPage() {
       const res = await deleteServiceAction(slug);
       if (res.success) {
         setToastMessage({ type: 'success', text: 'Service deleted.' });
+        setServices((prev) => prev.filter((s) => s.slug !== slug && s.id !== slug));
         fetchServices();
       } else {
         setToastMessage({ type: 'error', text: 'Failed to delete service.' });

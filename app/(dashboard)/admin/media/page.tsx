@@ -9,6 +9,7 @@ import {
   Image as ImageIcon, 
   Plus, 
   Trash2, 
+  Edit3,
   ExternalLink, 
   Upload, 
   Video, 
@@ -16,9 +17,11 @@ import {
   AlertCircle,
   Calendar,
   Layers,
-  FileText
+  FileText,
+  X,
+  RefreshCw
 } from 'lucide-react';
-import { createMediaAction, deleteMediaAction } from '@/app/actions/media';
+import { createMediaAction, updateMediaAction, deleteMediaAction } from '@/app/actions/media';
 import { MediaItem } from '@/lib/media-db';
 
 const CATEGORIES = ['STORIES', 'EVENTS', 'ABOUT US', 'ESG', 'INNOVATION'];
@@ -30,6 +33,7 @@ export default function AdminMediaPage() {
   const [items, setItems] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [editingItem, setEditingItem] = useState<MediaItem | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
@@ -46,27 +50,28 @@ export default function AdminMediaPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>('');
 
-  // Fetch initial media items
-  useEffect(() => {
-    fetchMedia();
-    // Default today's date in DD/MM/YYYY format
+  const getTodayDate = () => {
     const today = new Date();
     const d = String(today.getDate()).padStart(2, '0');
     const m = String(today.getMonth() + 1).padStart(2, '0');
     const y = today.getFullYear();
-    setDate(`${d}/${m}/${y}`);
+    return `${d}/${m}/${y}`;
+  };
+
+  // Fetch initial media items
+  useEffect(() => {
+    fetchMedia();
+    setDate(getTodayDate());
   }, []);
 
   const fetchMedia = async () => {
     try {
       setLoading(true);
-      // Fetch directly via server side or read API
-      const res = await fetch('/api/media-items');
+      const res = await fetch(`/api/media-items?t=${Date.now()}`, { cache: 'no-store' });
       if (res.ok) {
         const data = await res.json();
         setItems(data);
       } else {
-        // Fallback: reload page router
         router.refresh();
       }
     } catch (_) {
@@ -74,6 +79,39 @@ export default function AdminMediaPage() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const openAddModal = () => {
+    setEditingItem(null);
+    setTitle('');
+    setSubtitle('');
+    setCategory('STORIES');
+    setDate(getTodayDate());
+    setMediaType('image');
+    setDirectUrl('');
+    setSummary('');
+    setContent('');
+    setFeatured(false);
+    setSelectedFile(null);
+    setPreviewUrl('');
+    setShowAddForm(true);
+  };
+
+  const openEditModal = (item: MediaItem) => {
+    setEditingItem(item);
+    setTitle(item.title || '');
+    setSubtitle(item.subtitle || '');
+    setCategory(item.category || 'STORIES');
+    setDate(item.date || getTodayDate());
+    setMediaType(item.mediaType || 'image');
+    setDirectUrl(item.mediaUrl || '');
+    setSummary(item.summary || '');
+    setContent(item.content || '');
+    setFeatured(Boolean(item.featured));
+    setSelectedFile(null);
+    setPreviewUrl(item.mediaUrl || '');
+    setShowAddForm(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,10 +143,22 @@ export default function AdminMediaPage() {
         formData.append('file', selectedFile);
       }
 
-      const res = await createMediaAction(formData);
+      let res;
+      if (editingItem) {
+        formData.append('id', editingItem.id);
+        formData.append('slug', editingItem.slug);
+        res = await updateMediaAction(formData);
+      } else {
+        res = await createMediaAction(formData);
+      }
 
       if (res.success && res.item) {
-        setMessage({ type: 'success', text: `Media "${res.item.title}" published successfully!` });
+        setMessage({
+          type: 'success',
+          text: editingItem
+            ? `Media "${res.item.title}" updated successfully!`
+            : `Media "${res.item.title}" published successfully!`,
+        });
         // Reset form
         setTitle('');
         setSubtitle('');
@@ -117,12 +167,18 @@ export default function AdminMediaPage() {
         setDirectUrl('');
         setSelectedFile(null);
         setPreviewUrl('');
+        setEditingItem(null);
         setShowAddForm(false);
         // Refresh list
-        setItems((prev) => [res.item!, ...prev]);
+        if (editingItem) {
+          setItems((prev) => prev.map((i) => (i.id === editingItem.id ? res.item! : i)));
+        } else {
+          setItems((prev) => [res.item!, ...prev]);
+        }
+        fetchMedia();
         router.refresh();
       } else {
-        setMessage({ type: 'error', text: res.error || 'Failed to create media story' });
+        setMessage({ type: 'error', text: res.error || 'Failed to save media story' });
       }
     } catch (err: any) {
       setMessage({ type: 'error', text: err?.message || 'Unexpected submission error' });
@@ -172,7 +228,14 @@ export default function AdminMediaPage() {
             <ExternalLink size={14} />
           </Link>
           <button
-            onClick={() => setShowAddForm(!showAddForm)}
+            onClick={() => {
+              if (showAddForm) {
+                setShowAddForm(false);
+                setEditingItem(null);
+              } else {
+                openAddModal();
+              }
+            }}
             className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-[#1a365d] hover:bg-[#152a48] rounded-xl shadow-sm transition-all cursor-pointer"
           >
             <Plus size={16} />
@@ -199,14 +262,30 @@ export default function AdminMediaPage() {
         </div>
       )}
 
-      {/* Add New Media Form */}
+      {/* Add / Edit Media Form */}
       {showAddForm && (
         <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-md transition-all">
-          <div className="border-b border-slate-100 pb-4 mb-6">
-            <h2 className="text-lg font-bold text-slate-900">Publish New Media Release</h2>
-            <p className="text-xs text-slate-500">
-              Provide article copy and upload either an image or video (or embed YouTube/Vimeo).
-            </p>
+          <div className="border-b border-slate-100 pb-4 mb-6 flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-bold text-slate-900">
+                {editingItem ? `Edit Media Release / ${editingItem.title}` : 'Publish New Media Release'}
+              </h2>
+              <p className="text-xs text-slate-500">
+                {editingItem
+                  ? 'Update editorial copy, media asset URLs, or upload replacement media files.'
+                  : 'Provide article copy and upload either an image or video (or embed YouTube/Vimeo).'}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setShowAddForm(false);
+                setEditingItem(null);
+              }}
+              className="p-2 text-slate-400 hover:text-slate-700 rounded-lg transition-colors cursor-pointer"
+            >
+              <X size={20} />
+            </button>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -425,7 +504,10 @@ export default function AdminMediaPage() {
             <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
               <button
                 type="button"
-                onClick={() => setShowAddForm(false)}
+                onClick={() => {
+                  setShowAddForm(false);
+                  setEditingItem(null);
+                }}
                 className="px-5 py-2.5 text-xs font-medium text-slate-600 hover:text-slate-900 transition-colors cursor-pointer"
               >
                 Cancel
@@ -435,7 +517,7 @@ export default function AdminMediaPage() {
                 disabled={submitting}
                 className="inline-flex items-center gap-2 px-6 py-2.5 text-xs font-semibold text-white bg-[#1a365d] hover:bg-[#152a48] rounded-xl shadow-sm transition-all disabled:opacity-50 cursor-pointer"
               >
-                {submitting ? 'Publishing...' : 'Publish Media Item'}
+                {submitting ? 'Saving...' : editingItem ? 'Save Changes' : 'Publish Media Item'}
               </button>
             </div>
           </form>
@@ -451,6 +533,13 @@ export default function AdminMediaPage() {
               {items.length} total
             </span>
           </div>
+          <button
+            onClick={fetchMedia}
+            className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+            title="Refresh list"
+          >
+            <RefreshCw size={15} className={loading ? 'animate-spin' : ''} />
+          </button>
         </div>
 
         {items.length > 0 ? (
@@ -514,6 +603,15 @@ export default function AdminMediaPage() {
                     <span>View</span>
                     <ExternalLink size={12} />
                   </Link>
+
+                  <button
+                    onClick={() => openEditModal(item)}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer shadow-2xs"
+                    title="Edit Media"
+                  >
+                    <Edit3 size={13} />
+                    <span>Edit</span>
+                  </button>
 
                   <button
                     onClick={() => handleDelete(item.id, item.title)}

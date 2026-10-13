@@ -9,9 +9,26 @@ export const revalidate = 0;
 export const metadata: Metadata = {
   title: 'Digital Products Development Services',
   description: 'Design and engineer custom software applications, web platforms, and mobile apps built to scale with clinical precision.',
+  alternates: {
+    canonical: 'https://achtrex.com/services/digital-products',
+  },
   openGraph: {
     title: 'Digital Products Development Services | Achtrex Studio',
     description: 'We turn complex requirements into high-performance web applications, enterprise SaaS systems, and digital ecosystems.',
+    url: 'https://achtrex.com/services/digital-products',
+    siteName: 'Achtrex',
+    type: 'website',
+    images: [{
+      url: '/studio-assets/service-digital-products.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Digital Products Development Services',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Digital Products Development Services | Achtrex Studio',
+    description: 'High-performance web platforms, custom applications, enterprise portals, SaaS and cloud systems.',
     images: ['/studio-assets/service-digital-products.jpg'],
   },
 };

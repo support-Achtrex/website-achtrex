@@ -66,7 +66,7 @@ export default function AdminProjectsPage() {
   const fetchProjects = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/projects-items');
+      const res = await fetch(`/api/projects-items?t=${Date.now()}`, { cache: 'no-store' });
       if (res.ok) {
         const data = await res.json();
         setProjects(data);
@@ -205,6 +205,11 @@ export default function AdminProjectsPage() {
 
       if (res?.success) {
         setToastMessage({ type: 'success', text: isCreating ? 'Project created successfully!' : 'Project updated successfully!' });
+        if (editingProject && res.project) {
+          setProjects((prev) => prev.map((p) => (p.slug === editingProject.slug ? res.project! : p)));
+        } else if (isCreating && res.project) {
+          setProjects((prev) => [res.project!, ...prev]);
+        }
         setEditingProject(null);
         setIsCreating(false);
         fetchProjects();
@@ -225,6 +230,7 @@ export default function AdminProjectsPage() {
       const res = await deleteProjectAction(slug);
       if (res.success) {
         setToastMessage({ type: 'success', text: 'Project deleted.' });
+        setProjects((prev) => prev.filter((p) => p.slug !== slug));
         fetchProjects();
       } else {
         setToastMessage({ type: 'error', text: 'Failed to delete project.' });

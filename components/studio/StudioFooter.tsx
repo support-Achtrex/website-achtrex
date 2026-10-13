@@ -107,14 +107,14 @@ export function StudioFooter() {
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-[11px] text-[#708894]">
-              <Link href="/legal#company" className="hover:text-white underline underline-offset-2 transition-colors">
-                Company information
-              </Link>
-              <Link href="/legal#notice" className="hover:text-white underline underline-offset-2 transition-colors">
-                Legal notice
+              <Link href="/terms" className="hover:text-white underline underline-offset-2 transition-colors">
+                Terms &amp; conditions
               </Link>
               <Link href="/privacy" className="hover:text-white underline underline-offset-2 transition-colors">
                 Privacy policy
+              </Link>
+              <Link href="/legal" className="hover:text-white underline underline-offset-2 transition-colors">
+                Legal &amp; compliance
               </Link>
             </div>
           </div>

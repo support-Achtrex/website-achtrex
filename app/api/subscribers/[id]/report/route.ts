@@ -30,11 +30,11 @@ export async function GET(
             let fetchedNotes = notesRes.rows;
             
             if (selectedNoteIds && selectedNoteIds.length > 0) {
-                notes = fetchedNotes.filter(n => selectedNoteIds.includes(n.id));
+                notes = fetchedNotes.filter((n: any) => selectedNoteIds.includes(n.id));
             } else {
                 const oneWeekAgo = new Date();
                 oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-                notes = fetchedNotes.filter(n => new Date(n.created_at) >= oneWeekAgo);
+                notes = fetchedNotes.filter((n: any) => new Date(n.created_at) >= oneWeekAgo);
             }
         } catch (e: any) {
             if (e.message && e.message.includes('relation "client_notes" does not exist')) {

@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { MediaDB, MediaItem } from '@/lib/media-db';
 
 interface MediaDetailPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -18,7 +18,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: MediaDetailPageProps): Promise<Metadata> {
-  const item = MediaDB.getBySlug(params.slug);
+  const { slug } = await params;
+  const item = MediaDB.getBySlug(slug);
 
   if (!item) {
     return {
@@ -47,13 +48,20 @@ export async function generateMetadata({ params }: MediaDetailPageProps): Promis
       ],
       type: 'article',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${item.title.replace(/[“”"]/g, '')} | Achtrex`,
+      description: item.summary || item.subtitle,
+      images: [item.mediaUrl.startsWith('http') ? item.mediaUrl : `https://achtrex.com${item.mediaUrl}`],
+    },
   };
 }
 
 export const revalidate = 0; // Fresh updates when admin updates media
 
-export default function MediaDetailPage({ params }: MediaDetailPageProps) {
-  const item = MediaDB.getBySlug(params.slug);
+export default async function MediaDetailPage({ params }: MediaDetailPageProps) {
+  const { slug } = await params;
+  const item = MediaDB.getBySlug(slug);
 
   if (!item) {
     notFound();
@@ -87,8 +95,58 @@ export default function MediaDetailPage({ params }: MediaDetailPageProps) {
     return url;
   };
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    '@id': `https://achtrex.com/media/${item.slug}#article`,
+    'headline': item.title,
+    'description': item.summary || item.subtitle,
+    'datePublished': item.date,
+    'url': `https://achtrex.com/media/${item.slug}`,
+    'image': [item.mediaUrl.startsWith('http') ? item.mediaUrl : `https://achtrex.com${item.mediaUrl}`],
+    'publisher': {
+      '@type': 'Corporation',
+      'name': 'Achtrex',
+      'url': 'https://achtrex.com',
+      'logo': 'https://achtrex.com/logo.png'
+    }
+  };
+
+  const breadcrumbsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://achtrex.com'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Media',
+        'item': 'https://achtrex.com/media'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': item.title,
+        'item': `https://achtrex.com/media/${item.slug}`
+      }
+    ]
+  };
+
   return (
     <article className="w-full bg-white min-h-screen text-gray-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
       {/* =========================================================================
           PLUM / DEEP PURPLE HEADER BANNER (Exact Match to Reference Screenshot 3)
       ========================================================================== */}
