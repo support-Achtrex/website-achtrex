@@ -27,7 +27,6 @@ const REAL_SERVICES: ServiceCardData[] = [
     category: 'ai-tech',
     categoryLabel: 'AI & Intelligence',
     image: '/studio-assets/preview-lumen.jpg',
-    video: '/hero-videos/lumen-intelligent-cover.mp4',
     href: '/services/ai-intelligent-experiences',
   },
   {
@@ -38,7 +37,6 @@ const REAL_SERVICES: ServiceCardData[] = [
     category: 'design',
     categoryLabel: 'Design & Content',
     image: '/studio-assets/preview-afterdark.jpg',
-    video: '/hero-videos/after-dark-cover.mp4',
     href: '/services/creative-strategy',
   },
   {
@@ -49,7 +47,6 @@ const REAL_SERVICES: ServiceCardData[] = [
     category: 'ai-tech',
     categoryLabel: 'Engineering & Platforms',
     image: '/studio-assets/preview-aura.jpg',
-    video: '/hero-videos/aura-vehicle-cover.mp4',
     href: '/services/digital-products',
   },
   {
@@ -104,6 +101,7 @@ export function ServicesGridSection({ services }: { services?: ServiceItem[] }) 
       title: dbItem.title || defaultItem.title,
       subtitle: dbItem.subtitle || defaultItem.subtitle,
       image: dbItem.heroImage || defaultItem.image,
+      video: dbItem.heroVideo !== undefined ? dbItem.heroVideo : defaultItem.video,
     };
   });
 

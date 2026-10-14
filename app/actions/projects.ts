@@ -84,11 +84,24 @@ export async function updateProjectAction(formData: FormData) {
       }
     }
 
-    // New gallery file upload
+    // New gallery file upload (single or multiple)
+    const galleryFiles = formData.getAll('newGalleryFiles') as File[];
+    for (const gFile of galleryFiles) {
+      const uploadedG = await saveUploadedFile(gFile);
+      if (uploadedG) galleryImages.push(uploadedG);
+    }
     const newGalleryFile = formData.get('newGalleryFile') as File | null;
-    const uploadedGalleryImg = await saveUploadedFile(newGalleryFile);
-    if (uploadedGalleryImg) {
-      galleryImages.push(uploadedGalleryImg);
+    if (newGalleryFile) {
+      const uploadedGalleryImg = await saveUploadedFile(newGalleryFile);
+      if (uploadedGalleryImg) {
+        galleryImages.push(uploadedGalleryImg);
+      }
+    }
+
+    // Direct gallery URL addition
+    const newGalleryUrl = (formData.get('newGalleryUrl') as string)?.trim();
+    if (newGalleryUrl && !galleryImages.includes(newGalleryUrl)) {
+      galleryImages.push(newGalleryUrl);
     }
 
     // Parse technicalCapabilities & techStack
@@ -193,6 +206,15 @@ export async function createProjectAction(formData: FormData) {
     const techStackRaw = (formData.get('techStack') as string) || '';
     const techStack = techStackRaw.split(/[\n,]+/).map((s) => s.trim()).filter(Boolean);
 
+    let galleryImages: string[] = [];
+    const galleryFiles = formData.getAll('newGalleryFiles') as File[];
+    for (const gFile of galleryFiles) {
+      const uploadedG = await saveUploadedFile(gFile);
+      if (uploadedG) galleryImages.push(uploadedG);
+    }
+    const newGalleryUrl = (formData.get('newGalleryUrl') as string)?.trim();
+    if (newGalleryUrl) galleryImages.push(newGalleryUrl);
+
     const newProject: ConceptExperienceItem = {
       slug,
       title,
@@ -205,7 +227,7 @@ export async function createProjectAction(formData: FormData) {
       heroImage,
       heroVideo,
       secondaryImage,
-      galleryImages: [],
+      galleryImages,
       shortDescription,
       challenge,
       conceptArchitecture,

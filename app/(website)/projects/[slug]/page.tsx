@@ -1,9 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Interactive3DViewport } from '@/components/studio/Interactive3DViewport';
-import { ConceptLiveExperience } from '@/components/studio/ConceptLiveExperience';
-import { InteractiveSpatialSimulationSection } from '@/components/studio/InteractiveSpatialSimulationSection';
 import { PROJECTS, LEGACY_SLUG_MAP, SERVICES, ConceptExperienceItem, STUDIO_CONFIG } from '@/data/studio-data';
 import { ProjectsDB } from '@/lib/projects-db';
 
@@ -178,10 +175,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <div className="w-full h-1/2 bg-white animate-pulse" />
             </div>
           </div>
-
-          <div className="font-mono text-xs text-white/60 uppercase tracking-widest hidden sm:block">
-            Achtrex Research &amp; Prototyping Lab &bull; {project.year} &bull; Dubai Silicon Oasis
-          </div>
         </div>
       </section>
 
@@ -265,23 +258,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      {/* =========================================================================
-          LIVE INTERACTIVE CONCEPT SIMULATOR (SHOWING THE ACTUAL INTERFACE)
-      ========================================================================== */}
-      <ConceptLiveExperience
-        slug={project.slug}
-        title={project.title}
-        industry={project.industry}
-        category={project.category}
-      />
-
-      {/* =========================================================================
-          LIVE 3D SPATIAL SIMULATION & MULTI-CHANNEL GRID (HOMEPAGE HERO VIDEOS)
-      ========================================================================== */}
-      <InteractiveSpatialSimulationSection
-        sceneMode={project.sceneMode || 'general'}
-        projectTitle={project.title}
-      />
 
       {/* =========================================================================
           INTERACTION DYNAMICS & ASYMMETRICAL EDITORIAL SPREAD
@@ -460,44 +436,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      {/* =========================================================================
-          ASYMMETRICAL IMAGE GALLERY WITH REVEALS
-      ========================================================================== */}
-      {project.galleryImages && project.galleryImages.length > 0 && (
-        <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#000000]">
-          <div className="w-full max-w-[1720px] mx-auto">
-            <div className="mb-12">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-2">
-                Visual Documentation
-              </span>
-              <h3 className="font-clash text-3xl sm:text-4xl font-normal text-white tracking-tight">
-                Concept Visual Records
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              {project.galleryImages.map((img, idx) => (
-                <div
-                  key={idx}
-                  className="group relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-neutral-950"
-                >
-                  <Image
-                    src={img}
-                    alt={`${project.title} gallery ${idx + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/70">
-                    Plate 0{idx + 1} &bull; {project.category}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* =========================================================================
           COMMISSION CONVERSION SECTION

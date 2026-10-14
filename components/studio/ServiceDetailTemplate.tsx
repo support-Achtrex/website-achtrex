@@ -5,20 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ServiceItem, SERVICES, STUDIO_CONFIG } from '@/data/studio-data';
-import { Interactive3DViewport, ThreeDSceneMode } from './Interactive3DViewport';
 
 interface ServiceDetailTemplateProps {
   service: ServiceItem;
-}
-
-function getSceneMode(id: string, slug: string): ThreeDSceneMode {
-  if (id.includes('experience') || slug.includes('experience-design')) return 'experience-design';
-  if (id.includes('creative') || slug.includes('creative-strategy')) return 'creative-strategy';
-  if (id.includes('digital') || slug.includes('digital-products')) return 'digital-products';
-  if (id.includes('ai') || slug.includes('ai-intelligent')) return 'ai-intelligent-experiences';
-  if (id.includes('cgi') || slug.includes('cgi-immersive')) return 'cgi-immersive';
-  if (id.includes('config') || slug.includes('product-configurators')) return 'product-configurators';
-  return 'general';
 }
 
 function getNextService(currentSlug: string): ServiceItem {
@@ -28,10 +17,7 @@ function getNextService(currentSlug: string): ServiceItem {
 }
 
 export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
-  const sceneMode = getSceneMode(service.id, service.slug);
   const nextService = getNextService(service.slug);
-  const isAiService = service.id === 'ai-intelligent-experiences';
-  const [mediaMode, setMediaMode] = useState<'3d' | 'image'>(isAiService ? '3d' : 'image');
 
   const serviceJsonLd = {
     '@context': 'https://schema.org',
@@ -170,64 +156,27 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
             {/* Left Zone: Media Presentation */}
             <div className="lg:col-span-6 flex items-center justify-center">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-white/15 bg-neutral-950 shadow-2xl">
-                {isAiService && mediaMode === '3d' ? (
-                  <div className="relative w-full h-full flex items-center justify-center bg-neutral-950">
-                    <Interactive3DViewport mode="ai-intelligent-experiences" className="w-full h-full" />
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.85)_100%)] pointer-events-none" />
-                    <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2 pointer-events-none">
-                      <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-                      <span className="font-mono text-[11px] uppercase tracking-widest text-cyan-300 drop-shadow">
-                        Neural Quantum Architecture &bull; Drag to Rotate
-                      </span>
-                    </div>
-                  </div>
+                {service.secondaryImage ? (
+                  <Image
+                    src={service.secondaryImage}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
                 ) : (
-                  <>
-                    {service.secondaryImage ? (
-                      <Image
-                        src={service.secondaryImage}
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover"
-                      />
-                    ) : (
-                      <Image
-                        src={service.heroImage}
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover"
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                    <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/70">
-                      Plate {service.number} &bull; {service.title}
-                    </div>
-                  </>
+                  <Image
+                    src={service.heroImage}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
                 )}
-
-                {/* AI View Mode Switcher Pill */}
-                {isAiService && (
-                  <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 p-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20">
-                    <button
-                      onClick={() => setMediaMode('3d')}
-                      className={`px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-wider transition-colors cursor-pointer ${
-                        mediaMode === '3d' ? 'bg-white text-black font-semibold' : 'text-white/60 hover:text-white'
-                      }`}
-                    >
-                      3D Core
-                    </button>
-                    <button
-                      onClick={() => setMediaMode('image')}
-                      className={`px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-wider transition-colors cursor-pointer ${
-                        mediaMode === 'image' ? 'bg-white text-black font-semibold' : 'text-white/60 hover:text-white'
-                      }`}
-                    >
-                      Production UI
-                    </button>
-                  </div>
-                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/70">
+                  Plate {service.number} &bull; {service.title}
+                </div>
               </div>
             </div>
 
@@ -402,42 +351,6 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
             ))}
           </div>
 
-          {/* =========================================================================
-              VISUAL DOCUMENTATION GALLERY
-          ========================================================================== */}
-          {service.galleryImages && service.galleryImages.length > 0 && (
-            <div className="pt-20 sm:pt-28">
-              <div className="mb-12">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-2">
-                  Visual Records &amp; Craft
-                </span>
-                <h3 className="font-clash text-2xl sm:text-4xl font-normal text-white tracking-tight">
-                  Studio Artifacts &amp; Systems
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                {service.galleryImages.map((img, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 bg-neutral-950"
-                  >
-                    <Image
-                      src={img}
-                      alt={`${service.title} system frame ${idx + 1}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                    <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/70">
-                      Figure 0{idx + 1} &bull; {service.title}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </section>
 

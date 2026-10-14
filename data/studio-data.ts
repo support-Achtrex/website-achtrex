@@ -23,6 +23,7 @@ export interface ServiceItem {
     description: string;
   }[];
   heroImage: string;
+  heroVideo?: string;
   secondaryImage?: string;
   galleryImages: string[];
   featuredCaseSlug: string;

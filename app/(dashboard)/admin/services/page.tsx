@@ -15,7 +15,8 @@ import {
   AlertCircle,
   Eye,
   RefreshCw,
-  Layers
+  Layers,
+  Video
 } from 'lucide-react';
 import { updateServiceAction, createServiceAction, deleteServiceAction } from '@/app/actions/services';
 import { ServiceItem } from '@/data/studio-data';
@@ -37,18 +38,25 @@ export default function AdminServicesPage() {
   const [philosophy, setPhilosophy] = useState('');
   const [whyItMatters, setWhyItMatters] = useState('');
   const [heroImage, setHeroImage] = useState('');
+  const [heroVideo, setHeroVideo] = useState('');
   const [secondaryImage, setSecondaryImage] = useState('');
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [newGalleryUrl, setNewGalleryUrl] = useState('');
   const [capabilities, setCapabilities] = useState('');
   const [deliverables, setDeliverables] = useState('');
 
   // File Upload Previews
   const [heroImageFile, setHeroImageFile] = useState<File | null>(null);
   const [heroImagePreview, setHeroImagePreview] = useState<string>('');
+  const [heroVideoFile, setHeroVideoFile] = useState<File | null>(null);
   const [secondaryImageFile, setSecondaryImageFile] = useState<File | null>(null);
   const [secondaryImagePreview, setSecondaryImagePreview] = useState<string>('');
+  const [pendingGalleryFiles, setPendingGalleryFiles] = useState<{ file: File; preview: string }[]>([]);
 
   const heroInputRef = useRef<HTMLInputElement>(null);
+  const heroVideoInputRef = useRef<HTMLInputElement>(null);
   const secondaryInputRef = useRef<HTMLInputElement>(null);
+  const galleryFilesInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetchServices();
@@ -80,13 +88,18 @@ export default function AdminServicesPage() {
     setPhilosophy(service.philosophy || '');
     setWhyItMatters(service.whyItMatters || '');
     setHeroImage(service.heroImage || '');
+    setHeroVideo(service.heroVideo || '');
     setSecondaryImage(service.secondaryImage || '');
+    setGalleryImages(service.galleryImages || []);
+    setNewGalleryUrl('');
     setCapabilities((service.capabilities || []).join('\n'));
     setDeliverables((service.deliverables || []).join('\n'));
     setHeroImageFile(null);
     setHeroImagePreview('');
+    setHeroVideoFile(null);
     setSecondaryImageFile(null);
     setSecondaryImagePreview('');
+    setPendingGalleryFiles([]);
   };
 
   const openCreateModal = () => {
@@ -100,13 +113,18 @@ export default function AdminServicesPage() {
     setPhilosophy('');
     setWhyItMatters('');
     setHeroImage('/studio-assets/service-experience-design.jpg');
+    setHeroVideo('');
     setSecondaryImage('');
+    setGalleryImages([]);
+    setNewGalleryUrl('');
     setCapabilities('');
     setDeliverables('');
     setHeroImageFile(null);
     setHeroImagePreview('');
+    setHeroVideoFile(null);
     setSecondaryImageFile(null);
     setSecondaryImagePreview('');
+    setPendingGalleryFiles([]);
   };
 
   const handleHeroFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,6 +132,13 @@ export default function AdminServicesPage() {
     if (file) {
       setHeroImageFile(file);
       setHeroImagePreview(URL.createObjectURL(file));
+    }
+  };
+
+  const handleHeroVideoFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setHeroVideoFile(file);
     }
   };
 
@@ -125,10 +150,40 @@ export default function AdminServicesPage() {
     }
   };
 
+  const handleGalleryFilesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const newItems = Array.from(files).map((file) => ({
+        file,
+        preview: URL.createObjectURL(file),
+      }));
+      setPendingGalleryFiles((prev) => [...prev, ...newItems]);
+    }
+  };
+
+  const handleRemovePendingGalleryFile = (index: number) => {
+    setPendingGalleryFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handleAddGalleryUrl = () => {
+    if (!newGalleryUrl.trim()) return;
+    setGalleryImages((prev) => [...prev, newGalleryUrl.trim()]);
+    setNewGalleryUrl('');
+  };
+
+  const handleRemoveGalleryImage = (index: number) => {
+    setGalleryImages((prev) => prev.filter((_, i) => i !== index));
+  };
+
   const handleRemoveHeroImage = () => {
     setHeroImage('');
     setHeroImageFile(null);
     setHeroImagePreview('');
+  };
+
+  const handleRemoveHeroVideo = () => {
+    setHeroVideo('');
+    setHeroVideoFile(null);
   };
 
   const handleRemoveSecondaryImage = () => {
@@ -152,12 +207,20 @@ export default function AdminServicesPage() {
       formData.append('philosophy', philosophy);
       formData.append('whyItMatters', whyItMatters);
       formData.append('heroImage', heroImage);
+      formData.append('heroVideo', heroVideo);
       formData.append('secondaryImage', secondaryImage);
+      formData.append('galleryImages', JSON.stringify(galleryImages));
       formData.append('capabilities', capabilities);
       formData.append('deliverables', deliverables);
 
       if (heroImageFile) formData.append('heroImageFile', heroImageFile);
+      if (heroVideoFile) formData.append('heroVideoFile', heroVideoFile);
       if (secondaryImageFile) formData.append('secondaryImageFile', secondaryImageFile);
+
+      // Append all pending gallery file uploads
+      for (const item of pendingGalleryFiles) {
+        formData.append('newGalleryFiles', item.file);
+      }
 
       let res;
       if (isCreating) {
@@ -218,35 +281,37 @@ export default function AdminServicesPage() {
             </h1>
           </div>
           <p className="text-sm text-gray-500 mt-1">
-            Update service titles, copy, hero images, and capabilities. Changes reflect immediately on the live website.
+            Edit studio disciplines, customize primary hero images/videos, secondary visuals, and deliverables.
           </p>
         </div>
 
         <div className="flex items-center gap-3">
           <button
             onClick={fetchServices}
-            className="p-2.5 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors"
-            title="Refresh"
+            disabled={loading}
+            className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-medium text-xs shadow-2xs transition-colors"
           >
-            <RefreshCw size={18} className={loading ? 'animate-spin' : ''} />
+            <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
+            <span>Refresh</span>
           </button>
+
           <button
             onClick={openCreateModal}
-            className="flex items-center gap-2 px-4 py-2.5 bg-[#0f172a] hover:bg-black text-white rounded-lg text-sm font-medium transition-colors shadow-sm"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0f172a] hover:bg-black text-white font-medium text-xs shadow-sm transition-colors"
           >
-            <Plus size={18} />
+            <Plus size={15} />
             <span>Add Service</span>
           </button>
         </div>
       </div>
 
-      {/* Toast Feedback */}
+      {/* Toast Notification */}
       {toastMessage && (
         <div
-          className={`p-4 rounded-xl flex items-center gap-3 border ${
+          className={`p-4 rounded-xl flex items-center gap-3 transition-all ${
             toastMessage.type === 'success'
-              ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
-              : 'bg-rose-50 text-rose-800 border-rose-200'
+              ? 'bg-emerald-50 text-emerald-900 border border-emerald-200'
+              : 'bg-rose-50 text-rose-900 border border-rose-200'
           }`}
         >
           {toastMessage.type === 'success' ? <CheckCircle2 size={18} /> : <AlertCircle size={18} />}
@@ -282,6 +347,7 @@ export default function AdminServicesPage() {
                       src={service.heroImage}
                       alt={service.title}
                       fill
+                      unoptimized
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
@@ -296,6 +362,11 @@ export default function AdminServicesPage() {
                     <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-black/75 text-white border border-white/20">
                       AREA {service.number}
                     </span>
+                    {service.heroVideo && (
+                      <span className="font-mono text-[10px] px-2 py-0.5 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-500/30">
+                        VIDEO
+                      </span>
+                    )}
                   </div>
 
                   <div className="absolute bottom-3 left-3 z-10">
@@ -422,15 +493,15 @@ export default function AdminServicesPage() {
                 </div>
               </div>
 
-              {/* Row 2: Hero Visual Media Replacement */}
+              {/* MEDIA SECTION 1: HERO IMAGE (Primary Visual / Card Placeholder) */}
               <div className="p-4 rounded-xl border border-gray-200 bg-gray-50 space-y-3">
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="block text-xs font-bold uppercase text-gray-900">
-                      Hero Image
+                      Hero Image / Card Placeholder Image
                     </span>
                     <span className="text-xs text-gray-500">
-                      Primary high-resolution photo or 3D visual displayed on the service page and grid.
+                      Primary image displayed in service cards and hero background.
                     </span>
                   </div>
                   {(heroImagePreview || heroImage) && (
@@ -451,6 +522,7 @@ export default function AdminServicesPage() {
                       src={heroImagePreview || heroImage}
                       alt="Hero preview"
                       fill
+                      unoptimized
                       className="object-cover"
                     />
                   </div>
@@ -484,7 +556,70 @@ export default function AdminServicesPage() {
                 </div>
               </div>
 
-              {/* Row 3: Detail / Secondary Visual */}
+              {/* MEDIA SECTION 2: HERO VIDEO (Optional Placeholder Video) */}
+              <div className="p-4 rounded-xl border border-gray-200 bg-gray-50 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="block text-xs font-bold uppercase text-gray-900">
+                      Hero Video (Optional Card / Header Loop)
+                    </span>
+                    <span className="text-xs text-gray-500">
+                      Leave empty to use a static image placeholder instead of looping video.
+                    </span>
+                  </div>
+                  {(heroVideo || heroVideoFile) && (
+                    <button
+                      type="button"
+                      onClick={handleRemoveHeroVideo}
+                      className="text-xs text-rose-600 hover:underline font-medium"
+                    >
+                      Remove Video (Use Image)
+                    </button>
+                  )}
+                </div>
+
+                {/* Video Preview Frame */}
+                {heroVideo && (
+                  <div className="relative aspect-[16/9] max-h-48 rounded-lg overflow-hidden border border-gray-200 bg-black">
+                    <video
+                      src={heroVideo}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="file"
+                    ref={heroVideoInputRef}
+                    onChange={handleHeroVideoFileChange}
+                    accept="video/*"
+                    className="hidden"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => heroVideoInputRef.current?.click()}
+                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium text-xs shadow-2xs"
+                  >
+                    <Video size={14} />
+                    <span>Upload Video File</span>
+                  </button>
+
+                  <input
+                    type="text"
+                    value={heroVideo}
+                    onChange={(e) => setHeroVideo(e.target.value)}
+                    placeholder="Or enter video URL e.g. /hero-videos/lumen-intelligent-cover.mp4"
+                    className="flex-1 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs font-mono"
+                  />
+                </div>
+              </div>
+
+              {/* MEDIA SECTION 3: SECONDARY / DETAIL VISUAL */}
               <div className="p-4 rounded-xl border border-gray-200 bg-gray-50 space-y-3">
                 <div className="flex items-center justify-between">
                   <div>
@@ -512,6 +647,7 @@ export default function AdminServicesPage() {
                       src={secondaryImagePreview || secondaryImage}
                       alt="Secondary preview"
                       fill
+                      unoptimized
                       className="object-cover"
                     />
                   </div>
@@ -544,6 +680,92 @@ export default function AdminServicesPage() {
                 </div>
               </div>
 
+              {/* MEDIA SECTION 4: MULTI-IMAGE GALLERY */}
+              <div className="p-4 rounded-xl border border-gray-200 bg-gray-50 space-y-3">
+                <div>
+                  <span className="block text-xs font-bold uppercase text-gray-900">
+                    Additional Service Images &amp; Gallery
+                  </span>
+                  <span className="text-xs text-gray-500">
+                    Add multiple photos, renders or screenshots.
+                  </span>
+                </div>
+
+                {/* Current & Pending Gallery Images */}
+                {(galleryImages.length > 0 || pendingGalleryFiles.length > 0) && (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                    {galleryImages.map((img, i) => (
+                      <div key={`existing-${i}`} className="relative aspect-[4/3] rounded-lg overflow-hidden border border-gray-200 bg-black group">
+                        <Image src={img} alt="" fill unoptimized className="object-cover" />
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveGalleryImage(i)}
+                          className="absolute top-1 right-1 p-1 rounded-full bg-black/75 text-white hover:bg-rose-600 transition-colors"
+                          title="Remove image"
+                        >
+                          <X size={12} />
+                        </button>
+                      </div>
+                    ))}
+                    {pendingGalleryFiles.map((item, i) => (
+                      <div key={`pending-${i}`} className="relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-indigo-500 bg-black group">
+                        <Image src={item.preview} alt="" fill unoptimized className="object-cover" />
+                        <span className="absolute bottom-1 left-1 text-[9px] font-mono px-1.5 py-0.5 rounded bg-indigo-600 text-white">
+                          New
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => handleRemovePendingGalleryFile(i)}
+                          className="absolute top-1 right-1 p-1 rounded-full bg-black/75 text-white hover:bg-rose-600 transition-colors"
+                          title="Cancel upload"
+                        >
+                          <X size={12} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Upload & Add URL controls */}
+                <div className="space-y-2 pt-2">
+                  <div className="flex gap-2">
+                    <input
+                      type="file"
+                      ref={galleryFilesInputRef}
+                      onChange={handleGalleryFilesChange}
+                      accept="image/*"
+                      multiple
+                      className="hidden"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => galleryFilesInputRef.current?.click()}
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium text-xs shadow-2xs"
+                    >
+                      <Upload size={14} />
+                      <span>Upload Multiple Images</span>
+                    </button>
+                  </div>
+
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={newGalleryUrl}
+                      onChange={(e) => setNewGalleryUrl(e.target.value)}
+                      placeholder="Or paste an image URL (e.g. /studio-assets/service-custom.jpg)"
+                      className="flex-1 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs font-mono"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleAddGalleryUrl}
+                      className="px-3 py-2 bg-gray-900 hover:bg-black text-white text-xs font-medium rounded-lg"
+                    >
+                      Add URL
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               {/* Subtitle & Headline */}
               <div>
                 <label className="block text-xs font-semibold text-gray-700 uppercase mb-1">
@@ -560,54 +782,53 @@ export default function AdminServicesPage() {
 
               <div>
                 <label className="block text-xs font-semibold text-gray-700 uppercase mb-1">
-                  Editorial Headline
+                  Primary Headline
                 </label>
                 <input
                   type="text"
                   value={headline}
                   onChange={(e) => setHeadline(e.target.value)}
-                  placeholder="Primary large headline on detail page"
-                  className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                  placeholder="Main impact headline"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm font-medium"
                 />
               </div>
 
-              {/* Description */}
+              {/* Narrative Content */}
               <div>
                 <label className="block text-xs font-semibold text-gray-700 uppercase mb-1">
-                  Full Service Description
+                  Service Description
                 </label>
                 <textarea
                   rows={3}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Detailed description of the service scope and deliverables..."
+                  placeholder="Comprehensive discipline summary..."
                   className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
                 />
               </div>
 
-              {/* Philosophy & Why It Matters */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase mb-1">
-                    Design &amp; Engineering Philosophy
+                    Strategic Philosophy
                   </label>
                   <textarea
-                    rows={3}
+                    rows={4}
                     value={philosophy}
                     onChange={(e) => setPhilosophy(e.target.value)}
-                    placeholder="Our studio conviction..."
+                    placeholder="What is the true value of this discipline?..."
                     className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase mb-1">
-                    Why It Matters
+                    Commercial Impact (Why It Matters)
                   </label>
                   <textarea
-                    rows={3}
+                    rows={4}
                     value={whyItMatters}
                     onChange={(e) => setWhyItMatters(e.target.value)}
-                    placeholder="Commercial and brand impact..."
+                    placeholder="Why this discipline directly drives enterprise growth..."
                     className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
                   />
                 </div>
@@ -617,46 +838,46 @@ export default function AdminServicesPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase mb-1">
-                    Key Capabilities (1 per line)
+                    Core Capabilities (One per line)
                   </label>
                   <textarea
-                    rows={4}
+                    rows={5}
                     value={capabilities}
                     onChange={(e) => setCapabilities(e.target.value)}
-                    placeholder="Custom AI architectures&#10;Autonomous agents&#10;RAG pipelines"
+                    placeholder="Real-Time 3D Configurators&#10;Tactile Ergonomics&#10;Autonomous Multi-Agent..."
                     className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-xs"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase mb-1">
-                    Client Deliverables (1 per line)
+                    Client Deliverables (One per line)
                   </label>
                   <textarea
-                    rows={4}
+                    rows={5}
                     value={deliverables}
                     onChange={(e) => setDeliverables(e.target.value)}
-                    placeholder="Production React/Next.js Codebase&#10;API Integration Contracts&#10;Design System Tokens"
+                    placeholder="Interactive Design System&#10;60fps WebGL Pipeline&#10;Turnkey Codebase..."
                     className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-xs"
                   />
                 </div>
               </div>
 
-              {/* Submit Controls */}
-              <div className="pt-4 border-t border-gray-200 flex items-center justify-end gap-3">
+              {/* Modal Actions Footer */}
+              <div className="pt-4 border-t border-gray-200 flex items-center justify-end gap-3 sticky bottom-0 bg-white">
                 <button
                   type="button"
                   onClick={() => {
                     setEditingService(null);
                     setIsCreating(false);
                   }}
-                  className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 text-sm font-medium transition-colors"
+                  className="px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-medium transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-6 py-2 rounded-lg bg-[#0f172a] hover:bg-black text-white text-sm font-medium transition-colors shadow-sm disabled:opacity-50"
+                  className="px-6 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-medium transition-colors shadow-sm disabled:opacity-50"
                 >
                   {submitting ? 'Saving...' : isCreating ? 'Create Service' : 'Save Changes'}
                 </button>

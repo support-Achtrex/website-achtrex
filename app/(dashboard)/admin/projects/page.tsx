@@ -52,7 +52,8 @@ export default function AdminProjectsPage() {
   const [heroVideoFile, setHeroVideoFile] = useState<File | null>(null);
   const [secondaryImageFile, setSecondaryImageFile] = useState<File | null>(null);
   const [secondaryImagePreview, setSecondaryImagePreview] = useState<string>('');
-  const [newGalleryFile, setNewGalleryFile] = useState<File | null>(null);
+  const [pendingGalleryFiles, setPendingGalleryFiles] = useState<{ file: File; preview: string }[]>([]);
+  const [newGalleryUrl, setNewGalleryUrl] = useState('');
 
   const heroImageInputRef = useRef<HTMLInputElement>(null);
   const heroVideoInputRef = useRef<HTMLInputElement>(null);
@@ -95,6 +96,7 @@ export default function AdminProjectsPage() {
     setHeroVideo(project.heroVideo || '');
     setSecondaryImage(project.secondaryImage || '');
     setGalleryImages(project.galleryImages || []);
+    setNewGalleryUrl('');
     setTechnicalCapabilities((project.technicalCapabilities || []).join('\n'));
     setTechStack((project.techStack || []).join('\n'));
     setHeroImageFile(null);
@@ -102,7 +104,7 @@ export default function AdminProjectsPage() {
     setHeroVideoFile(null);
     setSecondaryImageFile(null);
     setSecondaryImagePreview('');
-    setNewGalleryFile(null);
+    setPendingGalleryFiles([]);
   };
 
   const openCreateModal = () => {
@@ -122,6 +124,7 @@ export default function AdminProjectsPage() {
     setHeroVideo('');
     setSecondaryImage('');
     setGalleryImages([]);
+    setNewGalleryUrl('');
     setTechnicalCapabilities('');
     setTechStack('Next.js 15\nThree.js\nTailwind CSS');
     setHeroImageFile(null);
@@ -129,7 +132,7 @@ export default function AdminProjectsPage() {
     setHeroVideoFile(null);
     setSecondaryImageFile(null);
     setSecondaryImagePreview('');
-    setNewGalleryFile(null);
+    setPendingGalleryFiles([]);
   };
 
   const handleHeroImageFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -155,11 +158,25 @@ export default function AdminProjectsPage() {
     }
   };
 
-  const handleGalleryFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setNewGalleryFile(file);
+  const handleGalleryFilesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const newItems = Array.from(files).map((file) => ({
+        file,
+        preview: URL.createObjectURL(file),
+      }));
+      setPendingGalleryFiles((prev) => [...prev, ...newItems]);
     }
+  };
+
+  const handleRemovePendingGalleryFile = (index: number) => {
+    setPendingGalleryFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handleAddGalleryUrl = () => {
+    if (!newGalleryUrl.trim()) return;
+    setGalleryImages((prev) => [...prev, newGalleryUrl.trim()]);
+    setNewGalleryUrl('');
   };
 
   const handleRemoveGalleryImage = (index: number) => {
@@ -193,7 +210,13 @@ export default function AdminProjectsPage() {
       if (heroImageFile) formData.append('heroImageFile', heroImageFile);
       if (heroVideoFile) formData.append('heroVideoFile', heroVideoFile);
       if (secondaryImageFile) formData.append('secondaryImageFile', secondaryImageFile);
-      if (newGalleryFile) formData.append('newGalleryFile', newGalleryFile);
+      
+      for (const item of pendingGalleryFiles) {
+        formData.append('newGalleryFiles', item.file);
+      }
+      if (newGalleryUrl.trim()) {
+        formData.append('newGalleryUrl', newGalleryUrl.trim());
+      }
 
       let res;
       if (isCreating) {
@@ -551,6 +574,7 @@ export default function AdminProjectsPage() {
                       src={heroImagePreview || heroImage}
                       alt="Hero preview"
                       fill
+                      unoptimized
                       className="object-cover"
                     />
                   </div>
@@ -680,6 +704,7 @@ export default function AdminProjectsPage() {
                       src={secondaryImagePreview || secondaryImage}
                       alt="Secondary preview"
                       fill
+                      unoptimized
                       className="object-cover"
                     />
                   </div>
@@ -717,24 +742,40 @@ export default function AdminProjectsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="block text-xs font-bold uppercase text-gray-900">
-                      Concept Visual Records (Gallery)
+                      Project Media &amp; Additional Visuals
                     </span>
                     <span className="text-xs text-gray-500">
-                      Additional high-resolution plates displayed in the project visual gallery.
+                      Additional high-resolution images, renders and screenshots for this project.
                     </span>
                   </div>
                 </div>
 
-                {galleryImages.length > 0 && (
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {(galleryImages.length > 0 || pendingGalleryFiles.length > 0) && (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
                     {galleryImages.map((img, i) => (
-                      <div key={i} className="relative aspect-[4/3] rounded-lg overflow-hidden border border-gray-200 bg-black group">
-                        <Image src={img} alt="" fill className="object-cover" />
+                      <div key={`existing-${i}`} className="relative aspect-[4/3] rounded-lg overflow-hidden border border-gray-200 bg-black group">
+                        <Image src={img} alt="" fill unoptimized className="object-cover" />
                         <button
                           type="button"
                           onClick={() => handleRemoveGalleryImage(i)}
                           className="absolute top-1 right-1 p-1 rounded-full bg-black/75 text-white hover:bg-rose-600 transition-colors"
-                          title="Remove from gallery"
+                          title="Remove image"
+                        >
+                          <X size={12} />
+                        </button>
+                      </div>
+                    ))}
+                    {pendingGalleryFiles.map((item, i) => (
+                      <div key={`pending-${i}`} className="relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-cyan-500 bg-black group">
+                        <Image src={item.preview} alt="" fill unoptimized className="object-cover" />
+                        <span className="absolute bottom-1 left-1 text-[9px] font-mono px-1.5 py-0.5 rounded bg-cyan-600 text-white">
+                          New
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => handleRemovePendingGalleryFile(i)}
+                          className="absolute top-1 right-1 p-1 rounded-full bg-black/75 text-white hover:bg-rose-600 transition-colors"
+                          title="Cancel upload"
                         >
                           <X size={12} />
                         </button>
@@ -743,22 +784,42 @@ export default function AdminProjectsPage() {
                   </div>
                 )}
 
-                <div className="flex gap-3">
-                  <input
-                    type="file"
-                    ref={galleryImageInputRef}
-                    onChange={handleGalleryFileChange}
-                    accept="image/*"
-                    className="hidden"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => galleryImageInputRef.current?.click()}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium text-xs shadow-2xs"
-                  >
-                    <Upload size={14} />
-                    <span>Upload Gallery Image</span>
-                  </button>
+                <div className="space-y-2 pt-2">
+                  <div className="flex gap-2">
+                    <input
+                      type="file"
+                      ref={galleryImageInputRef}
+                      onChange={handleGalleryFilesChange}
+                      accept="image/*"
+                      multiple
+                      className="hidden"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => galleryImageInputRef.current?.click()}
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium text-xs shadow-2xs"
+                    >
+                      <Upload size={14} />
+                      <span>Upload Multiple Images</span>
+                    </button>
+                  </div>
+
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={newGalleryUrl}
+                      onChange={(e) => setNewGalleryUrl(e.target.value)}
+                      placeholder="Or paste an image URL (e.g. /studio-assets/project-aura.jpg)"
+                      className="flex-1 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-xs font-mono"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleAddGalleryUrl}
+                      className="px-3 py-2 bg-gray-900 hover:bg-black text-white text-xs font-medium rounded-lg"
+                    >
+                      Add URL
+                    </button>
+                  </div>
                 </div>
               </div>
 

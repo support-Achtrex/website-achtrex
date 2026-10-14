@@ -50,6 +50,7 @@ export async function updateServiceAction(formData: FormData) {
 
     // Direct URLs (if text input changed or cleared)
     let heroImage = (formData.get('heroImage') as string) ?? current.heroImage;
+    let heroVideo = (formData.get('heroVideo') as string) ?? current.heroVideo ?? '';
     let secondaryImage = (formData.get('secondaryImage') as string) ?? current.secondaryImage;
 
     // Handle file uploads if provided
@@ -59,10 +60,39 @@ export async function updateServiceAction(formData: FormData) {
       heroImage = uploadedHero;
     }
 
+    const heroVideoFile = formData.get('heroVideoFile') as File | null;
+    const uploadedHeroVid = await saveUploadedFile(heroVideoFile);
+    if (uploadedHeroVid) {
+      heroVideo = uploadedHeroVid;
+    }
+
     const secondaryImageFile = formData.get('secondaryImageFile') as File | null;
     const uploadedSecondary = await saveUploadedFile(secondaryImageFile);
     if (uploadedSecondary) {
       secondaryImage = uploadedSecondary;
+    }
+
+    // Gallery images: JSON array or newline/comma separated
+    let galleryImages = current.galleryImages || [];
+    const galleryImagesRaw = formData.get('galleryImages') as string;
+    if (galleryImagesRaw) {
+      try {
+        galleryImages = JSON.parse(galleryImagesRaw);
+      } catch (_) {
+        galleryImages = galleryImagesRaw.split(/[\n,]+/).map((s) => s.trim()).filter(Boolean);
+      }
+    }
+
+    // New gallery file uploads (single or multiple)
+    const galleryFiles = formData.getAll('newGalleryFiles') as File[];
+    for (const gFile of galleryFiles) {
+      const uploadedG = await saveUploadedFile(gFile);
+      if (uploadedG) galleryImages.push(uploadedG);
+    }
+    const singleGFile = formData.get('newGalleryFile') as File | null;
+    if (singleGFile) {
+      const uploadedSingleG = await saveUploadedFile(singleGFile);
+      if (uploadedSingleG) galleryImages.push(uploadedSingleG);
     }
 
     // Parse capabilities & deliverables from comma or newline separated strings
@@ -85,7 +115,9 @@ export async function updateServiceAction(formData: FormData) {
       philosophy,
       whyItMatters,
       heroImage,
+      heroVideo,
       secondaryImage,
+      galleryImages,
       capabilities,
       deliverables,
     });
@@ -135,15 +167,27 @@ export async function createServiceAction(formData: FormData) {
     const whyItMatters = (formData.get('whyItMatters') as string) || '';
 
     let heroImage = (formData.get('heroImage') as string) || '/studio-assets/service-experience-design.jpg';
+    let heroVideo = (formData.get('heroVideo') as string) || '';
     let secondaryImage = (formData.get('secondaryImage') as string) || '';
 
     const heroImageFile = formData.get('heroImageFile') as File | null;
     const uploadedHero = await saveUploadedFile(heroImageFile);
     if (uploadedHero) heroImage = uploadedHero;
 
+    const heroVideoFile = formData.get('heroVideoFile') as File | null;
+    const uploadedHeroVid = await saveUploadedFile(heroVideoFile);
+    if (uploadedHeroVid) heroVideo = uploadedHeroVid;
+
     const secondaryImageFile = formData.get('secondaryImageFile') as File | null;
     const uploadedSecondary = await saveUploadedFile(secondaryImageFile);
     if (uploadedSecondary) secondaryImage = uploadedSecondary;
+
+    let galleryImages: string[] = [];
+    const galleryFiles = formData.getAll('newGalleryFiles') as File[];
+    for (const gFile of galleryFiles) {
+      const uploadedG = await saveUploadedFile(gFile);
+      if (uploadedG) galleryImages.push(uploadedG);
+    }
 
     const capabilitiesRaw = (formData.get('capabilities') as string) || '';
     const capabilities = capabilitiesRaw.split(/[\n,]+/).map((s) => s.trim()).filter(Boolean);
@@ -167,8 +211,9 @@ export async function createServiceAction(formData: FormData) {
       industryApplications: [],
       process: [],
       heroImage,
+      heroVideo,
       secondaryImage,
-      galleryImages: [],
+      galleryImages,
       featuredCaseSlug: '',
       featuredCaseTitle: '',
       relatedProjectSlugs: [],
