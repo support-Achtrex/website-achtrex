@@ -204,14 +204,6 @@ export function ServicesGridSection({ services }: { services?: ServiceItem[] }) 
 
                   {/* Bottom Content: Bright White Bold Title + High-Contrast Subtitle */}
                   <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 z-10 pointer-events-none">
-                    {/* Category Label */}
-                    <span 
-                      className="font-mono text-[11px] uppercase tracking-[0.2em] font-semibold block mb-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
-                      style={{ color: '#67e8f9' }}
-                    >
-                      {item.categoryLabel}
-                    </span>
-
                     {/* Service Title in Pure White Bold */}
                     <h3 
                       className="font-sans font-bold text-xl sm:text-2xl tracking-tight leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,1)]"
