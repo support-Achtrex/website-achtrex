@@ -317,6 +317,48 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       </section>
 
       {/* =========================================================================
+          ADDITIONAL PROJECT VISUALIZATIONS & GALLERY
+      ========================================================================== */}
+      {project.galleryImages && project.galleryImages.length > 0 && (
+        <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#000000]">
+          <div className="w-full max-w-[1720px] mx-auto">
+            <div className="mb-12">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-2">
+                Concept Visualizations &bull; Image Gallery
+              </span>
+              <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
+                Additional Project Visualizations
+              </h3>
+              <p className="font-clash text-sm text-white/60 font-light mt-2 max-w-2xl">
+                High-fidelity renders, interface details, and spatial environment explorations.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {project.galleryImages.map((img, idx) => (
+                <div
+                  key={idx}
+                  className="group relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/15 bg-neutral-950 shadow-xl"
+                >
+                  <Image
+                    src={img}
+                    alt={`${project.title} - Plate ${idx + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/80">
+                    Plate 0{idx + 1} &bull; {project.title}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
           CLIENT COMMISSION BLUEPRINT: "ACHTREX COULD ACTUALLY BUILD THIS"
       ========================================================================== */}
       <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#000000]">

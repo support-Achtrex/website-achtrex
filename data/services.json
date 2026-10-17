@@ -76,20 +76,17 @@
         "description": "Publishing unified design tokens and scalable multi-platform component specifications for seamless handoff."
       }
     ],
-    "heroImage": "/studio-assets/preview-7e05b651.jpg",
-    "secondaryImage": "/studio-assets/service-experience-design-detail.jpg",
-    "galleryImages": [
-      "/studio-assets/service-experience-design-detail.jpg",
-      "/studio-assets/project-sola.jpg",
-      "/studio-assets/service-digital-products.jpg"
-    ],
+    "heroImage": "/uploads/1792236298524-Designer_5_.png",
+    "secondaryImage": "/uploads/1792236298528-Gemini_Generated_Image_u2a4wbu2a4wbu2a4.jpeg",
+    "galleryImages": [],
     "featuredCaseSlug": "connected-hospitality-platform",
     "featuredCaseTitle": "Connected Hospitality Digital Journey",
     "relatedProjectSlugs": [
       "connected-hospitality-platform",
       "intelligent-clinical-platform",
       "intelligent-copilot-interface"
-    ]
+    ],
+    "heroVideo": ""
   },
   {
     "id": "creative-strategy",
@@ -116,7 +113,8 @@
     "deliverables": [
       "Creative Direction Blueprints & Visual Identity Brand Books",
       "Scroll-Driven Interactive Storytelling Web Experiences",
-      "Kinetic Typography, Motion Systems & Custom WebGL Fragment Shaders",
+      "Kinetic Typography",
+      "Motion Systems & Custom WebGL Fragment Shaders",
       "Multi-Format Video & CGI Content Suites for Omnichannel Distribution",
       "Interactive Audio-Reactive Spatial Soundscapes & Sound Design"
     ],
@@ -172,15 +170,16 @@
     "secondaryImage": "/studio-assets/service-creative-strategy-detail.jpg",
     "galleryImages": [
       "/studio-assets/service-creative-strategy-detail.jpg",
-      "/studio-assets/project-afterdark.jpg",
-      "/studio-assets/service-experience-design.jpg"
+      "/uploads/1792236402396-Designer_2_.png",
+      "/uploads/1792236402399-Designer_4_.png"
     ],
     "featuredCaseSlug": "interactive-storytelling-campaign",
     "featuredCaseTitle": "Nocturnal Brand Storytelling Experience",
     "relatedProjectSlugs": [
       "interactive-storytelling-campaign",
       "architectural-spatial-experience"
-    ]
+    ],
+    "heroVideo": ""
   },
   {
     "id": "digital-products",
@@ -205,11 +204,16 @@
       "Product prototyping"
     ],
     "deliverables": [
-      "Full-Stack Production Application (Next.js 15, TypeScript, Node.js)",
+      "Full-Stack Production Application (Next.js 15",
+      "TypeScript",
+      "Node.js)",
       "High-Performance Component Architecture & Design System Implementation",
-      "Robust REST & GraphQL API Contracts, WebSockets & Event-Driven Pipelines",
+      "Robust REST & GraphQL API Contracts",
+      "WebSockets & Event-Driven Pipelines",
       "Multi-Region Cloud Edge Deployment (Vercel / AWS) with 99.98% SLA",
-      "Automated Test Coverage (Unit, Integration, E2E) & Security Hardening"
+      "Automated Test Coverage (Unit",
+      "Integration",
+      "E2E) & Security Hardening"
     ],
     "techStack": [
       "Next.js 15",
@@ -261,19 +265,19 @@
         "description": "Deploying across global edge CDNs with zero-downtime CI/CD pipelines, real-time observability, and monitoring."
       }
     ],
-    "heroImage": "/studio-assets/grid-digital-products.png",
-    "secondaryImage": "/studio-assets/service-digital-products-detail.jpg",
+    "heroImage": "/uploads/1792236946796-digital-platform-header.jpg",
+    "secondaryImage": "/uploads/1792236946796-sK2DBhnaSuiAcllpGh8dBxsYWTI.webp",
     "galleryImages": [
-      "/studio-assets/service-digital-products-detail.jpg",
-      "/studio-assets/project-lumen.jpg",
-      "/studio-assets/project-careflow.jpg"
+      "/uploads/1792236548805-custom-web-application-development-dignity-infoway.png",
+      "/uploads/1792236548806-Designer_4_.png"
     ],
     "featuredCaseSlug": "intelligent-clinical-platform",
     "featuredCaseTitle": "Calm Healthcare & Clinical Surface",
     "relatedProjectSlugs": [
       "intelligent-clinical-platform",
       "intelligent-copilot-interface"
-    ]
+    ],
+    "heroVideo": ""
   },
   {
     "id": "ai-intelligent-experiences",
@@ -357,19 +361,18 @@
         "description": "Continuous monitoring of model latency, token budgets, hallucination prevention, and completion benchmarks."
       }
     ],
-    "heroImage": "/studio-assets/grid-ai-neural.png",
-    "secondaryImage": "/studio-assets/service-ai-detail.jpg",
+    "heroImage": "/uploads/1792237186403-ai-2-1.webp",
+    "secondaryImage": "/uploads/1792237186405-Futuristic-AI-powered-interior-design-.png",
     "galleryImages": [
-      "/studio-assets/service-ai-detail.jpg",
-      "/studio-assets/project-lumen.jpg",
-      "/studio-assets/service-digital-products-detail.jpg"
+      "/uploads/1792237186406-AI-Infused-Websites-Drive-Results-and-Make-an-Impact.webp"
     ],
     "featuredCaseSlug": "intelligent-copilot-interface",
     "featuredCaseTitle": "Autonomous AI Copilot & Knowledge Surface",
     "relatedProjectSlugs": [
       "intelligent-copilot-interface",
       "intelligent-clinical-platform"
-    ]
+    ],
+    "heroVideo": ""
   },
   {
     "id": "cgi-immersive",
@@ -451,18 +454,15 @@
     ],
     "heroImage": "/studio-assets/preview-008df38e.jpg",
     "secondaryImage": "/studio-assets/service-cgi-detail.jpg",
-    "galleryImages": [
-      "/studio-assets/service-cgi-detail.jpg",
-      "/studio-assets/project-nova.jpg",
-      "/studio-assets/project-aura.jpg"
-    ],
+    "galleryImages": [],
     "featuredCaseSlug": "architectural-spatial-experience",
     "featuredCaseTitle": "Architectural Spatial Walkthrough",
     "relatedProjectSlugs": [
       "architectural-spatial-experience",
       "automotive-spatial-configurator",
       "interactive-storytelling-campaign"
-    ]
+    ],
+    "heroVideo": ""
   },
   {
     "id": "product-configurators",
@@ -489,8 +489,11 @@
       "Production-Ready Real-Time 3D WebGL Configurator Engine",
       "Combinatorial Dependency Matrix & Validation Rule System",
       "Dynamic Bill of Materials (BOM) & Real-Time Price Computation Engine",
-      "High-Res PBR Material Finish Swatches (Metals, Leathers, Carbons)",
-      "Seamless E-Commerce, ERP & CAD Manufacturing Pass-Through"
+      "High-Res PBR Material Finish Swatches (Metals",
+      "Leathers",
+      "Carbons)",
+      "Seamless E-Commerce",
+      "ERP & CAD Manufacturing Pass-Through"
     ],
     "techStack": [
       "Three.js",
@@ -541,17 +544,19 @@
       }
     ],
     "heroImage": "/studio-assets/grid-product-config.jpg",
-    "secondaryImage": "/studio-assets/service-product-configurators-detail.jpg",
+    "secondaryImage": "/uploads/1792237513219-mex.jpg",
     "galleryImages": [
-      "/studio-assets/service-product-configurators-detail.jpg",
-      "/studio-assets/project-form.jpg",
-      "/studio-assets/project-aura.jpg"
+      "/uploads/1792237513219-Ferrari.jpg",
+      "/uploads/1792237513219-mex.jpg",
+      "/uploads/1792237513219-porche.jpg",
+      "/uploads/1792237513219-Porsche.jpg"
     ],
     "featuredCaseSlug": "realtime-product-customizer",
     "featuredCaseTitle": "Tactile 3D Product Customizer",
     "relatedProjectSlugs": [
       "realtime-product-customizer",
       "automotive-spatial-configurator"
-    ]
+    ],
+    "heroVideo": ""
   }
 ]
