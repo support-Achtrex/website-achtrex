@@ -11,13 +11,15 @@ import {
   Plus,
   ShieldCheck,
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  Sliders
 } from 'lucide-react';
 import { revalidatePath } from 'next/cache';
 import { sql } from '@/lib/db';
 import { ServicesDB } from '@/lib/services-db';
 import { ProjectsDB } from '@/lib/projects-db';
 import { MediaDB } from '@/lib/media-db';
+import { HeroDB } from '@/lib/hero-db';
 
 export const dynamic = 'force-dynamic';
 
@@ -26,6 +28,7 @@ export default async function AdminDashboard() {
   const services = ServicesDB.getAll();
   const projects = ProjectsDB.getAll();
   const mediaItems = MediaDB.getAll();
+  const heroConfig = HeroDB.getConfig();
 
   let leadsCount = 0;
   try {
@@ -105,6 +108,40 @@ export default async function AdminDashboard() {
             <span>Manage Services</span>
           </Link>
         </div>
+      </div>
+
+      {/* Hero Slider Mode Status Banner */}
+      <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+            <Sliders size={20} />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="text-sm font-bold text-slate-900">Homepage Hero Mode:</h2>
+              <span className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
+                heroConfig.mode === 'single'
+                  ? 'bg-amber-100 text-amber-800 border border-amber-200'
+                  : 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+              }`}>
+                {heroConfig.mode === 'single' ? 'Single Slide Image Only' : 'Slideshow Slider Active'}
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 mt-0.5">
+              {heroConfig.mode === 'single'
+                ? 'Showing Second Slide image ("We are innovation"). Video slides are saved in admin and ready to be switched back anytime.'
+                : 'Actively cycling through all enabled video and image slides.'}
+            </p>
+          </div>
+        </div>
+
+        <Link
+          href="/admin/hero"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-all shrink-0 shadow-xs"
+        >
+          <span>Configure Hero Slider</span>
+          <ArrowUpRight size={14} />
+        </Link>
       </div>
 
       {/* Metrics Grid */}

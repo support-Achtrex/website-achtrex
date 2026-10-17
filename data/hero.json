@@ -1,0 +1,59 @@
+{
+  "mode": "single",
+  "activeSlideId": "innovation",
+  "slideDurationMs": 8900,
+  "slides": [
+    {
+      "id": "customization",
+      "titleLines": [
+        "Real-Time 3D",
+        "Product Customization"
+      ],
+      "linkLabel": "Explore Concept",
+      "linkHref": "/projects/realtime-product-customizer",
+      "mediaType": "video",
+      "mediaSrc": "/hero-videos/form-customizer-cover.mp4",
+      "enabled": false,
+      "order": 1
+    },
+    {
+      "id": "innovation",
+      "titleLines": [
+        "We are",
+        "innovation"
+      ],
+      "linkLabel": "Discover Studio",
+      "linkHref": "/about",
+      "mediaType": "image",
+      "mediaSrc": "/hero-videos/hero-innovation.jpg",
+      "enabled": true,
+      "order": 2
+    },
+    {
+      "id": "ai-development",
+      "titleLines": [
+        "Artificial Intelligence",
+        "Development Services"
+      ],
+      "linkLabel": "Explore Concept",
+      "linkHref": "/projects/intelligent-copilot-interface",
+      "mediaType": "video",
+      "mediaSrc": "/hero-videos/lumen-intelligent-cover.mp4",
+      "enabled": false,
+      "order": 3
+    },
+    {
+      "id": "cgi-immersive",
+      "titleLines": [
+        "CGI, 3D &",
+        "Immersive Experiences"
+      ],
+      "linkLabel": "Explore Concept",
+      "linkHref": "/projects/interactive-storytelling-campaign",
+      "mediaType": "video",
+      "mediaSrc": "/hero-videos/after-dark-cover.mp4",
+      "enabled": false,
+      "order": 4
+    }
+  ]
+}

@@ -516,7 +516,6 @@ export const PROJECTS: ConceptExperienceItem[] = [
     serviceId: 'product-configurators',
     year: '2025',
     heroImage: '/studio-assets/project-aura.jpg',
-    heroVideo: '/hero-videos/aura-vehicle-cover.mp4',
     secondaryImage: '/studio-assets/service-product-configurators-detail.jpg',
     galleryImages: [
       '/studio-assets/service-cgi-detail.jpg',
@@ -583,7 +582,6 @@ export const PROJECTS: ConceptExperienceItem[] = [
     serviceId: 'ai-intelligent-experiences',
     year: '2025',
     heroImage: '/studio-assets/project-lumen.jpg',
-    heroVideo: '/hero-videos/lumen-intelligent-cover.mp4',
     secondaryImage: '/studio-assets/service-ai-detail.jpg',
     galleryImages: [
       '/studio-assets/service-ai-intelligent.jpg',
@@ -650,7 +648,6 @@ export const PROJECTS: ConceptExperienceItem[] = [
     serviceId: 'product-configurators',
     year: '2025',
     heroImage: '/studio-assets/project-form.jpg',
-    heroVideo: '/hero-videos/form-customizer-cover.mp4',
     secondaryImage: '/studio-assets/preview-b2311f23-4s.jpg',
     galleryImages: [
       '/studio-assets/service-product-configurators.jpg',

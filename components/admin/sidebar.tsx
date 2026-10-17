@@ -10,7 +10,8 @@ import {
   MessageSquare,
   Settings,
   LogOut,
-  ExternalLink
+  ExternalLink,
+  Sliders
 } from 'lucide-react';
 import Image from 'next/image';
 import { useToast } from '@/components/ui/toast';
@@ -79,6 +80,15 @@ const AdminSidebar = () => {
               )}
               <LayoutDashboard size={19} className={isActive('/admin') ? 'text-blue-600' : 'text-slate-400'} />
               <span>Dashboard</span>
+            </Link>
+
+            <Link href="/admin/hero" className={getLinkClass('/admin/hero')}>
+              {isActive('/admin/hero') && (
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-blue-600 rounded-r-full shadow-xs"></div>
+              )}
+              <Sliders size={19} className={isActive('/admin/hero') ? 'text-blue-600' : 'text-slate-400'} />
+              <span className="flex-1">Hero Slider</span>
+              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-700 border border-amber-200">Mode</span>
             </Link>
 
             <Link href="/admin/services" className={getLinkClass('/admin/services')}>

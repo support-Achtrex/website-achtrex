@@ -4,55 +4,36 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { HeroConfig, HeroSlide, DEFAULT_HERO_CONFIG } from '@/lib/hero-types';
 
-export interface HeroSlide {
-  id: string;
-  titleLines: string[];
-  linkLabel: string;
-  linkHref: string;
-  mediaType: 'video' | 'image';
-  mediaSrc: string;
-  posterSrc?: string;
+export type { HeroSlide, HeroConfig };
+
+interface HeroSliderProps {
+  config?: HeroConfig;
 }
 
-const HERO_SLIDES: HeroSlide[] = [
-  {
-    id: 'customization',
-    titleLines: ['Real-Time 3D', 'Product Customization'],
-    linkLabel: 'Explore Concept',
-    linkHref: '/projects/realtime-product-customizer',
-    mediaType: 'video',
-    mediaSrc: '/hero-videos/form-customizer-cover.mp4',
-  },
-  {
-    id: 'innovation',
-    titleLines: ['We are', 'innovation'],
-    linkLabel: 'Discover Studio',
-    linkHref: '/about',
-    mediaType: 'image',
-    mediaSrc: '/hero-videos/hero-innovation.jpg',
-  },
-  {
-    id: 'ai-development',
-    titleLines: ['Artificial Intelligence', 'Development Services'],
-    linkLabel: 'Explore Concept',
-    linkHref: '/projects/intelligent-copilot-interface',
-    mediaType: 'video',
-    mediaSrc: '/hero-videos/lumen-intelligent-cover.mp4',
-  },
-  {
-    id: 'cgi-immersive',
-    titleLines: ['CGI, 3D &', 'Immersive Experiences'],
-    linkLabel: 'Explore Concept',
-    linkHref: '/projects/interactive-storytelling-campaign',
-    mediaType: 'video',
-    mediaSrc: '/hero-videos/after-dark-cover.mp4',
-  },
-];
+export function HeroSlider({ config = DEFAULT_HERO_CONFIG }: HeroSliderProps) {
+  // Determine which slides to show based on mode
+  const isSingleMode = config.mode === 'single';
 
-const SLIDE_DURATION_MS = 8900; // Exact animation duration (8.9s)
+  // Calculate visible slides
+  const visibleSlides: HeroSlide[] = (() => {
+    if (isSingleMode) {
+      const active = config.slides.find((s) => s.id === config.activeSlideId);
+      if (active) return [active];
+      // Fallback: search for innovation slide or first slide
+      const fallback = config.slides.find((s) => s.id === 'innovation') || config.slides[0];
+      return fallback ? [fallback] : [];
+    }
 
-export function HeroSlider() {
+    // Slider mode: show enabled slides (or all if none are enabled)
+    const enabled = config.slides.filter((s) => s.enabled);
+    return enabled.length > 0 ? enabled : config.slides;
+  })();
+
+  const slides = visibleSlides.length > 0 ? visibleSlides : DEFAULT_HERO_CONFIG.slides;
+  const slideDuration = config.slideDurationMs || 8900;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const progressFillRef = useRef<HTMLDivElement | null>(null);
@@ -61,13 +42,22 @@ export function HeroSlider() {
   const progressStartTime = useRef<number>(Date.now());
   const animationFrameId = useRef<number | null>(null);
 
+  // Reset index if slides change and index is out of bounds
+  useEffect(() => {
+    if (currentIndex >= slides.length) {
+      setCurrentIndex(0);
+    }
+  }, [slides.length, currentIndex]);
+
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+    if (slides.length <= 1) return;
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
     currentProgressRef.current = 0;
     progressStartTime.current = Date.now();
-  }, []);
+  }, [slides.length]);
 
   const goToSlide = (index: number) => {
+    if (slides.length <= 1) return;
     setCurrentIndex(index);
     currentProgressRef.current = 0;
     progressStartTime.current = Date.now();
@@ -84,10 +74,12 @@ export function HeroSlider() {
         video.pause();
       }
     });
-  }, [currentIndex]);
+  }, [currentIndex, slides]);
 
-  // Handle continuous smooth progress fill
+  // Handle continuous smooth progress fill (only if more than 1 slide)
   useEffect(() => {
+    if (slides.length <= 1) return;
+
     progressStartTime.current = Date.now();
 
     const updateProgress = () => {
@@ -96,7 +88,7 @@ export function HeroSlider() {
         return;
       }
       const elapsed = Date.now() - progressStartTime.current;
-      const currentProgress = Math.min(elapsed / SLIDE_DURATION_MS, 1);
+      const currentProgress = Math.min(elapsed / slideDuration, 1);
       currentProgressRef.current = currentProgress;
       if (progressFillRef.current) {
         progressFillRef.current.style.transform = `scaleX(${currentProgress})`;
@@ -116,24 +108,27 @@ export function HeroSlider() {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-  }, [currentIndex, isPaused, nextSlide]);
+  }, [currentIndex, isPaused, nextSlide, slides.length, slideDuration]);
 
-  const currentSlide = HERO_SLIDES[currentIndex];
+  const currentSlide = slides[currentIndex] || slides[0];
+  if (!currentSlide) return null;
 
   return (
     <section
       className="relative w-full h-screen bg-[#000000] overflow-hidden select-none"
-      onMouseEnter={() => setIsPaused(true)}
+      onMouseEnter={() => slides.length > 1 && setIsPaused(true)}
       onMouseLeave={() => {
-        setIsPaused(false);
-        progressStartTime.current = Date.now() - currentProgressRef.current * SLIDE_DURATION_MS;
+        if (slides.length > 1) {
+          setIsPaused(false);
+          progressStartTime.current = Date.now() - currentProgressRef.current * slideDuration;
+        }
       }}
     >
       {/* =========================================================================
           1. CINEMATIC BACKGROUND MEDIA LAYER (Crossfade between full-bleed items)
       ========================================================================== */}
       <div className="absolute inset-0 w-full h-full">
-        {HERO_SLIDES.map((slide, index) => {
+        {slides.map((slide, index) => {
           const isActive = index === currentIndex;
           return (
             <div
@@ -148,6 +143,7 @@ export function HeroSlider() {
                     videoRefs.current[index] = el;
                   }}
                   src={slide.mediaSrc}
+                  poster={slide.posterSrc}
                   autoPlay={isActive}
                   muted
                   loop
@@ -200,10 +196,10 @@ export function HeroSlider() {
 
             {/* Case Study Link with Arrow */}
             <Link
-              href={currentSlide.linkHref}
+              href={currentSlide.linkHref || '/'}
               className="inline-flex items-center gap-3 text-lg sm:text-xl font-clash text-white/90 hover:text-white transition-transform duration-200 hover:translate-x-3 group cursor-pointer"
             >
-              <span className="font-light tracking-wide">{currentSlide.linkLabel}</span>
+              <span className="font-light tracking-wide">{currentSlide.linkLabel || 'Discover'}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -231,29 +227,31 @@ export function HeroSlider() {
       </div>
 
       {/* =========================================================================
-          4. PAGINATION DASH BULLETS
+          4. PAGINATION DASH BULLETS (Only shown in multi-slide mode)
       ========================================================================== */}
-      <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center items-center gap-3 px-4">
-        {HERO_SLIDES.map((slide, index) => {
-          const isActive = index === currentIndex;
-          return (
-            <button
-              key={slide.id}
-              onClick={() => goToSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
-              className="group relative h-1.5 sm:h-1.5 w-10 sm:w-20 rounded-full bg-white/40 hover:bg-white/70 overflow-hidden transition-colors cursor-pointer"
-            >
-              {isActive && (
-                <div
-                  ref={progressFillRef}
-                  className="absolute inset-0 bg-white rounded-full origin-left will-change-transform"
-                  style={{ transform: 'scaleX(0)' }}
-                />
-              )}
-            </button>
-          );
-        })}
-      </div>
+      {slides.length > 1 && (
+        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center items-center gap-3 px-4">
+          {slides.map((slide, index) => {
+            const isActive = index === currentIndex;
+            return (
+              <button
+                key={slide.id}
+                onClick={() => goToSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                className="group relative h-1.5 sm:h-1.5 w-10 sm:w-20 rounded-full bg-white/40 hover:bg-white/70 overflow-hidden transition-colors cursor-pointer"
+              >
+                {isActive && (
+                  <div
+                    ref={progressFillRef}
+                    className="absolute inset-0 bg-white rounded-full origin-left will-change-transform"
+                    style={{ transform: 'scaleX(0)' }}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 }

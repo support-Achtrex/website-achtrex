@@ -6,6 +6,7 @@ import { HomeMediaSection } from '@/components/studio/HomeMediaSection';
 import { Metadata } from 'next';
 import { MediaDB } from '@/lib/media-db';
 import { ServicesDB } from '@/lib/services-db';
+import { HeroDB } from '@/lib/hero-db';
 
 export const revalidate = 0; // Fresh updates when admin updates content
 
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 export default function StudioHomePage() {
   const mediaItems = MediaDB.getAll();
   const services = ServicesDB.getAll();
+  const heroConfig = HeroDB.getConfig();
 
   return (
     <div className="bg-[#000000] text-white min-h-screen selection:bg-white selection:text-black overflow-x-hidden font-sans">
@@ -27,7 +29,7 @@ export default function StudioHomePage() {
           CHAPTER 01: FULL-BLEED VIDEO HERO SLIDER
           Featuring Achtrex Selected Projects
       ========================================================================== */}
-      <HeroSlider />
+      <HeroSlider config={heroConfig} />
 
       {/* =========================================================================
           CHAPTER 02: HOME INTRO
