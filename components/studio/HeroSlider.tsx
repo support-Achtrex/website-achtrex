@@ -155,7 +155,7 @@ export function HeroSlider({ config = DEFAULT_HERO_CONFIG }: HeroSliderProps) {
                 <div className="relative w-full h-full">
                   <Image
                     src={slide.mediaSrc}
-                    alt={slide.titleLines.join(' ')}
+                    alt={Array.isArray(slide.titleLines) ? slide.titleLines.join(' ') : 'Hero Slide'}
                     fill
                     priority
                     sizes="100vw"
@@ -187,7 +187,7 @@ export function HeroSlider({ config = DEFAULT_HERO_CONFIG }: HeroSliderProps) {
           >
             {/* Display Title */}
             <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-medium tracking-tight text-white leading-[1.02] mb-5">
-              {currentSlide.titleLines.map((line, i) => (
+              {(Array.isArray(currentSlide?.titleLines) ? currentSlide.titleLines : []).map((line, i) => (
                 <span key={i} className="block">
                   {line}
                 </span>

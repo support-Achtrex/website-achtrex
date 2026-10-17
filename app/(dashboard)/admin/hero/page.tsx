@@ -198,16 +198,32 @@ export default function AdminHeroPage() {
     setMessage(null);
 
     try {
+      let resolvedDirectUrl = directUrl;
+      if (selectedFile) {
+        setMessage({
+          type: 'success',
+          text: `Uploading ${mediaType} (${(selectedFile.size / 1024 / 1024).toFixed(1)} MB)...`,
+        });
+        const upForm = new FormData();
+        upForm.append('file', selectedFile);
+        const upRes = await fetch('/api/upload', { method: 'POST', body: upForm });
+        if (!upRes.ok) {
+          throw new Error(`Upload failed for ${selectedFile.name} (HTTP ${upRes.status})`);
+        }
+        const json = await upRes.json();
+        if (!json.success || !json.url) {
+          throw new Error(json.error || `Upload failed for ${selectedFile.name}`);
+        }
+        resolvedDirectUrl = json.url;
+      }
+
       const formData = new FormData();
       formData.append('titleLines', titleLines);
       formData.append('linkLabel', linkLabel);
       formData.append('linkHref', linkHref);
       formData.append('mediaType', mediaType);
-      formData.append('directUrl', directUrl);
+      formData.append('directUrl', resolvedDirectUrl);
       formData.append('enabled', enabled ? 'true' : 'false');
-      if (selectedFile) {
-        formData.append('mediaFile', selectedFile);
-      }
 
       let res;
       if (editingSlide) {

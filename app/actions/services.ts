@@ -8,7 +8,7 @@ import { ServiceItem } from '@/data/studio-data';
 
 // Helper to save uploaded file to public/uploads
 async function saveUploadedFile(file: File | null): Promise<string | null> {
-  if (!file || file.size === 0 || typeof file.name !== 'string') return null;
+  if (!file || typeof file === 'string' || file.size === 0 || typeof file.name !== 'string') return null;
 
   try {
     const bytes = await file.arrayBuffer();

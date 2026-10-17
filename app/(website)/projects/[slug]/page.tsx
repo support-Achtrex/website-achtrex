@@ -208,7 +208,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 Core Capabilities
               </span>
               <div className="text-white text-sm space-y-1">
-                {project.technicalCapabilities.slice(0, 3).map((cap) => (
+                {(project.technicalCapabilities || []).slice(0, 3).map((cap) => (
                   <p key={cap} className="font-light">{cap}</p>
                 ))}
               </div>
@@ -319,7 +319,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       {/* =========================================================================
           ADDITIONAL PROJECT VISUALIZATIONS & GALLERY
       ========================================================================== */}
-      {project.galleryImages && project.galleryImages.length > 0 && (
+      {Array.isArray(project.galleryImages) && project.galleryImages.filter(Boolean).length > 0 && (
         <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#000000]">
           <div className="w-full max-w-[1720px] mx-auto">
             <div className="mb-12">
@@ -335,7 +335,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {project.galleryImages.map((img, idx) => (
+              {project.galleryImages.filter(Boolean).map((img, idx) => (
                 <div
                   key={idx}
                   className="group relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/15 bg-neutral-950 shadow-xl"

@@ -192,12 +192,60 @@ export default function AdminServicesPage() {
     setSecondaryImagePreview('');
   };
 
+  const uploadSingleFile = async (file: File): Promise<string> => {
+    const upForm = new FormData();
+    upForm.append('file', file);
+    const upRes = await fetch('/api/upload', { method: 'POST', body: upForm });
+    if (!upRes.ok) {
+      const errText = await upRes.text();
+      throw new Error(`Upload failed for ${file.name} (HTTP ${upRes.status}): ${errText}`);
+    }
+    const json = await upRes.json();
+    if (!json.success || !json.url) {
+      throw new Error(json.error || `Upload failed for ${file.name}`);
+    }
+    return json.url;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
     setToastMessage(null);
 
     try {
+      let resolvedHeroImage = heroImage;
+      let resolvedHeroVideo = heroVideo;
+      let resolvedSecondaryImage = secondaryImage;
+      const resolvedGalleryImages = [...galleryImages];
+
+      // 1. Upload Hero Video if selected
+      if (heroVideoFile) {
+        setToastMessage({ type: 'success', text: `Uploading video (${(heroVideoFile.size / 1024 / 1024).toFixed(1)} MB)...` });
+        resolvedHeroVideo = await uploadSingleFile(heroVideoFile);
+      }
+
+      // 2. Upload Hero Image if selected
+      if (heroImageFile) {
+        resolvedHeroImage = await uploadSingleFile(heroImageFile);
+      }
+
+      // 3. Upload Secondary Image if selected
+      if (secondaryImageFile) {
+        resolvedSecondaryImage = await uploadSingleFile(secondaryImageFile);
+      }
+
+      // 4. Upload any pending gallery images
+      if (pendingGalleryFiles.length > 0) {
+        for (let i = 0; i < pendingGalleryFiles.length; i++) {
+          const item = pendingGalleryFiles[i];
+          setToastMessage({ type: 'success', text: `Uploading gallery image ${i + 1}/${pendingGalleryFiles.length}...` });
+          const uploadedUrl = await uploadSingleFile(item.file);
+          if (uploadedUrl) {
+            resolvedGalleryImages.push(uploadedUrl);
+          }
+        }
+      }
+
       const formData = new FormData();
       formData.append('title', title);
       formData.append('number', number);
@@ -206,21 +254,12 @@ export default function AdminServicesPage() {
       formData.append('description', description);
       formData.append('philosophy', philosophy);
       formData.append('whyItMatters', whyItMatters);
-      formData.append('heroImage', heroImage);
-      formData.append('heroVideo', heroVideo);
-      formData.append('secondaryImage', secondaryImage);
-      formData.append('galleryImages', JSON.stringify(galleryImages));
+      formData.append('heroImage', resolvedHeroImage);
+      formData.append('heroVideo', resolvedHeroVideo);
+      formData.append('secondaryImage', resolvedSecondaryImage);
+      formData.append('galleryImages', JSON.stringify(resolvedGalleryImages));
       formData.append('capabilities', capabilities);
       formData.append('deliverables', deliverables);
-
-      if (heroImageFile) formData.append('heroImageFile', heroImageFile);
-      if (heroVideoFile) formData.append('heroVideoFile', heroVideoFile);
-      if (secondaryImageFile) formData.append('secondaryImageFile', secondaryImageFile);
-
-      // Append all pending gallery file uploads
-      for (const item of pendingGalleryFiles) {
-        formData.append('newGalleryFiles', item.file);
-      }
 
       let res;
       if (isCreating) {
@@ -244,7 +283,7 @@ export default function AdminServicesPage() {
         setToastMessage({ type: 'error', text: res?.error || 'Failed to save service' });
       }
     } catch (err: any) {
-      setToastMessage({ type: 'error', text: err?.message || 'Unexpected error' });
+      setToastMessage({ type: 'error', text: err?.message || 'Unexpected error while saving service' });
     } finally {
       setSubmitting(false);
     }

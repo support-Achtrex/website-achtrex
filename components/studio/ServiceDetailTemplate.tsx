@@ -84,15 +84,29 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
           HERO
       ========================================================================== */}
       <section className="relative min-h-screen flex flex-col justify-between pt-36 sm:pt-44 pb-12 px-6 sm:px-12 lg:px-20 border-b border-white/10 overflow-hidden">
-        {/* Fullscreen Cinematic Background Image */}
+        {/* Fullscreen Cinematic Background Media (Video or Image) */}
         <div className="absolute inset-0 w-full h-full">
-          <Image
-            src={service.heroImage}
-            alt={service.title}
-            fill
-            priority
-            className="object-cover contrast-110 opacity-60 pointer-events-none scale-105"
-          />
+          {service.heroVideo ? (
+            <video
+              src={service.heroVideo}
+              poster={service.heroImage || undefined}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover contrast-110 opacity-60 pointer-events-none scale-105"
+            />
+          ) : service.heroImage ? (
+            <Image
+              src={service.heroImage}
+              alt={service.title}
+              fill
+              priority
+              className="object-cover contrast-110 opacity-60 pointer-events-none scale-105"
+            />
+          ) : (
+            <div className="w-full h-full bg-neutral-950" />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/70 pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.85)_100%)] pointer-events-none" />
         </div>
@@ -164,7 +178,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
                   />
-                ) : (
+                ) : service.heroImage ? (
                   <Image
                     src={service.heroImage}
                     alt={service.title}
@@ -172,6 +186,10 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
                   />
+                ) : (
+                  <div className="w-full h-full bg-neutral-900 flex items-center justify-center text-white/30 font-mono text-xs">
+                    Achtrex Plate {service.number}
+                  </div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/70">
@@ -221,7 +239,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
                 Core Capabilities
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4">
-                {service.capabilities.map((cap) => (
+                {(service.capabilities || []).map((cap) => (
                   <div
                     key={cap}
                     className="p-3.5 rounded-xl border border-white/10 bg-white/[0.02] flex items-center gap-3"
@@ -242,7 +260,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
                 What You Receive
               </h3>
               <div className="space-y-3 pt-4">
-                {service.deliverables && service.deliverables.map((deliv, idx) => (
+                {Array.isArray(service.deliverables) && service.deliverables.map((deliv, idx) => (
                   <div
                     key={idx}
                     className="p-4 rounded-xl border border-white/10 bg-white/[0.02] flex items-start gap-4"
@@ -262,7 +280,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
           {/* =========================================================================
               INDUSTRY APPLICATIONS & SCENARIOS
           ========================================================================== */}
-          {service.industryApplications && service.industryApplications.length > 0 && (
+          {Array.isArray(service.industryApplications) && service.industryApplications.length > 0 && (
             <div className="py-20 sm:py-28 border-b border-white/10">
               <div className="mb-12">
                 <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-2">
@@ -294,7 +312,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
           {/* =========================================================================
               ADDITIONAL SERVICE GALLERY IMAGES
           ========================================================================== */}
-          {service.galleryImages && service.galleryImages.length > 0 && (
+          {Array.isArray(service.galleryImages) && service.galleryImages.filter(Boolean).length > 0 && (
             <div className="py-20 sm:py-28 border-b border-white/10">
               <div className="mb-12">
                 <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-2">
@@ -309,7 +327,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {service.galleryImages.map((img, idx) => (
+                {service.galleryImages.filter(Boolean).map((img, idx) => (
                   <div
                     key={idx}
                     className="group relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/15 bg-neutral-950 shadow-xl"
@@ -334,7 +352,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
           {/* =========================================================================
               VALIDATED TECH STACK
           ========================================================================== */}
-          {service.techStack && service.techStack.length > 0 && (
+          {Array.isArray(service.techStack) && service.techStack.length > 0 && (
             <div className="py-16 sm:py-20 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
                 <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-1">
@@ -360,36 +378,38 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
           {/* =========================================================================
               4-PHASE STRUCTURED PROCESS
           ========================================================================== */}
-          <div className="pt-20 sm:pt-28 space-y-16 sm:space-y-24">
-            <div className="mb-12">
-              <span className="font-mono text-xs uppercase tracking-widest text-emerald-400 block mb-2">
-                Execution Lifecycle
-              </span>
-              <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
-                Our 4-Phase Delivery Methodology
-              </h3>
-            </div>
-
-            {service.process.map((step) => (
-              <div key={step.step} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-b border-white/10 pb-16 font-clash">
-                <div className="lg:col-span-2">
-                  <span className="text-6xl sm:text-8xl font-light text-white/30 leading-none block">
-                    {step.step}
-                  </span>
-                </div>
-                <div className="lg:col-span-4">
-                  <h4 className="text-2xl sm:text-3xl font-normal text-white">
-                    {step.title}
-                  </h4>
-                </div>
-                <div className="lg:col-span-6">
-                  <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+          {Array.isArray(service.process) && service.process.length > 0 && (
+            <div className="pt-20 sm:pt-28 space-y-16 sm:space-y-24">
+              <div className="mb-12">
+                <span className="font-mono text-xs uppercase tracking-widest text-emerald-400 block mb-2">
+                  Execution Lifecycle
+                </span>
+                <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
+                  Our 4-Phase Delivery Methodology
+                </h3>
               </div>
-            ))}
-          </div>
+
+              {service.process.map((step) => (
+                <div key={step.step} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-b border-white/10 pb-16 font-clash">
+                  <div className="lg:col-span-2">
+                    <span className="text-6xl sm:text-8xl font-light text-white/30 leading-none block">
+                      {step.step}
+                    </span>
+                  </div>
+                  <div className="lg:col-span-4">
+                    <h4 className="text-2xl sm:text-3xl font-normal text-white">
+                      {step.title}
+                    </h4>
+                  </div>
+                  <div className="lg:col-span-6">
+                    <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
         </div>
       </section>

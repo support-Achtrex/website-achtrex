@@ -69,7 +69,7 @@ export default async function SettingsPage() {
             <p className="text-xs text-slate-300 leading-relaxed">
               {isSingle ? (
                 <>
-                  Home is showing <strong className="text-white">"{activeSlide?.titleLines.join(' ')}"</strong> (Second Slide Image). The other 3 video slides are paused and safely stored in the Hero Manager.
+                  Home is showing <strong className="text-white">"{Array.isArray(activeSlide?.titleLines) ? activeSlide.titleLines.join(' ') : 'Featured Slide'}"</strong> (Second Slide Image). The other 3 video slides are paused and safely stored in the Hero Manager.
                 </>
               ) : (
                 <>
