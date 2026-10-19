@@ -112,7 +112,7 @@ export default function AdminServicesPage() {
     setDescription('');
     setPhilosophy('');
     setWhyItMatters('');
-    setHeroImage('/studio-assets/service-experience-design.jpg');
+    setHeroImage('/studio-assets/service-creative-strategy.jpg');
     setHeroVideo('');
     setSecondaryImage('');
     setGalleryImages([]);

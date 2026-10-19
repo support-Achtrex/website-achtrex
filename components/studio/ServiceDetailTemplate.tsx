@@ -114,7 +114,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
         {/* Top Discipline Tagline */}
         <div className="w-full max-w-[1720px] mx-auto relative z-10">
           <span className="font-mono text-xs text-[#889fa8] uppercase tracking-widest block">
-            Discipline {service.number} / 06 &bull; Achtrex Studio Services
+            Discipline {service.number} / {String(SERVICES.length).padStart(2, '0')} &bull; Achtrex Studio Services
           </span>
         </div>
 
@@ -482,7 +482,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
       <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-b border-white/10 text-center bg-[#000000]">
         <div className="max-w-4xl mx-auto font-clash">
           <span className="font-mono text-xs text-[#889fa8] uppercase tracking-widest block mb-4">
-            Next Studio Discipline &bull; {nextService.number} / 06
+            Next Studio Discipline &bull; {nextService.number} / {String(SERVICES.length).padStart(2, '0')}
           </span>
           <Link
             href={`/services/${nextService.slug}`}
@@ -497,7 +497,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
               href="/services"
               className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white/60 hover:text-white transition-colors"
             >
-              <span>&larr; View All 6 Studio Services</span>
+              <span>&larr; View All {SERVICES.length} Studio Services</span>
             </Link>
           </div>
         </div>

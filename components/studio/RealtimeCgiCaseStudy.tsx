@@ -175,16 +175,16 @@ export function RealtimeCgiCaseStudy({ project }: RealtimeCgiCaseStudyProps) {
               </p>
               <div className="font-clash text-base sm:text-lg text-black space-y-1.5">
                 <Link
-                  href="/services/cgi-immersive"
-                  className="block hover:text-black/60 underline underline-offset-4 transition-colors"
-                >
-                  CGI &amp; Mixed reality AR. VR. Interactive
-                </Link>
-                <Link
                   href="/services/product-configurators"
                   className="block hover:text-black/60 underline underline-offset-4 transition-colors"
                 >
                   Product Configurator &amp; Customization
+                </Link>
+                <Link
+                  href="/services/creative-strategy"
+                  className="block hover:text-black/60 underline underline-offset-4 transition-colors"
+                >
+                  Creative Strategy &amp; Digital Content
                 </Link>
               </div>
             </div>

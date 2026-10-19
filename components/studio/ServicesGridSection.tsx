@@ -20,28 +20,18 @@ export interface ServiceCardData {
 
 const REAL_SERVICES: ServiceCardData[] = [
   {
-    id: 'ai-dev',
-    number: '04',
-    title: 'Artificial Intelligence Development Services',
-    subtitle: 'Custom AI solutions, autonomous multi-agents, RAG & LLMs, predictive workflows and intelligent systems.',
-    category: 'ai-tech',
-    categoryLabel: 'AI & Intelligence',
-    image: '/studio-assets/preview-lumen.jpg',
-    href: '/services/ai-intelligent-experiences',
-  },
-  {
     id: 'creative-strategy',
-    number: '02',
+    number: '01',
     title: 'Creative Strategy & Digital Content',
     subtitle: 'Creative direction, cinematic studio production, storytelling, interactive content and brand worlds.',
     category: 'design',
     categoryLabel: 'Design & Content',
-    image: '/studio-assets/preview-afterdark.jpg',
+    image: '/studio-assets/grid-creative-studio.png',
     href: '/services/creative-strategy',
   },
   {
     id: 'digital-products',
-    number: '03',
+    number: '02',
     title: 'Digital Products',
     subtitle: 'High-performance web platforms, custom applications, enterprise portals, SaaS and cloud systems.',
     category: 'ai-tech',
@@ -50,35 +40,23 @@ const REAL_SERVICES: ServiceCardData[] = [
     href: '/services/digital-products',
   },
   {
-    id: 'cgi-immersive',
-    number: '05',
-    title: 'CGI, 3D & Immersive Experiences',
-    subtitle: 'Photorealistic CGI, real-time 3D, WebGL/WebGPU viewports, spatial computing and virtual spaces.',
-    category: 'spatial',
-    categoryLabel: 'Spatial & 3D',
-    image: '/studio-assets/preview-008df38e.jpg',
-    video: '/studio-assets/video-spatial-installation.mp4',
-    href: '/services/cgi-immersive',
-  },
-  {
-    id: 'experience-design',
-    number: '01',
-    title: 'Experience Design',
-    subtitle: 'Human-centered UX/UI, digital journeys, design systems, tactile micro-interactions and immersive interfaces.',
-    category: 'design',
-    categoryLabel: 'Design & UX',
-    image: '/studio-assets/preview-7e05b651.jpg',
-    video: '/studio-assets/video-kinetic-sculpture.mp4',
-    href: '/services/experience-design',
+    id: 'ai-dev',
+    number: '03',
+    title: 'Artificial Intelligence Development Services',
+    subtitle: 'Custom AI solutions, autonomous multi-agents, RAG & LLMs, predictive workflows and intelligent systems.',
+    category: 'ai-tech',
+    categoryLabel: 'AI & Intelligence',
+    image: '/studio-assets/preview-lumen.jpg',
+    href: '/services/ai-intelligent-experiences',
   },
   {
     id: 'configurators',
-    number: '06',
+    number: '04',
     title: 'Product Configuration & Customization',
     subtitle: 'Real-time 3D PBR configurators, tangible material swatches, industrial automated systems and rule engines.',
     category: 'spatial',
     categoryLabel: 'Spatial & Customization',
-    image: '/studio-assets/preview-b2311f23-4s.jpg',
+    image: '/studio-assets/grid-product-config.jpg',
     video: '/studio-assets/video-conveyor-customizer.mp4',
     href: '/services/product-configurators',
   },
@@ -90,20 +68,28 @@ export function ServicesGridSection({ services }: { services?: ServiceItem[] }) 
   const [activeTab, setActiveTab] = useState<FilterCategory>('all');
 
   // Merge with live services from DB if available
-  const items: ServiceCardData[] = REAL_SERVICES.map((defaultItem) => {
-    if (!services || services.length === 0) return defaultItem;
-    const dbItem = services.find(
-      (s) => s.id === defaultItem.id || s.slug === defaultItem.href.replace('/services/', '')
-    );
-    if (!dbItem) return defaultItem;
-    return {
-      ...defaultItem,
-      title: dbItem.title || defaultItem.title,
-      subtitle: dbItem.subtitle || defaultItem.subtitle,
-      image: dbItem.heroImage || defaultItem.image,
-      video: dbItem.heroVideo !== undefined ? dbItem.heroVideo : defaultItem.video,
-    };
-  });
+  const items: ServiceCardData[] = REAL_SERVICES
+    .filter((defaultItem) => {
+      if (!services || services.length === 0) return true;
+      return services.some(
+        (s) => s.id === defaultItem.id || s.slug === defaultItem.href.replace('/services/', '')
+      );
+    })
+    .map((defaultItem) => {
+      if (!services || services.length === 0) return defaultItem;
+      const dbItem = services.find(
+        (s) => s.id === defaultItem.id || s.slug === defaultItem.href.replace('/services/', '')
+      );
+      if (!dbItem) return defaultItem;
+      return {
+        ...defaultItem,
+        number: dbItem.number || defaultItem.number,
+        title: dbItem.title || defaultItem.title,
+        subtitle: dbItem.subtitle || defaultItem.subtitle,
+        image: dbItem.heroImage || defaultItem.image,
+        video: dbItem.heroVideo !== undefined ? dbItem.heroVideo : defaultItem.video,
+      };
+    });
 
   const filteredItems = items.filter((item) => {
     if (activeTab === 'all') return true;

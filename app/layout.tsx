@@ -143,7 +143,7 @@ const jsonLd = [
     "legalName": "Achtrex Technology - FZCO",
     "url": "https://achtrex.com",
     "logo": "https://achtrex.com/logo.png",
-    "image": "https://achtrex.com/studio-assets/service-cgi-immersive.jpg",
+    "image": "https://achtrex.com/studio-assets/service-creative-strategy.jpg",
     "description": "We design and build digital experiences where technology, creativity and intelligence come together.",
     "foundingDate": "2024",
     "address": {
@@ -174,21 +174,12 @@ const jsonLd = [
       "Artificial Intelligence & Multi-Agent Architectures",
       "WebGL & Three.js Production Engineering",
       "Full-Lifecycle Digital Product Development",
-      "Photorealistic CGI & Immersive Content"
+      "Creative Strategy & Digital Content"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Achtrex Studio Services Catalog",
       "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Experience Design",
-            "description": "Human-centered UX/UI, digital journeys, design systems, tactile micro-interactions and immersive interfaces.",
-            "url": "https://achtrex.com/services/experience-design"
-          }
-        },
         {
           "@type": "Offer",
           "itemOffered": {
@@ -214,15 +205,6 @@ const jsonLd = [
             "name": "Artificial Intelligence Development Services",
             "description": "Custom AI solutions, autonomous multi-agents, RAG & LLMs, predictive workflows and intelligent systems.",
             "url": "https://achtrex.com/services/ai-intelligent-experiences"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "CGI, 3D & Immersive Experiences",
-            "description": "Photorealistic CGI, real-time 3D, WebGL/WebGPU viewports, spatial computing and virtual spaces.",
-            "url": "https://achtrex.com/services/cgi-immersive"
           }
         },
         {

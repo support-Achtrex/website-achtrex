@@ -16,7 +16,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
         {/* Top Tagline */}
         <div className="w-full max-w-[1720px] mx-auto">
           <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block">
-            Studio Capabilities / 06 Core Disciplines
+            Studio Capabilities / {String(services.length).padStart(2, '0')} Core Disciplines
           </span>
         </div>
 
@@ -146,7 +146,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
                 {/* Top: Title & Read more link */}
                 <div className="pt-4 lg:pt-8">
                   <span className="font-mono text-xs text-[#889fa8] uppercase tracking-widest block mb-4">
-                    Service Area {service.number} / 06
+                    Service Area {service.number} / {String(services.length).padStart(2, '0')}
                   </span>
                   <h2 className="font-clash text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-white leading-[1.02] whitespace-pre-line mb-8">
                     {service.title}

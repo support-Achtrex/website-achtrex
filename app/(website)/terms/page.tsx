@@ -219,7 +219,7 @@ export default function TermsAndConditionsPage() {
                     These Master Terms and Conditions (&quot;Terms&quot;, &quot;Agreement&quot;) constitute a binding legal agreement entered into between <strong className="text-white">Achtrex Technology - FZCO</strong>, a free zone company registered under the laws of the Dubai Silicon Oasis Authority (&quot;Achtrex&quot;, &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), and the enterprise entity or individual (&quot;Client&quot;, &quot;Customer&quot;, or &quot;you&quot;) executing an order, Statement of Work, or engaging Achtrex for digital product services.
                   </p>
                   <p>
-                    Achtrex operates as a multidisciplinary digital experience and technology studio providing services across six primary disciplines:
+                    Achtrex operates as a multidisciplinary digital experience and technology studio providing services across primary disciplines:
                   </p>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 font-mono text-xs text-white/80">
                     <li className="p-3 bg-white/[0.02] border border-white/10 rounded-lg flex items-center gap-2">

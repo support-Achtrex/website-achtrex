@@ -7,19 +7,19 @@ export const revalidate = 0;
 export const metadata: Metadata = {
   title: 'Services & Disciplines | Achtrex Studio',
   description:
-    'Real-time 3D configurators, spatial computing, custom AI architectures, and interactive digital product engineering. Explore our 6 core studio disciplines.',
+    'Real-time 3D configurators, custom AI architectures, and interactive digital product engineering. Explore our 4 core studio disciplines.',
   alternates: {
     canonical: 'https://achtrex.com/services',
   },
   openGraph: {
     title: 'Services & Disciplines | Achtrex Studio',
     description:
-      'Discover our full-spectrum spatial computing, 3D configurators, custom AI architectures, and interactive digital product capabilities.',
+      'Discover our full-spectrum 3D configurators, custom AI architectures, and interactive digital product capabilities.',
     url: 'https://achtrex.com/services',
     siteName: 'Achtrex',
     type: 'website',
     images: [{
-      url: '/studio-assets/service-cgi-immersive.jpg',
+      url: '/studio-assets/service-creative-strategy.jpg',
       width: 1200,
       height: 630,
       alt: 'Achtrex Studio Services and Disciplines',
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Services & Disciplines | Achtrex Studio',
     description:
-      'Real-time 3D configurators, spatial computing, custom AI architectures, and digital product engineering.',
-    images: ['/studio-assets/service-cgi-immersive.jpg'],
+      'Real-time 3D configurators, custom AI architectures, and digital product engineering.',
+    images: ['/studio-assets/service-creative-strategy.jpg'],
   },
 };
 
