@@ -7,13 +7,13 @@ import { ServicesDB } from '@/lib/services-db';
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: 'Digital Products Development Services',
+  title: 'Digital Product & Software Engineering | Achtrex Studio',
   description: 'Design and engineer custom software applications, web platforms, and mobile apps built to scale with clinical precision.',
   alternates: {
     canonical: 'https://achtrex.com/services/digital-products',
   },
   openGraph: {
-    title: 'Digital Products Development Services | Achtrex Studio',
+    title: 'Digital Product & Software Engineering | Achtrex Studio',
     description: 'We turn complex requirements into high-performance web applications, enterprise SaaS systems, and digital ecosystems.',
     url: 'https://achtrex.com/services/digital-products',
     siteName: 'Achtrex',

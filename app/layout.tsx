@@ -193,7 +193,7 @@ const jsonLd = [
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Digital Products",
+            "name": "Digital Product & Software Engineering",
             "description": "High-performance web platforms, custom applications, enterprise portals, SaaS and cloud systems.",
             "url": "https://achtrex.com/services/digital-products"
           }
@@ -211,7 +211,7 @@ const jsonLd = [
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Product Configuration & Customization",
+            "name": "Automotive & Real Estate Product Customization",
             "description": "Real-time 3D PBR configurators, tangible material swatches, industrial automated systems and rule engines.",
             "url": "https://achtrex.com/services/product-configurators"
           }

@@ -178,7 +178,7 @@ export function RealtimeCgiCaseStudy({ project }: RealtimeCgiCaseStudyProps) {
                   href="/services/product-configurators"
                   className="block hover:text-black/60 underline underline-offset-4 transition-colors"
                 >
-                  Product Configurator &amp; Customization
+                  Automotive &amp; Real Estate Product Customization
                 </Link>
                 <Link
                   href="/services/creative-strategy"
