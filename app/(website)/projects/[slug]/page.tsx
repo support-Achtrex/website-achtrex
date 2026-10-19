@@ -3,11 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PROJECTS, LEGACY_SLUG_MAP, SERVICES, ConceptExperienceItem, STUDIO_CONFIG } from '@/data/studio-data';
 import { ProjectsDB } from '@/lib/projects-db';
+import { RealtimeCgiCaseStudy } from '@/components/studio/RealtimeCgiCaseStudy';
 
 export const revalidate = 0;
 
 function getProjectBySlug(slug: string): ConceptExperienceItem {
-  const resolved = LEGACY_SLUG_MAP[slug] || slug;
+  const resolved = (LEGACY_SLUG_MAP && LEGACY_SLUG_MAP[slug]) || slug;
   return ProjectsDB.getBySlug(resolved) || PROJECTS.find((p) => p.slug === resolved) || PROJECTS[0];
 }
 
@@ -60,7 +61,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }): Promise<React.ReactElement> {
+export default async function ProjectDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<React.ReactElement> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   const nextProject = getNextProject(project.slug);
@@ -70,44 +75,68 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
     '@id': `https://achtrex.com/projects/${project.slug}#creativework`,
-    'name': project.title,
-    'headline': project.subtitle || project.title,
-    'description': project.shortDescription,
-    'url': `https://achtrex.com/projects/${project.slug}`,
-    'image': project.heroImage || project.secondaryImage,
-    'creator': {
+    name: project.title,
+    headline: project.subtitle || project.title,
+    description: project.shortDescription,
+    url: `https://achtrex.com/projects/${project.slug}`,
+    image: project.heroImage || project.secondaryImage,
+    creator: {
       '@type': 'Corporation',
-      'name': 'Achtrex',
-      'url': 'https://achtrex.com'
+      name: 'Achtrex',
+      url: 'https://achtrex.com',
     },
-    'keywords': [...(project.technicalCapabilities || []), ...(project.techStack || [])].join(', ')
+    keywords: [...(project.technicalCapabilities || []), ...(project.techStack || [])].join(', '),
   };
 
   const breadcrumbsJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    'itemListElement': [
+    itemListElement: [
       {
         '@type': 'ListItem',
-        'position': 1,
-        'name': 'Home',
-        'item': 'https://achtrex.com'
+        position: 1,
+        name: 'Home',
+        item: 'https://achtrex.com',
       },
       {
         '@type': 'ListItem',
-        'position': 2,
-        'name': 'Projects',
-        'item': 'https://achtrex.com/projects'
+        position: 2,
+        name: 'Projects',
+        item: 'https://achtrex.com/projects',
       },
       {
         '@type': 'ListItem',
-        'position': 3,
-        'name': project.title,
-        'item': `https://achtrex.com/projects/${project.slug}`
-      }
-    ]
+        position: 3,
+        name: project.title,
+        item: `https://achtrex.com/projects/${project.slug}`,
+      },
+    ],
   };
 
+  // Reconstructed Real-Time CGI & Immersive Experiences Wedoo-style case study
+  const isRealtimeCgiStudy =
+    slug === 'real-time-cgi-and-immersive-experiences' ||
+    slug === 'realtime-cgi-and-immersive-experiences' ||
+    slug === 'automotive-spatial-configurator' ||
+    project.slug === 'automotive-spatial-configurator';
+
+  if (isRealtimeCgiStudy) {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+        />
+        <RealtimeCgiCaseStudy project={project} />
+      </>
+    );
+  }
+
+  // Standard Project Detail Template (Preserves custom admin edits, image galleries, and narratives)
   return (
     <div className="bg-[#000000] text-white min-h-screen font-sans selection:bg-white selection:text-black">
       <script
@@ -257,7 +286,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
       </section>
-
 
       {/* =========================================================================
           INTERACTION DYNAMICS & ASYMMETRICAL EDITORIAL SPREAD
@@ -477,7 +505,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
       </section>
-
 
       {/* =========================================================================
           COMMISSION CONVERSION SECTION

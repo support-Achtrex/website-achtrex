@@ -10,6 +10,7 @@ import { STUDIO_CONFIG } from '@/data/studio-data';
 export function StudioHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const pathname = usePathname();
 
   useEffect(() => {
@@ -18,6 +19,18 @@ export function StudioHeader() {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Listen to data-header-theme on documentElement for adaptive headers
+  useEffect(() => {
+    const updateTheme = () => {
+      const current = document.documentElement.getAttribute('data-header-theme');
+      setTheme(current === 'light' ? 'light' : 'dark');
+    };
+    updateTheme();
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-header-theme'] });
+    return () => observer.disconnect();
   }, []);
 
   // Prevent background scroll when overlay is open
@@ -35,6 +48,9 @@ export function StudioHeader() {
   // Close on route change
   useEffect(() => {
     setIsOpen(false);
+    // Reset header theme on route change
+    document.documentElement.removeAttribute('data-header-theme');
+    setTheme('dark');
   }, [pathname]);
 
   // Close on ESC
@@ -46,11 +62,17 @@ export function StudioHeader() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
+  const isLight = theme === 'light';
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-          scrolled ? 'bg-black/80 backdrop-blur-md py-4 sm:py-5 border-b border-white/10' : 'bg-transparent py-6 sm:py-8'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? isLight
+              ? 'bg-white/80 backdrop-blur-md py-4 sm:py-5 border-b border-black/10'
+              : 'bg-black/80 backdrop-blur-md py-4 sm:py-5 border-b border-white/10'
+            : 'bg-transparent py-6 sm:py-8'
         }`}
       >
         <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-20 flex items-center justify-between">
@@ -65,10 +87,16 @@ export function StudioHeader() {
               alt="Achtrex Logo"
               width={28}
               height={24}
-              className="h-5 sm:h-6 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className={`h-5 sm:h-6 w-auto object-contain transition-transform duration-300 group-hover:scale-105 ${
+                isLight ? 'brightness-0' : ''
+              }`}
               priority
             />
-            <span className="font-clash text-base sm:text-lg font-medium text-white tracking-wide">
+            <span
+              className={`font-clash text-base sm:text-lg font-medium tracking-wide transition-colors duration-300 ${
+                isLight ? 'text-black' : 'text-white'
+              }`}
+            >
               Achtrex
             </span>
           </Link>
@@ -76,16 +104,26 @@ export function StudioHeader() {
           {/* RIGHT ZONE: Menu = button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex items-center gap-2.5 text-white group cursor-pointer focus:outline-none"
+            className={`flex items-center gap-2.5 group cursor-pointer focus:outline-none transition-colors duration-300 ${
+              isLight ? 'text-black' : 'text-white'
+            }`}
             aria-expanded={isOpen}
             aria-label="Toggle Navigation Menu"
           >
-            <span className="font-clash text-xs sm:text-sm tracking-wider uppercase text-white/90 group-hover:text-white">
+            <span className="font-clash text-xs sm:text-sm tracking-wider uppercase opacity-90 group-hover:opacity-100">
               Menu
             </span>
             <div className="flex flex-col justify-between w-4 h-2">
-              <span className="w-full h-[1.5px] bg-white transition-all group-hover:w-3.5" />
-              <span className="w-full h-[1.5px] bg-white transition-all group-hover:w-4" />
+              <span
+                className={`w-full h-[1.5px] transition-all group-hover:w-3.5 ${
+                  isLight ? 'bg-black' : 'bg-white'
+                }`}
+              />
+              <span
+                className={`w-full h-[1.5px] transition-all group-hover:w-4 ${
+                  isLight ? 'bg-black' : 'bg-white'
+                }`}
+              />
             </div>
           </button>
         </div>

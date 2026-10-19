@@ -739,6 +739,9 @@ export const PROJECTS: ConceptExperienceItem[] = [
 
 // Mapping helper to resolve legacy slugs seamlessly
 export const LEGACY_SLUG_MAP: Record<string, string> = {
+  'real-time-cgi-and-immersive-experiences': 'automotive-spatial-configurator',
+  'realtime-cgi-and-immersive-experiences': 'automotive-spatial-configurator',
+  'dodge-charger-ev-realtime-configurator': 'automotive-spatial-configurator',
   'aura-interactive-vehicle': 'automotive-spatial-configurator',
   'nova-immersive-property': 'architectural-spatial-experience',
   'lumen-intelligent-product': 'intelligent-copilot-interface',
