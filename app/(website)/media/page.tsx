@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import { MediaDB } from '@/lib/media-db';
 import { MediaListingClient } from '@/components/studio/MediaListingClient';
 
@@ -50,65 +49,33 @@ export default function MediaPage() {
   const mediaItems = MediaDB.getAll();
 
   return (
-    <div className="w-full bg-[#000000] text-white min-h-screen selection:bg-white selection:text-black font-sans">
+    <div className="w-full bg-[#ffffff] text-neutral-900 min-h-screen selection:bg-black selection:text-white font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(mediaJsonLd) }}
       />
 
       {/* =========================================================================
-          HERO BANNER: TESLA-INSPIRED MINIMALIST STAGE
+          HERO BANNER: CLEAN MINIMALIST WHITE EDITORIAL HEADER (MATCHING IMAGE 3)
       ========================================================================== */}
-      <section className="relative w-full pt-36 pb-20 sm:pt-48 sm:pb-28 px-6 sm:px-12 lg:px-20 overflow-hidden bg-[#000000] border-b border-white/10">
-        {/* Subtle Ambient Vignette Background */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
-          <Image
-            src="/case/roadster/roadster-stage.jpg"
-            alt=""
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/60" />
-        </div>
-
-        <div className="relative z-10 w-full max-w-[1720px] mx-auto space-y-8">
-          <div className="max-w-4xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
+      <section className="relative w-full pt-36 pb-12 sm:pt-44 sm:pb-16 px-6 sm:px-12 lg:px-20 bg-[#ffffff]">
+        <div className="relative z-10 w-full max-w-[1720px] mx-auto">
+          <div className="max-w-4xl space-y-4">
+            <span className="font-mono text-xs uppercase tracking-widest text-neutral-500 block">
               Achtrex Newsroom // Real-Time Releases &amp; Insights
             </span>
-            <h1 className="font-clash text-4xl sm:text-6xl md:text-7xl lg:text-[5vw] font-normal text-white tracking-tight leading-[1.05] mb-6">
+            <h1 className="font-clash text-4xl sm:text-6xl md:text-7xl lg:text-[4.5vw] font-normal text-black tracking-tight leading-[1.05]">
               The Digital in Real Time
             </h1>
-            <p className="font-clash text-lg sm:text-2xl text-white/70 font-light leading-relaxed max-w-3xl">
+            <p className="font-sans text-base sm:text-xl text-neutral-600 font-light leading-relaxed max-w-3xl">
               Technology simplifying and making everyday actions smarter and more connected: engineering breakthroughs, design narratives, and spatial concepts from Achtrex.
             </p>
-          </div>
-
-          {/* Floating Quantitative Highlights */}
-          <div className="pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-12 font-clash">
-            <div>
-              <div className="text-2xl sm:text-4xl font-normal text-white tracking-tight">8</div>
-              <div className="font-mono text-[11px] uppercase tracking-widest text-white/50 mt-1">Releases &amp; Dispatches</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-4xl font-normal text-white tracking-tight">5</div>
-              <div className="font-mono text-[11px] uppercase tracking-widest text-white/50 mt-1">Domain Sectors</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-4xl font-normal text-white tracking-tight">100%</div>
-              <div className="font-mono text-[11px] uppercase tracking-widest text-white/50 mt-1">Real-Time CGI</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-4xl font-normal text-white tracking-tight">Global</div>
-              <div className="font-mono text-[11px] uppercase tracking-widest text-white/50 mt-1">Edge Distribution</div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          MEDIA LISTING CONTENT (Tesla dark grid with category pills and search)
+          MEDIA LISTING CONTENT (Clean white layout with rounded cards matching Image 3)
       ========================================================================== */}
       <MediaListingClient initialItems={mediaItems} />
     </div>

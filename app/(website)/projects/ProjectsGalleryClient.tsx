@@ -74,7 +74,7 @@ export function ProjectsGalleryClient({ projects }: { projects: ConceptExperienc
       {/* =========================================================================
           HERO (Concept Experiences Hero)
       ========================================================================== */}
-      <section className="relative min-h-[85vh] flex flex-col justify-between pt-36 sm:pt-44 pb-16 px-6 sm:px-12 lg:px-20 border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-[85vh] flex flex-col justify-between pt-36 sm:pt-44 pb-16 px-6 sm:px-12 lg:px-20 overflow-hidden">
         {/* Top Tagline */}
         <div className="w-full max-w-[1720px] mx-auto">
           <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block">
@@ -95,7 +95,7 @@ export function ProjectsGalleryClient({ projects }: { projects: ConceptExperienc
         </div>
 
         {/* Bottom Manifesto statement & Vertical Scroll line */}
-        <div className="w-full max-w-[1720px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t border-white/10">
+        <div className="w-full max-w-[1720px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8">
           {/* Scroll Indicator */}
           <div className="flex items-center gap-3">
             <span className="[writing-mode:vertical-rl] rotate-180 font-clash text-[10px] tracking-widest uppercase text-white/50">
@@ -130,16 +130,16 @@ export function ProjectsGalleryClient({ projects }: { projects: ConceptExperienc
       {/* =========================================================================
           INDUSTRY CATEGORY FILTER BAR
       ========================================================================== */}
-      <section className="sticky top-20 z-30 bg-black/95 backdrop-blur-md border-b border-white/10 px-6 sm:px-12 lg:px-20 py-4">
+      <section className="sticky top-20 z-30 bg-black/95 backdrop-blur-md px-6 sm:px-12 lg:px-20 py-4">
         <div className="w-full max-w-[1720px] mx-auto flex items-center gap-6 overflow-x-auto no-scrollbar font-clash text-xs tracking-wider uppercase">
           {industries.map((ind) => (
             <button
               key={ind}
               onClick={() => setSelectedIndustry(ind)}
-              className={`shrink-0 transition-colors pb-1 border-b cursor-pointer ${
+              className={`shrink-0 transition-colors pb-1 cursor-pointer ${
                 selectedIndustry === ind
-                  ? 'text-white border-white'
-                  : 'text-white/50 border-transparent hover:text-white'
+                  ? 'text-white font-medium'
+                  : 'text-white/50 hover:text-white'
               }`}
             >
               {ind}
@@ -165,7 +165,7 @@ export function ProjectsGalleryClient({ projects }: { projects: ConceptExperienc
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-80px' }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center border-b border-white/10 pb-20 sm:pb-32 ${
+                  className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center pb-20 sm:pb-32 ${
                     isReversed ? 'lg:grid-flow-dense' : ''
                   }`}
                 >
@@ -177,7 +177,7 @@ export function ProjectsGalleryClient({ projects }: { projects: ConceptExperienc
                   >
                     <Link
                       href={`/projects/${project.slug}`}
-                      className="group block relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-2xl bg-neutral-950 border border-white/10"
+                      className="group block relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-2xl bg-neutral-950 shadow-2xl"
                     >
                       <ConceptCardMedia project={project} />
 
@@ -265,7 +265,7 @@ export function ProjectsGalleryClient({ projects }: { projects: ConceptExperienc
       {/* =========================================================================
           CLOSING STATEMENT (Conversion to Studio Services)
       ========================================================================== */}
-      <section className="py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#000000] text-center">
+      <section className="py-24 sm:py-36 px-6 sm:px-12 lg:px-20 bg-[#000000] text-center">
         <div className="max-w-4xl mx-auto space-y-6">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-400">
             Client Commissions &bull; Bespoke Engineering
@@ -287,7 +287,7 @@ export function ProjectsGalleryClient({ projects }: { projects: ConceptExperienc
               href={STUDIO_CONFIG.calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white font-clash text-sm font-light hover:bg-white/10 transition-colors"
+              className="px-8 py-4 rounded-full bg-white/10 text-white font-clash text-sm font-light hover:bg-white/20 transition-colors"
             >
               Book a Meeting
             </a>

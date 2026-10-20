@@ -12,7 +12,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
       {/* =========================================================================
           HERO (Services Hero)
       ========================================================================== */}
-      <section className="relative min-h-screen flex flex-col justify-between pt-36 sm:pt-44 pb-12 px-6 sm:px-12 lg:px-20 border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col justify-between pt-36 sm:pt-44 pb-12 px-6 sm:px-12 lg:px-20 overflow-hidden">
         {/* Top Tagline */}
         <div className="w-full max-w-[1720px] mx-auto">
           <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block">
@@ -33,7 +33,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
         </div>
 
         {/* Bottom Manifesto statement & Vertical Scroll line */}
-        <div className="w-full max-w-[1720px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8 pt-12 border-t border-white/10">
+        <div className="w-full max-w-[1720px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8 pt-12">
           {/* Bottom-left vertical scroll indicator */}
           <div className="flex items-center gap-3">
             <span className="[writing-mode:vertical-rl] rotate-180 font-clash text-[10px] tracking-widest uppercase text-white/50">
@@ -76,7 +76,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
             <section
               key={service.slug}
               id={service.slug}
-              className="w-full min-h-screen border-b border-white/10 grid grid-cols-1 lg:grid-cols-2"
+              className="w-full min-h-screen grid grid-cols-1 lg:grid-cols-2"
             >
               {/* Media Half: Interactive 3D for AI Services / High-Res Visual for other services */}
               <div
@@ -157,7 +157,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
                 </div>
 
                 {/* Bottom: Subtitle (Left) + Skills List & Case Study (Right) */}
-                <div className="pt-16 sm:pt-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-end border-t border-white/10 lg:border-t-0">
+                <div className="pt-16 sm:pt-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
                   {/* Subtitle */}
                   <div>
                     <h3 className="font-clash text-xl sm:text-2xl font-light text-white/90 leading-snug">
@@ -179,7 +179,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
 
                     {/* Case study deep-link */}
                     {service.featuredCaseSlug && (
-                      <div className="pt-4 border-t border-white/10">
+                      <div className="pt-4">
                         <span className="font-clash text-[11px] text-[#889fa8] block mb-1">
                           Featured Project
                         </span>
@@ -202,7 +202,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
       {/* =========================================================================
           CLOSING STATEMENT (Conversion to Contact)
       ========================================================================== */}
-      <section className="py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#000000] text-center">
+      <section className="py-24 sm:py-36 px-6 sm:px-12 lg:px-20 bg-[#000000] text-center">
         <div className="max-w-4xl mx-auto space-y-6">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-400">
             Client Commissions &bull; Full-Lifecycle Studio
@@ -224,7 +224,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
               href={STUDIO_CONFIG.calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white font-clash text-sm font-light hover:bg-white/10 transition-colors"
+              className="px-8 py-4 rounded-full bg-white/10 text-white font-clash text-sm font-light hover:bg-white/20 transition-colors"
             >
               Book a Meeting
             </a>

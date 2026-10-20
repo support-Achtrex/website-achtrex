@@ -115,17 +115,17 @@ export function ServicesGridSection({ services }: { services?: ServiceItem[] }) 
     <section
       id="services-grid"
       data-section-color="positive"
-      className="relative w-full bg-[#ffffff] text-[#000000] py-20 sm:py-28 lg:py-36 border-t border-b border-black/10 overflow-hidden font-sans"
+      className="relative w-full bg-[#ffffff] text-[#000000] py-20 sm:py-28 lg:py-36 overflow-hidden font-sans"
     >
       <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* =========================================================================
               LEFT DATA / NAVIGATION ZONE (Slider Navigation & Taxonomy)
           ========================================================================== */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-full min-h-[380px] lg:min-h-[480px] pr-0 lg:pr-8">
+          <div className="lg:col-span-4 xl:col-span-4 flex flex-col justify-between h-full min-h-[380px] lg:min-h-[520px] pr-0 lg:pr-6">
             {/* Top Bar: Title + View All CTA + Slide Counter */}
             <div>
-              <div className="flex items-center justify-between pb-6 border-b border-black/15">
+              <div className="flex items-center justify-between pb-6">
                 <div className="flex items-baseline gap-4 sm:gap-6">
                   <h3 className="font-clash text-2xl sm:text-3xl font-medium tracking-tight text-black">
                     Services
@@ -222,14 +222,14 @@ export function ServicesGridSection({ services }: { services?: ServiceItem[] }) 
           </div>
 
           {/* =========================================================================
-              RIGHT CAROUSEL TRACK (Slide Cards)
+              RIGHT CAROUSEL TRACK (Much Bigger Image Spreads)
           ========================================================================== */}
-          <div className="lg:col-span-7 relative overflow-hidden">
+          <div className="lg:col-span-8 xl:col-span-8 relative overflow-hidden">
             <div
               ref={trackRef}
               className="flex gap-6 sm:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
               style={{
-                transform: `translateX(-${currentIndex * 72}%)`,
+                transform: `translateX(-${currentIndex * 88}%)`,
               }}
             >
               {items.map((service, idx) => {
@@ -238,12 +238,12 @@ export function ServicesGridSection({ services }: { services?: ServiceItem[] }) 
                   <div
                     key={service.id || service.href}
                     onClick={() => setCurrentIndex(idx)}
-                    className={`relative flex-shrink-0 w-[82%] sm:w-[70%] cursor-pointer group transition-opacity duration-500 ${
+                    className={`relative flex-shrink-0 w-[94%] sm:w-[88%] lg:w-[86%] cursor-pointer group transition-opacity duration-500 ${
                       isSelected ? 'opacity-100' : 'opacity-65 hover:opacity-90'
                     }`}
                   >
                     <Link href={service.href} className="block">
-                      <div className="relative aspect-[16/11] bg-neutral-200 overflow-hidden shadow-lg border border-black/10">
+                      <div className="relative aspect-[16/10] sm:aspect-[16/10] min-h-[340px] sm:min-h-[460px] lg:min-h-[520px] bg-neutral-100 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
                         {service.video ? (
                           <video
                             src={service.video}
@@ -259,7 +259,7 @@ export function ServicesGridSection({ services }: { services?: ServiceItem[] }) 
                             src={service.image}
                             alt={service.title}
                             fill
-                            sizes="(max-width: 768px) 85vw, 50vw"
+                            sizes="(max-width: 768px) 95vw, 65vw"
                             className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                             priority={idx === 0}
                           />
@@ -267,7 +267,7 @@ export function ServicesGridSection({ services }: { services?: ServiceItem[] }) 
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
 
                         {/* View Indicator Badge on Hover */}
-                        <div className="absolute bottom-4 right-4 z-10 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur-md text-white font-mono text-[10px] uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute bottom-6 right-6 z-10 px-4 py-2 rounded-full bg-black/80 backdrop-blur-md text-white font-mono text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
                           Explore &rarr;
                         </div>
                       </div>

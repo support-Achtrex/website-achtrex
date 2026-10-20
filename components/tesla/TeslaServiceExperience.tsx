@@ -130,7 +130,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
       ========================================================================== */}
       <section
         id="philosophy"
-        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 border-t border-white/10 overflow-hidden"
+        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 overflow-hidden"
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
           <div className="max-w-5xl">
@@ -145,7 +145,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
             </p>
           </div>
 
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden shadow-2xl bg-neutral-950">
             {service.secondaryImage ? (
               <Image
                 src={service.secondaryImage}
@@ -163,13 +163,9 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
                 className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105"
               />
             ) : null}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-6 left-6 z-10 font-mono text-xs text-white/80">
-              Technical Architecture &bull; Pipeline Overview
-            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 pt-8 border-t border-white/10 font-clash">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 pt-8 font-clash">
             <div>
               <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
                 Core Conviction
@@ -196,7 +192,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
       ========================================================================== */}
       <section
         id="capabilities"
-        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20 bg-[#000000]"
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16">
           <div className="max-w-4xl">
@@ -221,7 +217,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
                 {(service.capabilities || []).map((cap) => (
                   <div
                     key={cap}
-                    className="p-3.5 border border-white/10 bg-white/[0.02] flex items-center gap-3"
+                    className="p-3.5 bg-white/[0.03] rounded-lg flex items-center gap-3"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-white/80 shrink-0" />
                     <span className="text-xs sm:text-sm text-white/90 font-light">{cap}</span>
@@ -239,7 +235,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
                 {(service.deliverables || []).map((deliv, idx) => (
                   <div
                     key={idx}
-                    className="p-5 border border-white/10 bg-white/[0.02] flex items-start gap-4"
+                    className="p-5 bg-white/[0.03] rounded-xl flex items-start gap-4"
                   >
                     <span className="font-mono text-xs text-white/60 font-semibold pt-0.5">
                       0{idx + 1}
@@ -261,7 +257,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
       {Array.isArray(service.industryApplications) && service.industryApplications.length > 0 && (
         <section
           id="industries"
-          className="relative w-full py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+          className="relative w-full py-24 sm:py-36 px-6 sm:px-12 lg:px-20 bg-[#000000]"
         >
           <div className="w-full max-w-[1720px] mx-auto space-y-12">
             <div className="max-w-4xl">
@@ -277,7 +273,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
               {service.industryApplications.map((app) => (
                 <div
                   key={app.industry}
-                  className="p-6 border border-white/10 bg-white/[0.02] space-y-3"
+                  className="p-6 bg-white/[0.03] rounded-xl space-y-3"
                 >
                   <span className="font-mono text-xs text-white/60 uppercase tracking-wider block">
                     {app.industry}
@@ -297,7 +293,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
       ========================================================================== */}
       <section
         id="commission"
-        className="py-28 sm:py-40 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-gradient-to-b from-black via-neutral-950 to-black text-center"
+        className="py-28 sm:py-40 px-6 sm:px-12 lg:px-20 bg-gradient-to-b from-black via-neutral-950 to-black text-center"
       >
         <div className="max-w-4xl mx-auto space-y-8 font-clash">
           <span className="font-mono text-xs uppercase tracking-widest text-white/60 block">
@@ -321,7 +317,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
               href={STUDIO_CONFIG.calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white font-clash text-sm font-light hover:bg-white/10 transition-colors"
+              className="px-8 py-4 rounded-full bg-white/10 text-white font-clash text-sm font-light hover:bg-white/20 transition-colors"
             >
               Book a Meeting
             </a>
@@ -336,7 +332,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
       {/* =========================================================================
           SECTION 6: NEXT STUDIO DISCIPLINE STRIP
       ========================================================================== */}
-      <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]">
+      <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 bg-[#000000]">
         <div className="w-full max-w-[1720px] mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <span className="font-mono text-xs text-white/50 uppercase tracking-widest block mb-1">

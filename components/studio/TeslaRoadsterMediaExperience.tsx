@@ -74,7 +74,7 @@ export function TeslaRoadsterMediaExperience({
           >
             <span>&larr; Achtrex Newsroom</span>
           </Link>
-          <span className="font-mono text-xs uppercase tracking-widest px-3 py-1 bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm">
+          <span className="font-mono text-xs uppercase tracking-widest text-white/50">
             {item.category || 'INNOVATION'} &bull; Concept Showcase
           </span>
         </div>
@@ -165,7 +165,7 @@ export function TeslaRoadsterMediaExperience({
           </div>
 
           {/* Authentic Looping Video Player */}
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden shadow-2xl bg-neutral-950">
             <video
               autoPlay
               muted
@@ -178,8 +178,7 @@ export function TeslaRoadsterMediaExperience({
               <source src="/case/roadster/roadster-loop.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-6 left-6 right-6 z-10 flex flex-wrap items-end justify-between gap-4 font-mono text-xs text-white/80">
-              <div>Plate 00 &bull; 0-60 mph High Velocity Track Run</div>
+            <div className="absolute bottom-6 left-6 right-6 z-10 flex flex-wrap items-end justify-end gap-4 font-mono text-xs text-white/80">
               <div className="flex gap-6 sm:gap-12">
                 <span>0-60 mph: <strong className="text-white font-medium">1.9 s</strong></span>
                 <span>0-100 mph: <strong className="text-white font-medium">4.2 s</strong></span>
@@ -196,7 +195,7 @@ export function TeslaRoadsterMediaExperience({
       ========================================================================== */}
       <section
         id="roadster_aero"
-        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 bg-[#000000]"
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
           <div className="max-w-5xl">
@@ -212,7 +211,7 @@ export function TeslaRoadsterMediaExperience({
           </div>
 
           {/* Full-Bleed 21:9 Spread */}
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden shadow-2xl bg-neutral-950">
             <Image
               src="/case/roadster/roadster-profile.jpg"
               alt="Tesla Roadster Continuous Aerodynamic Surface Profile"
@@ -220,13 +219,9 @@ export function TeslaRoadsterMediaExperience({
               sizes="100vw"
               className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-6 left-6 z-10 font-mono text-xs text-white/80">
-              Plate 01 &bull; Continuous Surface Aerodynamic Profile
-            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 pt-8 border-t border-white/10 font-clash">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 pt-8 font-clash">
             <div>
               <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
                 Airflow Management
@@ -252,7 +247,7 @@ export function TeslaRoadsterMediaExperience({
       ========================================================================== */}
       <section
         id="roadster_diffuser"
-        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 bg-[#000000]"
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
@@ -266,7 +261,7 @@ export function TeslaRoadsterMediaExperience({
               <p className="text-base sm:text-lg text-white/80 font-light leading-relaxed">
                 The rear architecture features an aggressive multi-channel diffuser that seals low-pressure airflow behind the vehicle, cementing high-speed stability past 250 mph.
               </p>
-              <div className="pt-6 border-t border-white/10">
+              <div className="pt-6">
                 <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-2">
                   Structural Propulsion
                 </span>
@@ -276,7 +271,7 @@ export function TeslaRoadsterMediaExperience({
               </div>
             </div>
 
-            <div className="lg:col-span-8 relative aspect-[16/10] overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+            <div className="lg:col-span-8 relative aspect-[16/10] overflow-hidden shadow-2xl bg-neutral-950">
               <Image
                 src="/case/roadster/roadster-rear.jpg"
                 alt="Tesla Roadster Rear Diffuser and Active Aerodynamics"
@@ -284,14 +279,11 @@ export function TeslaRoadsterMediaExperience({
                 sizes="(max-width: 1024px) 100vw, 66vw"
                 className="object-cover"
               />
-              <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/70">
-                Plate 02 &bull; Aerodynamic Exit Channels &amp; Integrated Lightblade
-              </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-950 shadow-xl">
+            <div className="relative aspect-[16/10] overflow-hidden bg-neutral-950 shadow-xl">
               <Image
                 src="/case/roadster/roadster-front-white.jpg"
                 alt="Tesla Roadster Sculpted Front Canopy"
@@ -299,11 +291,8 @@ export function TeslaRoadsterMediaExperience({
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/70">
-                Sculpted Front Aerodynamic Canopy
-              </div>
             </div>
-            <div className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-950 shadow-xl">
+            <div className="relative aspect-[16/10] overflow-hidden bg-neutral-950 shadow-xl">
               <Image
                 src="/case/roadster/roadster-aero-white.jpg"
                 alt="Tesla Roadster Monocoque Geometry"
@@ -311,9 +300,6 @@ export function TeslaRoadsterMediaExperience({
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/70">
-                Pristine Monocoque Geometry
-              </div>
             </div>
           </div>
         </div>
@@ -325,7 +311,7 @@ export function TeslaRoadsterMediaExperience({
       ========================================================================== */}
       <section
         id="roadster_interior"
-        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 bg-[#000000]"
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
           <div className="max-w-5xl">
@@ -341,7 +327,7 @@ export function TeslaRoadsterMediaExperience({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-            <div className="lg:col-span-7 relative aspect-[16/10] overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+            <div className="lg:col-span-7 relative aspect-[16/10] overflow-hidden shadow-2xl bg-neutral-950">
               <Image
                 src="/case/roadster/roadster-interior.jpg"
                 alt="Tesla Roadster Minimalist Interior and 2+2 Seating"
@@ -349,12 +335,9 @@ export function TeslaRoadsterMediaExperience({
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105"
               />
-              <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/80">
-                Plate 03 &bull; Ergonomic 2+2 Seating Architecture
-              </div>
             </div>
 
-            <div className="lg:col-span-5 relative aspect-[16/10] overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+            <div className="lg:col-span-5 relative aspect-[16/10] overflow-hidden shadow-2xl bg-neutral-950">
               <Image
                 src="/case/roadster/roadster-cockpit.jpg"
                 alt="Tesla Roadster Yoke Steering and Cockpit Controls"
@@ -362,9 +345,6 @@ export function TeslaRoadsterMediaExperience({
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105"
               />
-              <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/80">
-                Plate 04 &bull; Minimalist Cockpit &amp; Yoke Controls
-              </div>
             </div>
           </div>
         </div>
@@ -376,7 +356,7 @@ export function TeslaRoadsterMediaExperience({
       ========================================================================== */}
       <section
         id="roadster_roof"
-        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 bg-[#000000]"
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
           <div className="max-w-5xl">
@@ -392,7 +372,7 @@ export function TeslaRoadsterMediaExperience({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-950 shadow-2xl">
+            <div className="relative aspect-[16/10] overflow-hidden bg-neutral-950 shadow-2xl">
               <Image
                 src="/case/roadster/roadster-roof-white.jpg"
                 alt="Tesla Roadster Removable Lightweight Glass Roof"
@@ -400,11 +380,8 @@ export function TeslaRoadsterMediaExperience({
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/80">
-                Plate 05 &bull; Removable Canopy Top
-              </div>
             </div>
-            <div className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-950 shadow-2xl">
+            <div className="relative aspect-[16/10] overflow-hidden bg-neutral-950 shadow-2xl">
               <Image
                 src="/case/roadster/roadster-stage.jpg"
                 alt="Tesla Roadster Open-Air Stage Debut"
@@ -412,9 +389,6 @@ export function TeslaRoadsterMediaExperience({
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/80">
-                Plate 06 &bull; Aerodynamic Targa Profile
-              </div>
             </div>
           </div>
         </div>
@@ -426,7 +400,7 @@ export function TeslaRoadsterMediaExperience({
       ========================================================================== */}
       <section
         id="roadster_specs"
-        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20 bg-[#000000]"
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16">
           <div className="max-w-4xl">
@@ -443,19 +417,19 @@ export function TeslaRoadsterMediaExperience({
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 font-clash">
             {/* Box 1: Velocity */}
-            <div className="p-8 border border-white/10 bg-white/[0.02] space-y-4">
+            <div className="p-8 bg-white/[0.03] space-y-4 rounded-xl">
               <span className="font-mono text-xs uppercase tracking-widest text-white/40 block">01 / VELOCITY</span>
               <h4 className="text-xl font-medium text-white">Acceleration Records</h4>
-              <ul className="space-y-3 pt-4 border-t border-white/10 text-sm text-white/80 font-light">
-                <li className="flex justify-between py-1 border-b border-white/5">
+              <ul className="space-y-3 pt-4 text-sm text-white/80 font-light">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">0 to 60 mph</span>
                   <span className="font-medium text-white">1.9 seconds</span>
                 </li>
-                <li className="flex justify-between py-1 border-b border-white/5">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">0 to 100 mph</span>
                   <span className="font-medium text-white">4.2 seconds</span>
                 </li>
-                <li className="flex justify-between py-1 border-b border-white/5">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">1/4 Mile Time</span>
                   <span className="font-medium text-white">8.8 seconds</span>
                 </li>
@@ -467,19 +441,19 @@ export function TeslaRoadsterMediaExperience({
             </div>
 
             {/* Box 2: Propulsion */}
-            <div className="p-8 border border-white/10 bg-white/[0.02] space-y-4">
+            <div className="p-8 bg-white/[0.03] space-y-4 rounded-xl">
               <span className="font-mono text-xs uppercase tracking-widest text-white/40 block">02 / PROPULSION</span>
               <h4 className="text-xl font-medium text-white">Triple-Motor Drivetrain</h4>
-              <ul className="space-y-3 pt-4 border-t border-white/10 text-sm text-white/80 font-light">
-                <li className="flex justify-between py-1 border-b border-white/5">
+              <ul className="space-y-3 pt-4 text-sm text-white/80 font-light">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">Wheel Torque</span>
                   <span className="font-medium text-white">10,000 Nm</span>
                 </li>
-                <li className="flex justify-between py-1 border-b border-white/5">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">Electric Range</span>
                   <span className="font-medium text-white">620 miles (1,000 km)</span>
                 </li>
-                <li className="flex justify-between py-1 border-b border-white/5">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">Drive Layout</span>
                   <span className="font-medium text-white">All-Wheel Drive</span>
                 </li>
@@ -491,19 +465,19 @@ export function TeslaRoadsterMediaExperience({
             </div>
 
             {/* Box 3: Architecture */}
-            <div className="p-8 border border-white/10 bg-white/[0.02] space-y-4">
+            <div className="p-8 bg-white/[0.03] space-y-4 rounded-xl">
               <span className="font-mono text-xs uppercase tracking-widest text-white/40 block">03 / ARCHITECTURE</span>
               <h4 className="text-xl font-medium text-white">Chassis &amp; Configuration</h4>
-              <ul className="space-y-3 pt-4 border-t border-white/10 text-sm text-white/80 font-light">
-                <li className="flex justify-between py-1 border-b border-white/5">
+              <ul className="space-y-3 pt-4 text-sm text-white/80 font-light">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">Seating Capacity</span>
                   <span className="font-medium text-white">4 Adults (2+2)</span>
                 </li>
-                <li className="flex justify-between py-1 border-b border-white/5">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">Roof Type</span>
                   <span className="font-medium text-white">Removable Lightweight Glass</span>
                 </li>
-                <li className="flex justify-between py-1 border-b border-white/5">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">Base Reserve</span>
                   <span className="font-medium text-white">$50,000</span>
                 </li>
@@ -522,7 +496,7 @@ export function TeslaRoadsterMediaExperience({
       ========================================================================== */}
       <section
         id="roadster_commission"
-        className="py-28 sm:py-40 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-gradient-to-b from-black via-neutral-950 to-black text-center"
+        className="py-28 sm:py-40 px-6 sm:px-12 lg:px-20 bg-gradient-to-b from-black via-neutral-950 to-black text-center"
       >
         <div className="max-w-4xl mx-auto space-y-8 font-clash">
           <span className="font-mono text-xs uppercase tracking-widest text-white/60 block">
@@ -544,7 +518,7 @@ export function TeslaRoadsterMediaExperience({
             </Link>
             <Link
               href="/contact"
-              className="px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white font-clash text-sm font-light hover:bg-white/10 transition-colors"
+              className="px-8 py-4 rounded-full bg-white/10 text-white font-clash text-sm font-light hover:bg-white/20 transition-colors"
             >
               Commission an Automotive Digital Twin
             </Link>
@@ -560,7 +534,7 @@ export function TeslaRoadsterMediaExperience({
           SECTION 8: RELATED MEDIA STORIES (Minimal Dark Grid)
       ========================================================================== */}
       {relatedItems.length > 0 && (
-        <section className="w-full bg-[#000000] py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-t border-white/10 text-white">
+        <section className="w-full bg-[#000000] py-20 sm:py-28 px-6 sm:px-12 lg:px-20 text-white">
           <div className="w-full max-w-[1720px] mx-auto space-y-10">
             <div className="flex items-center justify-between">
               <div>
@@ -583,7 +557,7 @@ export function TeslaRoadsterMediaExperience({
               {relatedItems.map((rel) => (
                 <article
                   key={rel.id}
-                  className="border border-white/10 bg-white/[0.02] overflow-hidden flex flex-col justify-between group"
+                  className="bg-white/[0.03] rounded-2xl overflow-hidden flex flex-col justify-between group"
                 >
                   <Link href={`/media/${rel.slug}`} className="block flex flex-col h-full">
                     <div className="relative w-full aspect-[16/10] bg-neutral-950 overflow-hidden">
@@ -609,7 +583,7 @@ export function TeslaRoadsterMediaExperience({
                           {rel.title}
                         </h3>
                       </div>
-                      <div className="pt-4 mt-4 border-t border-white/10">
+                      <div className="pt-4 mt-4">
                         <span className="text-xs font-mono uppercase tracking-wider text-white/70 group-hover:text-white">
                           Read release &rarr;
                         </span>

@@ -178,7 +178,7 @@ export function TeslaProjectExperience({
           </div>
 
           {/* Massive Full-Bleed 21:9 Visual Canvas */}
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden shadow-2xl bg-neutral-950">
             {project.secondaryImage ? (
               <Image
                 src={project.secondaryImage}
@@ -196,10 +196,6 @@ export function TeslaProjectExperience({
                 className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105"
               />
             ) : null}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-6 left-6 z-10 font-mono text-xs text-white/80">
-              Plate 01 &bull; {project.title} &bull; Full-Bleed Spatial Master
-            </div>
           </div>
         </div>
       </section>
@@ -210,7 +206,7 @@ export function TeslaProjectExperience({
       {allVideos.length > 0 && (
         <section
           id="video_experience"
-          className="relative w-full py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10"
+          className="relative w-full py-24 sm:py-36 px-6 sm:px-12 lg:px-20"
         >
           <div className="w-full max-w-[1720px] mx-auto space-y-12">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
@@ -224,14 +220,14 @@ export function TeslaProjectExperience({
               </div>
               <button
                 onClick={() => setIsVideoMuted(!isVideoMuted)}
-                className="px-4 py-2 rounded-full border border-white/20 bg-white/5 font-mono text-xs uppercase tracking-widest text-white hover:bg-white/10 transition-colors w-fit"
+                className="px-4 py-2 rounded-full bg-white/10 font-mono text-xs uppercase tracking-widest text-white hover:bg-white/20 transition-colors w-fit"
               >
                 {isVideoMuted ? 'Unmute Audio' : 'Mute Audio'}
               </button>
             </div>
 
             {/* Massive Cinema-Scale Video Plate */}
-            <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+            <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden shadow-2xl bg-neutral-950">
               <video
                 autoPlay
                 muted={isVideoMuted}
@@ -243,10 +239,6 @@ export function TeslaProjectExperience({
               >
                 <source src={allVideos[0]} type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-6 left-6 z-10 font-mono text-xs text-white/80">
-                Plate 02 &bull; Interactive Motion Sequence &bull; 60 FPS
-              </div>
             </div>
           </div>
         </section>
@@ -258,7 +250,7 @@ export function TeslaProjectExperience({
       {allImages.length > 0 && (
         <section
           id="gallery"
-          className="relative w-full py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10"
+          className="relative w-full py-24 sm:py-36 px-6 sm:px-12 lg:px-20"
         >
           <div className="w-full max-w-[1720px] mx-auto space-y-12">
             <div>
@@ -275,7 +267,7 @@ export function TeslaProjectExperience({
               {allImages.map((img, idx) => (
                 <div
                   key={idx}
-                  className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-950 shadow-2xl group"
+                  className="relative aspect-[16/10] overflow-hidden bg-neutral-950 shadow-2xl group"
                 >
                   <Image
                     src={img}
@@ -284,10 +276,6 @@ export function TeslaProjectExperience({
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity pointer-events-none" />
-                  <div className="absolute bottom-6 left-6 font-mono text-xs text-white/80">
-                    Plate 0{idx + 3} &bull; {project.title} &bull; Master Exploration
-                  </div>
                 </div>
               ))}
             </div>
@@ -298,7 +286,7 @@ export function TeslaProjectExperience({
                 {allVideos.slice(1).map((vidUrl, idx) => (
                   <div
                     key={idx}
-                    className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-950 shadow-2xl"
+                    className="relative aspect-[16/10] overflow-hidden bg-neutral-950 shadow-2xl"
                   >
                     <video
                       autoPlay
@@ -309,9 +297,6 @@ export function TeslaProjectExperience({
                     >
                       <source src={vidUrl} type="video/mp4" />
                     </video>
-                    <div className="absolute bottom-6 left-6 font-mono text-xs text-white/80">
-                      Video Plate 0{idx + 2} &bull; Extended Motion Capture
-                    </div>
                   </div>
                 ))}
               </div>
@@ -325,7 +310,7 @@ export function TeslaProjectExperience({
       ========================================================================== */}
       <section
         id="specs"
-        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10"
+        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20"
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16">
           <div className="max-w-4xl">
@@ -343,21 +328,21 @@ export function TeslaProjectExperience({
           {/* 3-Column Clean Engineering Matrix */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 font-clash">
             {/* Box 1: Core Parameters */}
-            <div className="p-8 border border-white/10 bg-white/[0.02] space-y-4">
+            <div className="p-8 bg-white/[0.03] rounded-xl space-y-4">
               <span className="font-mono text-xs uppercase tracking-widest text-white/40 block">
                 01 / OVERVIEW
               </span>
               <h4 className="text-xl font-medium text-white">Project Scope</h4>
-              <ul className="space-y-3 pt-4 border-t border-white/10 text-sm text-white/80 font-light">
-                <li className="flex justify-between py-1 border-b border-white/5">
+              <ul className="space-y-3 pt-4 text-sm text-white/80 font-light">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">Industry</span>
                   <span className="font-medium text-white">{project.industry}</span>
                 </li>
-                <li className="flex justify-between py-1 border-b border-white/5">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">Discipline</span>
                   <span className="font-medium text-white">{project.category}</span>
                 </li>
-                <li className="flex justify-between py-1 border-b border-white/5">
+                <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">Runtime Performance</span>
                   <span className="font-medium text-white">60 FPS Hardware-Accelerated</span>
                 </li>
@@ -369,12 +354,12 @@ export function TeslaProjectExperience({
             </div>
 
             {/* Box 2: Tested Capabilities */}
-            <div className="p-8 border border-white/10 bg-white/[0.02] space-y-4">
+            <div className="p-8 bg-white/[0.03] rounded-xl space-y-4">
               <span className="font-mono text-xs uppercase tracking-widest text-white/40 block">
                 02 / CAPABILITIES
               </span>
               <h4 className="text-xl font-medium text-white">Engineering Scope</h4>
-              <div className="pt-4 border-t border-white/10 space-y-2">
+              <div className="pt-4 space-y-2">
                 {(project.technicalCapabilities || []).map((cap) => (
                   <div key={cap} className="flex items-center gap-2 text-sm text-white/85 font-light">
                     <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: theme }} />
@@ -385,23 +370,23 @@ export function TeslaProjectExperience({
             </div>
 
             {/* Box 3: Production Tech Stack */}
-            <div className="p-8 border border-white/10 bg-white/[0.02] space-y-4">
+            <div className="p-8 bg-white/[0.03] rounded-xl space-y-4">
               <span className="font-mono text-xs uppercase tracking-widest text-white/40 block">
                 03 / STACK
               </span>
               <h4 className="text-xl font-medium text-white">Production Stack</h4>
-              <div className="pt-4 border-t border-white/10 flex flex-wrap gap-2">
+              <div className="pt-4 flex flex-wrap gap-2">
                 {(project.techStack || []).map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-white/5 border border-white/10 rounded-full font-mono text-xs text-white/80"
+                    className="px-3 py-1 bg-white/10 rounded-full font-mono text-xs text-white/80"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
               {relatedService && (
-                <div className="pt-4 border-t border-white/10 mt-4">
+                <div className="pt-4 mt-4">
                   <span className="font-mono text-xs text-white/40 block mb-1">Related Service:</span>
                   <Link
                     href={`/services/${relatedService.slug}`}
@@ -421,7 +406,7 @@ export function TeslaProjectExperience({
       ========================================================================== */}
       <section
         id="commission"
-        className="py-28 sm:py-40 px-6 sm:px-12 lg:px-20 border-t border-white/10 text-center"
+        className="py-28 sm:py-40 px-6 sm:px-12 lg:px-20 text-center"
         style={{
           background: `linear-gradient(to bottom, ${bg}, #050505, ${bg})`,
         }}
@@ -449,7 +434,7 @@ export function TeslaProjectExperience({
               href={STUDIO_CONFIG.calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white font-clash text-sm font-light hover:bg-white/10 transition-colors"
+              className="px-8 py-4 rounded-full bg-white/10 text-white font-clash text-sm font-light hover:bg-white/20 transition-colors"
             >
               Book a Meeting
             </a>
@@ -465,7 +450,7 @@ export function TeslaProjectExperience({
           SECTION 7: NEXT PROJECTS STRIP
       ========================================================================== */}
       {otherProjects.length > 0 && (
-        <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-t border-white/10">
+        <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20">
           <div className="w-full max-w-[1720px] mx-auto space-y-10">
             <div className="flex items-center justify-between">
               <span className="font-mono text-xs uppercase tracking-widest text-white/50">
@@ -486,7 +471,7 @@ export function TeslaProjectExperience({
                   href={`/projects/${p.slug}`}
                   className="group block space-y-3"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-950">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-neutral-950">
                     {p.heroImage ? (
                       <Image
                         src={p.heroImage}

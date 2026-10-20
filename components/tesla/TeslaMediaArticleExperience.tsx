@@ -65,7 +65,7 @@ export function TeslaMediaArticleExperience({
           >
             <span>&larr; Newsroom Archive</span>
           </Link>
-          <span className="font-mono text-xs uppercase tracking-widest px-3 py-1 bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm">
+          <span className="font-mono text-xs uppercase tracking-widest text-white/50">
             {item.category || 'PRESS'} &bull; {item.dateFormatted || item.date}
           </span>
         </div>
@@ -88,7 +88,7 @@ export function TeslaMediaArticleExperience({
         </div>
 
         {/* Bottom Metadata Line */}
-        <div className="relative z-10 w-full max-w-[1720px] mx-auto pt-6 border-t border-white/15 flex items-center justify-between text-xs font-mono text-white/50">
+        <div className="relative z-10 w-full max-w-[1720px] mx-auto pt-6 flex items-center justify-between text-xs font-mono text-white/50">
           <span>Achtrex Digital Communications</span>
           <span>{item.dateFormatted || item.date}</span>
         </div>
@@ -100,7 +100,7 @@ export function TeslaMediaArticleExperience({
       <section className="w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-20 bg-[#000000]">
         <div className="w-full max-w-5xl mx-auto space-y-16">
           {/* Prominent Media Embed */}
-          <div className="relative aspect-[16/10] w-full overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+          <div className="relative aspect-[16/10] w-full overflow-hidden shadow-2xl bg-neutral-950">
             {item.mediaType === 'video' ? (
               isVideoUrl(item.mediaUrl) && !item.mediaUrl.includes('youtube') && !item.mediaUrl.includes('vimeo') ? (
                 <video
@@ -144,10 +144,10 @@ export function TeslaMediaArticleExperience({
           </div>
 
           {/* Back Action */}
-          <div className="pt-12 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+          <div className="pt-12 flex flex-wrap items-center justify-between gap-4">
             <Link
               href="/media"
-              className="px-6 py-3 rounded-full border border-white/20 bg-white/5 text-white font-clash text-xs tracking-wider uppercase hover:bg-white/10 transition-colors"
+              className="px-6 py-3 rounded-full bg-white/10 text-white font-clash text-xs tracking-wider uppercase hover:bg-white/20 transition-colors"
             >
               &larr; Back to all releases
             </Link>
@@ -162,7 +162,7 @@ export function TeslaMediaArticleExperience({
           SECTION 3: RELATED STORIES (Tesla Minimalist Dark Grid)
       ========================================================================== */}
       {relatedItems.length > 0 && (
-        <section className="w-full bg-[#000000] py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-t border-white/10">
+        <section className="w-full bg-[#000000] py-20 sm:py-28 px-6 sm:px-12 lg:px-20">
           <div className="w-full max-w-[1720px] mx-auto space-y-10">
             <div className="flex items-center justify-between">
               <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8]">
@@ -180,7 +180,7 @@ export function TeslaMediaArticleExperience({
               {relatedItems.map((rel) => (
                 <article
                   key={rel.id}
-                  className="border border-white/10 bg-white/[0.02] overflow-hidden flex flex-col justify-between group"
+                  className="bg-white/[0.03] rounded-2xl overflow-hidden flex flex-col justify-between group"
                 >
                   <Link href={`/media/${rel.slug}`} className="block flex flex-col h-full">
                     <div className="relative w-full aspect-[16/10] bg-neutral-950 overflow-hidden">
@@ -206,7 +206,7 @@ export function TeslaMediaArticleExperience({
                           {rel.title}
                         </h3>
                       </div>
-                      <div className="pt-4 mt-4 border-t border-white/10">
+                      <div className="pt-4 mt-4">
                         <span className="text-xs font-mono uppercase tracking-wider text-white/70 group-hover:text-white">
                           Read release &rarr;
                         </span>

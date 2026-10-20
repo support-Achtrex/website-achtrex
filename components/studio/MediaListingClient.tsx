@@ -39,11 +39,11 @@ export function MediaListingClient({ initialItems }: MediaListingClientProps) {
   const hasMore = visibleCount < filteredItems.length;
 
   return (
-    <section className="w-full bg-[#000000] text-white py-16 sm:py-24">
+    <section className="w-full bg-[#ffffff] text-neutral-900 py-12 sm:py-16">
       <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-20">
-        {/* Category Filter Pills (Tesla Roadster Minimalist Pill Design) */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-12 border-b border-white/10">
-          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+        {/* Category Filters (Clean minimal pill design without borders) */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-12">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
             {CATEGORIES.map((cat) => {
               const isActive = selectedCategory.toLowerCase() === cat.toLowerCase();
               return (
@@ -53,10 +53,10 @@ export function MediaListingClient({ initialItems }: MediaListingClientProps) {
                     setSelectedCategory(cat);
                     setVisibleCount(8);
                   }}
-                  className={`px-5 py-2 text-xs font-mono uppercase tracking-widest rounded-full transition-all duration-200 cursor-pointer ${
+                  className={`px-5 py-2.5 text-xs font-mono uppercase tracking-widest rounded-full transition-all duration-200 cursor-pointer ${
                     isActive
-                      ? 'bg-white text-black font-medium shadow-md'
-                      : 'bg-white/5 text-white/70 border border-white/10 hover:border-white/30 hover:text-white'
+                      ? 'bg-neutral-950 text-white font-medium shadow-sm'
+                      : 'bg-neutral-100 text-neutral-600 hover:text-black hover:bg-neutral-200'
                   }`}
                 >
                   {cat}
@@ -69,7 +69,7 @@ export function MediaListingClient({ initialItems }: MediaListingClientProps) {
           <div className="relative">
             <button
               onClick={() => setShowSearch(!showSearch)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/5 font-mono text-xs uppercase tracking-wider text-white/70 hover:text-white hover:border-white/30 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-100 font-mono text-xs uppercase tracking-wider text-neutral-700 hover:text-black hover:bg-neutral-200 transition-colors cursor-pointer"
             >
               <span>{showSearch ? 'Close Search' : 'Search Dispatches'}</span>
               <span className={`transform transition-transform text-[10px] ${showSearch ? 'rotate-180' : ''}`}>
@@ -91,95 +91,86 @@ export function MediaListingClient({ initialItems }: MediaListingClientProps) {
                   setVisibleCount(8);
                 }}
                 placeholder="Search releases by topic, keywords, or title..."
-                className="w-full px-5 py-3 text-sm bg-neutral-950 border border-white/20 rounded-full text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors font-mono"
+                className="w-full px-6 py-3.5 text-sm bg-neutral-100 rounded-full text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 transition-all font-sans"
                 autoFocus
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-mono text-white/50 hover:text-white"
+                  className="absolute right-5 top-1/2 -translate-y-1/2 text-xs font-mono text-neutral-400 hover:text-black"
                 >
                   CLEAR
                 </button>
               )}
             </div>
             {searchQuery && (
-              <p className="text-xs font-mono text-white/50 mt-2 text-center">
+              <p className="text-xs font-mono text-neutral-500 mt-2 text-center">
                 Found {filteredItems.length} {filteredItems.length === 1 ? 'item' : 'items'} matching &ldquo;{searchQuery}&rdquo;
               </p>
             )}
           </div>
         )}
 
-        {/* 4-Column Tesla-Style Dark Card Grid */}
+        {/* Tesla Model Y Style Cards Grid (Matching Image 3) */}
         {displayedItems.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 mb-16">
             {displayedItems.map((item) => (
               <article
                 key={item.id}
-                className="bg-neutral-950/70 border border-white/10 overflow-hidden flex flex-col justify-between hover:border-white/30 hover:bg-neutral-900/60 transition-all duration-300 group"
+                className="group relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/5] bg-neutral-100 shadow-md hover:shadow-2xl transition-all duration-500 flex flex-col justify-end"
               >
-                <Link href={`/media/${item.slug}`} className="block flex flex-col h-full">
+                <Link href={`/media/${item.slug}`} className="absolute inset-0 z-0">
                   {/* Media Thumbnail */}
-                  <div className="relative w-full aspect-[16/10] bg-neutral-900 overflow-hidden">
-                    <Image
-                      src={item.thumbnailUrl || item.mediaUrl || '/studio-assets/service-experience-design.jpg'}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-85 group-hover:opacity-100"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                    {item.mediaType === 'video' && (
-                      <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 font-mono text-[9px] uppercase tracking-wider text-white">
-                        VIDEO
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="p-6 flex-1 flex flex-col justify-between font-clash">
-                    <div>
-                      {/* Category & Date Header */}
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-[#889fa8] font-medium">
-                          {item.category}
-                        </span>
-                        <span className="font-mono text-[10px] text-white/40">
-                          {item.date}
-                        </span>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-base sm:text-lg font-normal text-white leading-snug group-hover:text-white/80 transition-colors mb-3 line-clamp-2">
-                        {item.title}
-                      </h3>
-
-                      {/* Summary */}
-                      <p className="text-xs sm:text-sm text-white/60 font-light leading-relaxed line-clamp-3">
-                        {item.summary}
-                      </p>
-                    </div>
-
-                    <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
-                      <span className="text-xs font-mono uppercase tracking-widest text-white/70 group-hover:text-white">
-                        Read Story &rarr;
-                      </span>
-                    </div>
-                  </div>
+                  <Image
+                    src={item.thumbnailUrl || item.mediaUrl || '/studio-assets/service-experience-design.jpg'}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                  />
+                  {/* Subtle Gradient from bottom matching Image 3 */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
                 </Link>
+
+                {/* Top-Right Round "+" Button Matching Image 3 */}
+                <Link
+                  href={`/media/${item.slug}`}
+                  aria-label={`Open ${item.title}`}
+                  className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/95 text-black shadow-lg flex items-center justify-center font-bold text-lg hover:scale-110 hover:bg-white transition-transform cursor-pointer"
+                >
+                  +
+                </Link>
+
+                {/* Card Lower-Third Content (Overlaid matching Image 3) */}
+                <div className="relative z-10 p-6 sm:p-7 pointer-events-none font-clash">
+                  <div className="flex items-center gap-2 mb-2 font-mono text-[10px] uppercase tracking-widest text-white/70">
+                    <span>{item.category}</span>
+                    <span>&bull;</span>
+                    <span>{item.date}</span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-normal text-white leading-tight mb-2 tracking-tight">
+                    {item.title}
+                  </h3>
+
+                  {item.summary && (
+                    <p className="font-sans text-xs sm:text-sm text-white/80 font-light leading-relaxed line-clamp-2">
+                      {item.summary}
+                    </p>
+                  )}
+                </div>
               </article>
             ))}
           </div>
         ) : (
-          <div className="py-20 text-center border border-white/10 bg-neutral-950/40 p-8 my-8">
-            <p className="text-white/60 text-sm font-mono mb-4">No media dispatches found matching your filter criteria.</p>
+          <div className="py-20 text-center bg-neutral-50 rounded-2xl p-8 my-8">
+            <p className="text-neutral-500 text-sm font-sans mb-4">No media dispatches found matching your filter criteria.</p>
             <button
               onClick={() => {
                 setSelectedCategory('All');
                 setSearchQuery('');
               }}
-              className="px-6 py-2 rounded-full border border-white/30 text-white font-mono text-xs uppercase tracking-widest hover:bg-white/10 transition-colors cursor-pointer"
+              className="px-6 py-2 rounded-full bg-neutral-900 text-white font-mono text-xs uppercase tracking-widest hover:bg-neutral-800 transition-colors cursor-pointer"
             >
               Reset Filters
             </button>
@@ -188,10 +179,10 @@ export function MediaListingClient({ initialItems }: MediaListingClientProps) {
 
         {/* Load More Button */}
         {hasMore && (
-          <div className="flex justify-center pt-8 border-t border-white/10">
+          <div className="flex justify-center pt-8">
             <button
               onClick={() => setVisibleCount((prev) => prev + 8)}
-              className="px-8 py-3 rounded-full border border-white/30 bg-white/5 text-white font-mono text-xs uppercase tracking-widest hover:bg-white/10 transition-colors cursor-pointer"
+              className="px-8 py-3.5 rounded-full bg-neutral-950 text-white font-mono text-xs uppercase tracking-widest hover:bg-neutral-800 transition-colors cursor-pointer shadow-md"
             >
               Load More Dispatches
             </button>
