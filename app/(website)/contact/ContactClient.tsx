@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { submitContactForm } from '@/app/actions/contact';
 import { STUDIO_CONFIG } from '@/data/studio-data';
@@ -72,15 +73,13 @@ export function ContactClient() {
               {STUDIO_CONFIG.email}
             </a>
 
-            <a
-              href={STUDIO_CONFIG.calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book-a-meeting"
               className="inline-flex items-center gap-3 font-clash text-sm sm:text-base px-6 py-3.5 rounded-full bg-white text-black hover:bg-white/90 font-medium transition-all"
             >
               <span>Book a Meeting</span>
               <span>&rarr;</span>
-            </a>
+            </Link>
           </motion.div>
         </div>
 
@@ -102,64 +101,6 @@ export function ContactClient() {
       </section>
 
       {/* =========================================================================
-          COME AND SEE US (Outline Country Typography)
-      ========================================================================== */}
-      <section className="py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-b border-white/10">
-        <div className="w-full max-w-[1720px] mx-auto">
-          {/* Section label */}
-          <span className="font-clash text-xs sm:text-sm text-[#889fa8] block mb-16 tracking-wide">
-            Studio Headquarters &amp; Presence
-          </span>
-
-          {/* Location Rows */}
-          <div className="space-y-24 sm:space-y-36">
-            {/* UAE GROUP */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              {/* Massive Outline Country Text */}
-              <div className="lg:col-span-5">
-                <span className="font-clash text-7xl sm:text-9xl lg:text-[11rem] font-light outline-text-white tracking-tight leading-none select-none block">
-                  UAE
-                </span>
-              </div>
-
-              {/* Dubai */}
-              <div className="lg:col-span-7 space-y-16">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start font-clash">
-                  <h3 className="text-3xl sm:text-5xl font-normal text-white">
-                    Dubai
-                  </h3>
-                  <div className="text-sm text-white/70 space-y-1.5 leading-relaxed">
-                    <p className="text-white font-medium">Headquarters &amp; Digital Production</p>
-                    <p>{STUDIO_CONFIG.address}</p>
-                    <p className="pt-1">
-                      <a href={STUDIO_CONFIG.phoneHref} className="hover:text-white transition-colors">
-                        Tel. {STUDIO_CONFIG.phone}
-                      </a>
-                    </p>
-                    <p>
-                      <a href={STUDIO_CONFIG.emailHref} className="text-white hover:underline">
-                        {STUDIO_CONFIG.email}
-                      </a>
-                    </p>
-                    <div className="pt-3">
-                      <a
-                        href={STUDIO_CONFIG.calendlyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-white/80 hover:text-white underline underline-offset-4"
-                      >
-                        Book a 30-min discovery meeting &rarr;
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
           DIRECT INQUIRY FORM MODULE
       ========================================================================== */}
       <section className="py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-b border-white/10">
@@ -172,14 +113,12 @@ export function ContactClient() {
               Start a project with us
             </h2>
             <div className="pt-8">
-              <a
-                href={STUDIO_CONFIG.calendlyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/book-a-meeting"
                 className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-white/80 hover:text-white underline underline-offset-4"
               >
                 Prefer a quick intro call? Book via Calendly &rarr;
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -188,7 +127,7 @@ export function ContactClient() {
               <div className="p-8 sm:p-12 border border-white/20 bg-white/[0.02]">
                 <h3 className="font-clash text-2xl sm:text-3xl text-white mb-2">Message received</h3>
                 <p className="font-clash text-sm text-white/70 mb-6">
-                  Thank you for reaching out. A studio partner from our Dubai team will be in touch shortly.
+                  Thank you for reaching out. A studio partner from our team will be in touch shortly.
                 </p>
                 <button
                   onClick={() => setIsSuccess(false)}
@@ -248,14 +187,12 @@ export function ContactClient() {
                     <span className="text-2xl transition-transform group-hover:translate-x-2">&rarr;</span>
                   </button>
 
-                  <a
-                    href={STUDIO_CONFIG.calendlyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/book-a-meeting"
                     className="text-xs font-mono uppercase tracking-wider text-[#889fa8] hover:text-white transition-colors"
                   >
                     Or schedule a meeting via Calendly &rarr;
-                  </a>
+                  </Link>
                 </div>
               </form>
             )}

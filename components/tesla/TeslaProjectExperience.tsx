@@ -310,7 +310,7 @@ export function TeslaProjectExperience({
         <div className="w-full max-w-[1720px] mx-auto space-y-16">
           <div className="max-w-4xl">
             <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
-              Production Specifications &bull; {project.title}
+              Production Specifications &bull; Technical Benchmark
             </h3>
             <p className="font-clash text-base sm:text-lg text-white/70 font-light mt-4">
               Validated architecture for enterprise production and edge deployment.

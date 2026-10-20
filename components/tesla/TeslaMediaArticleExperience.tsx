@@ -200,7 +200,7 @@ export function TeslaMediaArticleExperience({
           {/* Section Headline */}
           <div className="max-w-5xl">
             <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-normal text-white leading-[1.1] tracking-tight">
-              {item.summary || item.subtitle || item.title}
+              {item.summary || item.subtitle || 'Cinematic Visual Showcase'}
             </h2>
           </div>
 
@@ -344,7 +344,7 @@ export function TeslaMediaArticleExperience({
               Official Narrative
             </span>
             <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight leading-tight">
-              {item.title}
+              Executive Briefing
             </h2>
           </div>
 

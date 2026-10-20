@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     'Terms of Service',
     'Privacy Policy',
     'Security Architecture',
-    'Dubai Silicon Oasis Software Governance',
+    'Enterprise Software Governance',
     'UAE PDPL Compliance',
     'GDPR Compliance'
   ],
@@ -41,7 +41,7 @@ const jsonLd = {
   '@type': 'WebPage',
   '@id': 'https://achtrex.com/legal#webpage',
   'name': 'Legal, Privacy & Security Hub | Achtrex',
-  'description': 'Master governance, privacy policies, and security architecture for Achtrex in Dubai Silicon Oasis.',
+  'description': 'Master governance, privacy policies, and security architecture for Achtrex.',
   'url': 'https://achtrex.com/legal',
   'publisher': {
     '@type': 'Corporation',
@@ -50,9 +50,6 @@ const jsonLd = {
     'logo': 'https://achtrex.com/logo.png',
     'address': {
       '@type': 'PostalAddress',
-      'streetAddress': 'Digital Park A5 Building, 6009',
-      'addressLocality': 'Dubai Silicon Oasis',
-      'addressRegion': 'Dubai',
       'addressCountry': 'AE'
     }
   }

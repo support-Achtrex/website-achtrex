@@ -200,41 +200,15 @@ export const ContactClient = () => {
                   </span>
                 </a>
 
-                {/* Headquarters Location & Embedded Google Map */}
+                {/* Studio Practice Location */}
                 <div className="rounded-xl bg-white border border-slate-200 overflow-hidden shadow-xs">
                   <div className="p-4">
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                      Global Headquarters
+                      Studio Practice
                     </span>
                     <span className="font-bold text-base text-slate-900 leading-snug block">
-                      Dubai Silicon Oasis, Digital Park A5 Building, 6009, UAE
+                      Global Engineering &amp; Client Services
                     </span>
-                  </div>
-
-                  {/* Google Map Location */}
-                  <div className="w-full h-[220px] bg-slate-100 relative border-t border-slate-100">
-                    <iframe
-                      src="https://www.google.com/maps?q=Dubai+Silicon+Oasis+Digital+Park+A5+Building+UAE&output=embed"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Achtrex Location - Dubai Silicon Oasis, Digital Park A5 Building, 6009, UAE"
-                      className="w-full h-full"
-                    />
-                  </div>
-                  <div className="px-4 py-3 bg-slate-50 border-t border-slate-100 text-right">
-                    <a
-                      href="https://maps.google.com/?q=Dubai+Silicon+Oasis+Digital+Park+A5+Building+UAE"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A9CE] hover:text-[#F37021] transition-colors"
-                    >
-                      <span>Open in Google Maps</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
                   </div>
                 </div>
               </div>

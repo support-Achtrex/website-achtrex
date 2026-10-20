@@ -1,5 +1,44 @@
 [
   {
+    "id": "sess_2iapgxx_mvh7ur5j",
+    "visitorId": "vis_sfska90_mvgwhkiy",
+    "ip": "::ffff:127.0.0.1",
+    "country": "International Visitor",
+    "countryCode": "INT",
+    "city": "Unknown City",
+    "region": "Network Edge",
+    "flag": "🌐",
+    "deviceType": "desktop",
+    "browser": "Firefox",
+    "os": "Windows 10/11",
+    "referrer": "Direct / Bookmark",
+    "startedAt": "2026-10-20T21:49:40.100Z",
+    "lastActiveAt": "2026-10-20T22:15:28.080Z",
+    "pageViewsCount": 4,
+    "pagesVisited": [
+      {
+        "path": "/book-a-meeting",
+        "title": "Book a Strategic Meeting | Achtrex Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T21:49:40.100Z"
+      },
+      {
+        "path": "/",
+        "title": "Achtrex : Digital Experience & Technology Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T21:54:23.296Z"
+      },
+      {
+        "path": "/contact",
+        "title": "Contact Achtrex | Start Your Project | Achtrex Studio",
+        "timestamp": "2026-10-20T21:56:12.024Z"
+      },
+      {
+        "path": "/contact",
+        "title": "Contact Achtrex | Start Your Project | Achtrex Studio",
+        "timestamp": "2026-10-20T22:15:28.080Z"
+      }
+    ]
+  },
+  {
     "id": "sess_mqtnict_mvh7jsjy",
     "visitorId": "vis_sfska90_mvgwhkiy",
     "ip": "::ffff:127.0.0.1",
@@ -13,8 +52,8 @@
     "os": "Windows 10/11",
     "referrer": "http://localhost:3000/projects/connected-hospitality-platform",
     "startedAt": "2026-10-20T21:41:09.464Z",
-    "lastActiveAt": "2026-10-20T21:41:20.490Z",
-    "pageViewsCount": 3,
+    "lastActiveAt": "2026-10-20T21:49:32.814Z",
+    "pageViewsCount": 11,
     "pagesVisited": [
       {
         "path": "/media/virtual-rescue-experience",
@@ -30,6 +69,46 @@
         "path": "/",
         "title": "Achtrex : Digital Experience & Technology Studio | Achtrex Studio",
         "timestamp": "2026-10-20T21:41:20.490Z"
+      },
+      {
+        "path": "/services",
+        "title": "Services & Disciplines | Achtrex Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T21:43:02.279Z"
+      },
+      {
+        "path": "/services/creative-strategy",
+        "title": "Creative Strategy & Digital Content | Achtrex Studio",
+        "timestamp": "2026-10-20T21:43:19.842Z"
+      },
+      {
+        "path": "/services",
+        "title": "Services & Disciplines | Achtrex Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T21:45:02.859Z"
+      },
+      {
+        "path": "/services/creative-strategy",
+        "title": "Creative Strategy & Digital Content | Achtrex Studio",
+        "timestamp": "2026-10-20T21:45:06.921Z"
+      },
+      {
+        "path": "/terms",
+        "title": "Terms & Conditions | Achtrex Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T21:45:33.649Z"
+      },
+      {
+        "path": "/projects",
+        "title": "Concept Experiences & Production Architecture | Achtrex Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T21:47:11.786Z"
+      },
+      {
+        "path": "/projects/automotive-spatial-configurator",
+        "title": "Spatial Vehicle Configurator : Achtrex Concept | Achtrex Studio",
+        "timestamp": "2026-10-20T21:47:20.370Z"
+      },
+      {
+        "path": "/contact",
+        "title": "Contact Achtrex | Start Your Project | Achtrex Studio",
+        "timestamp": "2026-10-20T21:49:32.814Z"
       }
     ]
   },

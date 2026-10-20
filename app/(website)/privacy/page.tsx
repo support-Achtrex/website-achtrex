@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'Achtrex Privacy Policy',
     'UAE PDPL Compliance',
     'GDPR Compliance Studio',
-    'Data Privacy Dubai Silicon Oasis',
+    'Enterprise Data Privacy',
     'AI Data Isolation Privacy',
     'Achtrex'
   ],
@@ -59,7 +59,7 @@ const jsonLd = {
   '@id': 'https://achtrex.com/privacy#webpage',
   'name': 'Privacy Policy | Achtrex',
   'url': 'https://achtrex.com/privacy',
-  'description': 'Data protection and privacy commitments of Achtrex in Dubai Silicon Oasis.',
+  'description': 'Data protection and privacy commitments of Achtrex.',
   'publisher': {
     '@type': 'Corporation',
     'name': 'Achtrex',
@@ -67,9 +67,6 @@ const jsonLd = {
     'logo': 'https://achtrex.com/logo.png',
     'address': {
       '@type': 'PostalAddress',
-      'streetAddress': 'Digital Park A5 Building, 6009',
-      'addressLocality': 'Dubai Silicon Oasis',
-      'addressRegion': 'Dubai',
       'addressCountry': 'AE'
     }
   }
@@ -395,9 +392,8 @@ export default function PrivacyPolicyPage() {
                   </p>
                   <div className="p-5 bg-white/[0.02] border border-white/10 rounded-xl space-y-2 font-mono text-xs text-white/80">
                     <p className="text-white font-semibold">Data Protection Officer</p>
-                    <p>Achtrex</p>
-                    <p>Digital Park A5 Building, Office 6009</p>
-                    <p>Dubai Silicon Oasis, Dubai, UAE</p>
+                    <p>Achtrex Digital Studio</p>
+                    <p>Global Engineering &amp; Client Services</p>
                     <p className="pt-2 text-emerald-400">Email: privacy@achtrex.com</p>
                   </div>
                 </div>

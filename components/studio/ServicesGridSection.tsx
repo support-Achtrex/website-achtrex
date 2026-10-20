@@ -271,16 +271,6 @@ export function ServicesGridSection({ services }: { services?: ServiceItem[] }) 
                           Explore &rarr;
                         </div>
                       </div>
-
-                      {/* Mobile Caption */}
-                      <div className="pt-3 block lg:hidden">
-                        <span className="font-mono text-[11px] text-black/50 uppercase tracking-wider block">
-                          {service.categoryLabel || `0${idx + 1}`}
-                        </span>
-                        <h5 className="font-clash text-lg font-normal text-black truncate mt-0.5">
-                          {service.title}
-                        </h5>
-                      </div>
                     </Link>
                   </div>
                 );

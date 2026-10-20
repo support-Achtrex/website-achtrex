@@ -201,7 +201,7 @@ export function LegalContent() {
                   <Building2 className="w-4 h-4 text-white/40 shrink-0 mt-0.5" />
                   <div>
                     <p className="text-white font-semibold">Achtrex</p>
-                    <p className="text-[11px] leading-snug">Dubai Silicon Oasis, Digital Park A5 Building, 6009, UAE</p>
+                    <p className="text-[11px] leading-snug">Global Digital Engineering &amp; Client Services</p>
                   </div>
                 </div>
                 <div className="pt-2">
@@ -253,7 +253,7 @@ export function LegalContent() {
                 <div>
                   <h3 className="text-base font-semibold text-white mb-2 font-clash">1. Master Agreement Scope</h3>
                   <p>
-                    These Terms govern all engineering contracts, real-time 3D configurators, spatial interfaces, bespoke AI pipelines, and digital products provided by <strong className="text-white">Achtrex</strong> in Dubai Silicon Oasis. By executing an SOW or paying a deposit invoice, Client agrees to be bound by these Master Terms.
+                    These Terms govern all engineering contracts, real-time 3D configurators, spatial interfaces, bespoke AI pipelines, and digital products provided by <strong className="text-white">Achtrex</strong>. By executing an SOW or paying a deposit invoice, Client agrees to be bound by these Master Terms.
                   </p>
                 </div>
 

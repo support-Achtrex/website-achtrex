@@ -148,9 +148,6 @@ const jsonLd = [
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Digital Park A5 Building, 6009",
-      "addressLocality": "Dubai Silicon Oasis",
-      "addressRegion": "Dubai",
       "addressCountry": "AE"
     },
     "contactPoint": [

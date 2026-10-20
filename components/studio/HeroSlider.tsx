@@ -174,9 +174,9 @@ export function HeroSlider({ config = DEFAULT_HERO_CONFIG }: HeroSliderProps) {
       </div>
 
       {/* =========================================================================
-          1.5. AUTOMOTIVE TECH DRIVING DYNAMICS (Interactive Speedlines & Cockpit Telemetry)
+          1.5. AUTOMOTIVE TECH DRIVING DYNAMICS (Speedlines & Perspective Canvas)
       ========================================================================== */}
-      <TechDrivingDynamics variant="hero" showTelemetry={true} />
+      <TechDrivingDynamics variant="hero" />
 
       {/* =========================================================================
           2. FOREGROUND EDITORIAL TITLE & CASE STUDY LINK

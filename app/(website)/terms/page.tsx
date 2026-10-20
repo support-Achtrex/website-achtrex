@@ -29,7 +29,6 @@ export const metadata: Metadata = {
     '3D WebGL Configurator Licensing',
     'Spatial Computing Agreement',
     'AI Multi-Agent Development Terms',
-    'Dubai Silicon Oasis Software Terms',
     'Achtrex'
   ],
   alternates: {
@@ -71,9 +70,6 @@ const jsonLd = {
     'logo': 'https://achtrex.com/logo.png',
     'address': {
       '@type': 'PostalAddress',
-      'streetAddress': 'Digital Park A5 Building, 6009',
-      'addressLocality': 'Dubai Silicon Oasis',
-      'addressRegion': 'Dubai',
       'addressCountry': 'AE'
     }
   }
@@ -132,10 +128,9 @@ export default function TermsAndConditionsPage() {
             </div>
             <div className="lg:col-span-4 flex flex-col justify-between space-y-4 text-xs font-mono text-[#889fa8]">
               <div className="space-y-1.5 bg-white/[0.02] border border-white/10 p-4 rounded-xl">
-                <span className="text-white uppercase tracking-wider block font-semibold">Entity Registration</span>
-                <p>Achtrex</p>
-                <p>Dubai Silicon Oasis, DSOA / DIEZ</p>
-                <p>Dubai, United Arab Emirates</p>
+                <span className="text-white uppercase tracking-wider block font-semibold">Master Agreement</span>
+                <p>Achtrex Digital Studio</p>
+                <p>Global Engineering &amp; Client Services</p>
               </div>
             </div>
           </div>
@@ -216,7 +211,7 @@ export default function TermsAndConditionsPage() {
                 </h2>
                 <div className="space-y-4 text-sm sm:text-base text-white/70 font-light leading-relaxed">
                   <p>
-                    These Master Terms and Conditions (&quot;Terms&quot;, &quot;Agreement&quot;) constitute a binding legal agreement entered into between <strong className="text-white">Achtrex</strong>, a free zone company registered under the laws of the Dubai Silicon Oasis Authority (&quot;Achtrex&quot;, &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), and the enterprise entity or individual (&quot;Client&quot;, &quot;Customer&quot;, or &quot;you&quot;) executing an order, Statement of Work, or engaging Achtrex for digital product services.
+                    These Master Terms and Conditions (&quot;Terms&quot;, &quot;Agreement&quot;) constitute a binding legal agreement entered into between <strong className="text-white">Achtrex</strong> (&quot;Achtrex&quot;, &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), and the enterprise entity or individual (&quot;Client&quot;, &quot;Customer&quot;, or &quot;you&quot;) executing an order, Statement of Work, or engaging Achtrex for digital product services.
                   </p>
                   <p>
                     Achtrex operates as a multidisciplinary digital experience and technology studio providing services across primary disciplines:

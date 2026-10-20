@@ -103,7 +103,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
         <div className="relative z-10 w-full max-w-[1720px] mx-auto">
           <div className="pt-6 border-t border-white/20 flex flex-wrap items-center justify-between gap-6">
             <div className="font-mono text-xs uppercase tracking-widest text-white/60">
-              {service.title}
+              Studio Capabilities &bull; Service Delivery
             </div>
 
             <div className="flex items-center gap-4">
@@ -291,7 +291,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
             Direct Client Engagement &bull; Achtrex Studio
           </span>
           <h3 className="text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-tight leading-tight">
-            Partner with Achtrex on your next {service.title} initiative.
+            Partner with Achtrex to engineer your next digital milestone.
           </h3>
           <p className="text-base sm:text-xl text-white/70 font-light max-w-2xl mx-auto leading-relaxed">
             Let&rsquo;s engineer an immersive digital experience that drives meaningful commercial outcomes for your enterprise.

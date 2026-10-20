@@ -3,11 +3,10 @@ import { ContactClient } from './ContactClient';
 
 export const metadata: Metadata = {
   title: 'Contact Achtrex | Start Your Project',
-  description: 'Connect with Achtrex Studio in Dubai Silicon Oasis. Inquire about automotive 3D configurators, spatial interfaces, custom AI platforms, and digital product engineering.',
+  description: 'Connect with Achtrex Studio. Inquire about automotive 3D configurators, spatial interfaces, custom AI platforms, and digital product engineering.',
   keywords: [
     'Contact Achtrex',
-    'Achtrex Studio Dubai Contact',
-    'Dubai Silicon Oasis Office',
+    'Achtrex Studio Contact',
     'Hire 3D WebGL Agency',
     'Hire AI Development Team',
     'Achtrex Inquiries'
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Contact Achtrex | Start Your Project',
-    description: 'Have a product, experience, or idea you want to bring to life? Connect with our digital experience and technology studio in Dubai Silicon Oasis.',
+    description: 'Have a product, experience, or idea you want to bring to life? Connect with our digital experience and technology studio.',
     url: 'https://achtrex.com/contact',
     siteName: 'Achtrex',
     locale: 'en_US',
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Achtrex | Start Your Project',
-    description: 'Connect with Achtrex Studio in Dubai Silicon Oasis.',
+    description: 'Connect with Achtrex Studio.',
     images: ['/logo.png'],
   },
 };
@@ -43,7 +42,7 @@ const jsonLd = {
   '@id': 'https://achtrex.com/contact#webpage',
   'name': 'Contact Achtrex Studio',
   'url': 'https://achtrex.com/contact',
-  'description': 'Connect with Achtrex Studio in Dubai Silicon Oasis for enterprise project inquiries.',
+  'description': 'Connect with Achtrex Studio for enterprise project inquiries.',
   'mainEntity': {
     '@type': 'Corporation',
     '@id': 'https://achtrex.com/#corporation',
@@ -52,9 +51,6 @@ const jsonLd = {
     'email': 'hello@achtrex.com',
     'address': {
       '@type': 'PostalAddress',
-      'streetAddress': 'Digital Park A5 Building, 6009',
-      'addressLocality': 'Dubai Silicon Oasis',
-      'addressRegion': 'Dubai',
       'addressCountry': 'AE'
     }
   }
