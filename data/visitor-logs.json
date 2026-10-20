@@ -1,0 +1,60 @@
+[
+  {
+    "id": "sess_test_demo1",
+    "visitorId": "vis_test_demo1",
+    "ip": "::1",
+    "country": "Localhost / Dev",
+    "countryCode": "DEV",
+    "city": "Local Machine",
+    "region": "Development",
+    "flag": "💻",
+    "deviceType": "desktop",
+    "browser": "Unknown Browser",
+    "os": "Windows 10/11",
+    "referrer": "https://www.google.com",
+    "startedAt": "2026-10-20T16:35:46.535Z",
+    "lastActiveAt": "2026-10-20T16:36:09.019Z",
+    "pageViewsCount": 3,
+    "pagesVisited": [
+      {
+        "path": "/",
+        "title": "Achtrex : Digital Experience & Technology Studio",
+        "timestamp": "2026-10-20T16:35:46.535Z"
+      },
+      {
+        "path": "/services/product-configurators",
+        "title": "Automotive & Real Estate Product Customization | Achtrex",
+        "timestamp": "2026-10-20T16:36:08.595Z"
+      },
+      {
+        "path": "/contact",
+        "title": "Contact | Achtrex Innovation Studio",
+        "timestamp": "2026-10-20T16:36:09.019Z"
+      }
+    ]
+  },
+  {
+    "id": "sess_y3ydimg_mvgwhkiy",
+    "visitorId": "vis_sfska90_mvgwhkiy",
+    "ip": "::ffff:127.0.0.1",
+    "country": "International Visitor",
+    "countryCode": "INT",
+    "city": "Unknown City",
+    "region": "Network Edge",
+    "flag": "🌐",
+    "deviceType": "desktop",
+    "browser": "Firefox",
+    "os": "Windows 10/11",
+    "referrer": "http://localhost:3000/projects/connected-hospitality-platform",
+    "startedAt": "2026-10-20T16:31:30.969Z",
+    "lastActiveAt": "2026-10-20T16:31:30.969Z",
+    "pageViewsCount": 1,
+    "pagesVisited": [
+      {
+        "path": "/media/virtual-rescue-experience",
+        "title": "Virtual Rescue Experience | Achtrex Media | Achtrex Studio",
+        "timestamp": "2026-10-20T16:31:30.969Z"
+      }
+    ]
+  }
+]

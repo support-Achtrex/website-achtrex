@@ -11,7 +11,8 @@ import {
   Settings,
   LogOut,
   ExternalLink,
-  Sliders
+  Sliders,
+  Globe
 } from 'lucide-react';
 import Image from 'next/image';
 import { useToast } from '@/components/ui/toast';
@@ -124,6 +125,15 @@ const AdminSidebar = () => {
               )}
               <MessageSquare size={19} className={isActive('/admin/leads') ? 'text-blue-600' : 'text-slate-400'} />
               <span className="flex-1">Inbox Leads</span>
+            </Link>
+
+            <Link href="/admin/visitors" className={getLinkClass('/admin/visitors')}>
+              {isActive('/admin/visitors') && (
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-blue-600 rounded-r-full shadow-xs"></div>
+              )}
+              <Globe size={19} className={isActive('/admin/visitors') ? 'text-blue-600' : 'text-slate-400'} />
+              <span className="flex-1">Visitor Logs</span>
+              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200">Live</span>
             </Link>
           </nav>
         </div>
