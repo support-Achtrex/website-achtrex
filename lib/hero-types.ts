@@ -24,9 +24,9 @@ export const DEFAULT_HERO_CONFIG: HeroConfig = {
   slides: [
     {
       id: 'customization',
-      titleLines: ['Real-Time 3D', 'Product Customization'],
+      titleLines: ['Automotive & Real Estate', 'Product Customization'],
       linkLabel: 'Explore Concept',
-      linkHref: '/projects/realtime-product-customizer',
+      linkHref: '/projects/automotive-spatial-configurator',
       mediaType: 'video',
       mediaSrc: '/hero-videos/form-customizer-cover.mp4',
       enabled: false,
@@ -44,9 +44,9 @@ export const DEFAULT_HERO_CONFIG: HeroConfig = {
     },
     {
       id: 'ai-development',
-      titleLines: ['Artificial Intelligence', 'Development Services'],
+      titleLines: ['Real-Time 3D &', 'Spatial Architecture'],
       linkLabel: 'Explore Concept',
-      linkHref: '/projects/intelligent-copilot-interface',
+      linkHref: '/projects/architectural-spatial-experience',
       mediaType: 'video',
       mediaSrc: '/hero-videos/lumen-intelligent-cover.mp4',
       enabled: false,

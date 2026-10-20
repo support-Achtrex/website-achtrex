@@ -16,7 +16,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
         {/* Top Tagline */}
         <div className="w-full max-w-[1720px] mx-auto">
           <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block">
-            Studio Capabilities / {String(services.length).padStart(2, '0')} Core Disciplines
+            Capabilities &amp; Solutions
           </span>
         </div>
 
@@ -91,20 +91,14 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
                     {/* Ambient Radial Gradient Mask */}
                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.85)_100%)] pointer-events-none" />
 
-                    {/* Interactive 3D Status Indicator */}
-                    <div className="absolute top-6 left-6 z-10 flex items-center gap-2 pointer-events-none px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-cyan-500/20">
-                      <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-                      <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-cyan-300 drop-shadow-md">
-                        Interactive 3D Neural Core &bull; Drag to Rotate
-                      </span>
-                    </div>
+
 
                     {/* Quick Link Overlay */}
                     <Link
                       href={`/services/${service.slug}`}
                       className="absolute bottom-8 left-8 z-10 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black font-clash text-xs font-medium tracking-wide shadow-2xl transition-all duration-300 hover:scale-105"
                     >
-                      <span>Explore Discipline &amp; Deliverables</span>
+                      <span>Explore Service &amp; Deliverables</span>
                       <span>&rarr;</span>
                     </Link>
                   </div>
@@ -130,7 +124,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
                       href={`/services/${service.slug}`}
                       className="absolute bottom-8 left-8 z-10 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black font-clash text-xs font-medium tracking-wide shadow-2xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
                     >
-                      <span>Explore Discipline &amp; Deliverables</span>
+                      <span>Explore Service &amp; Deliverables</span>
                       <span>&rarr;</span>
                     </Link>
                   </>
@@ -146,7 +140,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
                 {/* Top: Title & Read more link */}
                 <div className="pt-4 lg:pt-8">
                   <span className="font-mono text-xs text-[#889fa8] uppercase tracking-widest block mb-4">
-                    Service Area {service.number} / {String(services.length).padStart(2, '0')}
+                    Service 0{service.number}
                   </span>
                   <h2 className="font-clash text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-white leading-[1.02] whitespace-pre-line mb-8">
                     {service.title}
@@ -155,7 +149,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
                     href={`/services/${service.slug}`}
                     className="inline-flex items-center gap-3 font-clash text-sm sm:text-base text-white/80 hover:text-white group transition-colors"
                   >
-                    <span>Read discipline deep-dive</span>
+                    <span>Explore service details</span>
                     <span className="transition-transform group-hover:translate-x-2 duration-300">
                       &rarr;
                     </span>
@@ -187,7 +181,7 @@ export function ServicesOverviewClient({ services }: { services: ServiceItem[] }
                     {service.featuredCaseSlug && (
                       <div className="pt-4 border-t border-white/10">
                         <span className="font-clash text-[11px] text-[#889fa8] block mb-1">
-                          Featured Concept Experience
+                          Featured Project
                         </span>
                         <Link
                           href={`/projects/${service.featuredCaseSlug}`}

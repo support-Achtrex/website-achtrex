@@ -49,7 +49,7 @@ export default function NotFound() {
 
       {/* Bottom Footer */}
       <div className="w-full max-w-[1720px] mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs text-[#889fa8]">
-        <div>Achtrex Technology - FZCO &bull; Dubai Silicon Oasis</div>
+        <div>Achtrex &bull; Dubai Silicon Oasis</div>
         <div>
           <Link href="/contact" className="hover:text-white transition-colors underline underline-offset-4">
             Contact Studio Support &rarr;

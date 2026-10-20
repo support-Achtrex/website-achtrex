@@ -28,13 +28,6 @@ function getProjectMetrics(slug: string, industry: string) {
         { value: '4K', label: 'Real-Time Lighting' },
         { value: 'Zero Install', label: 'Browser Streaming' },
       ];
-    case 'intelligent-copilot-interface':
-      return [
-        { value: '120 t/s', label: 'Inference Throughput' },
-        { value: '<20 ms', label: 'Interface Response' },
-        { value: '128K', label: 'Context Window' },
-        { value: '99.4%', label: 'Benchmark Accuracy' },
-      ];
     case 'interactive-storytelling-campaign':
       return [
         { value: '3.4x', label: 'Engagement Uplift' },
@@ -42,33 +35,12 @@ function getProjectMetrics(slug: string, industry: string) {
         { value: '<1.2 s', label: 'Cold Load Time' },
         { value: 'Global', label: 'Edge CDN Delivery' },
       ];
-    case 'realtime-product-customizer':
-      return [
-        { value: 'Instant', label: 'Material Mutation' },
-        { value: 'PBR', label: 'Shader Fidelity' },
-        { value: 'WebGPU', label: 'Browser Graphics' },
-        { value: 'Direct', label: 'ERP / PIM Integration' },
-      ];
-    case 'intelligent-clinical-platform':
-      return [
-        { value: '98.4%', label: 'Diagnostic Concordance' },
-        { value: '<12 ms', label: 'Segmentation Latency' },
-        { value: 'Zero-Leak', label: 'Security Architecture' },
-        { value: '100%', label: 'Telemetry Traceability' },
-      ];
-    case 'connected-hospitality-platform':
-      return [
-        { value: '0.4 s', label: 'Booking Velocity' },
-        { value: '3D Spatial', label: 'Suite Previews' },
-        { value: '99.98%', label: 'Platform Availability' },
-        { value: 'Cloud Sync', label: 'PMS Integration' },
-      ];
     default:
       return [
         { value: '60 FPS', label: 'Runtime Performance' },
         { value: 'Sub-second', label: 'Asset Streaming' },
         { value: 'Enterprise', label: 'Engineering Tier' },
-        { value: industry, label: 'Industry Standard' },
+        { value: industry || 'Automotive', label: 'Industry Standard' },
       ];
   }
 }
@@ -140,10 +112,10 @@ export function TeslaProjectExperience({
             href="/projects"
             className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white/70 hover:text-white transition-colors"
           >
-            <span>&larr; All Concepts</span>
+            <span>&larr; All Projects</span>
           </Link>
-          <span className="font-mono text-xs uppercase tracking-widest px-3 py-1 bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm">
-            {project.badge || 'ACHTREX CONCEPT'} &bull; {project.industry}
+          <span className="font-mono text-xs uppercase tracking-widest text-white/60">
+            {project.industry} &bull; {project.year}
           </span>
         </div>
 
@@ -474,13 +446,13 @@ export function TeslaProjectExperience({
       >
         <div className="max-w-4xl mx-auto space-y-8 font-clash">
           <span className="font-mono text-xs uppercase tracking-widest text-white/60 block">
-            Client Commission &bull; Achtrex Concepts
+            Client Commission &bull; Achtrex Projects
           </span>
           <h3 className="text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-tight leading-tight">
             Commission a custom {project.industry} experience.
           </h3>
           <p className="text-base sm:text-xl text-white/70 font-light max-w-2xl mx-auto leading-relaxed">
-            Every Achtrex concept is an architectural prototype ready to be customized, expanded, and deployed for your enterprise.
+            Engineered with visual and architectural precision, ready to be customized, expanded, and deployed for your enterprise.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
@@ -514,13 +486,13 @@ export function TeslaProjectExperience({
           <div className="w-full max-w-[1720px] mx-auto space-y-10">
             <div className="flex items-center justify-between">
               <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8]">
-                Explore Other Achtrex Concepts
+                Explore More Projects
               </span>
               <Link
                 href="/projects"
                 className="font-mono text-xs uppercase tracking-widest text-white/60 hover:text-white transition-colors"
               >
-                View all concepts &rarr;
+                View all projects &rarr;
               </Link>
             </div>
 

@@ -21,7 +21,7 @@ import { STUDIO_CONFIG } from '@/data/studio-data';
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions | Achtrex Studio',
-  description: 'Enterprise master terms of service, intellectual property governance, 3D configurator licensing, AI system protocols, and commercial terms for Achtrex Technology - FZCO.',
+  description: 'Enterprise master terms of service, intellectual property governance, 3D configurator licensing, AI system protocols, and commercial terms for Achtrex.',
   keywords: [
     'Achtrex Terms of Service',
     'Achtrex Terms and Conditions',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     'Spatial Computing Agreement',
     'AI Multi-Agent Development Terms',
     'Dubai Silicon Oasis Software Terms',
-    'Achtrex Technology - FZCO'
+    'Achtrex'
   ],
   alternates: {
     canonical: 'https://achtrex.com/terms',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Terms & Conditions | Achtrex Studio',
-    description: 'Enterprise master terms of service, intellectual property governance, and software terms for Achtrex Technology - FZCO.',
+    description: 'Enterprise master terms of service, intellectual property governance, and software terms for Achtrex.',
     images: ['/logo.png'],
   },
 };
@@ -66,7 +66,7 @@ const jsonLd = {
   'description': 'Master Terms of Service and legal agreements governing Achtrex digital products, 3D configurators, and AI engineering services.',
   'publisher': {
     '@type': 'Corporation',
-    'name': 'Achtrex Technology - FZCO',
+    'name': 'Achtrex',
     'url': 'https://achtrex.com',
     'logo': 'https://achtrex.com/logo.png',
     'address': {
@@ -127,13 +127,13 @@ export default function TermsAndConditionsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4 border-t border-white/10">
             <div className="lg:col-span-8">
               <p className="font-clash text-xl sm:text-2xl text-white/90 font-light leading-relaxed max-w-4xl">
-                These Master Terms of Service define the contractual framework governing custom software development, real-time 3D configurators, spatial interfaces, bespoke artificial intelligence systems, and digital product engineering delivered by <strong className="text-white font-normal underline underline-offset-4 decoration-white/30">Achtrex Technology - FZCO</strong>.
+                These Master Terms of Service define the contractual framework governing custom software development, real-time 3D configurators, spatial interfaces, bespoke artificial intelligence systems, and digital product engineering delivered by <strong className="text-white font-normal underline underline-offset-4 decoration-white/30">Achtrex</strong>.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col justify-between space-y-4 text-xs font-mono text-[#889fa8]">
               <div className="space-y-1.5 bg-white/[0.02] border border-white/10 p-4 rounded-xl">
                 <span className="text-white uppercase tracking-wider block font-semibold">Entity Registration</span>
-                <p>Achtrex Technology - FZCO</p>
+                <p>Achtrex</p>
                 <p>Dubai Silicon Oasis, DSOA / DIEZ</p>
                 <p>Dubai, United Arab Emirates</p>
               </div>
@@ -216,7 +216,7 @@ export default function TermsAndConditionsPage() {
                 </h2>
                 <div className="space-y-4 text-sm sm:text-base text-white/70 font-light leading-relaxed">
                   <p>
-                    These Master Terms and Conditions (&quot;Terms&quot;, &quot;Agreement&quot;) constitute a binding legal agreement entered into between <strong className="text-white">Achtrex Technology - FZCO</strong>, a free zone company registered under the laws of the Dubai Silicon Oasis Authority (&quot;Achtrex&quot;, &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), and the enterprise entity or individual (&quot;Client&quot;, &quot;Customer&quot;, or &quot;you&quot;) executing an order, Statement of Work, or engaging Achtrex for digital product services.
+                    These Master Terms and Conditions (&quot;Terms&quot;, &quot;Agreement&quot;) constitute a binding legal agreement entered into between <strong className="text-white">Achtrex</strong>, a free zone company registered under the laws of the Dubai Silicon Oasis Authority (&quot;Achtrex&quot;, &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), and the enterprise entity or individual (&quot;Client&quot;, &quot;Customer&quot;, or &quot;you&quot;) executing an order, Statement of Work, or engaging Achtrex for digital product services.
                   </p>
                   <p>
                     Achtrex operates as a multidisciplinary digital experience and technology studio providing services across primary disciplines:

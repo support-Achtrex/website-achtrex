@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     'Dubai Silicon Oasis Office',
     'Hire 3D WebGL Agency',
     'Hire AI Development Team',
-    'Achtrex Technology - FZCO Inquiries'
+    'Achtrex Inquiries'
   ],
   alternates: {
     canonical: 'https://achtrex.com/contact',
@@ -47,7 +47,7 @@ const jsonLd = {
   'mainEntity': {
     '@type': 'Corporation',
     '@id': 'https://achtrex.com/#corporation',
-    'name': 'Achtrex Technology - FZCO',
+    'name': 'Achtrex',
     'telephone': '+971 50 222 9587',
     'email': 'hello@achtrex.com',
     'address': {

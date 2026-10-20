@@ -19,14 +19,14 @@ import { STUDIO_CONFIG } from '@/data/studio-data';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Achtrex Studio',
-  description: 'Enterprise privacy policy, UAE PDPL, EU GDPR, and UK GDPR compliance frameworks, data processing agreements, and data retention standards for Achtrex Technology - FZCO.',
+  description: 'Enterprise privacy policy, UAE PDPL, EU GDPR, and UK GDPR compliance frameworks, data processing agreements, and data retention standards for Achtrex.',
   keywords: [
     'Achtrex Privacy Policy',
     'UAE PDPL Compliance',
     'GDPR Compliance Studio',
     'Data Privacy Dubai Silicon Oasis',
     'AI Data Isolation Privacy',
-    'Achtrex Technology - FZCO'
+    'Achtrex'
   ],
   alternates: {
     canonical: 'https://achtrex.com/privacy',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Privacy Policy | Achtrex Studio',
-    description: 'Enterprise privacy policy and regulatory compliance frameworks for Achtrex Technology - FZCO.',
+    description: 'Enterprise privacy policy and regulatory compliance frameworks for Achtrex.',
     images: ['/logo.png'],
   },
 };
@@ -59,10 +59,10 @@ const jsonLd = {
   '@id': 'https://achtrex.com/privacy#webpage',
   'name': 'Privacy Policy | Achtrex',
   'url': 'https://achtrex.com/privacy',
-  'description': 'Data protection and privacy commitments of Achtrex Technology - FZCO in Dubai Silicon Oasis.',
+  'description': 'Data protection and privacy commitments of Achtrex in Dubai Silicon Oasis.',
   'publisher': {
     '@type': 'Corporation',
-    'name': 'Achtrex Technology - FZCO',
+    'name': 'Achtrex',
     'url': 'https://achtrex.com',
     'logo': 'https://achtrex.com/logo.png',
     'address': {
@@ -119,7 +119,7 @@ export default function PrivacyPolicyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4 border-t border-white/10">
             <div className="lg:col-span-8">
               <p className="font-clash text-xl sm:text-2xl text-white/90 font-light leading-relaxed max-w-4xl">
-                Achtrex Technology - FZCO is committed to the highest standards of data integrity, confidentiality, and individual privacy. This document details our processing principles across website visits, enterprise client portals, real-time 3D configurators, and custom AI systems.
+                Achtrex is committed to the highest standards of data integrity, confidentiality, and individual privacy. This document details our processing principles across website visits, enterprise client portals, real-time 3D configurators, and custom AI systems.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col justify-between space-y-4 text-xs font-mono text-[#889fa8]">
@@ -207,7 +207,7 @@ export default function PrivacyPolicyPage() {
                 </h2>
                 <div className="space-y-4 text-sm sm:text-base text-white/70 font-light leading-relaxed">
                   <p>
-                    Achtrex Technology - FZCO (&quot;Achtrex&quot;, &quot;we&quot;, &quot;us&quot;) respect the privacy of individuals whose data we collect and process. We strictly abide by:
+                    Achtrex (&quot;Achtrex&quot;, &quot;we&quot;, &quot;us&quot;) respect the privacy of individuals whose data we collect and process. We strictly abide by:
                   </p>
                   <ul className="list-disc pl-5 space-y-1.5 text-sm text-white/80">
                     <li><strong className="text-white">UAE Federal Decree-Law No. (45) of 2021</strong> on the Protection of Personal Data (PDPL).</li>
@@ -395,7 +395,7 @@ export default function PrivacyPolicyPage() {
                   </p>
                   <div className="p-5 bg-white/[0.02] border border-white/10 rounded-xl space-y-2 font-mono text-xs text-white/80">
                     <p className="text-white font-semibold">Data Protection Officer</p>
-                    <p>Achtrex Technology - FZCO</p>
+                    <p>Achtrex</p>
                     <p>Digital Park A5 Building, Office 6009</p>
                     <p>Dubai Silicon Oasis, Dubai, UAE</p>
                     <p className="pt-2 text-emerald-400">Email: privacy@achtrex.com</p>

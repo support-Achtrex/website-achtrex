@@ -9,45 +9,7 @@ interface TeslaServiceExperienceProps {
   service: ServiceItem;
 }
 
-function getServiceMetrics(slug: string) {
-  switch (slug) {
-    case 'product-configurators':
-      return [
-        { value: '60 FPS', label: 'Frame Budget' },
-        { value: '<15 ms', label: 'Pixel Streaming' },
-        { value: 'PBR Shaders', label: 'Material Fidelity' },
-        { value: '10,000+', label: 'Asset Configurations' },
-      ];
-    case 'digital-products':
-      return [
-        { value: 'Enterprise', label: 'Engineering Tier' },
-        { value: 'Sub-second', label: 'Cold Load Budget' },
-        { value: '99.98%', label: 'High Availability' },
-        { value: 'End-to-End', label: 'Automated CI/CD' },
-      ];
-    case 'ai-intelligent-experiences':
-      return [
-        { value: 'Real-Time', label: 'Multimodal Inference' },
-        { value: '<20 ms', label: 'Interactive Latency' },
-        { value: '128K', label: 'Context Envelope' },
-        { value: 'Zero-Retention', label: 'Enterprise Security' },
-      ];
-    case 'creative-strategy':
-      return [
-        { value: '3.4x', label: 'Audience Uplift' },
-        { value: '60 FPS', label: 'Motion Systems' },
-        { value: 'Omnichannel', label: 'Multi-Surface Deploy' },
-        { value: 'Global', label: 'Edge CDN Delivery' },
-      ];
-    default:
-      return [
-        { value: 'Tier 1', label: 'Studio Execution' },
-        { value: 'Sub-second', label: 'Performance Latency' },
-        { value: 'Custom', label: 'Bespoke Architecture' },
-        { value: 'Global', label: 'Scale SLA' },
-      ];
-  }
-}
+
 
 function getNextService(currentSlug: string): ServiceItem {
   const currentIndex = SERVICES.findIndex((s) => s.slug === currentSlug);
@@ -57,7 +19,7 @@ function getNextService(currentSlug: string): ServiceItem {
 
 export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const metrics = getServiceMetrics(service.slug);
+
   const nextService = getNextService(service.slug);
 
   const scrollToSection = (id: string) => {
@@ -115,19 +77,17 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
             href="/services"
             className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white/70 hover:text-white transition-colors"
           >
-            <span>&larr; Studio Disciplines</span>
+            <span>&larr; All Services</span>
           </Link>
-          <span className="font-mono text-xs uppercase tracking-widest px-3 py-1 bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm">
-            Discipline 0{service.number} // Achtrex Studio
+          <span className="font-mono text-xs uppercase tracking-widest text-white/50">
+            Achtrex &bull; Service 0{service.number}
           </span>
         </div>
 
         {/* Center / Lower-Third Minimalist Typography */}
         <div className="relative z-10 w-full max-w-[1720px] mx-auto py-8">
           <div className="max-w-5xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-white/70 block mb-3">
-              Studio Capability &bull; Area {service.number}
-            </span>
+
             <h1 className="font-clash text-5xl sm:text-7xl md:text-8xl lg:text-[6.2vw] font-normal text-white leading-[1.02] tracking-tight">
               {service.title}
             </h1>
@@ -139,20 +99,11 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
           </div>
         </div>
 
-        {/* Bottom Floating Stats Bar (Direct Tesla Roadster Pattern) */}
+        {/* Bottom Action Bar */}
         <div className="relative z-10 w-full max-w-[1720px] mx-auto">
-          <div className="pt-6 border-t border-white/20 flex flex-wrap items-end justify-between gap-6">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-12">
-              {metrics.map((m, idx) => (
-                <div key={idx}>
-                  <div className="font-clash text-2xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
-                    {m.value}
-                  </div>
-                  <div className="font-mono text-[11px] sm:text-xs text-white/60 uppercase tracking-widest mt-1">
-                    {m.label}
-                  </div>
-                </div>
-              ))}
+          <div className="pt-6 border-t border-white/20 flex flex-wrap items-center justify-between gap-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-white/60">
+              Enterprise Engineering &bull; Production Architecture
             </div>
 
             <div className="flex items-center gap-4">
@@ -214,7 +165,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
             ) : null}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-6 left-6 z-10 font-mono text-xs text-white/80">
-              Discipline 0{service.number} &bull; Practice Canvas
+              Technical Architecture &bull; Pipeline Overview
             </div>
           </div>
 
@@ -256,7 +207,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
               Scope of Execution &bull; Client Deliverables
             </h3>
             <p className="font-clash text-base sm:text-lg text-white/70 font-light mt-4">
-              What your brand and technical organization receive upon commissioning this studio discipline.
+              What your brand and technical organization receive upon commissioning this service.
             </p>
           </div>
 
@@ -389,7 +340,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
         <div className="w-full max-w-[1720px] mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <span className="font-mono text-xs text-white/50 uppercase tracking-widest block mb-1">
-              Next Studio Discipline &bull; Area 0{nextService.number}
+              Next Service
             </span>
             <Link href={`/services/${nextService.slug}`} className="group">
               <h4 className="font-clash text-2xl sm:text-4xl text-white font-normal group-hover:text-white/80 transition-colors">
@@ -401,7 +352,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
             href="/services"
             className="font-mono text-xs uppercase tracking-widest text-white/60 hover:text-white transition-colors"
           >
-            View all 4 disciplines &rarr;
+            View all services &rarr;
           </Link>
         </div>
       </section>

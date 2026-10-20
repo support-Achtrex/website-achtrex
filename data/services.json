@@ -182,11 +182,11 @@
       "/uploads/1792236548805-custom-web-application-development-dignity-infoway.png",
       "/uploads/1792236548806-Designer_4_.png"
     ],
-    "featuredCaseSlug": "intelligent-clinical-platform",
-    "featuredCaseTitle": "Calm Healthcare & Clinical Surface",
+    "featuredCaseSlug": "architectural-spatial-experience",
+    "featuredCaseTitle": "Architectural Spatial Walkthrough",
     "relatedProjectSlugs": [
-      "intelligent-clinical-platform",
-      "intelligent-copilot-interface"
+      "architectural-spatial-experience",
+      "automotive-spatial-configurator"
     ],
     "heroVideo": ""
   },
@@ -277,11 +277,11 @@
     "galleryImages": [
       "/uploads/1792237186406-AI-Infused-Websites-Drive-Results-and-Make-an-Impact.webp"
     ],
-    "featuredCaseSlug": "intelligent-copilot-interface",
-    "featuredCaseTitle": "Autonomous AI Copilot & Knowledge Surface",
+    "featuredCaseSlug": "automotive-spatial-configurator",
+    "featuredCaseTitle": "Spatial Vehicle Configurator",
     "relatedProjectSlugs": [
-      "intelligent-copilot-interface",
-      "intelligent-clinical-platform"
+      "automotive-spatial-configurator",
+      "architectural-spatial-experience"
     ],
     "heroVideo": ""
   },
@@ -372,11 +372,11 @@
       "/uploads/1792237513219-porche.jpg",
       "/uploads/1792237513219-Porsche.jpg"
     ],
-    "featuredCaseSlug": "realtime-product-customizer",
-    "featuredCaseTitle": "Tactile 3D Product Customizer",
+    "featuredCaseSlug": "automotive-spatial-configurator",
+    "featuredCaseTitle": "Spatial Vehicle Configurator",
     "relatedProjectSlugs": [
-      "realtime-product-customizer",
-      "automotive-spatial-configurator"
+      "automotive-spatial-configurator",
+      "architectural-spatial-experience"
     ],
     "heroVideo": ""
   }

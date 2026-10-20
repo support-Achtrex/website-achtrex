@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Legal, Privacy & Security Hub | Achtrex Studio',
-    description: 'Corporate governance and security architecture for Achtrex Technology - FZCO.',
+    description: 'Corporate governance and security architecture for Achtrex.',
     images: ['/logo.png'],
   },
 };
@@ -41,11 +41,11 @@ const jsonLd = {
   '@type': 'WebPage',
   '@id': 'https://achtrex.com/legal#webpage',
   'name': 'Legal, Privacy & Security Hub | Achtrex',
-  'description': 'Master governance, privacy policies, and security architecture for Achtrex Technology - FZCO in Dubai Silicon Oasis.',
+  'description': 'Master governance, privacy policies, and security architecture for Achtrex in Dubai Silicon Oasis.',
   'url': 'https://achtrex.com/legal',
   'publisher': {
     '@type': 'Corporation',
-    'name': 'Achtrex Technology - FZCO',
+    'name': 'Achtrex',
     'url': 'https://achtrex.com',
     'logo': 'https://achtrex.com/logo.png',
     'address': {

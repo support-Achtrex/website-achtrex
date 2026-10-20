@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     '3D WebGL Configurator Agency',
     'Spatial Computing Studio',
     'AI Multi-Agent Architects',
-    'Achtrex Technology - FZCO'
+    'Achtrex'
   ],
   alternates: {
     canonical: 'https://achtrex.com/about',
@@ -50,7 +50,7 @@ const jsonLd = {
     '@type': 'Corporation',
     '@id': 'https://achtrex.com/#corporation',
     'name': 'Achtrex',
-    'legalName': 'Achtrex Technology - FZCO',
+    'legalName': 'Achtrex',
     'url': 'https://achtrex.com',
     'logo': 'https://achtrex.com/logo.png',
     'address': {

@@ -83,7 +83,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Achtrex Studio", url: "https://achtrex.com" }],
   creator: "Achtrex",
-  publisher: "Achtrex Technology - FZCO",
+  publisher: "Achtrex",
   formatDetection: {
     email: false,
     address: true,
@@ -140,7 +140,7 @@ const jsonLd = [
     "@type": "Corporation",
     "@id": "https://achtrex.com/#corporation",
     "name": "Achtrex",
-    "legalName": "Achtrex Technology - FZCO",
+    "legalName": "Achtrex",
     "url": "https://achtrex.com",
     "logo": "https://achtrex.com/logo.png",
     "image": "https://achtrex.com/studio-assets/service-creative-strategy.jpg",
