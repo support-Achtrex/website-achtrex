@@ -11,7 +11,31 @@
     "content": "Tomorrow marks the close of the 66th Genoa International Boat Show. As an innovation technology partner, Achtrex is collaborating on the Virtual Rescue Experience, a virtual reality and spatial simulator that transforms maritime rescue training into a realistic, immersive, and highly educational experience.\n\nOnce the VR headset is put on, users take command of a Coast Guard rescue vessel and are virtually transported into an emergency scenario on the open sea. They take control of the rescue unit, navigate high-swell telemetry, and execute life-saving operations with millimeter-accurate physics.\n\nThe initiative combines spatial computing, real-time physics engines, and ergonomic human-machine interaction to demonstrate how modern digital systems directly enhance frontline emergency preparedness.",
     "mediaType": "image",
     "mediaUrl": "/studio-assets/service-experience-design.jpg",
-    "featured": true
+    "featured": true,
+    "galleryImages": [
+      "/studio-assets/service-experience-design.jpg",
+      "/studio-assets/service-creative-strategy.jpg",
+      "/studio-assets/service-digital-products.jpg",
+      "/studio-assets/hero-spatial-installation.jpg"
+    ],
+    "galleryVideos": [],
+    "specs": [
+      {
+        "label": "Release Status",
+        "value": "Published",
+        "description": "Official Achtrex Newsroom Release"
+      },
+      {
+        "label": "Classification",
+        "value": "EVENTS",
+        "description": "Editorial Category Domain"
+      },
+      {
+        "label": "Execution",
+        "value": "Real-Time",
+        "description": "High-Fidelity Digital Experience"
+      }
+    ]
   },
   {
     "id": "media-2",
@@ -25,7 +49,31 @@
     "content": "In celebration of 90 years of architectural and civic heritage, Achtrex has engineered an interactive digital twin and archival spatial journey for the EUR historic preservation pavilion.\n\nVisitors can explore nine decades of architectural evolutions through tactile projection-mapped surfaces and high-definition photogrammetry models that bring unbuilt blueprints to lifelike fruition.\n\nBy uniting digital preservation with spatial storytelling, we demonstrate how cultural heritage institutions can engage global audiences through state-of-the-art interactive technology.",
     "mediaType": "image",
     "mediaUrl": "/studio-assets/aerial-intro-bg.jpg",
-    "featured": true
+    "featured": true,
+    "galleryImages": [
+      "/studio-assets/aerial-intro-bg.jpg",
+      "/studio-assets/service-creative-strategy.jpg",
+      "/studio-assets/service-digital-products.jpg",
+      "/studio-assets/hero-spatial-installation.jpg"
+    ],
+    "galleryVideos": [],
+    "specs": [
+      {
+        "label": "Release Status",
+        "value": "Published",
+        "description": "Official Achtrex Newsroom Release"
+      },
+      {
+        "label": "Classification",
+        "value": "STORIES",
+        "description": "Editorial Category Domain"
+      },
+      {
+        "label": "Execution",
+        "value": "Real-Time",
+        "description": "High-Fidelity Digital Experience"
+      }
+    ]
   },
   {
     "id": "media-3",
@@ -39,7 +87,31 @@
     "content": "Achtrex has officially launched its autonomous enterprise AI platform, designed for high-concurrency organizations requiring contextual intelligence and real-time reasoning.\n\nThe platform integrates deterministic guardrails with multi-agent orchestration, enabling automated complex decision-making across healthcare, logistics, and spatial design workflows without hallucination risks.\n\n'Modern enterprises do not just need conversational chat; they need autonomous systems capable of executing multi-stage deterministic tasks with auditability,' stated Achtrex Engineering.",
     "mediaType": "image",
     "mediaUrl": "/studio-assets/service-ai-intelligent.jpg",
-    "featured": true
+    "featured": true,
+    "galleryImages": [
+      "/studio-assets/service-ai-intelligent.jpg",
+      "/studio-assets/service-creative-strategy.jpg",
+      "/studio-assets/service-digital-products.jpg",
+      "/studio-assets/hero-spatial-installation.jpg"
+    ],
+    "galleryVideos": [],
+    "specs": [
+      {
+        "label": "Release Status",
+        "value": "Published",
+        "description": "Official Achtrex Newsroom Release"
+      },
+      {
+        "label": "Classification",
+        "value": "ABOUT US",
+        "description": "Editorial Category Domain"
+      },
+      {
+        "label": "Execution",
+        "value": "Real-Time",
+        "description": "High-Fidelity Digital Experience"
+      }
+    ]
   },
   {
     "id": "media-4",
@@ -53,7 +125,31 @@
     "content": "Accessibility is not an afterthought or compliance checklist; it is the cornerstone of exceptional interaction design. Achtrex has released its Universal Design Framework, open-sourcing interaction tokens designed specifically for adaptive input devices, high-contrast readability, and low-cognitive-load navigation.\n\nFrom high-velocity portals to civic kiosks, designing universally accessible systems ensures every individual participates equally in the modern digital economy.",
     "mediaType": "image",
     "mediaUrl": "/studio-assets/service-digital-products.jpg",
-    "featured": false
+    "featured": false,
+    "galleryImages": [
+      "/studio-assets/service-digital-products.jpg",
+      "/studio-assets/service-creative-strategy.jpg",
+      "/studio-assets/service-digital-products.jpg",
+      "/studio-assets/hero-spatial-installation.jpg"
+    ],
+    "galleryVideos": [],
+    "specs": [
+      {
+        "label": "Release Status",
+        "value": "Published",
+        "description": "Official Achtrex Newsroom Release"
+      },
+      {
+        "label": "Classification",
+        "value": "ESG",
+        "description": "Editorial Category Domain"
+      },
+      {
+        "label": "Execution",
+        "value": "Real-Time",
+        "description": "High-Fidelity Digital Experience"
+      }
+    ]
   },
   {
     "id": "media-5",
@@ -67,7 +163,31 @@
     "content": "At the Global Tech Summit, Achtrex leadership delivered a keynote exploring the rapid acceleration of generative and autonomous AI systems. The presentation addressed critical topics including intellectual property provenance, model alignment, and the necessity of transparent data lineage in enterprise deployments.",
     "mediaType": "image",
     "mediaUrl": "/studio-assets/hero-spatial-installation.jpg",
-    "featured": false
+    "featured": false,
+    "galleryImages": [
+      "/studio-assets/hero-spatial-installation.jpg",
+      "/studio-assets/service-creative-strategy.jpg",
+      "/studio-assets/service-digital-products.jpg",
+      "/studio-assets/hero-spatial-installation.jpg"
+    ],
+    "galleryVideos": [],
+    "specs": [
+      {
+        "label": "Release Status",
+        "value": "Published",
+        "description": "Official Achtrex Newsroom Release"
+      },
+      {
+        "label": "Classification",
+        "value": "ABOUT US",
+        "description": "Editorial Category Domain"
+      },
+      {
+        "label": "Execution",
+        "value": "Real-Time",
+        "description": "High-Fidelity Digital Experience"
+      }
+    ]
   },
   {
     "id": "media-6",
@@ -81,7 +201,31 @@
     "content": "Strategic supply chains require uninterrupted visibility and automated bottleneck mitigation. Achtrex demonstrated its real-time digital twin platform for ports and distribution logistics, processing millions of telemetry events per second to optimize cargo transit and reduce carbon expenditure.",
     "mediaType": "image",
     "mediaUrl": "/images/home_processes_traffic.jpg",
-    "featured": false
+    "featured": false,
+    "galleryImages": [
+      "/images/home_processes_traffic.jpg",
+      "/studio-assets/service-creative-strategy.jpg",
+      "/studio-assets/service-digital-products.jpg",
+      "/studio-assets/hero-spatial-installation.jpg"
+    ],
+    "galleryVideos": [],
+    "specs": [
+      {
+        "label": "Release Status",
+        "value": "Published",
+        "description": "Official Achtrex Newsroom Release"
+      },
+      {
+        "label": "Classification",
+        "value": "EVENTS",
+        "description": "Editorial Category Domain"
+      },
+      {
+        "label": "Execution",
+        "value": "Real-Time",
+        "description": "High-Fidelity Digital Experience"
+      }
+    ]
   },
   {
     "id": "media-7",
@@ -95,7 +239,31 @@
     "content": "In collaboration with medical research institutes, Achtrex Health Engineering has benchmarked a low-latency vision transformer model capable of segmenting sub-millimeter skin anomalies with 98.4% diagnostic concordance against board-certified pathologists.",
     "mediaType": "image",
     "mediaUrl": "/studio-assets/service-creative-strategy.jpg",
-    "featured": false
+    "featured": false,
+    "galleryImages": [
+      "/studio-assets/service-creative-strategy.jpg",
+      "/studio-assets/service-creative-strategy.jpg",
+      "/studio-assets/service-digital-products.jpg",
+      "/studio-assets/hero-spatial-installation.jpg"
+    ],
+    "galleryVideos": [],
+    "specs": [
+      {
+        "label": "Release Status",
+        "value": "Published",
+        "description": "Official Achtrex Newsroom Release"
+      },
+      {
+        "label": "Classification",
+        "value": "ESG",
+        "description": "Editorial Category Domain"
+      },
+      {
+        "label": "Execution",
+        "value": "Real-Time",
+        "description": "High-Fidelity Digital Experience"
+      }
+    ]
   },
   {
     "id": "media-8",
@@ -110,6 +278,44 @@
     "mediaType": "video",
     "mediaUrl": "/case/roadster/roadster-loop.mp4",
     "thumbnailUrl": "/case/roadster/roadster-hero.jpg",
-    "featured": true
+    "featured": true,
+    "heroVideo": "/case/roadster/roadster-loop.mp4",
+    "secondaryImage": "/case/roadster/roadster-profile.jpg",
+    "galleryImages": [
+      "/case/roadster/roadster-hero.jpg",
+      "/case/roadster/roadster-profile.jpg",
+      "/case/roadster/roadster-rear.jpg",
+      "/case/roadster/roadster-front-white.jpg",
+      "/case/roadster/roadster-aero-white.jpg",
+      "/case/roadster/roadster-interior.jpg",
+      "/case/roadster/roadster-cockpit.jpg",
+      "/case/roadster/roadster-roof-white.jpg",
+      "/case/roadster/roadster-stage.jpg"
+    ],
+    "galleryVideos": [
+      "/case/roadster/roadster-loop.mp4"
+    ],
+    "specs": [
+      {
+        "label": "0-60 mph",
+        "value": "1.9 s",
+        "description": "Quickest accelerating production car"
+      },
+      {
+        "label": "Top Speed",
+        "value": "+250 mph",
+        "description": "Unprecedented high-speed threshold"
+      },
+      {
+        "label": "Range",
+        "value": "620 mi",
+        "description": "Highway electric cruising range"
+      },
+      {
+        "label": "Quarter Mile",
+        "value": "8.8 s",
+        "description": "Standing quarter-mile record"
+      }
+    ]
   }
 ]

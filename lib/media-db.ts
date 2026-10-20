@@ -1,6 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 
+export interface MediaSpec {
+  label: string;
+  value: string;
+  description?: string;
+}
+
 export interface MediaItem {
   id: string;
   slug: string;
@@ -15,6 +21,12 @@ export interface MediaItem {
   mediaUrl: string;
   thumbnailUrl?: string;
   featured?: boolean;
+  // Multiple images and videos (Tesla Roadster style)
+  heroVideo?: string;
+  secondaryImage?: string;
+  galleryImages?: string[];
+  galleryVideos?: string[];
+  specs?: MediaSpec[];
 }
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'media.json');
@@ -71,7 +83,16 @@ export const MediaDB = {
     try {
       const dir = path.dirname(DATA_FILE);
       if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(DATA_FILE, JSON.stringify(all, null, 2), 'utf-8');
+      const tempFile = `${DATA_FILE}.tmp`;
+      fs.writeFileSync(tempFile, JSON.stringify(all, null, 2), 'utf-8');
+      try {
+        fs.renameSync(tempFile, DATA_FILE);
+      } catch {
+        fs.writeFileSync(DATA_FILE, JSON.stringify(all, null, 2), 'utf-8');
+        if (fs.existsSync(tempFile)) {
+          try { fs.unlinkSync(tempFile); } catch {}
+        }
+      }
     } catch (err) {
       console.error('Error saving media.json:', err);
     }
@@ -106,7 +127,16 @@ export const MediaDB = {
     try {
       const dir = path.dirname(DATA_FILE);
       if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(DATA_FILE, JSON.stringify(all, null, 2), 'utf-8');
+      const tempFile = `${DATA_FILE}.tmp`;
+      fs.writeFileSync(tempFile, JSON.stringify(all, null, 2), 'utf-8');
+      try {
+        fs.renameSync(tempFile, DATA_FILE);
+      } catch {
+        fs.writeFileSync(DATA_FILE, JSON.stringify(all, null, 2), 'utf-8');
+        if (fs.existsSync(tempFile)) {
+          try { fs.unlinkSync(tempFile); } catch {}
+        }
+      }
     } catch (err) {
       console.error('Error saving media.json:', err);
     }
@@ -118,7 +148,20 @@ export const MediaDB = {
     const all = MediaDB.getAll();
     const filtered = all.filter((item) => item.id !== id);
     if (filtered.length !== all.length) {
-      fs.writeFileSync(DATA_FILE, JSON.stringify(filtered, null, 2), 'utf-8');
+      try {
+        const tempFile = `${DATA_FILE}.tmp`;
+        fs.writeFileSync(tempFile, JSON.stringify(filtered, null, 2), 'utf-8');
+        try {
+          fs.renameSync(tempFile, DATA_FILE);
+        } catch {
+          fs.writeFileSync(DATA_FILE, JSON.stringify(filtered, null, 2), 'utf-8');
+          if (fs.existsSync(tempFile)) {
+            try { fs.unlinkSync(tempFile); } catch {}
+          }
+        }
+      } catch (err) {
+        console.error('Error deleting from media.json:', err);
+      }
       return true;
     }
     return false;
