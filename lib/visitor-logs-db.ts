@@ -48,6 +48,9 @@ function readLogs(): VisitorSession[] {
       return [];
     }
     const content = fs.readFileSync(DATA_FILE, 'utf-8');
+    if (!content || !content.trim()) {
+      return [];
+    }
     return JSON.parse(content);
   } catch (err) {
     console.error('Error reading visitor logs:', err);
@@ -63,7 +66,17 @@ function writeLogs(sessions: VisitorSession[]): void {
     }
     // Cap at MAX_SESSIONS
     const trimmed = sessions.slice(0, MAX_SESSIONS);
-    fs.writeFileSync(DATA_FILE, JSON.stringify(trimmed, null, 2), 'utf-8');
+    const tempFile = `${DATA_FILE}.tmp`;
+    fs.writeFileSync(tempFile, JSON.stringify(trimmed, null, 2), 'utf-8');
+    try {
+      fs.renameSync(tempFile, DATA_FILE);
+    } catch {
+      // Fallback for file lock on Windows
+      fs.writeFileSync(DATA_FILE, JSON.stringify(trimmed, null, 2), 'utf-8');
+      if (fs.existsSync(tempFile)) {
+        try { fs.unlinkSync(tempFile); } catch {}
+      }
+    }
   } catch (err) {
     console.error('Error writing visitor logs:', err);
   }

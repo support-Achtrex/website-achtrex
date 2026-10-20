@@ -26,6 +26,9 @@ export const MediaDB = {
         return [];
       }
       const data = fs.readFileSync(DATA_FILE, 'utf-8');
+      if (!data || !data.trim()) {
+        return [];
+      }
       return JSON.parse(data);
     } catch (error) {
       console.error('Error reading media.json:', error);
