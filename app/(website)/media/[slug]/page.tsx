@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MediaDB, MediaItem } from '@/lib/media-db';
+import { TeslaRoadsterMediaExperience } from '@/components/studio/TeslaRoadsterMediaExperience';
 
 interface MediaDetailPageProps {
   params: Promise<{
@@ -136,6 +137,23 @@ export default async function MediaDetailPage({ params }: MediaDetailPageProps) 
       }
     ]
   };
+
+  // Replaced sustainability article: Dedicated Tesla Roadster media experience
+  if (slug === 'together-towards-new-sustainable-goals') {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+        />
+        <TeslaRoadsterMediaExperience item={item} relatedItems={relatedItems} />
+      </>
+    );
+  }
 
   return (
     <article className="w-full bg-white min-h-screen text-gray-900">

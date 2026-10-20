@@ -100,15 +100,15 @@
   {
     "id": "media-8",
     "slug": "together-towards-new-sustainable-goals",
-    "title": "Achtrex & Regional Initiatives: Sustainable Digital Futures",
-    "subtitle": "Carbon-neutral cloud architectures and energy-aware computing",
-    "category": "ESG",
-    "date": "25/09/2026",
-    "dateFormatted": "25 September 2026",
-    "summary": "Achtrex commits to 100% green-compute clusters across all real-time rendering pipelines.",
-    "content": "Achtrex has achieved carbon neutrality across all cloud rendering and AI inference workloads by migrating to solar-powered regional data centers and optimizing shader execution cycles, setting a new sustainability standard for digital creative agencies.",
-    "mediaType": "image",
-    "mediaUrl": "/studio-assets/hero-3d-sculpture.jpg",
-    "featured": false
+    "title": "Tesla Roadster: The Quickest Car in the World",
+    "subtitle": "Record-setting acceleration, range and aerodynamic performance",
+    "category": "INNOVATION",
+    "date": "19/10/2026",
+    "dateFormatted": "19 October 2026",
+    "summary": "An all-electric supercar that maximizes the potential of aerodynamic engineering—reaching 0-60 mph in 1.9 seconds with a 620-mile electric range.",
+    "content": "As an all-electric supercar, Roadster maximizes the potential of aerodynamic engineering—with record-setting performance and efficiency.\n\nThe first supercar to set every performance record and still fit seating for four, the Roadster features an all-glass lightweight removable roof, unmatched all-wheel drive handling, and an unprecedented 10,000 Nm of wheel torque.",
+    "mediaType": "video",
+    "mediaUrl": "/case/roadster/roadster-hero.jpg",
+    "featured": true
   }
 ]
