@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
 import { PROJECTS, LEGACY_SLUG_MAP, SERVICES, ConceptExperienceItem } from '@/data/studio-data';
 import { ProjectsDB } from '@/lib/projects-db';
-import { RealtimeCgiCaseStudy } from '@/components/studio/RealtimeCgiCaseStudy';
-import { UniversalCaseStudyTemplate } from '@/components/studio/UniversalCaseStudyTemplate';
+import { TeslaProjectExperience } from '@/components/tesla/TeslaProjectExperience';
 
 export const revalidate = 0;
 
@@ -104,30 +103,6 @@ export default async function ProjectDetailPage({
     ],
   };
 
-  // Reconstructed Real-Time CGI & Immersive Experiences Wedoo-style case study
-  const isRealtimeCgiStudy =
-    slug === 'real-time-cgi-and-immersive-experiences' ||
-    slug === 'realtime-cgi-and-immersive-experiences' ||
-    slug === 'automotive-spatial-configurator' ||
-    project.slug === 'automotive-spatial-configurator';
-
-  if (isRealtimeCgiStudy) {
-    return (
-      <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
-        />
-        <RealtimeCgiCaseStudy project={project} />
-      </>
-    );
-  }
-
-  // Universal Wedoo-Inspired Achtrex Project Detail Experience
   const allProjects = ProjectsDB.getAll();
 
   return (
@@ -140,7 +115,7 @@ export default async function ProjectDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
       />
-      <UniversalCaseStudyTemplate
+      <TeslaProjectExperience
         project={project}
         relatedService={relatedService}
         allProjects={allProjects}
