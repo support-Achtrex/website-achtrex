@@ -122,44 +122,46 @@
   font-display: swap;
 }
 
-html {
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer base {
+  html {
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  font-family: var(--font-overused-grotesk), "Overused Grotesk", "Overusedgrotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  color: #171717;
-  font-weight: 400;
-}
+  body {
+    font-family: var(--font-overused-grotesk), "Overused Grotesk", "Overusedgrotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    color: #171717;
+    font-weight: 400;
+  }
 
-/* Crisp & Sharp Typography Hierarchy */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-overused-grotesk), "Overused Grotesk", "Overusedgrotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  text-rendering: geometricPrecision;
-  letter-spacing: -0.03em;
-  color: inherit;
-}
+  /* Crisp & Sharp Typography Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-overused-grotesk), "Overused Grotesk", "Overusedgrotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    text-rendering: geometricPrecision;
+    letter-spacing: -0.03em;
+    color: inherit;
+  }
 
-p, span, li, a, button, input, textarea {
-  text-rendering: geometricPrecision;
-}
+  p, span, li, a, button, input, textarea {
+    text-rendering: geometricPrecision;
+  }
 
-/* Sharp, High-Fidelity Image & Graphic Rendering */
-img {
-  image-rendering: auto;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  max-width: 100%;
-}
+  /* Sharp, High-Fidelity Image & Graphic Rendering */
+  img {
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    max-width: 100%;
+  }
 
-svg {
-  shape-rendering: geometricPrecision;
+  svg {
+    shape-rendering: geometricPrecision;
+  }
 }
 
 /* Signature Navbar-Style Gradient CTA Buttons (Matches Book a meeting CTA in image) */

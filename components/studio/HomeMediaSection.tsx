@@ -94,8 +94,8 @@ export function HomeMediaSection({ items }: HomeMediaSectionProps) {
                     sizes="(max-width: 768px) 340px, 380px"
                     className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                   />
-                  {/* Subtle Dark Gradient at Bottom matching Image 3 */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent pointer-events-none" />
+                  {/* Enhanced High-Contrast Dark Gradient at Bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
                 </Link>
 
                 {/* Top-Right Round "+" Button Matching Image 3 */}
@@ -107,12 +107,18 @@ export function HomeMediaSection({ items }: HomeMediaSectionProps) {
                   +
                 </Link>
 
-                {/* Card Lower-Third Content (Matching Image 3: Safety / Convenience / Full Self-Driving / Warranties) */}
-                <div className="relative z-10 p-6 sm:p-7 pointer-events-none font-clash">
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-white/70 mb-1.5">
+                {/* Card Lower-Third Content (Crisp, High-Contrast White Text) */}
+                <div className="relative z-10 p-6 sm:p-7 pointer-events-none font-clash text-white">
+                  <div
+                    className="font-mono text-[10px] uppercase tracking-widest text-white/80 mb-2 drop-shadow-sm"
+                    style={{ color: 'rgba(255, 255, 255, 0.85)' }}
+                  >
                     {item.category}
                   </div>
-                  <h4 className="text-xl sm:text-2xl font-normal text-white leading-tight tracking-tight">
+                  <h4
+                    className="text-xl sm:text-2xl font-normal !text-white text-white leading-tight tracking-tight drop-shadow-md"
+                    style={{ color: '#ffffff' }}
+                  >
                     {item.title}
                   </h4>
                 </div>

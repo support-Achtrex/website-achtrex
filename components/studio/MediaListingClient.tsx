@@ -128,8 +128,8 @@ export function MediaListingClient({ initialItems }: MediaListingClientProps) {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                   />
-                  {/* Subtle Gradient from bottom matching Image 3 */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
+                  {/* Enhanced High-Contrast Dark Gradient at Bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
                 </Link>
 
                 {/* Top-Right Round "+" Button Matching Image 3 */}
@@ -141,20 +141,29 @@ export function MediaListingClient({ initialItems }: MediaListingClientProps) {
                   +
                 </Link>
 
-                {/* Card Lower-Third Content (Overlaid matching Image 3) */}
-                <div className="relative z-10 p-6 sm:p-7 pointer-events-none font-clash">
-                  <div className="flex items-center gap-2 mb-2 font-mono text-[10px] uppercase tracking-widest text-white/70">
+                {/* Card Lower-Third Content (Crisp, High-Contrast White Text) */}
+                <div className="relative z-10 p-6 sm:p-7 pointer-events-none font-clash text-white">
+                  <div
+                    className="flex items-center gap-2 mb-2 font-mono text-[10px] uppercase tracking-widest text-white/80 drop-shadow-sm"
+                    style={{ color: 'rgba(255, 255, 255, 0.85)' }}
+                  >
                     <span>{item.category}</span>
                     <span>&bull;</span>
                     <span>{item.date}</span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-normal text-white leading-tight mb-2 tracking-tight">
+                  <h3
+                    className="text-xl sm:text-2xl font-normal !text-white text-white leading-tight mb-2 tracking-tight drop-shadow-md"
+                    style={{ color: '#ffffff' }}
+                  >
                     {item.title}
                   </h3>
 
                   {item.summary && (
-                    <p className="font-sans text-xs sm:text-sm text-white/80 font-light leading-relaxed line-clamp-2">
+                    <p
+                      className="font-sans text-xs sm:text-sm text-white/90 font-light leading-relaxed line-clamp-2 drop-shadow-sm"
+                      style={{ color: 'rgba(255, 255, 255, 0.9)' }}
+                    >
                       {item.summary}
                     </p>
                   )}
