@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HeroConfig, HeroSlide, DEFAULT_HERO_CONFIG } from '@/lib/hero-types';
+import { TechDrivingDynamics } from '@/components/studio/TechDrivingDynamics';
 
 export type { HeroSlide, HeroConfig };
 
@@ -171,6 +172,11 @@ export function HeroSlider({ config = DEFAULT_HERO_CONFIG }: HeroSliderProps) {
           );
         })}
       </div>
+
+      {/* =========================================================================
+          1.5. AUTOMOTIVE TECH DRIVING DYNAMICS (Interactive Speedlines & Cockpit Telemetry)
+      ========================================================================== */}
+      <TechDrivingDynamics variant="hero" showTelemetry={true} />
 
       {/* =========================================================================
           2. FOREGROUND EDITORIAL TITLE & CASE STUDY LINK

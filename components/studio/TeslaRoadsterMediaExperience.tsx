@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MediaItem } from '@/lib/media-db';
 import { STUDIO_CONFIG } from '@/data/studio-data';
+import { TechDrivingDynamics } from '@/components/studio/TechDrivingDynamics';
 
 interface TeslaRoadsterMediaExperienceProps {
   item: MediaItem;
@@ -64,6 +65,9 @@ export function TeslaRoadsterMediaExperience({
           {/* Cinematic Vignette Overlay Matching Tesla.com/roadster */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/60 pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.75)_100%)] pointer-events-none" />
+
+          {/* Automotive Tech Driving Dynamics Layer */}
+          <TechDrivingDynamics variant="hero" showTelemetry={false} className="opacity-50" />
         </div>
 
         {/* Top Minimal Taxonomy & Back Link */}
@@ -199,9 +203,6 @@ export function TeslaRoadsterMediaExperience({
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
           <div className="max-w-5xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
-              01 // Aerodynamic Architecture
-            </span>
             <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-normal text-white leading-[1.1] tracking-tight">
               Designed for Performance and Aero Efficiency
             </h2>
@@ -252,9 +253,6 @@ export function TeslaRoadsterMediaExperience({
         <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             <div className="lg:col-span-4 space-y-6 font-clash">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block">
-                02 // Rear Architecture
-              </span>
               <h3 className="text-3xl sm:text-5xl font-normal text-white tracking-tight leading-tight">
                 Kinetic Rear Diffuser
               </h3>
@@ -315,9 +313,6 @@ export function TeslaRoadsterMediaExperience({
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
           <div className="max-w-5xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
-              03 // Interior Architecture
-            </span>
             <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-normal text-white leading-[1.1] tracking-tight">
               The first supercar to fit seating for four.
             </h2>
@@ -360,9 +355,6 @@ export function TeslaRoadsterMediaExperience({
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
           <div className="max-w-5xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
-              04 // Open-Air Convertible Versatility
-            </span>
             <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-normal text-white leading-[1.1] tracking-tight">
               Glass Roof
             </h2>
@@ -404,9 +396,6 @@ export function TeslaRoadsterMediaExperience({
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16">
           <div className="max-w-4xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
-              05 // Engineering Benchmark
-            </span>
             <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
               Roadster Specifications
             </h3>

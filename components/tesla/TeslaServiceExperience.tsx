@@ -103,7 +103,7 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
         <div className="relative z-10 w-full max-w-[1720px] mx-auto">
           <div className="pt-6 border-t border-white/20 flex flex-wrap items-center justify-between gap-6">
             <div className="font-mono text-xs uppercase tracking-widest text-white/60">
-              Enterprise Engineering &bull; Production Architecture
+              {service.title}
             </div>
 
             <div className="flex items-center gap-4">
@@ -134,9 +134,6 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
           <div className="max-w-5xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
-              01 // Strategic Philosophy
-            </span>
             <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-normal text-white leading-[1.1] tracking-tight">
               {service.headline}
             </h2>
@@ -196,9 +193,6 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16">
           <div className="max-w-4xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
-              02 // Delivery Standards
-            </span>
             <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
               Scope of Execution &bull; Client Deliverables
             </h3>
@@ -261,9 +255,6 @@ export function TeslaServiceExperience({ service }: TeslaServiceExperienceProps)
         >
           <div className="w-full max-w-[1720px] mx-auto space-y-12">
             <div className="max-w-4xl">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-2">
-                03 // Market Applications
-              </span>
               <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
                 Real-World Industry Deployments
               </h3>

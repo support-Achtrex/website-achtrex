@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ConceptExperienceItem, ServiceItem, STUDIO_CONFIG } from '@/data/studio-data';
+import { TechDrivingDynamics } from '@/components/studio/TechDrivingDynamics';
 
 interface TeslaProjectExperienceProps {
   project: ConceptExperienceItem;
@@ -93,6 +94,9 @@ export function TeslaProjectExperience({
           {/* Cinematic Vignette Overlay Matching Tesla Roadster */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/60 pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.75)_100%)] pointer-events-none" />
+          
+          {/* Automotive Tech Driving Dynamics Layer */}
+          <TechDrivingDynamics variant="minimal" showTelemetry={false} className="opacity-45" />
         </div>
 
         {/* Top Minimal Navigation */}
@@ -130,7 +134,7 @@ export function TeslaProjectExperience({
           <div className="pt-6 border-t border-white/20 flex flex-wrap items-center justify-between gap-6">
             <div className="font-mono text-xs uppercase tracking-widest text-white/70 flex items-center gap-3">
               <span className="w-2 h-2 rounded-full" style={{ backgroundColor: theme }} />
-              <span>{project.industry} &bull; Spatial Architecture &bull; Real-Time Execution</span>
+              <span>{project.industry}</span>
             </div>
 
             {/* Action CTA Pills */}
@@ -169,9 +173,6 @@ export function TeslaProjectExperience({
         <div className="w-full max-w-[1720px] mx-auto space-y-12">
           {/* Section Headline */}
           <div className="max-w-5xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-white/50 block mb-3">
-              01 // Visual Presentation
-            </span>
             <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-normal text-white leading-[1.1] tracking-tight">
               {project.shortDescription}
             </h2>
@@ -211,9 +212,6 @@ export function TeslaProjectExperience({
           <div className="w-full max-w-[1720px] mx-auto space-y-12">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
               <div>
-                <span className="font-mono text-xs uppercase tracking-widest text-white/50 block mb-2">
-                  02 // Motion Architecture
-                </span>
                 <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
                   High-Fidelity Real-Time Motion
                 </h3>
@@ -254,9 +252,6 @@ export function TeslaProjectExperience({
         >
           <div className="w-full max-w-[1720px] mx-auto space-y-12">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-white/50 block mb-2">
-                03 // Detail Plates &amp; Explorations
-              </span>
               <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
                 High-Resolution Visual Portfolio
               </h3>
@@ -314,9 +309,6 @@ export function TeslaProjectExperience({
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16">
           <div className="max-w-4xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-white/50 block mb-3">
-              04 // Engineering Blueprint
-            </span>
             <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
               Production Specifications &bull; {project.title}
             </h3>
