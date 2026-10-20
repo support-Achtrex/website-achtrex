@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ConceptExperienceItem, ServiceItem, STUDIO_CONFIG } from '@/data/studio-data';
@@ -11,47 +11,13 @@ interface TeslaProjectExperienceProps {
   allProjects?: ConceptExperienceItem[];
 }
 
-// Domain-specific metric highlights matching Tesla Roadster's bottom stat bar
-function getProjectMetrics(slug: string, industry: string) {
-  switch (slug) {
-    case 'automotive-spatial-configurator':
-      return [
-        { value: '60 FPS', label: 'Frame Budget' },
-        { value: '<15 ms', label: 'Streaming Latency' },
-        { value: '4K HDR', label: 'Lumen Photorealism' },
-        { value: '10,000+', label: 'Config Combinations' },
-      ];
-    case 'architectural-spatial-experience':
-      return [
-        { value: 'Sub-mm', label: 'Spatial Accuracy' },
-        { value: '100%', label: 'BIM Synchronized' },
-        { value: '4K', label: 'Real-Time Lighting' },
-        { value: 'Zero Install', label: 'Browser Streaming' },
-      ];
-    case 'interactive-storytelling-campaign':
-      return [
-        { value: '3.4x', label: 'Engagement Uplift' },
-        { value: '60 FPS', label: 'Kinetic Animation' },
-        { value: '<1.2 s', label: 'Cold Load Time' },
-        { value: 'Global', label: 'Edge CDN Delivery' },
-      ];
-    default:
-      return [
-        { value: '60 FPS', label: 'Runtime Performance' },
-        { value: 'Sub-second', label: 'Asset Streaming' },
-        { value: 'Enterprise', label: 'Engineering Tier' },
-        { value: industry || 'Automotive', label: 'Industry Standard' },
-      ];
-  }
-}
-
 export function TeslaProjectExperience({
   project,
   relatedService,
   allProjects = [],
 }: TeslaProjectExperienceProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const metrics = getProjectMetrics(project.slug, project.industry);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -64,13 +30,36 @@ export function TeslaProjectExperience({
     .filter((p) => p.slug !== project.slug)
     .slice(0, 4);
 
+  // Dynamic theme colors
+  const bg = project.backgroundColor || '#000000';
+  const theme = project.themeColor || '#ffffff';
+
+  // Consolidate big videos
+  const allVideos: string[] = [];
+  if (project.heroVideo) allVideos.push(project.heroVideo);
+  if (Array.isArray(project.galleryVideos)) {
+    project.galleryVideos.forEach((v) => {
+      if (v && !allVideos.includes(v)) allVideos.push(v);
+    });
+  }
+
+  // Consolidate big images
+  const allImages: string[] = [];
+  if (project.secondaryImage) allImages.push(project.secondaryImage);
+  if (Array.isArray(project.galleryImages)) {
+    project.galleryImages.forEach((img) => {
+      if (img && !allImages.includes(img) && img !== project.heroImage) allImages.push(img);
+    });
+  }
+
   return (
     <div
       ref={containerRef}
-      className="relative w-full bg-[#000000] text-white selection:bg-white selection:text-black font-sans"
+      style={{ backgroundColor: bg }}
+      className="relative w-full text-white selection:bg-white selection:text-black font-sans transition-colors duration-500"
     >
       {/* =========================================================================
-          SECTION 1: TESLA ROADSTER-STYLE FULLSCREEN HERO (100vh)
+          SECTION 1: TESLA-STYLE 100vh IMMERSIVE HERO
       ========================================================================== */}
       <section
         id="hero"
@@ -101,12 +90,12 @@ export function TeslaProjectExperience({
             />
           ) : null}
 
-          {/* Cinematic Vignette Overlay Matching Tesla.com/roadster */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
+          {/* Cinematic Vignette Overlay Matching Tesla Roadster */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/60 pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.75)_100%)] pointer-events-none" />
         </div>
 
-        {/* Top Minimal Taxonomy & Back Link */}
+        {/* Top Minimal Navigation */}
         <div className="relative z-10 w-full max-w-[1720px] mx-auto flex items-center justify-between">
           <Link
             href="/projects"
@@ -136,25 +125,22 @@ export function TeslaProjectExperience({
           </div>
         </div>
 
-        {/* Bottom Floating Stats Bar (Direct Tesla Roadster Pattern) */}
+        {/* Bottom Clean Action Bar (Replaced artificial stats with clean Tesla CTA controls) */}
         <div className="relative z-10 w-full max-w-[1720px] mx-auto">
-          <div className="pt-6 border-t border-white/20 flex flex-wrap items-end justify-between gap-6">
-            {/* Quantitative Metrics Trio/Quartet */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-12">
-              {metrics.map((m, idx) => (
-                <div key={idx}>
-                  <div className="font-clash text-2xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
-                    {m.value}
-                  </div>
-                  <div className="font-mono text-[11px] sm:text-xs text-white/60 uppercase tracking-widest mt-1">
-                    {m.label}
-                  </div>
-                </div>
-              ))}
+          <div className="pt-6 border-t border-white/20 flex flex-wrap items-center justify-between gap-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-white/70 flex items-center gap-3">
+              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: theme }} />
+              <span>{project.industry} &bull; Spatial Architecture &bull; Real-Time Execution</span>
             </div>
 
-            {/* Action CTA Pills & Scroll Indicator */}
+            {/* Action CTA Pills */}
             <div className="flex items-center gap-4">
+              <button
+                onClick={() => scrollToSection('showcase')}
+                className="px-6 py-3 rounded-full border border-white/30 bg-black/40 backdrop-blur-md text-white font-clash text-xs tracking-wider uppercase hover:bg-white/10 transition-colors"
+              >
+                Media Showcase
+              </button>
               <button
                 onClick={() => scrollToSection('specs')}
                 className="px-6 py-3 rounded-full border border-white/30 bg-black/40 backdrop-blur-md text-white font-clash text-xs tracking-wider uppercase hover:bg-white/10 transition-colors"
@@ -163,7 +149,8 @@ export function TeslaProjectExperience({
               </button>
               <button
                 onClick={() => scrollToSection('commission')}
-                className="px-6 py-3 rounded-full bg-white text-black font-clash text-xs tracking-wider uppercase font-medium hover:bg-neutral-200 transition-colors"
+                style={{ backgroundColor: theme, color: theme === '#ffffff' ? '#000000' : '#ffffff' }}
+                className="px-6 py-3 rounded-full font-clash text-xs tracking-wider uppercase font-medium hover:opacity-90 transition-opacity"
               >
                 Commission Concept
               </button>
@@ -173,26 +160,25 @@ export function TeslaProjectExperience({
       </section>
 
       {/* =========================================================================
-          SECTION 2: FULL-BLEED PERFORMANCE & CHALLENGE SPREAD
-          (Matching Tesla's "Designed for Performance and Aero Efficiency")
+          SECTION 2: MASSIVE CINEMATIC SPREAD (Full-Bleed 21:9 Media Plate)
       ========================================================================== */}
       <section
-        id="performance"
-        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 border-t border-white/10 overflow-hidden"
+        id="showcase"
+        className="relative w-full py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10"
       >
-        <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
+        <div className="w-full max-w-[1720px] mx-auto space-y-12">
           {/* Section Headline */}
           <div className="max-w-5xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
-              01 // The Problem Space
+            <span className="font-mono text-xs uppercase tracking-widest text-white/50 block mb-3">
+              01 // Visual Presentation
             </span>
             <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-normal text-white leading-[1.1] tracking-tight">
               {project.shortDescription}
             </h2>
           </div>
 
-          {/* Full-Width Visual Canvas */}
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-none border border-white/10 shadow-2xl bg-neutral-950">
+          {/* Massive Full-Bleed 21:9 Visual Canvas */}
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
             {project.secondaryImage ? (
               <Image
                 src={project.secondaryImage}
@@ -212,163 +198,156 @@ export function TeslaProjectExperience({
             ) : null}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-6 left-6 z-10 font-mono text-xs text-white/80">
-              {project.industry} &bull; Synthesis Frame 01
-            </div>
-          </div>
-
-          {/* 2-Column Minimal Narrative */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 pt-8 border-t border-white/10 font-clash">
-            <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
-                The Real-World Challenge
-              </span>
-              <p className="text-base sm:text-xl text-white/85 font-light leading-relaxed">
-                {project.challenge}
-              </p>
-            </div>
-            <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
-                Architecture &amp; Strategy
-              </span>
-              <p className="text-base sm:text-xl text-white/85 font-light leading-relaxed">
-                {project.conceptArchitecture}
-              </p>
+              Plate 01 &bull; {project.title} &bull; Full-Bleed Spatial Master
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 3: ARCHITECTURE & INTERACTION SPREAD
-          (Matching Tesla's "Interior: Seating for Four")
+          SECTION 3: BIG VIDEO SHOWCASE (Dedicated Cinematic Video Player)
       ========================================================================== */}
-      <section
-        id="interior"
-        className="relative w-full py-28 sm:py-36 lg:py-44 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
-      >
-        <div className="w-full max-w-[1720px] mx-auto space-y-16 sm:space-y-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-            <div className="lg:col-span-4 space-y-6 font-clash">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block">
-                02 // User Experience Dynamics
-              </span>
-              <h3 className="text-3xl sm:text-5xl font-normal text-white tracking-tight leading-tight">
-                Sensory Flow &amp; Interactive Behavior
-              </h3>
-              <p className="text-base sm:text-lg text-white/80 font-light leading-relaxed">
-                {project.interactiveExperience}
-              </p>
-              <div className="pt-6 border-t border-white/10">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-2">
-                  Creative Direction
-                </span>
-                <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
-                  {project.creativeDirection}
-                </p>
-              </div>
-            </div>
-
-            <div className="lg:col-span-8 relative aspect-[16/10] overflow-hidden rounded-none border border-white/10 shadow-2xl bg-neutral-950">
-              {project.heroVideo ? (
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  poster={project.heroImage}
-                  className="w-full h-full object-cover"
-                >
-                  <source src={project.heroVideo} type="video/mp4" />
-                </video>
-              ) : project.heroImage ? (
-                <Image
-                  src={project.heroImage}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 66vw"
-                  className="object-cover"
-                />
-              ) : null}
-              <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/70">
-                Synthesis Frame 02 &bull; Interactive Loop
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 4: ADDITIONAL PLATES & VISUALIZATIONS (If available)
-          (Matching Tesla's Glass Roof / Detail Plates)
-      ========================================================================== */}
-      {Array.isArray(project.galleryImages) && project.galleryImages.filter(Boolean).length > 0 && (
+      {allVideos.length > 0 && (
         <section
-          id="gallery"
-          className="relative w-full py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+          id="video_experience"
+          className="relative w-full py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10"
         >
           <div className="w-full max-w-[1720px] mx-auto space-y-12">
-            <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-2">
-                03 // Detail Plates
-              </span>
-              <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
-                High-Resolution Explorations
-              </h3>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-widest text-white/50 block mb-2">
+                  02 // Motion Architecture
+                </span>
+                <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
+                  High-Fidelity Real-Time Motion
+                </h3>
+              </div>
+              <button
+                onClick={() => setIsVideoMuted(!isVideoMuted)}
+                className="px-4 py-2 rounded-full border border-white/20 bg-white/5 font-mono text-xs uppercase tracking-widest text-white hover:bg-white/10 transition-colors w-fit"
+              >
+                {isVideoMuted ? 'Unmute Audio' : 'Mute Audio'}
+              </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {project.galleryImages.filter(Boolean).map((img, idx) => (
-                <div
-                  key={idx}
-                  className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-950 shadow-xl group"
-                >
-                  <Image
-                    src={img}
-                    alt={`${project.title} Plate ${idx + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
-                  <div className="absolute bottom-4 left-4 font-mono text-[11px] text-white/80">
-                    Plate 0{idx + 1} &bull; {project.title}
-                  </div>
-                </div>
-              ))}
+            {/* Massive Cinema-Scale Video Plate */}
+            <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+              <video
+                autoPlay
+                muted={isVideoMuted}
+                loop
+                playsInline
+                preload="auto"
+                poster={project.heroImage}
+                className="w-full h-full object-cover"
+              >
+                <source src={allVideos[0]} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-6 left-6 z-10 font-mono text-xs text-white/80">
+                Plate 02 &bull; Interactive Motion Sequence &bull; 60 FPS
+              </div>
             </div>
           </div>
         </section>
       )}
 
       {/* =========================================================================
-          SECTION 5: TESLA-STYLE TECHNICAL SPECIFICATIONS GRID
-          (Matching Tesla Roadster's Specs Table)
+          SECTION 4: EXPANDED BIG MEDIA PORTFOLIO (Images & Videos)
+      ========================================================================== */}
+      {allImages.length > 0 && (
+        <section
+          id="gallery"
+          className="relative w-full py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10"
+        >
+          <div className="w-full max-w-[1720px] mx-auto space-y-12">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest text-white/50 block mb-2">
+                03 // Detail Plates &amp; Explorations
+              </span>
+              <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
+                High-Resolution Visual Portfolio
+              </h3>
+            </div>
+
+            {/* Bigger, Expansive Media Spreads: Large 2-column widescreen format */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              {allImages.map((img, idx) => (
+                <div
+                  key={idx}
+                  className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-950 shadow-2xl group"
+                >
+                  <Image
+                    src={img}
+                    alt={`${project.title} Large Detail Plate ${idx + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity pointer-events-none" />
+                  <div className="absolute bottom-6 left-6 font-mono text-xs text-white/80">
+                    Plate 0{idx + 3} &bull; {project.title} &bull; Master Exploration
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Additional Big Videos if user inserted multiple videos */}
+            {allVideos.length > 1 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 pt-8">
+                {allVideos.slice(1).map((vidUrl, idx) => (
+                  <div
+                    key={idx}
+                    className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-950 shadow-2xl"
+                  >
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    >
+                      <source src={vidUrl} type="video/mp4" />
+                    </video>
+                    <div className="absolute bottom-6 left-6 font-mono text-xs text-white/80">
+                      Video Plate 0{idx + 2} &bull; Extended Motion Capture
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+          SECTION 5: PRODUCTION SPECIFICATIONS & DELIVERABLES
       ========================================================================== */}
       <section
         id="specs"
-        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10"
       >
         <div className="w-full max-w-[1720px] mx-auto space-y-16">
           <div className="max-w-4xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-white/50 block mb-3">
               04 // Engineering Blueprint
             </span>
             <h3 className="font-clash text-3xl sm:text-5xl font-normal text-white tracking-tight">
-              Technical Specifications &bull; {project.title}
+              Production Specifications &bull; {project.title}
             </h3>
             <p className="font-clash text-base sm:text-lg text-white/70 font-light mt-4">
-              Validated parameters for enterprise production and global edge deployment.
+              Validated architecture for enterprise production and edge deployment.
             </p>
           </div>
 
-          {/* 3-Column Specs Comparison Grid */}
+          {/* 3-Column Clean Engineering Matrix */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 font-clash">
-            {/* Box 1: Core Performance */}
+            {/* Box 1: Core Parameters */}
             <div className="p-8 border border-white/10 bg-white/[0.02] space-y-4">
               <span className="font-mono text-xs uppercase tracking-widest text-white/40 block">
-                01 / PERFORMANCE
+                01 / OVERVIEW
               </span>
-              <h4 className="text-xl font-medium text-white">Runtime Benchmarks</h4>
+              <h4 className="text-xl font-medium text-white">Project Scope</h4>
               <ul className="space-y-3 pt-4 border-t border-white/10 text-sm text-white/80 font-light">
                 <li className="flex justify-between py-1 border-b border-white/5">
                   <span className="font-mono text-xs uppercase text-white/50">Industry</span>
@@ -379,8 +358,8 @@ export function TeslaProjectExperience({
                   <span className="font-medium text-white">{project.category}</span>
                 </li>
                 <li className="flex justify-between py-1 border-b border-white/5">
-                  <span className="font-mono text-xs uppercase text-white/50">Frame Budget</span>
-                  <span className="font-medium text-white">60 FPS Guaranteed</span>
+                  <span className="font-mono text-xs uppercase text-white/50">Runtime Performance</span>
+                  <span className="font-medium text-white">60 FPS Hardware-Accelerated</span>
                 </li>
                 <li className="flex justify-between py-1">
                   <span className="font-mono text-xs uppercase text-white/50">Production Year</span>
@@ -394,23 +373,23 @@ export function TeslaProjectExperience({
               <span className="font-mono text-xs uppercase tracking-widest text-white/40 block">
                 02 / CAPABILITIES
               </span>
-              <h4 className="text-xl font-medium text-white">Validated Engineering Scope</h4>
+              <h4 className="text-xl font-medium text-white">Engineering Scope</h4>
               <div className="pt-4 border-t border-white/10 space-y-2">
                 {(project.technicalCapabilities || []).map((cap) => (
                   <div key={cap} className="flex items-center gap-2 text-sm text-white/85 font-light">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/80 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: theme }} />
                     <span>{cap}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Box 3: Validated Tech Stack */}
+            {/* Box 3: Production Tech Stack */}
             <div className="p-8 border border-white/10 bg-white/[0.02] space-y-4">
               <span className="font-mono text-xs uppercase tracking-widest text-white/40 block">
                 03 / STACK
               </span>
-              <h4 className="text-xl font-medium text-white">Production Tech Stack</h4>
+              <h4 className="text-xl font-medium text-white">Production Stack</h4>
               <div className="pt-4 border-t border-white/10 flex flex-wrap gap-2">
                 {(project.techStack || []).map((tech) => (
                   <span
@@ -442,11 +421,14 @@ export function TeslaProjectExperience({
       ========================================================================== */}
       <section
         id="commission"
-        className="py-28 sm:py-40 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-gradient-to-b from-black via-neutral-950 to-black text-center"
+        className="py-28 sm:py-40 px-6 sm:px-12 lg:px-20 border-t border-white/10 text-center"
+        style={{
+          background: `linear-gradient(to bottom, ${bg}, #050505, ${bg})`,
+        }}
       >
         <div className="max-w-4xl mx-auto space-y-8 font-clash">
           <span className="font-mono text-xs uppercase tracking-widest text-white/60 block">
-            Client Commission &bull; Achtrex Projects
+            Client Inquiries &bull; Achtrex
           </span>
           <h3 className="text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-tight leading-tight">
             Commission a custom {project.industry} experience.
@@ -458,7 +440,8 @@ export function TeslaProjectExperience({
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
               href="/contact"
-              className="px-8 py-4 rounded-full bg-white text-black font-clash text-sm font-medium tracking-wide hover:bg-neutral-200 transition-colors"
+              style={{ backgroundColor: theme, color: theme === '#ffffff' ? '#000000' : '#ffffff' }}
+              className="px-8 py-4 rounded-full font-clash text-sm font-medium tracking-wide hover:opacity-90 transition-opacity"
             >
               Let&rsquo;s talk about your idea &rarr;
             </Link>
@@ -479,13 +462,13 @@ export function TeslaProjectExperience({
       </section>
 
       {/* =========================================================================
-          SECTION 7: NEXT CONCEPTS STRIP (Tesla Model Selector Style)
+          SECTION 7: NEXT PROJECTS STRIP
       ========================================================================== */}
       {otherProjects.length > 0 && (
-        <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]">
+        <section className="py-20 sm:py-28 px-6 sm:px-12 lg:px-20 border-t border-white/10">
           <div className="w-full max-w-[1720px] mx-auto space-y-10">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8]">
+              <span className="font-mono text-xs uppercase tracking-widest text-white/50">
                 Explore More Projects
               </span>
               <Link

@@ -15,7 +15,8 @@ import {
   Eye,
   RefreshCw,
   Video,
-  ImageIcon
+  ImageIcon,
+  Palette
 } from 'lucide-react';
 import { updateProjectAction, createProjectAction, deleteProjectAction } from '@/app/actions/projects';
 import { ConceptExperienceItem } from '@/data/studio-data';
@@ -43,6 +44,11 @@ export default function AdminProjectsPage() {
   const [heroVideo, setHeroVideo] = useState('');
   const [secondaryImage, setSecondaryImage] = useState('');
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [galleryVideos, setGalleryVideos] = useState<string[]>([]);
+  const [backgroundColor, setBackgroundColor] = useState('#000000');
+  const [themeColor, setThemeColor] = useState('#ffffff');
+  const [newGalleryVideoUrl, setNewGalleryVideoUrl] = useState('');
+  const [pendingGalleryVideoFiles, setPendingGalleryVideoFiles] = useState<{ file: File; name: string }[]>([]);
   const [technicalCapabilities, setTechnicalCapabilities] = useState('');
   const [techStack, setTechStack] = useState('');
 
@@ -59,6 +65,7 @@ export default function AdminProjectsPage() {
   const heroVideoInputRef = useRef<HTMLInputElement>(null);
   const secondaryImageInputRef = useRef<HTMLInputElement>(null);
   const galleryImageInputRef = useRef<HTMLInputElement>(null);
+  const galleryVideoInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetchProjects();
@@ -96,7 +103,12 @@ export default function AdminProjectsPage() {
     setHeroVideo(project.heroVideo || '');
     setSecondaryImage(project.secondaryImage || '');
     setGalleryImages(project.galleryImages || []);
+    setGalleryVideos(project.galleryVideos || []);
+    setBackgroundColor(project.backgroundColor || '#000000');
+    setThemeColor(project.themeColor || '#ffffff');
     setNewGalleryUrl('');
+    setNewGalleryVideoUrl('');
+    setPendingGalleryVideoFiles([]);
     setTechnicalCapabilities((project.technicalCapabilities || []).join('\n'));
     setTechStack((project.techStack || []).join('\n'));
     setHeroImageFile(null);
@@ -124,7 +136,12 @@ export default function AdminProjectsPage() {
     setHeroVideo('');
     setSecondaryImage('');
     setGalleryImages([]);
+    setGalleryVideos([]);
+    setBackgroundColor('#000000');
+    setThemeColor('#ffffff');
     setNewGalleryUrl('');
+    setNewGalleryVideoUrl('');
+    setPendingGalleryVideoFiles([]);
     setTechnicalCapabilities('');
     setTechStack('Next.js 15\nThree.js\nTailwind CSS');
     setHeroImageFile(null);
@@ -182,6 +199,31 @@ export default function AdminProjectsPage() {
   const handleRemoveGalleryImage = (index: number) => {
     setGalleryImages((prev) => prev.filter((_, i) => i !== index));
   };
+  const handleGalleryVideoFilesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const newItems = Array.from(files).map((file) => ({
+        file,
+        name: file.name,
+      }));
+      setPendingGalleryVideoFiles((prev) => [...prev, ...newItems]);
+    }
+  };
+
+  const handleAddGalleryVideoUrl = () => {
+    if (!newGalleryVideoUrl.trim()) return;
+    setGalleryVideos((prev) => [...prev, newGalleryVideoUrl.trim()]);
+    setNewGalleryVideoUrl('');
+  };
+
+  const handleRemoveGalleryVideo = (index: number) => {
+    setGalleryVideos((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handleRemovePendingGalleryVideo = (index: number) => {
+    setPendingGalleryVideoFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -204,6 +246,9 @@ export default function AdminProjectsPage() {
       formData.append('heroVideo', heroVideo);
       formData.append('secondaryImage', secondaryImage);
       formData.append('galleryImages', JSON.stringify(galleryImages));
+      formData.append('galleryVideos', JSON.stringify(galleryVideos));
+      formData.append('backgroundColor', backgroundColor);
+      formData.append('themeColor', themeColor);
       formData.append('technicalCapabilities', technicalCapabilities);
       formData.append('techStack', techStack);
 
@@ -216,6 +261,12 @@ export default function AdminProjectsPage() {
       }
       if (newGalleryUrl.trim()) {
         formData.append('newGalleryUrl', newGalleryUrl.trim());
+      }
+      if (newGalleryVideoUrl.trim()) {
+        formData.append('newGalleryVideoUrl', newGalleryVideoUrl.trim());
+      }
+      for (const item of pendingGalleryVideoFiles) {
+        formData.append('newGalleryVideoFiles', item.file);
       }
 
       let res;
@@ -514,6 +565,118 @@ export default function AdminProjectsPage() {
                 </div>
               </div>
 
+
+              {/* THEME & BACKGROUND COLOR CONTROLS */}
+              <div className="p-5 rounded-xl border border-gray-200 bg-gray-50 space-y-4">
+                <div className="flex items-center gap-2">
+                  <Palette size={18} className="text-cyan-600" />
+                  <div>
+                    <span className="block text-xs font-bold uppercase text-gray-900">
+                      Project Background &amp; Theme Colors
+                    </span>
+                    <span className="text-xs text-gray-500">
+                      Customize the page background tone and primary visual accent color.
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  {/* Background Color */}
+                  <div className="p-3 bg-white rounded-lg border border-gray-200 space-y-2">
+                    <label className="block text-xs font-semibold text-gray-700 uppercase">
+                      Background Color
+                    </label>
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="color"
+                        value={backgroundColor}
+                        onChange={(e) => setBackgroundColor(e.target.value)}
+                        className="w-10 h-10 rounded border border-gray-300 cursor-pointer p-0.5"
+                      />
+                      <input
+                        type="text"
+                        value={backgroundColor}
+                        onChange={(e) => setBackgroundColor(e.target.value)}
+                        className="flex-1 px-3 py-2 rounded-lg border border-gray-300 font-mono text-xs"
+                        placeholder="#000000"
+                      />
+                    </div>
+                    {/* Quick Presets */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {[
+                        { label: 'Pure Black', hex: '#000000' },
+                        { label: 'Obsidian', hex: '#0a0a0a' },
+                        { label: 'Titanium', hex: '#0d1117' },
+                        { label: 'Charcoal', hex: '#121212' },
+                        { label: 'Navy Deep', hex: '#050a14' },
+                      ].map((p) => (
+                        <button
+                          key={p.hex}
+                          type="button"
+                          onClick={() => setBackgroundColor(p.hex)}
+                          className="px-2 py-1 text-[10px] font-mono rounded border border-gray-300 hover:border-gray-500 bg-gray-100 text-gray-800"
+                        >
+                          {p.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Accent / Theme Color */}
+                  <div className="p-3 bg-white rounded-lg border border-gray-200 space-y-2">
+                    <label className="block text-xs font-semibold text-gray-700 uppercase">
+                      Theme Accent Color
+                    </label>
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="color"
+                        value={themeColor}
+                        onChange={(e) => setThemeColor(e.target.value)}
+                        className="w-10 h-10 rounded border border-gray-300 cursor-pointer p-0.5"
+                      />
+                      <input
+                        type="text"
+                        value={themeColor}
+                        onChange={(e) => setThemeColor(e.target.value)}
+                        className="flex-1 px-3 py-2 rounded-lg border border-gray-300 font-mono text-xs"
+                        placeholder="#ffffff"
+                      />
+                    </div>
+                    {/* Quick Presets */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {[
+                        { label: 'Pure White', hex: '#ffffff' },
+                        { label: 'Tesla Red', hex: '#e82127' },
+                        { label: 'Cyber Cyan', hex: '#00f0ff' },
+                        { label: 'Emerald', hex: '#10b981' },
+                        { label: 'Gold', hex: '#eab308' },
+                      ].map((p) => (
+                        <button
+                          key={p.hex}
+                          type="button"
+                          onClick={() => setThemeColor(p.hex)}
+                          className="px-2 py-1 text-[10px] font-mono rounded border border-gray-300 hover:border-gray-500 bg-gray-100 text-gray-800"
+                        >
+                          {p.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Live Color Preview Bar */}
+                <div
+                  className="p-3 rounded-lg border flex items-center justify-between text-xs font-mono"
+                  style={{ backgroundColor, color: '#ffffff', borderColor: themeColor }}
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: themeColor }} />
+                    Live Page Atmosphere Preview
+                  </span>
+                  <span style={{ color: themeColor }}>Accent Active</span>
+                </div>
+              </div>
+
               {/* Row 2: Category & Subtitle */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -669,6 +832,95 @@ export default function AdminProjectsPage() {
                     placeholder="Or enter video URL e.g. /hero-videos/aura-vehicle-cover.mp4"
                     className="flex-1 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-xs font-mono"
                   />
+                </div>
+              </div>
+
+
+              {/* MEDIA SECTION 2B: MORE BIGGER VIDEOS */}
+              <div className="p-4 rounded-xl border border-gray-200 bg-gray-50 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="block text-xs font-bold uppercase text-gray-900">
+                      Additional Big Cinematic Videos
+                    </span>
+                    <span className="text-xs text-gray-500">
+                      Upload or insert multiple full-bleed or wide video loops for this project.
+                    </span>
+                  </div>
+                </div>
+
+                {(galleryVideos.length > 0 || pendingGalleryVideoFiles.length > 0) && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    {galleryVideos.map((vid, i) => (
+                      <div key={`vid-${i}`} className="relative aspect-[16/9] rounded-lg overflow-hidden border border-gray-300 bg-black group">
+                        <video src={vid} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+                        <span className="absolute bottom-2 left-2 text-[10px] font-mono px-2 py-0.5 rounded bg-black/70 text-white">
+                          Video #{i + 1}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveGalleryVideo(i)}
+                          className="absolute top-2 right-2 p-1 rounded-full bg-black/80 text-white hover:bg-rose-600 transition-colors"
+                          title="Remove video"
+                        >
+                          <X size={14} />
+                        </button>
+                      </div>
+                    ))}
+                    {pendingGalleryVideoFiles.map((item, i) => (
+                      <div key={`pending-vid-${i}`} className="p-4 rounded-lg border-2 border-cyan-500 bg-cyan-50 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Video size={16} className="text-cyan-600" />
+                          <span className="text-xs font-medium text-cyan-900">{item.name} (Pending Upload)</span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => handleRemovePendingGalleryVideo(i)}
+                          className="text-xs text-rose-600 font-semibold hover:underline"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <div className="space-y-2 pt-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <input
+                      type="file"
+                      ref={galleryVideoInputRef}
+                      onChange={handleGalleryVideoFilesChange}
+                      accept="video/*"
+                      multiple
+                      className="hidden"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => galleryVideoInputRef.current?.click()}
+                      className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium text-xs shadow-2xs"
+                    >
+                      <Video size={14} />
+                      <span>Upload Big Video Files</span>
+                    </button>
+                    <div className="flex-1 flex gap-2">
+                      <input
+                        type="text"
+                        value={newGalleryVideoUrl}
+                        onChange={(e) => setNewGalleryVideoUrl(e.target.value)}
+                        placeholder="Or paste video URL (e.g. /hero-videos/after-dark-cover.mp4)"
+                        className="flex-1 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-xs font-mono"
+                      />
+                      <button
+                        type="button"
+                        onClick={handleAddGalleryVideoUrl}
+                        disabled={!newGalleryVideoUrl.trim()}
+                        className="px-4 py-2 rounded-lg bg-gray-900 text-white hover:bg-black disabled:opacity-40 text-xs font-medium"
+                      >
+                        Add Video
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
 

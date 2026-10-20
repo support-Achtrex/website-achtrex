@@ -47,6 +47,8 @@ export async function updateProjectAction(formData: FormData) {
     const industry = (formData.get('industry') as string) || current.industry;
     const serviceId = (formData.get('serviceId') as string) || current.serviceId;
     const year = (formData.get('year') as string) || current.year;
+    const backgroundColor = (formData.get('backgroundColor') as string) || current.backgroundColor || '#000000';
+    const themeColor = (formData.get('themeColor') as string) || current.themeColor || '#ffffff';
 
     const shortDescription = (formData.get('shortDescription') as string) || current.shortDescription;
     const challenge = (formData.get('challenge') as string) || current.challenge;
@@ -104,6 +106,35 @@ export async function updateProjectAction(formData: FormData) {
       galleryImages.push(newGalleryUrl);
     }
 
+    // Gallery Videos
+    let galleryVideos = current.galleryVideos || [];
+    const galleryVideosRaw = formData.get('galleryVideos') as string;
+    if (galleryVideosRaw) {
+      try {
+        galleryVideos = JSON.parse(galleryVideosRaw);
+      } catch (_) {
+        galleryVideos = galleryVideosRaw.split(/[\n,]+/).map((s) => s.trim()).filter(Boolean);
+      }
+    }
+    const galleryVideoFiles = formData.getAll('newGalleryVideoFiles') as File[];
+    for (const vFile of galleryVideoFiles) {
+      const uploadedV = await saveUploadedFile(vFile);
+      if (uploadedV) galleryVideos.push(uploadedV);
+    }
+    const newGalleryVideoUrl = (formData.get('newGalleryVideoUrl') as string)?.trim();
+    if (newGalleryVideoUrl && !galleryVideos.includes(newGalleryVideoUrl)) {
+      galleryVideos.push(newGalleryVideoUrl);
+    }
+
+    // Media Sections
+    let mediaSections = current.mediaSections || [];
+    const mediaSectionsRaw = formData.get('mediaSections') as string;
+    if (mediaSectionsRaw) {
+      try {
+        mediaSections = JSON.parse(mediaSectionsRaw);
+      } catch (_) {}
+    }
+
     // Parse technicalCapabilities & techStack
     const technicalCapabilitiesRaw = formData.get('technicalCapabilities') as string;
     const technicalCapabilities = technicalCapabilitiesRaw
@@ -131,7 +162,11 @@ export async function updateProjectAction(formData: FormData) {
       heroImage,
       heroVideo,
       secondaryImage,
+      backgroundColor,
+      themeColor,
       galleryImages,
+      galleryVideos,
+      mediaSections,
       technicalCapabilities,
       techStack,
       sceneMode,
@@ -180,6 +215,8 @@ export async function createProjectAction(formData: FormData) {
     const industry = (formData.get('industry') as string) || 'Technology';
     const serviceId = (formData.get('serviceId') as string) || 'product-configurators';
     const year = (formData.get('year') as string) || '2025';
+    const backgroundColor = (formData.get('backgroundColor') as string) || '#000000';
+    const themeColor = (formData.get('themeColor') as string) || '#ffffff';
 
     const shortDescription = (formData.get('shortDescription') as string) || title;
     const challenge = (formData.get('challenge') as string) || '';
@@ -215,6 +252,15 @@ export async function createProjectAction(formData: FormData) {
     const newGalleryUrl = (formData.get('newGalleryUrl') as string)?.trim();
     if (newGalleryUrl) galleryImages.push(newGalleryUrl);
 
+    let galleryVideos: string[] = [];
+    const galleryVideoFiles = formData.getAll('newGalleryVideoFiles') as File[];
+    for (const vFile of galleryVideoFiles) {
+      const uploadedV = await saveUploadedFile(vFile);
+      if (uploadedV) galleryVideos.push(uploadedV);
+    }
+    const newGalleryVideoUrl = (formData.get('newGalleryVideoUrl') as string)?.trim();
+    if (newGalleryVideoUrl) galleryVideos.push(newGalleryVideoUrl);
+
     const newProject: ConceptExperienceItem = {
       slug,
       title,
@@ -227,7 +273,11 @@ export async function createProjectAction(formData: FormData) {
       heroImage,
       heroVideo,
       secondaryImage,
+      backgroundColor,
+      themeColor,
       galleryImages,
+      galleryVideos,
+      mediaSections: [],
       shortDescription,
       challenge,
       conceptArchitecture,

@@ -36,7 +36,11 @@
     ],
     "sceneMode": "product-configurators",
     "featuredOnHome": true,
-    "gridSpan": "two-thirds"
+    "gridSpan": "two-thirds",
+    "backgroundColor": "#000000",
+    "themeColor": "#ffffff",
+    "galleryVideos": [],
+    "mediaSections": []
   },
   {
     "slug": "architectural-spatial-experience",
@@ -75,7 +79,11 @@
     ],
     "sceneMode": "cgi-immersive",
     "featuredOnHome": true,
-    "gridSpan": "one-third"
+    "gridSpan": "one-third",
+    "backgroundColor": "#000000",
+    "themeColor": "#ffffff",
+    "galleryVideos": [],
+    "mediaSections": []
   },
   {
     "slug": "interactive-storytelling-campaign",
@@ -114,6 +122,10 @@
     ],
     "sceneMode": "creative-strategy",
     "featuredOnHome": true,
-    "gridSpan": "half"
+    "gridSpan": "half",
+    "backgroundColor": "#000000",
+    "themeColor": "#ffffff",
+    "galleryVideos": [],
+    "mediaSections": []
   }
 ]

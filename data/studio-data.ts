@@ -31,29 +31,47 @@ export interface ServiceItem {
   relatedProjectSlugs: string[];
 }
 
+export interface ProjectMediaSection {
+  id: string;
+  type: 'image' | 'video';
+  url: string;
+  poster?: string;
+  title?: string;
+  caption?: string;
+  layout?: 'full-bleed' | 'wide' | 'split';
+}
+
 export interface ConceptExperienceItem {
   slug: string;
   title: string;
   subtitle: string;
-  badge: 'ACHTREX CONCEPT' | 'CONCEPT EXPERIENCE';
+  badge?: 'ACHTREX CONCEPT' | 'CONCEPT EXPERIENCE' | string;
   category: string;
   industry: string;
   serviceId: string;
   year: string;
+  // Theme & Background Colors
+  backgroundColor?: string;
+  themeColor?: string;
+  textColor?: string;
+  // Media Assets (Images & Videos)
   heroImage?: string;
   heroVideo?: string;
   secondaryImage?: string;
   galleryImages: string[];
+  galleryVideos?: string[];
+  mediaSections?: ProjectMediaSection[];
+  // Copy & Narrative
   shortDescription: string;
-  challenge: string;
-  conceptArchitecture: string;
-  interactiveExperience: string;
-  creativeDirection: string;
+  challenge?: string;
+  conceptArchitecture?: string;
+  interactiveExperience?: string;
+  creativeDirection?: string;
   technicalCapabilities: string[];
   techStack: string[];
-  sceneMode: ThreeDSceneMode;
-  featuredOnHome: boolean;
-  gridSpan: 'full' | 'two-thirds' | 'one-third' | 'half';
+  sceneMode?: ThreeDSceneMode;
+  featuredOnHome?: boolean;
+  gridSpan?: 'full' | 'two-thirds' | 'one-third' | 'half';
 }
 
 // Backward-compatible alias for ProjectItem
