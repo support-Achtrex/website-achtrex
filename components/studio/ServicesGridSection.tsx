@@ -120,7 +120,7 @@ export function ServicesGridSection({ services }: { services?: ServiceItem[] }) 
       <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* =========================================================================
-              LEFT DATA / NAVIGATION ZONE (Matches Attached Wedoo Reference Layout)
+              LEFT DATA / NAVIGATION ZONE (Slider Navigation & Taxonomy)
           ========================================================================== */}
           <div className="lg:col-span-5 flex flex-col justify-between h-full min-h-[380px] lg:min-h-[480px] pr-0 lg:pr-8">
             {/* Top Bar: Title + View All CTA + Slide Counter */}

@@ -19,8 +19,7 @@ export function TeslaMediaArticleExperience({
       url.endsWith('.mp4') ||
       url.endsWith('.webm') ||
       url.includes('youtube.com') ||
-      url.includes('youtu.be') ||
-      url.includes('vimeo.com')
+      url.includes('youtu.be')
     );
   };
 
@@ -31,10 +30,6 @@ export function TeslaMediaArticleExperience({
     if (url.includes('youtu.be/')) {
       const id = url.split('youtu.be/')[1];
       return `https://www.youtube.com/embed/${id}`;
-    }
-    if (url.includes('vimeo.com/')) {
-      const id = url.split('vimeo.com/')[1];
-      return `https://player.vimeo.com/video/${id}`;
     }
     return url;
   };

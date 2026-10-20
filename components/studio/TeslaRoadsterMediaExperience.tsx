@@ -145,6 +145,52 @@ export function TeslaRoadsterMediaExperience({
       </section>
 
       {/* =========================================================================
+          SECTION 2: ACCELERATION & RECORD-SETTING VELOCITY (Direct Tesla Video Loop)
+      ========================================================================== */}
+      <section
+        id="roadster_acceleration"
+        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+      >
+        <div className="w-full max-w-[1720px] mx-auto space-y-16">
+          <div className="max-w-5xl">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
+              Record Benchmark // Unprecedented Velocity
+            </span>
+            <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-normal text-white leading-[1.1] tracking-tight">
+              The Quickest Car in the World
+            </h2>
+            <p className="font-clash text-lg sm:text-2xl text-white/75 font-light mt-6 max-w-4xl leading-relaxed">
+              With record-setting acceleration, range and performance, the all-electric Tesla Roadster delivers an unmatched driving sensation with an 8.8 second quarter mile.
+            </p>
+          </div>
+
+          {/* Authentic Looping Video Player */}
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden border border-white/10 shadow-2xl bg-neutral-950">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/case/roadster/roadster-acceleration-poster.jpg"
+              className="w-full h-full object-cover"
+            >
+              <source src="/case/roadster/roadster-loop.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-6 left-6 right-6 z-10 flex flex-wrap items-end justify-between gap-4 font-mono text-xs text-white/80">
+              <div>Plate 00 &bull; 0-60 mph High Velocity Track Run</div>
+              <div className="flex gap-6 sm:gap-12">
+                <span>0-60 mph: <strong className="text-white font-medium">1.9 s</strong></span>
+                <span>0-100 mph: <strong className="text-white font-medium">4.2 s</strong></span>
+                <span>1/4 Mile: <strong className="text-white font-medium">8.8 s</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
           SECTION 2: PERFORMANCE & AERO EFFICIENCY
           (Matching Tesla's "Designed for Performance and Aero Efficiency")
       ========================================================================== */}

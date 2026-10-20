@@ -162,7 +162,7 @@ export default function StudioHomePage() {
       </section>
 
       {/* =========================================================================
-          CHAPTER 03: SERVICES & INNOVATION GRID (WEDOO Reference Style)
+          CHAPTER 03: SERVICES & INNOVATION GRID (Interactive Slider Experience)
       ========================================================================== */}
       <ServicesGridSection services={services} />
 

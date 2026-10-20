@@ -1,0 +1,300 @@
+{
+  "images": [
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-S.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-S.png",
+      "alt": "Model S",
+      "width": 1025,
+      "height": 577
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-3-LHD.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-3-LHD.png",
+      "alt": "Model 3",
+      "width": 1025,
+      "height": 577
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-X.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-X.png",
+      "alt": "Model X",
+      "width": 1025,
+      "height": 577
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-Y.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-Y.png",
+      "alt": "Model Y",
+      "width": 1025,
+      "height": 577
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Cybertruck-1x.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Cybertruck-1x.png",
+      "alt": "Cybertruck",
+      "width": 1025,
+      "height": 577
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-HMC-RedBlue-LHD.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-HMC-RedBlue-LHD.png",
+      "alt": "Help Me Choose",
+      "width": 2050,
+      "height": 1154
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Solar-Panels.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Solar-Panels.png",
+      "alt": "Solar Panels",
+      "width": 1500,
+      "height": 844
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Solar-Roof.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Solar-Roof.png",
+      "alt": "Solar Roof",
+      "width": 1500,
+      "height": 844
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Powerwall-US.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Powerwall-US.png",
+      "alt": "Powerwall",
+      "width": 1500,
+      "height": 844
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Megapack.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Megapack.png",
+      "alt": "Megapack",
+      "width": 675,
+      "height": 380
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Charging.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Charging.png",
+      "alt": "Charging",
+      "width": 1500,
+      "height": 844
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Home-Charging.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Home-Charging.png",
+      "alt": "Home Charging",
+      "width": 1500,
+      "height": 844
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Supercharging-NA.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Supercharging-NA.png",
+      "alt": "Supercharging",
+      "width": 1500,
+      "height": 844
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Charging.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Charging.png",
+      "alt": "Charging",
+      "width": 1500,
+      "height": 844
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Vehicle-Accessories.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Vehicle-Accessories.png",
+      "alt": "Vehicle Accessories",
+      "width": 1500,
+      "height": 844
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Apparel.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Apparel.png",
+      "alt": "Apparel",
+      "width": 1500,
+      "height": 844
+    },
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Lifestyle.png",
+      "origUrl": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Lifestyle.png",
+      "alt": "Lifestyle",
+      "width": 1500,
+      "height": 844
+    },
+    {
+      "src": "",
+      "origUrl": "",
+      "alt": "Red Roadster on paved street",
+      "width": 2878,
+      "height": 1800
+    },
+    {
+      "src": "",
+      "origUrl": "",
+      "alt": "Rear view of red Roadster",
+      "width": 2878,
+      "height": 1800
+    },
+    {
+      "src": "",
+      "origUrl": "",
+      "alt": "Interior view of a red Roadster",
+      "width": 2880,
+      "height": 1620
+    },
+    {
+      "src": "",
+      "origUrl": "",
+      "alt": "Birds-eye view of red Roadster",
+      "width": 2878,
+      "height": 1800
+    }
+  ],
+  "videos": [
+    {
+      "src": "https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto:best/roadster-loop-imperial.mp4",
+      "poster": "https://digitalassets.tesla.com/tesla-contents/image/upload/h_714,w_2560,c_fit,f_auto,q_auto:best/roadster-acceleration-poster-impage",
+      "sources": [],
+      "autoplay": false,
+      "loop": true,
+      "muted": true
+    }
+  ],
+  "backgroundImages": [],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Tesla\nSkip to main content",
+      "fontSize": "40px",
+      "fontWeight": "500",
+      "color": "rgb(23, 26, 32)",
+      "letterSpacing": "-0.6px",
+      "lineHeight": "48px"
+    },
+    {
+      "tag": "H1",
+      "text": "Roadster",
+      "fontSize": "40px",
+      "fontWeight": "500",
+      "color": "rgb(23, 26, 32)",
+      "letterSpacing": "-0.6px",
+      "lineHeight": "48px"
+    },
+    {
+      "tag": "H3",
+      "text": "Interior",
+      "fontSize": "24px",
+      "fontWeight": "500",
+      "color": "rgb(255, 255, 255)",
+      "letterSpacing": "-0.6px",
+      "lineHeight": "28px"
+    },
+    {
+      "tag": "H2",
+      "text": "Tesla Semi & Roadster Unveil",
+      "fontSize": "28px",
+      "fontWeight": "500",
+      "color": "rgb(255, 255, 255)",
+      "letterSpacing": "-0.5px",
+      "lineHeight": "36px"
+    },
+    {
+      "tag": "H2",
+      "text": "Roadster Specs",
+      "fontSize": "28px",
+      "fontWeight": "400",
+      "color": "rgb(255, 255, 255)",
+      "letterSpacing": "-0.5px",
+      "lineHeight": "36px"
+    },
+    {
+      "tag": "H4",
+      "text": "Drive",
+      "fontSize": "20px",
+      "fontWeight": "500",
+      "color": "rgb(255, 255, 255)",
+      "letterSpacing": "-0.4px",
+      "lineHeight": "28px"
+    },
+    {
+      "tag": "H3",
+      "text": "Roadster",
+      "fontSize": "24px",
+      "fontWeight": "500",
+      "color": "rgb(255, 255, 255)",
+      "letterSpacing": "-0.6px",
+      "lineHeight": "28px"
+    }
+  ],
+  "paragraphs": [
+    "Designed for Performance and Aero Efficiency",
+    "The first supercar to set every performance record and still fit seating for four.",
+    "Certain high data usage vehicle features require at least Standard Connectivity, including maps, navigation and voice commands. Access to features that use cellular data and third-party licenses are subject to change. Learn more about Standard Connectivity and any limitations."
+  ],
+  "ctas": [
+    {
+      "text": "Learn More",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(57, 60, 65)",
+      "border": "0px none rgb(57, 60, 65)"
+    },
+    {
+      "text": "Tesla",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 26, 32)",
+      "border": "0px none rgb(23, 26, 32)"
+    },
+    {
+      "text": "Skip to main content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 26, 32)",
+      "border": "0px none rgb(23, 26, 32)"
+    },
+    {
+      "text": "Vehicles",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 26, 32)",
+      "border": "0px none rgb(23, 26, 32)"
+    },
+    {
+      "text": "Energy",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 26, 32)",
+      "border": "0px none rgb(23, 26, 32)"
+    },
+    {
+      "text": "Charging",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 26, 32)",
+      "border": "0px none rgb(23, 26, 32)"
+    },
+    {
+      "text": "Discover",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 26, 32)",
+      "border": "0px none rgb(23, 26, 32)"
+    },
+    {
+      "text": "Shop",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 26, 32)",
+      "border": "0px none rgb(23, 26, 32)"
+    },
+    {
+      "text": "Reserve Now",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "border": "3px solid rgb(255, 255, 255)"
+    },
+    {
+      "text": "Reserve Now",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "border": "3px solid rgb(255, 255, 255)"
+    },
+    {
+      "text": "Get Newsletter",
+      "bg": "rgb(34, 34, 34)",
+      "color": "rgb(238, 238, 238)",
+      "border": "3px solid rgba(0, 0, 0, 0)"
+    }
+  ]
+}
