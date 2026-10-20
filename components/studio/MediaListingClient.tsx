@@ -132,15 +132,6 @@ export function MediaListingClient({ initialItems }: MediaListingClientProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
                 </Link>
 
-                {/* Top-Right Round "+" Button Matching Image 3 */}
-                <Link
-                  href={`/media/${item.slug}`}
-                  aria-label={`Open ${item.title}`}
-                  className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/95 text-black shadow-lg flex items-center justify-center font-bold text-lg hover:scale-110 hover:bg-white transition-transform cursor-pointer"
-                >
-                  +
-                </Link>
-
                 {/* Card Lower-Third Content (Crisp, High-Contrast White Text) */}
                 <div className="relative z-10 p-6 sm:p-7 pointer-events-none font-clash text-white">
                   <div

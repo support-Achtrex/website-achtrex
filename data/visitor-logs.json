@@ -1,5 +1,39 @@
 [
   {
+    "id": "sess_mqtnict_mvh7jsjy",
+    "visitorId": "vis_sfska90_mvgwhkiy",
+    "ip": "::ffff:127.0.0.1",
+    "country": "International Visitor",
+    "countryCode": "INT",
+    "city": "Unknown City",
+    "region": "Network Edge",
+    "flag": "🌐",
+    "deviceType": "desktop",
+    "browser": "Firefox",
+    "os": "Windows 10/11",
+    "referrer": "http://localhost:3000/projects/connected-hospitality-platform",
+    "startedAt": "2026-10-20T21:41:09.464Z",
+    "lastActiveAt": "2026-10-20T21:41:20.490Z",
+    "pageViewsCount": 3,
+    "pagesVisited": [
+      {
+        "path": "/media/virtual-rescue-experience",
+        "title": "Virtual Rescue Experience | Achtrex Media | Achtrex Studio",
+        "timestamp": "2026-10-20T21:41:09.464Z"
+      },
+      {
+        "path": "/",
+        "title": "Achtrex : Digital Experience & Technology Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T21:41:15.700Z"
+      },
+      {
+        "path": "/",
+        "title": "Achtrex : Digital Experience & Technology Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T21:41:20.490Z"
+      }
+    ]
+  },
+  {
     "id": "sess_wc4bscu_mvgznrrz",
     "visitorId": "vis_sfska90_mvgwhkiy",
     "ip": "::ffff:127.0.0.1",

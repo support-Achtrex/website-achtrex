@@ -99,7 +99,7 @@ export const STUDIO_CONFIG = {
   address: 'Dubai Silicon Oasis, Digital Park A5 Building, 6009, UAE',
   locationCity: 'Dubai',
   locationCountry: 'United Arab Emirates',
-  calendlyUrl: 'https://calendly.com/achtrex-support/30min',
+  calendlyUrl: '/book-a-meeting',
 };
 
 export const SERVICES: ServiceItem[] = [

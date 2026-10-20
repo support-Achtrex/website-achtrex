@@ -60,15 +60,13 @@ export function StudioFooter() {
               ))}
             </nav>
 
-            <a
-              href={STUDIO_CONFIG.calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book-a-meeting"
               className="inline-flex items-center gap-2 font-clash text-xs sm:text-sm tracking-wide px-5 py-2.5 bg-white text-black rounded-full hover:bg-white/90 font-medium transition-all"
             >
               <span>Book a Meeting</span>
               <span>&rarr;</span>
-            </a>
+            </Link>
           </div>
 
           {/* Bottom Corporate Metadata & Legal Notice */}

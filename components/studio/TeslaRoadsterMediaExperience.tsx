@@ -506,10 +506,10 @@ export function TeslaRoadsterMediaExperience({
               Explore 3D Car Configurator Case Study &rarr;
             </Link>
             <Link
-              href="/contact"
+              href="/book-a-meeting"
               className="px-8 py-4 rounded-full bg-white/10 text-white font-clash text-sm font-light hover:bg-white/20 transition-colors"
             >
-              Commission an Automotive Digital Twin
+              Book Strategic Briefing
             </Link>
           </div>
 

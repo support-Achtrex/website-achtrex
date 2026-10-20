@@ -430,9 +430,7 @@ export function TeslaMediaArticleExperience({
 
           <div className="pt-6 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="https://calendly.com/achtrex-support/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/book-a-meeting"
               className="px-8 py-4 rounded-full bg-white text-black text-sm tracking-wider uppercase font-medium hover:bg-neutral-200 transition-colors"
             >
               Book Strategic Briefing

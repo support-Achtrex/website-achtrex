@@ -217,14 +217,13 @@ export function StudioHeader() {
                       {STUDIO_CONFIG.email}
                     </a>
                     <span className="text-white/30">•</span>
-                    <a
-                      href={STUDIO_CONFIG.calendlyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-emerald-400 underline underline-offset-2 transition-colors font-medium"
+                    <Link
+                      href="/book-a-meeting"
+                      onClick={() => setIsOpen(false)}
+                      className="text-white hover:text-[#00A9CE] underline underline-offset-2 transition-colors font-medium"
                     >
                       Book a Meeting &rarr;
-                    </a>
+                    </Link>
                   </div>
                 </div>
 

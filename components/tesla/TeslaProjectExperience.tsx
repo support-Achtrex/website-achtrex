@@ -422,14 +422,12 @@ export function TeslaProjectExperience({
             >
               Let&rsquo;s talk about your idea &rarr;
             </Link>
-            <a
-              href={STUDIO_CONFIG.calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book-a-meeting"
               className="px-8 py-4 rounded-full bg-white/10 text-white font-clash text-sm font-light hover:bg-white/20 transition-colors"
             >
               Book a Meeting
-            </a>
+            </Link>
           </div>
 
           <div className="pt-8 text-xs font-mono text-white/40">
