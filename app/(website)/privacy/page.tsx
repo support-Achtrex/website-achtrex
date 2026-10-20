@@ -392,8 +392,9 @@ export default function PrivacyPolicyPage() {
                   </p>
                   <div className="p-5 bg-white/[0.02] border border-white/10 rounded-xl space-y-2 font-mono text-xs text-white/80">
                     <p className="text-white font-semibold">Data Protection Officer</p>
-                    <p>Achtrex Digital Studio</p>
-                    <p>Global Engineering &amp; Client Services</p>
+                    <p>Achtrex</p>
+                    <p>Digital Park A5 Building, Office 6009</p>
+                    <p>Dubai Silicon Oasis, Dubai, UAE</p>
                     <p className="pt-2 text-emerald-400">Email: privacy@achtrex.com</p>
                   </div>
                 </div>

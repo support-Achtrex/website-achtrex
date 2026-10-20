@@ -201,7 +201,7 @@ export function LegalContent() {
                   <Building2 className="w-4 h-4 text-white/40 shrink-0 mt-0.5" />
                   <div>
                     <p className="text-white font-semibold">Achtrex</p>
-                    <p className="text-[11px] leading-snug">Global Digital Engineering &amp; Client Services</p>
+                    <p className="text-[11px] leading-snug">Dubai Silicon Oasis, Digital Park A5 Building, 6009, UAE</p>
                   </div>
                 </div>
                 <div className="pt-2">

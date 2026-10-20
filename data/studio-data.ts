@@ -96,9 +96,9 @@ export const STUDIO_CONFIG = {
   phoneHref: 'tel:+971502229587',
   email: 'support@achtrex.com',
   emailHref: 'mailto:support@achtrex.com',
-  address: 'Global Engineering & Client Services',
-  locationCity: 'Global',
-  locationCountry: 'Worldwide',
+  address: 'Dubai Silicon Oasis, Digital Park A5 Building, 6009, UAE',
+  locationCity: 'Dubai',
+  locationCountry: 'United Arab Emirates',
   calendlyUrl: '/book-a-meeting',
 };
 
@@ -574,10 +574,10 @@ export const TEAM_MEMBERS: TeamMember[] = [
 
 export const STUDIO_OFFICES = [
   {
-    city: 'Global Delivery',
-    country: 'Worldwide',
-    role: 'Digital Experience & Technology Studio',
-    address: 'Global Engineering & Client Services',
+    city: 'Dubai',
+    country: 'United Arab Emirates',
+    role: 'Studio & Digital Production',
+    address: 'Dubai Silicon Oasis, Digital Park A5 Building, 6009, UAE',
     contact: 'support@achtrex.com',
     phone: '+971 50 222 9587',
   },

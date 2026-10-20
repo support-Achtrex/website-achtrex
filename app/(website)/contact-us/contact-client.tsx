@@ -200,14 +200,14 @@ export const ContactClient = () => {
                   </span>
                 </a>
 
-                {/* Studio Practice Location */}
+                {/* Studio Location */}
                 <div className="rounded-xl bg-white border border-slate-200 overflow-hidden shadow-xs">
                   <div className="p-4">
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                      Studio Practice
+                      Studio Location
                     </span>
                     <span className="font-bold text-base text-slate-900 leading-snug block">
-                      Global Engineering &amp; Client Services
+                      Dubai Silicon Oasis, Digital Park A5 Building, 6009, UAE
                     </span>
                   </div>
                 </div>

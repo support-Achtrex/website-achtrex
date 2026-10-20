@@ -77,7 +77,7 @@ export function AboutClient() {
 
           <div className="lg:col-span-8 space-y-8 font-clash">
             <p className="text-xl sm:text-2xl md:text-3xl text-white/90 font-light leading-relaxed">
-              Achtrex is a Digital Experience &amp; Technology Studio. We bridge the space between strategic design ateliers and deep software engineering laboratories.
+              Achtrex is a Digital Experience &amp; Technology Studio based in Dubai Silicon Oasis. We bridge the space between strategic design ateliers and deep software engineering laboratories.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-white/10 text-white/70 font-light text-base leading-relaxed">
               <p>
@@ -165,29 +165,29 @@ export function AboutClient() {
       </section>
 
       {/* =========================================================================
-          STUDIO REACH & COLLABORATION
+          STUDIO LOCATION & CREDENTIALS
       ========================================================================== */}
       <section className="py-24 sm:py-36 px-6 sm:px-12 lg:px-20 border-b border-white/10">
         <div className="w-full max-w-[1720px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-4">
             <span className="font-mono text-xs uppercase tracking-widest text-[#889fa8] block mb-3">
-              Studio Reach
+              Studio Location
             </span>
             <h2 className="font-clash text-3xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight">
-              Global Delivery
+              Dubai Silicon Oasis
             </h2>
           </div>
 
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-10 font-clash text-white/80 font-light">
             <div className="space-y-4">
               <span className="font-mono text-xs uppercase tracking-wider text-[#889fa8] block">
-                Worldwide Practice
+                Physical Presence
               </span>
               <p className="text-lg text-white font-normal">
-                Direct Engineering &amp; Client Services
+                {STUDIO_CONFIG.address}
               </p>
               <p className="text-sm text-white/60 leading-relaxed">
-                Partnering with luxury automotive brands, spatial tech ventures, high-growth digital companies, and enterprise innovators across EMEA, the Americas, and APAC.
+                Positioned in Dubai&apos;s leading technology and innovation cluster, serving luxury automotive brands, spatial tech ventures, high-growth digital companies, and enterprise innovators across EMEA, the Americas, and APAC.
               </p>
             </div>
 

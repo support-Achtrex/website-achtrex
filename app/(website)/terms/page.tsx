@@ -128,9 +128,10 @@ export default function TermsAndConditionsPage() {
             </div>
             <div className="lg:col-span-4 flex flex-col justify-between space-y-4 text-xs font-mono text-[#889fa8]">
               <div className="space-y-1.5 bg-white/[0.02] border border-white/10 p-4 rounded-xl">
-                <span className="text-white uppercase tracking-wider block font-semibold">Master Agreement</span>
-                <p>Achtrex Digital Studio</p>
-                <p>Global Engineering &amp; Client Services</p>
+                <span className="text-white uppercase tracking-wider block font-semibold">Studio Location</span>
+                <p>Achtrex</p>
+                <p>Dubai Silicon Oasis</p>
+                <p>Dubai, United Arab Emirates</p>
               </div>
             </div>
           </div>

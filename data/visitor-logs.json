@@ -13,8 +13,8 @@
     "os": "Windows 10/11",
     "referrer": "Direct / Bookmark",
     "startedAt": "2026-10-20T21:49:40.100Z",
-    "lastActiveAt": "2026-10-20T22:15:28.080Z",
-    "pageViewsCount": 4,
+    "lastActiveAt": "2026-10-20T22:33:37.185Z",
+    "pageViewsCount": 10,
     "pagesVisited": [
       {
         "path": "/book-a-meeting",
@@ -35,6 +35,36 @@
         "path": "/contact",
         "title": "Contact Achtrex | Start Your Project | Achtrex Studio",
         "timestamp": "2026-10-20T22:15:28.080Z"
+      },
+      {
+        "path": "/contact",
+        "title": "Contact Achtrex | Start Your Project | Achtrex Studio",
+        "timestamp": "2026-10-20T22:29:31.315Z"
+      },
+      {
+        "path": "/book-a-meeting",
+        "title": "Book a Strategic Meeting | Achtrex Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T22:29:58.887Z"
+      },
+      {
+        "path": "/",
+        "title": "Achtrex : Digital Experience & Technology Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T22:32:28.036Z"
+      },
+      {
+        "path": "/media/eur-90-years-of-history",
+        "title": "/media/eur-90-years-of-history",
+        "timestamp": "2026-10-20T22:32:45.700Z"
+      },
+      {
+        "path": "/legal",
+        "title": "Legal, Privacy & Security Hub | Achtrex Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T22:33:32.052Z"
+      },
+      {
+        "path": "/contact",
+        "title": "Contact Achtrex | Start Your Project | Achtrex Studio",
+        "timestamp": "2026-10-20T22:33:37.185Z"
       }
     ]
   },

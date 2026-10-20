@@ -3,10 +3,10 @@ import { AboutClient } from './AboutClient';
 
 export const metadata: Metadata = {
   title: 'About Achtrex | Technology, Creativity & Intelligence Studio',
-  description: 'Achtrex is a digital experience and technology studio. We build real-time 3D configurators, spatial interfaces, custom AI architectures, and high-performance digital products.',
+  description: 'Achtrex is a digital experience and technology studio based in Dubai Silicon Oasis. We build real-time 3D configurators, spatial interfaces, custom AI architectures, and high-performance digital products.',
   keywords: [
     'About Achtrex',
-    'Achtrex Studio',
+    'Achtrex Studio Dubai',
     'Digital Experience Studio',
     '3D WebGL Configurator Agency',
     'Spatial Computing Studio',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'About Achtrex | Technology, Creativity & Intelligence Studio',
-    description: 'We design and build digital experiences where technology, creativity and intelligence come together.',
+    description: 'We design and build digital experiences where technology, creativity and intelligence come together. Based in Dubai Silicon Oasis.',
     url: 'https://achtrex.com/about',
     siteName: 'Achtrex',
     locale: 'en_US',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About Achtrex | Technology, Creativity & Intelligence Studio',
-    description: 'Achtrex is a digital experience and technology studio.',
+    description: 'Achtrex is a digital experience and technology studio based in Dubai Silicon Oasis.',
     images: ['/studio-assets/aerial-intro-bg.jpg'],
   },
 };
@@ -44,7 +44,7 @@ const jsonLd = {
   '@id': 'https://achtrex.com/about#webpage',
   'name': 'About Achtrex Studio',
   'url': 'https://achtrex.com/about',
-  'description': 'Achtrex is a Digital Experience & Technology Studio.',
+  'description': 'Achtrex is a Digital Experience & Technology Studio based in Dubai Silicon Oasis.',
   'mainEntity': {
     '@type': 'Corporation',
     '@id': 'https://achtrex.com/#corporation',
@@ -54,6 +54,9 @@ const jsonLd = {
     'logo': 'https://achtrex.com/logo.png',
     'address': {
       '@type': 'PostalAddress',
+      'streetAddress': 'Digital Park A5 Building, 6009',
+      'addressLocality': 'Dubai Silicon Oasis',
+      'addressRegion': 'Dubai',
       'addressCountry': 'AE'
     }
   }
