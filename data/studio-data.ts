@@ -82,6 +82,7 @@ export interface TeamMember {
   role: string;
   department: string;
   image: string;
+  bio?: string;
 }
 
 export const STUDIO_CONFIG = {
@@ -100,6 +101,12 @@ export const STUDIO_CONFIG = {
   locationCity: 'Dubai',
   locationCountry: 'United Arab Emirates',
   calendlyUrl: '/book-a-meeting',
+  founder: {
+    name: 'Achim Godwin Tetteh',
+    role: 'Founder & System Architect',
+    image: '/team/achim-founder.jpg',
+    bio: 'I founded Achtrex to bring together technology, creativity, and engineering to solve complex business challenges. I lead the company’s technical vision and product development, working across software engineering, artificial intelligence, digital experiences, and technology strategy to turn ideas into practical solutions.',
+  },
 };
 
 export const SERVICES: ServiceItem[] = [
@@ -517,10 +524,11 @@ export const STUDIO_VALUES = [
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: 'Achim',
-    role: 'Managing Director & Strategy',
+    name: 'Achim Godwin Tetteh',
+    role: 'Founder & System Architect',
     department: 'Leadership',
-    image: '/team/achim_real.jpg',
+    image: '/team/achim-founder.jpg',
+    bio: 'Founded Achtrex to bring together technology, creativity, and engineering to solve complex business challenges. Leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.',
   },
   {
     name: 'Dede',

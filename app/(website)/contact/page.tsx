@@ -3,7 +3,7 @@ import { ContactClient } from './ContactClient';
 
 export const metadata: Metadata = {
   title: 'Contact Achtrex | Start Your Project',
-  description: 'Connect with Achtrex Studio in Dubai Silicon Oasis. Inquire about automotive 3D configurators, spatial interfaces, custom AI platforms, and digital product engineering.',
+  description: 'Connect with Achtrex Studio in Dubai Silicon Oasis. Inquire about real-time 3D configurators, spatial interfaces, custom AI platforms, and digital product engineering.',
   keywords: [
     'Contact Achtrex',
     'Achtrex Studio Dubai Contact',

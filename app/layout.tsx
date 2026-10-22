@@ -77,7 +77,10 @@ export const metadata: Metadata = {
   },
   description: "We design and build digital experiences where technology, creativity and intelligence come together.",
   keywords: [
-    "Achtrex", "digital experience studio", "technology studio", "digital product development",
+    "Achtrex", "Achim Godwin Tetteh", "Founder Achtrex", "System Architect",
+    "digital experience studio", "technology studio", "digital product development",
+    "software engineering", "AI development", "AI solutions", "immersive experiences",
+    "CGI and 3D", "real-time 3D", "product configurators", "spatial computing",
     "AI development", "AI solutions", "immersive experiences", "CGI and 3D",
     "product configurators", "experience design", "digital experiences"
   ],
@@ -146,6 +149,13 @@ const jsonLd = [
     "image": "https://achtrex.com/studio-assets/service-creative-strategy.jpg",
     "description": "We design and build digital experiences where technology, creativity and intelligence come together.",
     "foundingDate": "2024",
+    "founder": {
+      "@type": "Person",
+      "name": "Achim Godwin Tetteh",
+      "jobTitle": "Founder & System Architect",
+      "description": "Founder & System Architect of Achtrex, leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.",
+      "image": "https://achtrex.com/team/achim-founder.jpg"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Digital Park A5 Building, 6009",

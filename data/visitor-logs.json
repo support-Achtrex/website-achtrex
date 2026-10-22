@@ -1,5 +1,77 @@
 [
   {
+    "id": "sess_lfnhn0l_mvigtdhy",
+    "visitorId": "vis_h412y72_mvigtdhy",
+    "ip": "::1",
+    "country": "Localhost / Dev",
+    "countryCode": "DEV",
+    "city": "Local Machine",
+    "region": "Development",
+    "flag": "💻",
+    "deviceType": "desktop",
+    "browser": "Chrome",
+    "os": "Windows 10/11",
+    "referrer": "Direct / Bookmark",
+    "startedAt": "2026-10-21T18:48:21.874Z",
+    "lastActiveAt": "2026-10-21T18:48:21.874Z",
+    "pageViewsCount": 1,
+    "pagesVisited": [
+      {
+        "path": "/about",
+        "title": "About Achtrex | Technology, Creativity & Intelligence Studio | Achtrex Studio",
+        "timestamp": "2026-10-21T18:48:21.874Z"
+      }
+    ]
+  },
+  {
+    "id": "sess_2493fu3_mvig3dhj",
+    "visitorId": "vis_jkjfh60_mvig3dhh",
+    "ip": "::1",
+    "country": "Localhost / Dev",
+    "countryCode": "DEV",
+    "city": "Local Machine",
+    "region": "Development",
+    "flag": "💻",
+    "deviceType": "desktop",
+    "browser": "Chrome",
+    "os": "Windows 10/11",
+    "referrer": "Direct / Bookmark",
+    "startedAt": "2026-10-21T18:28:05.329Z",
+    "lastActiveAt": "2026-10-21T18:28:05.329Z",
+    "pageViewsCount": 1,
+    "pagesVisited": [
+      {
+        "path": "/about",
+        "title": "About Achtrex | Technology, Creativity & Intelligence Studio | Achtrex Studio",
+        "timestamp": "2026-10-21T18:28:05.329Z"
+      }
+    ]
+  },
+  {
+    "id": "sess_fovj0ix_mvig1uwo",
+    "visitorId": "vis_fzmvn3s_mvig1uwn",
+    "ip": "::1",
+    "country": "Localhost / Dev",
+    "countryCode": "DEV",
+    "city": "Local Machine",
+    "region": "Development",
+    "flag": "💻",
+    "deviceType": "desktop",
+    "browser": "Chrome",
+    "os": "Windows 10/11",
+    "referrer": "Direct / Bookmark",
+    "startedAt": "2026-10-21T18:27:07.180Z",
+    "lastActiveAt": "2026-10-21T18:27:07.180Z",
+    "pageViewsCount": 1,
+    "pagesVisited": [
+      {
+        "path": "/about",
+        "title": "About Achtrex | Technology, Creativity & Intelligence Studio | Achtrex Studio",
+        "timestamp": "2026-10-21T18:27:07.180Z"
+      }
+    ]
+  },
+  {
     "id": "sess_2iapgxx_mvh7ur5j",
     "visitorId": "vis_sfska90_mvgwhkiy",
     "ip": "::ffff:127.0.0.1",
@@ -13,8 +85,8 @@
     "os": "Windows 10/11",
     "referrer": "Direct / Bookmark",
     "startedAt": "2026-10-20T21:49:40.100Z",
-    "lastActiveAt": "2026-10-20T22:33:37.185Z",
-    "pageViewsCount": 10,
+    "lastActiveAt": "2026-10-20T22:54:42.883Z",
+    "pageViewsCount": 13,
     "pagesVisited": [
       {
         "path": "/book-a-meeting",
@@ -65,6 +137,21 @@
         "path": "/contact",
         "title": "Contact Achtrex | Start Your Project | Achtrex Studio",
         "timestamp": "2026-10-20T22:33:37.185Z"
+      },
+      {
+        "path": "/book-a-meeting",
+        "title": "Book a Strategic Meeting | Achtrex Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T22:50:53.550Z"
+      },
+      {
+        "path": "/contact",
+        "title": "Contact Achtrex | Start Your Project | Achtrex Studio",
+        "timestamp": "2026-10-20T22:51:14.880Z"
+      },
+      {
+        "path": "/services",
+        "title": "Services & Disciplines | Achtrex Studio | Achtrex Studio",
+        "timestamp": "2026-10-20T22:54:42.883Z"
       }
     ]
   },

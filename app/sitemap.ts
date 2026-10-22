@@ -2,7 +2,6 @@ import { MetadataRoute } from 'next';
 import { ServicesDB } from '@/lib/services-db';
 import { ProjectsDB } from '@/lib/projects-db';
 import { MediaDB } from '@/lib/media-db';
-import { blogPosts } from '@/lib/blog-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://achtrex.com';
@@ -52,19 +51,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Dynamic Blog Routes
-  const blogRoutes: MetadataRoute.Sitemap = (blogPosts || []).map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.6,
-  }));
-
   return [
     ...staticStudioRoutes, 
     ...serviceRoutes, 
     ...projectRoutes, 
-    ...mediaRoutes, 
-    ...blogRoutes
+    ...mediaRoutes
   ];
 }

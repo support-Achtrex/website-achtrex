@@ -52,6 +52,13 @@ const jsonLd = {
     'legalName': 'Achtrex',
     'url': 'https://achtrex.com',
     'logo': 'https://achtrex.com/logo.png',
+    'founder': {
+      '@type': 'Person',
+      'name': 'Achim Godwin Tetteh',
+      'jobTitle': 'Founder & System Architect',
+      'description': 'Founder & System Architect of Achtrex, leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.',
+      'image': 'https://achtrex.com/team/achim-founder.jpg'
+    },
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': 'Digital Park A5 Building, 6009',

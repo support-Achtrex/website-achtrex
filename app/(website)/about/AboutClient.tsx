@@ -146,6 +146,92 @@ export function AboutClient() {
       </section>
 
       {/* =========================================================================
+          MESSAGE FROM THE FOUNDER (Cinematic Editorial Showcase)
+      ========================================================================== */}
+      <section className="py-24 sm:py-32 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#000000]">
+        <div className="w-full max-w-[1720px] mx-auto">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+            <div>
+              <h2 className="font-clash text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight">
+                Message from the Founder
+              </h2>
+            </div>
+            <p className="font-clash text-sm sm:text-base text-white/50 max-w-md font-light">
+              The philosophy and architectural rigor uniting technology, creativity, and engineering at Achtrex.
+            </p>
+          </div>
+
+          {/* Framed Cinematic Showcase */}
+          <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-[#05070A] shadow-2xl">
+            {/* Background Image Container */}
+            <div className="relative w-full h-[440px] sm:h-[540px] md:h-[620px] lg:h-[720px] xl:h-[780px]">
+              <Image
+                src="/team/achim-founder.jpg"
+                alt="Achim Godwin Tetteh - Founder & System Architect, Achtrex"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 1720px"
+                className="object-cover object-[24%_center] lg:object-[20%_center] contrast-105 brightness-95"
+              />
+              {/* Cinematic Gradient Vignettes */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+              <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/75 pointer-events-none" />
+
+              {/* Desktop Overlay: Anchored on the Right Quarter Corner of the Image */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="hidden lg:block absolute right-8 bottom-8 xl:right-12 xl:bottom-12 max-w-xl xl:max-w-2xl z-10"
+              >
+                <div className="bg-black/80 backdrop-blur-2xl border border-white/20 p-8 sm:p-10 xl:p-12 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.85)]">
+                  {/* Refined Message */}
+                  <blockquote className="font-clash text-lg sm:text-xl xl:text-2xl text-white/95 font-light leading-relaxed mb-8">
+                    &ldquo;I founded Achtrex to bring together technology, creativity, and engineering to solve complex business challenges. I lead the company&apos;s technical vision and product architecture—working across software engineering, artificial intelligence, digital experiences, and technology strategy to turn ideas into practical, high-impact solutions.&rdquo;
+                  </blockquote>
+
+                  {/* Signature / Credentials */}
+                  <div className="pt-6 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                      <h3 className="font-clash text-2xl xl:text-3xl text-white font-normal tracking-tight">
+                        Achim Godwin Tetteh
+                      </h3>
+                      <p className="font-mono text-xs uppercase tracking-wider text-[#889fa8] mt-1">
+                        Founder &amp; System Architect &bull; Achtrex
+                      </p>
+                    </div>
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-white/40 border border-white/10 px-3 py-1.5 rounded-full">
+                      Studio Leadership
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Mobile / Tablet View: Positioned Below the Image for Pristine Legibility */}
+            <div className="lg:hidden p-6 sm:p-10 border-t border-white/10 bg-[#05070A]/95">
+              <blockquote className="font-clash text-base sm:text-lg text-white/90 font-light leading-relaxed mb-6">
+                &ldquo;I founded Achtrex to bring together technology, creativity, and engineering to solve complex business challenges. I lead the company&apos;s technical vision and product architecture—working across software engineering, artificial intelligence, digital experiences, and technology strategy to turn ideas into practical, high-impact solutions.&rdquo;
+              </blockquote>
+
+              <div className="pt-5 border-t border-white/10 flex items-center justify-between">
+                <div>
+                  <h3 className="font-clash text-xl sm:text-2xl text-white font-normal tracking-tight">
+                    Achim Godwin Tetteh
+                  </h3>
+                  <p className="font-mono text-xs uppercase tracking-wider text-[#889fa8] mt-1">
+                    Founder &amp; System Architect &bull; Achtrex
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
           FULL-BLEED CINEMATIC IMAGE BANNER
       ========================================================================== */}
       <section className="relative w-full h-[60vh] sm:h-[75vh] border-b border-white/10 overflow-hidden">
@@ -187,7 +273,7 @@ export function AboutClient() {
                 {STUDIO_CONFIG.address}
               </p>
               <p className="text-sm text-white/60 leading-relaxed">
-                Positioned in Dubai&apos;s leading technology and innovation cluster, serving luxury automotive brands, spatial tech ventures, high-growth digital companies, and enterprise innovators across EMEA, the Americas, and APAC.
+                Positioned in Dubai&apos;s leading technology and innovation cluster, partnering with pioneering brands, spatial tech ventures, AI innovators, and enterprise leaders across EMEA, the Americas, and APAC.
               </p>
             </div>
 
