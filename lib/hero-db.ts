@@ -1,44 +1,32 @@
-import fs from 'fs';
-import path from 'path';
 import { HeroSlide, HeroConfig, DEFAULT_HERO_CONFIG } from './hero-types';
+import { getCmsCollection, getCmsCollectionSync, saveCmsCollection } from '@/lib/cms-db';
 
 export type { HeroSlide, HeroConfig };
 export { DEFAULT_HERO_CONFIG };
 
-
-const DATA_FILE = path.join(process.cwd(), 'data', 'hero.json');
-
 export const HeroDB = {
   getConfig: (): HeroConfig => {
-    try {
-      if (!fs.existsSync(DATA_FILE)) {
-        const dir = path.dirname(DATA_FILE);
-        if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-        fs.writeFileSync(DATA_FILE, JSON.stringify(DEFAULT_HERO_CONFIG, null, 2), 'utf-8');
-        return DEFAULT_HERO_CONFIG;
-      }
-      const raw = fs.readFileSync(DATA_FILE, 'utf-8');
-      const parsed = JSON.parse(raw);
-      if (!parsed || !Array.isArray(parsed.slides) || parsed.slides.length === 0) {
-        return DEFAULT_HERO_CONFIG;
-      }
-      // Ensure slides are sorted by order
-      parsed.slides.sort((a: HeroSlide, b: HeroSlide) => (a.order || 0) - (b.order || 0));
-      return parsed as HeroConfig;
-    } catch (err) {
-      console.error('Error reading hero.json:', err);
+    const config = getCmsCollectionSync<HeroConfig>('hero', DEFAULT_HERO_CONFIG);
+    if (!config || !Array.isArray(config.slides) || config.slides.length === 0) {
       return DEFAULT_HERO_CONFIG;
     }
+    config.slides.sort((a: HeroSlide, b: HeroSlide) => (a.order || 0) - (b.order || 0));
+    return config;
+  },
+
+  getConfigAsync: async (): Promise<HeroConfig> => {
+    const config = await getCmsCollection<HeroConfig>('hero', DEFAULT_HERO_CONFIG);
+    if (!config || !Array.isArray(config.slides) || config.slides.length === 0) {
+      return DEFAULT_HERO_CONFIG;
+    }
+    config.slides.sort((a: HeroSlide, b: HeroSlide) => (a.order || 0) - (b.order || 0));
+    return config;
   },
 
   saveConfig: (config: HeroConfig): HeroConfig => {
-    try {
-      const dir = path.dirname(DATA_FILE);
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(DATA_FILE, JSON.stringify(config, null, 2), 'utf-8');
-    } catch (err) {
-      console.error('Error writing hero.json:', err);
-    }
+    saveCmsCollection('hero', config).catch((err) =>
+      console.error('Error saving hero config to DB:', err)
+    );
     return config;
   },
 
@@ -98,7 +86,6 @@ export const HeroDB = {
   deleteSlide: (slideId: string): boolean => {
     const config = HeroDB.getConfig();
     if (config.slides.length <= 1) {
-      // Don't delete the only slide
       return false;
     }
 

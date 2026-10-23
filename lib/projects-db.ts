@@ -1,34 +1,24 @@
-import fs from 'fs';
-import path from 'path';
 import { ConceptExperienceItem, PROJECTS as DEFAULT_PROJECTS, LEGACY_SLUG_MAP } from '@/data/studio-data';
-
-const DATA_FILE = path.join(process.cwd(), 'data', 'projects.json');
+import { getCmsCollection, getCmsCollectionSync, saveCmsCollection } from '@/lib/cms-db';
 
 export const ProjectsDB = {
   getAll: (): ConceptExperienceItem[] => {
-    try {
-      if (!fs.existsSync(DATA_FILE)) {
-        // Seed initial data from studio-data
-        const dir = path.dirname(DATA_FILE);
-        if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-        fs.writeFileSync(DATA_FILE, JSON.stringify(DEFAULT_PROJECTS, null, 2), 'utf-8');
-        return DEFAULT_PROJECTS;
-      }
-      const raw = fs.readFileSync(DATA_FILE, 'utf-8');
-      const parsed = JSON.parse(raw);
-      if (!Array.isArray(parsed) || parsed.length === 0) {
-        return DEFAULT_PROJECTS;
-      }
-      return parsed;
-    } catch (err) {
-      console.error('Error reading projects.json:', err);
-      return DEFAULT_PROJECTS;
-    }
+    return getCmsCollectionSync<ConceptExperienceItem[]>('projects', DEFAULT_PROJECTS);
+  },
+
+  getAllAsync: async (): Promise<ConceptExperienceItem[]> => {
+    return await getCmsCollection<ConceptExperienceItem[]>('projects', DEFAULT_PROJECTS);
   },
 
   getBySlug: (slug: string): ConceptExperienceItem | undefined => {
     const resolved = (LEGACY_SLUG_MAP && LEGACY_SLUG_MAP[slug]) || slug;
     const all = ProjectsDB.getAll();
+    return all.find((p) => p.slug === resolved || p.slug === slug);
+  },
+
+  getBySlugAsync: async (slug: string): Promise<ConceptExperienceItem | undefined> => {
+    const resolved = (LEGACY_SLUG_MAP && LEGACY_SLUG_MAP[slug]) || slug;
+    const all = await ProjectsDB.getAllAsync();
     return all.find((p) => p.slug === resolved || p.slug === slug);
   },
 
@@ -43,13 +33,9 @@ export const ProjectsDB = {
       ...updates,
     };
 
-    try {
-      const dir = path.dirname(DATA_FILE);
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(DATA_FILE, JSON.stringify(all, null, 2), 'utf-8');
-    } catch (err) {
-      console.error('Error saving projects.json:', err);
-    }
+    saveCmsCollection('projects', all).catch((err) =>
+      console.error('Error saving projects to DB:', err)
+    );
 
     return all[index];
   },
@@ -58,27 +44,22 @@ export const ProjectsDB = {
     const all = ProjectsDB.getAll();
     all.push(item);
 
-    try {
-      const dir = path.dirname(DATA_FILE);
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(DATA_FILE, JSON.stringify(all, null, 2), 'utf-8');
-    } catch (err) {
-      console.error('Error saving projects.json:', err);
-    }
+    saveCmsCollection('projects', all).catch((err) =>
+      console.error('Error saving projects to DB:', err)
+    );
 
     return item;
   },
 
   delete: (slug: string): boolean => {
+    const resolved = (LEGACY_SLUG_MAP && LEGACY_SLUG_MAP[slug]) || slug;
     const all = ProjectsDB.getAll();
-    const filtered = all.filter((p) => p.slug !== slug);
+    const filtered = all.filter((p) => p.slug !== resolved && p.slug !== slug);
     if (filtered.length !== all.length) {
-      try {
-        fs.writeFileSync(DATA_FILE, JSON.stringify(filtered, null, 2), 'utf-8');
-        return true;
-      } catch (err) {
-        console.error('Error saving projects.json after deletion:', err);
-      }
+      saveCmsCollection('projects', filtered).catch((err) =>
+        console.error('Error saving projects after deletion to DB:', err)
+      );
+      return true;
     }
     return false;
   },

@@ -1,5 +1,4 @@
-import fs from 'fs';
-import path from 'path';
+import { getCmsCollection, getCmsCollectionSync, saveCmsCollection } from '@/lib/cms-db';
 
 export interface MediaSpec {
   label: string;
@@ -29,23 +28,13 @@ export interface MediaItem {
   specs?: MediaSpec[];
 }
 
-const DATA_FILE = path.join(process.cwd(), 'data', 'media.json');
-
 export const MediaDB = {
   getAll: (): MediaItem[] => {
-    try {
-      if (!fs.existsSync(DATA_FILE)) {
-        return [];
-      }
-      const data = fs.readFileSync(DATA_FILE, 'utf-8');
-      if (!data || !data.trim()) {
-        return [];
-      }
-      return JSON.parse(data);
-    } catch (error) {
-      console.error('Error reading media.json:', error);
-      return [];
-    }
+    return getCmsCollectionSync<MediaItem[]>('media', []);
+  },
+
+  getAllAsync: async (): Promise<MediaItem[]> => {
+    return await getCmsCollection<MediaItem[]>('media', []);
   },
 
   getById: (id: string): MediaItem | undefined => {
@@ -58,9 +47,14 @@ export const MediaDB = {
     return all.find((item) => item.slug === slug || item.id === slug);
   },
 
+  getBySlugAsync: async (slug: string): Promise<MediaItem | undefined> => {
+    const all = await MediaDB.getAllAsync();
+    return all.find((item) => item.slug === slug || item.id === slug);
+  },
+
   add: (item: Omit<MediaItem, 'id' | 'dateFormatted'>): MediaItem => {
     const all = MediaDB.getAll();
-    
+
     // Format date string nicely e.g. "05 October 2026"
     let formattedDate = item.date;
     try {
@@ -80,22 +74,9 @@ export const MediaDB = {
 
     all.unshift(newItem);
 
-    try {
-      const dir = path.dirname(DATA_FILE);
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-      const tempFile = `${DATA_FILE}.tmp`;
-      fs.writeFileSync(tempFile, JSON.stringify(all, null, 2), 'utf-8');
-      try {
-        fs.renameSync(tempFile, DATA_FILE);
-      } catch {
-        fs.writeFileSync(DATA_FILE, JSON.stringify(all, null, 2), 'utf-8');
-        if (fs.existsSync(tempFile)) {
-          try { fs.unlinkSync(tempFile); } catch {}
-        }
-      }
-    } catch (err) {
-      console.error('Error saving media.json:', err);
-    }
+    saveCmsCollection('media', all).catch((err) =>
+      console.error('Error saving media to DB:', err)
+    );
 
     return newItem;
   },
@@ -105,9 +86,9 @@ export const MediaDB = {
     const index = all.findIndex((item) => item.id === id || item.slug === id);
     if (index === -1) return null;
 
+    // Recalculate formatted date if date string changed
     let dateFormatted = all[index].dateFormatted;
-    if (updates.date) {
-      dateFormatted = updates.date;
+    if (updates.date && updates.date !== all[index].date) {
       try {
         const parts = updates.date.split('/');
         if (parts.length === 3) {
@@ -124,46 +105,22 @@ export const MediaDB = {
       dateFormatted,
     };
 
-    try {
-      const dir = path.dirname(DATA_FILE);
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-      const tempFile = `${DATA_FILE}.tmp`;
-      fs.writeFileSync(tempFile, JSON.stringify(all, null, 2), 'utf-8');
-      try {
-        fs.renameSync(tempFile, DATA_FILE);
-      } catch {
-        fs.writeFileSync(DATA_FILE, JSON.stringify(all, null, 2), 'utf-8');
-        if (fs.existsSync(tempFile)) {
-          try { fs.unlinkSync(tempFile); } catch {}
-        }
-      }
-    } catch (err) {
-      console.error('Error saving media.json:', err);
-    }
+    saveCmsCollection('media', all).catch((err) =>
+      console.error('Error saving media to DB:', err)
+    );
 
     return all[index];
   },
 
   delete: (id: string): boolean => {
     const all = MediaDB.getAll();
-    const filtered = all.filter((item) => item.id !== id);
+    const filtered = all.filter((item) => item.id !== id && item.slug !== id);
     if (filtered.length !== all.length) {
-      try {
-        const tempFile = `${DATA_FILE}.tmp`;
-        fs.writeFileSync(tempFile, JSON.stringify(filtered, null, 2), 'utf-8');
-        try {
-          fs.renameSync(tempFile, DATA_FILE);
-        } catch {
-          fs.writeFileSync(DATA_FILE, JSON.stringify(filtered, null, 2), 'utf-8');
-          if (fs.existsSync(tempFile)) {
-            try { fs.unlinkSync(tempFile); } catch {}
-          }
-        }
-      } catch (err) {
-        console.error('Error deleting from media.json:', err);
-      }
+      saveCmsCollection('media', filtered).catch((err) =>
+        console.error('Error saving media after deletion to DB:', err)
+      );
       return true;
     }
     return false;
-  }
+  },
 };

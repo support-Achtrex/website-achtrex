@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { getCmsCollection, getCmsCollectionSync, saveCmsCollection } from '@/lib/cms-db';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 
@@ -85,14 +86,54 @@ const DEFAULT_SETTINGS: SiteSettings = {
 };
 
 export const SettingsDB = {
-    get: () => {
-        const settings = readJson<SiteSettings>('settings.json');
-        return settings[0] || DEFAULT_SETTINGS;
+    get: (): SiteSettings => {
+        const raw = getCmsCollectionSync<any>('settings', DEFAULT_SETTINGS);
+        if (Array.isArray(raw)) {
+            const item = raw[0] || {};
+            return {
+                siteName: item.siteName || DEFAULT_SETTINGS.siteName,
+                contactEmail: item.contactEmail || DEFAULT_SETTINGS.contactEmail,
+                maintenanceMode: Boolean(item.maintenanceMode),
+            };
+        }
+        if (raw && typeof raw === 'object') {
+            return {
+                siteName: raw.siteName || DEFAULT_SETTINGS.siteName,
+                contactEmail: raw.contactEmail || DEFAULT_SETTINGS.contactEmail,
+                maintenanceMode: Boolean(raw.maintenanceMode),
+            };
+        }
+        return DEFAULT_SETTINGS;
     },
-    update: (newSettings: Partial<SiteSettings>) => {
+
+    getAsync: async (): Promise<SiteSettings> => {
+        const raw = await getCmsCollection<any>('settings', DEFAULT_SETTINGS);
+        if (Array.isArray(raw)) {
+            const item = raw[0] || {};
+            return {
+                siteName: item.siteName || DEFAULT_SETTINGS.siteName,
+                contactEmail: item.contactEmail || DEFAULT_SETTINGS.contactEmail,
+                maintenanceMode: Boolean(item.maintenanceMode),
+            };
+        }
+        if (raw && typeof raw === 'object') {
+            return {
+                siteName: raw.siteName || DEFAULT_SETTINGS.siteName,
+                contactEmail: raw.contactEmail || DEFAULT_SETTINGS.contactEmail,
+                maintenanceMode: Boolean(raw.maintenanceMode),
+            };
+        }
+        return DEFAULT_SETTINGS;
+    },
+
+    update: async (newSettings: Partial<SiteSettings>): Promise<SiteSettings> => {
         const current = SettingsDB.get();
-        const updated = { ...current, ...newSettings };
-        writeJson('settings.json', [updated]);
+        const updated: SiteSettings = {
+            siteName: newSettings.siteName ?? current.siteName,
+            contactEmail: newSettings.contactEmail ?? current.contactEmail,
+            maintenanceMode: newSettings.maintenanceMode !== undefined ? Boolean(newSettings.maintenanceMode) : current.maintenanceMode,
+        };
+        await saveCmsCollection('settings', updated);
         return updated;
     }
 };

@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const items = MediaDB.getAll();
+    const items = await MediaDB.getAllAsync();
     return NextResponse.json(items, {
       headers: {
         'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',

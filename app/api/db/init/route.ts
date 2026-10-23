@@ -169,6 +169,15 @@ export async function GET() {
     `;
 
 
+    // 12. CMS Collections for Persistent Admin CMS Storage
+    await sql`
+      CREATE TABLE IF NOT EXISTS cms_collections (
+        name VARCHAR(50) PRIMARY KEY,
+        data JSONB NOT NULL,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      )
+    `;
+
     return NextResponse.json({ message: 'Database Initialized Successfully' }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });

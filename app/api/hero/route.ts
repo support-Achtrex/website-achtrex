@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const config = HeroDB.getConfig();
+    const config = await HeroDB.getConfigAsync();
     return NextResponse.json(config);
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
