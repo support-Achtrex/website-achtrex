@@ -36,7 +36,7 @@ export function BookMeetingClient() {
         {/* Header Breadcrumb & Title */}
         <div className="max-w-4xl mb-10 sm:mb-14 space-y-4">
           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#00A9CE]">
-            <span>Achtrex Direct Scheduling</span>
+            <span>Direct Scheduling</span>
             <span>&bull;</span>
             <span>Real-Time Calendar</span>
           </div>
