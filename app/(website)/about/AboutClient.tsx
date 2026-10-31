@@ -168,11 +168,11 @@ export function AboutClient() {
             <div className="relative w-full h-[440px] sm:h-[540px] md:h-[620px] lg:h-[720px] xl:h-[780px]">
               <Image
                 src="/team/achim-founder.jpg"
-                alt="Achim Godwin Tetteh - Founder & System Architect, Achtrex"
+                alt="Achim Godwin Tetteh - Founder & CEO, Achtrex"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 1720px"
-                className="object-cover object-[24%_center] lg:object-[20%_center] contrast-105 brightness-95"
+                className="object-cover object-[center_20%] lg:object-[28%_20%] contrast-105 brightness-95"
               />
               {/* Cinematic Gradient Vignettes */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
@@ -199,7 +199,7 @@ export function AboutClient() {
                         Achim Godwin Tetteh
                       </h3>
                       <p className="font-mono text-xs uppercase tracking-wider text-[#889fa8] mt-1">
-                        Founder &amp; System Architect &bull; Achtrex
+                        Founder &amp; CEO &bull; Achtrex
                       </p>
                     </div>
                     <div className="font-mono text-[10px] uppercase tracking-widest text-white/40 border border-white/10 px-3 py-1.5 rounded-full">
@@ -222,7 +222,7 @@ export function AboutClient() {
                     Achim Godwin Tetteh
                   </h3>
                   <p className="font-mono text-xs uppercase tracking-wider text-[#889fa8] mt-1">
-                    Founder &amp; System Architect &bull; Achtrex
+                    Founder &amp; CEO &bull; Achtrex
                   </p>
                 </div>
               </div>

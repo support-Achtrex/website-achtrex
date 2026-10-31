@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   },
   description: "We design and build digital experiences where technology, creativity and intelligence come together.",
   keywords: [
-    "Achtrex", "Achim Godwin Tetteh", "Founder Achtrex", "System Architect",
+    "Achtrex", "Achim Godwin Tetteh", "Founder Achtrex", "Founder & CEO",
     "digital experience studio", "technology studio", "digital product development",
     "software engineering", "AI development", "AI solutions", "immersive experiences",
     "CGI and 3D", "real-time 3D", "product configurators", "spatial computing",
@@ -152,8 +152,8 @@ const jsonLd = [
     "founder": {
       "@type": "Person",
       "name": "Achim Godwin Tetteh",
-      "jobTitle": "Founder & System Architect",
-      "description": "Founder & System Architect of Achtrex, leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.",
+      "jobTitle": "Founder & CEO",
+      "description": "Founder & CEO of Achtrex, leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.",
       "image": "https://achtrex.com/team/achim-founder.jpg"
     },
     "address": {

@@ -55,8 +55,8 @@ const jsonLd = {
     'founder': {
       '@type': 'Person',
       'name': 'Achim Godwin Tetteh',
-      'jobTitle': 'Founder & System Architect',
-      'description': 'Founder & System Architect of Achtrex, leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.',
+      'jobTitle': 'Founder & CEO',
+      'description': 'Founder & CEO of Achtrex, leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.',
       'image': 'https://achtrex.com/team/achim-founder.jpg'
     },
     'address': {
