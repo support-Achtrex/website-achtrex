@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { MediaItem } from '@/lib/media-db';
 import { STUDIO_CONFIG } from '@/data/studio-data';
 import { TechDrivingDynamics } from '@/components/studio/TechDrivingDynamics';
+import { EditorialNarrativeContent } from '@/components/media/EditorialNarrativeContent';
+import { SocialShareBar } from '@/components/media/SocialShareBar';
 
 interface TeslaMediaArticleExperienceProps {
   item: MediaItem;
@@ -339,37 +341,47 @@ export function TeslaMediaArticleExperience({
         className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
       >
         <div className="w-full max-w-5xl mx-auto space-y-12 font-clash">
-          <div className="border-b border-white/20 pb-8">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#00A9CE] block mb-2">
-              Official Narrative
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight leading-tight">
-              Executive Briefing
-            </h2>
+          <div className="border-b border-white/20 pb-8 space-y-6">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest text-[#00A9CE] block mb-2">
+                Official Narrative
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight leading-tight">
+                Executive Briefing
+              </h2>
+            </div>
+
+            {/* Top Viral Share Bar */}
+            <SocialShareBar
+              title={item.title}
+              url={`https://achtrex.com/media/${item.slug}`}
+              content={item.content}
+              category={item.category}
+            />
           </div>
 
-          <div className="space-y-8 font-sans font-light text-base sm:text-xl text-white/80 leading-relaxed">
-            {item.content ? (
-              item.content.split('\n\n').map((paragraph, idx) => (
-                <p key={idx} className="leading-relaxed">
-                  {paragraph}
-                </p>
-              ))
-            ) : (
-              <p className="leading-relaxed">{item.summary}</p>
-            )}
-          </div>
+          <EditorialNarrativeContent content={item.content} fallbackSummary={item.summary} />
 
-          <div className="pt-10 border-t border-white/15 flex flex-wrap items-center justify-between gap-4">
-            <span className="font-mono text-xs text-white/50">
-              Published by Achtrex &bull; {item.dateFormatted || item.date}
-            </span>
-            <Link
-              href="/media"
-              className="px-6 py-2.5 rounded-full border border-white/30 text-white font-clash text-xs tracking-wider uppercase hover:bg-white/10 transition-colors"
-            >
-              &larr; Back to all releases
-            </Link>
+          <div className="pt-10 border-t border-white/15 space-y-8">
+            {/* Bottom Viral Share Bar */}
+            <SocialShareBar
+              title={item.title}
+              url={`https://achtrex.com/media/${item.slug}`}
+              content={item.content}
+              category={item.category}
+            />
+
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <span className="font-mono text-xs text-white/50">
+                Published by Achtrex &bull; {item.dateFormatted || item.date}
+              </span>
+              <Link
+                href="/media"
+                className="px-6 py-2.5 rounded-full border border-white/30 text-white font-clash text-xs tracking-wider uppercase hover:bg-white/10 transition-colors"
+              >
+                &larr; Back to all releases
+              </Link>
+            </div>
           </div>
         </div>
       </section>

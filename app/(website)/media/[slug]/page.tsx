@@ -17,6 +17,23 @@ export async function generateStaticParams() {
   }));
 }
 
+function stripHtml(html: string): string {
+  if (!html) return '';
+  return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function parseDateToIso(dateStr?: string): string {
+  if (!dateStr) return new Date().toISOString();
+  try {
+    const parts = dateStr.split('/');
+    if (parts.length === 3) {
+      const [d, m, y] = parts;
+      return new Date(parseInt(y), parseInt(m) - 1, parseInt(d), 9, 0, 0).toISOString();
+    }
+  } catch (_) {}
+  return new Date().toISOString();
+}
+
 export async function generateMetadata({ params }: MediaDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const item = MediaDB.getBySlug(slug);
@@ -28,31 +45,77 @@ export async function generateMetadata({ params }: MediaDetailPageProps): Promis
     };
   }
 
+  const cleanTitle = item.title.replace(/[“”"']/g, '').trim();
+  const rawDesc = item.summary || item.subtitle || (item.content ? stripHtml(item.content).slice(0, 160) : 'Official Achtrex Newsroom Release');
+  const metaDescription = stripHtml(rawDesc).slice(0, 160).trim();
+  const isoPublishedDate = parseDateToIso(item.date);
+  const primaryImageUrl = item.mediaUrl.startsWith('http')
+    ? item.mediaUrl
+    : `https://achtrex.com${item.mediaUrl}`;
+
   return {
-    title: `${item.title.replace(/[“”"]/g, '')} | Achtrex Media`,
-    description: item.summary || item.subtitle,
+    title: `${cleanTitle} | Achtrex Newsroom`,
+    description: metaDescription,
     alternates: {
       canonical: `https://achtrex.com/media/${item.slug}`,
     },
     openGraph: {
-      title: `${item.title.replace(/[“”"]/g, '')} | Achtrex`,
-      description: item.summary || item.subtitle,
+      title: `${cleanTitle} | Achtrex`,
+      description: metaDescription,
       url: `https://achtrex.com/media/${item.slug}`,
+      siteName: 'Achtrex',
+      locale: 'en_US',
+      type: 'article',
+      publishedTime: isoPublishedDate,
+      modifiedTime: isoPublishedDate,
+      authors: ['https://achtrex.com', 'Achtrex Engineering'],
+      section: item.category || 'Technology',
+      tags: [
+        item.category || 'Technology',
+        'Achtrex',
+        'Innovation',
+        'Spatial Computing',
+        'Digital Twins',
+        cleanTitle,
+      ],
       images: [
         {
-          url: item.mediaUrl.startsWith('http') ? item.mediaUrl : `https://achtrex.com${item.mediaUrl}`,
+          url: primaryImageUrl,
+          secureUrl: primaryImageUrl,
           width: 1200,
           height: 630,
-          alt: item.title,
+          alt: cleanTitle,
+          type: 'image/jpeg',
         },
       ],
-      type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${item.title.replace(/[“”"]/g, '')} | Achtrex`,
-      description: item.summary || item.subtitle,
-      images: [item.mediaUrl.startsWith('http') ? item.mediaUrl : `https://achtrex.com${item.mediaUrl}`],
+      site: '@achtrex',
+      creator: '@achtrex',
+      title: `${cleanTitle} | Achtrex`,
+      description: metaDescription,
+      images: [primaryImageUrl],
+    },
+    keywords: [
+      item.category || 'Technology',
+      cleanTitle,
+      'Achtrex',
+      'Innovation',
+      'Engineering',
+      'Spatial Technology',
+      'Executive Briefing',
+    ],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
     },
   };
 }
@@ -70,20 +133,61 @@ export default async function MediaDetailPage({ params }: MediaDetailPageProps) 
   const allItems = MediaDB.getAll();
   const relatedItems = allItems.filter((i) => i.id !== item.id).slice(0, 3);
 
+  const cleanTitle = item.title.replace(/[“”"']/g, '').trim();
+  const rawDesc = item.summary || item.subtitle || (item.content ? stripHtml(item.content).slice(0, 160) : 'Official Achtrex Newsroom Release');
+  const metaDescription = stripHtml(rawDesc).slice(0, 160).trim();
+  const isoPublishedDate = parseDateToIso(item.date);
+  const primaryImageUrl = item.mediaUrl.startsWith('http')
+    ? item.mediaUrl
+    : `https://achtrex.com${item.mediaUrl}`;
+  const plainBodyText = stripHtml(item.content || item.summary || '');
+  const wordCount = plainBodyText.split(/\s+/).filter(Boolean).length;
+
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     '@id': `https://achtrex.com/media/${item.slug}#article`,
-    headline: item.title,
-    description: item.summary || item.subtitle,
-    datePublished: item.date,
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': 'https://achtrex.com/#website',
+      name: 'Achtrex',
+      url: 'https://achtrex.com',
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://achtrex.com/media/${item.slug}`,
+    },
+    headline: cleanTitle.slice(0, 110),
+    alternativeHeadline: item.subtitle ? item.subtitle.replace(/[“”"']/g, '').trim() : undefined,
+    description: metaDescription,
+    articleBody: plainBodyText,
+    articleSection: item.category || 'Technology',
+    keywords: [item.category || 'Technology', 'Achtrex', 'Innovation', 'Engineering'].join(', '),
+    wordCount: wordCount,
+    inLanguage: 'en-US',
+    isAccessibleForFree: 'true',
+    datePublished: isoPublishedDate,
+    dateModified: isoPublishedDate,
     url: `https://achtrex.com/media/${item.slug}`,
-    image: [item.mediaUrl.startsWith('http') ? item.mediaUrl : `https://achtrex.com${item.mediaUrl}`],
+    image: [
+      primaryImageUrl,
+      ...(item.galleryImages || []).map((img) => (img.startsWith('http') ? img : `https://achtrex.com${img}`)),
+    ].filter(Boolean),
+    author: {
+      '@type': 'Organization',
+      name: 'Achtrex Editorial Board',
+      url: 'https://achtrex.com',
+    },
     publisher: {
       '@type': 'Corporation',
       name: 'Achtrex',
       url: 'https://achtrex.com',
-      logo: 'https://achtrex.com/logo.png',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://achtrex.com/logo.png',
+        width: 600,
+        height: 60,
+      },
     },
   };
 

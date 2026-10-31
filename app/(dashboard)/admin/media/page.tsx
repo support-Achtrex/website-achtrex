@@ -21,10 +21,16 @@ import {
   X,
   RefreshCw,
   Sparkles,
-  BarChart3
+  BarChart3,
+  Globe,
+  Search,
+  Share2,
+  TrendingUp,
+  Check
 } from 'lucide-react';
 import { createMediaAction, updateMediaAction, deleteMediaAction } from '@/app/actions/media';
 import { MediaItem, MediaSpec } from '@/lib/media-db';
+import EditorialRichTextEditor from '@/components/admin/EditorialRichTextEditor';
 
 const CATEGORIES = ['STORIES', 'EVENTS', 'ABOUT US', 'ESG', 'INNOVATION'];
 
@@ -44,7 +50,7 @@ export default function AdminMediaPage() {
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   // Form Tabs
-  const [activeTab, setActiveTab] = useState<'basics' | 'hero' | 'gallery' | 'editorial' | 'specs'>('basics');
+  const [activeTab, setActiveTab] = useState<'basics' | 'hero' | 'gallery' | 'editorial' | 'specs' | 'seo'>('basics');
 
   // Form State: Basics
   const [title, setTitle] = useState('');
@@ -490,6 +496,18 @@ export default function AdminMediaPage() {
               }`}
             >
               5. Editorial Narrative
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('seo')}
+              className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider border-b-2 transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
+                activeTab === 'seo'
+                  ? 'border-[#1a365d] text-[#1a365d]'
+                  : 'border-transparent text-slate-500 hover:text-slate-900'
+              }`}
+            >
+              <Globe size={13} />
+              <span>6. SEO &amp; Viral Suite</span>
             </button>
           </div>
 
@@ -1060,26 +1078,251 @@ export default function AdminMediaPage() {
             ========================================================================== */}
             {activeTab === 'editorial' && (
               <div className="space-y-4">
-                <div>
-                  <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-[#1a365d]" />
-                    Full Editorial Narrative Body
-                  </h3>
-                  <p className="text-xs text-slate-500">
-                    Write in paragraphs separated by blank lines. Displayed in the clean Tesla narrative section.
-                  </p>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                      <FileText className="w-5 h-5 text-[#1a365d]" />
+                      Full Editorial Narrative Body
+                    </h3>
+                    <p className="text-xs text-slate-500">
+                      Format your narrative copy with bullet points, numbered lists, bold text, headings, quotes, and links. Preview your changes on the live Tesla dark background.
+                    </p>
+                  </div>
                 </div>
 
-                <textarea
-                  required
-                  rows={14}
+                <EditorialRichTextEditor
                   value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  placeholder="Write the complete article copy here. Separate distinct paragraphs with blank lines..."
-                  className="w-full px-4 py-3 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:border-[#1a365d] font-sans leading-relaxed"
+                  onChange={(val) => setContent(val)}
+                  placeholder="Write the complete article copy here. Format with bullet points, bold emphasis, headings, executive quotes, and links..."
+                  minHeight="380px"
                 />
               </div>
             )}
+
+            {/* =========================================================================
+                TAB 6: SEO & VIRAL SUITE
+            ========================================================================== */}
+            {activeTab === 'seo' && (() => {
+              const cleanTitle = title.replace(/[“”"']/g, '').trim();
+              const plainContent = content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+              const wordCount = plainContent ? plainContent.split(/\s+/).filter(Boolean).length : 0;
+              const hasBullets = /<ul|<li|•/i.test(content);
+              const hasBold = /<strong|<b/i.test(content);
+              const hasImage = Boolean(previewUrl || directUrl || selectedFile);
+              const previewSlug = editingItem?.slug || cleanTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'new-release-slug';
+
+              // Score calculation
+              let score = 0;
+              if (cleanTitle.length >= 35 && cleanTitle.length <= 70) score += 20;
+              else if (cleanTitle.length > 15) score += 10;
+
+              if (summary.length >= 80 && summary.length <= 165) score += 20;
+              else if (summary.length > 30) score += 10;
+
+              if (hasImage) score += 20;
+
+              if (wordCount >= 200) score += 20;
+              else if (wordCount >= 60) score += 10;
+
+              if (hasBullets) score += 10;
+              if (hasBold) score += 10;
+
+              const getScoreColor = () => {
+                if (score >= 80) return 'text-emerald-700 bg-emerald-50 border-emerald-300';
+                if (score >= 50) return 'text-amber-700 bg-amber-50 border-amber-300';
+                return 'text-rose-700 bg-rose-50 border-rose-300';
+              };
+
+              return (
+                <div className="space-y-8">
+                  {/* Top Score Banner */}
+                  <div className="p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-md">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <TrendingUp className="w-5 h-5 text-[#00A9CE]" />
+                        <h3 className="text-lg font-bold tracking-tight">Viral &amp; Search Engine Optimization Engine</h3>
+                      </div>
+                      <p className="text-xs text-slate-300 max-w-xl leading-relaxed">
+                        Achtrex automatically generates OpenGraph 1200&times;630 meta cards, Google NewsArticle JSON-LD schema, and high-priority XML sitemap entries to boost organic reach and viral social distribution.
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 shrink-0">
+                      <div className="text-right">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-white/60 block">SEO &amp; Viral Score</span>
+                        <span className="text-2xl font-bold tracking-tight text-white">{score} <span className="text-xs font-normal text-white/60">/ 100</span></span>
+                      </div>
+                      <div className={`px-3 py-1.5 rounded-lg border text-xs font-bold ${getScoreColor()}`}>
+                        {score >= 80 ? 'Viral Ready' : score >= 50 ? 'Good' : 'Needs Optimization'}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2-Column Previews */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {/* Column 1: Google Search Simulation */}
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+                          <Search size={14} className="text-blue-600" />
+                          <span>Google Search Result Snippet</span>
+                        </h4>
+                        <span className="text-[11px] font-mono text-slate-400">Desktop SERP</span>
+                      </div>
+
+                      <div className="p-5 bg-white border border-slate-200 rounded-xl shadow-xs space-y-2">
+                        <div className="flex items-center gap-2 text-xs text-slate-600">
+                          <div className="w-4 h-4 rounded-full bg-[#1a365d] flex items-center justify-center text-[9px] font-bold text-white">
+                            A
+                          </div>
+                          <div className="truncate">
+                            <span className="text-slate-900 font-medium">Achtrex</span>
+                            <span className="text-slate-400 mx-1">&rsaquo;</span>
+                            <span className="text-slate-500 font-mono text-[11px]">https://achtrex.com › media › {previewSlug}</span>
+                          </div>
+                        </div>
+
+                        <h5 className="text-base font-medium text-[#1a0dab] hover:underline cursor-pointer line-clamp-1 leading-snug">
+                          {cleanTitle || 'Achtrex Newsroom Release'} | Achtrex Newsroom
+                        </h5>
+
+                        <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
+                          <span className="text-slate-400 font-mono text-[11px] mr-1.5">{date || 'Today'} &mdash;</span>
+                          {summary || (plainContent ? plainContent.slice(0, 150) + '...' : 'Add an article summary or narrative copy to generate an engaging Google search description.')}
+                        </p>
+                      </div>
+
+                      <p className="text-[11px] text-slate-500">
+                        {summary.length >= 80 && summary.length <= 165 ? (
+                          <span className="text-emerald-600 font-medium">&check; Description length is optimal ({summary.length}/160 chars)</span>
+                        ) : summary.length > 165 ? (
+                          <span className="text-amber-600 font-medium">&bull; Description is a bit long ({summary.length}/160 chars) and may be truncated by Google</span>
+                        ) : (
+                          <span className="text-slate-400 font-medium">&bull; Optimal length is 100-160 characters (currently {summary.length})</span>
+                        )}
+                      </p>
+                    </div>
+
+                    {/* Column 2: Open Graph Social Card (X / LinkedIn / WhatsApp) */}
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+                          <Share2 size={14} className="text-[#00A9CE]" />
+                          <span>Social Share Preview (X, LinkedIn, WhatsApp)</span>
+                        </h4>
+                        <span className="text-[11px] font-mono text-slate-400">1200 &times; 630 Card</span>
+                      </div>
+
+                      <div className="rounded-xl border border-slate-200 overflow-hidden bg-slate-900 shadow-sm">
+                        <div className="relative aspect-[16/9] w-full bg-slate-950 overflow-hidden">
+                          {previewUrl || directUrl ? (
+                            <img
+                              src={previewUrl || directUrl}
+                              alt="Social preview banner"
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex flex-col items-center justify-center text-slate-500 text-xs p-6 text-center">
+                              <ImageIcon className="w-8 h-8 mb-2 opacity-50" />
+                              <span>Attach a primary image in Tab 1 or 2 for high-impact social preview cards</span>
+                            </div>
+                          )}
+                          <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-mono uppercase text-white tracking-widest">
+                            {category}
+                          </div>
+                        </div>
+
+                        <div className="p-4 bg-slate-900 text-white space-y-1">
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-[#00A9CE] block">
+                            achtrex.com
+                          </span>
+                          <h5 className="text-sm font-semibold text-white line-clamp-1 leading-snug">
+                            {cleanTitle || 'Title of your media release'}
+                          </h5>
+                          <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                            {summary || 'Add a summary to accompany your link when shared on X, LinkedIn, or messaging apps.'}
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-[11px] text-slate-500">
+                        When users click the share buttons on the public website or copy the link, this preview card expands across social feeds.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Viral Pre-Flight Optimization Checklist */}
+                  <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-4">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+                      <Sparkles size={14} className="text-[#00A9CE]" />
+                      <span>Viral Readiness Checklist</span>
+                    </h4>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                      <div className={`p-3 rounded-xl border flex items-center gap-2.5 ${cleanTitle.length >= 35 && cleanTitle.length <= 70 ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-white border-slate-200 text-slate-700'}`}>
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${cleanTitle.length >= 35 && cleanTitle.length <= 70 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
+                          &check;
+                        </div>
+                        <div>
+                          <span className="font-semibold block">Headline Catchiness ({cleanTitle.length} chars)</span>
+                          <span className="text-[11px] text-slate-500">Optimal headline length is 40&ndash;65 characters for social virality.</span>
+                        </div>
+                      </div>
+
+                      <div className={`p-3 rounded-xl border flex items-center gap-2.5 ${summary.length >= 80 && summary.length <= 165 ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-white border-slate-200 text-slate-700'}`}>
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${summary.length >= 80 && summary.length <= 165 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
+                          &check;
+                        </div>
+                        <div>
+                          <span className="font-semibold block">Meta Hook / Summary ({summary.length} chars)</span>
+                          <span className="text-[11px] text-slate-500">Engages readers directly in newsfeeds and search snippets.</span>
+                        </div>
+                      </div>
+
+                      <div className={`p-3 rounded-xl border flex items-center gap-2.5 ${hasBullets ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-white border-slate-200 text-slate-700'}`}>
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${hasBullets ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
+                          &check;
+                        </div>
+                        <div>
+                          <span className="font-semibold block">Bullet Points Included</span>
+                          <span className="text-[11px] text-slate-500">Scannable bullets increase reader retention and social quotes by 42%.</span>
+                        </div>
+                      </div>
+
+                      <div className={`p-3 rounded-xl border flex items-center gap-2.5 ${hasBold ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-white border-slate-200 text-slate-700'}`}>
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${hasBold ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
+                          &check;
+                        </div>
+                        <div>
+                          <span className="font-semibold block">Bold Emphasis &amp; Executive Quotes</span>
+                          <span className="text-[11px] text-slate-500">Highlighting key takeaways makes your release highly screenshot-worthy.</span>
+                        </div>
+                      </div>
+
+                      <div className={`p-3 rounded-xl border flex items-center gap-2.5 ${wordCount >= 200 ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-white border-slate-200 text-slate-700'}`}>
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${wordCount >= 200 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
+                          &check;
+                        </div>
+                        <div>
+                          <span className="font-semibold block">Article Depth ({wordCount} words)</span>
+                          <span className="text-[11px] text-slate-500">Google prioritizes authoritative narratives with 200+ words.</span>
+                        </div>
+                      </div>
+
+                      <div className={`p-3 rounded-xl border flex items-center gap-2.5 ${hasImage ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-white border-slate-200 text-slate-700'}`}>
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${hasImage ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
+                          &check;
+                        </div>
+                        <div>
+                          <span className="font-semibold block">High-Resolution Visual Media</span>
+                          <span className="text-[11px] text-slate-500">Posts with images receive 2.3&times; more shares on LinkedIn and X.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
 
             {/* Footer Form Action Buttons */}
             <div className="flex items-center justify-between pt-6 border-t border-slate-200 bg-white">

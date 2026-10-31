@@ -44,12 +44,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Dynamic Media Newsroom Routes from DB
   const mediaItems = MediaDB.getAll();
-  const mediaRoutes: MetadataRoute.Sitemap = mediaItems.map((item) => ({
-    url: `${baseUrl}/media/${item.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
+  const mediaRoutes: MetadataRoute.Sitemap = mediaItems.map((item) => {
+    let lastMod = new Date();
+    if (item.date) {
+      try {
+        const parts = item.date.split('/');
+        if (parts.length === 3) {
+          lastMod = new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]));
+        }
+      } catch (_) {}
+    }
+    return {
+      url: `${baseUrl}/media/${item.slug}`,
+      lastModified: lastMod,
+      changeFrequency: item.featured ? 'daily' : 'weekly',
+      priority: item.featured ? 0.95 : 0.85,
+    };
+  });
 
   return [
     ...staticStudioRoutes, 

@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { MediaItem } from '@/lib/media-db';
 import { STUDIO_CONFIG } from '@/data/studio-data';
 import { TechDrivingDynamics } from '@/components/studio/TechDrivingDynamics';
+import { EditorialNarrativeContent } from '@/components/media/EditorialNarrativeContent';
+import { SocialShareBar } from '@/components/media/SocialShareBar';
 
 interface TeslaRoadsterMediaExperienceProps {
   item: MediaItem;
@@ -479,6 +481,47 @@ export function TeslaRoadsterMediaExperience({
           </div>
         </div>
       </section>
+
+      {/* =========================================================================
+          SECTION 6.5: IN-DEPTH EDITORIAL NARRATIVE BREAKDOWN
+      ========================================================================== */}
+      {item.content && (
+        <section
+          id="roadster_editorial"
+          className="relative w-full py-28 sm:py-36 px-6 sm:px-12 lg:px-20 border-t border-white/10 bg-[#000000]"
+        >
+          <div className="w-full max-w-5xl mx-auto space-y-12 font-clash">
+            <div className="border-b border-white/20 pb-8 space-y-6">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-widest text-[#00A9CE] block mb-2">
+                  Official Narrative
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight leading-tight">
+                  Executive Briefing
+                </h2>
+              </div>
+
+              <SocialShareBar
+                title={item.title}
+                url={`https://achtrex.com/media/${item.slug}`}
+                content={item.content}
+                category={item.category}
+              />
+            </div>
+
+            <EditorialNarrativeContent content={item.content} fallbackSummary={item.summary} />
+
+            <div className="pt-8 border-t border-white/15">
+              <SocialShareBar
+                title={item.title}
+                url={`https://achtrex.com/media/${item.slug}`}
+                content={item.content}
+                category={item.category}
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* =========================================================================
           SECTION 7: ACHTREX COMMISSION CTA (Closing Hero)
