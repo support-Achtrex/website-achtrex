@@ -172,7 +172,7 @@ export function AboutClient() {
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 1720px"
-                className="object-cover object-[center_20%] lg:object-[28%_20%] contrast-105 brightness-95"
+                className="object-cover object-[25%_center] lg:object-[22%_center] contrast-105 brightness-95"
               />
               {/* Cinematic Gradient Vignettes */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
