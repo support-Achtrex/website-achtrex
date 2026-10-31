@@ -154,7 +154,7 @@ const jsonLd = [
       "name": "Achim Godwin Tetteh",
       "jobTitle": "Founder & CEO",
       "description": "Founder & CEO of Achtrex, leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.",
-      "image": "https://achtrex.com/team/achim-founder.jpg"
+      "image": "https://achtrex.com/team/founder-achim.jpg"
     },
     "address": {
       "@type": "PostalAddress",

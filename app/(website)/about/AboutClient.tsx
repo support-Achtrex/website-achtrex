@@ -167,7 +167,7 @@ export function AboutClient() {
             {/* Background Image Container */}
             <div className="relative w-full h-[440px] sm:h-[540px] md:h-[620px] lg:h-[720px] xl:h-[780px]">
               <Image
-                src="/team/achim-founder.jpg"
+                src="/team/founder-achim.jpg"
                 alt="Achim Godwin Tetteh - Founder & CEO, Achtrex"
                 fill
                 priority
