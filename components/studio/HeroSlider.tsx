@@ -181,7 +181,7 @@ export function HeroSlider({ config = DEFAULT_HERO_CONFIG }: HeroSliderProps) {
       {/* =========================================================================
           2. FOREGROUND EDITORIAL TITLE & CASE STUDY LINK
       ========================================================================== */}
-      <div className="absolute top-[44%] sm:top-[48%] -translate-y-1/2 left-6 sm:left-16 lg:left-32 right-6 sm:right-16 z-20 pointer-events-none">
+      <div className="absolute top-[46%] sm:top-[48%] -translate-y-1/2 left-6 sm:left-16 lg:left-32 right-6 sm:right-16 z-20 pointer-events-none">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide.id}
@@ -192,7 +192,7 @@ export function HeroSlider({ config = DEFAULT_HERO_CONFIG }: HeroSliderProps) {
             className="max-w-6xl pointer-events-auto"
           >
             {/* Display Title */}
-            <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-medium tracking-tight text-white leading-[1.02] mb-5">
+            <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[4.5rem] 2xl:text-[5.25rem] font-medium tracking-tight text-white leading-[1.05] mb-4 sm:mb-6">
               {(Array.isArray(currentSlide?.titleLines) ? currentSlide.titleLines : []).map((line, i) => (
                 <span key={i} className="block">
                   {line}
@@ -200,22 +200,47 @@ export function HeroSlider({ config = DEFAULT_HERO_CONFIG }: HeroSliderProps) {
               ))}
             </h2>
 
-            {/* Case Study Link with Arrow */}
-            <Link
-              href={currentSlide.linkHref || '/'}
-              className="inline-flex items-center gap-3 text-lg sm:text-xl font-clash text-white/90 hover:text-white transition-transform duration-200 hover:translate-x-3 group cursor-pointer"
-            >
-              <span className="font-light tracking-wide">{currentSlide.linkLabel || 'Discover'}</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 408 408"
-                className="fill-white transition-transform duration-200 group-hover:translate-x-1"
+            {/* Supporting Headline */}
+            {currentSlide.subtitle && (
+              <p className="font-clash text-base sm:text-xl md:text-2xl text-white/80 font-light max-w-2xl sm:max-w-3xl leading-relaxed mb-6 sm:mb-8">
+                {currentSlide.subtitle}
+              </p>
+            )}
+
+            {/* Calls to Action */}
+            {currentSlide.secondaryLinkLabel ? (
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
+                <Link
+                  href={currentSlide.linkHref || '/services'}
+                  className="inline-flex items-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-black font-clash text-sm sm:text-base tracking-wide rounded-full hover:bg-white/90 transition-all font-medium group shadow-[0_10px_30px_rgba(255,255,255,0.18)] cursor-pointer"
+                >
+                  <span>{currentSlide.linkLabel || 'Explore Our Services'}</span>
+                  <span className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                </Link>
+                <Link
+                  href={currentSlide.secondaryLinkHref || '/contact'}
+                  className="inline-flex items-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 border border-white/30 bg-black/40 backdrop-blur-md text-white font-clash text-sm sm:text-base tracking-wide rounded-full hover:bg-white/10 hover:border-white/60 transition-all font-normal cursor-pointer"
+                >
+                  <span>{currentSlide.secondaryLinkLabel}</span>
+                </Link>
+              </div>
+            ) : (
+              <Link
+                href={currentSlide.linkHref || '/'}
+                className="inline-flex items-center gap-3 text-lg sm:text-xl font-clash text-white/90 hover:text-white transition-transform duration-200 hover:translate-x-3 group cursor-pointer"
               >
-                <path d="M354.2,219.4H-1.1v-32.1h353.5c-10.5-8-21.6-17.3-32.8-29.7c-23.5-23.5-44.5-54.4-57.5-84.7h38.3 c6.2,14.8,14.2,30.9,26,46.3c23.5,32.1,53.8,61.2,81.6,76.6V212c-13.6,8-27.8,18.5-43.3,32.1c-29.7,27.8-55,60.6-65.5,90.8h-37.7 c6.2-15.4,14.2-31.5,24.7-45.7C307.3,258.4,333.2,233.7,354.2,219.4z" />
-              </svg>
-            </Link>
+                <span className="font-light tracking-wide">{currentSlide.linkLabel || 'Discover'}</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 408 408"
+                  className="fill-white transition-transform duration-200 group-hover:translate-x-1"
+                >
+                  <path d="M354.2,219.4H-1.1v-32.1h353.5c-10.5-8-21.6-17.3-32.8-29.7c-23.5-23.5-44.5-54.4-57.5-84.7h38.3 c6.2,14.8,14.2,30.9,26,46.3c23.5,32.1,53.8,61.2,81.6,76.6V212c-13.6,8-27.8,18.5-43.3,32.1c-29.7,27.8-55,60.6-65.5,90.8h-37.7 c6.2-15.4,14.2-31.5,24.7-45.7C307.3,258.4,333.2,233.7,354.2,219.4z" />
+                </svg>
+              </Link>
+            )}
           </motion.div>
         </AnimatePresence>
       </div>

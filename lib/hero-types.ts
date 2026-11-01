@@ -1,8 +1,11 @@
 export interface HeroSlide {
   id: string;
   titleLines: string[];
+  subtitle?: string;
   linkLabel: string;
   linkHref: string;
+  secondaryLinkLabel?: string;
+  secondaryLinkHref?: string;
   mediaType: 'image' | 'video';
   mediaSrc: string;
   posterSrc?: string;
@@ -34,9 +37,16 @@ export const DEFAULT_HERO_CONFIG: HeroConfig = {
     },
     {
       id: 'innovation',
-      titleLines: ['We are', 'innovation'],
-      linkLabel: 'Discover Studio',
-      linkHref: '/about',
+      titleLines: [
+        'Digital Experiences.',
+        'Intelligent Technology.',
+        'Business Solutions.',
+      ],
+      subtitle: 'Helping Businesses Innovate, Digitalize & Scale.',
+      linkLabel: 'Explore Our Services',
+      linkHref: '/services',
+      secondaryLinkLabel: 'Start a Project',
+      secondaryLinkHref: '/contact',
       mediaType: 'image',
       mediaSrc: '/hero-videos/hero-innovation.jpg',
       enabled: true,

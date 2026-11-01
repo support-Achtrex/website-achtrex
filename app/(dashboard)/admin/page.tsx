@@ -129,7 +129,7 @@ export default async function AdminDashboard() {
             </div>
             <p className="text-xs text-slate-500 mt-0.5">
               {heroConfig.mode === 'single'
-                ? 'Showing Second Slide image ("We are innovation"). Video slides are saved in admin and ready to be switched back anytime.'
+                ? 'Showing active slide ("Digital Experiences. Intelligent Technology. Business Solutions."). Video slides are saved in admin and ready to be switched back anytime.'
                 : 'Actively cycling through all enabled video and image slides.'}
             </p>
           </div>

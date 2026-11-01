@@ -52,8 +52,11 @@ export default function AdminHeroPage() {
 
   // Form State for Edit / Add
   const [titleLines, setTitleLines] = useState('');
+  const [subtitle, setSubtitle] = useState('');
   const [linkLabel, setLinkLabel] = useState('');
   const [linkHref, setLinkHref] = useState('');
+  const [secondaryLinkLabel, setSecondaryLinkLabel] = useState('');
+  const [secondaryLinkHref, setSecondaryLinkHref] = useState('');
   const [mediaType, setMediaType] = useState<'image' | 'video'>('image');
   const [directUrl, setDirectUrl] = useState('');
   const [enabled, setEnabled] = useState(true);
@@ -156,9 +159,12 @@ export default function AdminHeroPage() {
   const openEditModal = (slide: HeroSlide) => {
     setEditingSlide(slide);
     setShowAddModal(false);
-    setTitleLines(slide.titleLines.join('\n'));
+    setTitleLines(Array.isArray(slide.titleLines) ? slide.titleLines.join('\n') : '');
+    setSubtitle(slide.subtitle || '');
     setLinkLabel(slide.linkLabel);
     setLinkHref(slide.linkHref);
+    setSecondaryLinkLabel(slide.secondaryLinkLabel || '');
+    setSecondaryLinkHref(slide.secondaryLinkHref || '');
     setMediaType(slide.mediaType);
     setDirectUrl(slide.mediaSrc);
     setEnabled(slide.enabled);
@@ -172,8 +178,11 @@ export default function AdminHeroPage() {
     setEditingSlide(null);
     setShowAddModal(true);
     setTitleLines('Digital Precision\nSpatial Computing');
-    setLinkLabel('Explore Concept');
-    setLinkHref('/projects');
+    setSubtitle('Helping Businesses Innovate, Digitalize & Scale.');
+    setLinkLabel('Explore Our Services');
+    setLinkHref('/services');
+    setSecondaryLinkLabel('Start a Project');
+    setSecondaryLinkHref('/contact');
     setMediaType('image');
     setDirectUrl('/hero-videos/hero-innovation.jpg');
     setEnabled(true);
@@ -219,8 +228,11 @@ export default function AdminHeroPage() {
 
       const formData = new FormData();
       formData.append('titleLines', titleLines);
+      formData.append('subtitle', subtitle);
       formData.append('linkLabel', linkLabel);
       formData.append('linkHref', linkHref);
+      formData.append('secondaryLinkLabel', secondaryLinkLabel);
+      formData.append('secondaryLinkHref', secondaryLinkHref);
       formData.append('mediaType', mediaType);
       formData.append('directUrl', resolvedDirectUrl);
       formData.append('enabled', enabled ? 'true' : 'false');
@@ -346,7 +358,7 @@ export default function AdminHeroPage() {
 
             <p className="text-sm text-slate-300 leading-relaxed">
               {isSingle
-                ? 'The home page currently presents only the Second Slide image ("We are innovation"). The remaining video slides are safely paused and stored here so you can switch back to the slider anytime or edit their image and video assets below.'
+                ? 'The home page currently presents only the active Slide ("Digital Experiences. Intelligent Technology. Business Solutions."). The remaining video slides are safely paused and stored here so you can switch back to the slider anytime or edit their image and video assets below.'
                 : 'The home page is actively cycling through your enabled slides with smooth transitions and progress bars.'}
             </p>
           </div>
@@ -432,7 +444,7 @@ export default function AdminHeroPage() {
                   rows={3}
                   value={titleLines}
                   onChange={(e) => setTitleLines(e.target.value)}
-                  placeholder="e.g.&#10;We are&#10;innovation"
+                  placeholder="e.g.&#10;Digital Experiences.&#10;Intelligent Technology.&#10;Business Solutions."
                   className="w-full px-4 py-3 text-base font-bold bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:border-blue-600 font-sans"
                 />
                 <p className="text-[11px] text-slate-400 mt-1">
@@ -440,17 +452,31 @@ export default function AdminHeroPage() {
                 </p>
               </div>
 
+              {/* Supporting Headline */}
+              <div className="md:col-span-2">
+                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
+                  Supporting Headline (Optional)
+                </label>
+                <input
+                  type="text"
+                  value={subtitle}
+                  onChange={(e) => setSubtitle(e.target.value)}
+                  placeholder="Helping Businesses Innovate, Digitalize & Scale."
+                  className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:border-blue-600 font-sans"
+                />
+              </div>
+
               {/* Link Label */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
-                  Button / Link Label
+                  Primary Button Label
                 </label>
                 <input
                   type="text"
                   required
                   value={linkLabel}
                   onChange={(e) => setLinkLabel(e.target.value)}
-                  placeholder="Discover Studio or Explore Concept"
+                  placeholder="Explore Our Services"
                   className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:border-blue-600"
                 />
               </div>
@@ -458,14 +484,42 @@ export default function AdminHeroPage() {
               {/* Link Href */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
-                  Button Destination URL
+                  Primary Button Destination URL
                 </label>
                 <input
                   type="text"
                   required
                   value={linkHref}
                   onChange={(e) => setLinkHref(e.target.value)}
-                  placeholder="/about or /projects/..."
+                  placeholder="/services"
+                  className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:border-blue-600 font-mono text-xs"
+                />
+              </div>
+
+              {/* Secondary Link Label */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
+                  Secondary Button Label (Optional)
+                </label>
+                <input
+                  type="text"
+                  value={secondaryLinkLabel}
+                  onChange={(e) => setSecondaryLinkLabel(e.target.value)}
+                  placeholder="Start a Project"
+                  className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:border-blue-600"
+                />
+              </div>
+
+              {/* Secondary Link Href */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
+                  Secondary Button Destination URL (Optional)
+                </label>
+                <input
+                  type="text"
+                  value={secondaryLinkHref}
+                  onChange={(e) => setSecondaryLinkHref(e.target.value)}
+                  placeholder="/contact"
                   className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:border-blue-600 font-mono text-xs"
                 />
               </div>

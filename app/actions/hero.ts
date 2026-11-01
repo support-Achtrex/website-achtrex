@@ -86,8 +86,11 @@ export async function updateHeroSlideAction(formData: FormData) {
       ? titleLinesRaw.split('\n').map((l) => l.trim()).filter(Boolean)
       : current.titleLines;
 
+    const subtitle = formData.has('subtitle') ? (formData.get('subtitle') as string) : current.subtitle;
     const linkLabel = (formData.get('linkLabel') as string) || current.linkLabel;
     const linkHref = (formData.get('linkHref') as string) || current.linkHref;
+    const secondaryLinkLabel = formData.has('secondaryLinkLabel') ? (formData.get('secondaryLinkLabel') as string) : current.secondaryLinkLabel;
+    const secondaryLinkHref = formData.has('secondaryLinkHref') ? (formData.get('secondaryLinkHref') as string) : current.secondaryLinkHref;
     const mediaType = (formData.get('mediaType') as 'image' | 'video') || current.mediaType;
     const directUrl = (formData.get('directUrl') as string) || '';
     const enabled = formData.has('enabled') ? formData.get('enabled') === 'true' : current.enabled;
@@ -112,8 +115,11 @@ export async function updateHeroSlideAction(formData: FormData) {
 
     const updated = HeroDB.updateSlide(id, {
       titleLines: titleLines.length > 0 ? titleLines : current.titleLines,
+      subtitle: subtitle !== undefined ? subtitle : current.subtitle,
       linkLabel,
       linkHref,
+      secondaryLinkLabel: secondaryLinkLabel !== undefined ? secondaryLinkLabel : current.secondaryLinkLabel,
+      secondaryLinkHref: secondaryLinkHref !== undefined ? secondaryLinkHref : current.secondaryLinkHref,
       mediaType,
       mediaSrc,
       posterSrc,
@@ -144,8 +150,11 @@ export async function createHeroSlideAction(formData: FormData) {
       return { success: false, error: 'At least one title line is required' };
     }
 
+    const subtitle = (formData.get('subtitle') as string) || undefined;
     const linkLabel = (formData.get('linkLabel') as string) || 'Explore';
     const linkHref = (formData.get('linkHref') as string) || '/projects';
+    const secondaryLinkLabel = (formData.get('secondaryLinkLabel') as string) || undefined;
+    const secondaryLinkHref = (formData.get('secondaryLinkHref') as string) || undefined;
     const mediaType = (formData.get('mediaType') as 'image' | 'video') || 'image';
     const directUrl = (formData.get('directUrl') as string) || '';
     const enabled = formData.get('enabled') === 'true';
@@ -171,8 +180,11 @@ export async function createHeroSlideAction(formData: FormData) {
     const newSlide = HeroDB.addSlide({
       id: customId,
       titleLines,
+      subtitle,
       linkLabel,
       linkHref,
+      secondaryLinkLabel,
+      secondaryLinkHref,
       mediaType,
       mediaSrc,
       posterSrc,

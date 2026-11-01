@@ -19,11 +19,15 @@
     {
       "id": "innovation",
       "titleLines": [
-        "We are",
-        "innovation"
+        "Digital Experiences.",
+        "Intelligent Technology.",
+        "Business Solutions."
       ],
-      "linkLabel": "Discover Studio",
-      "linkHref": "/about",
+      "subtitle": "Helping Businesses Innovate, Digitalize & Scale.",
+      "linkLabel": "Explore Our Services",
+      "linkHref": "/services",
+      "secondaryLinkLabel": "Start a Project",
+      "secondaryLinkHref": "/contact",
       "mediaType": "image",
       "mediaSrc": "/hero-videos/hero-innovation.jpg",
       "enabled": true,
