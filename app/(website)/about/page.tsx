@@ -27,7 +27,7 @@ export const metadata: Metadata = {
       url: '/studio-assets/aerial-intro-bg.jpg',
       width: 1200,
       height: 630,
-      alt: 'Achtrex Digital Experience & Technology Studio',
+      alt: 'Achtrex - Helping Businesses Innovate, Digitalize & Scale.',
     }],
   },
   twitter: {
@@ -44,7 +44,7 @@ const jsonLd = {
   '@id': 'https://achtrex.com/about#webpage',
   'name': 'About Achtrex Studio',
   'url': 'https://achtrex.com/about',
-  'description': 'Achtrex is a Digital Experience & Technology Studio based in Dubai Silicon Oasis.',
+  'description': 'Achtrex is dedicated to Helping Businesses Innovate, Digitalize & Scale with custom software engineering, AI, and digital experiences from Dubai Silicon Oasis.',
   'mainEntity': {
     '@type': 'Corporation',
     '@id': 'https://achtrex.com/#corporation',
@@ -56,7 +56,7 @@ const jsonLd = {
       '@type': 'Person',
       'name': 'Achim Godwin Tetteh',
       'jobTitle': 'Founder & CEO',
-      'description': 'Founder & CEO of Achtrex, leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.',
+      'description': 'Founder & CEO of Achtrex, leading technical vision and product architecture across software engineering, artificial intelligence, digital experiences, and technology strategy to help businesses innovate, digitalize, and scale.',
       'image': 'https://achtrex.com/team/founder-achim.jpg'
     },
     'address': {

@@ -77,7 +77,7 @@ export function AboutClient() {
 
           <div className="lg:col-span-8 space-y-8 font-clash">
             <p className="text-xl sm:text-2xl md:text-3xl text-white/90 font-light leading-relaxed">
-              Achtrex is a Digital Experience &amp; Technology Studio based in Dubai Silicon Oasis. We bridge the space between strategic design ateliers and deep software engineering laboratories.
+              Based in Dubai Silicon Oasis, Achtrex is dedicated to Helping Businesses Innovate, Digitalize &amp; Scale—bridging the space between strategic design ateliers and deep software engineering laboratories.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-white/10 text-white/70 font-light text-base leading-relaxed">
               <p>
@@ -158,7 +158,7 @@ export function AboutClient() {
               </h2>
             </div>
             <p className="font-clash text-sm sm:text-base text-white/50 max-w-md font-light">
-              The philosophy and architectural rigor uniting technology, creativity, and engineering at Achtrex.
+              Our architectural philosophy and commitment to helping modern businesses innovate, digitalize, and scale.
             </p>
           </div>
 
@@ -189,7 +189,7 @@ export function AboutClient() {
                 <div className="bg-black/80 backdrop-blur-2xl border border-white/20 p-8 sm:p-10 xl:p-12 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.85)]">
                   {/* Refined Message */}
                   <blockquote className="font-clash text-lg sm:text-xl xl:text-2xl text-white/95 font-light leading-relaxed mb-8">
-                    &ldquo;I founded Achtrex to bring together technology, creativity, and engineering to solve complex business challenges. I lead the company&apos;s technical vision and product architecture—working across software engineering, artificial intelligence, digital experiences, and technology strategy to turn ideas into practical, high-impact solutions.&rdquo;
+                    &ldquo;I founded Achtrex with a singular conviction: to help businesses innovate, digitalize, and scale. By bridging deep software engineering, applied artificial intelligence, and transformative digital experiences, I lead our team in turning complex operational challenges into high-performance, future-proof platforms that drive measurable growth.&rdquo;
                   </blockquote>
 
                   {/* Signature / Credentials */}
@@ -213,7 +213,7 @@ export function AboutClient() {
             {/* Mobile / Tablet View: Positioned Below the Image for Pristine Legibility */}
             <div className="lg:hidden p-6 sm:p-10 border-t border-white/10 bg-[#05070A]/95">
               <blockquote className="font-clash text-base sm:text-lg text-white/90 font-light leading-relaxed mb-6">
-                &ldquo;I founded Achtrex to bring together technology, creativity, and engineering to solve complex business challenges. I lead the company&apos;s technical vision and product architecture—working across software engineering, artificial intelligence, digital experiences, and technology strategy to turn ideas into practical, high-impact solutions.&rdquo;
+                &ldquo;I founded Achtrex with a singular conviction: to help businesses innovate, digitalize, and scale. By bridging deep software engineering, applied artificial intelligence, and transformative digital experiences, I lead our team in turning complex operational challenges into high-performance, future-proof platforms that drive measurable growth.&rdquo;
               </blockquote>
 
               <div className="pt-5 border-t border-white/10 flex items-center justify-between">

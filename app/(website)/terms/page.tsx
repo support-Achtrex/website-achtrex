@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     canonical: 'https://achtrex.com/terms',
   },
   openGraph: {
-    title: 'Terms & Conditions | Achtrex : Digital Experience & Technology Studio',
+    title: 'Terms & Conditions | Achtrex : Helping Businesses Innovate, Digitalize & Scale.',
     description: 'Review the comprehensive terms of service, intellectual property frameworks, and commercial covenants governing Achtrex engineering engagements.',
     url: 'https://achtrex.com/terms',
     siteName: 'Achtrex',

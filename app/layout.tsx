@@ -72,7 +72,7 @@ const jetbrainsMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://achtrex.com'),
   title: {
-    default: "Achtrex : Digital Experience & Technology Studio",
+    default: "Achtrex : Helping Businesses Innovate, Digitalize & Scale.",
     template: "%s | Achtrex Studio"
   },
   description: "We design and build digital experiences where technology, creativity and intelligence come together.",
@@ -115,7 +115,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Achtrex : Digital Experience & Technology Studio",
+    title: "Achtrex : Helping Businesses Innovate, Digitalize & Scale.",
     description: "We design and build digital experiences where technology, creativity and intelligence come together.",
     url: "https://achtrex.com",
     siteName: "Achtrex",
@@ -125,12 +125,12 @@ export const metadata: Metadata = {
       url: "/logo.png",
       width: 735,
       height: 638,
-      alt: "Achtrex Digital Experience & Technology Studio",
+      alt: "Achtrex - Helping Businesses Innovate, Digitalize & Scale.",
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Achtrex : Digital Experience & Technology Studio",
+    title: "Achtrex : Helping Businesses Innovate, Digitalize & Scale.",
     description: "We design and build digital experiences where technology, creativity and intelligence come together.",
     images: ["/logo.png"],
     creator: "@achtrex",
@@ -153,7 +153,7 @@ const jsonLd = [
       "@type": "Person",
       "name": "Achim Godwin Tetteh",
       "jobTitle": "Founder & CEO",
-      "description": "Founder & CEO of Achtrex, leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.",
+      "description": "Founder & CEO of Achtrex, leading technical vision and product architecture across software engineering, artificial intelligence, digital experiences, and technology strategy to help businesses innovate, digitalize, and scale.",
       "image": "https://achtrex.com/team/founder-achim.jpg"
     },
     "address": {

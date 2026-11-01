@@ -10,7 +10,7 @@ import { HeroDB } from '@/lib/hero-db';
 export const revalidate = 0; // Fresh updates when admin updates content
 
 export const metadata: Metadata = {
-  title: 'Achtrex : Digital Experience & Technology Studio',
+  title: 'Achtrex : Helping Businesses Innovate, Digitalize & Scale.',
   description: 'We design and build digital experiences where technology, creativity and intelligence come together. High-performance 3D configurators, spatial systems, and custom AI products.',
   alternates: {
     canonical: 'https://achtrex.com',

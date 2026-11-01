@@ -89,7 +89,7 @@ export const STUDIO_CONFIG = {
   name: 'Achtrex',
   fullName: 'Achtrex',
   legalName: 'Achtrex',
-  tagline: 'Digital Experience & Technology Studio',
+  tagline: 'Helping Businesses Innovate, Digitalize & Scale.',
   headline: 'We design and build digital experiences where technology, creativity and intelligence come together.',
   subheadline: 'Achtrex creates immersive digital experiences, intelligent products, interactive platforms and technology-driven brand experiences for modern businesses.',
   phone: '+971 50 222 9587',
@@ -105,7 +105,7 @@ export const STUDIO_CONFIG = {
     name: 'Achim Godwin Tetteh',
     role: 'Founder & CEO',
     image: '/team/founder-achim.jpg',
-    bio: 'I founded Achtrex to bring together technology, creativity, and engineering to solve complex business challenges. I lead the company’s technical vision and product development, working across software engineering, artificial intelligence, digital experiences, and technology strategy to turn ideas into practical solutions.',
+    bio: 'I founded Achtrex to help businesses innovate, digitalize, and scale by uniting cutting-edge technology, creative vision, and engineering rigor. I lead our company’s technical vision and architecture—working across custom software engineering, artificial intelligence, and digital experiences to turn ambitious business ideas into practical, scalable solutions.',
   },
 };
 
@@ -528,7 +528,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: 'Founder & CEO',
     department: 'Leadership',
     image: '/team/founder-achim.jpg',
-    bio: 'Founded Achtrex to bring together technology, creativity, and engineering to solve complex business challenges. Leading technical vision and product development across software engineering, artificial intelligence, digital experiences, and technology strategy.',
+    bio: 'Founded Achtrex to help businesses innovate, digitalize, and scale by uniting cutting-edge technology, creative vision, and engineering rigor. Leading technical vision and product architecture across software engineering, artificial intelligence, and digital experiences.',
   },
   {
     name: 'Dede',
